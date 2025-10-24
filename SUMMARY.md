@@ -38,10 +38,7 @@
         kind: openapi
         spec: worlds-content-server
   ```
-
-***
-
-* [Realm Provider API](realm-provider-api/README.md)
+* [Realm Provider](api-reference/realm-provider/README.md)
   * ```yaml
     type: builtin:openapi
     props:
