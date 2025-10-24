@@ -1,51 +1,16 @@
 # Table of contents
 
+* [Welcome Contributor](README.md)
+
 ## Getting Started
 
-* [Overview](README.md)
+* [Quickstart](getting-started/quickstart.md)
+* [Publish your docs](getting-started/publish-your-docs.md)
 
-## API Reference
+## Basics
 
-* [Social Service API](api-reference/social-service-api/README.md)
-  * ```yaml
-    type: builtin:openapi
-    props:
-      models: false
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: social-service-api
-    ```
-* [Comms Gatekeeper API](api-reference/comms-gatekeeper-api/README.md)
-  * ```yaml
-    type: builtin:openapi
-    props:
-      models: false
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: comms-gatekeeper-api
-    ```
-* ```yaml
-  type: builtin:openapi
-  props:
-    models: false
-  dependencies:
-    spec:
-      ref:
-        kind: openapi
-        spec: worlds-content-server
-  ```
-* [Realm Provider](api-reference/realm-provider/README.md)
-  * ```yaml
-    type: builtin:openapi
-    props:
-      models: true
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: realm-provider-api
-    ```
+* [Editor](basics/editor.md)
+* [Markdown](basics/markdown.md)
+* [Images & media](basics/images-and-media.md)
+* [Interactive blocks](basics/interactive-blocks.md)
+* [Integrations](basics/integrations.md)
