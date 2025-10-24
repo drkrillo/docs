@@ -25,7 +25,6 @@
           kind: openapi
           spec: realm-provider-api
     ```
-* [Worlds](apis/worlds.md)
 * ```yaml
   type: builtin:openapi
   props:
