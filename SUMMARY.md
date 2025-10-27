@@ -47,3 +47,14 @@
           kind: openapi
           spec: archipelago-workers-api
     ```
+* [Realm Provider](apis/realm-provider-1/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: realm-provider-api
+    ```
