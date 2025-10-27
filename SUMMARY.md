@@ -25,16 +25,6 @@
           kind: openapi
           spec: realm-provider-api
     ```
-* ```yaml
-  type: builtin:openapi
-  props:
-    models: true
-  dependencies:
-    spec:
-      ref:
-        kind: openapi
-        spec: worlds-content-server
-  ```
 * [Comms Gatekeeper](apis/comms-gatekeeper/README.md)
   * ```yaml
     type: builtin:openapi
@@ -45,4 +35,15 @@
         ref:
           kind: openapi
           spec: comms-gatekeeper-api
+    ```
+* [Archipelago Workers](apis/archipelago-workers/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: archipelago-workers-api
     ```
