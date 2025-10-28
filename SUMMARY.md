@@ -69,3 +69,25 @@
           kind: openapi
           spec: social-service-api
     ```
+* [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: asset-bundle-registry-api
+    ```
+* [Badges](apis/badges/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: badges-api
+    ```
