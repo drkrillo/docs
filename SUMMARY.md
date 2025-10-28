@@ -47,17 +47,6 @@
           kind: openapi
           spec: archipelago-workers-api
     ```
-* [Realm Provider](apis/realm-provider-1/README.md)
-  * ```yaml
-    type: builtin:openapi
-    props:
-      models: false
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: realm-provider-api
-    ```
 * [Social Service](apis/social-service/README.md)
   * ```yaml
     type: builtin:openapi
@@ -90,4 +79,16 @@
         ref:
           kind: openapi
           spec: badges-api
+    ```
+* [Notifications Workers](apis/notifications-workers/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: notifications-inbox-api
     ```
