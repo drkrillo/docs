@@ -23,6 +23,11 @@
   * [Component Patterns](developer-standards/ui-standards/component-patterns.md)
   * [Web3 Integration](developer-standards/ui-standards/web3-integration.md)
   * [Testing & Performance](developer-standards/ui-standards/testing-and-performance.md)
+* [Web UI Standards](developer-standards/web-ui-standards/README.md)
+  * [Process Overview](developer-standards/web-ui-standards/process-overview.md)
+  * [Custom Components](developer-standards/web-ui-standards/custom-components.md)
+  * [Styling & Theming](developer-standards/web-ui-standards/styling-and-theming.md)
+  * [Migration Guide](developer-standards/web-ui-standards/migration.md)
 
 ## APIs
 
