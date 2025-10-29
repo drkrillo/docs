@@ -130,3 +130,15 @@
           kind: openapi
           spec: credits-server-api
     ```
+* [Worlds](apis/worlds/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: worlds-content-server
+    ```
