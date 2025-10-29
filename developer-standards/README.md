@@ -6,6 +6,7 @@ This section contains the development standards and best practices for the dApps
 
 * [Testing Standards](testing-standards/) - Comprehensive guidelines for writing tests across different types of applications and services
 * [Well-Known Components](well-known-components/) - Standards for building modular, testable services using the WKC architecture
+* [UI Standards](ui-standards/) - Redux Toolkit and RTK Query patterns for building modern React applications
 
 ## About These Standards
 

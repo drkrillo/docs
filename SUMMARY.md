@@ -16,6 +16,13 @@
   * [Adapters](developer-standards/well-known-components/adapters.md)
   * [Logic Components](developer-standards/well-known-components/logic-components.md)
   * [Controllers](developer-standards/well-known-components/controllers.md)
+* [UI Standards](developer-standards/ui-standards/README.md)
+  * [Store Setup](developer-standards/ui-standards/store-setup.md)
+  * [RTK Query](developer-standards/ui-standards/rtk-query.md)
+  * [State Management](developer-standards/ui-standards/state-management.md)
+  * [Component Patterns](developer-standards/ui-standards/component-patterns.md)
+  * [Web3 Integration](developer-standards/ui-standards/web3-integration.md)
+  * [Testing & Performance](developer-standards/ui-standards/testing-and-performance.md)
 
 ## APIs
 
