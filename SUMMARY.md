@@ -11,6 +11,11 @@
   * [Testing Services (WKC)](developer-standards/testing-standards/testing-services-wkc.md)
   * [Testing Services (Deprecated)](developer-standards/testing-standards/testing-services-deprecated.md)
   * [Testing E2E](developer-standards/testing-standards/testing-e2e.md)
+* [Well-Known Components](developer-standards/well-known-components/README.md)
+  * [Components](developer-standards/well-known-components/components.md)
+  * [Adapters](developer-standards/well-known-components/adapters.md)
+  * [Logic Components](developer-standards/well-known-components/logic-components.md)
+  * [Controllers](developer-standards/well-known-components/controllers.md)
 
 ## APIs
 
