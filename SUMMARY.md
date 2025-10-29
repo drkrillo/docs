@@ -34,9 +34,9 @@
 
 * [Realm Provider](apis/realm-provider/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -45,9 +45,9 @@
     ```
 * [Comms Gatekeeper](apis/comms-gatekeeper/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: true
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -56,9 +56,9 @@
     ```
 * [Archipelago Workers](apis/archipelago-workers/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -67,9 +67,9 @@
     ```
 * [Social Service](apis/social-service/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -78,10 +78,10 @@
     ```
 * [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -90,10 +90,10 @@
     ```
 * [Badges](apis/badges/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -102,10 +102,10 @@
     ```
 * [Notifications Workers](apis/notifications-workers/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -114,10 +114,10 @@
     ```
 * [Auth Server](apis/auth-server/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -126,10 +126,10 @@
     ```
 * [Marketplace Server](apis/marketplace-server/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -138,10 +138,10 @@
     ```
 * [Credits Server](apis/credits-server/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -149,6 +149,18 @@
           spec: credits-server-api
     ```
 * [Worlds](apis/worlds/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: worlds-content-server
+    ```
+* [Places](apis/places/README.md)
   * ```yaml
     type: builtin:openapi
     props:
@@ -158,5 +170,5 @@
       spec:
         ref:
           kind: openapi
-          spec: worlds-content-server
+          spec: places
     ```
