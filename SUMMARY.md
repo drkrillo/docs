@@ -5,6 +5,7 @@
 ## Developer Standards
 
 * [Overview](developer-standards/README.md)
+* [API Documentation](developer-standards/api-documentation.md)
 * [Testing Standards](developer-standards/testing-standards/README.md)
   * [Writing Tests](developer-standards/testing-standards/writing-tests.md)
   * [Testing UIs](developer-standards/testing-standards/testing-uis.md)
