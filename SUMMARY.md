@@ -106,3 +106,27 @@
           kind: openapi
           spec: auth-server-api
     ```
+* [Marketplace Server](apis/marketplace-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: marketplace-server-api
+    ```
+* [Credits Server](apis/credits-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: credits-server-api
+    ```
