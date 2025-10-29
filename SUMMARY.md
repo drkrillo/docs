@@ -63,22 +63,24 @@
     type: builtin:openapi
     props:
       models: false
+      downloadLink: false
     dependencies:
       spec:
         ref:
           kind: openapi
-          spec: asset-bundle-registry-api
+          spec: auth-server-api
     ```
 * [Badges](apis/badges/README.md)
   * ```yaml
     type: builtin:openapi
     props:
       models: false
+      downloadLink: false
     dependencies:
       spec:
         ref:
           kind: openapi
-          spec: badges-api
+          spec: auth-server-api
     ```
 * [Notifications Workers](apis/notifications-workers/README.md)
   * ```yaml
@@ -90,5 +92,17 @@
       spec:
         ref:
           kind: openapi
-          spec: notifications-inbox-api
+          spec: auth-server-api
+    ```
+* [Auth Server](apis/auth-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: auth-server-api
     ```
