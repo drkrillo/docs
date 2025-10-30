@@ -244,3 +244,15 @@
           kind: openapi
           spec: exploration-games-api
     ```
+* [Rewards](apis/rewards/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: referral-api
+    ```
