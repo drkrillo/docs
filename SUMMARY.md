@@ -2,6 +2,14 @@
 
 * [Welcome to Decentraland](README.md)
 
+## Architecture
+
+* [Overview](architecture/README.md)
+* [Client Architecture](architecture/client.md)
+* [Backend Services](architecture/services.md)
+* [Catalyst Network](architecture/catalyst.md)
+* [Infrastructure](architecture/infrastructure.md)
+
 ## Developer Standards
 
 * [Overview](developer-standards/README.md)
