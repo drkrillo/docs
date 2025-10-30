@@ -196,3 +196,27 @@
           kind: openapi
           spec: catalyst
     ```
+* [Atlas Server](apis/atlas-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: atlas-service
+    ```
+* [Events Notifier](apis/events-notifier/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: events-notifier-api
+    ```
