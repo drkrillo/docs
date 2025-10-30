@@ -232,3 +232,15 @@
           kind: openapi
           spec: events
     ```
+* [Exploration Games](apis/exploration-games/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: exploration-games-api
+    ```
