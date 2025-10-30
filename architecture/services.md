@@ -301,7 +301,7 @@ Services query indexers (not blockchain directly):
 ### Deployment Pipeline
 
 ```mermaid
-graph LR
+flowchart LR
     Catalyst[Catalyst]
     Queue[Deployments Queue]
     AB[Asset Bundles]

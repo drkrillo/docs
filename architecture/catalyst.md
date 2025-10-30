@@ -5,7 +5,7 @@ The Catalyst network is Decentraland's decentralized content delivery infrastruc
 ## Overview
 
 ```mermaid
-graph TB
+flowchart TB
     Client[Clients]
     Node1[Catalyst Node 1]
     Node2[Catalyst Node 2]
@@ -115,7 +115,7 @@ When content is deployed, multiple systems react:
 ### Asset Processing
 
 ```mermaid
-graph LR
+flowchart LR
     Deploy[New Deployment]
     Queue[Deployments to SQS]
     AB[Asset Bundle Converter]
@@ -168,7 +168,7 @@ Communications infrastructure runs alongside Catalyst:
 ### Architecture
 
 ```mermaid
-graph TB
+flowchart TB
     Client1[Client 1]
     Client2[Client 2]
     WS[WebSocket Connector]
@@ -216,7 +216,7 @@ graph TB
 Catalyst uses a dedicated indexer:
 
 ```mermaid
-graph LR
+flowchart LR
     Blockchain[Ethereum/Polygon]
     Subgraph[Worker Subgraph]
     Catalyst[Catalyst]

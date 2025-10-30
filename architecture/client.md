@@ -16,7 +16,7 @@ The Unity Explorer is Decentraland's reference client implementation built with 
 ### Core Components
 
 ```mermaid
-graph TB
+flowchart TB
     Core[Core Client Logic]
     Gateway[Decentraland Gateway]
     Renderer[3D Renderer]
@@ -143,7 +143,7 @@ The client connects to multiple services through the Gateway:
 Real-time communications flow through multiple services:
 
 ```mermaid
-graph LR
+flowchart LR
     Client[Unity Explorer]
     Gateway[Decentraland Gateway]
     Realm[Realm Provider]
@@ -177,7 +177,7 @@ graph LR
 The client uses optimized assets for better performance:
 
 ```mermaid
-graph TB
+flowchart TB
     Client[Unity Explorer]
     Gateway[Decentraland Gateway]
     Catalyst[Catalyst Content]
@@ -255,7 +255,7 @@ The Decentraland CLI enables scene development and deployment:
 ### Build Pipeline
 
 ```mermaid
-graph LR
+flowchart LR
     Source[Scene Source Code]
     BuildECS[build-ecs]
     Bundle[Compiled Bundle]
@@ -295,7 +295,7 @@ The client implements multiple caching layers:
 ### Cache Strategy
 
 ```mermaid
-graph TB
+flowchart TB
     Request[Asset Request]
     Check{In Cache?}
     Load[Load from Cache]

@@ -15,7 +15,7 @@ Decentraland is built on a distributed architecture that combines:
 ## High-Level Architecture
 
 ```mermaid
-graph TB
+flowchart TB
     Client[Unity Explorer Client]
     Gateway[Decentraland Gateway]
     Catalyst[Catalyst Network]
