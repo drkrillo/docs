@@ -336,7 +336,7 @@ Before marking implementation complete:
 7. **Performance** - No unnecessary re-renders
 8. **Tests** - Component tests pass
 9. **Storybook** - Stories added (if reusable)
-10. **Code review** - Approved by team
+10. **Code review** - Approved by maintainers
 
 ---
 

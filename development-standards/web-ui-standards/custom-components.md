@@ -501,7 +501,7 @@ Use this to decide which type of component to create:
 
 ### Project-Specific Components
 
-1. Code review by team member
+1. Code review by project maintainer
 2. Verify theme compliance
 3. Test in project context
 4. Merge when approved

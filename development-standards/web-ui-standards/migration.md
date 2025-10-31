@@ -25,7 +25,7 @@ You want to migrate a component for:
 
 * The component will be used in a new or existing project
 * There is time available to migrate it properly
-* Team capacity allows for thorough migration
+* Project resources allow for thorough migration
 
 {% hint style="warning" %}
 **Do not** migrate components "just because." Each migration should have a clear business or technical justification.

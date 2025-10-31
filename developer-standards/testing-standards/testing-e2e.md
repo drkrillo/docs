@@ -1,2 +1,0 @@
-# Testing E2E
-

@@ -1,6 +1,6 @@
 # Testing Standards
 
-This section describes the way in which tests are made in the different services and UI's of the dApps team.
+This section describes the way in which tests are made in the different services and UIs across Decentraland projects.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 

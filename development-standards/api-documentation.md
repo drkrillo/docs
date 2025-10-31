@@ -151,7 +151,7 @@ info:
   version: 2.1.0
   description: API for managing social interactions in Decentraland
   contact:
-    name: Decentraland Team
+    name: Decentraland Contributors
     url: https://decentraland.org
 
 servers:

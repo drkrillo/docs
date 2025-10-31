@@ -22,7 +22,7 @@ Welcome to the comprehensive documentation for developers who wish to contribute
 
 ## What You'll Find Here
 
-This documentation is designed to help you understand and follow the standards and best practices used by the dApps team at Decentraland. Whether you're a new contributor or an experienced developer, you'll find detailed guidelines on:
+This documentation is designed to help you understand and follow the standards and best practices used across Decentraland projects. Whether you're a new contributor or an experienced developer, you'll find detailed guidelines on:
 
 * **Code Standards** - Learn how we write clean, maintainable code
 * **Testing Practices** - Understand our comprehensive testing strategies
@@ -40,4 +40,4 @@ Start by exploring the [Development Standards](development-standards/) section, 
 
 By following these standards, you help maintain code quality and consistency across all Decentraland projects. These guidelines are continuously updated to reflect our evolving best practices and lessons learned from our development experience.
 
-If you have questions or suggestions about these standards, please reach out to the dApps team.
+If you have questions or suggestions about these standards, please reach out to the Decentraland development community.
