@@ -110,15 +110,15 @@
     ```
 * [Notifications Workers](apis/notifications-workers/README.md)
   * ```yaml
+    type: builtin:openapi
     props:
       models: false
       downloadLink: false
-    type: builtin:openapi
     dependencies:
       spec:
         ref:
           kind: openapi
-          spec: auth-server-api
+          spec: notifications-inbox-api
     ```
 * [Auth Server](apis/auth-server/README.md)
   * ```yaml
