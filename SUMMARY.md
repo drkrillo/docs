@@ -86,15 +86,15 @@
     ```
 * [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
   * ```yaml
+    type: builtin:openapi
     props:
       models: false
       downloadLink: false
-    type: builtin:openapi
     dependencies:
       spec:
         ref:
           kind: openapi
-          spec: auth-server-api
+          spec: asset-bundle-registry-api
     ```
 * [Badges](apis/badges/README.md)
   * ```yaml
@@ -170,10 +170,10 @@
     ```
 * [Places](apis/places/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -182,10 +182,10 @@
     ```
 * [Camera reel](apis/camera-reel/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -194,10 +194,10 @@
     ```
 * [Catalyst](apis/catalyst/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -206,10 +206,10 @@
     ```
 * [Atlas Server](apis/atlas-server/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -218,10 +218,10 @@
     ```
 * [Events Notifier](apis/events-notifier/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -230,10 +230,10 @@
     ```
 * [Events](apis/events/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -242,10 +242,10 @@
     ```
 * [Exploration Games](apis/exploration-games/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -254,10 +254,10 @@
     ```
 * [Rewards](apis/rewards/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
