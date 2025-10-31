@@ -12,7 +12,7 @@
 
 ## Developer Standards
 
-* [Overview](developer-standards/README.md)
+* [Overview](developer-standards/overview.md)
 * [API Documentation](developer-standards/api-documentation.md)
 * [Testing Standards](developer-standards/testing-standards/README.md)
   * [Writing Tests](developer-standards/testing-standards/writing-tests.md)
@@ -36,7 +36,7 @@
   * [Process Overview](developer-standards/web-ui-standards/process-overview.md)
   * [Custom Components](developer-standards/web-ui-standards/custom-components.md)
   * [Styling & Theming](developer-standards/web-ui-standards/styling-and-theming.md)
-  * [Migration Guide](developer-standards/web-ui-standards/migration.md)
+  * [Migration Guide](developer-standards/web-ui-standards/migration-guide.md)
 
 ## APIs
 
@@ -84,36 +84,96 @@
           kind: openapi
           spec: social-service-api
     ```
-* [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
+* [Catalyst](apis/catalyst/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: catalyst
+    ```
+* [Lamb2](apis/lamb2/README.md)
   * ```yaml
     type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: lambdas
+    ```
+* [Worlds](apis/worlds/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: worlds-content-server
+    ```
+* [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
           kind: openapi
           spec: asset-bundle-registry-api
     ```
-* [Badges](apis/badges/README.md)
+* [Events Notifier](apis/events-notifier/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: events-notifier-api
+    ```
+* [Badges](apis/badges/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
           kind: openapi
           spec: badges-api
     ```
-* [Notifications Workers](apis/notifications-workers/README.md)
+* [Credits Server](apis/credits-server/README.md)
   * ```yaml
-    type: builtin:openapi
     props:
       models: false
       downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: credits-server-api
+    ```
+* [Notifications Workers](apis/notifications-workers/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
     dependencies:
       spec:
         ref:
@@ -144,7 +204,7 @@
           kind: openapi
           spec: marketplace-server-api
     ```
-* [Credits Server](apis/credits-server/README.md)
+* [Events](apis/events/README.md)
   * ```yaml
     props:
       models: false
@@ -154,19 +214,7 @@
       spec:
         ref:
           kind: openapi
-          spec: credits-server-api
-    ```
-* [Worlds](apis/worlds/README.md)
-  * ```yaml
-    props:
-      models: false
-      downloadLink: false
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: worlds-content-server
+          spec: events
     ```
 * [Places](apis/places/README.md)
   * ```yaml
@@ -180,6 +228,18 @@
           kind: openapi
           spec: places
     ```
+* [Rewards](apis/rewards/README.md)
+  * ```yaml
+    props:
+      models: false
+      downloadLink: false
+    type: builtin:openapi
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: referral-api
+    ```
 * [Camera reel](apis/camera-reel/README.md)
   * ```yaml
     props:
@@ -191,18 +251,6 @@
         ref:
           kind: openapi
           spec: camera-reel-service-api
-    ```
-* [Catalyst](apis/catalyst/README.md)
-  * ```yaml
-    props:
-      models: false
-      downloadLink: false
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: catalyst
     ```
 * [Atlas Server](apis/atlas-server/README.md)
   * ```yaml
@@ -216,30 +264,6 @@
           kind: openapi
           spec: atlas-service
     ```
-* [Events Notifier](apis/events-notifier/README.md)
-  * ```yaml
-    props:
-      models: false
-      downloadLink: false
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: events-notifier-api
-    ```
-* [Events](apis/events/README.md)
-  * ```yaml
-    props:
-      models: false
-      downloadLink: false
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: events
-    ```
 * [Exploration Games](apis/exploration-games/README.md)
   * ```yaml
     props:
@@ -251,16 +275,4 @@
         ref:
           kind: openapi
           spec: exploration-games-api
-    ```
-* [Rewards](apis/rewards/README.md)
-  * ```yaml
-    props:
-      models: false
-      downloadLink: false
-    type: builtin:openapi
-    dependencies:
-      spec:
-        ref:
-          kind: openapi
-          spec: referral-api
     ```
