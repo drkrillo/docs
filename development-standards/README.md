@@ -1,4 +1,4 @@
-# Developer Standards
+# Development Standards
 
 This section contains the development standards and best practices for the dApps team. These standards ensure consistency, quality, and maintainability across all projects.
 
