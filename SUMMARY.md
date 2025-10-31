@@ -98,15 +98,15 @@
     ```
 * [Badges](apis/badges/README.md)
   * ```yaml
+    type: builtin:openapi
     props:
       models: false
       downloadLink: false
-    type: builtin:openapi
     dependencies:
       spec:
         ref:
           kind: openapi
-          spec: auth-server-api
+          spec: badges-api
     ```
 * [Notifications Workers](apis/notifications-workers/README.md)
   * ```yaml
