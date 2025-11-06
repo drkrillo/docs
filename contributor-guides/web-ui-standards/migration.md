@@ -151,7 +151,7 @@ Add a deprecation notice to the UI1 component:
  * import { Button } from 'decentraland-ui2';
  * ```
  * 
- * See migration guide: https://docs.decentraland.org/development-standards/web-ui-standards/migration
+ * See migration guide: https://docs.decentraland.org/contributor-guides/web-ui-standards/migration
  */
 export function Button(props: ButtonProps) {
   // ... existing implementation

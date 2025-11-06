@@ -231,7 +231,7 @@ Content flow from creation to client:
 
 ## Additional Resources
 
-* [Development Standards](../development-standards/) - Coding and documentation standards
+* [Contributor Guides](../contributor-guides/) - Coding and documentation standards
 * [API Reference](../apis/) - Complete API documentation
 * [GitHub Organization](https://github.com/decentraland) - Source code repositories
 

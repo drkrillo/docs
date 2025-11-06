@@ -1,6 +1,6 @@
-# Development Standards
+# Contributor Guides
 
-This section contains the development standards and best practices for Decentraland services. These standards ensure consistency, quality, and maintainability across all projects.
+This section contains the contributor guides and best practices for Decentraland services. These guides ensure consistency, quality, and maintainability across all projects.
 
 ## Sections
 
