@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to Decentraland](README.md)
+* [Welcome Contributor](README.md)
 
 ## Introduction
 
