@@ -1,4 +1,3 @@
-
 ### Catalyst
 
 [Catalyst](https://github.com/decentraland/catalyst) is the name given to the **Decentraland Service Bundle**, each Catalyst [node](https://decentraland.github.io/catalyst-monitor) exposes a set of services that work as the backbone for the platform and also exposes a public [API](https://decentraland.github.io/catalyst-api-specs/).
