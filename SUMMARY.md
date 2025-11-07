@@ -19,42 +19,42 @@
 
 ## Communications
 
-* [Overview](comms/overview.md)
-* [Archipelago](comms/archipelago.md)
-* [MAIN Realm](comms/main-realm.md)
-* [Messages](comms/messages.md)
-* [Transports](comms/transports.md)
+* [Overview](communications/overview.md)
+* [Archipelago](communications/archipelago.md)
+* [MAIN Realm](communications/main-realm.md)
+* [Messages](communications/messages.md)
+* [Transports](communications/transports.md)
 
-### Transport Types
+## Transport Types
 
-* [LiveKit](comms/transport-types/livekit.md)
-* [Websocket](comms/transport-types/websocket.md)
-* [Offline](comms/transport-types/offline.md)
-* [Simulator](comms/transport-types/simulator.md)
-* [Signed Login](comms/transport-types/signed_login.md)
+* [LiveKit](transport-types/livekit.md)
+* [Websocket](transport-types/websocket.md)
+* [Offline](transport-types/offline.md)
+* [Simulator](transport-types/simulator.md)
+* [Signed Login](transport-types/signed-login.md)
 
 ## Content
 
 * [Overview](content/overview.md)
 * [Entities](content/entities.md)
-* [File System](content/filesystem.md)
+* [File System](content/file-system.md)
 * [Pointers](content/pointers.md)
 * [Collections](content/collections.md)
 * [Snapshots](content/snapshots.md)
 
-### Entity Types
+## Entity Types
 
-* [Scenes](content/entity-types/scenes.md)
-* [Profiles](content/entity-types/profiles.md)
-* [Wearables](content/entity-types/wearables.md)
-* [Emotes](content/entity-types/emotes.md)
-* [Stores](content/entity-types/stores.md)
-* [Outfits](content/entity-types/outfits.md)
+* [Scenes](entity-types/scenes.md)
+* [Profiles](entity-types/profiles.md)
+* [Wearables](entity-types/wearables.md)
+* [Emotes](entity-types/emotes.md)
+* [Stores](entity-types/stores.md)
+* [Outfits](entity-types/outfits.md)
 
-### Practice
+## Practice
 
-* [CLI Examples](content/practice/cli.md)
-* [Python Examples](content/practice/python.md)
+* [CLI Examples](practice/cli-examples.md)
+* [Python Examples](practice/python-examples.md)
 
 ## Runtime
 
@@ -62,27 +62,25 @@
 * [Globals](runtime/globals.md)
 * [Execution](runtime/execution.md)
 * [Permissions](runtime/permissions.md)
-* [Basic Entities](runtime/entities.md)
-* [Basic Components](runtime/components.md)
+* [Basic Entities](runtime/basic-entities.md)
+* [Basic Components](runtime/basic-components.md)
 
-### Runtime Modules
+## Runtime Modules
 
-* [Engine API](runtime/modules/engine_api.md)
-* [Restricted Actions](runtime/modules/restricted_actions.md)
-* [Players](runtime/modules/players.md)
-* [User Identity](runtime/modules/user_identity.md)
-* [Signed Fetch](runtime/modules/signed_fetch.md)
-* [Runtime](runtime/modules/runtime.md)
+* [Engine API](runtime-modules/engine-api.md)
+* [Restricted Actions](runtime-modules/restricted-actions.md)
+* [Players](runtime-modules/players.md)
+* [User Identity](runtime-modules/user-identity.md)
+* [Signed Fetch](runtime-modules/signed-fetch.md)
+* [Runtime](runtime-modules/runtime.md)
 
-## Explorer Renderer
+## Components
 
-### Components
-
-* [Component Creation](explorer-renderer/components/components.md)
+* [Component Creation](components/component-creation.md)
 
 ## Land
 
-* [API Reference](land/api.md)
+* [API Reference](land/api-reference.md)
 
 ## Social Service
 
@@ -131,22 +129,242 @@
 ## APIs
 
 * [Realm Provider](apis/realm-provider/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: realm-provider-api
+    ```
 * [Comms Gatekeeper](apis/comms-gatekeeper/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: comms-gatekeeper-api
+    ```
 * [Archipelago Workers](apis/archipelago-workers/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: archipelago-workers-api
+    ```
 * [Social Service](apis/social-service/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: social-service-api
+    ```
 * [Catalyst](apis/catalyst/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: catalyst
+    ```
 * [Lamb2](apis/lamb2/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: lambdas
+    ```
 * [Worlds](apis/worlds/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: worlds-content-server
+    ```
 * [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: asset-bundle-registry-api
+    ```
 * [Events Notifier](apis/events-notifier/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: events-notifier-api
+    ```
 * [Badges](apis/badges/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: badges-api
+    ```
 * [Credits Server](apis/credits-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: credits-server-api
+    ```
 * [Notifications Workers](apis/notifications-workers/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: notifications-inbox-api
+    ```
 * [Auth Server](apis/auth-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: auth-server-api
+    ```
 * [Marketplace Server](apis/marketplace-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: marketplace-server-api
+    ```
 * [Events](apis/events/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: events
+    ```
 * [Places](apis/places/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: places
+    ```
 * [Rewards](apis/rewards/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: referral-api
+    ```
 * [Camera reel](apis/camera-reel/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: camera-reel-service-api
+    ```
 * [Atlas Server](apis/atlas-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: atlas-service
+    ```
 * [Exploration Games](apis/exploration-games/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: exploration-games-api
+    ```
