@@ -4,8 +4,13 @@ Our development process ensures that what's designed is what gets built. Work fl
 
 ## Workflow Stages
 
-```
-UX Discovery → Figma Design → dApp Implementation
+```mermaid
+flowchart LR
+    UX[UX Discovery] --> Figma[Figma Design] --> dApp[dApp Implementation]
+    
+    style UX fill:#e3f2fd
+    style Figma fill:#fff3e0
+    style dApp fill:#e8f5e9
 ```
 
 Each stage builds on the previous one, ensuring alignment from concept to code.
