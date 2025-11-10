@@ -28,12 +28,6 @@ flowchart TB
     Services --> Catalyst
     Services --> Blockchain
     Catalyst --> Blockchain
-    
-    style Client fill:#e1f5fe
-    style Gateway fill:#fff3e0
-    style Catalyst fill:#f3e5f5
-    style Services fill:#e8f5e9
-    style Blockchain fill:#fce4ec
 ```
 
 ## Documentation Sections

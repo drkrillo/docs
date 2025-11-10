@@ -29,9 +29,6 @@ flowchart TB
     Core --> Assets
     Core --> Comms
     Core --> Blockchain
-    
-    style Core fill:#e1f5fe
-    style Gateway fill:#fff3e0
 ```
 
 ***
@@ -160,9 +157,6 @@ flowchart LR
     Gateway -->|5. Request voice token| Gatekeeper
     Gatekeeper -->|6. Grant access| Gateway
     Client -->|7. Connect voice| LiveKit
-    
-    style Client fill:#e1f5fe
-    style LiveKit fill:#ffebee
 ```
 
 ### Communication Steps
@@ -192,9 +186,6 @@ flowchart TB
     Client -->|4. Check for bundles| Registry
     Registry -->|5. Bundle URLs| Client
     Client -->|6. Download bundles| Bundles
-    
-    style Client fill:#e1f5fe
-    style Bundles fill:#e8f5e9
 ```
 
 ### Asset Loading Steps
@@ -268,9 +259,6 @@ flowchart LR
     BuildECS --> Bundle
     Bundle --> CLI
     CLI --> Catalyst
-    
-    style Source fill:#e1f5fe
-    style Catalyst fill:#f3e5f5
 ```
 
 The **build-ecs** tool:

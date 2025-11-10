@@ -23,10 +23,6 @@ flowchart TB
     Node1 --> Content
     Node2 --> Content
     Node3 --> Content
-    
-    style Node1 fill:#f3e5f5
-    style Node2 fill:#f3e5f5
-    style Node3 fill:#f3e5f5
 ```
 
 ## Catalyst Components
@@ -188,10 +184,6 @@ flowchart TB
     WS --> Core
     Core <--> NATS
     Core --> Stats
-    
-    style WS fill:#fff3e0
-    style Core fill:#fff3e0
-    style Stats fill:#fff3e0
 ```
 
 ### Components
