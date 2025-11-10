@@ -162,7 +162,7 @@ This ACL is stored in the World Content Server where the world is deployed. It i
 
 A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it also allows granting access to more wallets or revoking access to wallets that are already in the ACL.
 
-![world-acl help screen](/.gitbook/assets/images/worlds/world-acl-help.png)
+![](../images/worlds/world-acl-help.png)
 
 In order to grant permission for publishing a scene to another wallet you have to:
 

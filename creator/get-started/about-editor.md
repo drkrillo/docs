@@ -8,7 +8,7 @@ description: >-
 
 The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
-![Header](/.gitbook/assets/images/editor/icon-creator-hub.png)
+![](../images/editor/icon-creator-hub.png)
 
 See \[Creator Hub Installation]\(\{{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >\}}) to get started.
 
@@ -18,7 +18,7 @@ See \[Creator Hub Installation]\(\{{< ref "/content/creator/scene-editor/get-sta
 
 To create a new scene, open the Creator Hub and press the _Create scene_ button.
 
-![Scene name](/.gitbook/assets/images/editor/create-scene.png)
+![](../images/editor/create-scene.png)
 
 You can then select what template to use as a starting point. You can pick a blank scene or a project with some initial content.
 
@@ -45,11 +45,11 @@ To find your way around the Scene Editor:
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
-![Scene name](/.gitbook/assets/images/editor/asset-packs.png)
+![](../images/editor/asset-packs.png)
 
 To place an item, click and drag it in from the asset pack menu into a location on your scene in the canvas.
 
-![Scene name](/.gitbook/assets/images/editor/drop-item.gif)
+![](../images/editor/drop-item.gif)
 
 Click and drag a selected item to move it freely around the scene at ground level. See \[Scene editor essentials]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#position-items" >\}}) for more details.
 
@@ -57,7 +57,7 @@ Click and drag a selected item to move it freely around the scene at ground leve
 **💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See \[Smart items]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}}) for more details.
 {% endhint %}
 
-![](/.gitbook/assets/images/editor/smart-items.jpg)
+![](../images/editor/smart-items.jpg)
 
 ### Preview
 
@@ -67,7 +67,7 @@ To test your scene and experience it like a player, click the _Preview_ button o
 **📔 Note**: If you don't have it installed on your machine, download the **Decentraland Launcher** from [Decentraland.org](https://decentraland.org).
 {% endhint %}
 
-![Scene name](/.gitbook/assets/images/editor/preview-button.png)
+![](../images/editor/preview-button.png)
 
 Configure different preview options from the dropdown menu next to the **Preview** button:
 
@@ -79,7 +79,7 @@ Configure different preview options from the dropdown menu next to the **Preview
 
 Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit, including name, thumbnail, scene size, and more.
 
-![Scene name](/.gitbook/assets/images/editor/pencil-icon.png)
+![](../images/editor/pencil-icon.png)
 
 See \[Scene Settings]\(\{{< ref "/content/creator/scene-editor/configure/scene-settings.md" >\}}) for more details.
 
@@ -87,7 +87,7 @@ See \[Scene Settings]\(\{{< ref "/content/creator/scene-editor/configure/scene-s
 
 Once you're happy with your scene, press _Publish scene_.
 
-![Scene name](/.gitbook/assets/images/editor/publish-options.png)
+![](../images/editor/publish-options.png)
 
 See \[Publish scene]\(\{{< ref "/content/creator/scene-editor/publish/publish-scene.md" >\}}) for more details.
 

@@ -59,7 +59,7 @@ In the rig file, other than the two windows for the viewport (front and side vie
 
 With this workspace, you have everything needed to start animating!
 
-![](/.gitbook/assets/images/emotes/workspace.png)
+![](../images/emotes/workspace.png)
 
 These are the bottom windows. The top one is in the _**Graph Editor,**_ the middle one in the _**Dope Sheet,**_ and the bottom one is the _**Timeline.**_ The top red arrow shows the _**Only Show Selected**_ tool and the bottom one shows the _**Auto Keying**_.
 
@@ -131,17 +131,17 @@ On the _Browse Action_ section, simply click on _**Create A New Action**_ button
 
 Belnder 4.4 introduced _Slotted Actions_, the icon to the right of the _Browse Action_ section from previous versions. There’s no need to mess with that if you’re creating an emote with no prop, so you can just leave it as it is. If you’re animating the avatar, make sure the slotted action is Avatar\_Animation.
 
-![](/.gitbook/assets/images/emotes/duplicating_animation.gif) Create a new animation by duplicating the existing one or by clicking on \_\*\*Unlink Action\*\*\_ and then \_\*\*New\*\*\_.
+![](../images/emotes/duplicating_animation.gif) Create a new animation by duplicating the existing one or by clicking on \_\*\*Unlink Action\*\*\_ and then \_\*\*New\*\*\_.
 
 ### **Browsing and Deleting Animations**
 
 In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the Browse Action dropdown menu. All animation with and F (Fake User) will be saved. To delete an animation, press Shift on the keyboard and click on the X. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or re-open the file.
 
-![](/.gitbook/assets/images/emotes/deleting_animation.gif) Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
+![](../images/emotes/deleting_animation.gif) Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
 
 Another way of deleting animations without having to reload Blender is by changing the Display Mode from View Layer to Blender File. Expand Actions and delete any unwanted animation by right clicking on them and selecting Delete.
 
-![](/.gitbook/assets/images/emotes/deleting_animation2.gif)
+![](../images/emotes/deleting_animation2.gif)
 
 You can delete animations directly from Blender File under Display Mode in the outliner.
 
@@ -151,7 +151,7 @@ You can delete animations directly from Blender File under Display Mode in the o
 Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
 {% endhint %}
 
-![](/.gitbook/assets/images/emotes/duplicating_animation2.gif) Duplicating animation clips.
+![](../images/emotes/duplicating_animation2.gif) Duplicating animation clips.
 
 ### **Naming**
 
@@ -166,13 +166,13 @@ Do not always edit the same animation track. Before making major changes, just d
 
 Emote overrides happen when deform bones don’t have a keyframe set in one of the parameters. Without a keyframe, that bone won’t have the information of where it should be, how much it has been rotated and scaled, leaving that channel open. The consequence is that if you play an emote in world and then trigger yours while the previous one was still playing, the information of location, rotation and scale will be overridden by the previous emote, which will cause a combination of them both. Unless this is done in purpose, it will affect your animation, sometimes with a fun result, but others with completely messed up the emote. Below is an example of an emote override.
 
-![](/.gitbook/assets/images/wearables-and-emotes/creating-emotes/01_emote_override.gif)
+![](../images/wearables-and-emotes/creating-emotes/01_emote_override.gif)
 
 To avoid that, select all layers with bones in them (which can be found in _**Object Data Properties**_ > _**Skeleton**_ > _**Layers**_). Then, in _**Pose Mode**_, leave the timeline cursor in the first frame of your animation and, with your mouse in _**Viewport Display**_, press _**A**_ to select everything. In the _**Graph Editor**_, click twice on the _**Eye**_ icon next to the armature channel to make all channels visible. With all bones selected, press _**I**_ to set a keyframe. Do the same for the last frame.
 
 **Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the _**Viewport**_.
 
-![](/.gitbook/assets/images/emotes/keyframe_bones.gif) Setting keyframes on all bones in the first and last frames prevents emote overrides.
+![](../images/emotes/keyframe_bones.gif) Setting keyframes on all bones in the first and last frames prevents emote overrides.
 
 ## **The Animation Specifications**
 
@@ -184,7 +184,7 @@ The max length of an animation is **10 seconds** or **300 frames**. Remember to 
 ⚠️ Channels with visibility turned off in the Graph Editor won’t be keyframed, deleted, or even shown in the Action Editor. Unless it was intentionally done that way, pay extra attention to the visibility.
 {% endhint %}
 
-![](/.gitbook/assets/images/emotes/channel_visibility.gif)
+![](../images/emotes/channel_visibility.gif)
 
 Make channels visible before keyframing!
 
@@ -222,22 +222,22 @@ If the emote contains any additional 3D models, the textures in these models can
 
 Since we only want the armature and the animation to be exported, turn off the mesh visibility and any object other than the armature before exporting, as shown below:
 
-![](/.gitbook/assets/images/emotes/mesh_visibility.gif)
+![](../images/emotes/mesh_visibility.gif)
 
 Turn off the mesh visibility before exporting!
 
 To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
-![](/.gitbook/assets/images/emotes/export_gltf.gif)
+![](../images/emotes/export_gltf.gif)
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
 
-| ![](/.gitbook/assets/images/emotes/export_settings.png) | ![](/.gitbook/assets/images/emotes/export_settings_GIF.gif) |
+| ![](../images/emotes/export_settings.png) | ![](../images/emotes/export_settings_GIF.gif) |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 
 If you need to sample the animation, expand the Animation tab, expand Sampling Animations and choose the number of samples wanted.
 
-| ![](/.gitbook/assets/images/emotes/sampling_rate.png) | ![](/.gitbook/assets/images/emotes/sampling_rate_GIF.gif) |
+| ![](../images/emotes/sampling_rate.png) | ![](../images/emotes/sampling_rate_GIF.gif) |
 | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 
 That’s it for exporting the animation!
