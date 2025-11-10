@@ -71,10 +71,6 @@
 * [Runtime](runtime-modules/runtime.md)
 * [Component Creation](components/component-creation.md)
 
-## Land
-
-* [API Reference](land/api-reference.md)
-
 ## Social Service
 
 * [Overview](social-service/overview.md)
@@ -87,7 +83,8 @@
 ## Tutorials
 
 * [Getting Started](tutorials/getting-started.md)
-
+* [How to Run a Catalyst Node](tutorials/how-to-run-a-catalyst.md)
+* [How to Create a New Entity Type](tutorials/how-to-create-new-entity-type.md)
 
 ## Contributor Guides
 
