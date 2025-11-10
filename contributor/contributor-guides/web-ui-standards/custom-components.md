@@ -394,14 +394,14 @@ src/components/Navbar/
 
 **Example README:**
 
-````markdown
+```markdown
 # Navbar
 
 Site-wide navigation component with user menu and responsive behavior.
 
 ## Usage
 
-```tsx
+\```tsx
 import { Navbar } from 'decentraland-ui2';
 
 function App() {
@@ -414,7 +414,7 @@ function App() {
     />
   );
 }
-````
+\```
 
 ## Props
 
@@ -440,7 +440,7 @@ Uses these theme values:
 * `theme.spacing`
 * `theme.breakpoints`
 
-````
+```
 
 ### Testing Requirements
 
@@ -480,7 +480,7 @@ describe('Navbar', () => {
     expect(firstLink).toHaveFocus();
   });
 });
-````
+```
 
 ***
 

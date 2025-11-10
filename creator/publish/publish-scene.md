@@ -42,7 +42,7 @@ To publish your scene:
 4. The next screen shows all of the files you're currently uploading and their sizes, confirm the operation.
 5. The publication process will then start. Stages **1** and **2** are necessary for your scene to be playable, once done a **Jump In** button appears. You don't need to wait for **Stage 3** to try out your scene. ![](../images/editor/deploy-steps.png)
 
-\*\*📔 Note\*\*: The three stages of the deployment involve: - \*\*1. Uploading\*\*: Uploading the files to the servers. - \*\*2. Converting\*\*: The scene's 3D models are compressed into Asset Bundles for faster rendering. This may take 15 minutes or less. It may delay more for very large scenes, or if the servers are currently busy converting other scenes. - \*\*3, Optimizing\*\*: Low Level of Detail (LOD) versions of your assets are generated. These are only used to render your scene from far away, meaning you don't need to wait for this to finish to jump in and test your scene. \{% endhint %\}
+\*\*📔 Note\*\*: The three stages of the deployment involve: - \*\*1. Uploading\*\*: Uploading the files to the servers. - \*\*2. Converting\*\*: The scene's 3D models are compressed into Asset Bundles for faster rendering. This may take 15 minutes or less. It may delay more for very large scenes, or if the servers are currently busy converting other scenes. - \*\*3, Optimizing\*\*: Low Level of Detail (LOD) versions of your assets are generated. These are only used to render your scene from far away, meaning you don't need to wait for this to finish to jump in and test your scene. {% endhint %}
 
 ### Publish from a hardware wallet
 

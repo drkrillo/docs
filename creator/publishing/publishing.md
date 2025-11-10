@@ -63,7 +63,7 @@ Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-
 #### Via the CLI
 
 1. Log into your Metamask account with the same public address associated with your parcels in Decentraland.
-2. Run `npm run deploy` from the scene's folder. \{% hint style="info" %\} **💡 Tip**: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying. \{% endhint %\}
+2. Run `npm run deploy` from the scene's folder. {% hint style="info" %} **💡 Tip**: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying. {% endhint %}
 3. A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
 4. Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 

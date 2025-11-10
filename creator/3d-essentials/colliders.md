@@ -6,13 +6,15 @@ description: >-
 
 # Colliders
 
-Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player\`s avatar.
+Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player's avatar.
 
 Colliders are also needed to make an entity clickable. Button events are based on the collider shape of an entity, not on its visible shape.
 
 There are separate collision layers for interacting with either the player's physics, or with pointer events, colliders can be configured to only interact with one or the other. They can also be configured to interact with custom layers, that can be used with [raycasts](../sdk7/interactivity/raycasting.md#) to handle whatever makes sense to the scene.
 
-\{% hint style="warning" %\} **📔 Note**: Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that. \{% endhint %\}
+{% hint style="warning" %}
+**📔 Note**: Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
+{% endhint %}
 
 ### Use the Scene Editor
 
@@ -45,31 +47,32 @@ The following collider shapes are available on `MeshCollider`. Several shapes in
 
     Use `MeshCollider.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
 
-    \{% hint style="info" %\} **💡 Tip**:: Set either `radiusTop` or `radiusBottom` to 0 to make a cone. \{% endhint %\}
+{% hint style="info" %}
+**💡 Tip**: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
+{% endhint %}
 
 This example defines a box entity that can't be walked through.
 
-\`
+```ts
+// create entity
+const myCollider = engine.addEntity()
 
-\`\`ts // create entity const myCollider = engine.addEntity()
+// visible shape
+MeshRenderer.setBox(myCollider)
 
-// visible shape MeshRenderer.setBox(myCollider)
-
-// collider MeshCollider.setBox(myCollider)
-
-````
+// collider
+MeshCollider.setBox(myCollider)
+```
 
 The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`. You can also add a `MeshCollider` to an entity that has a 3D model from a `GLTFContainer` component, or to an entity that has no visible shape at all.
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 **📔 Note**: The `MeshCollider` component and `ColliderLayer` must be imported via
 
-> `import { MeshCollider, ColliderLayer } from "@dcl/sdk/ecs"`
+`import { MeshCollider, ColliderLayer } from "@dcl/sdk/ecs"`
 
 See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
-
-</div>
+{% endhint %}
 
 ## Colliders on 3D models
 
@@ -85,14 +88,10 @@ Defining collider geometry as a separate invisible layer allows for much greater
 If a model doesn't have any collider geometry, and you want to make it affect the physics or the pointer events systems, you can either:
 
 - Assign collision layers directly to the visible geometry, via the `visibleMeshesCollisionMask`.
-  
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
-  **📔 Note**: If the visible geometry of the object has many vertices, note that this may have more of a performance cost.
-  
-
-</div>
+{% hint style="warning" %}
+**📔 Note**: If the visible geometry of the object has many vertices, note that this may have more of a performance cost.
+{% endhint %}
 
 - Give the entity a `MeshCollider` component, to give it a primitive shape collider.
 - Overlay an invisible entity that has a `MeshCollider` component.
@@ -100,11 +99,10 @@ If a model doesn't have any collider geometry, and you want to make it affect th
 
 You might also want to assign the pointer events collision layer to the `visibleMeshesCollisionMask` in case you want the hover hints and pointer events to respond more accurately to the contour of the entity. Note that this is more demanding on performance.
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 **📔 Note**: Make sure you don't have the same layer (physics, pointer events or custom layers) assigned to both `visibleMeshesCollisionMask` and `invisibleMeshesCollisionMask`, as that would be a very inefficient use of resources. You can have different layers on each, such as physics on the invisible layer and pointer events on the visible layer.
+{% endhint %}
 
-</div>
 
 ```ts
 // create entity
@@ -116,8 +114,7 @@ GltfContainer.create(myEntity, {
 	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
 	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
-````
-
+```
 See [3D models](https://github.com/decentraland/docs-creator/blob/main/creator/3d-modeling/3d-models/README.md) for more details on how to add collider invisible geometry to a 3D model.
 
 {% hint style="warning" %}

@@ -64,9 +64,9 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
     See [Video Screen](../scene-editor/interactivity/video-screen.md) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
-    \{% hint style="warning" %\} **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
+    {% hint style="warning" %} **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
-    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot. \{% endhint %\}
+    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot. {% endhint %}
 2.  Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
     ![](../images/editor/admin/multi-video-setup.png)
