@@ -81,34 +81,30 @@ There's 3 [`Packet`](#Packet) types involved: a [`ProfileRequest`](#ProfileReque
 
 Clients typically broadcast `AnnounceProfileVersion` messages periodically, plus immediately when their profile changes.
 
-```
-.----------.                   .----------.                 .----------.
-| Client 1 |                   | Client 2 |                 | Client 3 |
-'----+-----'                   '----+-----'                 '----+-----'
-     |                              |                            ⋮
-     o  AnnounceProfileVersion(v1)  |                            ⋮
-     |                              |                            ⋮
-     |                              |                            ⋮
-     o  AnnounceProfileVersion(v1)  |                            ⋮
-     |                              |                            |
-     |                              |                            o ProfileRequest(@client 1)
-     |                              |                            |
-     o ProfileResponse(v1)          |                            |
-     |                              |                            |
-     |                              |                            |
-     o AnnounceProfileVersion(v1)   |                            |
-     |                              |                            |
-     |                              |                            |
-     o AnnounceProfileVersion(v2)   |                            |
-     |                              |                            |
-     |                              o ProfileRequest(@client 1)  o ProfileRequest(@client 1)
-     |                              |                            |
-     o ProfileResponse(v2)          |                            |
-     |                              |                            |
-     |                              |                            |
-
-
-
+```mermaid
+sequenceDiagram
+    participant Client1 as Client 1
+    participant Client2 as Client 2
+    participant Client3 as Client 3
+    
+    Note over Client1: Broadcast profile version
+    Client1->>Client1: AnnounceProfileVersion(v1)
+    Client1->>Client1: AnnounceProfileVersion(v1)
+    
+    Note over Client3: Request profile
+    Client3->>Client1: ProfileRequest(@client 1)
+    Client1->>Client3: ProfileResponse(v1)
+    
+    Client1->>Client1: AnnounceProfileVersion(v1)
+    
+    Note over Client1: Profile updated
+    Client1->>Client1: AnnounceProfileVersion(v2)
+    
+    Note over Client2,Client3: Multiple clients request
+    Client2->>Client1: ProfileRequest(@client 1)
+    Client3->>Client1: ProfileRequest(@client 1)
+    Client1->>Client2: ProfileResponse(v2)
+    Client1->>Client3: ProfileResponse(v2)
 ```
 
 ---
@@ -151,11 +147,12 @@ The `serialized_profile` field contains the JSON serialization of a [profile ent
 
 If the sender wants to recommend a content server to download entities referenced in their profile (such as wearables), it can set the `base_url` field as a hint. Clients are free to use or ignore this URL.
 
-## <!--
+<!--
+## Scene Messages
 
 ##### `Scene` <small>[↗ source][Scene]</small> {#Scene}
 
-!! TODO
+TODO: Document Scene message type
 -->
 
 [Packet]: https://github.com/decentraland/protocol/blob/c48ea0aa00d8173084571552463a6a05a7f49636/proto/decentraland/kernel/comms/rfc4/comms.proto#L8

@@ -9,19 +9,12 @@ All of the important concepts mentioned below are further described in their own
 
 There are three layers in Decentraland's content system: [files](../filesystem.md) are packaged inside [entities](../entities.md), and entities are discovered using [pointers](../pointers.md).
 
-```
-.---------.         .--------.       .---------.
-| Pointer +-------> | Entity +-+---> |  File 1 |                                       
-'---------'         '--------' |     '---------'
-                               |
-                               |     .---------.
-                               +---> |  File 2 |
-                               |     '---------'
-                               |
-                               |     .---------.
-                               +---> |  File 3 |
-                                     '---------'
-
+```mermaid
+flowchart LR
+    Pointer --> Entity
+    Entity --> File1["File 1"]
+    Entity --> File2["File 2"]
+    Entity --> File3["File 3"]
 ```
 
 

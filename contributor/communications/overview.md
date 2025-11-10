@@ -14,23 +14,23 @@ Since most of this functionality requires broadcasting messages to all nearby pl
 
 The realm service that manages and assigns players to islands is called _Archipelago_. It takes care of creating islands as they are needed, keeping their population at a reasonable number and dynamically reassigning players in response to their movements.
 
-
-```
-.----------------------------------------------------------------------------.                      
-| Realm                                                                      |
-|                                                     .------------------.   |
-|                                              +---> | Island 1 | * * * * |  |
-| .-------------------.                        |      '------------------'   |
-| |                   |    .---------------.   |      .------------------.   |
-| |      Players      +----+  Archipelago  +---+---> | Island 2 | * * o o |  |
-| | * * * * * * * * * |    '---------------'   |      '------------------'   |
-| '-------------------'                        |                ⋮            |
-|                                              |      .------------------.   |
-|                                              +---> | Island n | * * * o |  |
-|                                                     '------------------'   |
-|                                                                            |
-'----------------------------------------------------------------------------'
-
+```mermaid
+flowchart LR
+    subgraph Realm
+        Players["Players<br/>⭐⭐⭐⭐⭐⭐⭐⭐⭐"]
+        Archipelago["Archipelago"]
+        
+        subgraph Islands
+            Island1["Island 1<br/>⭐⭐⭐⭐"]
+            Island2["Island 2<br/>⭐⭐⚪⚪"]
+            IslandN["Island n<br/>⭐⭐⭐⚪"]
+        end
+        
+        Players --> Archipelago
+        Archipelago --> Island1
+        Archipelago --> Island2
+        Archipelago --> IslandN
+    end
 ```
 
 When assigned to an island, clients are given an island-specific URI to connect to the actual backend that will relay messages between them. This connection lasts until Archipelago reassigns the client to a different island.
@@ -49,53 +49,37 @@ The life-cycle of a comms client can be summarized in a few steps:
 
 When the client ends their session, they simply disconnect from the Archipelago service. They will be automatically removed from their current island.
 
-```
-.-------------.         .--------.         .----------------.                                       
-| Archipelago |         | Client |         | Island Backend |
-'-----+-------'         '---+----'         '-------+--------'
-      ⋮                     |                      ⋮
-      ⋮             Connect |                      ⋮
-      o - - - - - - - - - - |                      ⋮
-      |                     |                      ⋮
-      |                     |                      ⋮
-      |        Authenticate |                      ⋮
-      |<--------------------+                      ⋮
-      +-------------------->|                      ⋮
-      | Accept              |                      ⋮
-      |                     |                      ⋮
-      |                     |                      ⋮
-      |     Report position |                      ⋮
-      |<--------------------+                      ⋮
-      +-------------------->|                      ⋮
-      | Assign island       |                      ⋮
-      |                     |                      ⋮
-      |                     | Connect transport    ⋮
-      |                     |- - - - - - - - - - - o
-      |                     |                      |
-      |                     |                      |
-      |                     | Authenticate         |
-      |                     +--------------------->|
-      |                     |<---------------------+
-      |                     |               Accept |
-      |                     |                      |
-      |                     |                      |
-      |                     | Player messages…     |
-      |                     +--------------------->|
-      |                     |<---------------------+
-      |                     |     Player messages… |
-      |                     |                      |
-      |                     |                      |
-      |     Update position |                      |
-      |<--------------------+                      |
-      +-------------------->|                      |
-      | Reassign island     |                      |
-      |                     |                      |
-      |                     | Disconnect transport |
-      |                     |- - - - - - - - - - - o
-      |                     |                      ⋮                      
-      |                     |                      ⋮ 
-    --------------------- Repeat ---------------------
-
+```mermaid
+sequenceDiagram
+    participant Archipelago
+    participant Client
+    participant IslandBackend as Island Backend
+    
+    Note over Client: Connect to Archipelago
+    Client->>Archipelago: Authenticate
+    Archipelago->>Client: Accept
+    
+    Note over Client: Report position
+    Client->>Archipelago: Report position
+    Archipelago->>Client: Assign island
+    
+    Note over Client: Connect to island
+    Client->>IslandBackend: Connect transport
+    Client->>IslandBackend: Authenticate
+    IslandBackend->>Client: Accept
+    
+    Note over Client,IslandBackend: Exchange messages
+    Client->>IslandBackend: Player messages…
+    IslandBackend->>Client: Player messages…
+    
+    Note over Client: Update position
+    Client->>Archipelago: Update position
+    Archipelago->>Client: Reassign island
+    
+    Note over Client: Disconnect from old island
+    Client->>IslandBackend: Disconnect transport
+    
+    Note over Archipelago,IslandBackend: Repeat cycle
 ```
 
 

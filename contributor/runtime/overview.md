@@ -3,29 +3,25 @@ The Decentraland scene runtime is the sandboxed execution environment where a [s
 
 Each scene runs inside its own isolated runtime. Within it, it has access to certain [global objects](../globals.md) and can import [modules](../modules.md) from the runtime library.
 
- 
-```
-.-----------------------------------------------------'
-.                                                     '                   
-|                   World Explorer                    |
-|                                                     |
-|  .---------+---.  .---------+---.  .---------+---.  | 
-|  | Runtime     |  | Runtime     |  | Runtime     |  |  
-|  |             |  |             |  |             |  |  
-|  |  .------+   |  |  .------+   |  |  .------+   |  |  
-|  |  |       |  |  |  |       |  |  |  |       |  |  |  
-|  |  | Scene |  |  |  | Scene |  |  |  | Scene |  |  |  
-|  |  |       |  |  |  |       |  |  |  |       |  |  |  
-|  |  '---+---'  |  |  '---+---'  |  |  '---+---'  |  |  
-|  |      |      |  |      |      |  |      |      |  |  
-|  '------+------'  '------+------'  '------+------'  |   
-|         |                |                |         |
-|         v                v                v         |
-|  .-----------------------------------------------.  |
-|  |            Runtime module library             |  |
-|  '--------------------------+----------------+---'  |
-'-----------------------------------------------------'
-
+```mermaid
+flowchart TB
+    subgraph WorldExplorer["World Explorer"]
+        subgraph Runtime1["Runtime 1"]
+            Scene1["Scene"]
+        end
+        
+        subgraph Runtime2["Runtime 2"]
+            Scene2["Scene"]
+        end
+        
+        subgraph Runtime3["Runtime 3"]
+            Scene3["Scene"]
+        end
+        
+        Scene1 --> Library["Runtime Module Library"]
+        Scene2 --> Library
+        Scene3 --> Library
+    end
 ```
 
 By importing modules from the runtime library, scenes have access a wide array of functionality, including:
