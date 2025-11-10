@@ -1,6 +1,3 @@
----
-description: Decentraland Protocol Architecture Overview
----
 
 # Architecture
 

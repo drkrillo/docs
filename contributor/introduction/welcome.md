@@ -1,6 +1,3 @@
----
-description: Welcome to Decentraland Contributor Documentation
----
 
 # Welcome!
 

@@ -1,6 +1,3 @@
----
-description: Signed Fetch mechanism for authenticated HTTP requests
----
 
 # Signed Fetch
 

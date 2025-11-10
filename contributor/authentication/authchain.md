@@ -1,6 +1,3 @@
----
-description: Authentication Chain mechanism in Decentraland
----
 
 # Authentication Chain
 
