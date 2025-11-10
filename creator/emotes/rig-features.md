@@ -10,7 +10,7 @@ This documentation explains the set up for Rig 1.0, its controls, and features.
 
 These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/RigTransforms.png)
+![](/.gitbook/assets/images/media/RigTransforms.png)
 
 _Rig 1.0 transforms._
 
@@ -20,11 +20,11 @@ _Rig 1.0 transforms._
 
 This is the bone orientation for Rig 1.0. As it is right now, it’s not possible to mirror behavior on the shoulders, arms, hands, or fingers.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/AxesBoneOrientation.png)
+![](/.gitbook/assets/images/media/AxesBoneOrientation.png)
 
 _Axes for bone orientation._
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/MirrorPose.png)
+![](/.gitbook/assets/images/media/MirrorPose.png)
 
 _Behavior when mirrorring poses._
 
@@ -32,7 +32,7 @@ _Behavior when mirrorring poses._
 
 To avoid any accidents and to make it easier to identify the controls, this rig is organized in bone collections that can be accessed in the _Data Properties_ tab in Blender. These collections’ visibility can be toggled on and off by clicking on the _Eye Icon._ By default, they are all visible, except for the DON'T TOUCH ones.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/BoneCollections.png)
+![](/.gitbook/assets/images/media/BoneCollections.png)
 
 Armature Data Properties tab.
 
@@ -63,7 +63,7 @@ Controls are non-deforming bones that drive the base skeleton. They have differe
 * Pink: left side controls
 * Orange: right side controls
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/RigControls.png)
+![](/.gitbook/assets/images/media/RigControls.png)
 
 _All the controls and their colors._
 
@@ -111,7 +111,7 @@ _How the IsoRot attribute for the head works._
 
 _In previous versions of Blender, make sure to keyframe all the controls and custom attributes!_
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/media/keyframes.gif)
+![](/.gitbook/assets/images/media/keyframes.gif)
 
 _In Blender 4.4, press I to automatically set a keyframe on Location, Rotation, Scale & Custom Properties.._
 

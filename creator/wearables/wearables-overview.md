@@ -4,7 +4,7 @@ description: An overview of wearables NFTs for Decentraland
 
 # Wearables Overview
 
-![WearablesOverview](https://github.com/decentraland/docs-creator/blob/main/images/wearables-and-emotes/wearables-overview/00_wearables_overview.png)
+![WearablesOverview](/.gitbook/assets/images/wearables-and-emotes/wearables-overview/00_wearables_overview.png)
 
 ## What Are Wearables?
 
@@ -30,7 +30,7 @@ Each wearable has a specific category that determines which body part in the ava
 
 The different categories are:
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/wearables-and-emotes/creating-wearables/47_base_categories.png)
+![](/.gitbook/assets/images/wearables-and-emotes/creating-wearables/47_base_categories.png)
 
 * **Skin:** Replaces the entire avatar (head, upper body, lower body and feet except accessories)
 * **Head:**
@@ -46,7 +46,7 @@ The different categories are:
 
 There are also accessories that can be applied to different areas of an avatar. Some of these accessories can impact other wearables. The accessories are:
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/wearables-and-emotes/creating-wearables/48_accessories_categories.png)
+![](/.gitbook/assets/images/wearables-and-emotes/creating-wearables/48_accessories_categories.png)
 
 * **Mask**
 * **Eyewear**

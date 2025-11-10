@@ -6,7 +6,7 @@ description: Exploring Decentraland Overview
 
 **'In-World'** refers to anything happening inside Decentraland's virtual world—this is where the magic happens!
 
-![](https://github.com/decentraland/docs-player/blob/main/images/players/minimapGP.png)
+![](/.gitbook/assets/images/players/minimapGP.png)
 
 Decentraland's main landmass, Genesis City.
 

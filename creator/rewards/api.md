@@ -83,7 +83,7 @@ You can follow the update of every reward using its id just by fetching `https:/
 
 The Rewards campaign dispenser includes several configuration options designed to help prevent rewards farming. While the service offers automated protections to deter individuals from mass-minting wearables, no system can be entirely immune to exploits. In this section, we'll review the various security measures available for your dispenser to enhance its protection.
 
-![dispenser configuration](https://github.com/decentraland/docs-creator/blob/main/images/rewards/dispenser-config.png)
+![dispenser configuration](/.gitbook/assets/images/rewards/dispenser-config.png)
 
 ### Date Range Protection
 
@@ -133,7 +133,7 @@ const captcha = await request.json()
 ```
 
 {% hint style="info" %}
-This is an example of what a captcha looks like: ![Captcha](https://github.com/decentraland/docs-creator/blob/main/images/rewards/captcha.png)
+This is an example of what a captcha looks like: ![Captcha](/.gitbook/assets/images/rewards/captcha.png)
 {% endhint %}
 
 You then need to include the captcha id and value that resolves the captcha in the request body that assigns the reward.

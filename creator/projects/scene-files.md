@@ -37,7 +37,7 @@ The _scene.json_ file is a JSON formatted manifest for a scene in the world. A s
 
 Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See \[Scene Settings]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#scene-settings" >\}}).
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/thumbnail-image.png)
+![](/.gitbook/assets/images/thumbnail-image.png)
 
 For more information see \[scene metadata]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#metadata">\}}).
 

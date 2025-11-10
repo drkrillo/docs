@@ -16,25 +16,25 @@ Use the **Video Screen** smart item together with the **Scene Admin** smart item
 
 1.  Add a **Video Screen** smart item to your scene.
 
-    ![Video Screen item](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/video-player-item.png)
+    ![Video Screen item](/.gitbook/assets/images/editor/admin/video-player-item.png)
 2.  Add a **Scene Admin** smart item and enable the **Video Screens** section. Select each screen from the dropdown and give it a friendly name for the admin UI.
 
-    ![Link screens to Admin](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/multi-video-setup.png)
+    ![Link screens to Admin](/.gitbook/assets/images/editor/admin/multi-video-setup.png)
 3.  Publish your scene (World or Genesis City) and enter as a user with admin permissions.
 
-    ![Publish](https://github.com/decentraland/docs-creator/blob/main/images/editor/publish-button.png)
+    ![Publish](/.gitbook/assets/images/editor/publish-button.png)
 
 ### Get stream credentials
 
 1.  Open the Admin UI in the scene (top‑right icon).
 
-    ![Admin icon](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/admin-icon.png)
+    ![Admin icon](/.gitbook/assets/images/editor/admin/admin-icon.png)
 2.  In the **Video** tab, switch to **Live** and click **Get Stream Key**.
 
-    ![Get stream key](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/get-key.png)
+    ![Get stream key](/.gitbook/assets/images/editor/admin/get-key.png)
 3.  Copy the **RTMP Server** and **Stream Key** into your streaming software.
 
-    ![OBS configuration](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/OBS-configuration.png)
+    ![OBS configuration](/.gitbook/assets/images/editor/admin/OBS-configuration.png)
 
 {% hint style="danger" %}
 **❗Warning**: Only one person can stream to a scene at a time. When finished streaming, click **Stop Streaming** in your software to free the channel.
@@ -45,7 +45,7 @@ Use the **Video Screen** smart item together with the **Scene Admin** smart item
 1. Start streaming from your software.
 2.  In the Admin UI, click **Activate** to show the stream in the scene.
 
-    ![Activate stream](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/activate.png)
+    ![Activate stream](/.gitbook/assets/images/editor/admin/activate.png)
 
 Notes:
 
@@ -56,7 +56,7 @@ Notes:
 
 Stream keys are generated per scene and are valid for 4 days (96 hours). A single live session can run up to 4 hours continuously.
 
-![Stream settings](https://github.com/decentraland/docs-creator/blob/main/images/editor/admin/live-stream-settings.png)
+![Stream settings](/.gitbook/assets/images/editor/admin/live-stream-settings.png)
 
 * Click **Reset Stream Key** to revoke the current key and issue a new one. Ongoing streams will stop.
 * Each scene has its own streaming address and key. Admins can share the key with external streamers.

@@ -4,7 +4,7 @@ description: How to install the scene editor.
 
 # Editor Installation
 
-![Header](https://github.com/decentraland/docs-creator/blob/main/images/editor/icon-creator-hub.png)
+![Header](/.gitbook/assets/images/editor/icon-creator-hub.png)
 
 Download the Creator Hub [HERE](https://decentraland.org/download/creator-hub).
 
@@ -16,21 +16,21 @@ You can also check for updates manually by clicking on the **Check for updates**
 
 1.  Open the wheel icon in the top-right of the screen
 
-    ![Header](https://github.com/decentraland/docs-creator/blob/main/images/editor/settings-icon.png)
+    ![Header](/.gitbook/assets/images/editor/settings-icon.png)
 2. Click **Check for updates**
 
 ### Editing code
 
 If you also plan on reading and editing code in your scene, you'll also need to install either:
 
-* ![Header](https://github.com/decentraland/docs-creator/blob/main/images/editor/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
-* ![Header](https://github.com/decentraland/docs-creator/blob/main/images/editor/cursor-icon.png) [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
+* ![Header](/.gitbook/assets/images/editor/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
+* ![Header](/.gitbook/assets/images/editor/cursor-icon.png) [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
 
 You may need to select your Code Editor in the settings of the Creator Hub. To do this,
 
 1.  Open the wheel icon in the top-right of the screen
 
-    ![Header](https://github.com/decentraland/docs-creator/blob/main/images/editor/settings-icon.png)
+    ![Header](/.gitbook/assets/images/editor/settings-icon.png)
 2. Under **Code editor of choice**, select your Code Editor. You may find your editor listed in the dropdown, or you may need to select **Chose from your device** to find it.
 
 ### Troubleshooting

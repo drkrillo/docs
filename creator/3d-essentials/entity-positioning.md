@@ -12,7 +12,7 @@ When adding an item to your scene via the \[Scene Editor]\(\{{< ref "/content/cr
 
 ### Code essentials
 
-![nested entities](https://github.com/decentraland/docs-creator/blob/main/images/media/ecs-simple-components-new.png)
+![nested entities](/.gitbook/assets/images/media/ecs-simple-components-new.png)
 
 ```ts
 // Create a new entity
@@ -427,7 +427,7 @@ The following anchor points are available on the `AvatarAnchorPointType` enum:
 **💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.
 {% endhint %}
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/avatar-attach-points.png)
+![](/.gitbook/assets/images/avatar-attach-points.png)
 
 Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
 

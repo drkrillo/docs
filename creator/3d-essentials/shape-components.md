@@ -10,7 +10,7 @@ Three dimensional scenes in Decentraland are based on the [Entity-Component](htt
 
 The rendered shape of an entity is determined by what component it uses.
 
-![nested entities](https://github.com/decentraland/docs-creator/blob/main/images/media/ecs-simple-components-new.png)
+![nested entities](/.gitbook/assets/images/media/ecs-simple-components-new.png)
 
 ### Use the Scene Editor
 

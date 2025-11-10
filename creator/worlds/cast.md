@@ -9,11 +9,11 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 1. Visit [Decentraland Cast](https://cast.decentraland.org/)
 2. Select Your World: Log in and select the world to stream to.\
    \
-   ![](https://github.com/decentraland/docs-creator/blob/main/images/worlds/world-selector.png)\
+   ![](/.gitbook/assets/images/worlds/world-selector.png)\
 
 3. Join the Session: Once the world is selected, a session will be joined.\
    \
-   ![](https://github.com/decentraland/docs-creator/blob/main/images/worlds/cast-ui.png)\
+   ![](/.gitbook/assets/images/worlds/cast-ui.png)\
 
 4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
 
@@ -21,9 +21,9 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 **📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
 {% endhint %}
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/worlds/screen-sharing-host.png)\
+![](/.gitbook/assets/images/worlds/screen-sharing-host.png)\
 5\. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.\
-![](https://github.com/decentraland/docs-creator/blob/main/images/worlds/screen-sharing-viewer.png)
+![](/.gitbook/assets/images/worlds/screen-sharing-viewer.png)
 
 ### Showcasing the stream in a world
 
@@ -45,4 +45,4 @@ Since the session in Decentraland Cast is the same LiveKit session within the wo
 
 It’s recommended for spectators to join the world (not the Decentraland Cast application) unless accessing via mobile phones. In Decentraland Cast, all users will be able to watch what is being streamed, the chat, and other people in the session but those lacking authorization will find their capabilities restricted. Specifically, they will not have permissions to broadcast any data, whether it be video, voice chat, or text messaging.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/worlds/cast-mobile.png)
+![](/.gitbook/assets/images/worlds/cast-mobile.png)

@@ -6,7 +6,7 @@ description: The available kinds of projects you can create in Decentraland.
 
 There are different types of content that you can make for Decentraland.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/content-types.png)
+![](/.gitbook/assets/images/content-types.png)
 
 ### Scenes
 

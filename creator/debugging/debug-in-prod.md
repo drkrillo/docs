@@ -47,7 +47,7 @@ When running Decentraland with the \`
 
 scene-console\`, you can open the console in three ways:
 
-* Click the ![Header](https://github.com/decentraland/docs-creator/blob/main/images/console-icon.png) icon on the top-right corner
+* Click the ![Header](/.gitbook/assets/images/console-icon.png) icon on the top-right corner
 * Press the **\`** key for a short console
 * Press Shift + **\`** to open a larger view of the console
 

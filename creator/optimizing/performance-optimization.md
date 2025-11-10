@@ -72,11 +72,11 @@ There are several ways in which your 3D models can be optimized to be lighter.
 
 When working with the \[Creator Hub]\(\{{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >\}}), you can see stats about the resources used by 3D models in your scene, and if they pass any of the \[scene limitations]\(\{{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >\}}).
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/editor/triangle-limit1.png)
+![](/.gitbook/assets/images/editor/triangle-limit1.png)
 
 You can expand this menu to view details.
 
-![](https://github.com/decentraland/docs-creator/blob/main/images/editor/triangle-limit2.png)
+![](/.gitbook/assets/images/editor/triangle-limit2.png)
 
 Here are some tips for improving on these metrics:
 
