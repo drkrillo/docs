@@ -56,7 +56,7 @@ There are also accessories that can be applied to different areas of an avatar. 
 * **Hat**
 * **Helmet**
 
-For a detailed description of each category, and how items within each category interact or hide one another, see **\[Creating Wearables]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}})**.
+For a detailed description of each category, and how items within each category interact or hide one another, see **[Creating Wearables](../wearables-and-emotes/wearables/creating-wearables.md)**.
 
 You can check some of the basic wearables here:
 

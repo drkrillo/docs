@@ -4,13 +4,13 @@ description: Learn how to set up a scene and configure its metadata.
 
 # Scene Metadata
 
-A scene is a Decentraland project that is spatially delimited, and is mapped to one or several parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a \[World]\(\{{< ref "/content/creator/worlds/about.md" >\}}), players can visit it via URL.
+A scene is a Decentraland project that is spatially delimited, and is mapped to one or several parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World](../worlds/about.md), players can visit it via URL.
 
-See \[Files in a scene]\(\{{< ref "/content/creator/sdk7/projects/scene-files.md" >\}}) for a list of what files are used in a scene project.
+See [Files in a scene](../sdk7/projects/scene-files.md) for a list of what files are used in a scene project.
 
 ### Metadata
 
-To edit a scene's metadata on the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}), open a scene and click the **pencil icon**.
+To edit a scene's metadata on the [Scene Editor](../scene-editor/get-started/about-editor.md), open a scene and click the **pencil icon**.
 
 ![](../images/editor/pencil-icon.png)
 
@@ -28,13 +28,13 @@ Alternatively, you can directly edit the `scene.json` file, where all of these v
 
 It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
 
-Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being \[teleported]\(\{{< ref "/content/creator/sdk7/interactivity/external-links.md" >\}}) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
+Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being [teleported](../sdk7/interactivity/external-links.md) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
 
 When players navigate the world and enter your scene, they are able to read the scene title from under the minimap.
 
 ![](../images/media/scene-name.png)
 
-Add this data via the scene menu in the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}).
+Add this data via the scene menu in the [Scene Editor](../scene-editor/get-started/about-editor.md).
 
 The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
 
@@ -135,7 +135,7 @@ There are certain features that can be disabled in specific scenes so that playe
 Currently, only the following feature is handled like this:
 
 * **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
-* **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only \[portable experiences]\(\{{< ref "/content/creator/sdk7/projects/portable-experiences.md" >\}}) but also \[smart wearables]\(\{{< ref "/content/creator/sdk7/projects/smart-wearables.md" >\}}). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+* **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences](../sdk7/projects/portable-experiences.md) but also [smart wearables](../sdk7/projects/smart-wearables.md). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
@@ -156,7 +156,7 @@ The **Spawn Settings** in the **Settings** tab define where players spawn when t
 
 Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
 
-The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to \[position an entity]\(\{{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >\}}).
+The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity](../sdk7/3d-essentials/entity-positioning.md).
 
 {% hint style="warning" %}
 **📔 Note**: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
@@ -307,7 +307,7 @@ This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spa
 The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
 
 {% hint style="warning" %}
-**📔 Note**: Permissions are only relevant in \[portable experiences]\(\{{< ref "/content/creator/sdk7/projects/portable-experiences.md" >\}}) and \[smart wearables]\(\{{< ref "/content/creator/sdk7/projects/smart-wearables.md" >\}}). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
+**📔 Note**: Permissions are only relevant in [portable experiences](../sdk7/projects/portable-experiences.md) and [smart wearables](../sdk7/projects/smart-wearables.md). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
 {% endhint %}
 
 The corresponding features are blocked from being used by the scene, unless the permission is requested in the `scene.json` file.
@@ -321,8 +321,8 @@ The corresponding features are blocked from being used by the scene, unless the 
 
 Currently, the following permissions are managed on smart wearables and portable experiences:
 
-* `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to \[moving a Player]\(\{{< ref "/content/creator/sdk7/interactivity/move-player.md" >\}})
-* `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to \[Playing emotes on the player avatar]\(\{{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md" >\}})
+* `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player](../sdk7/interactivity/move-player.md)
+* `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar](../sdk7/interactivity/trigger-emotes.md)
 * `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
 * `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
 * `USE_WEBSOCKET`: Refers to opening websocket connections with 3rd party servers
@@ -332,7 +332,7 @@ If a `requiredPermissions` property doesn't exist in your `scene.json` file, cre
 
 ### Scene parcels
 
-When \[deploying]\(\{{< ref "/content/creator/sdk7/publishing/publishing.md" >\}}) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
+When [deploying](../sdk7/publishing/publishing.md) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
 
 Edit this on the second tab of the scene menu in the Scene Editor.
 
@@ -472,7 +472,7 @@ executeTask(async () => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: `getSceneInformation()` needs to be run as an \[async function]\(\{{< ref "/content/creator/sdk7/programming-patterns/async-functions.md" >\}}), since the response may delay a fraction of a second or more in returning data. Do not use the deprecated `getSceneInfo()` function.
+**📔 Note**: `getSceneInformation()` needs to be run as an [async function](../sdk7/programming-patterns/async-functions.md), since the response may delay a fraction of a second or more in returning data. Do not use the deprecated `getSceneInfo()` function.
 {% endhint %}
 
 The object returned by `getSceneInformation()` includes the following:

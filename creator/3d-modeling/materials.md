@@ -153,7 +153,7 @@ In conclusion,
 
 ### Override glTF materials
 
-You can override the materials of a _glTF_ model by using the \[GltfNodeModifiers]\(\{{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >\}}) component in your scene's code. See \[Modify glTF materials]\(\{{< ref "/content/creator/sdk7/3d-essentials/materials.md#modify-gltf-materials" >\}}) for more details.
+You can override the materials of a _glTF_ model by using the [GltfNodeModifiers](../sdk7/3d-essentials/materials.md#modify-gltf-materials) component in your scene's code. See [Modify glTF materials](../sdk7/3d-essentials/materials.md#modify-gltf-materials) for more details.
 
 ### Best Practices For Materials
 

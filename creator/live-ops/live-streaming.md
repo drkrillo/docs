@@ -8,8 +8,8 @@ Use the **Video Screen** smart item together with the **Scene Admin** smart item
 
 ### Requirements
 
-* A scene with at least one \[Video Screen]\(\{{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >\}}) smart item.
-* The \[Scene Admin]\(\{{< ref "/content/creator/scene-editor/live-ops/scene-admin.md" >\}}) smart item linked to your video screens.
+* A scene with at least one [Video Screen](../scene-editor/interactivity/video-screen.md) smart item.
+* The [Scene Admin](../scene-editor/live-ops/scene-admin.md) smart item linked to your video screens.
 * Streaming software that can output to an RTMP endpoint (e.g. [OBS](https://obsproject.com/), [XSplit](https://www.xsplit.com/), [StreamYard](https://streamyard.com/)).
 
 ### Configure the scene
@@ -70,6 +70,6 @@ Stream keys are generated per scene and are valid for 4 days (96 hours). A singl
 
 You can also stream using third‑party infrastructure by configuring the Video Screen to **Video URL** and pasting a stream URL.
 
-* The URL must be `https` and CORS‑enabled by the provider (YouTube and similar sites won’t allow direct playback). See \[About External Streaming]\(\{{< ref "/content/creator/sdk7/media/video-playing.md#about-external-streaming" >\}}).
+* The URL must be `https` and CORS‑enabled by the provider (YouTube and similar sites won’t allow direct playback). See [About External Streaming](../sdk7/media/video-playing.md#about-external-streaming).
 * Managed providers include [Vimeo](https://vimeo.com/), [Livepeer Studio](https://livepeer.studio/) and [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback).
-* Tips for encoder setup: \[Setting up OBS for successful streaming]\(\{{< ref "/content/creator/sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming" >\}}).
+* Tips for encoder setup: [Setting up OBS for successful streaming](../sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming).

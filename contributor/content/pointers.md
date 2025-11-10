@@ -1,21 +1,21 @@
 
-Pointers are unique, case-insensitive strings that reference an active [entity]({{< relref "entities" >}}). Content servers can resolve these pointers to obtain the entity's identifier.
+Pointers are unique, case-insensitive strings that reference an active [entity](../entities.md). Content servers can resolve these pointers to obtain the entity's identifier.
 
-Remember that both [entities]({{< relref "entities" >}}) and their [files]({{< relref "filesystem" >}}) are immutable in the Decentraland content system, and their identifiers change when replacement versions are uploaded. Pointers, on the other hand, are stable references that persist across replacements. This is achieved by automatically redirecting the pointer to a new entity when the owner uploads a replacement.
+Remember that both [entities](../entities.md) and their [files](../filesystem.md) are immutable in the Decentraland content system, and their identifiers change when replacement versions are uploaded. Pointers, on the other hand, are stable references that persist across replacements. This is achieved by automatically redirecting the pointer to a new entity when the owner uploads a replacement.
 
-Multiple pointers can resolve to the same [entity]({{< relref "entities" >}}), as is often the case with [scenes]({{< relref "entity-types/scenes" >}}).
+Multiple pointers can resolve to the same [entity](../entities.md), as is often the case with [scenes](../entity-types/scenes.md).
 
-As you may gather, the most common use of pointers is obtaining the ID for the active version (i.e. latest replacement) of an [entity]({{< relref "entities" >}}), in order to download it.
+As you may gather, the most common use of pointers is obtaining the ID for the active version (i.e. latest replacement) of an [entity](../entities.md), in order to download it.
 
 ## Pointer Types
 
 There are 4 types of pointers that content servers can resolve to entities, each with its own syntax:
 
-- [Scene pointers]({{< relref "entity-types/scenes#pointers" >}}) are parcel coordinates, such as `"0,0"`.
-- [Profile pointers]({{< relref "entity-types/profiles#pointers" >}}) are the Ethereum address of the owner.
-- [Wearable pointers]({{< relref "entity-types/wearables#pointers" >}}) and [emote pointers]({{< relref "entity-types/emotes#pointers" >}}) are either [collection]({{< relref "collections" >}}) item or off-chain URNs.
-- [Store pointers]({{< relref "entity-types/stores#pointers" >}}) are off-chain URNs with the Ethereum address of the owner.
-- [Outfits pointers]({{< relref "entity-types/outfits#pointers" >}}) are the Ethereum address of the owner suffixed by `:outfits`.
+- [Scene pointers](../entity-types/scenes.md#pointers) are parcel coordinates, such as `"0,0"`.
+- [Profile pointers](../entity-types/profiles.md#pointers) are the Ethereum address of the owner.
+- [Wearable pointers](../entity-types/wearables.md#pointers) and [emote pointers](../entity-types/emotes.md#pointers) are either [collection](../collections.md) item or off-chain URNs.
+- [Store pointers](../entity-types/stores.md#pointers) are off-chain URNs with the Ethereum address of the owner.
+- [Outfits pointers](../entity-types/outfits.md#pointers) are the Ethereum address of the owner suffixed by `:outfits`.
 
 You can find more details in their specific sections.
 
@@ -47,4 +47,4 @@ curl https://peer.decentraland.org/content/entities/wearables/?pointer=0,0
 curl https://peer.decentraland.org/content/entities/profiles/?pointer=0xe2c2b80ca5ad868f4b30fa83cca2bf12cc95b4fe
 ```
 
-Note that, if you already know the entity's ID, you can [download the manifest]({{< relref "filesystem#downloading" >}}) file directly.
+Note that, if you already know the entity's ID, you can [download the manifest](../filesystem.md#downloading) file directly.

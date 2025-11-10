@@ -4,7 +4,7 @@ description: Learn how systems are used to update the scene state
 
 # Systems
 
-Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's \[components]\(\{{< ref "/content/creator/sdk7/architecture/entities-components.md" >\}}).
+Decentraland scenes rely on _systems_ to update any data over time, including information stored in each entity's [components](../sdk7/architecture/entities-components.md).
 
 ![](../images/media/ecs-big-picture.png)
 
@@ -12,7 +12,7 @@ _systems_ are what make scenes dynamic, they're functions that are executed peri
 
 The following example shows a basic system declaration:
 
-\{{< playground link="https://playground.decentraland.org/?code=CgovLyBDdWJlIGZhY3RvcnkKZnVuY3Rpb24gY3JlYXRlQ3ViZSh4OiBudW1iZXIsIHk6IG51bWJlciwgejogbnVtYmVyKTogRW50aXR5IHsKICBjb25zdCBtZXNoRW50aXR5ID0gZW5naW5lLmFkZEVudGl0eSgpCiAgVHJhbnNmb3JtLmNyZWF0ZShtZXNoRW50aXR5LCB7IHBvc2l0aW9uOiB7IHgsIHksIHogfSB9KQogIE1lc2hSZW5kZXJlci5jcmVhdGUobWVzaEVudGl0eSwgeyBtZXNoOiB7ICRjYXNlOiAnYm94JywgYm94OiB7IHV2czogW10gfSB9IH0pCiAgTWVzaENvbGxpZGVyLmNyZWF0ZShtZXNoRW50aXR5LCB7IG1lc2g6IHsgJGNhc2U6ICdib3gnLCBib3g6IHt9IH0gfSkKCiAgcmV0dXJuIG1lc2hFbnRpdHkKfQoKLy8gU3lzdGVtcwpmdW5jdGlvbiBjaXJjdWxhclN5c3RlbShkdDogbnVtYmVyKSB7CiAgY29uc29sZS5sb2coJ015IHN5c3RlbSBpcyBydW5uaW5nJykKICBmb3IgKGNvbnN0IFtlbnRpdHksIF9tZXNoUmVuZGVyZXIsIF90cmFuc2Zvcm1dIG9mIGVuZ2luZS5nZXRFbnRpdGllc1dpdGgoTWVzaFJlbmRlcmVyLCBUcmFuc2Zvcm0pKSB7CiAgICBjb25zdCBtdXRhYmxlVHJhbnNmb3JtID0gVHJhbnNmb3JtLmdldE11dGFibGUoZW50aXR5KQoKICAgIG11dGFibGVUcmFuc2Zvcm0ucm90YXRpb24gPSBRdWF0ZXJuaW9uLm11bHRpcGx5KAogICAgICBtdXRhYmxlVHJhbnNmb3JtLnJvdGF0aW9uLAogICAgICBRdWF0ZXJuaW9uLmZyb21BbmdsZUF4aXMoZHQgKiAxMCwgVmVjdG9yMy5VcCgpKQogICAgKQogIH0KfQoKLy8gSW5pdApjb25zdCBpbml0RW50aXR5ID0gY3JlYXRlQ3ViZSg4LCAxLCA4KQoKZW5naW5lLmFkZFN5c3RlbShjaXJjdWxhclN5c3RlbSkK" >\}}
+
 
 ```ts
 // Define the system
@@ -23,11 +23,11 @@ function mySystem() {
 engine.addSystem(mySystem)
 ```
 
-\{{< /playground >\}}
 
-The function in a system can perform anything you want. Typically, it will act upon all the entities that meet certain \[query]\(\{{< ref "/content/creator/sdk7/architecture/querying-components.md" >\}}), following certain logic to change the values stored in the entity's components.
 
-\{{< playground link="https://playground.decentraland.org/?code=CgovLyBDdWJlIGZhY3RvcnkKZnVuY3Rpb24gY3JlYXRlQ3ViZSh4OiBudW1iZXIsIHk6IG51bWJlciwgejogbnVtYmVyKTogRW50aXR5IHsKICBjb25zdCBtZXNoRW50aXR5ID0gZW5naW5lLmFkZEVudGl0eSgpCiAgVHJhbnNmb3JtLmNyZWF0ZShtZXNoRW50aXR5LCB7IHBvc2l0aW9uOiB7IHgsIHksIHogfSB9KQogIE1lc2hSZW5kZXJlci5jcmVhdGUobWVzaEVudGl0eSwgeyBtZXNoOiB7ICRjYXNlOiAnYm94JywgYm94OiB7IHV2czogW10gfSB9IH0pCiAgTWVzaENvbGxpZGVyLmNyZWF0ZShtZXNoRW50aXR5LCB7IG1lc2g6IHsgJGNhc2U6ICdib3gnLCBib3g6IHt9IH0gfSkKCiAgcmV0dXJuIG1lc2hFbnRpdHkKfQoKZnVuY3Rpb24gbW92ZVN5c3RlbShkdDogbnVtYmVyKSB7CgkvLyBpdGVyYXRlIG92ZXIgYWxsIGVudGlpdGllcyB3aXRoIGEgVHJhbnNmb3JtCiAgZm9yIChjb25zdCBbZW50aXR5XSBvZiBlbmdpbmUuZ2V0RW50aXRpZXNXaXRoKFRyYW5zZm9ybSwgTWVzaFJlbmRlcmVyKSkgewoKCS8vIGZldGNoIGEgbXV0YWJsZSBUcmFuc2Zvcm0gY29tcG9uZW50Cgljb25zdCB0cmFuc2Zvcm0gPSBUcmFuc2Zvcm0uZ2V0TXV0YWJsZShlbnRpdHkpCgoJLy8gdXBkYXRlIHRoZSBwb3NpdGlvbiB2YWx1ZQogIAl0cmFuc2Zvcm0ucG9zaXRpb24ueiArPSAwLjAxCiAgfQp9CgovLyBJbml0CmNvbnN0IGluaXRFbnRpdHkgPSBjcmVhdGVDdWJlKDgsIDEsIDgpCgplbmdpbmUuYWRkU3lzdGVtKG1vdmVTeXN0ZW0pCg%3D%3D" >\}}
+The function in a system can perform anything you want. Typically, it will act upon all the entities that meet certain [query](../sdk7/architecture/querying-components.md), following certain logic to change the values stored in the entity's components.
+
+
 
 ```ts
 function moveSystem(dt: number) {
@@ -45,7 +45,7 @@ function moveSystem(dt: number) {
 engine.addSystem(moveSystem)
 ```
 
-\{{< /playground >\}}
+
 
 In the example above, the system `MoveSystem` is a function that runs on each tick of the game loop, changing position of every entity in the scene that has a Transform.
 
@@ -96,7 +96,7 @@ For larger projects, we recommend that you keep system definitions on separate f
 
 A lot of times, your scene will have multiple entities of the same type that will have similar behaviors. For example many doors that can be opened, or many enemies that can attack the player. It makes sense to handle all of these similar entities in a single system, iterating over the list and performing the same checks on each.
 
-You don't want a system's function to iterate over _the entire_ set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can \[query components]\(\{{< ref "/content/creator/sdk7/architecture/querying-components.md" >\}}), to only iterate over the relevant entities.
+You don't want a system's function to iterate over _the entire_ set of entities in the scene, as this could be very costly in terms of processing power. To avoid this, you can [query components](../sdk7/architecture/querying-components.md), to only iterate over the relevant entities.
 
 For example, your scene can have a `PhysicsSystem` that calculates the effect of gravity over the entities of your scene. Some entities in your scene, such as trees, are not meant to ever move; so it would be smart to avoid calculating the effects of gravity on these. You can define a `HasPhysics` component to mark entities that could be affected by gravity, and then have `PhysicsSystem` only deal with the entities returned by this query.
 
@@ -147,7 +147,7 @@ Ideally, you should avoid your scene dropping frames, as it impacts the quality 
 
 The `dt` variable is useful when frame processing exceeds the default time. Assuming that the current frame will take as much time as the previous one, this information may be used to calculate how much to adjust a gradual change, so that the rate of change appears steady and in proportion to the lag between frames.
 
-See \[entity positioning]\(\{{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md" >\}}) for examples of how to use `dt` to make movement smoother.
+See [entity positioning](../sdk7/3d-essentials/entity-positioning.md) for examples of how to use `dt` to make movement smoother.
 
 ### Loop at a timed interval
 
@@ -167,7 +167,7 @@ function LoopSystem(dt: number) {
 engine.addSystem(LoopSystem)
 ```
 
-For more complex use cases, where there may be multiple delays and loops being created dynamically, it may be worth defining a custom component to store an individual timer value for each entity. See \[Custom components]\(\{{< ref "/content/creator/sdk7/architecture/custom-components.md" >\}}).
+For more complex use cases, where there may be multiple delays and loops being created dynamically, it may be worth defining a custom component to store an individual timer value for each entity. See [Custom components](../sdk7/architecture/custom-components.md).
 
 ### System execution order
 

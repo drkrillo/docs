@@ -16,21 +16,21 @@ _Components_ define the traits of an entity. For example, a `Transform` componen
 
 If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
 
-In the \[Scene editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}), you can view the components that belong to an entity by selecting it.
+In the [Scene editor](../scene-editor/get-started/about-editor.md), you can view the components that belong to an entity by selecting it.
 
 ![](../images/editor/components-example.png)
 
 {% hint style="warning" %}
-**📔 Note**: In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of \[data oriented programming]\(\{{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >\}}) and can help in the scene's performance.
+**📔 Note**: In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming](../sdk7/architecture/data-oriented-programming.md) and can help in the scene's performance.
 {% endhint %}
 
 ![](../images/media/ecs-components-new.png)
 
 Components like `Transform`, `Material` or any of the _shape_ components are closely tied in with the rendering of the scene. If the values in these components change, that alone is enough for the engine to change how the scene is rendered in the next frame.
 
-The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from \[systems]\(\{{< ref "/content/creator/sdk7/architecture/systems.md">\}}) are executed and when.
+The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from [systems](../sdk7/architecture/systems.md) are executed and when.
 
-Components are meant to store data about their referenced entity. They can only store this data, they can't modify this data themselves. All changes to the values in the components are carried out by \[Systems]\(\{{< ref "/content/creator/sdk7/architecture/systems.md" >\}}). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
+Components are meant to store data about their referenced entity. They can only store this data, they can't modify this data themselves. All changes to the values in the components are carried out by [Systems](../sdk7/architecture/systems.md). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
 
 ### Syntax for entities and components
 
@@ -105,7 +105,7 @@ export function main() {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See \[Make invisible]\(\{{< ref "/content/creator/sdk7/3d-essentials/shape-components.md#make-invisible" >\}})
+**💡 Tip**: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible](../sdk7/3d-essentials/shape-components.md#make-invisible)
 {% endhint %}
 
 #### Removing entities behind the scenes
@@ -161,10 +161,10 @@ mutableChildTransform.parent = engine.RootEntity
 ```
 
 {% hint style="warning" %}
-**📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See \[Parented entities]\(\{{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#parented-entities" >\}})
+**📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities](../sdk7/networking/serverless-multiplayer.md#parented-entities)
 {% endhint %}
 
-In the \[Scene editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
+In the [Scene editor](../scene-editor/get-started/about-editor.md), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
 
 ![](../images/editor/entity-tree-example.png)
 
@@ -181,11 +181,11 @@ Transform.get(1000 as Entity)
 **📔 Note**: The entity ids between _0_ and _511_ are reserved by the engine for fixed entities, like the player avatar, the base scene, etc.
 {% endhint %}
 
-For example, if a player's click or a \[raycast]\(\{{< ref "/content/creator/sdk7/interactivity/raycasting.md" >\}}) hits an entity, this will return the id of the hit entity, and you can use the command above to fetch the Transform component of the entity that matches that id. You can also fetch any other component of that entity in the same way.
+For example, if a player's click or a [raycast](../sdk7/interactivity/raycasting.md) hits an entity, this will return the id of the hit entity, and you can use the command above to fetch the Transform component of the entity that matches that id. You can also fetch any other component of that entity in the same way.
 
 ### Get an entity by name
 
-When adding entities via drag-and-drop in the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
+When adding entities via drag-and-drop in the [Scene Editor](../scene-editor/get-started/about-editor.md), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
 
 ```ts
 function main() {
@@ -194,7 +194,7 @@ function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}) UI may not yet be instanced.
+**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the [Scene Editor](../scene-editor/get-started/about-editor.md) UI may not yet be instanced.
 {% endhint %}
 
 You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
@@ -269,10 +269,10 @@ The `get()` function fetches a read-only reference to the component. You cannot 
 
 If you wish to change the values of the component, use the `getMutable()` function instead. If you change the values in the mutable version of the component, you're directly affecting the entity that component belongs to.
 
-See \[mutable data]\(\{{< ref "/content/creator/sdk7/programming-patterns/mutable-data.md" >\}}) for more details.
+See [mutable data](../sdk7/programming-patterns/mutable-data.md) for more details.
 
 {% hint style="warning" %}
-**📔 Note**: Only use `getMutable()` if you're actually going to make changes to the component's values. Otherwise, always use `get()`. This practice follows the principles of \[data oriented programming]\(\{{< ref "/content/creator/sdk7/architecture/data-oriented-programming.md" >\}}), and can significantly help in the scene's performance.
+**📔 Note**: Only use `getMutable()` if you're actually going to make changes to the component's values. Otherwise, always use `get()`. This practice follows the principles of [data oriented programming](../sdk7/architecture/data-oriented-programming.md), and can significantly help in the scene's performance.
 {% endhint %}
 
 ```ts
@@ -327,7 +327,7 @@ const hasTransform = Transform.has(myEntity)
 ```
 
 {% hint style="info" %}
-**💡 Tip**: You can also \[query components]\(\{{< ref "/content/creator/sdk7/architecture/querying-components.md" >\}}) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient.
+**💡 Tip**: You can also [query components](../sdk7/architecture/querying-components.md) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient.
 {% endhint %}
 
 ### Check for changes on a component
@@ -355,7 +355,7 @@ VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
 If the component is removed from the entity, then the function is called with an input of `undefined`.
 
 {% hint style="warning" %}
-**📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with \[custom comopnents]\(\{{< ref "/content/creator/sdk7/architecture/custom-components.md" >\}}) defined by the creator.
+**📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with [custom comopnents](../sdk7/architecture/custom-components.md) defined by the creator.
 {% endhint %}
 
 ### Reserved entities
@@ -376,8 +376,8 @@ All entities in the scene are children of the `engine.RootEntity`, directly or i
 
 ### The player entity
 
-The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see \[user data]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md" >\}}). You can also modify this Transform to move the player, see \[move player]\(\{{< ref "/content/creator/sdk7/interactivity/move-player.md" >\}}).
+The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data](../sdk7/interactivity/user-data.md). You can also modify this Transform to move the player, see [move player](../sdk7/interactivity/move-player.md).
 
 ### The camera entity
 
-The `engine.CameraEntity` entity represents the player's camera. Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see \[camera mode]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">\}}).
+The `engine.CameraEntity` entity represents the player's camera. Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).

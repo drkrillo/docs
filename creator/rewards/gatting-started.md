@@ -4,7 +4,7 @@ This page will guide you through the process of using the Rewards system to ince
 
 ### Prerequisites
 
-Before you begin using the Rewards system, ensure that you have a collection \[approved and ready for minting]\(\{{< ref "/creator/wearables-and-emotes/publishing/publishing-collections.md" >\}}). This collection should contain the items you plan to offer as rewards in your campaign.
+Before you begin using the Rewards system, ensure that you have a collection [approved and ready for minting](..//creator/wearables-and-emotes/publishing/publishing-collections.md). This collection should contain the items you plan to offer as rewards in your campaign.
 
 ### Create your first campaign
 
@@ -38,7 +38,7 @@ After creating your campaign, there are a few more steps to complete before you 
 
 To mint items, you'll need to cover the transaction fees by adding a supply of MATIC tokens to your campaign's address. You can find this address listed below the campaign name.
 
-To transfer MATIC from your wallet, first, ensure you're connected to the same network as the campaign. Then, copy the campaign address and send the desired amount of MATIC to it. If you don't have any MATIC in your wallet, you can follow \[this guide]\(\{{< ref "/content/player/blockchain-integration/transactions-in-polygon.md" >\}}#where-can-i-get-matic-to-pay-for-transaction-fees) to acquire some.
+To transfer MATIC from your wallet, first, ensure you're connected to the same network as the campaign. Then, copy the campaign address and send the desired amount of MATIC to it. If you don't have any MATIC in your wallet, you can follow \[this guide]\([See documentation](../README.md)#where-can-i-get-matic-to-pay-for-transaction-fees) to acquire some.
 
 {% hint style="info" %}
 **💡 Tip**: For campaigns running on the test **AMOY** network, you can obtain some MATIC from [this faucet](https://faucet.polygon.technology/).
@@ -52,7 +52,7 @@ When you create a new campaign, it starts with an empty inventory. To begin deli
 
 ![](../images/rewards/without-supply.png)
 
-* **Grant Minting Permissions**: First, authorize the campaign to mint items. Follow \[this guide]\(\{{< ref "/content/creator/wearables-and-emotes/publishing/publishing-collections.md" >\}}#adding-minters-to-the-collection) and use the campaign address (located below the campaign name) as the minter's address. After submitting, wait for the transaction to be confirmed.
+* **Grant Minting Permissions**: First, authorize the campaign to mint items. Follow \[this guide]\([See documentation](../README.md)#adding-minters-to-the-collection) and use the campaign address (located below the campaign name) as the minter's address. After submitting, wait for the transaction to be confirmed.
 *   **Add Items to the Campaign Stock**: Once minting permissions are granted, you can start adding items to the campaign's inventory.
 
     a) Click on the **Add Supply** button to view all collections for which the campaign has minting permissions.
@@ -97,7 +97,7 @@ By default your campaign is inactive. This prevents the rewards service from ass
 **📔 Note**: If an active campaign is set to inactive, any pending rewards will still be sent. However, new claims or claims that need to be retried for some reason will be prevented.
 {% endhint %}
 
-**Now you are ready to start minting wearables/emotes using the \[API]\(\{{< ref "/content/contributor/land/api.md">\}})**
+**Now you are ready to start minting wearables/emotes using the [API](../land/api.md)**
 
 #### Manage funds
 

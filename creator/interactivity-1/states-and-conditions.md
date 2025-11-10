@@ -4,7 +4,7 @@ description: Managing item states and conditional logic
 
 # States and Conditions
 
-\{{< youtube wm8ZD2kSyKA >\}}
+
 
 ### Conditional logic
 
@@ -79,7 +79,7 @@ To make an action occur only once when passing a threshold, and not repeat on ev
 
 ### See also
 
-* \[Smart items - Basics]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}})
-* \[Smart items - Advanced]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >\}})
-* \[Making any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}})
-* \[Combine with code]\(\{{< ref "/content/creator/scene-editor/code/overview.md" >\}})
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [Combine with code](../scene-editor/code/overview.md)

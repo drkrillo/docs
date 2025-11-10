@@ -19,7 +19,7 @@ Refer to the [API SPEC](https://decentraland.org/rewards/docs/api/) for complete
 
 ## Assigning Wearables or Emotes reward
 
-Once your \[campaign is configured]\(\{{< ref "/content/creator/rewards/gatting-started.md" >\}}) you are ready to start minting wearables or emotes rewards for your users by using the Rewards Server API.
+Once your [campaign is configured](../rewards/gatting-started.md) you are ready to start minting wearables or emotes rewards for your users by using the Rewards Server API.
 
 Make sure you have your dispenser key (a.k.a campaign key). Use the key to send the `fetch` request to the rewards API:
 
@@ -170,7 +170,7 @@ export async function main() {
 
 ### Beneficiary Signature
 
-If your users interact with the dispenser directly within your scene, consider enabling the **Beneficiary Signature** flag on your dispenser. This flag requires users to sign the request using the \[@decentraland/SignedFetch]\(\{{< ref "/contributor/runtime/modules/signed\_fetch.md" >\}}) module, ensuring that the user requesting the wearable or emote owns the associated Ethereum address.
+If your users interact with the dispenser directly within your scene, consider enabling the **Beneficiary Signature** flag on your dispenser. This flag requires users to sign the request using the [@decentraland/SignedFetch](..//contributor/runtime/modules/signed\_fetch.md) module, ensuring that the user requesting the wearable or emote owns the associated Ethereum address.
 
 For dispensers with this flag enabled, you'll need to make a slight modification to your code, as shown below:
 

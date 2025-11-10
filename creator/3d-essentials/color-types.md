@@ -4,7 +4,7 @@ description: How to define color values
 
 # Color Types
 
-Color values can passed as properties of different components, like \[Materials]\(\{{< ref "/content/creator/sdk7/3d-essentials/materials.md" >\}}), \[Text]\(\{{< ref "/content/creator/sdk7/3d-essentials/text.md" >\}}) or different properties of \[UI entities]\(\{{< ref "/content/creator/sdk7/2d-ui/onscreen-ui.md" >\}}). Color values can either be of type `Color3` or `Color4`.
+Color values can passed as properties of different components, like [Materials](../sdk7/3d-essentials/materials.md), [Text](../sdk7/3d-essentials/text.md) or different properties of [UI entities](../sdk7/2d-ui/onscreen-ui.md). Color values can either be of type `Color3` or `Color4`.
 
 `Color3` contains three properties, _red_, _green_, and _blue_. `Color4` has those same three plus `alpha`, for transparency values.
 
@@ -71,7 +71,7 @@ TextShape.create(myEntity, {
 
 > `import { Color3, Color4 } from "@dcl/sdk/math"`
 
-See \[Imports]\(\{{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >\}}) for how to handle these easily.
+See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
 {% endhint %}
 
 ### Transparency

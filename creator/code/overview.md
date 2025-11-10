@@ -4,13 +4,13 @@ description: Combine content created on the Scene Editor with the power of writi
 
 # Overview
 
-\{{< youtube 55H37rygD7M >\}}
+
 
 The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
 For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-See \[Reference items in code]\(\{{< ref "/content/creator/scene-editor/code/reference-items.md" >\}}) for how to fetch items by name or by tags from your code.
+See [Reference items in code](../scene-editor/code/reference-items.md) for how to fetch items by name or by tags from your code.
 
 ### Editing code
 
@@ -81,10 +81,10 @@ If you're not familiar with how to do this, see [Quickstart for repositories](ht
 
 ### See also
 
-* \[Smart items - Basics]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}})
-* \[Smart items - Advanced]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items-advanced.md" >\}})
-* \[States and conditions]\(\{{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >\}})
-* \[Making any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}})
-* \[SDK Quick start]\(\{{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >\}}): follow this mini tutorial for a quick crash course.
-* \[Development workflow]\(\{{< ref "/content/creator/sdk7/getting-started/dev-workflow.md" >\}}): read this to understand scene creation from end to end.
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [States and conditions](../scene-editor/interactivity/states-and-conditions.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [SDK Quick start](../sdk7/getting-started/sdk-101.md): follow this mini tutorial for a quick crash course.
+* [Development workflow](../sdk7/getting-started/dev-workflow.md): read this to understand scene creation from end to end.
 * [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.

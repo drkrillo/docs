@@ -12,7 +12,7 @@ Portable experiences are essentially scenes that are not constrained to parcels 
 The **Creator Hub** doesn't currently support creating Portable Experience projects.
 {% endhint %}
 
-Smart Wearables are a kind of portable experience that is associated to a wearable, and activated based on if the player is using that wearable. This document doesn't cover those, see \[smart wearables]\(\{{< ref "/content/creator/sdk7/projects/smart-wearables.md" >\}}) for more details.
+Smart Wearables are a kind of portable experience that is associated to a wearable, and activated based on if the player is using that wearable. This document doesn't cover those, see [smart wearables](../sdk7/projects/smart-wearables.md) for more details.
 
 ### Getting started
 
@@ -84,7 +84,7 @@ executeTask(async () => {
 
 You might be worried about preventing the use of portable experiences in your scene, since these could give players abilities that could be considered cheating in a competitive game. For example, in a platform game, a player that wears a jetpack has a very unfair advantage over others.
 
-The simplest approach is to add a flag to block all portable experiences entirely on your scene at any time, or prevent their UIs from showing. See \[feature toggles]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#feature-toggles" >\}}). This also applies to portable experiences linked to smart wearables.
+The simplest approach is to add a flag to block all portable experiences entirely on your scene at any time, or prevent their UIs from showing. See [feature toggles](../sdk7/projects/scene-metadata.md#feature-toggles). This also applies to portable experiences linked to smart wearables.
 
 Another approach is to query to view a player's portable experiences, and take action accordingly.
 
@@ -115,7 +115,7 @@ An alternative to terminating portable experiences is to change the behavior of 
 
 To prevent abuse, certain features aren't permitted on portable experiences by default, and require adding a permission flag.
 
-See \[Required permissions]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">\}}) for more details.
+See [Required permissions](../sdk7/projects/scene-metadata.md#required-permissions) for more details.
 
 {% hint style="warning" %}
 **📔 Note**: Players are notified about the required flags by the portable experience. Avoid adding permissions you don't need, since it can make players distrust your portable experience and reject it.
@@ -123,13 +123,13 @@ See \[Required permissions]\(\{{< ref "/content/creator/sdk7/projects/scene-meta
 
 ### Limitations
 
-Portable experiences only run for the player that activates it. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the portable experience, even \[custom avatar animations]\(\{{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">\}}) uploaded as part of the portable experience's files.
+Portable experiences only run for the player that activates it. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the portable experience, even [custom avatar animations](../sdk7/interactivity/trigger-emotes.md#custom-animations) uploaded as part of the portable experience's files.
 
 ### Tips
 
 * When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
 * To react to nearby players:
-  * See \[Fetch all players]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#fetch-all-players" >\}}) to know how to obtain data from other players in the surroundings.
+  * See [Fetch all players](../sdk7/interactivity/user-data.md#fetch-all-players) to know how to obtain data from other players in the surroundings.
   * Be mindful that the loading of the portable experience, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the portable experience already on, it’s likely that your portable experience will load before other players do. On the other hand, tf the player first loads into a scene and then activates the portable experience, it’s likely that other players will already be loaded by the time the portable experience starts running.
   * For multiplayer experiences, wait till the player is connected to an island inside their realm. Run `getRealm()` and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
 * To interact with surrounding scenes:

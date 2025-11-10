@@ -50,19 +50,19 @@ Users have various options to publish content on their World. As a prerequisite 
 
 The Creator Hub is the go-to option for creating Decentraland Scenes. It can be used to create no-code scenes via an easy drag-and-drop interface, or you can also combine it with Visual Studio Code to write code freely.
 
-See \[Publish Scene]\(\{{< ref "/content/creator/scene-editor/publish/publish-scene.md" >\}}) for more details.
+See [Publish Scene](../scene-editor/publish/publish-scene.md) for more details.
 
 #### 2. Using the Web Editor (no-code)
 
-The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. \[Smart items]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}}) can also be used for player interaction once the scene is deployed.
+The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. [Smart items](../scene-editor/interactivity/smart-items.md) can also be used for player interaction once the scene is deployed.
 
 The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to place for visualizing your allocated space and monitoring how much is consumed by each Decentraland NAME or ENS Domain. Additionally, users can easily undeploy scenes to release storage space, view when their storage capacity is exceeded, and access comprehensive information about their Worlds, whether they are hosted on Decentraland NAMES or ENS Domains.
 
 #### 3. Using the SDK and Editor
 
-If you wish to know more about how to create a scene, check out the \[Decentraland SDK]\(\{{< ref "/content/creator/sdk7/getting-started/sdk-101.md" >\}}) documentation.
+If you wish to know more about how to create a scene, check out the [Decentraland SDK](../sdk7/getting-started/sdk-101.md) documentation.
 
-If you are a Content Creator, you may be already familiar with how the \[publishing of a scene]\(\{{< ref "/content/creator/sdk7/publishing/publishing.md" >\}}) works, the experience is quite similar, but with a small caveat:
+If you are a Content Creator, you may be already familiar with how the [publishing of a scene](../sdk7/publishing/publishing.md) works, the experience is quite similar, but with a small caveat:
 
 You need to specify under what **name** your deployment is to be made. Add the following section in your `scene.json`:
 

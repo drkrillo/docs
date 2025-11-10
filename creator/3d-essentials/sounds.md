@@ -16,11 +16,11 @@ _.wav_ files are also supported but not generally recommended as they are signif
 
 ### Play sounds
 
-The easiest way to play a sound is to add an **Audio Source** component visually on the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}) and set it to **Start Playing** and **Loop**. See \[Add Components]\(\{{< ref "/content/creator/scene-editor/build/components.md#add-components" >\}}).
+The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor](../scene-editor/get-started/about-editor.md) and set it to **Start Playing** and **Loop**. See [Add Components](../scene-editor/build/components.md#add-components).
 
 ![](../images/editor/AudioSource-component.png)
 
-You can also trigger the playing of a sound in a no-code way via **Actions**, see \[Make any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}}).
+You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md).
 
 To play a sound via code, use the `AudioSource.playSound` function.
 
@@ -39,7 +39,7 @@ The sound file must be inside the project folder. In the example above, the audi
 
 > `import { AudioSource } from "@dcl/sdk/ecs"`
 
-See \[Imports]\(\{{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >\}}) for how to handle these easily.
+See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
 {% endhint %}
 
 The `AudioSource.playSound()` function takes the following arguments:
@@ -185,4 +185,4 @@ You can also achieve this by explicitly set the `currentTime` property on an `Au
 
 ### Audio streaming
 
-See \[Audio streaming]\(\{{< ref "/content/creator/sdk7/media/audio-streaming.md" >\}}) to learn how you can play a live audio stream from an external source.
+See [Audio streaming](../sdk7/media/audio-streaming.md) to learn how you can play a live audio stream from an external source.

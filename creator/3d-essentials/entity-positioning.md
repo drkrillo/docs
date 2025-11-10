@@ -8,7 +8,7 @@ You can set the _position_, _rotation_ and _scale_ of any entity by using the `T
 
 ### Use the Scene Editor
 
-When adding an item to your scene via the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
+When adding an item to your scene via the [Scene Editor](../scene-editor/get-started/about-editor.md), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
 
 ### Code essentials
 
@@ -29,19 +29,19 @@ Transform.create(ball, {
 })
 ```
 
-To move, rotate or resize an entity in your scene over a period of time, change the values on this component incrementally, frame by frame. See \[Move entities]\(\{{< ref "/content/creator/sdk7/3d-essentials/move-entities.md" >\}}) for more details and best practices.
+To move, rotate or resize an entity in your scene over a period of time, change the values on this component incrementally, frame by frame. See [Move entities](../sdk7/3d-essentials/move-entities.md) for more details and best practices.
 
 {% hint style="warning" %}
 **📔 Note**: `Vector3` and `Quaternion` must be imported via
 
 > `import { Vector3, Quaternion } from "@dcl/sdk/math"`
 
-See \[Imports]\(\{{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >\}}) for how to handle these easily.
+See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
 {% endhint %}
 
 ### Position
 
-`position` is a _3D vector_, it sets the position of the entity's center on all three axes, _x_, _y_, and _z_. See \[Geometry types]\(\{{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >\}}) for more details.
+`position` is a _3D vector_, it sets the position of the entity's center on all three axes, _x_, _y_, and _z_. See [Geometry types](../sdk7/3d-essentials/special-types.md) for more details.
 
 ```ts
 // Create a new entity
@@ -84,11 +84,11 @@ When setting a position, keep the following considerations in mind:
 *   Every entity in your scene must be positioned within the bounds of the parcels it occupies at all times. If an entity leaves these boundaries, it will raise an error.
 
     > Tip: When viewing a scene in preview mode, entities that are out of bounds are highlighted in _red_.
-* Your scene is also limited in height. The more parcels that make up the scene, the higher you're allowed to build. See \[scene limitations]\(\{{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >\}}) for more details.
+* Your scene is also limited in height. The more parcels that make up the scene, the higher you're allowed to build. See [scene limitations](../sdk7/optimizing/scene-limitations.md) for more details.
 
 ### Rotation
 
-`rotation` is stored as a [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), a system of four numbers, _x_, _y_, _z_ and _w_. Each of these numbers goes from 0 to 1. See \[Geometry types]\(\{{< ref "/content/creator/sdk7/3d-essentials/special-types.md" >\}}) for more details.
+`rotation` is stored as a [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), a system of four numbers, _x_, _y_, _z_ and _w_. Each of these numbers goes from 0 to 1. See [Geometry types](../sdk7/3d-essentials/special-types.md) for more details.
 
 ```ts
 // Create a new entity
@@ -304,7 +304,7 @@ There are three methods to attach an entity to the player:
 * Make it a child of the to the **Camera Entity**
 * Use the **AvatarAttach component**
 
-The simplest way to attach an entity to the avatar is to set the parent as the \[reserved entity]\(\{{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >\}}) `engine.PlayerEntity`. The entity will then move together with the player's position.
+The simplest way to attach an entity to the avatar is to set the parent as the [reserved entity](../sdk7/architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`. The entity will then move together with the player's position.
 
 ```ts
 let childEntity = engine.addEntity()
@@ -318,7 +318,7 @@ Transform.create(childEntity, {
 })
 ```
 
-You can also set an entity to the \[reserved entity]\(\{{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >\}}) `engine.CameraEntity`. When using the camera entity in first person, the attached entity will follow the camera's movements. This is ideal to keep something always in view, for example for keeping the 3D model of the gun always in view, even when the camera points up.
+You can also set an entity to the [reserved entity](../sdk7/architecture/entities-components.md#reserved-entities) `engine.CameraEntity`. When using the camera entity in first person, the attached entity will follow the camera's movements. This is ideal to keep something always in view, for example for keeping the 3D model of the gun always in view, even when the camera points up.
 
 ```ts
 let childEntity = engine.addEntity()
@@ -461,14 +461,14 @@ Transform.create(childEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See \[Collision layers]\(\{{< ref "/content/creator/sdk7/3d-essentials/colliders.md#collision-layers" >\}})
+**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See [Collision layers](../sdk7/3d-essentials/colliders.md#collision-layers)
 {% endhint %}
 
 #### Attach to other players
 
 You can use the `AvatarAttach` component to attach an entity to another player. To do this, you must know the player's id.
 
-To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are \[various ways]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >\}}) to obtain this data.
+To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways](../sdk7/interactivity/user-data.md#get-player-data) to obtain this data.
 
 {% hint style="warning" %}
 **📔 Note**: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
@@ -499,7 +499,7 @@ executeTask(async () => {
     })
 ```
 
-See other ways to fetch other user's IDs in \[Get Player Data]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data" >\}}).
+See other ways to fetch other user's IDs in [Get Player Data](../sdk7/interactivity/user-data.md#get-player-data).
 
 ### Scene boundaries
 
@@ -512,5 +512,5 @@ The position of entities in your scene is constantly being checked as they move,
 A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
 
 {% hint style="info" %}
-**💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See \[Scene metadata]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md" >\}}) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+**💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata](../sdk7/projects/scene-metadata.md) for instructions. Once added, you should see the grid extend to cover the additional parcels.
 {% endhint %}

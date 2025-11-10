@@ -4,7 +4,7 @@ Decentraland Cast is a specialized tool tailored for world owners and other auth
 
 ### Streaming
 
-Streaming through Decentraland Cast is an exclusive feature available only to World owners or those with streaming rights for a World scene. For more details on these rights, refer to the \[Access Contol Lists]\(\{{< ref "/creator/worlds/about.md#access-control-lists-acl" >\}}) section.
+Streaming through Decentraland Cast is an exclusive feature available only to World owners or those with streaming rights for a World scene. For more details on these rights, refer to the [Access Contol Lists](..//creator/worlds/about.md#access-control-lists-acl) section.
 
 1. Visit [Decentraland Cast](https://cast.decentraland.org/)
 2. Select Your World: Log in and select the world to stream to.\
@@ -27,7 +27,7 @@ Streaming through Decentraland Cast is an exclusive feature available only to Wo
 
 ### Showcasing the stream in a world
 
-1. You must first deploy a scene in the world with the ability to handle video streams. To delve deeper into the specifics of this integration, please consult the \[Play Videos]\(\{{< ref "/content/creator/sdk7/media/video-playing.md#streaming-using-decentraland-cast" >\}}) SDK documentation.
+1. You must first deploy a scene in the world with the ability to handle video streams. To delve deeper into the specifics of this integration, please consult the [Play Videos](../sdk7/media/video-playing.md#streaming-using-decentraland-cast) SDK documentation.
 
 {% hint style="warning" %}
 **💡 Note**: To get started quickly, download the Decentraland Cast example scene and modify the world URL in the scene.json file to match your specific world.

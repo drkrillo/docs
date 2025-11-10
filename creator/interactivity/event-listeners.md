@@ -6,7 +6,7 @@ description: Events that the scene can track, related to player actions and scen
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
-For button and click events performed by the player, see \[Button events]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/click-events.md" >\}}).
+For button and click events performed by the player, see [Button events](../sdk7/interactivity/button-events/click-events.md).
 
 ### Player enters or leaves scene
 
@@ -30,7 +30,7 @@ export function main() {
 }
 ```
 
-On the `onEnterScene` event, the function can access all of the data returned by \[get player data]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#get-player-data">\}}) via the `player` property. On the `onLeaveScene` event, the function only has access to the player's ID.
+On the `onEnterScene` event, the function can access all of the data returned by [get player data](../sdk7/interactivity/user-data.md#get-player-data) via the `player` property. On the `onLeaveScene` event, the function only has access to the player's ID.
 
 #### Only current player
 
@@ -98,7 +98,7 @@ export function main() {
 }
 ```
 
-See \[Check player's camera mode]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode">\}}).
+See [Check player's camera mode](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).
 
 ### Player plays animation
 

@@ -35,4 +35,4 @@ You may need to select your Code Editor in the settings of the Creator Hub. To d
 
 ### Troubleshooting
 
-If you run into issues, see the \[troubleshooting]\(\{{< ref "/content/creator/sdk7/debugging/troubleshooting.md" >\}}) section.
+If you run into issues, see the [troubleshooting](../sdk7/debugging/troubleshooting.md) section.

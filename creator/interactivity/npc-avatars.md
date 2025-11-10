@@ -34,7 +34,7 @@ The following optional fields are also available:
 * `hairColor`: _Color3_ for the hair color (any color is valid)
 * `talking`: If _true_, it displays a green set of bars next to the name, like when players use voice chat in-world.
 * {% hint style="info" %}
-  **💡 Tip**: See \[color types]\(\{{< ref "/content/creator/sdk7/3d-essentials/color-types.md" >\}}) for more details on how to set colors.
+  **💡 Tip**: See [color types](../sdk7/3d-essentials/color-types.md) for more details on how to set colors.
   {% endhint %}
 
 {% hint style="warning" %}
@@ -42,11 +42,11 @@ The following optional fields are also available:
 
 > `import { AvatarShape } from "@dcl/sdk/ecs"`
 
-See \[Imports]\(\{{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >\}}) for how to handle these easily.
+See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: The URN fields must follow the same format used for \[NFTShapes]\(\{{< ref "/content/creator/sdk7/media/display-a-certified-nft.md" >\}}): `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
+**📔 Note**: The URN fields must follow the same format used for [NFTShapes](../sdk7/media/display-a-certified-nft.md): `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 {% endhint %}
 
 ### Animations
@@ -69,7 +69,7 @@ Transform.create(myAvatar, {
 })
 ```
 
-The `expressionTriggerId` field supports all \[default animations]\(\{{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#default-animations">\}}), as well as custom animations \[from a scene file]\(\{{< ref "/content/creator/sdk7/interactivity/trigger-emotes.md#custom-animations">\}}), and even URNs from emotes that are published to the marketplace.
+The `expressionTriggerId` field supports all [default animations](../sdk7/interactivity/trigger-emotes.md#default-animations), as well as custom animations [from a scene file](../sdk7/interactivity/trigger-emotes.md#custom-animations), and even URNs from emotes that are published to the marketplace.
 
 #### Looping Animations
 
@@ -199,4 +199,4 @@ AvatarAttach.create(attachedEntity, {
 })
 ```
 
-Learn more about the `AvatarAttach` component \[here]\(\{{< ref "/content/creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar">\}}).
+Learn more about the `AvatarAttach` component [here](../sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar).

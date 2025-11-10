@@ -8,7 +8,7 @@ description: How to publish my project?
 
 Make sure of the following:
 
-* Your scene complies with all of the \[scene limitations]\(\{{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >\}}). Most of these are validated each time you run a preview of your scene.
+* Your scene complies with all of the [scene limitations](../sdk7/optimizing/scene-limitations.md). Most of these are validated each time you run a preview of your scene.
 * You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
 *   You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
 
@@ -34,23 +34,23 @@ Open your scene's _scene.json_ file and complete the following data:
 * **Parcels**: The coordinates of the parcels that will be occupied by your scene
 * **Base**: The coordinates of the parcel that will be considered the \[0,0] coordinate of the scene. If your scene has multiple parcels, it should be the bottom-left (South-West) parcel.
 * **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
-* **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. \[See the list of available tags]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#tags" >\}}).
+* **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. [See the list of available tags](../sdk7/projects/scene-metadata.md#tags).
 * **rating**: This is used to classify the content of your scene based on its appropriateness for different age groups (`T` for Teens or `A` for Adults). It helps in filtering content for players.
 
 {% hint style="warning" %}
-**📔 Note**: See \[scene metadata]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md" >\}}) for more details on how to set these parameters.
+**📔 Note**: See [scene metadata](../sdk7/projects/scene-metadata.md) for more details on how to set these parameters.
 {% endhint %}
 
 ### To publish the scene
 
 #### Using the Scene Editor
 
-Make sure you've \[installed the Creator Hub]\(\{{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >\}}).
+Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-installation.md).
 
 1. Open your scene project.
 2. Click the **Publish** button on the top-right corner.
 3. A prompt will ask if you want to publish to a **WORLD** or to **LAND**.
-   * Select **PUBLISH TO WORLD** to make your scene available in one of your \[WORLDs]\(\{{< ref "/content/creator/worlds/about.md" >\}}). Then select which of your NAMEs or ENS Domains to publish to.
+   * Select **PUBLISH TO WORLD** to make your scene available in one of your [WORLDs](../worlds/about.md). Then select which of your NAMEs or ENS Domains to publish to.
    * Select **PUBLISH TO LAND** if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
    * Select **Alternative servers** to publish to the [test server](publishing.md#the-test-server) or a [custom server](publishing.md#custom-servers).
 
@@ -75,7 +75,7 @@ Make sure you've \[installed the Creator Hub]\(\{{< ref "/content/creator/scene-
 **💡 Tip**: `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy --skip-build` to skip the `npm run build` step and deploy the scene as it is.
 {% endhint %}
 
-When publishing to a \[Decentraland World]\(\{{< ref "/content/creator/worlds/about.md" >\}}) , use the following command instead:
+When publishing to a [Decentraland World](../worlds/about.md) , use the following command instead:
 
 `npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
 
@@ -134,10 +134,10 @@ _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
 You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where. Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
 
-See \[How to run your own Catalyst Node]\(\{{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >\}}) for more info on what you can do with your own server and how to set it up.
+See [How to run your own Catalyst Node](../tutorials/how-to-run-a-catalyst.md) for more info on what you can do with your own server and how to set it up.
 
 {% hint style="warning" %}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the \[rewards server]\(\{{< ref "/content/creator/rewards/gatting-started.md" >\}}) or the \[quests server]\(\{{< ref "/content/creator/deprecated/quests/overview.md" >\}}) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../rewards/gatting-started.md) or the [quests server](../deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
 {% endhint %}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.

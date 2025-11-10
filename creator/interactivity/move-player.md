@@ -6,7 +6,7 @@ description: Change a player's position inside the scene
 
 ### Use the Scene Editor
 
-The easiest way to move the player is to use the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}). Use the no-code **Move player** or the **Move player here** Actions, see \[Make any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}}).
+The easiest way to move the player is to use the [Scene Editor](../scene-editor/get-started/about-editor.md). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md).
 
 ### Move player
 
@@ -48,13 +48,13 @@ pointerEventsSystem.onPointerDown(
 The player's movement occurs instantly, without any confirmation screens or camera transitions.
 
 {% hint style="warning" %}
-**📔 Note**: Players can only be moved if they already are standing inside the scene's bounds, and can only be moved to locations that are inside the limits of the scene's bounds. You can't use `movePlayerTo()` to transport a player to another scene. To move a player to another scene, see \[Teleports]\(\{{< ref "/content/creator/sdk7/interactivity/external-links.md#teleports">\}}).
+**📔 Note**: Players can only be moved if they already are standing inside the scene's bounds, and can only be moved to locations that are inside the limits of the scene's bounds. You can't use `movePlayerTo()` to transport a player to another scene. To move a player to another scene, see [Teleports](../sdk7/interactivity/external-links.md#teleports).
 {% endhint %}
 
 ### Required permissions in smart wearables and portable experiences
 
 {% hint style="warning" %}
-**📔 Note**: Permissions are only relevant in \[portable experiences]\(\{{< ref "/content/creator/sdk7/projects/portable-experiences.md" >\}}) and \[smart wearables]\(\{{< ref "/content/creator/sdk7/projects/smart-wearables.md" >\}}). Normal scenes (both in parcels or in Worlds) are free to move the player and are not affected by permissions.
+**📔 Note**: Permissions are only relevant in [portable experiences](../sdk7/projects/portable-experiences.md) and [smart wearables](../sdk7/projects/smart-wearables.md). Normal scenes (both in parcels or in Worlds) are free to move the player and are not affected by permissions.
 {% endhint %}
 
 Smart wearables and portable experiences are only allowed to use this functionality if they add a corresponding permissions on the `scene.json` file. This applies to both predefined and custom animations. This is granted via the `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE` permission. If not yet present, create a `requiredPermissions` property at root level in the JSON file to assign it this permission.
@@ -65,4 +65,4 @@ Smart wearables and portable experiences are only allowed to use this functional
   ],
 ```
 
-See \[Required permissions]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">\}}) for more details.
+See [Required permissions](../sdk7/projects/scene-metadata.md#required-permissions) for more details.

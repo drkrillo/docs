@@ -134,8 +134,8 @@ Among other things, it converts _.gltf_ format into _.glb_, which is binary and 
 
 The following pages also cover topics related to 3D models for Decentraland:
 
-* \[Meshes]\(\{{< ref "/content/creator/3d-modeling/meshes.md" >\}})
-* \[Materials]\(\{{< ref "/content/creator/3d-modeling/materials.md" >\}})
-* \[Textures]\(\{{< ref "/content/creator/3d-modeling/textures.md" >\}})
-* \[Colliders]\(\{{< ref "/content/creator/3d-modeling/colliders.md" >\}})
-* \[Animations]\(\{{< ref "/content/creator/3d-modeling/animations.md" >\}})
+* [Meshes](../3d-modeling/meshes.md)
+* [Materials](../3d-modeling/materials.md)
+* [Textures](../3d-modeling/textures.md)
+* [Colliders](../3d-modeling/colliders.md)
+* [Animations](../3d-modeling/animations.md)

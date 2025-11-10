@@ -58,7 +58,7 @@ The effects of an `AvatarModifierArea` are calculated locally for each player. Y
 
 > `import { AvatarModifierArea } from "@dcl/sdk/ecs"`
 
-See \[Imports]\(\{{< ref "/content/creator/sdk7/getting-started/coding-scenes.md#imports" >\}}) for how to handle these easily.
+See [Imports](../sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
 {% endhint %}
 
 #### Hide avatars

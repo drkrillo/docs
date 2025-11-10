@@ -4,7 +4,7 @@ description: React to the player's position
 
 # Trigger Area
 
-To trigger an action when the player walks into or out of an area, use the Trigger Area \[Smart Item]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}}).
+To trigger an action when the player walks into or out of an area, use the Trigger Area [Smart Item](../scene-editor/interactivity/smart-items.md).
 
 ![](../images/editor/trigger.png)
 
@@ -19,12 +19,12 @@ Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on
 You can add as many different actions on the same trigger event, this will activate them all simultaneously.
 
 {% hint style="info" %}
-**💡 Tip**: If the trigger areas in your scene start getting in the way of editing other content, remember you can always lock and/or hide them from the \[Entity Tree]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#the-entity-tree" >\}}).
+**💡 Tip**: If the trigger areas in your scene start getting in the way of editing other content, remember you can always lock and/or hide them from the [Entity Tree](../scene-editor/get-started/scene-editor-essentials.md#the-entity-tree).
 
 ![](../images/editor/hide-trigger.png)
 {% endhint %}
 
-You can also add **Trigger conditions**, so that the actions are only carried out if certain conditions are met in the scene. For example, you could have a trigger area that opens a sliding door when the player walks in; you could use a condition there to check the state of a lever that acts as a power switch, and only open the door if the power is on. See \[States and conditions]\(\{{< ref "/content/creator/scene-editor/interactivity/states-and-conditions.md" >\}}) for more details.
+You can also add **Trigger conditions**, so that the actions are only carried out if certain conditions are met in the scene. For example, you could have a trigger area that opens a sliding door when the player walks in; you could use a condition there to check the state of a lever that acts as a power switch, and only open the door if the power is on. See [States and conditions](../scene-editor/interactivity/states-and-conditions.md) for more details.
 
 ![](../images/editor/trigger-conditions-trigger-area.png)
 

@@ -41,4 +41,4 @@ Other optional fields that can be configured in the NFT smart item are:
 **📔 Note**: You can only see these changes take effect when entering the scene in Preview mode. None of these changes modify the representation of the smart item that you drag around in edit mode.
 {% endhint %}
 
-See \[Display an NFT]\(\{{< ref "/content/creator/sdk7/media/display-a-certified-nft.md#">\}}) for more details on how Decentraland handles NFT portraits.
+See [Display an NFT](../sdk7/media/display-a-certified-nft.md#) for more details on how Decentraland handles NFT portraits.

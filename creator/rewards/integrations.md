@@ -14,7 +14,7 @@ After creating and configuring a campaign and ensuring it has sufficient stock t
 
 ### Grant rewards from a scene
 
-Rewards can be integrated directly into Decentraland scenes, but this approach comes with some risks. Since the logic is embedded in scene code that users can access, it’s not recommended for minting items with a rarity lower than \[EPIC]\(\{{< ref "/content/creator/wearables-and-emotes/manage-collections/creating-a-collection.md" >\}}#rarity).
+Rewards can be integrated directly into Decentraland scenes, but this approach comes with some risks. Since the logic is embedded in scene code that users can access, it’s not recommended for minting items with a rarity lower than \[EPIC]\([See documentation](../README.md)#rarity).
 
 Keep in mind that determined users with enough technical knowledge could potentially bypass security measures like captchas, change their IP addresses, and mint all available items, which they could then sell on the marketplace. The primary safeguard against this is ensuring a sufficient supply of items, so everyone has a fair chance to receive a reward.
 
@@ -22,11 +22,11 @@ Keep in mind that determined users with enough technical knowledge could potenti
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-* \[Limit Assignments]\(\{{< ref "/content/contributor/land/api.md" >\}}#limit-assignments)
-* \[Beneficiary Signature]\(\{{< ref "/content/contributor/land/api.md" >\}}#beneficiary-signature)
-* \[Captcha Protection]\(\{{< ref "/content/contributor/land/api.md" >\}}#captcha-protection)
-* \[Connected to Decentraland]\(\{{< ref "/content/contributor/land/api.md" >\}}#connected-to-decentraland)
-* \[Position inside Decentraland]\(\{{< ref "/content/contributor/land/api.md" >\}}#position-inside-decentraland) (if it applies to your use case)
+* \[Limit Assignments]\([See documentation](../README.md)#limit-assignments)
+* \[Beneficiary Signature]\([See documentation](../README.md)#beneficiary-signature)
+* \[Captcha Protection]\([See documentation](../README.md)#captcha-protection)
+* \[Connected to Decentraland]\([See documentation](../README.md)#connected-to-decentraland)
+* \[Position inside Decentraland]\([See documentation](../README.md)#position-inside-decentraland) (if it applies to your use case)
 
 #### Example
 
@@ -70,13 +70,13 @@ export function main() {
 
 ### Grant rewards from a Decentraland Quests
 
-You can easily integrate Rewards with the \[Decentraland Quests]\(\{{< ref "/content/creator/deprecated/quests/overview.md" >\}}), this is ideal if you want to reward users for completing a quest.
+You can easily integrate Rewards with the [Decentraland Quests](../deprecated/quests/overview.md), this is ideal if you want to reward users for completing a quest.
 
 #### Recommended dispenser flags
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-* \[Limit Assignments]\(\{{< ref "/content/contributor/land/api.md" >\}}#limit-assignments) (if it applies to your use case)
+* \[Limit Assignments]\([See documentation](../README.md)#limit-assignments) (if it applies to your use case)
 
 Any other of the other flags will make your integration fail, avoid using them.
 
@@ -86,7 +86,7 @@ Any other of the other flags will make your integration fail, avoid using them.
 
 #### Example
 
-To integrate your Quest with the Rewards service, you just need a dispenser key and to \[configure a webhook]\(\{{< ref "/content/creator/deprecated/quests/rewards.md" >\}}) to grant rewards.
+To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook](../deprecated/quests/rewards.md) to grant rewards.
 
 ```js
 {
@@ -112,7 +112,7 @@ You can integrate Rewards directly from your server, which is ideal for performi
 
 The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
 
-* \[Limit Assignments]\(\{{< ref "/content/contributor/land/api.md" >\}}#limit-assignments) (if it applies to your use case)
+* \[Limit Assignments]\([See documentation](../README.md)#limit-assignments) (if it applies to your use case)
 
 Enabling any of the other flags could complicate your integration or, depending on your use case, potentially cause it to fail. Therefore, it is not recommend using them unless there is a specific need. However, you may want to explore their potential benefits.
 

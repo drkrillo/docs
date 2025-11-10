@@ -9,18 +9,18 @@ A Decentraland scene can detect input actions from all of the buttons that are u
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
 {% hint style="warning" %}
-**📔 Note**: Entities must have a \[collider]\(\{{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >\}}) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
+**📔 Note**: Entities must have a [collider](./sdk7/3d-essentials/colliders.md) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
 {% endhint %}
 
 There are several different ways to handle input actions, depending on the use case.
 
-* \[**Register a callback**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >\}}): The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
-* \[**System-based**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >\}}): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for input actions on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global input actions.
-* \[**Advanced**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >\}}): Read the raw response data on each entity, including time-stamps and an event history of input events. This can be useful for defining custom interaction patterns.
+* [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md): The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
+* [**System-based**](./sdk7/interactivity/button-events/system-based-events.md): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for input actions on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global input actions.
+* [**Advanced**](./sdk7/interactivity/button-events/advanced-button-events.md): Read the raw response data on each entity, including time-stamps and an event history of input events. This can be useful for defining custom interaction patterns.
 
 ### Use the Scene Editor
 
-The easiest way to handle click events on an entity is to use the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See \[Make any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}}).
+The easiest way to handle click events on an entity is to use the [Scene Editor](./scene-editor/get-started/about-editor.md). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart](./scene-editor/interactivity/make-any-item-smart.md).
 
 ### Simple example
 
@@ -38,22 +38,22 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-See \[**Register a callback**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >\}}) for more information.
+See [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) for more information.
 
 ### Hover Feedback
 
 It's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond.
 
-When you use the \[**Register a callback**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >\}}) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
+When you use the [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
 
 * The entity's edge is highlighted (only on the Decentraland 2.0 Desktop client). The highlight is green if the entity is close enough to click, red if the entity is too far away.
 * A hover hint appears near the cursor with UI text, signalling what will happen if they click.
 
-When using the \[**System-based**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >\}}) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
+When using the [**System-based**](./sdk7/interactivity/button-events/system-based-events.md) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
 
 Both the entity highlight and the hover hint can be disabled via properties in these methods and components.
 
-You could also implement \[advanced custom hints]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints" >\}}), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
+You could also implement [advanced custom hints](./sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
 ### Obstacles
 
@@ -61,9 +61,9 @@ Button events cast rays that only interact with the first entity on their path t
 
 For an entity to be intercepted by the ray of a pointer event, either:
 
-* The model must contain \[collider meshes]\(\{{< ref "/content/creator/3d-modeling/colliders.md">\}}).
-* The `GLTFContainer` must be configured to use the \[visible geometry with collision masks]\(\{{< ref "/content/creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models" >\}}).
-* The entity must have a \[MeshCollider component]\(\{{< ref "/content/creator/sdk7/3d-essentials/colliders.md" >\}}).
+* The model must contain [collider meshes](./3d-modeling/colliders.md).
+* The `GLTFContainer` must be configured to use the [visible geometry with collision masks](./sdk7/3d-essentials/colliders.md#colliders-on-3d-models).
+* The entity must have a [MeshCollider component](./sdk7/3d-essentials/colliders.md).
 
 If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity has no collider, or this collider is configured to not respond to the pointer events collision layer.
 
@@ -157,7 +157,7 @@ The following information can be obtained from any input event:
 
 This data is accessed in different ways depending on what approach you're using to handle input actions.
 
-Using the \[**Register a callback**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/register-callback.md" >\}}) approach, the first parameter passed to the callback function contains this entire data structure.
+Using the [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) approach, the first parameter passed to the callback function contains this entire data structure.
 
 ```ts
 pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
@@ -165,7 +165,7 @@ pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
 })
 ```
 
-Using the \[**System-based**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/system-based-events.md" >\}}) approach, use `inputSystem.getInputCommand()` to fetch this data.
+Using the [**System-based**](./sdk7/interactivity/button-events/system-based-events.md) approach, use `inputSystem.getInputCommand()` to fetch this data.
 
 ```ts
 engine.addSystem(() => {
@@ -184,7 +184,7 @@ engine.addSystem(() => {
 **📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment.
 {% endhint %}
 
-Using the \[**Advanced**]\(\{{< ref "/content/creator/sdk7/interactivity/button-events/advanced-button-events.md" >\}}) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
+Using the [**Advanced**](./sdk7/interactivity/button-events/advanced-button-events.md) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
 
 ```ts
 engine.addSystem(() => {

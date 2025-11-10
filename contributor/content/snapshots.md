@@ -1,15 +1,15 @@
 
-Content servers will periodically compile summaries of the active entities they are hosting, called _snapshots_. They are regular [files]({{< relref "filesystem" >}}) and can be downloaded using their identifier.
+Content servers will periodically compile summaries of the active entities they are hosting, called _snapshots_. They are regular [files](../filesystem.md) and can be downloaded using their identifier.
 
 Snapshots are created on a daily, weekly, monthly and yearly basis. Each contains the set of active entities that changed since the prior snapshot for that range.
 
-Snapshots will contain conflicting versions of the same entities (i.e. different [manifest files]({{< relref "entities#properties" >}}) associated to the same pointer) as they are updated. When scanning them, clients should keep the version in the most recent snapshot. Since content servers are allowed to delete inactive files, stale entity versions are not guaranteed to be available for download.
+Snapshots will contain conflicting versions of the same entities (i.e. different [manifest files](../entities.md#properties) associated to the same pointer) as they are updated. When scanning them, clients should keep the version in the most recent snapshot. Since content servers are allowed to delete inactive files, stale entity versions are not guaranteed to be available for download.
 
 When a new snapshot _replaces_ older ones (e.g. a weekly snapshot that combines a series of daily ones), its metadata indicates which prior files are replaced so clients don't need to download them. 
 
-The full set of active entities can be discovered by combining all the available snapshots (more on this below), keeping the most recent entity referenced by each [pointer]({{< relref "pointers" >}}) discovered along the way.
+The full set of active entities can be discovered by combining all the available snapshots (more on this below), keeping the most recent entity referenced by each [pointer](../pointers.md) discovered along the way.
 
-You can experiment with snapshots using working code in the [practice]({{< relref "practice" >}}) section.
+You can experiment with snapshots using working code in the [practice](../practice.md) section.
 
 
 ## Discovering Snapshots {#discover}
@@ -19,7 +19,7 @@ To locate the current set of snapshots, use the [`snapshots` endpoint](https://d
 | Field | Value |
 | ----- | --- |
 | `generationTimestamp` | The Unix UTC timestamp when this snapshot was created. 
-| `hash` | The snapshot [file]({{< relref "filesystem" >}}).
+| `hash` | The snapshot [file](../filesystem.md).
 | `numberOfEntities` | The number of entries in the snapshot file.
 | `replacedSnapshotHashes` | An array with the `hash` of any snapshots replaced by this one.
 | `timeRange.initTimestamp` | The Unix UTC timestamp (in milliseconds) for the beginning of the snapshot range.
@@ -50,15 +50,15 @@ Snapshot files begin with this exact line:
 ### Decentraland json snapshot
 ```
 
-After that, each line is a JSON document describing an [entity]({{< relref "entities" >}}) with the following fields:
+After that, each line is a JSON document describing an [entity](../entities.md) with the following fields:
 
 | Field | Value |
 | ----- | --- |
-| `entityId` | The immutable identifier for this [entity]({{< relref "entities" >}}).
+| `entityId` | The immutable identifier for this [entity](../entities.md).
 | `entityType` | One of `scene`, `profile`, `wearable`, `emote`, `store` or `outfits`.
-| `pointers` | An array of [pointers]({{< relref "pointers" >}}) that resolve (or used to resolve) to this entity.
+| `pointers` | An array of [pointers](../pointers.md) that resolve (or used to resolve) to this entity.
 | `entityTimestamp` | The Unix UTC timestamp (in milliseconds) when this entity was uploaded.
-| `authChain` | The [authentication chain]({{< relref "entities#ownership" >}}) for this entity.
+| `authChain` | The [authentication chain](../entities.md#ownership) for this entity.
 
 A typical entry looks like this:
 
@@ -81,7 +81,7 @@ If you intend to parse a snapshot line by line, remember to skip (or better stil
 
 ### Starting an Entity Index {#index-start}
 
-Clients that want to index the entire set of active entities should process all currently available snapshots, and keep the most recent [entity]({{< relref "entities" >}}) for each [pointer]({{< relref "pointers" >}}).
+Clients that want to index the entire set of active entities should process all currently available snapshots, and keep the most recent [entity](../entities.md) for each [pointer](../pointers.md).
 
 The simplest strategy is to process snapshots in reverse-chronological order (i.e. most recent first), ignoring pointers that have already been discovered, in order to keep the reference to the latest entity.
 
@@ -106,7 +106,7 @@ for snapshot in snapshots:
             seen_pointers.update(item.pointers)
 ```
 
-Since individual entities can be referenced by multiple pointers (as is commonly the case with [scenes]({{< relref "entity-types/scenes" >}})), all of them must be checked before choosing to keep or discard the item.
+Since individual entities can be referenced by multiple pointers (as is commonly the case with [scenes](../entity-types/scenes.md)), all of them must be checked before choosing to keep or discard the item.
 
 {% hint style="info" %}
 Snapshot files for the longer time ranges can be very large. For development and experimentation purposes that don't require indexing the entire entity set, using the smaller snapshots is recommended. The resulting set of entities will be incomplete but valid.
@@ -126,4 +126,4 @@ If any new snapshots must be processed, the same strategy as above can be used t
 
 ## Examples
 
-In the [practice]({{< relref "practice" >}}) section, you'll find code examples that work with the snapshot system.
+In the [practice](../practice.md) section, you'll find code examples that work with the snapshot system.

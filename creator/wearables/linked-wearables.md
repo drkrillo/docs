@@ -39,7 +39,7 @@ This document is mostly oriented for representatives of NFT communities that wan
 
 ### What are Linked Wearables?
 
-Linked Wearables are 3D representations of NFTs that originate from outside Decentraland that can be used as wearables in-world, can be equipped on the avatar, and are found in the backpack. They are not \[regular wearables]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/wearables-overview.md" >\}}). They look the same, and follow the regular wearables \[guidelines]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}}) but carry a completely different meaning.
+Linked Wearables are 3D representations of NFTs that originate from outside Decentraland that can be used as wearables in-world, can be equipped on the avatar, and are found in the backpack. They are not [regular wearables](../wearables-and-emotes/wearables/wearables-overview.md). They look the same, and follow the regular wearables [guidelines](../wearables-and-emotes/wearables/creating-wearables.md) but carry a completely different meaning.
 
 Linked Wearables do not exist inside traditional wearable collections (they belong to a special type of collection), have no rarity, and can not be sold in [primary](https://market.decentraland.org/browse?assetType=item\&section=wearables) or [secondary](https://market.decentraland.org/browse?assetType=nft\&section=wearables\&vendor=decentraland\&page=1\&sortBy=recently_listed\&onlyOnSale=true\&viewAsGuest=false\&onlySmart=false) markets. They are only **in-world representations linked to external NFTs.**
 
@@ -104,7 +104,7 @@ To do so, follow these steps:
 2.  Select the **Singe items** option.
 
     ![](../images/media/linked-wearables/multiple-items-upload.png)
-3.  Follow the steps to upload and configure your wearable as it is described in the \[creating wearables guidelines]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}}) and configure how it will be linked to your NFTs. Check the "[How do Linked Wearables represent NFTs?](linked-wearables.md#how-do-linked-wearables-represent-nfts)" section for more information on how to configure it.
+3.  Follow the steps to upload and configure your wearable as it is described in the [creating wearables guidelines](../wearables-and-emotes/wearables/creating-wearables.md) and configure how it will be linked to your NFTs. Check the "[How do Linked Wearables represent NFTs?](linked-wearables.md#how-do-linked-wearables-represent-nfts)" section for more information on how to configure it.
 
     ![](../images/media/linked-wearables/linkedw-mapping.png)
 
@@ -120,7 +120,7 @@ Each item will require a ZIP file to be built including the following assets:
 * A **required** `wearable.json` file containing the information of the wearable.
 * An **optional** `thumbnail.png` file containing the thumbnail of the wearable that will be seen in the Builder and the world. If it is not provided, one will be generated using the 3D model.
 
-The 3D models and the optional `thumbnail.png` follow the \[Custom Thumbnails section]\(\{{< ref "/content/creator/wearables-and-emotes/manage-collections/uploading-wearables.md#custom-thumbnails" >\}}) in the Uploading Wearables article on how to create a custom thumbnail.
+The 3D models and the optional `thumbnail.png` follow the [Custom Thumbnails section](../wearables-and-emotes/manage-collections/uploading-wearables.md#custom-thumbnails) in the Uploading Wearables article on how to create a custom thumbnail.
 
 The `wearable.json` accompanying the content of the wearables has the following format (typed as Typescript would):
 
@@ -259,7 +259,7 @@ To add a custom thumbnail to the wearable, you can add a `thumbnail.png` file.
 
 Some things to consider about the `wearable.json` file:
 
-* All the information about the wearable categories and which to choose can be found in the \[creating wearables guidelines]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}}).
+* All the information about the wearable categories and which to choose can be found in the [creating wearables guidelines](../wearables-and-emotes/wearables/creating-wearables.md).
 * The representations array will contain the information about how each body shape will look like. Each wearable MUST contain at least one representation (it can have one or the two of them), that is, taking into consideration the body shapes that we currently have, either `urn:decentraland:off-chain:base-avatars:BaseMale` or `urn:decentraland:off-chain:base-avatars:BaseFemale`. Each representation will describe which models will be used for each body shape.
 * The mapping object must be configured as one of the available mechanisms to link your NFT to your wearable, following the "[How do Linked Wearables represent NFTs?](linked-wearables.md#how-do-linked-wearables-represent-nfts)" section.
 
@@ -383,7 +383,7 @@ To edit a single wearable, follow these steps:
 1.  Click on the meatballs menu (three horizontal dots) on the right of the item that you want to see in world. A dropdown will appear. Select **Open in editor**.
 
     ![](../images/media/linked-wearables/edit-single-wearable.png)
-2. Edit the wearable as standard wearables are edited. Follow the **Editing items** section in \[creating wearables guidelines]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}}) on how to create a custom thumbnail.
+2. Edit the wearable as standard wearables are edited. Follow the **Editing items** section in [creating wearables guidelines](../wearables-and-emotes/wearables/creating-wearables.md) on how to create a custom thumbnail.
 
 #### Editing the wearable linking
 
@@ -539,7 +539,7 @@ The curation process will differ according to the process used to generate the w
 
 #### Handcrafted wearables
 
-For 3D models that were made individually without any automated process (the usual method for most regular wearables) the Curator will need to go through all items in the collection individually to make sure they are all compliant with the \[Wearable Guidelines]\(\{{< ref "/content/creator/wearables-and-emotes/wearables/creating-wearables.md" >\}}).
+For 3D models that were made individually without any automated process (the usual method for most regular wearables) the Curator will need to go through all items in the collection individually to make sure they are all compliant with the [Wearable Guidelines](../wearables-and-emotes/wearables/creating-wearables.md).
 
 #### Programmatic collections
 

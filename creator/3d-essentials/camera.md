@@ -11,7 +11,7 @@ Virtual cameras can be static, they can rotate to always look at the player or s
 {% hint style="warning" %}
 **📔 Note**: Virtual cameras are a feature that's only supported in the DCL 2.0 desktop client.
 
-To switch between the default 1st and 3rd person cameras, see \[Camera modifier areas]\(\{{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">\}}).
+To switch between the default 1st and 3rd person cameras, see [Camera modifier areas](../sdk7/interactivity/avatar-modifiers.md#camera-modifiers).
 {% endhint %}
 
 ### Using virtual cameras
@@ -19,7 +19,7 @@ To switch between the default 1st and 3rd person cameras, see \[Camera modifier 
 To use a custom camera behavior in your scene, you need two things:
 
 * Create a Virtual Camera: Create an entity in your scene and give it a `VirtualCamera`.
-* Assign that virtual camera: Add a `MainCamera` component to the \[reserved entity]\(\{{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >\}}) `engine.CameraEntity`, with a reference to the entity with the `VirtualCamera` component.
+* Assign that virtual camera: Add a `MainCamera` component to the [reserved entity](../sdk7/architecture/entities-components.md#reserved-entities) `engine.CameraEntity`, with a reference to the entity with the `VirtualCamera` component.
 
 The camera will then be attached to the entity with the `VirtualCamera` component. If the entity moves or rotates, the camera moves with it.
 
@@ -41,7 +41,7 @@ In this example, the camera will always be on a fixed position in the scene, as 
 
 Your scene can include as many entities with a `VirtualCamera`component as you want, and dynamically switch between multiple virtual cameras as the player moves, or as they perform certain actions. Only one virtual camera is active at any given time, this is assigned by the `MainCamera` component on `engine.CameraEntity`.
 
-To revert back to default camera behavior, set the value to `undefined` on `MainCamera.virtualCameraEntity`. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a \[Camera modifier areas]\(\{{< ref "/content/creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers">\}}) to force one of the two.
+To revert back to default camera behavior, set the value to `undefined` on `MainCamera.virtualCameraEntity`. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a [Camera modifier areas](../sdk7/interactivity/avatar-modifiers.md#camera-modifiers) to force one of the two.
 
 {% hint style="warning" %}
 **📔 Note**: Camera modifier areas only have an effect on the player if no virtual cameras are active. If the scene is currently using a virtual camera and the player steps into a camera modifier area, nothing happens.
@@ -82,7 +82,7 @@ function main() {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: When the camera turns away from the avatar, it's often a good practice to also freeze the avatar's movements. That way the player doesn't move blindly into obstacles. See \[Input Modifiers]\(\{{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >\}})
+**💡 Tip**: When the camera turns away from the avatar, it's often a good practice to also freeze the avatar's movements. That way the player doesn't move blindly into obstacles. See [Input Modifiers](../sdk7/interactivity/input-modifiers.md)
 {% endhint %}
 
 ### Birds eye view
@@ -191,13 +191,13 @@ function main() {
 }
 ```
 
-Transitions always move in a straight line, without considering any obstacles in the path. You could instead create a transition manually by using another virtual camera as an intermediary, that way you'd have full control over its movements. This intermediary virtual camera could perform a \[Tween]\(\{{< ref "/content/creator/sdk7/3d-essentials/move-entities.md#move-between-two-points" >\}}) from the position of the first camera to the position of the second camera, or follow a more custom path that avoids obstacles or takes a cinematic detour.
+Transitions always move in a straight line, without considering any obstacles in the path. You could instead create a transition manually by using another virtual camera as an intermediary, that way you'd have full control over its movements. This intermediary virtual camera could perform a [Tween](../sdk7/3d-essentials/move-entities.md#move-between-two-points) from the position of the first camera to the position of the second camera, or follow a more custom path that avoids obstacles or takes a cinematic detour.
 
 ### Camera following
 
 You can configure a virtual camera so that it always faces the direction of the player, or some specific entity in the scene. The camera's position will remain static, but its rotation will change to always keep this entity centered.
 
-This can be achieved with the `lookAtEntity` property in the `VirtualCamera` component. To follow the player, use the \[reserved entity]\(\{{< ref "/content/creator/sdk7/architecture/entities-components.md#reserved-entities" >\}}) `engine.PlayerEntity`.
+This can be achieved with the `lookAtEntity` property in the `VirtualCamera` component. To follow the player, use the [reserved entity](../sdk7/architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`.
 
 ```ts
 const myCustomCamera1 = engine.addEntity()
@@ -242,4 +242,4 @@ function main() {
 
 When a player's camera moves in 3rd person mode, the camera might be blocked by colliders or not, depending on the collision layers assigned to the entities. Be mindful of this when designing your scene, you may want to prevent the camera from going through walls or other entities.
 
-See \[Colliders]\(\{{< ref "/content/creator/sdk7/3d-essentials/colliders.md#cameras-and-colliders" >\}}) for more details on how to configure colliders for your scene.
+See [Colliders](../sdk7/3d-essentials/colliders.md#cameras-and-colliders) for more details on how to configure colliders for your scene.

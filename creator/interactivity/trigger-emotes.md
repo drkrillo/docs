@@ -14,7 +14,7 @@ Animations done by the player are overridden by the default locomotion animation
 
 ### Use the Scene Editor
 
-The easiest way to make a player perform an animation is to use the \[Scene Editor]\(\{{< ref "/content/creator/scene-editor/get-started/about-editor.md" >\}}). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See \[Make any item smart]\(\{{< ref "/content/creator/scene-editor/interactivity/make-any-item-smart.md" >\}}).
+The easiest way to make a player perform an animation is to use the [Scene Editor](../scene-editor/get-started/about-editor.md). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md).
 
 ### Default animations
 
@@ -79,7 +79,7 @@ These emotes are available to all players in their default emote wheel, and can 
 * `headexplode`
 
 {% hint style="info" %}
-**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with \[Input Modifiers]\(\{{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >\}}) for the duration of the avatar animation.
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers](../sdk7/interactivity/input-modifiers.md) for the duration of the avatar animation.
 {% endhint %}
 
 ### Custom animations
@@ -114,13 +114,13 @@ pointerEventsSystem.onPointerDown(
 ```
 
 {% hint style="info" %}
-**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with \[Input Modifiers]\(\{{< ref "/content/creator/sdk7/interactivity/input-modifiers.md" >\}}) for the duration of the avatar animation.
+**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers](../sdk7/interactivity/input-modifiers.md) for the duration of the avatar animation.
 {% endhint %}
 
 ### Required permissions in smart wearables and portable experiences
 
 {% hint style="warning" %}
-**📔 Note**: Permissions are only relevant in \[portable experiences]\(\{{< ref "/content/creator/sdk7/projects/portable-experiences.md" >\}}) and \[smart wearables]\(\{{< ref "/content/creator/sdk7/projects/smart-wearables.md" >\}}). Normal scenes (both in parcels or in Worlds) are free to use avatar animations and are not affected by permissions.
+**📔 Note**: Permissions are only relevant in [portable experiences](../sdk7/projects/portable-experiences.md) and [smart wearables](../sdk7/projects/smart-wearables.md). Normal scenes (both in parcels or in Worlds) are free to use avatar animations and are not affected by permissions.
 {% endhint %}
 
 Smart wearables and portable experiences are only allowed to use this functionality if they add a corresponding permissions on the `scene.json` file. This applies to both predefined and custom animations. This is granted via the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission.
@@ -131,4 +131,4 @@ Smart wearables and portable experiences are only allowed to use this functional
   ],
 ```
 
-See \[Required permissions]\(\{{< ref "/content/creator/sdk7/projects/scene-metadata.md#required-permissions">\}}) for more details.
+See [Required permissions](../sdk7/projects/scene-metadata.md#required-permissions) for more details.

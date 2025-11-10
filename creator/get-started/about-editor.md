@@ -10,9 +10,9 @@ The Creator Hub includes a powerful Scene Editor that combines a simple no-code 
 
 ![](../images/editor/icon-creator-hub.png)
 
-See \[Creator Hub Installation]\(\{{< ref "/content/creator/scene-editor/get-started/editor-installation.md" >\}}) to get started.
+See [Creator Hub Installation](../scene-editor/get-started/editor-installation.md) to get started.
 
-\{{< youtube 52LiG-4VI9c >\}}
+
 
 ### Create a scene
 
@@ -24,7 +24,7 @@ You can then select what template to use as a starting point. You can pick a bla
 
 Then you'll be asked to name your scene, and choose a location to save it.
 
-See \[Manage scenes]\(\{{< ref "/content/creator/scene-editor/get-started/manage-scenes.md" >\}}) for more details.
+See [Manage scenes](../scene-editor/get-started/manage-scenes.md) for more details.
 
 ### Moving around
 
@@ -51,10 +51,10 @@ To place an item, click and drag it in from the asset pack menu into a location 
 
 ![](../images/editor/drop-item.gif)
 
-Click and drag a selected item to move it freely around the scene at ground level. See \[Scene editor essentials]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#position-items" >\}}) for more details.
+Click and drag a selected item to move it freely around the scene at ground level. See [Scene editor essentials](../scene-editor/get-started/scene-editor-essentials.md#position-items) for more details.
 
 {% hint style="info" %}
-**💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See \[Smart items]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}}) for more details.
+**💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See [Smart items](../scene-editor/interactivity/smart-items.md) for more details.
 {% endhint %}
 
 ![](../images/editor/smart-items.jpg)
@@ -81,7 +81,7 @@ Click the **Pencil icon** on the top-right of the screen. This opens a series of
 
 ![](../images/editor/pencil-icon.png)
 
-See \[Scene Settings]\(\{{< ref "/content/creator/scene-editor/configure/scene-settings.md" >\}}) for more details.
+See [Scene Settings](../scene-editor/configure/scene-settings.md) for more details.
 
 ### Publish your scene
 
@@ -89,11 +89,11 @@ Once you're happy with your scene, press _Publish scene_.
 
 ![](../images/editor/publish-options.png)
 
-See \[Publish scene]\(\{{< ref "/content/creator/scene-editor/publish/publish-scene.md" >\}}) for more details.
+See [Publish scene](../scene-editor/publish/publish-scene.md) for more details.
 
 ### See also
 
-* See \[Scene Editor Essentials]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md" >\}}) for more details about the Scene Editor's interface.
-* See \[Smart items]\(\{{< ref "/content/creator/scene-editor/interactivity/smart-items.md" >\}}) for how to add simple interactivity to your scene.
-* See \[Combine with code]\(\{{< ref "/content/creator/scene-editor/code/overview.md" >\}}) for how to edit the code of your scene.
-* See \[Publish scene]\(\{{< ref "/content/creator/scene-editor/publish/publish-scene.md" >\}}) for how to publish your scene to Decentraland.
+* See [Scene Editor Essentials](../scene-editor/get-started/scene-editor-essentials.md) for more details about the Scene Editor's interface.
+* See [Smart items](../scene-editor/interactivity/smart-items.md) for how to add simple interactivity to your scene.
+* See [Combine with code](../scene-editor/code/overview.md) for how to edit the code of your scene.
+* See [Publish scene](../scene-editor/publish/publish-scene.md) for how to publish your scene to Decentraland.

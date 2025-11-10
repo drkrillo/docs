@@ -10,7 +10,7 @@ Grant certain players the special role of **admin** on your scene.
 
 During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
 
-\{{< youtube efjJN7Jr7Qo >\}}
+
 
 When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, ban players, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
 
@@ -31,8 +31,8 @@ To assign admins, you need to add the **Scene Admin** smart item to your scene.
 While you're developing the scene and trying it locally, you are always an admin. Once the scene is published, anyone with publish permissions to the scene is also automatically an admin. This includes:
 
 * The owner of the LAND parcels or World NAME where the scene is published
-* Anyone who is granted **Operator rights** on these parcels or name. See \[Give permissions]\(\{{< ref "/content/player/marketplace/land-manager.md#give-permissions" >\}}).
-* Any user renting that land. See \[Rentals]\(\{{< ref "/content/player/marketplace/rentals.md" >\}}).
+* Anyone who is granted **Operator rights** on these parcels or name. See [Give permissions](../marketplace/land-manager.md#give-permissions).
+* Any user renting that land. See [Rentals](../marketplace/rentals.md).
 
 You can also assign additional people to the admin list once your scene is published by visiting your scene as an admin and opening the **Moderation Tools** tab.
 
@@ -62,7 +62,7 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
     ![](../images/editor/admin/video-player-item.png)
 
-    See \[Video Screen]\(\{{< ref "/content/creator/scene-editor/interactivity/video-screen.md" >\}}) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+    See [Video Screen](../scene-editor/interactivity/video-screen.md) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
 
     \{% hint style="warning" %\} **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
 
@@ -86,13 +86,13 @@ There are two kidns of media sources for playing videos:
     ![](../images/editor/admin/video-from-url.png)
 
     {% hint style="warning" %}
-    **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See \[Streaming from other sources]\(\{{< ref "/content/creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources" >\}}) for more information on what you can and can't play in Decentraland.
+    **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources](../scene-editor/interactivity/video-screen.md#streaming-from-other-sources) for more information on what you can and can't play in Decentraland.
     {% endhint %}
 *   **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
     ![](../images/editor/admin/live-stream.png)
 
-    See \[Live Streaming]\(\{{< ref "/content/creator/scene-editor/live-ops/live-streaming.md" >\}}) for more information on how to set up a live stream.
+    See [Live Streaming](../scene-editor/live-ops/live-streaming.md) for more information on how to set up a live stream.
 
 Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
 

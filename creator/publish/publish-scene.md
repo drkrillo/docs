@@ -8,7 +8,7 @@ description: How to publish your scene to LAND or a NAME.
 
 Make sure of the following:
 
-* Your scene complies with all of the \[scene limitations]\(\{{< ref "/content/creator/sdk7/optimizing/scene-limitations.md" >\}}). Most of these are validated each time you run a preview of your scene.
+* Your scene complies with all of the [scene limitations](../sdk7/optimizing/scene-limitations.md). Most of these are validated each time you run a preview of your scene.
 * You have a [Metamask](https://metamask.io/) account, with your LAND parcels or NAME assigned to it.
 * You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
 
@@ -16,7 +16,7 @@ Make sure of the following:
 **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
 {% endhint %}
 
-Check your \[scene's details]\(\{{< ref "/content/creator/scene-editor/get-started/scene-editor-essentials.md#scene-details" >\}}), make sure you provide an appealing name, description, thumbnail, categories, etc.
+Check your [scene's details](../scene-editor/get-started/scene-editor-essentials.md#scene-details), make sure you provide an appealing name, description, thumbnail, categories, etc.
 
 {% hint style="danger" %}
 **❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
@@ -29,7 +29,7 @@ After each publish, an internal process optimizes all 3D models before they can 
 To publish your scene:
 
 1. Open your scene in the Scene Editor and click **Publish**. This opens a browser tab, showing details.
-2. Select if you want to publish to LAND or to a WORLD. See \[Kinds of projects]\(\{{< ref "/content/creator/sdk7/projects/kinds-of-project.md" >\}}) to better understand the different options.
+2. Select if you want to publish to LAND or to a WORLD. See [Kinds of projects](../sdk7/projects/kinds-of-project.md) to better understand the different options.
 
 ![](../images/editor/publish-options.png)
 
@@ -87,7 +87,7 @@ If you're publishing to land owned by the Decentraland Foundation that was grant
 ![](../images/editor/publish-to-granted-land.png)
 
 {% hint style="warning" %}
-**📔 Note**: You must first manually set the coordinates of your scene in the advanced tab of the Layout settings. See \[Scene Settings]\(\{{< ref "/content/creator/scene-editor/configure/scene-settings.md#layout" >\}}) for more info.
+**📔 Note**: You must first manually set the coordinates of your scene in the advanced tab of the Layout settings. See [Scene Settings](../scene-editor/configure/scene-settings.md#layout) for more info.
 {% endhint %}
 
 ### Custom servers
@@ -96,10 +96,10 @@ You can deploy content to a custom server that doesn't belong to the official DA
 
 To publish to a custom server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the address of the server.
 
-See \[How to run your own Catalyst Node]\(\{{< ref "/content/contributor/tutorials/how-to-run-a-catalyst.md" >\}}) for more info on what you can do with your own server and how to set it up.
+See [How to run your own Catalyst Node](../tutorials/how-to-run-a-catalyst.md) for more info on what you can do with your own server and how to set it up.
 
 {% hint style="warning" %}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the \[rewards server]\(\{{< ref "/content/creator/rewards/gatting-started.md" >\}}) or the \[quests server]\(\{{< ref "/content/creator/deprecated/quests/overview.md" >\}}) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../rewards/gatting-started.md) or the [quests server](../deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
 {% endhint %}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.

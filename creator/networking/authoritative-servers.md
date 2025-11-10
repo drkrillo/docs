@@ -8,8 +8,8 @@ Decentraland runs scenes locally in a player's browser. By default, players are 
 
 Allowing all players to see a scene as having the same content in the same state is extremely important to for players to interact in more meaningful ways. Without this, if a player opens a door and walks into a house, other players will see that door as still closed, and the first player will appear to walk directly through the closed door to other players.
 
-* **Mark an entity as synced**: The easiest option. See \[Marked an entity as synced]\(\{{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced" >\}})
-* **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See \[Send explicit MessageBus messages]\(\{{< ref "/content/creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages" >\}})
+* **Mark an entity as synced**: The easiest option. See [Marked an entity as synced](../sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced)
+* **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](../sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages)
 * **Use a Server**: This document deals with this option. This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
 
 ### Types of servers
@@ -60,7 +60,7 @@ Players in decentraland exist in many separate _realms_. Players in different re
 
 If your scene sends data to a 3rd party server to sync changes between players in real time, then it's important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
 
-See how to obtain the realm for each player in \[get player data]\(\{{< ref "/content/creator/sdk7/interactivity/user-data.md" >\}})
+See how to obtain the realm for each player in [get player data](../sdk7/interactivity/user-data.md)
 
 ### Multiplayer persistance
 
