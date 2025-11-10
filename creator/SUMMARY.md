@@ -9,9 +9,7 @@
 * [Using the CLI](getting-started/using-the-cli.md)
 * [Preview Your Scene](getting-started/preview-scene.md)
 
-## SDK7
-
-### 3D Essentials
+## SDK7 - 3D Essentials
 
 * [3D Model Animations](3d-essentials/3d-model-animations.md)
 * [Camera](3d-essentials/camera.md)
@@ -27,7 +25,7 @@
 * [Text](3d-essentials/text.md)
 * [Trigger Areas](3d-essentials/trigger-areas.md)
 
-### 2D UI
+## SDK7 - 2D UI
 
 * [Dynamic UI](2d-ui/dynamic-ui.md)
 * [Onscreen UI](2d-ui/onscreen-ui.md)
@@ -37,7 +35,7 @@
 * [UI Special Types](2d-ui/ui_special_types.md)
 * [UI Text](2d-ui/ui_text.md)
 
-### Architecture
+## SDK7 - Architecture
 
 * [Custom Components](architecture/custom-components.md)
 * [Data-Oriented Programming](architecture/data-oriented-programming.md)
@@ -46,9 +44,13 @@
 * [Subscribe to Changes](architecture/subscribe-to-changes.md)
 * [Systems](architecture/systems.md)
 
-### Interactivity
+## SDK7 - Interactivity
 
 * [Avatar Modifiers](interactivity/avatar-modifiers.md)
+* [Click Events](click-events.md)
+* [Register Callback](register-callback.md)
+* [System Based Events](system-based-events.md)
+* [Advanced Button Events](advanced-button-events.md)
 * [Deprecated Functions](interactivity/deprecated-functions.md)
 * [Event Listeners](interactivity/event-listeners.md)
 * [External Links](interactivity/external-links.md)
@@ -61,61 +63,54 @@
 * [Trigger Emotes](interactivity/trigger-emotes.md)
 * [User Data](interactivity/user-data.md)
 
-#### Button Events
-
-* [Click Events](click-events.md)
-* [Register Callback](register-callback.md)
-* [System Based Events](system-based-events.md)
-* [Advanced Button Events](advanced-button-events.md)
-
-### Blockchain
+## SDK7 - Blockchain
 
 * [Create a dApp](blockchain/create-a-dapp.md)
 * [Deploying Your Transactions Server](blockchain/deploying-your-own-transactions-server.md)
 * [Scene Blockchain Operations](blockchain/scene-blockchain-operations.md)
 * [Second Layer](blockchain/second-layer.md)
 
-### Debugging
+## SDK7 - Debugging
 
 * [Debug in Preview](debugging/debug-in-preview.md)
 * [Debug in Production](debugging/debug-in-prod.md)
 * [Report a Bug](debugging/report-bug.md)
 * [Troubleshooting](debugging/troubleshooting.md)
 
-### Design Experience
+## SDK7 - Design Experience
 
 * [Design Games](design-experience/design-games.md)
 * [MVP Guidelines](design-experience/mvp-guidelines.md)
 * [UX & UI Guide](design-experience/ux-ui-guide.md)
 
-### Media
+## SDK7 - Media
 
 * [Audio Streaming](media/audio-streaming.md)
 * [Display a Certified NFT](media/display-a-certified-nft.md)
 * [Video Playing](media/video-playing.md)
 
-### Networking
+## SDK7 - Networking
 
 * [Authoritative Servers](networking/authoritative-servers.md)
 * [Network Connections](networking/network-connections.md)
 * [Serverless Multiplayer](networking/serverless-multiplayer.md)
 
-### Optimizing
+## SDK7 - Optimizing
 
 * [Performance Optimization](optimizing/performance-optimization.md)
 * [Scene Limitations](optimizing/scene-limitations.md)
 
-### Other
+## SDK7 - Other
 
 * [Scene Analytics](other/scene-analytics.md)
 
-### Programming Patterns
+## SDK7 - Programming Patterns
 
 * [Async Functions](programming-patterns/async-functions.md)
 * [Game Objects](programming-patterns/game-objects.md)
 * [Mutable Data](programming-patterns/mutable-data.md)
 
-### Projects
+## SDK7 - Projects
 
 * [Kinds of Project](projects/kinds-of-project.md)
 * [Portable Experiences](projects/portable-experiences.md)
@@ -124,22 +119,20 @@
 * [Smart Wearables](projects/smart-wearables.md)
 * [Workspaces](projects/workspaces.md)
 
-### Publishing
+## SDK7 - Publishing
 
 * [Publishing](publishing/publishing.md)
 * [Publishing Options](publishing/publishing-options.md)
 * [Make Discoverable](publishing/make-discoverable.md)
 
-### Releases
+## SDK7 - Releases
 
 * [Alpha Testing Guidelines](releases/alpha-testing-guidelines.md)
 * [Releases](releases/releases.md)
 * [V7 Alpha](releases/v7-alpha.md)
 * [Version Support Agreement](releases/version-support-agreement.md)
 
-## Scene Editor
-
-### Get Started
+## Scene Editor - Get Started
 
 * [About the Scene Editor](get-started/about-editor.md)
 * [Editor Installation](get-started/editor-installation.md)
@@ -147,22 +140,22 @@
 * [Migrate from Web](get-started/migrate-from-web.md)
 * [Scene Editor Essentials](get-started/scene-editor-essentials.md)
 
-### Build
+## Scene Editor - Build
 
 * [Components](build/components.md)
 * [Import Items](build/import-items.md)
 * [NFTs](build/nfts.md)
 
-### Code
+## Scene Editor - Code
 
 * [Overview](code/overview.md)
 * [Reference Items](code/reference-items.md)
 
-### Configure
+## Scene Editor - Configure
 
 * [Scene Settings](configure/scene-settings.md)
 
-### Interactivity
+## Scene Editor - Interactivity
 
 * [Custom Items](interactivity-1/custom-items.md)
 * [Make Any Item Smart](interactivity-1/make-any-item-smart.md)
@@ -172,24 +165,22 @@
 * [Trigger Area](interactivity-1/trigger-area.md)
 * [Video Screen](interactivity-1/video-screen.md)
 
-### Live Ops
+## Scene Editor - Live Ops
 
 * [Live Streaming](live-ops/live-streaming.md)
 * [Scene Admin](live-ops/scene-admin.md)
 
-### Publish
+## Scene Editor - Publish
 
 * [Publish Scene](publish/publish-scene.md)
 
-## Wearables & Emotes
-
-### Wearables
+## Wearables & Emotes - Wearables
 
 * [Wearables Overview](wearables/wearables-overview.md)
 * [Creating Wearables](wearables/creating-wearables.md)
 * [Linked Wearables](wearables/linked-wearables.md)
 
-### Emotes
+## Wearables & Emotes - Emotes
 
 * [Emotes Overview](emotes/emotes-overview.md)
 * [Creating Emotes](emotes/creating-emotes.md)
@@ -198,14 +189,14 @@
 * [Props and Sounds](emotes/props-and-sounds.md)
 * [Rig Features](emotes/rig-features.md)
 
-### Manage Collections
+## Wearables & Emotes - Manage Collections
 
 * [Creating a Collection](manage-collections/creating-a-collection.md)
 * [Uploading Wearables](manage-collections/uploading-wearables.md)
 * [Uploading Emotes](manage-collections/uploading-emotes.md)
 * [Uploading Smart Wearables](manage-collections/uploading-smart-wearables.md)
 
-### Publishing
+## Wearables & Emotes - Publishing
 
 * [Publishing Collections](publishing-1/publishing-collections.md)
 * [Curation Committee](publishing-1/curation-committee.md)
