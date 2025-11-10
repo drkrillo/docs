@@ -7,6 +7,14 @@
 * [Welcome](introduction/welcome.md)
 * [Architecture](introduction/architecture.md)
 
+## Architecture
+
+* [Overview](architecture/architecture.md)
+* [Client Architecture](architecture/client.md)
+* [Backend Services](architecture/services.md)
+* [Catalyst Network](architecture/catalyst.md)
+* [Infrastructure](architecture/infrastructure.md)
+
 ## Authentication
 
 * [Authentication Chain](authentication/authchain.md)
@@ -24,9 +32,6 @@
 * [MAIN Realm](communications/main-realm.md)
 * [Messages](communications/messages.md)
 * [Transports](communications/transports.md)
-
-## Transport Types
-
 * [LiveKit](transport-types/livekit.md)
 * [Websocket](transport-types/websocket.md)
 * [Offline](transport-types/offline.md)
@@ -41,9 +46,6 @@
 * [Pointers](content/pointers.md)
 * [Collections](content/collections.md)
 * [Snapshots](content/snapshots.md)
-
-## Entity Types
-
 * [Scenes](entity-types/scenes.md)
 * [Profiles](entity-types/profiles.md)
 * [Wearables](entity-types/wearables.md)
@@ -51,31 +53,22 @@
 * [Stores](entity-types/stores.md)
 * [Outfits](entity-types/outfits.md)
 
-## Practice
-
-* [CLI Examples](practice/cli-examples.md)
-* [Python Examples](practice/python-examples.md)
-
-## Runtime
+## Scenes
 
 * [Overview](runtime/overview.md)
+* [CLI Examples](practice/cli-examples.md)
+* [Python Examples](practice/python-examples.md)
 * [Globals](runtime/globals.md)
 * [Execution](runtime/execution.md)
 * [Permissions](runtime/permissions.md)
 * [Basic Entities](runtime/basic-entities.md)
 * [Basic Components](runtime/basic-components.md)
-
-## Runtime Modules
-
 * [Engine API](runtime-modules/engine-api.md)
 * [Restricted Actions](runtime-modules/restricted-actions.md)
 * [Players](runtime-modules/players.md)
 * [User Identity](runtime-modules/user-identity.md)
 * [Signed Fetch](runtime-modules/signed-fetch.md)
 * [Runtime](runtime-modules/runtime.md)
-
-## Components
-
 * [Component Creation](components/component-creation.md)
 
 ## Land
@@ -85,18 +78,16 @@
 ## Social Service
 
 * [Overview](social-service/overview.md)
+* [JavaScript Client](social-service/js-client.md)
+* [Login](social-service/login.md)
+* [Get Friends](social-service/get-friends.md)
+* [Put Friends](social-service/put-friends.md)
+* [Websocket](social-service/ws.md)
 
 ## Tutorials
 
 * [Getting Started](tutorials/getting-started.md)
 
-## Architecture
-
-* [Overview](architecture/architecture.md)
-* [Client Architecture](architecture/client.md)
-* [Backend Services](architecture/services.md)
-* [Catalyst Network](architecture/catalyst.md)
-* [Infrastructure](architecture/infrastructure.md)
 
 ## Contributor Guides
 
