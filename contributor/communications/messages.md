@@ -81,7 +81,7 @@ There's 3 [`Packet`](#Packet) types involved: a [`ProfileRequest`](#ProfileReque
 
 Clients typically broadcast `AnnounceProfileVersion` messages periodically, plus immediately when their profile changes.
 
-```goat
+```
 .----------.                   .----------.                 .----------.
 | Client 1 |                   | Client 2 |                 | Client 3 |
 '----+-----'                   '----+-----'                 '----+-----'
@@ -106,6 +106,7 @@ Clients typically broadcast `AnnounceProfileVersion` messages periodically, plus
      o ProfileResponse(v2)          |                            |
      |                              |                            |
      |                              |                            |
+
 
 
 ```

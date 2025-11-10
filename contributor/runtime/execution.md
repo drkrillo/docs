@@ -12,12 +12,10 @@ type Exports = {
 
 During the life-cycle of a scene, the runtime will ensure that calls to these methods are never made concurrently. The returned `Promise` will always be awaited before the scene receives a new call.
 
-```goat
-.---------.              .----------.
-| onStart +------------> | onUpdate +-----.
-'---------'   await      '----------'     |
-                               ^   await  |
-                               +----------'
+```mermaid
+flowchart LR
+    A[onStart] -->|await| B[onUpdate]
+    B -->|await| B
 ```
 
 {% hint style="info" %}

@@ -20,7 +20,7 @@ The `EngineApi` module is designed to synchronize the state of the world between
 - Cast rays in the 3D environment and detect hits.
 - Receive events such as input from the player.
 
-```goat
+```
 .------------------------------------------------------.
 | World Explorer                                       |
 |                                                      |
@@ -35,6 +35,7 @@ The `EngineApi` module is designed to synchronize the state of the world between
 |  '--------'            |              '------------' |
 |                                                      |
 '------------------------------------------------------'
+
 ```
 
 {% hint style="info" %}
@@ -82,7 +83,7 @@ For this to work, all messages must be commutative and idempotent. Out-of-order 
 
 Let's revisit the architectural diagram above, now focusing on the CRDT:
 
-```goat
+```
 .-------------------------------------------------------.
 | World Explorer                                        |
 |                                                       |
@@ -96,6 +97,7 @@ Let's revisit the architectural diagram above, now focusing on the CRDT:
 | |             |                       |             | |
 | '-------------'                       '-------------' |
 '-------------------------------------------------------'
+
 ```
 
 The implementation of the CRDT synchronization mechanism consists of three parts:
@@ -237,11 +239,12 @@ During this initial synchronization, only the runtime can set the shared state. 
 
 Messages between the World Explorer and the scene runtime are structures in a serialized binary representation. Every message carries a header indicating the type and length, followed by a particular payload for each type of message.
 
-```goat
+```
 .----------------.--------------.---------------------------------.
 | length: uint32 | type: uint32 |     payload: byte[length]       |
 '----------------'--------------'---------------------------------'
 ╵         common fields         ╵         type-dependent          ╵
+
 ```
 
 There are three message types in the CRDT protocol:
@@ -256,11 +259,12 @@ Note that there are no `CreateComponent` or `CreateEntity` messages. The CRDT ru
 
 Update the `state` of a `component` for a particular `entity`, creating unknown components and entities in the CRDT if necessary. [Resolve conflicts](#crdtConflicts) according to `timestamp`.
 
-```goat
+```
 .----------------.-------------------.-------------------------------------------.
 | entity: uint32 | component: uint32 | timestamp: uint32 |     state: byte[]     |
 '----------------'-------------------'-------------------------------------------'
 ╵                       common fields                    ╵  component-dependent  ╵
+
 ```
 
 The `state` field is a component-defined binary serialization. Most components use [protocol buffers](https://protobuf.dev) to encode messages as specified in the `.proto` files of [the Decentraland protocol package](https://github.com/decentraland/protocol). The notable exception to this rule is the `Transform` component, which (being the most common by far) has an optimized serialization format.
@@ -273,20 +277,22 @@ If the update contained in this message is applied to the CRDT, the `state` fiel
 
 Remove the state of `component` for an `entity`. [Resolve conflicts](#crdtConflicts) according to `timestamp`.
 
-```goat
+```
 .----------------.-------------------.-------------------.
 | entity: uint32 | component: uint32 | timestamp: uint32 |
 '----------------'-------------------'-------------------'
+
 ```
 
 ##### `DeleteEntityMessage` {#DeleteEntityMessage}
 
 Delete `entity` (i.e. all associated component state), expecting the identifier to never be reused for a different entity.
 
-```goat
+```
 .----------------.
 | entity: uint32 |
 '----------------'
+
 ```
 
 Note that there is no `timestamp` field. Since the lifespan of `entity` is over, the conflict resolution strategy for any out-of-order updates is to simply ignore them.

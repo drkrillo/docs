@@ -30,26 +30,16 @@ The [`SignedChallengeMessage`](#SignedChallengeMessage) carries a JSON-serialize
 
 If the signature is successfully verified by the service, the client is authenticated and will receive a [`WelcomeMessage`](#WelcomeMessage).
 
-```goat
- .-------------.                  .--------.
- | Archipelago |                  | Client |
- '----+--------'                  '---+----'
-       ⋮                              |
-       ⋮                  Connect     |
-       o - - - - - - - - - - - - - - -|
-       |                              |
-       |                              |
-       |      ChallengeRequestMessage |
-       |<-----------------------------+
-       +----------------------------->|
-       | ChallengeResponseMessage     |
-       |                              |
-       |                              |
-       |       SignedChallengeMessage |
-       |<-----------------------------+
-       +----------------------------->|
-       | WelcomeMessage               |
-       |                              |
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Archipelago
+    
+    Note over Client,Archipelago: Connect
+    Client->>Archipelago: ChallengeRequestMessage
+    Archipelago->>Client: ChallengeResponseMessage
+    Client->>Archipelago: SignedChallengeMessage
+    Archipelago->>Client: WelcomeMessage
 ```
 
 ## Sending Heartbeat {#heartbeat}

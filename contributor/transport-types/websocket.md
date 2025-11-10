@@ -32,7 +32,7 @@ Before they can start relaying messages to others, clients must authenticate by 
 
 The first message a client sends when joining an island is [`WsIdentification`][WsIdentification], which contains a public address. It will be responded with [`WsChallengeRequired`](#WsChallengeRequired), and clients send a [`WsSignedChallenge`](#WsSignedChallenge) in reply.
 
-```goat
+```
   .----------.                .--------.
   |  Server  |                | Client |
   '----+-----'                '---+----'
@@ -52,6 +52,7 @@ The first message a client sends when joining an island is [`WsIdentification`][
        +------------------------->|
        | WsWelcome                |
        |                          |
+
 ```
 
 If the flow is completed successfully, the client will receive a [`WsWelcome`](#WsWelcome) and can start sending messages to peers.
@@ -127,7 +128,7 @@ There's also the [`WsKicked`](#WsKicked) message, which informs clients that the
 
 To send comms [messages](../messages), clients wrap them in the [`WsPeerUpdate`](#WsPeerUpdate) structure. This differentiates the transport control message types from the actual messages sent between peers.
 
-```goat
+```
 .-------------------.
 | WsPacket          |
 |  .--------------. |
@@ -137,6 +138,7 @@ To send comms [messages](../messages), clients wrap them in the [`WsPeerUpdate`]
 |  | '----------' | |
 |  '--------------' |
 '-------------------'
+
 ```
 
 ---

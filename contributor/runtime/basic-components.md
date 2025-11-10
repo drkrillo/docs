@@ -24,11 +24,12 @@ This component is, by a wide margin, the most commonly used and frequently updat
 
 `Transform` has a size of `44` bytes, with this exact layout:
 
-```goat
+```
 .-----------------------.-------------------------------.-----------------------.-----------------.
 |   x   |   y   |   z   |   x   |   y   |   z   |   w   |   x   |   y   |   z   | parent (uint32) |
 '-----------------------'-------------------------------'-----------------------'-----------------'
 ╵  position (3x float)  ╵      rotation (4x float)      ╵   scale (3x float)    ╵
+
 ```
 
 This approach allows the runtime (especially in low-level code environments) to avoid intermediate serialization and deserialization steps. The memory where a `Transform` resides can be copied, shared and directly pointed to.

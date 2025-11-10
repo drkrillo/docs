@@ -15,7 +15,7 @@ Since most of this functionality requires broadcasting messages to all nearby pl
 The realm service that manages and assigns players to islands is called _Archipelago_. It takes care of creating islands as they are needed, keeping their population at a reasonable number and dynamically reassigning players in response to their movements.
 
 
-```goat
+```
 .----------------------------------------------------------------------------.                      
 | Realm                                                                      |
 |                                                     .------------------.   |
@@ -30,6 +30,7 @@ The realm service that manages and assigns players to islands is called _Archipe
 |                                                     '------------------'   |
 |                                                                            |
 '----------------------------------------------------------------------------'
+
 ```
 
 When assigned to an island, clients are given an island-specific URI to connect to the actual backend that will relay messages between them. This connection lasts until Archipelago reassigns the client to a different island.
@@ -48,7 +49,7 @@ The life-cycle of a comms client can be summarized in a few steps:
 
 When the client ends their session, they simply disconnect from the Archipelago service. They will be automatically removed from their current island.
 
-```goat
+```
 .-------------.         .--------.         .----------------.                                       
 | Archipelago |         | Client |         | Island Backend |
 '-----+-------'         '---+----'         '-------+--------'
@@ -94,6 +95,7 @@ When the client ends their session, they simply disconnect from the Archipelago 
       |                     |                      ⋮                      
       |                     |                      ⋮ 
     --------------------- Repeat ---------------------
+
 ```
 
 

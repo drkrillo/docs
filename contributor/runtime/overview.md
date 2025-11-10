@@ -4,7 +4,7 @@ The Decentraland scene runtime is the sandboxed execution environment where a [s
 Each scene runs inside its own isolated runtime. Within it, it has access to certain [global objects](../globals.md) and can import [modules](../modules.md) from the runtime library.
 
  
-```goat
+```
 .-----------------------------------------------------'
 .                                                     '                   
 |                   World Explorer                    |
@@ -25,6 +25,7 @@ Each scene runs inside its own isolated runtime. Within it, it has access to cer
 |  |            Runtime module library             |  |
 |  '--------------------------+----------------+---'  |
 '-----------------------------------------------------'
+
 ```
 
 By importing modules from the runtime library, scenes have access a wide array of functionality, including:

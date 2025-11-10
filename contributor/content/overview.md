@@ -9,7 +9,7 @@ All of the important concepts mentioned below are further described in their own
 
 There are three layers in Decentraland's content system: [files](../filesystem.md) are packaged inside [entities](../entities.md), and entities are discovered using [pointers](../pointers.md).
 
-```goat
+```
 .---------.         .--------.       .---------.
 | Pointer +-------> | Entity +-+---> |  File 1 |                                       
 '---------'         '--------' |     '---------'
@@ -21,6 +21,7 @@ There are three layers in Decentraland's content system: [files](../filesystem.m
                                |     .---------.
                                +---> |  File 3 |
                                      '---------'
+
 ```
 
 
