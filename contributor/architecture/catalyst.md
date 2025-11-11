@@ -286,7 +286,6 @@ Lightweight deployment:
 
 ## Next Steps
 
-* Explore [Client Architecture](client.md) for client integration
 * Review [Backend Services](services.md) for service details
 * See [Infrastructure](infrastructure.md) for supporting systems
 * Check [Architecture Overview](architecture.md) for the complete picture

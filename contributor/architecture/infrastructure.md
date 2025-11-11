@@ -169,7 +169,6 @@ Grants NFT rewards for actions:
 
 ## Next Steps
 
-* Explore [Client Architecture](client.md) for client-side details
 * Review [Backend Services](services.md) for service specifications
 * Check [Catalyst Network](catalyst.md) for content infrastructure
 * See [Architecture Overview](architecture.md) for the complete picture

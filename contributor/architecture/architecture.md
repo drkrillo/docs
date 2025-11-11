@@ -24,15 +24,6 @@ The diagram below captures the most important sub-components of the Decentraland
 
 ## Documentation Sections
 
-### [Client Architecture](client.md)
-
-The Unity Explorer client and how it interacts with Decentraland services:
-
-* Core client logic
-* Decentraland Gateway integration
-* Asset loading and caching
-* Real-time communications
-
 ### [Backend Services](services.md)
 
 Comprehensive overview of all backend services:
@@ -210,7 +201,6 @@ Content flow from creation to client:
 
 ## Next Steps
 
-* Explore [Client Architecture](client.md) for client-side details
 * Review [Backend Services](services.md) for service specifications
 * Check [Catalyst Network](catalyst.md) for decentralized infrastructure
 * See [Infrastructure](infrastructure.md) for supporting systems

@@ -511,7 +511,6 @@ flowchart TB
 ### Architecture
 
 * [Architecture Overview](architecture.md) - Complete system architecture
-* [Client Architecture](client.md) - Explorer and renderer design
 * [Catalyst Network](catalyst.md) - Decentralized content delivery
 * [Infrastructure](infrastructure.md) - Supporting systems (NATS, LiveKit, databases)
 

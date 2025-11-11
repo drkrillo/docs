@@ -5,7 +5,6 @@
 ## Architecture
 
 * [Overview](architecture/architecture.md)
-* [Client Architecture](architecture/client.md)
 * [Backend Services](architecture/services.md)
 * [Catalyst Network](architecture/catalyst.md)
 * [Infrastructure](architecture/infrastructure.md)
