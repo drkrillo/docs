@@ -22,24 +22,6 @@ The diagram below captures the most important sub-components of the Decentraland
 
 ![Decentraland Architecture Diagram](../images/architecture.png)
 
-## High-Level Architecture
-
-```mermaid
-flowchart TB
-    Client[Unity Explorer Client]
-    Gateway[Decentraland Gateway]
-    Catalyst[Catalyst Network]
-    Services[Backend Services]
-    Blockchain[Blockchain]
-    
-    Client --> Gateway
-    Gateway --> Catalyst
-    Gateway --> Services
-    Services --> Catalyst
-    Services --> Blockchain
-    Catalyst --> Blockchain
-```
-
 ## Documentation Sections
 
 ### [Client Architecture](client.md)
