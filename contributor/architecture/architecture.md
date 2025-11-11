@@ -93,37 +93,37 @@ Supporting infrastructure and external services:
 
 | Service                                                | Purpose                                 | API Reference                       |
 | ------------------------------------------------------ | --------------------------------------- | ----------------------------------- |
-| [Realm Provider](services.md#realm-provider)           | Describes available realms and services | [API](../apis/realm-provider/)      |
-| [Auth Server](services.md#auth-server)                 | Authentication service                  | [API](../apis/auth-server/)         |
-| [Comms Gatekeeper](services.md#comms-gatekeeper)       | LiveKit access control                  | [API](../apis/comms-gatekeeper/)    |
-| [Archipelago Workers](services.md#archipelago-workers) | Communications clustering               | [API](../apis/archipelago-workers/) |
+| [Realm Provider](services.md#realm-provider)           | Describes available realms and services | [API](../../apis/realm-provider/)      |
+| [Auth Server](services.md#auth-server)                 | Authentication service                  | [API](../../apis/auth-server/)         |
+| [Comms Gatekeeper](services.md#comms-gatekeeper)       | LiveKit access control                  | [API](../../apis/comms-gatekeeper/)    |
+| [Archipelago Workers](services.md#archipelago-workers) | Communications clustering               | [API](../../apis/archipelago-workers/) |
 
 ### Content & Social Services
 
 | Service                                      | Purpose                | API Reference                  |
 | -------------------------------------------- | ---------------------- | ------------------------------ |
-| [Worlds](services.md#worlds)                 | Isolated scene hosting | [API](../apis/worlds/)         |
-| [Events](services.md#events)                 | Event management       | [API](../apis/events/)         |
-| [Places](services.md#places)                 | Points of interest     | [API](../apis/places/)         |
-| [Social Service](services.md#social-service) | Friends & communities  | [API](../apis/social-service/) |
-| [Atlas Server](services.md#atlas-server)     | Map data               | [API](../apis/atlas-server/)   |
+| [Worlds](services.md#worlds)                 | Isolated scene hosting | [API](../../apis/worlds/)         |
+| [Events](services.md#events)                 | Event management       | [API](../../apis/events/)         |
+| [Places](services.md#places)                 | Points of interest     | [API](../../apis/places/)         |
+| [Social Service](services.md#social-service) | Friends & communities  | [API](../../apis/social-service/) |
+| [Atlas Server](services.md#atlas-server)     | Map data               | [API](../../apis/atlas-server/)   |
 
 ### Asset & Media Services
 
 | Service                                            | Purpose                    | API Reference                         |
 | -------------------------------------------------- | -------------------------- | ------------------------------------- |
-| [Asset Bundle Registry](services.md#asset-bundles) | Optimized asset management | [API](../apis/asset-bundle-registry/) |
-| [Camera Reel](services.md#camera-reel)             | Screenshot management      | [API](../apis/camera-reel/)           |
+| [Asset Bundle Registry](services.md#asset-bundles) | Optimized asset management | [API](../../apis/asset-bundle-registry/) |
+| [Camera Reel](services.md#camera-reel)             | Screenshot management      | [API](../../apis/camera-reel/)           |
 
 ### Platform Services
 
 | Service                                            | Purpose                   | API Reference                         |
 | -------------------------------------------------- | ------------------------- | ------------------------------------- |
-| [Credits Server](services.md#credits-server)       | Virtual credits system    | [API](../apis/credits-server/)        |
-| [Badges](services.md#badges)                       | User achievement system   | [API](../apis/badges/)                |
-| [Notifications](services.md#notifications)         | User notifications        | [API](../apis/notifications-workers/) |
-| [Events Notifier](services.md#events-notifier)     | Event-based notifications | [API](../apis/events-notifier/)       |
-| [Exploration Games](services.md#exploration-games) | Onboarding games          | [API](../apis/exploration-games/)     |
+| [Credits Server](services.md#credits-server)       | Virtual credits system    | [API](../../apis/credits-server/)        |
+| [Badges](services.md#badges)                       | User achievement system   | [API](../../apis/badges/)                |
+| [Notifications](services.md#notifications)         | User notifications        | [API](../../apis/notifications-workers/) |
+| [Events Notifier](services.md#events-notifier)     | Event-based notifications | [API](../../apis/events-notifier/)       |
+| [Exploration Games](services.md#exploration-games) | Onboarding games          | [API](../../apis/exploration-games/)     |
 
 ## System Interactions
 
@@ -236,5 +236,5 @@ Content flow from creation to client:
 ## Additional Resources
 
 * [Contributor Guides](../contributor-guides/contributor-guides.md) - Coding and documentation standards
-* [API Reference](../../apis/) - Complete API documentation
+* [API Reference](../../apis/README.md) - Complete API documentation
 * [GitHub Organization](https://github.com/decentraland) - Source code repositories

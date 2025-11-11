@@ -23,64 +23,39 @@ Welcome to the Decentraland API Reference. This section provides comprehensive d
 
 ## Overview
 
-Decentraland's backend infrastructure consists of distributed services organized into five main categories:
+Decentraland's backend infrastructure consists of distributed services organized into four main categories:
 
-* **Core Services** - Essential infrastructure for service discovery, authentication, and communications
-* **Content Services** - Scene and content management, including worlds, events, and places
-* **Social Services** - User interactions, friends management, and notifications
-* **Asset Services** - Media processing, asset optimization, and storage
-* **Platform Services** - Virtual economy, rewards, badges, and gamification
+* **Decentralized Layer** - Content delivery and decentralized infrastructure
+* **Real-Time Communications Layer** - Service discovery, clustering, and communications
+* **Feature Services** - User-facing features, content, and gamification
+* **Core Services** - Authentication, marketplace, assets, and notifications
 
 All APIs documented here follow OpenAPI specifications and support RESTful conventions unless otherwise noted.
 
 ## Service Categories
 
-### Core Services
+### Decentralized Layer
 
-Essential infrastructure services that form the foundation of Decentraland:
+The foundational decentralized infrastructure for content delivery:
+
+| Service | Purpose | Key Features |
+|---------|---------|--------------|
+| [Catalyst](apis/catalyst/) | Content delivery | Decentralized content servers, entity deployment, and filesystem access |
+| [Lamb2](apis/lamb2/) | Lambda utilities | Serverless functions for content consumption and utility endpoints |
+
+### Real-Time Communications Layer
+
+Service discovery and real-time peer-to-peer communications:
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
 | [Realm Provider](apis/realm-provider/) | Service discovery | Find available Catalyst servers and communication endpoints |
-| [Auth Server](apis/auth-server/) | Authentication | Wallet-based authentication and session management |
 | [Comms Gatekeeper](apis/comms-gatekeeper/) | Access control | Time-limited tokens for LiveKit media server access |
-| [Archipelago Workers](apis/archipelago-workers/) | Communications | WebSocket clustering and message routing via NATS |
+| [Archipelago Workers](apis/archipelago-workers/) | Communications clustering | WebSocket connections, island formation, and message routing via NATS |
 
-### Content Services
+### Feature Services
 
-Services for managing scenes, events, and discoverable content:
-
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| [Catalyst](apis/catalyst/) | Content delivery | Decentralized content servers and deployment |
-| [Worlds](apis/worlds/) | Isolated scenes | Personal worlds and custom domains |
-| [Events](apis/events/) | Event management | Create, schedule, and discover in-world events |
-| [Places](apis/places/) | Points of interest | Curated locations and featured experiences |
-| [Atlas Server](apis/atlas-server/) | Map data | Parcel information and world map tiles |
-
-### Social Services
-
-User interaction and community features:
-
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| [Social Service](apis/social-service/) | Friends & communities | Friendship management, private messaging |
-| [Notifications Workers](apis/notifications-workers/) | User notifications | Real-time and push notifications |
-| [Events Notifier](apis/events-notifier/) | Event alerts | Notifications for upcoming events |
-
-### Asset Services
-
-Media processing and optimization:
-
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| [Asset Bundle Registry](apis/asset-bundle-registry/) | Asset optimization | Unity asset bundles for optimized loading |
-| [Camera Reel](apis/camera-reel/) | Screenshots | User-generated screenshot management |
-| [Marketplace Server](apis/marketplace-server/) | NFT marketplace | Wearables and emotes marketplace integration |
-
-### Platform Services
-
-Virtual economy and gamification:
+User-facing features including content, economy, and gamification:
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
@@ -88,7 +63,24 @@ Virtual economy and gamification:
 | [Badges](apis/badges/) | Achievements | User achievement and badge system |
 | [Rewards API](apis/rewards/) | NFT rewards | Campaign-based NFT reward distribution |
 | [Exploration Games](apis/exploration-games/) | Onboarding | Interactive tutorials and quests |
-| [Lamb2](apis/lamb2/) | Lambda utilities | Utility endpoints for various features |
+| [Camera Reel](apis/camera-reel/) | Screenshots | User-generated screenshot management |
+| [Atlas Server](apis/atlas-server/) | Map data | Parcel information and world map tiles |
+| [Places](apis/places/) | Points of interest | Curated locations and featured experiences |
+| [Events](apis/events/) | Event management | Create, schedule, and discover in-world events |
+| [Worlds](apis/worlds/) | Isolated scenes | Personal worlds and custom domains |
+
+### Core Services
+
+Essential infrastructure for authentication, marketplace, assets, and notifications:
+
+| Service | Purpose | Key Features |
+|---------|---------|--------------|
+| [Auth Server](apis/auth-server/) | Authentication | Wallet-based authentication and session management |
+| [Marketplace Server](apis/marketplace-server/) | NFT marketplace | Wearables and emotes marketplace integration |
+| [Asset Bundle Registry](apis/asset-bundle-registry/) | Asset optimization | Unity asset bundles for optimized loading |
+| [Events Notifier](apis/events-notifier/) | Event alerts | Notifications for upcoming events |
+| [Notifications Workers](apis/notifications-workers/) | User notifications | Real-time and push notifications |
+| [Social Service](apis/social-service/) | Friends & communities | Friendship management and private messaging |
 
 ## Getting Started
 
