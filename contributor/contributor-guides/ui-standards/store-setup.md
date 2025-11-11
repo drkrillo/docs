@@ -15,20 +15,20 @@ src/
     types/                # DTOs (API), Domain models, mappers
     utils/                # Shared utilities
   services/
-    api.ts                # RTK Query base API
+    client.ts             # RTK Query base client
     baseQuery.ts          # Base query with auth/chainId/retry
   features/
     user/
-      user.api.ts         # RTK Query endpoints
+      user.client.ts      # RTK Query endpoints
       user.slice.ts       # UI state slice
       user.selectors.ts   # Memoized selectors
       __tests__/          # Tests
     land/
-      land.api.ts
+      land.client.ts
       land.slice.ts
       land.selectors.ts
     credits/
-      credits.api.ts
+      credits.client.ts
       credits.slice.ts
       credits.selectors.ts
 ```
@@ -37,7 +37,7 @@ src/
 
 * **Feature-based** - Group by business domain, not technical role
 * **Co-location** - Keep related code together
-* **Clear separation** - Distinguish between remote data (`.api.ts`) and local state (`.slice.ts`)
+* **Clear separation** - Distinguish between remote data (`.client.ts`) and local state (`.slice.ts`)
 
 ## Store Configuration
 
@@ -48,15 +48,15 @@ The store MUST be configured with RTK's `configureStore` and include all necessa
 ```tsx
 // src/app/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 import userReducer from '@/features/user/user.slice';
 import landReducer from '@/features/land/land.slice';
 import creditsReducer from '@/features/credits/credits.slice';
 
 export const store = configureStore({
   reducer: {
-    // RTK Query API reducer (MUST be included)
-    [api.reducerPath]: api.reducer,
+    // RTK Query client reducer (MUST be included)
+    [client.reducerPath]: client.reducer,
     
     // Feature slices
     user: userReducer,
@@ -71,7 +71,7 @@ export const store = configureStore({
         ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
         ignoredPaths: ['register'],
       },
-    }).concat(api.middleware), // MUST include RTK Query middleware
+    }).concat(client.middleware), // MUST include RTK Query middleware
     
   devTools: process.env.NODE_ENV !== 'production',
 });
@@ -397,7 +397,7 @@ const persistConfig = {
   // Only persist specific slices
   whitelist: ['user', 'preferences'],
   // Never persist RTK Query cache
-  blacklist: ['api'],
+  blacklist: ['client'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

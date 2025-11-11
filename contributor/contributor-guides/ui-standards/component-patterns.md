@@ -7,7 +7,7 @@ This page covers how to effectively use Redux and RTK Query in React components,
 Use generated hooks from RTK Query endpoints:
 
 ```tsx
-import { useGetParcelByCoordsQuery } from '@/features/land/land.api';
+import { useGetParcelByCoordsQuery } from '@/features/land/land.client';
 
 function ParcelCard({ x, y }: { x: number; y: number }) {
   const { data, isLoading, isError, error } = useGetParcelByCoordsQuery({ x, y });
@@ -159,7 +159,7 @@ function GrantCreditsButton({ address }: { address: string }) {
 ### Mutation with Feedback
 
 ```tsx
-import { isFetchBaseQueryError } from '@/services/api';
+import { isFetchBaseQueryError } from '@/services/client';
 
 function UpdateParcelName({ parcelId }: { parcelId: string }) {
   const [name, setName] = useState('');
@@ -340,7 +340,7 @@ Prefetch data before navigation for faster UX:
 
 ```tsx
 import { useAppDispatch } from '@/app/hooks';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 import { Link } from 'react-router-dom';
 
 function ParcelListItem({ parcel }: { parcel: Parcel }) {
@@ -349,7 +349,7 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
   const handleMouseEnter = () => {
     // Prefetch parcel details on hover
     dispatch(
-      api.util.prefetch('getParcel', { id: parcel.id }, { force: false })
+      client.util.prefetch('getParcel', { id: parcel.id }, { force: false })
     );
   };
 
@@ -368,17 +368,17 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
 
 ```tsx
 import { useAppDispatch } from '@/app/hooks';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 
 function RefreshButton() {
   const dispatch = useAppDispatch();
 
   const handleRefresh = () => {
     // Invalidate all Parcels queries
-    dispatch(api.util.invalidateTags(['Parcels']));
+    dispatch(client.util.invalidateTags(['Parcels']));
     
-    // Or reset entire API state
-    // dispatch(api.util.resetApiState());
+    // Or reset entire client state
+    // dispatch(client.util.resetApiState());
   };
 
   return <button onClick={handleRefresh}>Refresh Data</button>;
