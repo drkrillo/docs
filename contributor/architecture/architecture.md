@@ -18,9 +18,9 @@ Decentraland is built on a distributed architecture that combines:
 * **Blockchain** - Ethereum and Polygon for ownership and transactions
 * **Third-party Services** - LiveKit, SendGrid, and other SaaS providers
 
-{% hint style="info" %}
-**Note**: The interactive architecture diagram from the original documentation has been preserved, but may require adaptation for Gitbook. You can view the [Foundation's architectural diagram](https://github.com/decentraland/documentation/blob/main/static/images/contributor/architecture.png) for reference.
-{% endhint %}
+The diagram below captures the most important sub-components of the Decentraland protocol:
+
+![Decentraland Architecture Diagram](../images/architecture.png)
 
 ## High-Level Architecture
 
@@ -66,8 +66,8 @@ Comprehensive overview of all backend services:
 The decentralized content delivery network:
 
 * Content servers
-* Lambdas (serverless functions)
-* Archipelago workers (communications)
+* Lambdas (functions to consume the content)
+* Archipelago workers (communication layer)
 * Deployment pipeline
 
 ### [Infrastructure](infrastructure.md)
