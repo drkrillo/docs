@@ -2,11 +2,6 @@
 
 * [Welcome Contributor](README.md)
 
-## Introduction
-
-* [Welcome](introduction/welcome.md)
-* [Architecture](introduction/architecture.md)
-
 ## Architecture
 
 * [Overview](architecture/architecture.md)

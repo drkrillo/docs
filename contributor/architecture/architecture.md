@@ -1,8 +1,14 @@
-# Overview
+# Architecture Overview
 
 This section provides a comprehensive overview of Decentraland's technical architecture, including the Reference Client (Unity Explorer) and all backend services that power the metaverse.
 
-## Architecture Overview
+## General Architecture
+
+The general architecture of Decentraland can be divided into three main components:
+
+* **The Catalyst network**: distributed peer servers that host content and provide the core APIs.
+* **The World Explorer**: app for players to log into Decentraland and explore the land.
+* **The CLI**: a command-line interface for creators to develop and deploy content.
 
 Decentraland is built on a distributed architecture that combines:
 
@@ -11,6 +17,10 @@ Decentraland is built on a distributed architecture that combines:
 * **Backend Services** - Centralized services for enhanced functionality
 * **Blockchain** - Ethereum and Polygon for ownership and transactions
 * **Third-party Services** - LiveKit, SendGrid, and other SaaS providers
+
+{% hint style="info" %}
+**Note**: The interactive architecture diagram from the original documentation has been preserved, but may require adaptation for Gitbook. You can view the [Foundation's architectural diagram](https://github.com/decentraland/documentation/blob/main/static/images/contributor/architecture.png) for reference.
+{% endhint %}
 
 ## High-Level Architecture
 
