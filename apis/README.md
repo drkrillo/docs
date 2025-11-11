@@ -40,8 +40,8 @@ The foundational decentralized infrastructure for content delivery:
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
-| [Catalyst](apis/catalyst/) | Content delivery | Decentralized content servers, entity deployment, and filesystem access |
-| [Lamb2](apis/lamb2/) | Lambda utilities | Serverless functions for content consumption and utility endpoints |
+| [Catalyst](catalyst/) | Content delivery | Decentralized content servers, entity deployment, and filesystem access |
+| [Lamb2](lamb2/) | Lambda utilities | Serverless functions for content consumption and utility endpoints |
 
 ### Real-Time Communications Layer
 
@@ -49,9 +49,9 @@ Service discovery and real-time peer-to-peer communications:
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
-| [Realm Provider](apis/realm-provider/) | Service discovery | Find available Catalyst servers and communication endpoints |
-| [Comms Gatekeeper](apis/comms-gatekeeper/) | Access control | Time-limited tokens for LiveKit media server access |
-| [Archipelago Workers](apis/archipelago-workers/) | Communications clustering | WebSocket connections, island formation, and message routing via NATS |
+| [Realm Provider](realm-provider/) | Service discovery | Find available Catalyst servers and communication endpoints |
+| [Comms Gatekeeper](comms-gatekeeper/) | Access control | Time-limited tokens for LiveKit media server access |
+| [Archipelago Workers](archipelago-workers/) | Communications clustering | WebSocket connections, island formation, and message routing via NATS |
 
 ### Feature Services
 
@@ -59,15 +59,15 @@ User-facing features including content, economy, and gamification:
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
-| [Credits Server](apis/credits-server/) | Virtual credits | Decentraland's virtual currency system |
-| [Badges](apis/badges/) | Achievements | User achievement and badge system |
-| [Rewards API](apis/rewards/) | NFT rewards | Campaign-based NFT reward distribution |
-| [Exploration Games](apis/exploration-games/) | Onboarding | Interactive tutorials and quests |
-| [Camera Reel](apis/camera-reel/) | Screenshots | User-generated screenshot management |
-| [Atlas Server](apis/atlas-server/) | Map data | Parcel information and world map tiles |
-| [Places](apis/places/) | Points of interest | Curated locations and featured experiences |
-| [Events](apis/events/) | Event management | Create, schedule, and discover in-world events |
-| [Worlds](apis/worlds/) | Isolated scenes | Personal worlds and custom domains |
+| [Credits Server](credits-server/) | Virtual credits | Decentraland's virtual currency system |
+| [Badges](badges/) | Achievements | User achievement and badge system |
+| [Rewards API](rewards/) | NFT rewards | Campaign-based NFT reward distribution |
+| [Exploration Games](exploration-games/) | Onboarding | Interactive tutorials and quests |
+| [Camera Reel](camera-reel/) | Screenshots | User-generated screenshot management |
+| [Atlas Server](atlas-server/) | Map data | Parcel information and world map tiles |
+| [Places](places/) | Points of interest | Curated locations and featured experiences |
+| [Events](events/) | Event management | Create, schedule, and discover in-world events |
+| [Worlds](worlds/) | Isolated scenes | Personal worlds and custom domains |
 
 ### Core Services
 
@@ -75,12 +75,12 @@ Essential infrastructure for authentication, marketplace, assets, and notificati
 
 | Service | Purpose | Key Features |
 |---------|---------|--------------|
-| [Auth Server](apis/auth-server/) | Authentication | Wallet-based authentication and session management |
-| [Marketplace Server](apis/marketplace-server/) | NFT marketplace | Wearables and emotes marketplace integration |
-| [Asset Bundle Registry](apis/asset-bundle-registry/) | Asset optimization | Unity asset bundles for optimized loading |
-| [Events Notifier](apis/events-notifier/) | Event alerts | Notifications for upcoming events |
-| [Notifications Workers](apis/notifications-workers/) | User notifications | Real-time and push notifications |
-| [Social Service](apis/social-service/) | Friends & communities | Friendship management and private messaging |
+| [Auth Server](auth-server/) | Authentication | Wallet-based authentication and session management |
+| [Marketplace Server](marketplace-server/) | NFT marketplace | Wearables and emotes marketplace integration |
+| [Asset Bundle Registry](asset-bundle-registry/) | Asset optimization | Unity asset bundles for optimized loading |
+| [Events Notifier](events-notifier/) | Event alerts | Notifications for upcoming events |
+| [Notifications Workers](notifications-workers/) | User notifications | Real-time and push notifications |
+| [Social Service](social-service/) | Friends & communities | Friendship management and private messaging |
 
 ## Getting Started
 
@@ -92,7 +92,7 @@ Most APIs require authentication using Decentraland's wallet-based system:
 2. **Get tokens** - Auth Server validates signatures and issues JWT tokens
 3. **Include tokens** - Add tokens to API requests via `Authorization` header
 
-See the [Auth Server API](apis/auth-server/) for detailed authentication flows.
+See the [Auth Server API](auth-server/) for detailed authentication flows.
 
 ### Base URLs
 
@@ -102,7 +102,7 @@ APIs are deployed across the Decentraland network:
 * **Development**: Various test environments
 * **Custom**: Self-hosted Catalyst nodes
 
-Most services are accessible through Catalyst nodes. Use the [Realm Provider](apis/realm-provider/) to discover available endpoints.
+Most services are accessible through Catalyst nodes. Use the [Realm Provider](realm-provider/) to discover available endpoints.
 
 ### Rate Limiting
 
