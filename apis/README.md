@@ -19,7 +19,7 @@ layout:
 
 # API Reference
 
-Welcome to the Decentraland API Reference. This section provides comprehensive documentation for all backend services that power the Decentraland metaverse.
+Welcome to the Decentraland API Reference. This section provides comprehensive documentation for all backend services that power Decentraland.
 
 ## Overview
 
