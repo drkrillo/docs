@@ -26,16 +26,13 @@
 ## DAO
 
 * [DAO User Guide](dao/dao-userguide.md)
-
-## DAO Overview
-
-* [What is the DAO](dao-overview/what-is-the-dao.md)
-* [How does the DAO work](dao-overview/how-does-the-dao-work.md)
-* [What can you do with the DAO](dao-overview/what-can-you-do-with-the-dao.md)
-* [Participation Requirements](dao-overview/what-do-you-need-to-participate.md)
-* [The DAO Fund](dao-overview/the-dao-fund.md)
-* [DAO Limitations](dao-overview/the-daos-limitations.md)
-* [The DAO Smart Contracts](dao-overview/what-smart-contracts-does-the-dao-control.md)
+* [What is the DAO](dao/what-is-the-dao.md)
+* [How does the DAO work](dao/how-does-the-dao-work.md)
+* [What can you do with the DAO](dao/what-can-you-do-with-the-dao.md)
+* [Participation Requirements](dao/what-do-you-need-to-participate.md)
+* [The DAO Fund](dao/the-dao-fund.md)
+* [DAO Limitations](dao/the-daos-limitations.md)
+* [The DAO Smart Contracts](dao/what-smart-contracts-does-the-dao-control.md)
 
 ## In-World
 
