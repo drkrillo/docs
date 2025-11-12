@@ -151,24 +151,6 @@ All content is content-addressed:
 
 Communications infrastructure runs alongside Catalyst:
 
-### Architecture
-
-```mermaid
-flowchart TB
-    Client1[Client 1]
-    Client2[Client 2]
-    WS[WebSocket Connector]
-    Core[Archipelago Core]
-    NATS[NATS]
-    Stats[Stats Service]
-    
-    Client1 --> WS
-    Client2 --> WS
-    WS --> Core
-    Core <--> NATS
-    Core --> Stats
-```
-
 ### Components
 
 #### WebSocket Connector
@@ -203,69 +185,22 @@ Catalyst uses a dedicated indexer:
 ```mermaid
 flowchart LR
     Blockchain[Ethereum/Polygon]
-    Subgraph[Worker Subgraph]
+    Subgraph[Indexer]
     Catalyst[Catalyst]
     
-    Blockchain -->|Events| Subgraph
-    Subgraph -->|Indexed data| Catalyst
+    Blockchain -->|Events| Subgraph    
     Catalyst -->|Queries| Subgraph
 ```
 
-The **Worker Subgraph** indexes:
+The **Indexer** indexes:
 
 * Land ownership (LAND NFTs)
-* Wearable collections
+* Wearable & Emotes collections
 * Name registrations
-* Marketplace activity
+* NFTs transfers
 
 ***
 
-## Infrastructure Components
-
-### Monitoring
-
-**cAdvisor**: Container resource monitoring
-
-* CPU and memory usage
-* Network I/O
-* Storage metrics
-
-### Message Broker
-
-**NATS**: Pub/sub messaging
-
-* Real-time position updates
-* Friend status changes
-* World events
-
-**Used by**:
-
-* Archipelago Workers
-* Social Service
-* Worlds
-
-***
-
-## Deployment Models
-
-### Full Node
-
-Complete Catalyst deployment:
-
-* Content Server
-* Lambdas
-* Archipelago Workers
-* All dependencies (NATS, databases)
-
-### Content-Only
-
-Lightweight deployment:
-
-* Content Server only
-* Relies on other nodes for comms
-* Lower resource requirements
-
-***
 
 ## Next Steps
 
