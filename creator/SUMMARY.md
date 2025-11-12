@@ -2,6 +2,65 @@
 
 * [Welcome Creator](README.md)
 
+## Tutorials
+
+* [Examples](tutorials/examples.md)
+* [Video Tutorial](tutorials/video.md)
+* [Video Emotes](tutorials/video-emotes.md)
+
+## Wearables & Emotes
+
+* [Wearables](wearables-and-emotes/wearables/README.md)
+  * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
+  * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
+  * [Overview](wearables-and-emotes/wearables/wearables-overview.md)
+* [Emotes](wearables-and-emotes/emotes/README.md)
+  * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
+  * [Creating Emotes](wearables-and-emotes/emotes/creating-emotes.md)
+  * [Overview](wearables-and-emotes/emotes/emotes-overview.md)
+  * [Particles in Emotes](wearables-and-emotes/emotes/particles-in-emotes.md)
+  * [Props and Sounds](wearables-and-emotes/emotes/props-and-sounds.md)
+  * [Rig Features](wearables-and-emotes/emotes/rig-features.md)
+* [Manage Collections](wearables-and-emotes/manage-collections/README.md)
+  * [Creating a Collection](wearables-and-emotes/manage-collections/creating-a-collection.md)
+  * [Uploading Emotes](wearables-and-emotes/manage-collections/uploading-emotes.md)
+  * [Uploading Smart Wearables](wearables-and-emotes/manage-collections/uploading-smart-wearables.md)
+  * [Uploading Wearables](wearables-and-emotes/manage-collections/uploading-wearables.md)
+* [Publishing](wearables-and-emotes/publishing/README.md)
+  * [Curation Committee](wearables-and-emotes/publishing/curation-committee.md)
+  * [Publishing Collections](wearables-and-emotes/publishing/publishing-collections.md)
+
+## Scene Editor
+
+* [Get Started](scene-editor/get-started/README.md)
+  * [About the Scene Editor](scene-editor/get-started/about-editor.md)
+  * [Editor Installation](scene-editor/get-started/editor-installation.md)
+  * [Manage Scenes](scene-editor/get-started/manage-scenes.md)
+  * [Migrate from Web](scene-editor/get-started/migrate-from-web.md)
+  * [Scene Editor Essentials](scene-editor/get-started/scene-editor-essentials.md)
+* [Build](scene-editor/build/README.md)
+  * [Components](scene-editor/build/components.md)
+  * [Import Items](scene-editor/build/import-items.md)
+  * [NFTs](scene-editor/build/nfts.md)
+* [Code](scene-editor/code/README.md)
+  * [Overview](scene-editor/code/overview.md)
+  * [Reference Items](scene-editor/code/reference-items.md)
+* [Configure](scene-editor/configure/README.md)
+  * [Scene Settings](scene-editor/configure/scene-settings.md)
+* [Interactivity](scene-editor/interactivity/README.md)
+  * [Custom Items](scene-editor/interactivity/custom-items.md)
+  * [Make Any Item Smart](scene-editor/interactivity/make-any-item-smart.md)
+  * [Smart Items](scene-editor/interactivity/smart-items.md)
+  * [Smart Items Advanced](scene-editor/interactivity/smart-items-advanced.md)
+  * [States and Conditions](scene-editor/interactivity/states-and-conditions.md)
+  * [Trigger Area](scene-editor/interactivity/trigger-area.md)
+  * [Video Screen](scene-editor/interactivity/video-screen.md)
+* [Live Ops](scene-editor/live-ops/README.md)
+  * [Live Streaming](scene-editor/live-ops/live-streaming.md)
+  * [Scene Admin](scene-editor/live-ops/scene-admin.md)
+* [Publish](scene-editor/publish/README.md)
+  * [Publish Scene](scene-editor/publish/publish-scene.md)
+
 ## SDK7
 
 * [Getting Started](sdk7/getting-started/README.md)
@@ -104,59 +163,6 @@
   * [V7 Alpha](sdk7/releases/v7-alpha.md)
   * [Version Support Agreement](sdk7/releases/version-support-agreement.md)
 
-## Scene Editor
-
-* [Get Started](scene-editor/get-started/README.md)
-  * [About the Scene Editor](scene-editor/get-started/about-editor.md)
-  * [Editor Installation](scene-editor/get-started/editor-installation.md)
-  * [Manage Scenes](scene-editor/get-started/manage-scenes.md)
-  * [Migrate from Web](scene-editor/get-started/migrate-from-web.md)
-  * [Scene Editor Essentials](scene-editor/get-started/scene-editor-essentials.md)
-* [Build](scene-editor/build/README.md)
-  * [Components](scene-editor/build/components.md)
-  * [Import Items](scene-editor/build/import-items.md)
-  * [NFTs](scene-editor/build/nfts.md)
-* [Code](scene-editor/code/README.md)
-  * [Overview](scene-editor/code/overview.md)
-  * [Reference Items](scene-editor/code/reference-items.md)
-* [Configure](scene-editor/configure/README.md)
-  * [Scene Settings](scene-editor/configure/scene-settings.md)
-* [Interactivity](scene-editor/interactivity/README.md)
-  * [Custom Items](scene-editor/interactivity/custom-items.md)
-  * [Make Any Item Smart](scene-editor/interactivity/make-any-item-smart.md)
-  * [Smart Items](scene-editor/interactivity/smart-items.md)
-  * [Smart Items Advanced](scene-editor/interactivity/smart-items-advanced.md)
-  * [States and Conditions](scene-editor/interactivity/states-and-conditions.md)
-  * [Trigger Area](scene-editor/interactivity/trigger-area.md)
-  * [Video Screen](scene-editor/interactivity/video-screen.md)
-* [Live Ops](scene-editor/live-ops/README.md)
-  * [Live Streaming](scene-editor/live-ops/live-streaming.md)
-  * [Scene Admin](scene-editor/live-ops/scene-admin.md)
-* [Publish](scene-editor/publish/README.md)
-  * [Publish Scene](scene-editor/publish/publish-scene.md)
-
-## Wearables & Emotes
-
-* [Wearables](wearables-and-emotes/wearables/README.md)
-  * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
-  * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
-  * [Overview](wearables-and-emotes/wearables/wearables-overview.md)
-* [Emotes](wearables-and-emotes/emotes/README.md)
-  * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
-  * [Creating Emotes](wearables-and-emotes/emotes/creating-emotes.md)
-  * [Overview](wearables-and-emotes/emotes/emotes-overview.md)
-  * [Particles in Emotes](wearables-and-emotes/emotes/particles-in-emotes.md)
-  * [Props and Sounds](wearables-and-emotes/emotes/props-and-sounds.md)
-  * [Rig Features](wearables-and-emotes/emotes/rig-features.md)
-* [Manage Collections](wearables-and-emotes/manage-collections/README.md)
-  * [Creating a Collection](wearables-and-emotes/manage-collections/creating-a-collection.md)
-  * [Uploading Emotes](wearables-and-emotes/manage-collections/uploading-emotes.md)
-  * [Uploading Smart Wearables](wearables-and-emotes/manage-collections/uploading-smart-wearables.md)
-  * [Uploading Wearables](wearables-and-emotes/manage-collections/uploading-wearables.md)
-* [Publishing](wearables-and-emotes/publishing/README.md)
-  * [Curation Committee](wearables-and-emotes/publishing/curation-committee.md)
-  * [Publishing Collections](wearables-and-emotes/publishing/publishing-collections.md)
-
 ## 3D Modeling
 
 * [3D Models](3d-modeling/3d-models.md)
@@ -166,6 +172,11 @@
 * [Materials](3d-modeling/materials.md)
 * [Meshes](3d-modeling/meshes.md)
 * [Textures](3d-modeling/textures.md)
+
+## Worlds
+
+* [About](worlds/about.md)
+* [Cast](worlds/cast.md)
 
 ## Marketplace
 
@@ -181,13 +192,4 @@
 * [Transactions](rewards/transactions.md)
 * [Users and Roles](rewards/users-and-roles.md)
 
-## Worlds
 
-* [About](worlds/about.md)
-* [Cast](worlds/cast.md)
-
-## Tutorials
-
-* [Examples](tutorials/examples.md)
-* [Video Tutorial](tutorials/video.md)
-* [Video Emotes](tutorials/video-emotes.md)
