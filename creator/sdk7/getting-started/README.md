@@ -1,0 +1,11 @@
+# Getting Started
+
+Get started with Decentraland SDK7 development. Learn the basics of creating scenes, understanding the development workflow, using the CLI, and previewing your work.
+
+## Quick Links
+
+* [SDK Quick Start](sdk-101.md) - Your first Decentraland scene
+* [Development Workflow](dev-workflow.md) - Understand the development process
+* [Using the CLI](using-the-cli.md) - Command-line tools and commands
+* [Preview Your Scene](preview-scene.md) - Test your scene locally
+

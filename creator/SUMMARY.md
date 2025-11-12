@@ -2,15 +2,13 @@
 
 * [Welcome Creator](README.md)
 
-## Getting Started
-
-* [SDK Quick Start](sdk7/getting-started/sdk-101.md)
-* [Development Workflow](sdk7/getting-started/dev-workflow.md)
-* [Using the CLI](sdk7/getting-started/using-the-cli.md)
-* [Preview Your Scene](sdk7/getting-started/preview-scene.md)
-
 ## SDK7
 
+* [Getting Started](sdk7/getting-started/README.md)
+  * [SDK Quick Start](sdk7/getting-started/sdk-101.md)
+  * [Development Workflow](sdk7/getting-started/dev-workflow.md)
+  * [Using the CLI](sdk7/getting-started/using-the-cli.md)
+  * [Preview Your Scene](sdk7/getting-started/preview-scene.md)
 * [3D Essentials](sdk7/3d-essentials/README.md)
   * [3D Model Animations](sdk7/3d-essentials/3d-model-animations.md)
   * [Camera](sdk7/3d-essentials/camera.md)
