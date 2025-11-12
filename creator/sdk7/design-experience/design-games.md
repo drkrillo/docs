@@ -14,7 +14,7 @@ We're continually improving the SDK, so some of the following limitations will b
 
 ### Scene boundaries
 
-**Your game must fit entirely in the&#x20;**_**LAND**_**&#x20;that your scene is built upon.** For small scenes, think of games like soccer where the rules of the game keep the relevant interaction within a confined space, even though players are able to step outside of the playing field. Players can walk outside of a scene’s boundaries, but any asset or entities that belong to the scene must stay within the scene.
+**Your game must fit entirely in the **_**LAND**_** that your scene is built upon.** For small scenes, think of games like soccer where the rules of the game keep the relevant interaction within a confined space, even though players are able to step outside of the playing field. Players can walk outside of a scene’s boundaries, but any asset or entities that belong to the scene must stay within the scene.
 
 Players that step outside your scene keep rendering it as long as it’s at a visible range. If they walk away too far, they will stop rendering it entirely.
 

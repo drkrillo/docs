@@ -58,23 +58,9 @@ There are also accessories that can be applied to different areas of an avatar. 
 
 For a detailed description of each category, and how items within each category interact or hide one another, see **[Creating Wearables](../wearables-and-emotes/wearables/creating-wearables.md)**.
 
-You can check some of the basic wearables here:
+You can preview basic wearables using the [Wearable Preview Tool](https://wearable-preview.decentraland.org/?profile=default1&transparentBackground&loop=true).
 
-\
-&#x20; const profile = Math.ceil(Math.random() \* 120)\
-document.getElementById("emote-preview").src = "https://wearable-preview.decentraland.org/?profile=default"+profile+"\&transparentBackground\&loop=true"\
-\
-&#x20; function changeProfile() {\
-document.getElementById("emote-preview").contentWindow.postMessage({\
-&#x20; type: 'update',\
-&#x20; payload: { options: {\
-&#x20;   profile: \`default${Math.ceil(Math.random() \* 120)}\`\
-&#x20; } }\
-},'\*')\
-return false\
-&#x20; }
-
-Refresh wearables ↺
+## Resources
 
 The following shared folder contains example wearables, base models, textures and other resources you can use:
 

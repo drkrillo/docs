@@ -12,7 +12,7 @@ In order to take your Decentraland Emotes to the next level you can add props (3
 
 To start adding the props to your emotes it's important to use the [Decentraland Template File](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend) which will have the rig for the avatar and also the Ground Reference to keep your work inside the allowed space boundaries.
 
-**Currently, the props animations only work with Armature/Bones Animations meaning that&#x20;**_**transform animations**_**&#x20;are not allowed.**
+**Currently, the props animations only work with Armature/Bones Animations meaning that **_**transform animations**_** are not allowed.**
 
 The emote with their props must be exported all together in one single _.glb_ file (Avatar\_Armature + Props\_Armature with its animations).
 

@@ -89,7 +89,7 @@ There are two main different transparency modes: _Alpha Clip_ and _Alpha Blend_.
 ![](../images/3d-models-and-animations/3d-essentials/34-alpha-blend.png)
 
 {% hint style="warning" %}
-**🔥Optimization Tip🔥** Unless you specifically want to be able to have an intermediate level of transparency, **it's always more performant for rendering to use&#x20;**_**Alpha Clip**_**&#x20;instead of&#x20;**_**Alpha Blend**_**.**
+**🔥Optimization Tip🔥** Unless you specifically want to be able to have an intermediate level of transparency, **it's always more performant for rendering to use **_**Alpha Clip**_** instead of **_**Alpha Blend**_**.**
 {% endhint %}
 
 {% hint style="warning" %}
