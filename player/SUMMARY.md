@@ -17,24 +17,6 @@
 * [Places](faqs/places.md)
 * [Contact & Support](faqs/contact-and-support.md)
 
-## Blockchain Integration
-
-* [Get a Wallet](blockchain-integration/get-a-wallet.md)
-* [About the Blockchain](blockchain-integration/ethereum-essentials.md)
-* [Transactions in Polygon](blockchain-integration/transactions-in-polygon.md)
-
-## DAO
-
-* [DAO User Guide](dao/dao-userguide.md)
-* [Overview](dao/README.md)
-  * [What is the DAO](dao/what-is-the-dao.md)
-  * [How does the DAO work](dao/how-does-the-dao-work.md)
-  * [What can you do with the DAO](dao/what-can-you-do-with-the-dao.md)
-  * [Participation Requirements](dao/what-do-you-need-to-participate.md)
-  * [The DAO Fund](dao/the-dao-fund.md)
-  * [DAO Limitations](dao/the-daos-limitations.md)
-  * [The DAO Smart Contracts](dao/what-smart-contracts-does-the-dao-control.md)
-
 ## In-World
 
 * [Overview](decentraland-in-world/overview.md)
@@ -52,3 +34,21 @@
 * [Marketplace](marketplace/marketplace.md)
 * [LAND Manager](marketplace/land-manager.md)
 * [Rentals](marketplace/rentals.md)
+
+## Blockchain Integration
+
+* [Get a Wallet](blockchain-integration/get-a-wallet.md)
+* [About the Blockchain](blockchain-integration/ethereum-essentials.md)
+* [Transactions in Polygon](blockchain-integration/transactions-in-polygon.md)
+
+## DAO
+
+* [DAO User Guide](dao/dao-userguide.md)
+* [Overview](dao/README.md)
+  * [What is the DAO](dao/what-is-the-dao.md)
+  * [How does the DAO work](dao/how-does-the-dao-work.md)
+  * [What can you do with the DAO](dao/what-can-you-do-with-the-dao.md)
+  * [Participation Requirements](dao/what-do-you-need-to-participate.md)
+  * [The DAO Fund](dao/the-dao-fund.md)
+  * [DAO Limitations](dao/the-daos-limitations.md)
+  * [The DAO Smart Contracts](dao/what-smart-contracts-does-the-dao-control.md)
