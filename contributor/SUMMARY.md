@@ -14,24 +14,6 @@
 * [Authentication Chain](authentication/authchain.md)
 * [Signed Fetch](authentication/signed-fetch.md)
 
-## Catalyst
-
-* [Glossary](catalyst/glossary.md)
-* [Realm Selection](catalyst/realm-selection.md)
-
-## Communications
-
-* [Overview](communications/overview.md)
-* [Archipelago](communications/archipelago.md)
-* [MAIN Realm](communications/main-realm.md)
-* [Messages](communications/messages.md)
-* [Transports](communications/transports.md)
-* [LiveKit](transport-types/livekit.md)
-* [Websocket](transport-types/websocket.md)
-* [Offline](transport-types/offline.md)
-* [Simulator](transport-types/simulator.md)
-* [Signed Login](transport-types/signed-login.md)
-
 ## Content
 
 * [Overview](content/overview.md)
@@ -40,30 +22,53 @@
 * [Pointers](content/pointers.md)
 * [Collections](content/collections.md)
 * [Snapshots](content/snapshots.md)
-* [Scenes](entity-types/scenes.md)
-* [Profiles](entity-types/profiles.md)
-* [Wearables](entity-types/wearables.md)
-* [Emotes](entity-types/emotes.md)
-* [Stores](entity-types/stores.md)
-* [Outfits](entity-types/outfits.md)
+* [Entity Types](content/entity-types/README.md)
+  * [Scenes](content/entity-types/scenes.md)
+  * [Profiles](content/entity-types/profiles.md)
+  * [Outfits](content/entity-types/outfits.md)
+  * [Wearables](content/entity-types/wearables.md)
+  * [Emotes](content/entity-types/emotes.md)
+  * [Stores](content/entity-types/stores.md)
+* [Practice](content/practice/README.md)
+  * [CLI Examples](content/practice/cli-examples.md)
+  * [Python Examples](content/practice/python-examples.md)
 
-## Scenes
+## Scene Runtime
 
 * [Overview](runtime/overview.md)
-* [CLI Examples](practice/cli-examples.md)
-* [Python Examples](practice/python-examples.md)
 * [Globals](runtime/globals.md)
 * [Execution](runtime/execution.md)
 * [Permissions](runtime/permissions.md)
 * [Basic Entities](runtime/basic-entities.md)
 * [Basic Components](runtime/basic-components.md)
-* [Engine API](runtime-modules/engine-api.md)
-* [Restricted Actions](runtime-modules/restricted-actions.md)
-* [Players](runtime-modules/players.md)
-* [User Identity](runtime-modules/user-identity.md)
-* [Signed Fetch](runtime-modules/signed-fetch.md)
-* [Runtime](runtime-modules/runtime.md)
-* [Component Creation](components/component-creation.md)
+* [Runtime Modules](runtime/modules/README.md)
+  * [Engine API](runtime/modules/engine-api.md)
+  * [Players](runtime/modules/players.md)
+  * [User Identity](runtime/modules/user-identity.md)
+  * [Restricted Actions](runtime/modules/restricted-actions.md)
+  * [Signed Fetch](runtime/modules/signed-fetch.md)
+  * [Runtime](runtime/modules/runtime.md)
+* [Components](runtime/components/README.md)
+  * [Component Creation](runtime/components/component-creation.md)
+
+## Communications
+
+* [Overview](communications/overview.md)
+* [Archipelago](communications/archipelago.md)
+* [MAIN Realm](communications/main-realm.md)
+* [Messages](communications/messages.md)
+* [Transports](communications/transports.md)
+* [Transport Types](communications/transport-types/README.md)
+  * [LiveKit](communications/transport-types/livekit.md)
+  * [Websocket](communications/transport-types/websocket.md)
+  * [Signed Login](communications/transport-types/signed-login.md)
+  * [Offline](communications/transport-types/offline.md)
+  * [Simulator](communications/transport-types/simulator.md)
+
+## Catalyst
+
+* [Glossary](catalyst/glossary.md)
+* [Realm Selection](catalyst/realm-selection.md)
 
 ## Social Service
 
