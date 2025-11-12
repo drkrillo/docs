@@ -167,16 +167,16 @@
 ## 3D Modeling
 
 * [3D Models](3d-modeling/3d-models.md)
-* [Animations](3d-modeling/animations.md)
-* [Colliders](3d-modeling/colliders.md)
-* [Create a Rig](3d-modeling/create-a-rig.md)
-* [Materials](3d-modeling/materials.md)
 * [Meshes](3d-modeling/meshes.md)
+* [Materials](3d-modeling/materials.md)
 * [Textures](3d-modeling/textures.md)
+* [Colliders](3d-modeling/colliders.md)
+* [Animations](3d-modeling/animations.md)
+* [Create a Rig](3d-modeling/create-a-rig.md)
 
 ## Worlds
 
-* [About](worlds/about.md)
+* [Overview](worlds/about.md)
 * [Cast](worlds/cast.md)
 
 ## Marketplace
@@ -188,7 +188,8 @@
 
 * [Overview](rewards/overview.md)
 * [Getting Started](rewards/gatting-started.md)
-* [API](rewards/api.md)
-* [Integrations](rewards/integrations.md)
-* [Transactions](rewards/transactions.md)
 * [Users and Roles](rewards/users-and-roles.md)
+* [Transactions](rewards/transactions.md)
+* [Integrations](rewards/integrations.md)
+
+
