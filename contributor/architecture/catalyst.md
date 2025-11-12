@@ -4,26 +4,9 @@ The Catalyst network is Decentraland's decentralized content delivery infrastruc
 
 ## Overview
 
-```mermaid
-flowchart TB
-    Client[Clients]
-    Node1[Catalyst Node 1]
-    Node2[Catalyst Node 2]
-    Node3[Catalyst Node 3]
-    Content[(Content Storage)]
-    
-    Client -->|Fetch content| Node1
-    Client -->|Fetch content| Node2
-    Client -->|Fetch content| Node3
-    
-    Node1 -.->|Replicate| Node2
-    Node2 -.->|Replicate| Node3
-    Node3 -.->|Replicate| Node1
-    
-    Node1 --> Content
-    Node2 --> Content
-    Node3 --> Content
-```
+The Catalyst network operates as a fully-meshed distributed system where nodes communicate directly with each other to synchronize content and maintain network health.
+
+![Catalyst Network Topology](../images/catalyst.png)
 
 ## Catalyst Components
 
