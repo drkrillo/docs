@@ -11,9 +11,9 @@
 ## Wearables & Emotes
 
 * [Wearables](wearables-and-emotes/wearables/README.md)
-  * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
-  * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
   * [Overview](wearables-and-emotes/wearables/wearables-overview.md)
+  * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
+  * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)  
 * [Emotes](wearables-and-emotes/emotes/README.md)
   * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
   * [Creating Emotes](wearables-and-emotes/emotes/creating-emotes.md)
