@@ -14,14 +14,17 @@
 * [Authentication Chain](authentication/authchain.md)
 * [Signed Fetch](authentication/signed-fetch.md)
 
+## Catalyst
+
+* [Glossary](catalyst/glossary.md)
+* [Realm Selection](catalyst/realm-selection.md)
+
 ## Content
 
 * [Overview](content/overview.md)
 * [Entities](content/entities.md)
 * [File System](content/file-system.md)
 * [Pointers](content/pointers.md)
-* [Collections](content/collections.md)
-* [Snapshots](content/snapshots.md)
 * [Entity Types](content/entity-types/README.md)
   * [Scenes](content/entity-types/scenes.md)
   * [Profiles](content/entity-types/profiles.md)
@@ -29,6 +32,8 @@
   * [Wearables](content/entity-types/wearables.md)
   * [Emotes](content/entity-types/emotes.md)
   * [Stores](content/entity-types/stores.md)
+* [Snapshots](content/snapshots.md)
+* [Collections](content/collections.md)
 * [Practice](content/practice/README.md)
   * [CLI Examples](content/practice/cli-examples.md)
   * [Python Examples](content/practice/python-examples.md)
@@ -54,8 +59,8 @@
 ## Communications
 
 * [Overview](communications/overview.md)
-* [Archipelago](communications/archipelago.md)
 * [MAIN Realm](communications/main-realm.md)
+* [Archipelago](communications/archipelago.md)
 * [Messages](communications/messages.md)
 * [Transports](communications/transports.md)
 * [Transport Types](communications/transport-types/README.md)
@@ -64,11 +69,6 @@
   * [Signed Login](communications/transport-types/signed-login.md)
   * [Offline](communications/transport-types/offline.md)
   * [Simulator](communications/transport-types/simulator.md)
-
-## Catalyst
-
-* [Glossary](catalyst/glossary.md)
-* [Realm Selection](catalyst/realm-selection.md)
 
 ## Social Service
 
