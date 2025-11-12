@@ -2,16 +2,6 @@
 
 After creating and configuring a campaign and ensuring it has sufficient stock to provide rewards, the next step is to connect the campaign to a rewards trigger. This trigger can be a Scene, a Quest, or an external server. This section explains how different integrations with Rewards can be done.
 
-* [Grant rewards from a scene](integrations.md#grant-rewards-from-a-scene)
-  * [Recommended dispenser flags](integrations.md#recommended-dispenser-flags)
-  * [Example](integrations.md#example)
-* [Grant rewards from a Decentraland Quests](integrations.md#grant-rewards-from-a-decentraland-quests)
-  * [Recommended dispenser flags](integrations.md#recommended-dispenser-flags-1)
-  * [Example](integrations.md#example-1)
-* [Grant rewards from a custom server](integrations.md#grant-rewards-from-a-custom-server)
-  * [Recommended dispenser flags](integrations.md#recommended-dispenser-flags-2)
-  * [Example](integrations.md#example-2)
-
 ### Grant rewards from a scene
 
 Rewards can be integrated directly into Decentraland scenes, but this approach comes with some risks. Since the logic is embedded in scene code that users can access, it’s not recommended for minting items with a rarity lower than \[EPIC]\([See documentation](../README.md)#rarity).
