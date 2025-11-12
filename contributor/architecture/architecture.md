@@ -1,212 +1,216 @@
 # Architecture Overview
 
-This section provides a comprehensive overview of Decentraland's technical architecture, including the Reference Client (Unity Explorer) and all backend services that power the metaverse.
+Decentraland is a decentralized virtual world platform built on a hybrid architecture that combines blockchain ownership, decentralized content delivery, and centralized services for enhanced user experience.
 
-## General Architecture
+## Architectural Principles
 
-The general architecture of Decentraland can be divided into three main components:
+### Decentralization Where It Matters
 
-* **The Catalyst network**: distributed peer servers that host content and provide the core APIs.
-* **The World Explorer**: app for players to log into Decentraland and explore the land.
-* **The CLI**: a command-line interface for creators to develop and deploy content.
+* **Ownership** - Land, wearables, and names are NFTs on Ethereum
+* **Governance** - DAO controls critical smart contracts and treasury
+* **Content** - Distributed across Catalyst nodes
+* **Identity** - Wallet-based authentication (no passwords)
 
-Decentraland is built on a distributed architecture that combines:
+### Centralization for Performance
 
-* **Decentralized Clients** - Unity Explorer and other clients
-* **Catalyst Network** - Decentralized content servers
-* **Backend Services** - Centralized services for enhanced functionality
-* **Blockchain** - Ethereum and Polygon for ownership and transactions
-* **Third-party Services** - LiveKit, SendGrid, and other SaaS providers
+* **Real-time services** - WebSocket communications, voice chat
+* **Discovery** - Search, events, featured content
+* **Social features** - Friends, communities, notifications
+* **Optimization** - Asset processing, image generation
 
-The diagram below captures the most important sub-components of the Decentraland protocol:
-
-![Decentraland Architecture Diagram](../images/architecture.png)
-
-## Documentation Sections
-
-### [Backend Services](services.md)
-
-Comprehensive overview of all backend services:
-
-* **Core Services** - Authentication, realms, communications
-* **Content Services** - Worlds, events, places, atlas
-* **Social Services** - Friends, communities, notifications
-* **Asset Services** - Asset bundles, camera reel, profile images
-* **Platform Services** - Credits, badges, rewards, exploration games
-
-### [Catalyst Network](catalyst.md)
-
-The decentralized content delivery network:
-
-* Content servers
-* Lambdas (functions to consume the content)
-* Archipelago workers (communication layer)
-* Deployment pipeline
-
-### [Infrastructure](infrastructure.md)
-
-Supporting infrastructure and external services:
-
-* Blockchain indexers (Squids, Satsuma, The Graph)
-* Message brokers (NATS)
-* Media servers (LiveKit)
-* Email service (SendGrid)
-* Translation and image processing
-
-## Component Categories
-
-### Client Components
-
-| Component      | Purpose                          | Links |
-| -------------- | -------------------------------- | ----- |
-| Unity Explorer | Core client implementation       | -     |
-| CLI Tools      | Scene development and deployment | -     |
-
-### Core Backend Services
-
-| Service                                                | Purpose                                 | API Reference                       |
-| ------------------------------------------------------ | --------------------------------------- | ----------------------------------- |
-| [Realm Provider](services.md#realm-provider)           | Describes available realms and services | [API](../../apis/realm-provider/)      |
-| [Auth Server](services.md#auth-server)                 | Authentication service                  | [API](../../apis/auth-server/)         |
-| [Comms Gatekeeper](services.md#comms-gatekeeper)       | LiveKit access control                  | [API](../../apis/comms-gatekeeper/)    |
-| [Archipelago Workers](services.md#archipelago-workers) | Communications clustering               | [API](../../apis/archipelago-workers/) |
-
-### Content & Social Services
-
-| Service                                      | Purpose                | API Reference                  |
-| -------------------------------------------- | ---------------------- | ------------------------------ |
-| [Worlds](services.md#worlds)                 | Isolated scene hosting | [API](../../apis/worlds/)         |
-| [Events](services.md#events)                 | Event management       | [API](../../apis/events/)         |
-| [Places](services.md#places)                 | Points of interest     | [API](../../apis/places/)         |
-| [Social Service](services.md#social-service) | Friends & communities  | [API](../../apis/social-service/) |
-| [Atlas Server](services.md#atlas-server)     | Map data               | [API](../../apis/atlas-server/)   |
-
-### Asset & Media Services
-
-| Service                                            | Purpose                    | API Reference                         |
-| -------------------------------------------------- | -------------------------- | ------------------------------------- |
-| [Asset Bundle Registry](services.md#asset-bundles) | Optimized asset management | [API](../../apis/asset-bundle-registry/) |
-| [Camera Reel](services.md#camera-reel)             | Screenshot management      | [API](../../apis/camera-reel/)           |
-
-### Platform Services
-
-| Service                                            | Purpose                   | API Reference                         |
-| -------------------------------------------------- | ------------------------- | ------------------------------------- |
-| [Credits Server](services.md#credits-server)       | Virtual credits system    | [API](../../apis/credits-server/)        |
-| [Badges](services.md#badges)                       | User achievement system   | [API](../../apis/badges/)                |
-| [Notifications](services.md#notifications)         | User notifications        | [API](../../apis/notifications-workers/) |
-| [Events Notifier](services.md#events-notifier)     | Event-based notifications | [API](../../apis/events-notifier/)       |
-| [Exploration Games](services.md#exploration-games) | Onboarding games          | [API](../../apis/exploration-games/)     |
-
-## System Interactions
-
-### Client to Services Flow
+## System Layers
 
 ```mermaid
-sequenceDiagram
-    participant Client as Unity Explorer
-    participant Gateway as Decentraland Gateway
-    participant Realm as Realm Provider
-    participant Catalyst as Catalyst
-    participant Comms as Archipelago
+flowchart TB
+    subgraph Clients
+        Unity[Unity Explorer]
+        Web[Web Client]
+        CLI[CLI Tools]
+    end
     
-    Client->>Gateway: Initialize
-    Gateway->>Realm: Get realm info
-    Realm-->>Gateway: Realm details
-    Gateway->>Catalyst: Fetch content
-    Catalyst-->>Gateway: Scene data
-    Gateway->>Comms: Connect WebSocket
-    Comms-->>Gateway: Connection established
-    Gateway-->>Client: Ready to enter world
+    subgraph Discovery
+        Realm[Realm Provider]
+    end
+    
+    subgraph Decentralized
+        Catalyst1[Catalyst Node 1]
+        Catalyst2[Catalyst Node 2]
+        CatalystN[Catalyst Node N]
+    end
+    
+    subgraph Centralized
+        Backend[Backend Services]
+        LiveKit[LiveKit Media]
+        NATS[NATS Broker]
+    end
+    
+    subgraph Blockchain
+        Ethereum[Ethereum L1]
+        Polygon[Polygon L2]
+    end
+    
+    Clients --> Realm
+    Realm --> Decentralized
+    Clients --> Decentralized
+    Clients --> Centralized
+    Centralized --> NATS
+    Centralized --> LiveKit
+    Backend --> Blockchain
 ```
 
-### Content Deployment Flow
+### Layer 1: Clients
 
-```mermaid
-sequenceDiagram
-    participant CLI as CLI Tool
-    participant Catalyst as Content Server
-    participant Queue as Deployments Queue
-    participant AB as Asset Bundle Converter
-    participant Profile as Profile Images
-    
-    CLI->>Catalyst: Deploy scene
-    Catalyst->>Queue: New deployment event
-    Queue->>AB: Process assets
-    Queue->>Profile: Generate avatars
-    AB-->>Catalyst: Optimized bundles
-    Profile-->>Catalyst: Avatar images
-```
+Players interact through various clients:
 
-## Key Integration Points
+* **Unity Explorer** - Primary desktop client (Windows, Mac, Linux)
+* **Web Explorer** - Browser-based client
+* **CLI** - Developer tooling for scene creation and deployment
+* **Community Clients** - Alternative implementations for the reference client using different rendering technologies. 
 
-### Blockchain Integration
+All clients authenticate via crypto wallets and follow the same protocols.
 
-Services that interact with blockchain:
+### Layer 2: Discovery (Realm Provider)
 
-* **Worlds** - NFT ownership verification
-* **Credits Server** - Token transactions
-* **Rewards API** - NFT rewards distribution
-* **Atlas Server** - Land parcel data
+Single entry point that provides clients with:
 
-All blockchain queries go through indexers (Squids, Satsuma, The Graph) for performance.
+* Available Catalyst nodes (location, capacity, health)
+* Backend service endpoints
+* Hot scenes and active user counts
 
-### Communications Flow
+Enables intelligent realm selection based on geography and load.
 
-Real-time communications architecture:
+### Layer 3: Decentralized Content (Catalyst Network)
 
-1. **Client** connects via **Decentraland Gateway**
-2. **Realm Provider** assigns optimal realm
-3. **Archipelago Workers** manage peer clustering
-4. **NATS** handles message routing
-5. **LiveKit** provides voice/video (gated by **Comms Gatekeeper**)
+Permissionless network of Catalyst nodes that store and serve:
 
-### Content Delivery
+* Scene definitions and assets
+* Avatar profiles and wearables
 
-Content flow from creation to client:
+Each node independently validates and stores content. Nodes synchronize deployments but operate autonomously. See [Catalyst Network](catalyst.md) for details.
 
-1. **CLI** compiles and uploads scenes
-2. **Catalyst** stores content
-3. **Deployments Queue** triggers processing
-4. **Asset Bundle Converter** optimizes assets
-5. **Client** fetches optimized content
+### Layer 4: Centralized Services
 
-## Architecture Principles
+Backend microservices provide enhanced functionality:
 
-### Decentralization
+* **Service discovery** - Realm selection and health monitoring
+* **Communications** - WebSocket clustering, voice/video access control
+* **Content features** - Worlds, events, places, atlas data
+* **Social features** - Friends, communities, notifications
+* **Platform features** - Achievements, rewards, virtual credits
+* **Asset processing** - Optimization, thumbnails, translations
 
-* **Catalyst nodes** are independently operated
-* **Content** is replicated across multiple nodes
-* **No single point of failure** for core content
+See [Backend Services](services.md) for comprehensive service documentation.
 
-### Scalability
+### Layer 5: Infrastructure
 
-* **Horizontal scaling** of backend services
-* **CDN-like** content distribution via Catalyst
-* **Peer clustering** for efficient communications
+Supporting systems and third-party services:
 
-### Performance
+* **Message Broker** - NATS for inter-service communication
+* **Media Server** - LiveKit for voice and video
+* **Blockchain Indexers** - Fast queries for NFT data
+* **Email Service** - SendGrid for notifications
 
-* **Asset bundles** for optimized loading
-* **Blockchain indexers** for fast queries
-* **Caching** at multiple levels
-* **Edge deployment** for low latency
+See [Infrastructure](infrastructure.md) for details.
 
-### Security
+### Layer 6: Blockchain
 
-* **Authentication** via crypto wallet signatures
-* **Authorization** through Auth Server
-* **Rate limiting** on API endpoints
-* **DDoS protection** via Catalyst network
+Smart contracts on Ethereum and Polygon manage:
+
+* **Ownership** - LAND, wearables, names, estates
+* **Marketplace** - Trading and royalties
+* **DAO** - Governance and treasury
+* **Currency** - MANA token
+
+## Data Flow Patterns
+
+### Content Publishing
+
+1. Creator deploys scene via CLI
+2. CLI uploads to any Catalyst node
+3. Catalyst validates and stores content
+4. Other Catalyst nodes synchronize
+5. Backend services process for optimization
+
+### Player Session
+
+1. Client queries Realm Provider for available realms
+2. Selects optimal Catalyst node (geography + load)
+3. Connects to Catalyst for content
+4. Connects to Archipelago for communications
+5. Backend services provide social/feature data
+
+### Real-time Communications
+
+1. Players report position to Archipelago
+2. Archipelago assigns players to "islands" based on proximity
+3. Messages routed only to nearby players
+4. Voice chat via LiveKit with Gatekeeper tokens
+
+## Security Model
+
+### Identity & Authentication
+
+* **Wallet signatures** - No passwords, authentication via Ethereum signatures
+* **Auth Server** - Issues JWT tokens after signature verification
+* **Signed Fetch** - APIs authenticate requests using wallet signatures
+
+### Content Validation
+
+* **Signature verification** - All deployments signed by wallet
+* **Pointer ownership** - Only LAND owner can deploy to coordinates
+* **Size limits** - Content size restricted by parcel count
+
+### Access Control
+
+* **Time-limited tokens** - JWT and LiveKit tokens expire
+* **Rate limiting** - API rate limits per IP/user
+* **DDoS protection** - Distributed Catalyst network
+
+## Scalability Approach
+
+### Horizontal Scaling
+
+* **Catalyst nodes** - Add nodes as content grows
+* **Backend services** - Stateless microservices scale independently
+* **Islands** - Communications split into proximity-based groups
+
+### Optimization
+
+* **Asset bundles** - Platform-optimized assets (Unity bundles)
+* **CDN** - Static assets served via CDN
+* **Caching** - Aggressive caching at all layers
+* **Indexers** - Blockchain data cached in fast databases
+
+## Technology Stack
+
+### Clients
+
+* Unity (C#) - Explorer clients
+* React + TypeScript - Web UIs
+* Node.js + TypeScript - CLI tools
+
+### Backend Services
+
+* Node.js + TypeScript - Most services
+* PostgreSQL - Primary database
+* Redis - Caching layer
+
+### Infrastructure
+
+* Kubernetes - Container orchestration
+* NATS - Message broker
+* LiveKit (Go) - Media server
 
 ## Next Steps
 
-* Review [Backend Services](services.md) for service specifications
-* Check [Catalyst Network](catalyst.md) for decentralized infrastructure
-* See [Infrastructure](infrastructure.md) for supporting systems
+Dive deeper into specific architectural areas:
+
+* **[Backend Services](services.md)** - Detailed service specifications and integrations
+* **[Catalyst Network](catalyst.md)** - Content delivery and deployment
+* **[Infrastructure](infrastructure.md)** - Supporting systems and third-party services
 
 ## Additional Resources
 
-* [Contributor Guides](../contributor-guides/contributor-guides.md) - Coding and documentation standards
 * [API Reference](../../apis/README.md) - Complete API documentation
+* [Contributor Guides](../contributor-guides/contributor-guides.md) - Development standards
 * [GitHub Organization](https://github.com/decentraland) - Source code repositories
