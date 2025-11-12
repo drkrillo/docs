@@ -218,7 +218,7 @@ import { useEffect } from 'react';
 import { useWeb3 } from '@/contexts/Web3Context';
 import { useAppDispatch } from '@/app/hooks';
 import { connected, disconnected, chainChanged, accountChanged } from '@/features/web3/web3.slice';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 
 export function Web3Sync() {
   const { account, chainId, connect } = useWeb3();
@@ -236,11 +236,11 @@ export function Web3Sync() {
   // Reset cache on account/chain change
   useEffect(() => {
     if (account || chainId) {
-      // Option 1: Reset entire API state
-      dispatch(api.util.resetApiState());
+      // Option 1: Reset entire client state
+      dispatch(client.util.resetApiState());
       
       // Option 2: Invalidate specific tags
-      // dispatch(api.util.invalidateTags(['User', 'Parcels', 'Credits']));
+      // dispatch(client.util.invalidateTags(['User', 'Parcels', 'Credits']));
     }
   }, [account, chainId, dispatch]);
 
@@ -274,7 +274,7 @@ import { useCallback } from 'react';
 import { useWeb3 } from '@/contexts/Web3Context';
 import { useAppDispatch } from '@/app/hooks';
 import { txPending, txConfirmed, txFailed } from '@/features/web3/web3.slice';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 import { ParcelContract } from '@/contracts';
 
 export function useTransferParcel() {
@@ -303,7 +303,7 @@ export function useTransferParcel() {
 
       // Optimistically update cache
       dispatch(
-        api.util.updateQueryData('getParcel', { id: parcelId }, (draft) => {
+        client.util.updateQueryData('getParcel', { id: parcelId }, (draft) => {
           draft.owner = to;
         })
       );
@@ -316,7 +316,7 @@ export function useTransferParcel() {
         dispatch(txConfirmed(tx.hash));
         
         // Invalidate affected queries
-        dispatch(api.util.invalidateTags([
+        dispatch(client.util.invalidateTags([
           { type: 'Parcels', id: parcelId },
           'Parcels',
         ]));
@@ -325,7 +325,7 @@ export function useTransferParcel() {
         dispatch(txFailed(tx.hash));
         
         // Rollback optimistic update
-        dispatch(api.util.invalidateTags([
+        dispatch(client.util.invalidateTags([
           { type: 'Parcels', id: parcelId },
         ]));
       }
@@ -338,7 +338,7 @@ export function useTransferParcel() {
       }
       
       // Rollback optimistic update
-      dispatch(api.util.invalidateTags([
+      dispatch(client.util.invalidateTags([
         { type: 'Parcels', id: parcelId },
       ]));
       
@@ -395,7 +395,7 @@ function TransferParcelButton({ parcelId }: { parcelId: string }) {
 import { useEffect } from 'react';
 import { useWeb3 } from '@/contexts/Web3Context';
 import { useAppDispatch } from '@/app/hooks';
-import { api } from '@/services/api';
+import { client } from '@/services/client';
 import { ParcelContract } from '@/contracts';
 
 export function useParcelEvents() {
@@ -412,7 +412,7 @@ export function useParcelEvents() {
       console.log(`Parcel ${tokenId} transferred from ${from} to ${to}`);
       
       // Invalidate affected queries
-      dispatch(api.util.invalidateTags([
+      dispatch(client.util.invalidateTags([
         { type: 'Parcels', id: tokenId },
         'Parcels',
       ]));
@@ -434,11 +434,11 @@ export function useParcelEvents() {
 Create endpoints that use blockchain data:
 
 ```tsx
-// src/features/nft/nft.api.ts
-import { api } from '@/services/api';
+// src/features/nft/nft.client.ts
+import { client } from '@/services/client';
 import { ethers } from 'ethers';
 
-export const nftApi = api.injectEndpoints({
+export const nftClient = client.injectEndpoints({
   endpoints: (build) => ({
     // Hybrid: fetch from API and verify on-chain
     getNFTWithOwnership: build.query<NFT, { id: string; account?: string }>({
@@ -478,7 +478,7 @@ export const nftApi = api.injectEndpoints({
 // Invalidate all data when network changes
 useEffect(() => {
   if (chainId) {
-    dispatch(api.util.resetApiState());
+    dispatch(client.util.resetApiState());
   }
 }, [chainId, dispatch]);
 ```
@@ -489,7 +489,7 @@ useEffect(() => {
 // Invalidate user-specific data
 useEffect(() => {
   if (account) {
-    dispatch(api.util.invalidateTags(['User', 'Credits', 'NFTs']));
+    dispatch(client.util.invalidateTags(['User', 'Credits', 'NFTs']));
   }
 }, [account, dispatch]);
 ```
@@ -499,7 +499,7 @@ useEffect(() => {
 ```tsx
 // Invalidate related data after transaction
 if (receipt.status === 1) {
-  dispatch(api.util.invalidateTags([
+  dispatch(client.util.invalidateTags([
     { type: 'Parcels', id: parcelId },
     'Parcels',
     'User', // May affect user's balance
@@ -541,16 +541,16 @@ await contract.transfer(...);
 
 ```tsx
 // ✅ Good: Optimistic with rollback
-dispatch(api.util.updateQueryData(...));
+dispatch(client.util.updateQueryData(...));
 try {
   await tx.wait();
-  dispatch(api.util.invalidateTags(...));
+  dispatch(client.util.invalidateTags(...));
 } catch {
-  dispatch(api.util.invalidateTags(...)); // Rollback
+  dispatch(client.util.invalidateTags(...)); // Rollback
 }
 
 // ❌ Bad: No rollback
-dispatch(api.util.updateQueryData(...));
+dispatch(client.util.updateQueryData(...));
 await tx.wait(); // What if this fails?
 ```
 

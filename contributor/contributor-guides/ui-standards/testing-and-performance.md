@@ -174,11 +174,11 @@ afterAll(() => server.close());
 ### Testing Queries
 
 ```tsx
-// land.api.test.tsx
+// land.client.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { setupStore } from '@/app/store';
-import { useGetParcelQuery } from './land.api';
+import { useGetParcelQuery } from './land.client';
 
 function TestComponent({ id }: { id: string }) {
   const { data, isLoading, isError } = useGetParcelQuery({ id });
@@ -190,7 +190,7 @@ function TestComponent({ id }: { id: string }) {
   return <div>{data.name}</div>;
 }
 
-describe('land API', () => {
+describe('land client', () => {
   it('should fetch and display parcel data', async () => {
     const store = setupStore();
 
@@ -212,11 +212,11 @@ describe('land API', () => {
 ### Testing Mutations
 
 ```tsx
-// credits.api.test.tsx
+// credits.client.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { setupStore } from '@/app/store';
-import { useGrantCreditsMutation } from './credits.api';
+import { useGrantCreditsMutation } from './credits.client';
 
 function TestComponent() {
   const [grant, { isLoading, isSuccess }] = useGrantCreditsMutation();
@@ -232,7 +232,7 @@ function TestComponent() {
   );
 }
 
-describe('credits API mutations', () => {
+describe('credits client mutations', () => {
   it('should grant credits successfully', async () => {
     const store = setupStore();
 
@@ -254,11 +254,11 @@ describe('credits API mutations', () => {
 ### Testing Optimistic Updates
 
 ```tsx
-// credits.api.test.ts
+// credits.client.test.ts
 import { server } from '@/test/server';
 import { http, HttpResponse } from 'msw';
 import { setupStore } from '@/app/store';
-import { creditsApi } from './credits.api';
+import { creditsClient } from './credits.client';
 
 describe('optimistic updates', () => {
   it('should update cache optimistically and rollback on error', async () => {
@@ -267,10 +267,10 @@ describe('optimistic updates', () => {
 
     // Prefetch initial balance
     await store.dispatch(
-      creditsApi.endpoints.getBalance.initiate({ address })
+      creditsClient.endpoints.getBalance.initiate({ address })
     );
 
-    const initialBalance = creditsApi.endpoints.getBalance.select({ address })(
+    const initialBalance = creditsClient.endpoints.getBalance.select({ address })(
       store.getState()
     ).data?.amount;
 
@@ -285,14 +285,14 @@ describe('optimistic updates', () => {
 
     // Trigger mutation
     const mutation = store.dispatch(
-      creditsApi.endpoints.grantCredits.initiate({
+      creditsClient.endpoints.grantCredits.initiate({
         address,
         amount: 50,
       })
     );
 
     // Check optimistic update
-    const optimisticBalance = creditsApi.endpoints.getBalance.select({
+    const optimisticBalance = creditsClient.endpoints.getBalance.select({
       address,
     })(store.getState()).data?.amount;
 
@@ -302,7 +302,7 @@ describe('optimistic updates', () => {
     await expect(mutation).rejects.toThrow();
 
     // Check rollback
-    const rolledBackBalance = creditsApi.endpoints.getBalance.select({
+    const rolledBackBalance = creditsClient.endpoints.getBalance.select({
       address,
     })(store.getState()).data?.amount;
 
@@ -380,7 +380,7 @@ const parcel = state.parcels.find((p) => p.id === id);
 ### Tune RTK Query Cache Settings
 
 ```tsx
-export const api = createApi({
+export const client = createApi({
   // ...
   keepUnusedDataFor: 60, // Keep data for 60 seconds
   refetchOnMountOrArgChange: 30, // Refetch if data is older than 30s
@@ -398,7 +398,7 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
   const handleMouseEnter = () => {
     // Prefetch on hover
     dispatch(
-      api.util.prefetch('getParcel', { id: parcel.id }, { force: false })
+      client.util.prefetch('getParcel', { id: parcel.id }, { force: false })
     );
   };
 

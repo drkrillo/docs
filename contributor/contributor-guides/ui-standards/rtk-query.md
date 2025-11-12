@@ -2,9 +2,9 @@
 
 RTK Query is Redux Toolkit's powerful data fetching and caching layer. It eliminates the need to write async action creators and manages loading states, caching, and data synchronization automatically.
 
-## Base API Configuration
+## Base Client Configuration
 
-All RTK Query endpoints extend from a single base API instance.
+All RTK Query endpoints extend from a single base client instance.
 
 ### Base Query Setup
 
@@ -42,15 +42,15 @@ export const baseQuery = fetchBaseQuery({
 });
 ```
 
-### API Instance
+### Client Instance
 
 ```tsx
-// src/services/api.ts
+// src/services/client.ts
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from './baseQuery';
 
-export const api = createApi({
-  reducerPath: 'api',
+export const client = createApi({
+  reducerPath: 'client',
   baseQuery,
   
   // Define all possible tag types for cache invalidation
@@ -109,13 +109,13 @@ invalidatesTags: (result, error, arg) => [
 
 ## Creating Endpoints
 
-Endpoints SHOULD be co-located with their feature in `feature.api.ts` files.
+Endpoints SHOULD be co-located with their feature in `feature.client.ts` files.
 
 ### Query Endpoint (Read)
 
 ```tsx
-// src/features/land/land.api.ts
-import { api } from '@/services/api';
+// src/features/land/land.client.ts
+import { client } from '@/services/client';
 
 export type Tile = {
   x: number;
@@ -133,7 +133,7 @@ export type Parcel = {
   description?: string;
 };
 
-export const landApi = api.injectEndpoints({
+export const landClient = client.injectEndpoints({
   endpoints: (build) => ({
     // Get all tiles
     getTiles: build.query<Record<string, Tile>, void>({
@@ -170,14 +170,14 @@ export const {
   useGetTilesQuery,
   useGetParcelByCoordsQuery,
   useGetParcelsByOwnerQuery,
-} = landApi;
+} = landClient;
 ```
 
 ### Mutation Endpoint (Write)
 
 ```tsx
-// src/features/land/land.api.ts (continued)
-export const landApi = api.injectEndpoints({
+// src/features/land/land.client.ts (continued)
+export const landClient = client.injectEndpoints({
   endpoints: (build) => ({
     // ... query endpoints ...
     
@@ -218,7 +218,7 @@ export const landApi = api.injectEndpoints({
 export const {
   useUpdateParcelNameMutation,
   useTransferParcelMutation,
-} = landApi;
+} = landClient;
 ```
 
 ## Optimistic Updates
@@ -226,8 +226,8 @@ export const {
 Use `onQueryStarted` for optimistic UI updates with automatic rollback on failure.
 
 ```tsx
-// src/features/credits/credits.api.ts
-import { api } from '@/services/api';
+// src/features/credits/credits.client.ts
+import { client } from '@/services/client';
 
 export type CreditsBalance = {
   address: string;
@@ -235,7 +235,7 @@ export type CreditsBalance = {
   lastUpdated: string;
 };
 
-export const creditsApi = api.injectEndpoints({
+export const creditsClient = client.injectEndpoints({
   endpoints: (build) => ({
     getBalance: build.query<CreditsBalance, { address: string }>({
       query: ({ address }) => `/v1/credits/${address}`,
@@ -258,7 +258,7 @@ export const creditsApi = api.injectEndpoints({
       async onQueryStarted({ address, amount }, { dispatch, queryFulfilled }) {
         // Optimistically update the cache
         const patchResult = dispatch(
-          api.util.updateQueryData('getBalance', { address }, (draft) => {
+          client.util.updateQueryData('getBalance', { address }, (draft) => {
             draft.amount += amount;
             draft.lastUpdated = new Date().toISOString();
           })
@@ -270,7 +270,7 @@ export const creditsApi = api.injectEndpoints({
           
           // Update with server response
           dispatch(
-            api.util.updateQueryData('getBalance', { address }, (draft) => {
+            client.util.updateQueryData('getBalance', { address }, (draft) => {
               draft.amount = data.newBalance;
             })
           );
@@ -288,7 +288,7 @@ export const creditsApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetBalanceQuery, useGrantCreditsMutation } = creditsApi;
+export const { useGetBalanceQuery, useGrantCreditsMutation } = creditsClient;
 ```
 
 ## Advanced Query Options
@@ -414,7 +414,7 @@ if (error) {
 ```tsx
 // Update cache directly
 dispatch(
-  api.util.updateQueryData('getBalance', { address }, (draft) => {
+  client.util.updateQueryData('getBalance', { address }, (draft) => {
     draft.amount = 1000;
   })
 );
@@ -424,17 +424,17 @@ dispatch(
 
 ```tsx
 // Invalidate all Credits queries
-dispatch(api.util.invalidateTags(['Credits']));
+dispatch(client.util.invalidateTags(['Credits']));
 
 // Invalidate specific entity
-dispatch(api.util.invalidateTags([{ type: 'Credits', id: address }]));
+dispatch(client.util.invalidateTags([{ type: 'Credits', id: address }]));
 ```
 
-### Reset API State
+### Reset Client State
 
 ```tsx
-// Reset entire API state
-dispatch(api.util.resetApiState());
+// Reset entire client state
+dispatch(client.util.resetApiState());
 ```
 
 ### Prefetch Data
@@ -442,7 +442,7 @@ dispatch(api.util.resetApiState());
 ```tsx
 // Prefetch data before navigation
 dispatch(
-  api.util.prefetch('getParcel', { id: '123' }, { force: false })
+  client.util.prefetch('getParcel', { id: '123' }, { force: false })
 );
 ```
 

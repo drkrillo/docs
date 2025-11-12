@@ -413,7 +413,7 @@ Handle RTK Query or async thunk responses in your slice:
 
 ```tsx
 import { createSlice } from '@reduxjs/toolkit';
-import { creditsApi } from './credits.api';
+import { creditsClient } from './credits.client';
 
 const slice = createSlice({
   name: 'credits',
@@ -422,13 +422,13 @@ const slice = createSlice({
   extraReducers: (builder) => {
     builder
       .addMatcher(
-        creditsApi.endpoints.grantCredits.matchFulfilled,
+        creditsClient.endpoints.grantCredits.matchFulfilled,
         (state, action) => {
           state.lastGranted = action.payload.newBalance;
         }
       )
       .addMatcher(
-        creditsApi.endpoints.grantCredits.matchRejected,
+        creditsClient.endpoints.grantCredits.matchRejected,
         (state) => {
           state.lastGranted = null;
         }
