@@ -179,42 +179,16 @@ Reference images using relative paths:
 5. **Submit a pull request**
    ```bash
    git add .
-   git commit -m "Description of changes"
+   git commit -m "docs: Description of changes"
    git push origin feature/your-improvement
    ```
 
-### Content Guidelines
-
-- **Be clear and concise**: Write for your target audience
-- **Use examples**: Code snippets and screenshots help understanding
-- **Link internally**: Reference related pages within the documentation
-- **Avoid repetition**: Each page should have unique, valuable content
-- **Keep it current**: Update documentation when features change
-
-### File Naming
-
-- Use lowercase with hyphens: `getting-started.md`
-- Be descriptive: `scene-editor-installation.md` > `install.md`
-- Avoid special characters
 
 ## 🔗 Links
 
 - **Live Documentation**: [docs.decentraland.org](https://docs.decentraland.org)
 - **GitBook**: [Decentraland GitBook Organization](https://app.gitbook.com/)
-- **GitHub Issues**: [Report documentation issues](https://github.com/decentraland/docs/issues)
-- **Decentraland**: [decentraland.org](https://decentraland.org)
 
 ## 📜 License
 
 This documentation is licensed under the [Apache License 2.0](LICENSE).
-
-## 💬 Support
-
-- **Community**: [Discord](https://dcl.gg/discord)
-- **Forum**: [forum.decentraland.org](https://forum.decentraland.org)
-- **Documentation Issues**: [GitHub Issues](https://github.com/decentraland/docs/issues)
-
----
-
-**Maintained by the Decentraland community** ❤️
-
