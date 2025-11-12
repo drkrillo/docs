@@ -36,15 +36,15 @@
 
 ## In-World
 
-* [Overview](in-world/overview.md)
-* [Exploring](in-world/exploring.md)
-* [Customizing Your Avatar](in-world/customizing-your-avatar.md)
-* [Finding Events](in-world/finding-events.md)
-* [Earning Rewards](in-world/earning-rewards.md)
-* [Friends & Chatting](in-world/friends-and-chatting.md)
-* [Your Profile](in-world/your-profile.md)
-* [Settings & Performance](in-world/settings-and-performance.md)
-* [Shortcuts & Chat Commands](in-world/shortcuts-and-chat-commands.md)
+* [Overview](decentraland-in-world/overview.md)
+* [Exploring](decentraland-in-world/exploring.md)
+* [Customizing Your Avatar](decentraland-in-world/customizing-your-avatar.md)
+* [Finding Events](decentraland-in-world/finding-events.md)
+* [Earning Rewards](decentraland-in-world/earning-rewards.md)
+* [Friends & Chatting](decentraland-in-world/friends-and-chatting.md)
+* [Your Profile](decentraland-in-world/your-profile.md)
+* [Settings & Performance](decentraland-in-world/settings-and-performance.md)
+* [Shortcuts & Chat Commands](decentraland-in-world/shortcuts-and-chat-commands.md)
 
 ## Marketplace
 
