@@ -1,3 +1,16 @@
+---
+description: Add media content to your scenes
+---
+
 # Media
 
-Work with audio, video, and NFT displays in your Decentraland scenes.
+Integrate various media types into your scenes, including audio streams, videos, and NFT displays. Create rich multimedia experiences for your visitors.
+
+## What You'll Learn
+
+* Audio streaming
+* Video playback
+* Displaying certified NFTs
+* Media optimization
+
+Media integration lets you create immersive experiences with sound, video, and dynamic NFT galleries.

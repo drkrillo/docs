@@ -11,11 +11,9 @@
 ## Wearables & Emotes
 
 * [Wearables](wearables-and-emotes/wearables/README.md)
-  * [Overview](wearables-and-emotes/wearables/wearables-overview.md)
   * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
   * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
 * [Emotes](wearables-and-emotes/emotes/README.md)
-  * [Overview](wearables-and-emotes/emotes/emotes-overview.md)
   * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
   * [Creating Emotes](wearables-and-emotes/emotes/creating-emotes.md)
   * [Particles in Emotes](wearables-and-emotes/emotes/particles-in-emotes.md)
@@ -51,7 +49,6 @@
   * [Trigger Area](scene-editor/interactivity/trigger-area.md)
   * [Video Screen](scene-editor/interactivity/video-screen.md)
 * [Code](scene-editor/code/README.md)
-  * [Overview](scene-editor/code/overview.md)
   * [Reference Items](scene-editor/code/reference-items.md)
 * [Configure](scene-editor/configure/README.md)
   * [Scene Settings](scene-editor/configure/scene-settings.md)

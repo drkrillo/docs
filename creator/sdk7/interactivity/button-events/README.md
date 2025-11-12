@@ -1,3 +1,16 @@
+---
+description: Handle button clicks and pointer events
+---
+
 # Button Events
 
-Handle pointer clicks and button interactions in your Decentraland scenes.
+Learn how to handle button clicks, pointer events, and player interactions with entities in your scene. This is one of the most fundamental aspects of creating interactive experiences.
+
+## What You'll Learn
+
+* Click events and pointer interactions
+* Advanced button event patterns
+* Registering callbacks
+* System-based event handling
+
+Button events are the foundation of most interactive experiences in Decentraland.

@@ -1,3 +1,19 @@
+---
+description: Create 2D user interfaces for your scenes
+---
+
 # 2D UI
 
-Create user interfaces for your Decentraland scenes using the UI library. Learn about positioning, styling, and interactive UI elements.
+Build user interfaces for your scenes using the SDK's 2D UI system. Create menus, HUDs, buttons, and interactive UI elements that players can interact with.
+
+## What You'll Learn
+
+* Creating onscreen UI elements
+* Handling UI button events
+* Dynamic UI updates
+* UI positioning and layout
+* Text rendering
+* Background styling
+* Special UI types
+
+The 2D UI system provides everything you need to create professional, interactive interfaces for your Decentraland experiences.
