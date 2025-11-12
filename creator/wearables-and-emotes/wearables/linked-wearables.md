@@ -4,33 +4,6 @@ description: Wearable Representations Of 3rd Party Tokens
 
 # Linked Wearables
 
-#### Table of Contents
-
-* [Introduction](linked-wearables.md#introduction)
-  * [About](linked-wearables.md#about)
-  * [What are linked wearables?](linked-wearables.md#what-are-linked-wearables)
-  * [How do Linked Wearables represent NFTs?](linked-wearables.md#how-do-linked-wearables-represent-nfts)
-  * [Types of Linked Wearables Collections](linked-wearables.md#types-of-linked-wearables-collections)
-* [Creating Linked Wearables](linked-wearables.md#creating--managing-linked-wearables)
-  * [**Creating a Linked Wearable Collection**](linked-wearables.md#creating-a-linked-wearable-collection)
-  * [**Adding Wearables to the Linked Wearables Collection - One by One**](linked-wearables.md#adding-wearables-to-the-linked-wearables-collection---one-by-one)
-  * [**Adding Wearables to the Linked Wearables Collection - In Bulk**](linked-wearables.md#adding-wearables-to-the-linked-wearables-collection---in-bulk)
-  * [Seeing the wearables in Decentraland](linked-wearables.md#seeing-the-wearables-in-decentraland)
-* [Editing Linked Wearables](linked-wearables.md#editing-linked-wearables)
-  * [Editing the collection name](linked-wearables.md#editing-the-collection-name)
-  * [Deleting the collection](linked-wearables.md#deleting-the-collection)
-  * [Editing a single wearable](linked-wearables.md#editing-a-single-wearable)
-  * [Editing wearables in bulk](linked-wearables.md#editing-wearables-in-bulk)
-* [Publishing your Linked Wearables](linked-wearables.md#publishing-your-linked-wearables)
-  * [Publishing wearables for review](linked-wearables.md#publishing-wearables-for-review)
-  * [Pushing changes for review](linked-wearables.md#pushing-changes-for-review)
-  * [Costs](linked-wearables.md#costs)
-  * [Curation](linked-wearables.md#curation)
-    * [Handcrafted wearables](linked-wearables.md#handcrafted-wearables)
-    * [Programmatic collections](linked-wearables.md#programmatic-collections)
-
-## Introduction
-
 ### About
 
 In accordance with the [initial DAO proposal for Linked Wearables](https://governance.decentraland.org/proposal/?id=14e76cc0-2bc7-11ec-ac84-77607720a240) (previously called: Third Party Wearables), the [Draft Proposal with final definitions](https://governance.decentraland.org/proposal/?id=f69c4d40-aaaf-11ec-87a7-6d2a41508231) and the [Linked Wearables Redesign proposal](https://decentraland.org/governance/proposal/?id=65caf8d1-8601-49a5-ae11-b0b99d7fdd3c), this document will serve as documentation to cover all the relevant details around the Linked Wearables feature.
