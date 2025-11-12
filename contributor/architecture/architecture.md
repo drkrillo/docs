@@ -20,66 +20,27 @@ Decentraland is a decentralized virtual world platform built on a hybrid archite
 
 ## System Layers
 
-```mermaid
-flowchart TB
-    subgraph Clients
-        Unity[Unity Explorer]
-        Web[Web Client]
-        CLI[CLI Tools]
-    end
-    
-    subgraph Discovery
-        Realm[Realm Provider]
-    end
-    
-    subgraph Decentralized
-        Catalyst1[Catalyst Node 1]
-        Catalyst2[Catalyst Node 2]
-        CatalystN[Catalyst Node N]
-    end
-    
-    subgraph Centralized
-        Backend[Backend Services]
-        LiveKit[LiveKit Media]
-        NATS[NATS Broker]
-    end
-    
-    subgraph Blockchain
-        Ethereum[Ethereum L1]
-        Polygon[Polygon L2]
-    end
-    
-    Clients --> Realm
-    Realm --> Decentralized
-    Clients --> Decentralized
-    Clients --> Centralized
-    Centralized --> NATS
-    Centralized --> LiveKit
-    Backend --> Blockchain
-```
-
-### Layer 1: Clients
+### Clients
 
 Players interact through various clients:
 
 * **Unity Explorer** - Primary desktop client (Windows, Mac, Linux)
 * **Web Explorer** - Browser-based client
 * **CLI** - Developer tooling for scene creation and deployment
-* **Community Clients** - Alternative implementations for the reference client using different rendering technologies. 
+* **Community Clients** (mobile, VR, etc) - Alternative implementations for the reference client using different rendering technologies. 
 
 All clients authenticate via crypto wallets and follow the same protocols.
 
-### Layer 2: Discovery (Realm Provider)
+### Discovery (Realm Provider)
 
-Single entry point that provides clients with:
+Single entry point that provides clients with a reaml description:
 
 * Available Catalyst nodes (location, capacity, health)
 * Backend service endpoints
-* Hot scenes and active user counts
 
-Enables intelligent realm selection based on geography and load.
+Enables intelligent server selection based on geography and load.
 
-### Layer 3: Decentralized Content (Catalyst Network)
+### Decentralized Content (Catalyst Network)
 
 Permissionless network of Catalyst nodes that store and serve:
 
@@ -88,7 +49,7 @@ Permissionless network of Catalyst nodes that store and serve:
 
 Each node independently validates and stores content. Nodes synchronize deployments but operate autonomously. See [Catalyst Network](catalyst.md) for details.
 
-### Layer 4: Centralized Services
+### Centralized Feature Servers
 
 Backend microservices provide enhanced functionality:
 
@@ -101,7 +62,7 @@ Backend microservices provide enhanced functionality:
 
 See [Backend Services](services.md) for comprehensive service documentation.
 
-### Layer 5: Infrastructure
+### Infrastructure
 
 Supporting systems and third-party services:
 
@@ -112,7 +73,7 @@ Supporting systems and third-party services:
 
 See [Infrastructure](infrastructure.md) for details.
 
-### Layer 6: Blockchain
+### Blockchain
 
 Smart contracts on Ethereum and Polygon manage:
 
@@ -120,31 +81,6 @@ Smart contracts on Ethereum and Polygon manage:
 * **Marketplace** - Trading and royalties
 * **DAO** - Governance and treasury
 * **Currency** - MANA token
-
-## Data Flow Patterns
-
-### Content Publishing
-
-1. Creator deploys scene via CLI
-2. CLI uploads to any Catalyst node
-3. Catalyst validates and stores content
-4. Other Catalyst nodes synchronize
-5. Backend services process for optimization
-
-### Player Session
-
-1. Client queries Realm Provider for available realms
-2. Selects optimal Catalyst node (geography + load)
-3. Connects to Catalyst for content
-4. Connects to Archipelago for communications
-5. Backend services provide social/feature data
-
-### Real-time Communications
-
-1. Players report position to Archipelago
-2. Archipelago assigns players to "islands" based on proximity
-3. Messages routed only to nearby players
-4. Voice chat via LiveKit with Gatekeeper tokens
 
 ## Security Model
 
@@ -180,26 +116,6 @@ Smart contracts on Ethereum and Polygon manage:
 * **CDN** - Static assets served via CDN
 * **Caching** - Aggressive caching at all layers
 * **Indexers** - Blockchain data cached in fast databases
-
-## Technology Stack
-
-### Clients
-
-* Unity (C#) - Explorer clients
-* React + TypeScript - Web UIs
-* Node.js + TypeScript - CLI tools
-
-### Backend Services
-
-* Node.js + TypeScript - Most services
-* PostgreSQL - Primary database
-* Redis - Caching layer
-
-### Infrastructure
-
-* Kubernetes - Container orchestration
-* NATS - Message broker
-* LiveKit (Go) - Media server
 
 ## Next Steps
 
