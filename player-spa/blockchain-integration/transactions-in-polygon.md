@@ -1,71 +1,71 @@
 ---
-description: Frequently Asked Questions about Polygon transactions
+description: Preguntas Frecuentes sobre transacciones en Polygon
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/blockchain-integration/transactions-in-polygon
 ---
 
-# Transactions in Polygon
+# Transacciones en Polygon
 
-## What is Polygon?
+## ¿Qué es Polygon?
 
-As stated in the the official Polygon website, [Polygon](https://polygon.technology/) is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem."
+Como se indica en el sitio web oficial de Polygon, [Polygon](https://polygon.technology/) es un protocolo y un marco para construir y conectar redes blockchain compatibles con Ethereum. Agregando soluciones escalables en Ethereum soportando un ecosistema Ethereum multi-cadena."
 
-## What is Matic?
+## ¿Qué es Matic?
 
-MATIC is Polygon's native token. It is a cryptocurrency used to cover gas fees in the Polygon network, among other use cases. MATIC is to Polygon as ETH is to Ethereum.
+MATIC es el token nativo de Polygon. Es una criptomoneda utilizada para cubrir tarifas de gas en la red Polygon, entre otros casos de uso. MATIC es para Polygon lo que ETH es para Ethereum.
 
-You can buy MATIC in most cryptocurrency exchanges.
+Puedes comprar MATIC en la mayoría de los exchanges de criptomonedas.
 
-## Polygon in Decentraland's Marketplace and Builder
+## Polygon en el Marketplace y Builder de Decentraland
 
-By using the Polygon network, and thanks to Decentraland's DAO, users can list, sell and buy wearables in the Marketplace or publish their collections in the Builder without paying for the transaction gas using the meta-transactions services.
+Al usar la red Polygon, y gracias al DAO de Decentraland, los usuarios pueden listar, vender y comprar wearables en el Marketplace o publicar sus colecciones en el Builder sin pagar el gas de la transacción usando los servicios de meta-transacciones.
 
-**Transactions in Polygon are not free**. The Decentraland DAO covers the cost of the transactions in Polygon so that users can enjoy many costless transactions in the Marketplace.
+**Las transacciones en Polygon no son gratis**. El DAO de Decentraland cubre el costo de las transacciones en Polygon para que los usuarios puedan disfrutar de muchas transacciones sin costo en el Marketplace.
 
-In order to enjoy costless transactions there are three conditions that need to be met:
+Para disfrutar de transacciones sin costo, se deben cumplir tres condiciones:
 
-* You need to be connected to Ethereum Mainnet.
-* The item you are intending to buy needs to have a price of 1 MANA or higher.
-* You didn't reach your free transaction limit.
+* Necesitas estar conectado a Ethereum Mainnet.
+* El artículo que pretendes comprar necesita tener un precio de 1 MANA o superior.
+* No alcanzaste tu límite de transacciones gratuitas.
 
-The Decentraland DAO reserves itself the rights to consume or pause the meta-transactions services when the network's gas fees are high to prevent the consumption of the gas tanks so they can last longer and be used by as many people as possible.
+El DAO de Decentraland se reserva los derechos de consumir o pausar los servicios de meta-transacciones cuando las tarifas de gas de la red son altas para prevenir el consumo de los tanques de gas para que puedan durar más y ser usados por tantas personas como sea posible.
 
-## Why do I have to cover the transaction fees for items that cost less than 1 MANA?
+## ¿Por qué tengo que cubrir las tarifas de transacción para artículos que cuestan menos de 1 MANA?
 
-In order to avoid exploitation and protect the free gas service, items that cost less than 1 MANA are not included in the costless transactions. You can buy these items by connecting to the Polygon network with MATIC in your wallet.
+Para evitar la explotación y proteger el servicio de gas gratuito, los artículos que cuestan menos de 1 MANA no están incluidos en las transacciones sin costo. Puedes comprar estos artículos conectándote a la red Polygon con MATIC en tu billetera.
 
-Gas fees are variable.
+Las tarifas de gas son variables.
 
-## What can I do if network fees are higher than 300 gwei?
+## ¿Qué puedo hacer si las tarifas de red son superiores a 300 gwei?
 
-Gwei is a unit of measurement used in the Ethereum blockchain. It is short for "Giga-wei," where "giga" denotes one billion. In Polygon, gwei is the smallest denomination of MATIC that is equivalent to 1/1,000,000,000 of 1 MATIC (1 MATIC = 1,000,000,000 gwei). All transaction fees on the Polygon network are denominated in gwei.
+Gwei es una unidad de medida utilizada en la blockchain de Ethereum. Es la abreviatura de "Giga-wei", donde "giga" denota mil millones. En Polygon, gwei es la denominación más pequeña de MATIC que es equivalente a 1/1,000,000,000 de 1 MANA (1 MATIC = 1,000,000,000 gwei). Todas las tarifas de transacción en la red Polygon se denominan en gwei.
 
-Network fees (exoressed ub gwei) are variable, so the best you can do is wait and try again at another moment. [Here](https://polygonscan.com/gastracker) you can check the Polygon Gas Fee in real time.
+Las tarifas de red (expresadas en gwei) son variables, por lo que lo mejor que puedes hacer es esperar e intentar nuevamente en otro momento. [Aquí](https://polygonscan.com/gastracker) puedes verificar la Tarifa de Gas de Polygon en tiempo real.
 
-Alternatively, you can buy these items by connecting to the Polygon network to use the MATIC in your wallet to pay for the fees. The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
+Alternativamente, puedes comprar estos artículos conectándote a la red Polygon para usar el MATIC en tu billetera para pagar las tarifas. La tarifa MATIC se deducirá automáticamente como parte de la tarifa de transacción de la red Polygon. Solo necesitas estar conectado a la red Polygon y tener MATIC en tu billetera.
 
-Gas fees are variable.
+Las tarifas de gas son variables.
 
-## What happens if the free transaction limit is reached?
+## ¿Qué sucede si se alcanza el límite de transacciones gratuitas?
 
-The free transaction limit renews every day, so you can try the day after. Alternatively, you can cover the cost of your transaction with MATIC while being connected to the Polygon network.
+El límite de transacciones gratuitas se renueva cada día, por lo que puedes intentar el día siguiente. Alternativamente, puedes cubrir el costo de tu transacción con MATIC mientras estás conectado a la red Polygon.
 
-The MATIC fee will be deducted automatically as part of the transaction fee of the Polygon network. You only need to be connected to the Polygon network and have MATIC in your wallet.
+La tarifa MATIC se deducirá automáticamente como parte de la tarifa de transacción de la red Polygon. Solo necesitas estar conectado a la red Polygon y tener MATIC en tu billetera.
 
-Gas fees are variable.
+Las tarifas de gas son variables.
 
-## Where can I get MATIC to pay for transaction fees?
+## ¿Dónde puedo obtener MATIC para pagar tarifas de transacción?
 
-One way to obtain MATIC is buying it through [the Account dapp](https://account.decentraland.org/).
+Una forma de obtener MATIC es comprándolo a través de [la dapp de Account](https://account.decentraland.org/).
 
-Simply click on the BUY button in the Polygon MANA section, and exchange the crypto you want to purchase from MANA to MATIC.
+Simplemente haz clic en el botón COMPRAR en la sección de MANA de Polygon, e intercambia la cripto que deseas comprar de MANA a MATIC.
 
-Another way is through Decentralized or Centralized exchanges. You can check [https://polygon.technology/matic-token/](https://polygon.technology/matic-token/) to see which exchanges operate with MATIC. If you want to use a Centralized exchange, make sure that it allows withdrawals through the Polygon network.
+Otra forma es a través de exchanges Descentralizados o Centralizados. Puedes consultar [https://polygon.technology/matic-token/](https://polygon.technology/matic-token/) para ver qué exchanges operan con MATIC. Si quieres usar un exchange Centralizado, asegúrate de que permita retiros a través de la red Polygon.
 
-If you have MATIC in the Ethereum network, you can always use the [Polygon Bridge](https://wallet.polygon.technology/bridge/) to deposit that MATIC to the Polygon network.
+Si tienes MATIC en la red Ethereum, siempre puedes usar el [Polygon Bridge](https://wallet.polygon.technology/bridge/) para depositar ese MATIC en la red Polygon.
 
 {% hint style="warning" %}
-**Warning:** After completing a transaction in Polygon, remember to switch back to Ethereum Mainnet to enjoy all the features in the Marketplace and the Builder that are not supported in the Polygon network.
+**Advertencia:** Después de completar una transacción en Polygon, recuerda volver a cambiar a Ethereum Mainnet para disfrutar de todas las funciones en el Marketplace y el Builder que no son compatibles con la red Polygon.
 {% endhint %}

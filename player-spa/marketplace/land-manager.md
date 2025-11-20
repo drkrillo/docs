@@ -1,104 +1,104 @@
 ---
-description: Manage LAND and Estate tokens
+description: Gestionar tokens LAND y Estate
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/marketplace/land-manager
 ---
 
-# LAND Manager
+# Gestor de LAND
 
-The Land Manager allows you to manage your LAND and Estate assets.
+El Gestor de Land te permite gestionar tus activos LAND y Estate.
 
-Access the Land manager at [https://builder.decentraland.org/land](https://builder.decentraland.org/land).
+Accede al Gestor de Land en [https://builder.decentraland.org/land](https://builder.decentraland.org/land).
 
-The Land Manager allows you to:
+El Gestor de Land te permite:
 
-* **Name** your parcels and Estates and give them a public description.
-* **Merge** LAND parcels into an Estate.
-* **Dissolve** an Estate into separate LAND parcels.
-* **Transfer** your parcels and Estates to another user.
-* **Grant permissions** to other users to edit the parcels you own.
+* **Nombrar** tus parcelas y Estates y darles una descripción pública.
+* **Fusionar** parcelas LAND en un Estate.
+* **Disolver** un Estate en parcelas LAND separadas.
+* **Transferir** tus parcelas y Estates a otro usuario.
+* **Otorgar permisos** a otros usuarios para editar las parcelas que posees.
 
-## Manage Your LAND
+## Gestionar tu LAND
 
-To view your LAND tokens, click **Manage your LAND**. Here you'll find a list of all of your parcels and Estates, including any parcels that you have listed for sale.
+Para ver tus tokens LAND, haz clic en **Gestionar tu LAND**. Aquí encontrarás una lista de todas tus parcelas y Estates, incluyendo cualquier parcela que hayas listado para venta.
 
-By clicking on one of the parcels or Estates listed under **Land**, you can edit its name, description, set an operator, or transfer it directly to another wallet address.
+Al hacer clic en una de las parcelas o Estates listados bajo **Land**, puedes editar su nombre, descripción, establecer un operador o transferirla directamente a otra dirección de billetera.
 
-![](broken-reference)
+![](broken-reference)
 
-## Create an Estate
+## Crear un Estate
 
-LAND Estates make it possible to associate two or more directly adjacent parcels of LAND to make it easier to manage your larger LAND holdings. Estates are especially useful when building larger scenes that span more than one parcel.
+Los Estates LAND hacen posible asociar dos o más parcelas directamente adyacentes de LAND para facilitar la gestión de tus propiedades LAND más grandes. Los Estates son especialmente útiles al construir escenas más grandes que abarcan más de una parcela.
 
-Parcels in an Estate must be directly adjacent, and cannot be separated by a road, plaza, or any other parcel.
+Las parcelas en un Estate deben ser directamente adyacentes y no pueden estar separadas por una carretera, plaza o cualquier otra parcela.
 
-To create your first Estate, you need to own two or more adjacent LAND parcels.
+Para crear tu primer Estate, necesitas poseer dos o más parcelas LAND adyacentes.
 
-1. Open **My LAND** and select one of the parcels you'd like to add to the Estate.
-2. In the parcel's details page, click **Create Estate**.
-3. You will be shown a view of the Atlas centered on the parcel you selected, with the remaining adjacent parcels you own highlighted. Select the different parcels you want to include in your Estate. ![](broken-reference) ![](broken-reference)
-4. Click **Continue**.
-5.  Enter a name and description for your Estate. These details will be publicly displayed in the Atlas, just like the name and description for any individual parcel.
+1. Abre **Mi LAND** y selecciona una de las parcelas que deseas agregar al Estate.
+2. En la página de detalles de la parcela, haz clic en **Crear Estate**.
+3. Se te mostrará una vista del Atlas centrada en la parcela que seleccionaste, con las parcelas adyacentes restantes que posees resaltadas. Selecciona las diferentes parcelas que deseas incluir en tu Estate. ![](broken-reference) ![](broken-reference)
+4. Haz clic en **Continuar**.
+5.  Ingresa un nombre y descripción para tu Estate. Estos detalles se mostrarán públicamente en el Atlas, al igual que el nombre y la descripción de cualquier parcela individual.
 
-    ![](broken-reference)
-6. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+    ![](broken-reference)
+6. Confirma esta transacción en tu cliente de Ethereum y espera a que la red la verifique.
 
-Once you've created your first Estate, you will see a new tab titled Estates. From this page you can view and manage all of your Estates.
+Una vez que hayas creado tu primer Estate, verás una nueva pestaña titulada Estates. Desde esta página puedes ver y gestionar todos tus Estates.
 
-When you create a new Estate, you are effectively transferring your parcels to a new token. These Estates are represented by ERC721 tokens (like any other NFT). You will no longer see the individual parcels under _My LAND_, and they will not appear in MetaMask, Mist, Trezor, or Ledger wallets, nor on Etherscan under your address.
+Cuando creas un nuevo Estate, efectivamente estás transfiriendo tus parcelas a un nuevo token. Estos Estates están representados por tokens ERC721 (como cualquier otro NFT). Ya no verás las parcelas individuales bajo _Mi LAND_, y no aparecerán en billeteras MetaMask, Mist, Trezor o Ledger, ni en Etherscan bajo tu dirección.
 
-## Edit parcels or Estates
+## Editar parcelas o Estates
 
-You can edit the name and description of any parcel or Estate that you own. These details will be publicly displayed in the Atlas.
+Puedes editar el nombre y la descripción de cualquier parcela o Estate que poseas. Estos detalles se mostrarán públicamente en el Atlas.
 
-To edit a parcel or Estate:
+Para editar una parcela o Estate:
 
-1.  Navigate to the details page of the parcel or the Estate you'd like to edit and click **Edit**.
+1.  Navega a la página de detalles de la parcela o el Estate que deseas editar y haz clic en **Editar**.
 
-    ![](broken-reference)
-2. Click **Submit**.
-3. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+    ![](broken-reference)
+2. Haz clic en **Enviar**.
+3. Confirma esta transacción en tu cliente de Ethereum y espera a que la red la verifique.
 
-## Give permissions
+## Dar permisos
 
-You can give another user permissions to edit the content in a parcel or Estate. This enables that user to deploy code to the scene, whilst not having the ability to sell the token.
+Puedes dar a otro usuario permisos para editar el contenido en una parcela o Estate. Esto habilita a ese usuario para desplegar código en la escena, sin tener la capacidad de vender el token.
 
-The user given permission can also change the name or description in the Marketplace.
+El usuario con permisos también puede cambiar el nombre o descripción en el Marketplace.
 
-To grant permissions over your LAND:
+Para otorgar permisos sobre tu LAND:
 
-1. Navigate to the details page of the parcel or Estate and click on the three dots and then **Set Operator**. ![](broken-reference)
-2.  Fill the form with the desired info.
+1. Navega a la página de detalles de la parcela o Estate y haz clic en los tres puntos y luego en **Establecer Operador**. ![](broken-reference)
+2.  Completa el formulario con la información deseada.
 
-    ![](broken-reference)
-3. Click **Submit**.
-4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+    ![](broken-reference)
+3. Haz clic en **Enviar**.
+4. Confirma esta transacción en tu cliente de Ethereum y espera a que la red la verifique.
 
-## See your activity history
+## Ver tu historial de actividad
 
-Open the notifications page by clicking the bell icon at the top of the screen.
+Abre la página de notificaciones haciendo clic en el ícono de campana en la parte superior de la pantalla.
 
-![](broken-reference)
+![](broken-reference)
 
-The notifications page displays a list of all the recent transactions that you have carried out, together with their status.
+La página de notificaciones muestra una lista de todas las transacciones recientes que has realizado, junto con su estado.
 
-Click a transaction to see more details about it on Etherscan.
+Haz clic en una transacción para ver más detalles sobre ella en Etherscan.
 
-## Transfer LAND
+## Transferir LAND
 
-To transfer a LAND parcel or Estate to another user:
+Para transferir una parcela LAND o Estate a otro usuario:
 
-1.  Navigate to the details page of the parcel or the Estate you'd like to transfer and click **Transfer**.
+1.  Navega a la página de detalles de la parcela o el Estate que deseas transferir y haz clic en **Transferir**.
 
-    ![](broken-reference)
-2. Enter the public address of the Ethereum wallet of the recipient.
+    ![](broken-reference)
+2. Ingresa la dirección pública de la billetera Ethereum del destinatario.
 
 {% hint style="warning" %}
-**📔 Note**: Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+**📔 Nota**: Por favor verifica dos veces esta dirección, ya que no puedes cancelar la operación. Aunque el destinatario siempre podría transferir el LAND de vuelta a ti, el propietario original no puede revertir la acción.
 {% endhint %}
 
-![](broken-reference)
+![](broken-reference)
 
-3. Click **Submit**.
-4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+3. Haz clic en **Enviar**.
+4. Confirma esta transacción en tu cliente de Ethereum y espera a que la red la verifique.

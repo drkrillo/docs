@@ -1,105 +1,105 @@
 ---
 description: >-
-  Decentraland uses the Ethereum blockchain to record the ownership of all
-  digital assets and tradable items.
+  Decentraland usa la blockchain de Ethereum para registrar la propiedad de todos
+  los activos digitales y artículos comerciables.
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/blockchain-integration/get-a-wallet
 ---
 
-# Get a Wallet
+# Obtener una Billetera
 
-## What is a wallet?
+## ¿Qué es una billetera?
 
-Decentraland uses the Ethereum blockchain to record the ownership of all digital assets and tradable items.
+Decentraland usa la blockchain de Ethereum para registrar la propiedad de todos los activos digitales y artículos comerciables.
 
-![](broken-reference)
+![](broken-reference)
 
-Digital wallets are tools that work as a bridge between the blockchain and the dApp (decentralized applications). This means that with a wallet you will be able to monitor your available funds, transaction history and security options.
+Las billeteras digitales son herramientas que funcionan como un puente entre la blockchain y la dApp (aplicaciones descentralizadas). Esto significa que con una billetera podrás monitorear tus fondos disponibles, historial de transacciones y opciones de seguridad.
 
-## Do I need a wallet to play in Decentraland?
+## ¿Necesito una billetera para jugar en Decentraland?
 
-No, you do not need to own crypto or already have a digital wallet to use Decentraland. Decentraland is free to use, and if you'd like to purchase something from the [**Marketplace**](https://market.decentraland.org/), you can use a credit/debit card in addition to cryptocurrency.
+No, no necesitas poseer cripto o tener ya una billetera digital para usar Decentraland. Decentraland es gratuito para usar, y si deseas comprar algo del [**Marketplace**](https://market.decentraland.org/), puedes usar una tarjeta de crédito/débito además de criptomoneda.
 
-See a tutorial for [**making an account with a social profile**](https://www.youtube.com/watch?v=ylZrPisyPl4) or [**with an external wallet like MetaMask**](https://www.youtube.com/watch?v=w3CCVrVe1M4).
+Consulta un tutorial para [**crear una cuenta con un perfil social**](https://www.youtube.com/watch?v=ylZrPisyPl4) o [**con una billetera externa como MetaMask**](https://www.youtube.com/watch?v=w3CCVrVe1M4).
 
-## How do I get a digital wallet?
+## ¿Cómo obtengo una billetera digital?
 
-To enter Decentraland, you must use a wallet that is integrated to your web browser, so we recommend you [MetaMask](https://metamask.io/)
+Para entrar a Decentraland, debes usar una billetera que esté integrada a tu navegador web, por lo que recomendamos [MetaMask](https://metamask.io/)
 
-![](broken-reference)
+![](broken-reference)
 
-Once you install it, you will see an icon like this:
+Una vez que lo instales, verás un ícono como este:
 
-![](broken-reference)
+![](broken-reference)
 
-## Wallet address
+## Dirección de billetera
 
-All wallets have a public and private key. A public key Is a unique identifier for your wallet and it looks like this: **0xcba113f589805095a892ecefdb4eb83eff45d98**. It is basically a name that you can share freely with others and it's used to direct assets to your wallet.
+Todas las billeteras tienen una clave pública y privada. Una clave pública es un identificador único para tu billetera y se ve así: **0xcba113f589805095a892ecefdb4eb83eff45d98**. Es básicamente un nombre que puedes compartir libremente con otros y se usa para dirigir activos a tu billetera.
 
-You can localize your wallet address clicking on the extension icon in your browser, and then clicking on your wallet name with the public key to copy it to clipboard:
+Puedes localizar tu dirección de billetera haciendo clic en el ícono de extensión en tu navegador, y luego haciendo clic en el nombre de tu billetera con la clave pública para copiarlo al portapapeles:
 
-![](broken-reference)
+![](broken-reference)
 
-Or by clicking on your account details:
+O haciendo clic en los detalles de tu cuenta:
 
-![](broken-reference)
+![](broken-reference)
 
-The private key is used by your wallet to sign each transaction and certify that it was truly sent by you. It is also used to restore your wallet in case you forget your password.
+La clave privada es utilizada por tu billetera para firmar cada transacción y certificar que realmente fue enviada por ti. También se usa para restaurar tu billetera en caso de que olvides tu contraseña.
 
-Keep in mind that a digital wallet is like a bank account, so make sure you **don't forget your password, or backup phrase. Keep them in a safe place and don't share them with anyone.**
+Ten en cuenta que una billetera digital es como una cuenta bancaria, así que asegúrate de **no olvidar tu contraseña o frase de respaldo. Guárdalas en un lugar seguro y no las compartas con nadie.**
 
-## What is Ether (ETH), and how do I send it to my wallet?
+## ¿Qué es Ether (ETH) y cómo lo envío a mi billetera?
 
-![](broken-reference)
+![](broken-reference)
 
-For executing transactions, you'll need to put money in your wallet. dApps based on Ethereum, like Decentraland, use Ether: a digital currency that powers the Ethereum network. It acts like any other currency, in that its value fluctuates with the market.
+Para ejecutar transacciones, necesitarás poner dinero en tu billetera. Las dApps basadas en Ethereum, como Decentraland, usan Ether: una moneda digital que alimenta la red de Ethereum. Actúa como cualquier otra moneda, en que su valor fluctúa con el mercado.
 
-* You need to convert your currency (e.g. USD, CAD, GBP) into Ether to pay for things such as a collectibles.
+* Necesitas convertir tu moneda (por ejemplo, USD, CAD, GBP) en Ether para pagar por cosas como coleccionables.
 
-## How do I get Ether?
+## ¿Cómo obtengo Ether?
 
-_For US citizens only:_
+_Solo para ciudadanos de EE. UU.:_
 
-You can purchase ETH for the MetaMask Browser Extension with the Coinbase service.
+Puedes comprar ETH para la Extensión de Navegador MetaMask con el servicio de Coinbase.
 
-* Click the `Buy` button.
-* Select the `Coinbase` option.
-* Click the `Continue to Coinbase` button to purchase Ethereum.
+* Haz clic en el botón `Comprar`.
+* Selecciona la opción `Coinbase`.
+* Haz clic en el botón `Continuar a Coinbase` para comprar Ethereum.
 
-_For the rest of the World:_
+_Para el resto del Mundo:_
 
-You need to buy ETH from Coinbase or another exchange using normal fiat currency.
+Necesitas comprar ETH de Coinbase u otro exchange usando moneda fiat normal.
 
-* Copy your MetaMask address by clicking on your name account and address.
-* Select `Copy Address to clipboard`.
-* Go to Coinbase or another exchange.
-* Click `Accounts` in your top navigation.
-* Select your ETH wallet and click `buy`.
-* Follow the steps to `Add payment method` and paste your MetaMask address with the amount you'd like to transfer.
+* Copia tu dirección de MetaMask haciendo clic en el nombre de tu cuenta y dirección.
+* Selecciona `Copiar Dirección al portapapeles`.
+* Ve a Coinbase u otro exchange.
+* Haz clic en `Cuentas` en tu navegación superior.
+* Selecciona tu billetera ETH y haz clic en `comprar`.
+* Sigue los pasos para `Agregar método de pago` y pega tu dirección de MetaMask con la cantidad que deseas transferir.
 
-## What is MANA and how do I get it?
+## ¿Qué es MANA y cómo lo obtengo?
 
-![](broken-reference)
+![](broken-reference)
 
-[MANA](https://etherscan.io/token/decentraland) is Decentraland's fungible (reproducible or interchangeable) cryptocurrency token. It is burned, or spent in exchange for LAND parcels, wearables and names.
+[MANA](https://etherscan.io/token/decentraland) es el token de criptomoneda fungible (reproducible o intercambiable) de Decentraland. Se quema, o gasta a cambio de parcelas LAND, wearables y nombres.
 
-Steps to buy MANA:
+Pasos para comprar MANA:
 
-* First, you need to register with an exchange that lists MANA (such as [Coinbase](https://www.coinbase.com/), [Huobi](https://www.huobi.io/), [Binance](https://www.binance.com/)).
-* Secondly, you will need to deposit funds into your account. While things change rapidly in the crypto world, it's not likely that there's an exchange available to convert your USD directly for MANA. If that's the case, you'll first need to obtain a cryptocurrency listed in a currency pair with MANA, such as Ether (ETH), and then exchange it for Decentraland's native token.
-* Third, once logged into your exchange account, click on the "Markets" or "Exchange" link and search for your desired currency pairing. For example, MANA/ETH. In the "Buy" field, you can then specify the amount of MANA you want to buy or the amount of ETH you want to spend. Make sure you take a moment to review the full details of the transaction including any fees that apply and the total cost of completing your purchase.
+* Primero, necesitas registrarte con un exchange que liste MANA (como [Coinbase](https://www.coinbase.com/), [Huobi](https://www.huobi.io/), [Binance](https://www.binance.com/)).
+* En segundo lugar, necesitarás depositar fondos en tu cuenta. Aunque las cosas cambian rápidamente en el mundo cripto, no es probable que haya un exchange disponible para convertir tu USD directamente por MANA. Si ese es el caso, primero necesitarás obtener una criptomoneda listada en un par de monedas con MANA, como Ether (ETH), y luego intercambiarla por el token nativo de Decentraland.
+* Tercero, una vez que hayas iniciado sesión en tu cuenta de exchange, haz clic en el enlace "Mercados" o "Exchange" y busca tu par de monedas deseado. Por ejemplo, MANA/ETH. En el campo "Comprar", puedes especificar la cantidad de MANA que deseas comprar o la cantidad de ETH que deseas gastar. Asegúrate de tomarte un momento para revisar los detalles completos de la transacción, incluidas las tarifas que se aplican y el costo total de completar tu compra.
 
-## What is 'gas'?
+## ¿Qué es 'gas'?
 
-'Gas' is a shorthand term used to describe the cost of powering a transaction or contract in Ethereum. Because blockchain is decentralized, every transaction is distributed through multiple computers, not a central server. This ensures each token – in this case, each collectible – is secure and one-of-a-kind. It also takes a lot of computational power, which is covered by the cost of gas.
+'Gas' es un término abreviado utilizado para describir el costo de alimentar una transacción o contrato en Ethereum. Debido a que blockchain está descentralizada, cada transacción se distribuye a través de múltiples computadoras, no un servidor central. Esto asegura que cada token – en este caso, cada coleccionable – sea seguro y único. También requiere mucho poder computacional, que está cubierto por el costo del gas.
 
-* _'Gas' is composed of two parts: Gas Price and Gas Limit. Gas Price is what you offer to pay the miners (in a tiny measurement of ether called 'gwei') for each operation to execute the smart contract. Gas Limit is how many operations you let them do before they run out of gas and drop the transaction._
-* _1 gwei = 1/1,000,000,000th of an Ether._
+* _'Gas' se compone de dos partes: Precio de Gas y Límite de Gas. El Precio de Gas es lo que ofreces pagar a los mineros (en una pequeña medida de ether llamada 'gwei') por cada operación para ejecutar el contrato inteligente. El Límite de Gas es cuántas operaciones les permites hacer antes de que se queden sin gas y abandonen la transacción._
+* _1 gwei = 1/1,000,000,000 de un Ether._
 
-![](broken-reference)
+![](broken-reference)
 
-To summarize, Gas Price (gwei) is the amount of Ether offered per gas unit to pay miners to process your transaction. The higher the gas price you set, the faster your transaction will get processed. So, for more important transactions – such as a collectible that you really like ;D – think about increasing the suggested gas price.
+Para resumir, el Precio de Gas (gwei) es la cantidad de Ether ofrecida por unidad de gas para pagar a los mineros para procesar tu transacción. Cuanto más alto sea el precio de gas que establezcas, más rápido se procesará tu transacción. Entonces, para transacciones más importantes – como un coleccionable que realmente te gusta ;D – piensa en aumentar el precio de gas sugerido.
 
-**For extra technical information, visit** [**About the blockchain**](ethereum-essentials.md)
+**Para información técnica adicional, visita** [**Acerca del blockchain**](ethereum-essentials.md)

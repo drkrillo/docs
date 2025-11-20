@@ -4,18 +4,18 @@ metaLinks:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao
 ---
 
-# Overview
+# Resumen
 
-The Decentraland DAO (Decentralized Autonomous Organization) is the governance body that manages and controls the Decentraland virtual world. It's composed of all MANA, LAND, and NAME token holders who can participate in the decision-making process.
+El DAO de Decentraland (Organización Autónoma Descentralizada) es el cuerpo de gobernanza que gestiona y controla el mundo virtual de Decentraland. Está compuesto por todos los poseedores de tokens MANA, LAND y NAME que pueden participar en el proceso de toma de decisiones.
 
-This section provides a comprehensive overview of how the DAO operates, its capabilities, and how you can participate in governing Decentraland.
+Esta sección proporciona una visión general completa de cómo opera el DAO, sus capacidades y cómo puedes participar en gobernar Decentraland.
 
-## Quick Links
+## Enlaces Rápidos
 
-* [What is the DAO](what-is-the-dao.md) - Introduction to the Decentraland DAO
-* [How does the DAO work](how-does-the-dao-work.md) - Understanding the governance mechanisms
-* [What can you do with the DAO](what-can-you-do-with-the-dao.md) - Actions and capabilities
-* [Participation Requirements](what-do-you-need-to-participate.md) - How to get involved
-* [The DAO Fund](the-dao-fund.md) - Treasury and funding
-* [DAO Limitations](the-daos-limitations.md) - Understanding boundaries
-* [The DAO Smart Contracts](what-smart-contracts-does-the-dao-control.md) - Technical infrastructure
+* [Qué es el DAO](what-is-the-dao.md) - Introducción al DAO de Decentraland
+* [Cómo funciona el DAO](how-does-the-dao-work.md) - Entender los mecanismos de gobernanza
+* [Qué puedes hacer con el DAO](what-can-you-do-with-the-dao.md) - Acciones y capacidades
+* [Requisitos de Participación](what-do-you-need-to-participate.md) - Cómo involucrarse
+* [El Fondo del DAO](the-dao-fund.md) - Tesoro y financiamiento
+* [Limitaciones del DAO](the-daos-limitations.md) - Entender los límites
+* [Los Contratos Inteligentes del DAO](what-smart-contracts-does-the-dao-control.md) - Infraestructura técnica

@@ -1,66 +1,66 @@
 ---
-description: Settings & Performance in Decentraland
+description: Configuración y Rendimiento en Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/settings-and-performance
 ---
 
-# Settings & Performance
+# Configuración y Rendimiento
 
-When you're in-world, look for the gear icon in the sidebar menu to access Graphic, Sound, Control, and Chat settings.
+Cuando estés en el mundo, busca el ícono de engranaje en el menú de la barra lateral para acceder a la configuración de Gráficos, Sonido, Control y Chat.
 
-## Optimizing Decentraland's Performance on Your Device
+## Optimizar el Rendimiento de Decentraland en tu Dispositivo
 
-Rendering Decentraland's open world requires a certain level of technical power. If your computer doesn't meet the minimum requirements listed below, you may experience poor performance and long loading times. In this scenario, you can try to optimize Decentraland's performance by lowering your Graphic settings in-world.
+Renderizar el mundo abierto de Decentraland requiere un cierto nivel de potencia técnica. Si tu computadora no cumple con los requisitos mínimos enumerados a continuación, puedes experimentar un rendimiento deficiente y tiempos de carga largos. En este escenario, puedes intentar optimizar el rendimiento de Decentraland bajando tu configuración de Gráficos en el mundo.
 
 ### **Windows**
 
-|         | Minimum Required                                                          | Recommended Settings                              |
-| ------- | ------------------------------------------------------------------------- | ------------------------------------------------- |
-| OS      | Windows 10 64-bit                                                         | Windows 11 64-bit                                 |
-| CPU     | Intel i5 7th generation or AMD Ryzen 5 Series                             | Intel i7 12th generation or AMD Ryzen 7 Series    |
-| GPU     | Nvidia RTX 20 Series or AMD Radeon RX 5000 Series (DirectX 12 compatible) | Nvidia RTX 30 Series or AMD Radeon RX 6000 Series |
-| VRAM    | 6 GB                                                                      | 12 GB                                             |
-| RAM     | 16GB                                                                      | 32 GB                                             |
-| Storage | 8GB HDD                                                                   | 20GB SDD                                          |
+|         | Mínimo Requerido                                                       | Configuración Recomendada                        |
+| ------- | ---------------------------------------------------------------------- | ------------------------------------------------ |
+| SO      | Windows 10 64-bit                                                      | Windows 11 64-bit                                |
+| CPU     | Intel i5 7ª generación o AMD Ryzen 5 Series                            | Intel i7 12ª generación o AMD Ryzen 7 Series     |
+| GPU     | Nvidia RTX 20 Series o AMD Radeon RX 5000 Series (compatible DirectX 12) | Nvidia RTX 30 Series o AMD Radeon RX 6000 Series |
+| VRAM    | 6 GB                                                                   | 12 GB                                            |
+| RAM     | 16GB                                                                   | 32 GB                                            |
+| Almacen | 8GB HDD                                                                | 20GB SDD                                         |
 
 ### **Mac**
 
-|         | Minimum Required                                 | Recommended Settings               |
-| ------- | ------------------------------------------------ | ---------------------------------- |
-| OS      | macOS 11 Big Sur                                 | macOS 12 Monterey                  |
-| CPU     | Apple M1                                         | Apple M1 Pro/M2                    |
-| GPU     | Apple M1 integrated GPU (Metal support required) | Apple M1 Pro/M2 Pro integrated GPU |
-| VRAM    | 6 GB                                             | 12 GB                              |
-| RAM     | 16GB                                             | 32 GB                              |
-| Storage | 8GB HDD                                          | 20GB SDD                           |
+|         | Mínimo Requerido                                       | Configuración Recomendada      |
+| ------- | ------------------------------------------------------ | ------------------------------ |
+| SO      | macOS 11 Big Sur                                       | macOS 12 Monterey              |
+| CPU     | Apple M1                                               | Apple M1 Pro/M2                |
+| GPU     | Apple M1 GPU integrado (soporte Metal requerido)       | Apple M1 Pro/M2 Pro GPU integrado |
+| VRAM    | 6 GB                                                   | 12 GB                          |
+| RAM     | 16GB                                                   | 32 GB                          |
+| Almacen | 8GB HDD                                                | 20GB SDD                       |
 
-### Adjusting Graphic Settings
+### Ajustar Configuración de Gráficos
 
-If your computer doesn't meet all of Decentraland's minimum hardware requirements, you can try to optimize your experience by lowering your graphic settings in-world. Here are the settings for best performance:
+Si tu computadora no cumple con todos los requisitos mínimos de hardware de Decentraland, puedes intentar optimizar tu experiencia bajando tu configuración de gráficos en el mundo. Aquí están las configuraciones para el mejor rendimiento:
 
-![](broken-reference)
+![](broken-reference)
 
-## Sound Settings
+## Configuración de Sonido
 
-Modify the volume of individual sounds to customize your Decentraland experience:
+Modifica el volumen de sonidos individuales para personalizar tu experiencia en Decentraland:
 
-* **Master:** Affects all sounds
-* **UI SFX:** Affects the music that plays when you're logging into Decentraland
-* **In-World Music & SFX:** Affects music, audio from streams, and any other sound effects generated by a scene
-* **Avatar & Emote SFX:** Affects sounds from avatars and Emotes with sound effects
+* **Master:** Afecta todos los sonidos
+* **SFX de IU:** Afecta la música que se reproduce cuando inicias sesión en Decentraland
+* **Música y SFX en el Mundo:** Afecta música, audio de streams y cualquier otro efecto de sonido generado por una escena
+* **SFX de Avatar y Emotes:** Afecta sonidos de avatares y Emotes con efectos de sonido
 
-![](broken-reference)
+![](broken-reference)
 
-## Control Settings
+## Configuración de Control
 
-Here you can modify the sensitivity of your mouse in-world.
+Aquí puedes modificar la sensibilidad de tu mouse en el mundo.
 
-![](broken-reference)
+![](broken-reference)
 
-## Chat Settings
+## Configuración de Chat
 
-From the main settings, you can modify notification and chat bubble preferences for all your chats simultaneously as well as your DM permissions. See the [**Chat**](friends-and-chatting.md#chat-settings) section for a full breakdown.
+Desde la configuración principal, puedes modificar las preferencias de notificaciones y burbujas de chat para todos tus chats simultáneamente, así como tus permisos de mensajes directos. Consulta la sección [**Chat**](friends-and-chatting.md#chat-settings) para un desglose completo.
 
-![](broken-reference)
+![](broken-reference)

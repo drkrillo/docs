@@ -1,70 +1,70 @@
 ---
-description: Exploring Decentraland
+description: Explorar Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/exploring
 ---
 
-# Exploring
+# Explorando
 
-Decentraland is completely made up of community-generated content. When you're out exploring, you never know what you might discover—whether it's on the Genesis City map or in someone's World! The options can feel overwhelming, so here are a few tips for getting the most out of your adventure.
+Decentraland está completamente compuesto por contenido generado por la comunidad. Cuando estás explorando, nunca sabes lo que podrías descubrir—¡ya sea en el mapa de Genesis City o en el World de alguien! Las opciones pueden sentirse abrumadoras, así que aquí hay algunos consejos para aprovechar al máximo tu aventura.
 
-Learn more about the difference between Genesis City and Worlds [**here**](overview.md#genesis-city-vs-worlds-decentralands-landscape-explained).
+Aprende más sobre la diferencia entre Genesis City y Worlds [**aquí**](overview.md#genesis-city-vs-worlds-decentralands-landscape-explained).
 
-## Exploring Genesis City
+## Explorar Genesis City
 
-With thousands of community-owned parcels to cross in Genesis City, just walking straight across is its own adventure. However, if you'd like to be more precise in your exploration, you'll find the Map to be very helpful.
+Con miles de parcelas propiedad de la comunidad para cruzar en Genesis City, simplemente caminar en línea recta es su propia aventura. Sin embargo, si deseas ser más preciso en tu exploración, encontrarás que el Mapa es muy útil.
 
-### **Use the Map to Discover**
+### **Usar el Mapa para Descubrir**
 
-The Map can be opened by clicking on the Mini Map in the top left corner of your screen or by clicking on the Map icon in the sidebar menu.
+El Mapa se puede abrir haciendo clic en el Mini Mapa en la esquina superior izquierda de tu pantalla o haciendo clic en el ícono del Mapa en el menú de la barra lateral.
 
-### **Layers & Pins**
+### **Capas y Pines**
 
-Looking at the satellite image of Genesis City, you'll notice a lot of different icons. **To change the map type and toggle location pins**, click on the layers icon in the lower left of the map.
+Mirando la imagen satelital de Genesis City, notarás muchos íconos diferentes. **Para cambiar el tipo de mapa y alternar pines de ubicación**, haz clic en el ícono de capas en la parte inferior izquierda del mapa.
 
-The red '**Live Events**' pins show the location of an event that is currently happening. Click on the icon to see more about the event and click 'Jump In' to teleport to its location.
+Los pines rojos de '**Eventos en Vivo**' muestran la ubicación de un evento que está sucediendo actualmente. Haz clic en el ícono para ver más sobre el evento y haz clic en 'Entrar' para teletransportarte a su ubicación.
 
-The yellow '**Points of Interest**' pins mark locations the community deemed to be must-see—they could be anything from a game to an impressive work of art. Clicking on the icon will bring up a description and a 'Jump In' button to teleport you directly.
+Los pines amarillos de '**Puntos de Interés**' marcan ubicaciones que la comunidad consideró imperdibles—podrían ser cualquier cosa, desde un juego hasta una obra de arte impresionante. Hacer clic en el ícono mostrará una descripción y un botón 'Entrar' para teletransportarte directamente.
 
-![](broken-reference)
+![](broken-reference)
 
-### **Location Categories**
+### **Categorías de Ubicación**
 
-Discoverer interesting locations in Decentraland based on categories. When you open the map, you'll see a variety of Category bubbles along the top of the screen, including topics like Art, Music, Games, etc.
+Descubre ubicaciones interesantes en Decentraland basadas en categorías. Cuando abres el mapa, verás una variedad de burbujas de Categoría en la parte superior de la pantalla, incluyendo temas como Arte, Música, Juegos, etc.
 
-Click on a category to bring up pins marking the locations tagged with that category. Clicking on one will open an information card with a description as well as a 'Jump In' button so you can teleport directly to the scene.
+Haz clic en una categoría para mostrar pines que marcan las ubicaciones etiquetadas con esa categoría. Hacer clic en uno abrirá una tarjeta de información con una descripción y un botón 'Entrar' para que puedas teletransportarte directamente a la escena.
 
-![](broken-reference)
+![](broken-reference)
 
-### **Teleport to Specific Parcels**
+### **Teletransportarse a Parcelas Específicas**
 
-In-world, you can jump directly to a specific parcel using the **Map** or **Chat Commands**.
+En el mundo, puedes saltar directamente a una parcela específica usando el **Mapa** o **Comandos de Chat**.
 
-* **Teleportation via Map:** Clicking any location on the Map will bring up an info card on the location, even if it's an empty parcel. This card will also have a 'Jump In' button that will teleport you to the spot.
-* **Teleportation via Chat Command:** If you know the coordinates of the parcel you want to jump to, put the following command into the Nearby chat box (in the bottom left of your screen) and hit \[**Enter**].
-  * `/goto x,y` (e.g. `/goto 0,0` for Genesis Plaza)
-    * Learn more about Chat Commands [**here**](shortcuts-and-chat-commands.md#chat-commands).
+* **Teletransportación vía Mapa:** Hacer clic en cualquier ubicación en el Mapa mostrará una tarjeta de información sobre la ubicación, incluso si es una parcela vacía. Esta tarjeta también tendrá un botón 'Entrar' que te teletransportará al lugar.
+* **Teletransportación vía Comando de Chat:** Si conoces las coordenadas de la parcela a la que quieres saltar, pon el siguiente comando en el cuadro de chat Cercano (en la parte inferior izquierda de tu pantalla) y presiona \[**Enter**].
+  * `/goto x,y` (por ejemplo, `/goto 0,0` para Genesis Plaza)
+    * Aprende más sobre Comandos de Chat [**aquí**](shortcuts-and-chat-commands.md#chat-commands).
 
-## Exploring Worlds
+## Explorar Worlds
 
-In contrast to Genesis City, **Worlds** are more intimate virtual spaces, like personal islands located off the Decentraland map. They can only be visited via teleportation.
+En contraste con Genesis City, los **Worlds** son espacios virtuales más íntimos, como islas personales ubicadas fuera del mapa de Decentraland. Solo se pueden visitar mediante teletransportación.
 
-### Discover New Worlds
+### Descubrir Nuevos Worlds
 
-While Worlds tend to be more private, you can discover them by browsing Worlds listed on the [**Places page**](https://decentraland.org/places/worlds/) and by attending events hosted at Worlds.
+Aunque los Worlds tienden a ser más privados, puedes descubrirlos navegando por Worlds listados en la [**página de Places**](https://decentraland.org/places/worlds/) y asistiendo a eventos organizados en Worlds.
 
-Over 1K World owners choose to publicly list their Worlds on the Places page, making them easier to discover. Browse through them and filter by categories to find the perfect World for your daily adventure.
+Más de 1K propietarios de Worlds eligen listar públicamente sus Worlds en la página de Places, haciéndolos más fáciles de descubrir. Navega a través de ellos y filtra por categorías para encontrar el World perfecto para tu aventura diaria.
 
-![](broken-reference)
+![](broken-reference)
 
-Events can also be hosted in Worlds—attending them you can make friends and explore! Below is an example of an event hosted in a World. By the ruby 'jump in' arrow, you can see the World's name in place of Genesis City coordinates.
+Los eventos también se pueden organizar en Worlds—¡asistiéndolos puedes hacer amigos y explorar! A continuación se muestra un ejemplo de un evento organizado en un World. Por la flecha roja de 'entrar', puedes ver el nombre del World en lugar de coordenadas de Genesis City.
 
-![](broken-reference)
+![](broken-reference)
 
-### Teleport to a World
+### Teletransportarse a un World
 
-If you know the name of a World, you can teleport to it using a **Chat Command**. Just put the following command into the Nearby chat box (in the bottom left of your screen) and hit \[**Enter**].
+Si conoces el nombre de un World, puedes teletransportarte a él usando un **Comando de Chat**. Simplemente pon el siguiente comando en el cuadro de chat Cercano (en la parte inferior izquierda de tu pantalla) y presiona \[**Enter**].
 
-* `/goto World'sName` (e.g. `/goto officehours`)
-  * Learn more about Chat Commands [**here**](shortcuts-and-chat-commands.md#chat-commands).
+* `/goto NombreDelWorld` (por ejemplo, `/goto officehours`)
+  * Aprende más sobre Comandos de Chat [**aquí**](shortcuts-and-chat-commands.md#chat-commands).

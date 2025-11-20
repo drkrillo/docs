@@ -1,54 +1,54 @@
-# Table of contents
+# Tabla de contenidos
 
-* [Welcome Player](README.md)
+* [Bienvenido Jugador](README.md)
 
-## Introduction
+## Introducción
 
-* [About Decentraland](introduction/about-decentraland.md)
+* [Acerca de Decentraland](introduction/about-decentraland.md)
 * [Whitepapers](introduction/whitepaper.md)
 
-## FAQs
+## Preguntas Frecuentes
 
 * [Decentraland 101](faqs/decentraland-101.md)
-* [Creating in Decentraland](faqs/creating-in-decentraland.md)
-* [Posting Events](faqs/posting-events.md)
-* [My Account](faqs/my-account.md)
-* [Security](faqs/security.md)
-* [Places](faqs/places.md)
-* [Contact & Support](faqs/contact-and-support.md)
+* [Crear en Decentraland](faqs/creating-in-decentraland.md)
+* [Publicar Eventos](faqs/posting-events.md)
+* [Mi Cuenta](faqs/my-account.md)
+* [Seguridad](faqs/security.md)
+* [Lugares](faqs/places.md)
+* [Contacto y Soporte](faqs/contact-and-support.md)
 
-## In-World
+## En el Mundo
 
-* [Overview](in-world/overview.md)
-* [Exploring](in-world/exploring.md)
-* [Customizing Your Avatar](in-world/customizing-your-avatar.md)
-* [Finding Events](in-world/finding-events.md)
-* [Earning Rewards](in-world/earning-rewards.md)
-* [Friends & Chatting](in-world/friends-and-chatting.md)
-* [Your Profile](in-world/your-profile.md)
-* [Settings & Performance](in-world/settings-and-performance.md)
-* [Shortcuts & Chat Commands](in-world/shortcuts-and-chat-commands.md)
+* [Resumen](in-world/overview.md)
+* [Explorando](in-world/exploring.md)
+* [Personalizar tu Avatar](in-world/customizing-your-avatar.md)
+* [Encontrar Eventos](in-world/finding-events.md)
+* [Ganar Recompensas](in-world/earning-rewards.md)
+* [Amigos y Chat](in-world/friends-and-chatting.md)
+* [Tu Perfil](in-world/your-profile.md)
+* [Configuración y Rendimiento](in-world/settings-and-performance.md)
+* [Atajos y Comandos de Chat](in-world/shortcuts-and-chat-commands.md)
 
 ## Marketplace
 
 * [Marketplace](marketplace/marketplace.md)
-* [LAND Manager](marketplace/land-manager.md)
-* [Rentals](marketplace/rentals.md)
+* [Gestor de LAND](marketplace/land-manager.md)
+* [Alquileres](marketplace/rentals.md)
 
-## Blockchain Integration
+## Integración con Blockchain
 
-* [Get a Wallet](blockchain-integration/get-a-wallet.md)
-* [About the Blockchain](blockchain-integration/ethereum-essentials.md)
-* [Transactions in Polygon](blockchain-integration/transactions-in-polygon.md)
+* [Obtener una Billetera](blockchain-integration/get-a-wallet.md)
+* [Acerca del Blockchain](blockchain-integration/ethereum-essentials.md)
+* [Transacciones en Polygon](blockchain-integration/transactions-in-polygon.md)
 
 ## DAO
 
-* [DAO User Guide](dao/dao-userguide.md)
-* [Overview](dao/dao/README.md)
-  * [What is the DAO](dao/dao/what-is-the-dao.md)
-  * [How does the DAO work](dao/dao/how-does-the-dao-work.md)
-  * [What can you do with the DAO](dao/dao/what-can-you-do-with-the-dao.md)
-  * [Participation Requirements](dao/dao/what-do-you-need-to-participate.md)
-  * [The DAO Fund](dao/dao/the-dao-fund.md)
-  * [DAO Limitations](dao/dao/the-daos-limitations.md)
-  * [The DAO Smart Contracts](dao/dao/what-smart-contracts-does-the-dao-control.md)
+* [Guía de Usuario del DAO](dao/dao-userguide.md)
+* [Resumen](dao/dao/README.md)
+  * [Qué es el DAO](dao/dao/what-is-the-dao.md)
+  * [Cómo funciona el DAO](dao/dao/how-does-the-dao-work.md)
+  * [Qué puedes hacer con el DAO](dao/dao/what-can-you-do-with-the-dao.md)
+  * [Requisitos de Participación](dao/dao/what-do-you-need-to-participate.md)
+  * [El Fondo del DAO](dao/dao/the-dao-fund.md)
+  * [Limitaciones del DAO](dao/dao/the-daos-limitations.md)
+  * [Los Contratos Inteligentes del DAO](dao/dao/what-smart-contracts-does-the-dao-control.md)

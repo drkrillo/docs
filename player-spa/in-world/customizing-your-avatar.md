@@ -1,48 +1,48 @@
 ---
-description: Customizing Your Avatar in Decentraland
+description: Personalizar tu Avatar en Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/customizing-your-avatar
 ---
 
-# Customizing Your Avatar
+# Personalizar tu Avatar
 
-In Decentraland—with community-made Wearables and Emotes—you can shape your avatar to be _anyone,_ whether it's the truest version of yourself or your hidden alter ego.
+En Decentraland—con Wearables y Emotes hechos por la comunidad—puedes dar forma a tu avatar para ser _quien sea,_ ya sea la versión más verdadera de ti mismo o tu alter ego oculto.
 
-## Avatar Appearance
+## Apariencia del Avatar
 
-Edit your avatar's appearance in the Backpack. Look for a backpack icon in the sidebar menu. Here you can change your avatar's body features and attire.
+Edita la apariencia de tu avatar en la Mochila. Busca un ícono de mochila en el menú de la barra lateral. Aquí puedes cambiar las características corporales y el atuendo de tu avatar.
 
-![](broken-reference)
+![](broken-reference)
 
-### Getting More Wearables
+### Obtener Más Wearables
 
-In addition to the free, starter items that are always available in your Backpack, you can choose from thousands of community-made Wearables in Decentraland's Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Featuring everything from clothing, hair styles, full skins, and more, you're sure to find what you need to create your unique look. Purchased items will appear in your Backpack in-world.
+Además de los artículos iniciales gratuitos que siempre están disponibles en tu Mochila, puedes elegir entre miles de Wearables hechos por la comunidad en el Marketplace de Decentraland en [decentraland.org/marketplace](http://decentraland.org/marketplace). Con todo, desde ropa, peinados, pieles completas y más, seguro encontrarás lo que necesitas para crear tu look único. Los artículos comprados aparecerán en tu Mochila en el mundo.
 
-## Avatar Username
+## Nombre de Usuario del Avatar
 
-In Decentraland you can have two types of usernames:
+En Decentraland puedes tener dos tipos de nombres de usuario:
 
-* A general, non-unique one that will always have a random string of numbers after it (e.g.#1234)
-* A NAME username, one that is unique to you, comes with a bunch of extra perks, and has a verified checkmark icon following it instead of a string of numbers. Learn more about NAMEs [**here**](../faqs/decentraland-101.md#what-is-a-name).
+* Uno general, no único que siempre tendrá una cadena aleatoria de números después (por ejemplo, #1234)
+* Un nombre de usuario NAME, uno que es único para ti, viene con un montón de ventajas adicionales y tiene un ícono de marca de verificación después en lugar de una cadena de números. Aprende más sobre NAMEs [**aquí**](../faqs/decentraland-101.md#what-is-a-name).
 
-You can always edit your username from your Profile whether it's editing a general username or applying a NAME you own. [**Claim your unique NAME**](https://decentraland.org/marketplace/names/claim) now or check out a [**helpful tutorial**](https://www.youtube.com/watch?v=OKqXmO5fD0s\&ab_channel=Decentraland) first.
+Siempre puedes editar tu nombre de usuario desde tu Perfil, ya sea editando un nombre de usuario general o aplicando un NAME que posees. [**Reclama tu NAME único**](https://decentraland.org/marketplace/names/claim) ahora o consulta primero un [**tutorial útil**](https://www.youtube.com/watch?v=OKqXmO5fD0s\&ab_channel=Decentraland).
 
-![](broken-reference)
+![](broken-reference)
 
-## Emoting with Your Avatar
+## Emoting con tu Avatar
 
-Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. You can trigger them from the Emote Wheel when you press '**B**' or click on the dancing figure icon in the sidebar menu.
+Los Emotes son animaciones que permiten a tu avatar expresar reacciones, realizar movimientos de baile o participar en actividades como yoga o pintura. Puedes activarlos desde la Rueda de Emotes cuando presionas '**B**' o haces clic en el ícono de figura bailando en el menú de la barra lateral.
 
-![](broken-reference)
+![](broken-reference)
 
-## Customizing Your Emote Wheel
+## Personalizar tu Rueda de Emotes
 
-The Emote Wheel has 10 slots for different Emotes. You can customize which Emotes appear there from your Backpack.
+La Rueda de Emotes tiene 10 ranuras para diferentes Emotes. Puedes personalizar qué Emotes aparecen allí desde tu Mochila.
 
-![](broken-reference)
+![](broken-reference)
 
-### Getting More Emotes
+### Obtener Más Emotes
 
-Like the starter Wearables in your Backpack, your avatar will always have the free, basic Emotes available to everyone, but there's even more community-made Emotes waiting to be discovered in Decentraland's Marketplace at [decentraland.org/marketplace](http://decentraland.org/marketplace). Any Emotes you purchase will appear in your Backpack in-world.
+Al igual que los Wearables iniciales en tu Mochila, tu avatar siempre tendrá los Emotes básicos gratuitos disponibles para todos, pero hay aún más Emotes hechos por la comunidad esperando ser descubiertos en el Marketplace de Decentraland en [decentraland.org/marketplace](http://decentraland.org/marketplace). Cualquier Emote que compres aparecerá en tu Mochila en el mundo.

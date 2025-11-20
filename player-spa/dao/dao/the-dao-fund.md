@@ -1,19 +1,19 @@
 ---
-description: An overview and discussion of the DAO's MANA
+description: Una descripción general y discusión del MANA del DAO
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao/the-dao-fund
 ---
 
-# The DAO Fund
+# El Fondo del DAO
 
-The Decentraland DAO has been granted with a **10-year vesting contract worth 222,000,000 MANA** started on Feb 19, 2020.
+Al DAO de Decentraland se le ha otorgado un **contrato de adjudicación de 10 años por valor de 222,000,000 MANA** que comenzó el 19 de febrero de 2020.
 
-You can view the DAO's vesting contract [here](https://vesting.decentraland.org/#/0x7a3abf8897f31b56f09c6f69d074a393a905c1ac). The MANA in this contract vests every second, thus gradually increasing the size of the DAO's fund.
+Puedes ver el contrato de adjudicación del DAO [aquí](https://vesting.decentraland.org/#/0x7a3abf8897f31b56f09c6f69d074a393a905c1ac). El MANA en este contrato se adjudica cada segundo, aumentando gradualmente el tamaño del fondo del DAO.
 
-The current state of the DAO treasury can be viewed on the [Transparency page](https://governance.decentraland.org/transparency/) of the [Governance dApp](https://governance.decentraland.org/).
+El estado actual del tesoro del DAO se puede ver en la [página de Transparencia](https://governance.decentraland.org/transparency/) de la [dApp de Gobernanza](https://governance.decentraland.org/).
 
-The DAO also has other sources of income:
+El DAO también tiene otras fuentes de ingresos:
 
-* A 2.5% transaction fee within the Decentraland Marketplacs on primary market commissions go to the DAO
-* The OpenSea Marketplace also receives a 2.5% transaction fee for sales of LAND, Estates, Names, and wearables, [part of which is transferred to the DAO](https://etherscan.io/token/0x0f5d2fb29fb7d3cfee444a200298f468908cc942?a=0x9b814233894cd227f561b78cc65891aa55c62ad2).
+* Una tarifa de transacción del 2.5% dentro de los Marketplaces de Decentraland en comisiones del mercado primario van al DAO
+* El Marketplace de OpenSea también recibe una tarifa de transacción del 2.5% para ventas de LAND, Estates, Names y wearables, [parte de la cual se transfiere al DAO](https://etherscan.io/token/0x0f5d2fb29fb7d3cfee444a200298f468908cc942?a=0x9b814233894cd227f561b78cc65891aa55c62ad2).

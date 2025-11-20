@@ -1,30 +1,30 @@
 ---
-description: Earning Rewards in Decentraland
+description: Ganar Recompensas en Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/earning-rewards
 ---
 
-# Earning Rewards
+# Ganar Recompensas
 
-Exploring Decentraland, you never know what you'll find—sometimes treasure in the form of Wearable and Emote giveaways! But those can depend on the particular scene or if a special event is happening.
+Explorando Decentraland, nunca sabes lo que encontrarás—¡a veces tesoros en forma de regalos de Wearables y Emotes! Pero esos pueden depender de la escena particular o si está sucediendo un evento especial.
 
-If you're on the hunt for _guaranteed goodies_, look no farther than Decentraland's Weekly Marketplace Credit Rewards and the multi-day Gaming Quest.
+Si estás en la búsqueda de _cosas buenas garantizadas_, no busques más allá de las Recompensas Semanales de Créditos del Marketplace de Decentraland y la Misión de Juegos de varios días.
 
-## Weekly Marketplace Credits Rewards
+## Recompensas Semanales de Créditos del Marketplace
 
-Marketplace Credits can be used in Decentraland's Marketplace to buy Wearables and Emotes for free! 1 Credit = 1 MANA in value. As long as a Credit season is currently active, anyone can earn Credits in exchange for completing weekly goals, such as jumping into Decentraland regularly and attending events.
+¡Los Créditos del Marketplace se pueden usar en el Marketplace de Decentraland para comprar Wearables y Emotes gratis! 1 Crédito = 1 MANA en valor. Mientras una temporada de Créditos esté actualmente activa, cualquiera puede ganar Créditos a cambio de completar objetivos semanales, como entrar a Decentraland regularmente y asistir a eventos.
 
-Click on the Marketplace Credit icon in the sidebar menu to open your Weekly Rewards interface. There you can track your progress towards your weekly goals and your Credit balance. Learn more about Marketplace Credits [here](https://decentraland.org/blog/announcements/marketplace-credits-earn-weekly-rewards-to-power-up-your-look).
+Haz clic en el ícono de Créditos del Marketplace en el menú de la barra lateral para abrir tu interfaz de Recompensas Semanales. Allí puedes rastrear tu progreso hacia tus objetivos semanales y tu saldo de Créditos. Aprende más sobre los Créditos del Marketplace [aquí](https://decentraland.org/blog/announcements/marketplace-credits-earn-weekly-rewards-to-power-up-your-look).
 
-![](broken-reference)
+![](broken-reference)
 
-## Gaming Quest
+## Misión de Juegos
 
-If you're looking for a challenge that comes with great rewards, the Gaming Quest is for you! You can access it at anytime by clicking on the treasure chest icon to the right of the Mini Map.
+Si buscas un desafío que viene con grandes recompensas, ¡la Misión de Juegos es para ti! Puedes acceder a ella en cualquier momento haciendo clic en el ícono del cofre del tesoro a la derecha del Mini Mapa.
 
-![](broken-reference)
+![](broken-reference)
 
-Currently, the Quest comprises 25 days of gaming challenges, each with its own Wearable or Emote prize. If you open the map, you'll see purple treasure chest icons marking the locations of the current day's Gaming Quest challenges—you can also teleport directly to the challenge locations by clicking on the red arrows next to each task. Once you complete all the challenges for the current day, that day's prize will be sent to your Backpack!
+Actualmente, la Misión comprende 25 días de desafíos de juego, cada uno con su propio premio de Wearable o Emote. Si abres el mapa, verás íconos de cofres del tesoro morados marcando las ubicaciones de los desafíos de la Misión de Juegos del día actual—también puedes teletransportarte directamente a las ubicaciones de los desafíos haciendo clic en las flechas rojas junto a cada tarea. ¡Una vez que completes todos los desafíos del día actual, el premio de ese día será enviado a tu Mochila!
 
-![](broken-reference)
+![](broken-reference)

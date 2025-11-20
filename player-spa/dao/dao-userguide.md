@@ -1,209 +1,209 @@
 ---
-description: How to use the Decentraland DAO
+description: Cómo usar el DAO de Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao-userguide
 ---
 
-# DAO User Guide
+# Guía de Usuario del DAO
 
-## Table of Contents
+## Tabla de Contenidos
 
-* [Logging in](dao-userguide.md#logging-in)
-* [Voting power](dao-userguide.md#voting-power)
-* [Approval/Rejection Conditions](dao-userguide.md#approvereject-conditions)
-* [Browsing proposals](dao-userguide.md#browsing-all-proposals)
-* [Viewing a proposal](dao-userguide.md#viewing-a-proposal)
-* [Adding proposals to your watchlist](dao-userguide.md#adding-proposals-to-your-watch-list)
-* [Voting](dao-userguide.md#voting)
-* [Participating in the Forum](dao-userguide.md#participating-in-the-forum-discussions)
-* [Creating a proposal](dao-userguide.md#creating-a-proposal)
-* [Proposal categories](dao-userguide.md#proposal-categories)
-* [Deleting a proposal](dao-userguide.md#deleting-a-proposal)
+* [Iniciar sesión](dao-userguide.md#logging-in)
+* [Poder de voto](dao-userguide.md#voting-power)
+* [Condiciones de Aprobación/Rechazo](dao-userguide.md#approvereject-conditions)
+* [Explorar propuestas](dao-userguide.md#browsing-all-proposals)
+* [Ver una propuesta](dao-userguide.md#viewing-a-proposal)
+* [Agregar propuestas a tu lista de seguimiento](dao-userguide.md#adding-proposals-to-your-watch-list)
+* [Votar](dao-userguide.md#voting)
+* [Participar en el Foro](dao-userguide.md#participating-in-the-forum-discussions)
+* [Crear una propuesta](dao-userguide.md#creating-a-proposal)
+* [Categorías de propuestas](dao-userguide.md#proposal-categories)
+* [Eliminar una propuesta](dao-userguide.md#deleting-a-proposal)
 
-## Logging in
+## Iniciar sesión
 
-To get started with the DAO, visit [governance.decentraland.org](https://governance.decentraland.org). You will be presented with a welcome screen and quick start tutorial.
+Para comenzar con el DAO, visita [governance.decentraland.org](https://governance.decentraland.org). Se te presentará una pantalla de bienvenida y un tutorial de inicio rápido.
 
-After reading the quick start tutorial, click **Sign In**. You must connect a wallet in order to use the DAO. Currently, you can use either **Metamask** or **Fortmatic**. Make sure the wallet you're using holds the relevant tokens for participating in the DAO (MANA, NAMES, or LAND)
+Después de leer el tutorial de inicio rápido, haz clic en **Iniciar Sesión**. Debes conectar una billetera para usar el DAO. Actualmente, puedes usar **Metamask** o **Fortmatic**. Asegúrate de que la billetera que estás usando contenga los tokens relevantes para participar en el DAO (MANA, NAMEs o LAND)
 
-After connecting your wallet you will be taken to the homepage of the DAO featuring a list of all currently active proposals.
+Después de conectar tu billetera serás llevado a la página de inicio del DAO que presenta una lista de todas las propuestas actualmente activas.
 
-## Voting power
+## Poder de voto
 
-Voting power is calculated from the total balance of MANA, NAMES and LAND associated with the wallet connected with the DAO. **The DAO looks at both your wrapped and unwrapped balances, so you do not need to unwrap any MANA to achieve your full voting power.** However, you can unwrap any previously wrapped MANA at any time from the "Voting Power" tab. There is still a gas fee associated with unwrapping MANA as it is a transaction on the Eth mainnet.
+El poder de voto se calcula a partir del saldo total de MANA, NAMEs y LAND asociados con la billetera conectada con el DAO. **El DAO mira tanto tus saldos envueltos como sin envolver, por lo que no necesitas desenvolver ningún MANA para lograr tu poder de voto completo.** Sin embargo, puedes desenvolver cualquier MANA previamente envuelto en cualquier momento desde la pestaña "Poder de Voto". Todavía hay una tarifa de gas asociada con desenvolver MANA ya que es una transacción en la red principal de Eth.
 
-Your vote in the Decentraland DAO is weighted according to the balance of MANA, NAMES and LAND associated with the account you log in with.
+Tu voto en el DAO de Decentraland se pondera de acuerdo al saldo de MANA, NAMEs y LAND asociado con la cuenta con la que inicias sesión.
 
-To view your current voting power, navigate to the **Voting Power** tab.
+Para ver tu poder de voto actual, navega a la pestaña **Poder de Voto**.
 
-#### How is voting power calculated?
+#### ¿Cómo se calcula el poder de voto?
 
-Voting power is represented as **"VP"**. MANA, NAME, LAND, and Legacy Wearables contribute to your total voting power as follows:
+El poder de voto se representa como **"VP"**. MANA, NAME, LAND y Wearables Legacy contribuyen a tu poder de voto total de la siguiente manera:
 
-* 1 MANA contributes 1 VP
-* 1 NAME contributes 100 VP
-* 1 LAND parcel contributes 2000 VP
-* The following Legacy Wearables Collections contribute 1 VP for each **uncommon**, 5 VP for each **rare**, 10 VP for each **epic**, 100 VP for each **legendary**, and 1000 VP for each **mythic**:
+* 1 MANA contribuye 1 VP
+* 1 NAME contribuye 100 VP
+* 1 parcela LAND contribuye 2000 VP
+* Las siguientes Colecciones de Wearables Legacy contribuyen 1 VP por cada **no común**, 5 VP por cada **raro**, 10 VP por cada **épico**, 100 VP por cada **legendario**, y 1000 VP por cada **mítico**:
   * [Community Contest Collection](https://etherscan.io/address/0x32b7495895264ac9d0b12d32afd435453458b1c6)
   * [DCL Public Explorer Launch Collection](https://etherscan.io/address/0xd35147be6401dcb20811f2104c33de8e97ed6818)
   * [Exclusive Masks Collection](https://etherscan.io/address/0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd)
   * [Halloween 2019 Collection](https://etherscan.io/address/0xc1f4b0eea2bd6690930e6c66efd3e197d620b9c2)
   * [My Crypto Heroes Collection](https://etherscan.io/address/0xf64dc33a192e056bb5f0e5049356a0498b502d50)
   * [Xmass 2019 Collection](https://etherscan.io/address/0xc3af02c0fd486c8e9da5788b915d6fff3f049866)
-* Each Estate is worth 2000 multiplied by the number of single LAND parcels in that Estate. For example, an Estate with 2 parcels will contribute 4000 VP to your total voting power.
+* Cada Estate vale 2000 multiplicado por el número de parcelas LAND individuales en ese Estate. Por ejemplo, un Estate con 2 parcelas contribuirá 4000 VP a tu poder de voto total.
 
-#### What happens if your voting power changes before a proposal closes?
+#### ¿Qué sucede si tu poder de voto cambia antes de que una propuesta se cierre?
 
-If your MANA or LAND balance changes, it will affect your voting power, but only on proposals that are created after your balance changes.
+Si tu saldo de MANA o LAND cambia, afectará tu poder de voto, pero solo en propuestas que se creen después de que tu saldo cambie.
 
-The moment a new proposal is created, the DAO looks at all voters' MANA and LAND balances to calculate their voting power. In other words, when you vote on a proposal, the voting power of your vote will be equal to the balance you had at the instant the proposal was initially created. You may vote with that VP, then change your MANA/LAND balance without affecting the weight of your vote.
+En el momento en que se crea una nueva propuesta, el DAO mira los saldos de MANA y LAND de todos los votantes para calcular su poder de voto. En otras palabras, cuando votas en una propuesta, el poder de voto de tu voto será igual al saldo que tenías en el instante en que la propuesta fue creada inicialmente. Puedes votar con ese VP, luego cambiar tu saldo de MANA/LAND sin afectar el peso de tu voto.
 
-#### Why does the Decentraland DAO use weighted votes?
+#### ¿Por qué el DAO de Decentraland usa votos ponderados?
 
-If the Decentraland DAO gave each Ethereum address one vote, and each vote was weighted equally, then users could create as many separate addresses as they wanted to obtain more voting power.
+Si el DAO de Decentraland diera a cada dirección de Ethereum un voto, y cada voto se ponderara por igual, entonces los usuarios podrían crear tantas direcciones separadas como quisieran para obtener más poder de voto.
 
-Determining voting power by considering the MANA, NAME and LAND balances is currently the most secure way to limit the amount of influence each voter may have. Additionally, the more MANA, NAME or LAND you own in Decentraland, the greater your personal stake is considered to be, thus earning your vote more influence within the DAO.
+Determinar el poder de voto considerando los saldos de MANA, NAME y LAND es actualmente la forma más segura de limitar la cantidad de influencia que cada votante puede tener. Además, cuanto más MANA, NAME o LAND poseas en Decentraland, mayor se considera que es tu participación personal, ganando así más influencia para tu voto dentro del DAO.
 
-## Approve/Reject conditions
+## Condiciones de Aprobación/Rechazo
 
-Depending on the type of proposal, a certain amount of participating VP is needed to consider the votation valid. You will see this referenced on the Governance dApp as the **Acceptance Threshold** for the proposal. Once the acceptance threshold has been met, a proposal is approved if the total voting power in favor of the proposal is greater than the total voting power against the proposal. This is the typical 50/50 majority model we expect to see in most democratic votes.
+Dependiendo del tipo de propuesta, se necesita una cierta cantidad de VP participante para considerar la votación válida. Verás esto referenciado en la dApp de Gobernanza como el **Umbral de Aceptación** para la propuesta. Una vez que se ha cumplido el umbral de aceptación, una propuesta se aprueba si el poder de voto total a favor de la propuesta es mayor que el poder de voto total en contra de la propuesta. Este es el modelo de mayoría 50/50 típico que esperamos ver en la mayoría de las votaciones democráticas.
 
-The only type of proposal that do not follow this rule are the **Pre-proposal polls**. Since these proposals are considered a non-binding mechanism to gather community feedback around an idea, they do not have predefined Yes/No options for voting. Users might add more that two options making them a multiple choice poll. It is important to mention that if the Pre-proposal polls reach the Acceptance Threshold defined of 500k VP, they might get promoted to a **Draft proposal** and end up being a binding **Governance proposal**.
+El único tipo de propuesta que no sigue esta regla son las **encuestas de pre-propuesta**. Como estas propuestas se consideran un mecanismo no vinculante para recopilar comentarios de la comunidad sobre una idea, no tienen opciones predefinidas de Sí/No para votar. Los usuarios pueden agregar más de dos opciones convirtiéndolas en una encuesta de opción múltiple. Es importante mencionar que si las encuestas de Pre-propuesta alcanzan el Umbral de Aceptación definido de 500k VP, pueden ser promovidas a una **Propuesta Borrador** y terminar siendo una **Propuesta de Gobernanza** vinculante.
 
-## Browsing all proposals
+## Explorar todas las propuestas
 
-To view all proposals in the DAO, visit [governance.decentraland.org](https://governance.decentraland.org). The homepage of the DAO lists all recently added proposals sorted from most recent to oldest, by default.
+Para ver todas las propuestas en el DAO, visita [governance.decentraland.org](https://governance.decentraland.org). La página de inicio del DAO enumera todas las propuestas agregadas recientemente ordenadas de más reciente a más antigua, por defecto.
 
-You can filter proposals by **Outcomes**:
+Puedes filtrar propuestas por **Resultados**:
 
-* **Active** – proposals that are currently being voted on
-* **Passed** – proposals that have been approved by the community
-* **Rejected** – proposals that have already been voted on and either were rejected by the community or didn't met the acceptance threshold
-* **Enacted** – proposals that have been enacted on-chain by the DAO Committee
-* **Finished** – proposals that are closed, but do not have yes/no results, like multiple choice polls
+* **Activas** – propuestas que se están votando actualmente
+* **Aprobadas** – propuestas que han sido aprobadas por la comunidad
+* **Rechazadas** – propuestas que ya han sido votadas y fueron rechazadas por la comunidad o no cumplieron con el umbral de aceptación
+* **Promulgadas** – propuestas que han sido promulgadas en la cadena por el Comité del DAO
+* **Finalizadas** – propuestas que están cerradas, pero no tienen resultados de sí/no, como encuestas de opción múltiple
 
-You can also filter proposals by **Category** using the category column in the left side of the UI:
+También puedes filtrar propuestas por **Categoría** usando la columna de categoría en el lado izquierdo de la interfaz:
 
-* **All proposals** – displays all proposals regardless of category or outcome
-* **Catalyst Node** – only displays proposals to add new Catalyst nodes
-* **Point of Interest** – only displays proposals to add new POIs
-* **Name Ban** – only displays proposals to ban a name
-* **Grant Request** – only displays grant requests
-* **Pre-proposal Poll** – only displays non-binding polls
-* **Draft proposal** – only displays draft proposals
-* **Governance proposal** – only displays final binding governance proposals
+* **Todas las propuestas** – muestra todas las propuestas independientemente de la categoría o resultado
+* **Nodo Catalyst** – solo muestra propuestas para agregar nuevos nodos Catalyst
+* **Punto de Interés** – solo muestra propuestas para agregar nuevos POIs
+* **Prohibición de Nombre** – solo muestra propuestas para prohibir un nombre
+* **Solicitud de Subvención** – solo muestra solicitudes de subvención
+* **Encuesta de Pre-propuesta** – solo muestra encuestas no vinculantes
+* **Propuesta borrador** – solo muestra propuestas borrador
+* **Propuesta de gobernanza** – solo muestra propuestas finales vinculantes de gobernanza
 
-To view only proposals that have been passed, click the **Enacted** tab. Enacted proposals in this tab are sorted from most recent to oldest by default.
+Para ver solo las propuestas que han sido aprobadas, haz clic en la pestaña **Promulgadas**. Las propuestas promulgadas en esta pestaña están ordenadas de más reciente a más antigua por defecto.
 
-## Viewing a proposal
+## Ver una propuesta
 
-To read a proposal, just click on the proposal's title to view the details page.
+Para leer una propuesta, simplemente haz clic en el título de la propuesta para ver la página de detalles.
 
-Each proposal detail page includes all of the descriptive information provided by the person who submitted the proposal.
+Cada página de detalles de propuesta incluye toda la información descriptiva proporcionada por la persona que envió la propuesta.
 
-You'll also find links to the proposal's discussion thread in the Forum, buttons to add a proposal to your watch list, the current voting results, buttons to vote, the acceptance threshold, your current Voting Power and who voted on the proposal.
+También encontrarás enlaces al hilo de discusión de la propuesta en el Foro, botones para agregar una propuesta a tu lista de seguimiento, los resultados de votación actuales, botones para votar, el umbral de aceptación, tu Poder de Voto actual y quién votó en la propuesta.
 
-Proposal details pages also list the unique avatar name associated with the Ethereum address that opened the proposal, if one exists, and the start and end dates of the proposal.
+Las páginas de detalles de propuesta también enumeran el nombre de avatar único asociado con la dirección de Ethereum que abrió la propuesta, si existe uno, y las fechas de inicio y fin de la propuesta.
 
-Finally, you'll see a link to the proposals entry on Snapshot – the voting platform used by the Decentraland DAO.
+Finalmente, verás un enlace a la entrada de las propuestas en Snapshot – la plataforma de votación utilizada por el DAO de Decentraland.
 
-## Adding proposals to your watch list
+## Agregar propuestas a tu lista de seguimiento
 
-To add a proposal to your watch list, view the proposal's detail page and click **Add to my Watchlist**.
+Para agregar una propuesta a tu lista de seguimiento, ve la página de detalles de la propuesta y haz clic en **Agregar a mi Lista de Seguimiento**.
 
-To remove a proposal from your watchlist, click **Remove from my Watchlist** from the proposal's detail page. You can also click the red flag icon on any proposal currently in your watchlist to remove it.
+Para eliminar una propuesta de tu lista de seguimiento, haz clic en **Eliminar de mi Lista de Seguimiento** desde la página de detalles de la propuesta. También puedes hacer clic en el ícono de bandera roja en cualquier propuesta actualmente en tu lista de seguimiento para eliminarla.
 
-## Participating in the Forum discussions
+## Participar en las discusiones del Foro
 
-As a governance platform, the Decentraland DAO is most effective when paired with frequent discussion within the community. Every time a new proposal is opened on **governance.decentraland.org**, an accompanying topic is automatically opened on [**forum.decentraland.org**](https://forum.decentraland.org).
+Como plataforma de gobernanza, el DAO de Decentraland es más efectivo cuando se combina con discusiones frecuentes dentro de la comunidad. Cada vez que se abre una nueva propuesta en **governance.decentraland.org**, se abre automáticamente un tema acompañante en [**forum.decentraland.org**](https://forum.decentraland.org).
 
-Before casting your vote, please take the time to view and join in on these forum discussions. Click the button **Discuss in the forum** from the details page of any DAO proposal you wish to discuss. You can also browse open topics by navigating to [forum.decentraland.org](https://forum.decentraland.org), heading to the **Governance** category, and browsing the open topics.
+Antes de emitir tu voto, por favor tómate el tiempo para ver y unirte a estas discusiones del foro. Haz clic en el botón **Discutir en el foro** desde la página de detalles de cualquier propuesta del DAO que desees discutir. También puedes explorar temas abiertos navegando a [forum.decentraland.org](https://forum.decentraland.org), dirigiéndote a la categoría **Gobernanza**, y explorando los temas abiertos.
 
-You don't need to own tokens to participate in these discussions! Everyone is welcome to contribute to the conversation.
+¡No necesitas poseer tokens para participar en estas discusiones! Todos son bienvenidos a contribuir a la conversación.
 
-## Voting
+## Votar
 
-To vote on a proposal, log into the DAO at [governance.decentraland.org](https://governance.decentraland.org) with a wallet that contains MANA, NAME or LAND.
+Para votar en una propuesta, inicia sesión en el DAO en [governance.decentraland.org](https://governance.decentraland.org) con una billetera que contenga MANA, NAME o LAND.
 
 {% hint style="info" %}
-**Minimum balance needed to vote:** Only MANA, NAME or LAND holders may vote on proposals in the Decentraland DAO. **The current minimum balance needed to have a weighted vote on proposals in the DAO is 1VP** Voting with a balance of zero will result in a vote with a weight of 0, which does not impact the final results.
+**Saldo mínimo necesario para votar:** Solo los poseedores de MANA, NAME o LAND pueden votar en propuestas en el DAO de Decentraland. **El saldo mínimo actual necesario para tener un voto ponderado en propuestas en el DAO es 1VP** Votar con un saldo de cero resultará en un voto con un peso de 0, que no impacta los resultados finales.
 {% endhint %}
 
-To vote on a proposal once you've connected your wallet, simply view the proposal's detail page and click the **VOTE YES** or **VOTE NO** button, or select one of the multiple choice options if it is a poll, according to how you'd like to vote.
+Para votar en una propuesta una vez que hayas conectado tu billetera, simplemente ve la página de detalles de la propuesta y haz clic en el botón **VOTAR SÍ** o **VOTAR NO**, o selecciona una de las opciones de opción múltiple si es una encuesta, de acuerdo a cómo te gustaría votar.
 
-Make sure that you read the full proposal so that you understand the issue being discussed and what will happen if the proposal is approved or rejected.
+Asegúrate de leer la propuesta completa para que entiendas el problema que se está discutiendo y qué sucederá si la propuesta es aprobada o rechazada.
 
-After clicking the Vote button, your connected Ethereum wallet will prompt you to sign the transaction. Remember, this is only a signed transaction, and requires no gas fee.
+Después de hacer clic en el botón Votar, tu billetera de Ethereum conectada te pedirá que firmes la transacción. Recuerda, esto es solo una transacción firmada, y no requiere tarifa de gas.
 
-You will be given the option of adding the proposal to your watch list, this is a nice way to track the proposals you're interested in. If you don't want to add the proposal to your Watchlist, just click **No thanks**.
+Se te dará la opción de agregar la propuesta a tu lista de seguimiento, esta es una buena manera de rastrear las propuestas que te interesan. Si no quieres agregar la propuesta a tu Lista de Seguimiento, simplemente haz clic en **No, gracias**.
 
-After submitting your vote, you can change it at any time leading up to the end of the voting period - as shown in the proposal's detail page.
+Después de enviar tu voto, puedes cambiarlo en cualquier momento antes del final del período de votación - como se muestra en la página de detalles de la propuesta.
 
-#### What happens if your VP changes before a proposal is complete?
+#### ¿Qué sucede si tu VP cambia antes de que una propuesta esté completa?
 
-The DAO calculates your voting power for each individual proposal at the moment each proposal is created. If your VP changes after this moment, it will not affect your vote on that proposal.
+El DAO calcula tu poder de voto para cada propuesta individual en el momento en que se crea cada propuesta. Si tu VP cambia después de este momento, no afectará tu voto en esa propuesta.
 
-For a full discussion of voting power, and how and when it is calculated, please see the [Voting Power](dao-userguide.md#voting-power) section of the User Guide.
+Para una discusión completa del poder de voto, y cómo y cuándo se calcula, por favor consulta la sección de [Poder de Voto](dao-userguide.md#voting-power) de la Guía de Usuario.
 
-## Creating a proposal
+## Crear una propuesta
 
-To create a new proposal in the Decentraland DAO, start by logging in at [governance.decentraland.org](https://governance.decentraland.org) and connecting a wallet that contains MANA, NAME or LAND.
+Para crear una nueva propuesta en el DAO de Decentraland, comienza iniciando sesión en [governance.decentraland.org](https://governance.decentraland.org) y conectando una billetera que contenga MANA, NAME o LAND.
 
-After logging in and connecting your wallet, click **Submit a proposal** and select the proposal category you want to use. Each category will provide a form allowing you to provide the relevant information for your proposal.
+Después de iniciar sesión y conectar tu billetera, haz clic en **Enviar una propuesta** y selecciona la categoría de propuesta que deseas usar. Cada categoría proporcionará un formulario que te permitirá proporcionar la información relevante para tu propuesta.
 
-The form for every category is different, so make sure that you select the correct category for your proposal. The proposal forms in the DAO support Markdown, so you can format the content of your proposal to make it more readable. This is especially helpful for longer proposals.
+El formulario para cada categoría es diferente, así que asegúrate de seleccionar la categoría correcta para tu propuesta. Los formularios de propuesta en el DAO admiten Markdown, por lo que puedes formatear el contenido de tu propuesta para hacerlo más legible. Esto es especialmente útil para propuestas más largas.
 
-To preview your rendered Markdown text, toggle the **Preview** switch. If you aren't familiar with Markdown, you can use simple plain text.
+Para previsualizar tu texto Markdown renderizado, activa el interruptor **Vista Previa**. Si no estás familiarizado con Markdown, puedes usar texto plano simple.
 
-Some proposal categories have minimum VP submission thresholds, meaning you have to have at least certain amount of VP to submit the proposals. This will be informed to you on the Governance dApp.
+Algunas categorías de propuestas tienen umbrales mínimos de envío de VP, lo que significa que debes tener al menos cierta cantidad de VP para enviar las propuestas. Esto se te informará en la dApp de Gobernanza.
 
-After completing the proposal form for the category you've selected, click **Submit proposal**. After successfully submitting your proposal, you will be taken to your new proposal's detail page where you can add it to your watchlist and cast your vote.
+Después de completar el formulario de propuesta para la categoría que has seleccionado, haz clic en **Enviar propuesta**. Después de enviar exitosamente tu propuesta, serás llevado a la página de detalles de tu nueva propuesta donde puedes agregarla a tu lista de seguimiento y emitir tu voto.
 
-## Proposal Categories
+## Categorías de Propuestas
 
-### Binding Proposals
+### Propuestas Vinculantes
 
-#### 📍 Point of interest
+#### 📍 Punto de interés
 
-Points of interest are notable locations in Decentraland. These "POIs" are promoted in several areas of the virtual world's UI, and are promoted as good places for users to explore, especially people new to Decentraland.
+Los puntos de interés son ubicaciones notables en Decentraland. Estos "POIs" se promueven en varias áreas de la interfaz del mundo virtual y se promueven como buenos lugares para que los usuarios exploren, especialmente personas nuevas en Decentraland.
 
-If you have created a location, or have found a location that you think should be on this list, or if you think a current POI should be removed since it's no longer interesting, you can use this proposal category to present your suggestion to the DAO.
+Si has creado una ubicación, o has encontrado una ubicación que crees que debería estar en esta lista, o si crees que un POI actual debería ser eliminado ya que ya no es interesante, puedes usar esta categoría de propuesta para presentar tu sugerencia al DAO.
 
-#### 🚫 Name ban
+#### 🚫 Prohibición de nombre
 
-The "banned name" list includes offensive or harmful avatar and location names that are not permitted in Decentraland. Any names on this list cannot be claimed, used, or transferred between users. To suggest banning a name, you can use the Name ban proposal category in the DAO.
+La lista de "nombres prohibidos" incluye nombres de avatar y ubicación ofensivos o dañinos que no están permitidos en Decentraland. Cualquier nombre en esta lista no puede ser reclamado, usado o transferido entre usuarios. Para sugerir la prohibición de un nombre, puedes usar la categoría de propuesta de Prohibición de nombre en el DAO.
 
-#### 🌐 Catalyst nodes
+#### 🌐 Nodos Catalyst
 
-Catalyst nodes are the community-run servers that provide the content and establish the peer-to-peer connections needed to keep Decentraland's virtual world running. Whenever a user opens Decentraland, they are connected to one of these nodes. However, only nodes that have been approved by the DAO are used in Decentraland's network.
+Los nodos Catalyst son los servidores administrados por la comunidad que proporcionan el contenido y establecen las conexiones peer-to-peer necesarias para mantener funcionando el mundo virtual de Decentraland. Cada vez que un usuario abre Decentraland, se conecta a uno de estos nodos. Sin embargo, solo los nodos que han sido aprobados por el DAO se usan en la red de Decentraland.
 
-To suggest the addition of a new node to the network, you can use the Catalyst Node category.
+Para sugerir la adición de un nuevo nodo a la red, puedes usar la categoría de Nodo Catalyst.
 
-### Governance Process Proposals
+### Propuestas del Proceso de Gobernanza
 
-Some proposals are not as simple as adding or removing an item from a list, they require community signaling, discussions and implementation paths. These proposals should be submitted thorugh a three-stage governance process that starts with a poll and ends with a binding proposal.
+Algunas propuestas no son tan simples como agregar o eliminar un artículo de una lista, requieren señalización comunitaria, discusiones y caminos de implementación. Estas propuestas deben ser enviadas a través de un proceso de gobernanza de tres etapas que comienza con una encuesta y termina con una propuesta vinculante.
 
-The voting process includes three steps: a Pre-Proposal Poll, a Draft Proposal, and a Governance Proposal. Each tier will have progressively increasing submission and passage thresholds to ensure important governance decisions are made by a representative majority (based on Voting Power). Each step must reach the defined VP threshold to be promoted to the next one.
+El proceso de votación incluye tres pasos: una Encuesta de Pre-Propuesta, una Propuesta Borrador y una Propuesta de Gobernanza. Cada nivel tendrá umbrales de envío y aprobación progresivamente crecientes para asegurar que las decisiones importantes de gobernanza sean tomadas por una mayoría representativa (basada en Poder de Voto). Cada paso debe alcanzar el umbral de VP definido para ser promovido al siguiente.
 
-#### 📊 Pre-proposal Poll
+#### 📊 Encuesta de Pre-propuesta
 
-This is the first step to get to the final binding Governance proposal. Polls in the Decentraland DAO are non-binding, multiple choice questionnaires that may be used to measure the community's general opinion or sentiment regarding different issues. They are non-binding in that the DAO does not automatically act on the results of any of these polls. If a pre-proposal poll gathers enough participating VP (500k VP is the acceptance threshold) it might get promoted to Draft proposal.
+Este es el primer paso para llegar a la propuesta de Gobernanza vinculante final. Las encuestas en el DAO de Decentraland son cuestionarios de opción múltiple no vinculantes que pueden usarse para medir la opinión general de la comunidad o el sentimiento con respecto a diferentes problemas. Son no vinculantes en el sentido de que el DAO no actúa automáticamente sobre los resultados de ninguna de estas encuestas. Si una encuesta de pre-propuesta reúne suficiente VP participante (500k VP es el umbral de aceptación) puede ser promovida a Propuesta Borrador.
 
-#### 📊 Draft Proposal
+#### 📊 Propuesta Borrador
 
-A Draft Proposal presents a potential policy to the community in a structured format and formalizes the discussion about the proposal's potential impacts and implementation pathways. A Draft Proposal that fails or does not reach this threshold can be amended and resubmitted one time. If a Draft proposal gathers enough participating VP (1M VP is the acceptance threshold) it might get promoted to a binding Governance proposal.
+Una Propuesta Borrador presenta una política potencial a la comunidad en un formato estructurado y formaliza la discusión sobre los impactos potenciales de la propuesta y caminos de implementación. Una Propuesta Borrador que falla o no alcanza este umbral puede ser enmendada y reenviada una vez. Si una Propuesta Borrador reúne suficiente VP participante (1M VP es el umbral de aceptación) puede ser promovida a una propuesta de Gobernanza vinculante.
 
-#### 📊 Governance Proposal
+#### 📊 Propuesta de Gobernanza
 
-This is the last step of the Governance process and is the only one that is binding. This proposal must flesh out all the details, data, methods, assesments or any other relevant information for implementing this proposal. A Governance proposal is accepted if it meets the acceptance threshold of 6M VP and the Yes option gets a simple majority.
+Este es el último paso del proceso de Gobernanza y es el único que es vinculante. Esta propuesta debe detallar todos los detalles, datos, métodos, evaluaciones o cualquier otra información relevante para implementar esta propuesta. Una propuesta de Gobernanza se acepta si cumple con el umbral de aceptación de 6M VP y la opción Sí obtiene una mayoría simple.
 
-## Deleting a proposal
+## Eliminar una propuesta
 
-Proposals can only be deleted by the person who created them.
+Las propuestas solo pueden ser eliminadas por la persona que las creó.
 
-To delete one of your proposals, navigate to the details page of the proposal you want to delete. Click **Delete Proposal** at the bottom of the right hand column. You will have to confirm your deletion.
+Para eliminar una de tus propuestas, navega a la página de detalles de la propuesta que deseas eliminar. Haz clic en **Eliminar Propuesta** en la parte inferior de la columna derecha. Tendrás que confirmar tu eliminación.
 
-Be careful! Deleted proposals cannot be restored!
+¡Ten cuidado! ¡Las propuestas eliminadas no se pueden restaurar!
 
-If you delete a proposal after people have voted on it, nothing will happen. Deleted proposals with binding actions will not be enacted by the DAO Committee.
+Si eliminas una propuesta después de que las personas hayan votado en ella, no pasará nada. Las propuestas eliminadas con acciones vinculantes no serán promulgadas por el Comité del DAO.

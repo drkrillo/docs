@@ -1,198 +1,198 @@
 ---
-description: LAND Rentals
+description: Alquileres de LAND
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/marketplace/rentals
 ---
 
-# Rentals
+# Alquileres
 
-## Glossary
+## Glosario
 
-**Land Owner:** Account (address) that owns LAND, it could be a Parcel, an Estate, or both.
+**Propietario de Land:** Cuenta (dirección) que posee LAND, podría ser una Parcela, un Estate o ambos.
 
-**Tenant:** Account (address) that rents LAND from a LAND Owner. This is also the only Account that can change the Address that has Operator Permissions.
+**Inquilino:** Cuenta (dirección) que alquila LAND de un Propietario de LAND. Esta es también la única Cuenta que puede cambiar la Dirección que tiene Permisos de Operador.
 
-**Operator Permission:** The address with this permission is the only one that can deploy scenes in that LAND.
+**Permiso de Operador:** La dirección con este permiso es la única que puede desplegar escenas en ese LAND.
 
-**Transactions:** Ethereum Blockchain transactions that cost gas.
+**Transacciones:** Transacciones de la Blockchain de Ethereum que cuestan gas.
 
-## Intro
+## Introducción
 
-The new Renting System allows LAND Owners and Tenants to **Rent LAND in a secure and trustless way** by using a combination of signatures that are stored in a server handled by the Decentraland Foundation (off-chain) and Ethereum transactions (on-chain).
+El nuevo Sistema de Alquiler permite a los Propietarios de LAND e Inquilinos **Alquilar LAND de manera segura y sin confianza** mediante el uso de una combinación de firmas que se almacenan en un servidor manejado por la Fundación Decentraland (fuera de la cadena) y transacciones de Ethereum (en la cadena).
 
-For instance, a DJ could find a cool plot of LAND, rent it and deploy a nightclub to play every Saturday. A University could rent an Estate and build a campus for its students.
+Por ejemplo, un DJ podría encontrar una parcela genial de LAND, alquilarla y desplegar un club nocturno para tocar cada sábado. Una Universidad podría alquilar un Estate y construir un campus para sus estudiantes.
 
-Below you will find all the steps you need to follow to Rent a LAND, and the transactions involved for both parties.
+A continuación encontrarás todos los pasos que necesitas seguir para Alquilar un LAND, y las transacciones involucradas para ambas partes.
 
-## For LAND Owners
+## Para Propietarios de LAND
 
-### List LAND for Rent
+### Listar LAND para Alquiler
 
-As a LAND Owner, you can list your LAND (Parcels or Estates) for Rent in the [Marketplace](https://market.decentraland.org/) > My Assets > LAND.
+Como Propietario de LAND, puedes listar tu LAND (Parcelas o Estates) para Alquiler en el [Marketplace](https://market.decentraland.org/) > Mis Activos > LAND.
 
-In order to do this on-chain, the LAND Owner has to approve the Rent Smart Contract to use the LAND on their behalf. Then every listing would need a signature from the Owner as well.
+Para hacer esto en la cadena, el Propietario de LAND tiene que aprobar el Contrato Inteligente de Alquiler para usar el LAND en su nombre. Luego, cada listado necesitaría una firma del Propietario también.
 
-![](broken-reference)
+![](broken-reference)
 
-You can set a rental price per day in MANA and the amount of days you want to allow people to rent it. The price per day times the number of days in the period is what the tenant will pay **upfront, and in total** for that rent.
+Puedes establecer un precio de alquiler por día en MANA y la cantidad de días que deseas permitir que las personas lo alquilen. El precio por día multiplicado por el número de días en el período es lo que el inquilino pagará **por adelantado y en total** por ese alquiler.
 
-![](broken-reference)
+![](broken-reference)
 
-After defining the Price per Day, you need to select the number of days that Users can rent your LAND. For example, if you select 7 and 30 days only, the Tenant can only choose between those 2 options. In case 30 days option is selected by the Tenant, that would be the duration of the rent from the day it is confirmed.
+Después de definir el Precio por Día, necesitas seleccionar el número de días que los Usuarios pueden alquilar tu LAND. Por ejemplo, si seleccionas 7 y 30 días solamente, el Inquilino solo puede elegir entre esas 2 opciones. En caso de que se seleccione la opción de 30 días por el Inquilino, esa sería la duración del alquiler desde el día en que se confirme.
 
-![](broken-reference)
+![](broken-reference)
 
-You can also set an expiration date for the listing. This means that, if the LAND wasn't rented until the selected date, the listing will be removed from the Marketplace. Also, the smart contract will reject the expired signature so that no one can rent it for the listing price and duration previously selected. This is a security measure to prevent it to be rented for an undesired price or duration.
+También puedes establecer una fecha de vencimiento para el listado. Esto significa que, si el LAND no fue alquilado hasta la fecha seleccionada, el listado será eliminado del Marketplace. Además, el contrato inteligente rechazará la firma vencida para que nadie pueda alquilarlo por el precio y duración de listado previamente seleccionados. Esta es una medida de seguridad para evitar que se alquile por un precio o duración no deseados.
 
-![](broken-reference)
+![](broken-reference)
 
-After the price, rent period and listing expiration date are set, your LAND will appear as available for rent in the Marketplace.
+Después de establecer el precio, período de alquiler y fecha de vencimiento del listado, tu LAND aparecerá como disponible para alquiler en el Marketplace.
 
 {% hint style="info" %}
-💡 When LAND is rented by a Tenant, it can not be sold until it's claimed back. Bids from potential buyers can not be received either.
+💡 Cuando LAND es alquilado por un Inquilino, no se puede vender hasta que sea reclamado de vuelta. Tampoco se pueden recibir ofertas de compradores potenciales.
 {% endhint %}
 
 {% hint style="info" %}
-💡 Voting Power is kept by the LAND Owner, even if it is rented.
+💡 El Poder de Voto lo mantiene el Propietario de LAND, incluso si está alquilado.
 {% endhint %}
 
-### Edit or Cancel a Listing
+### Editar o Cancelar un Listado
 
-After the LAND is Listed for Rent in the Marketplace, and before anybody rents it, you can edit the conditions of the Listing by clicking on the pencil icon in the LAND detail. You can also remove the Listing from the Marketplace and the blockchain.
+Después de que el LAND es Listado para Alquiler en el Marketplace, y antes de que alguien lo alquile, puedes editar las condiciones del Listado haciendo clic en el ícono de lápiz en el detalle del LAND. También puedes eliminar el Listado del Marketplace y de la blockchain.
 
-![](broken-reference)
+![](broken-reference)
 
 {% hint style="info" %}
-💡 Edit and cancel require a transaction, which costs gas. See Transactions section below for more details.
+💡 Editar y cancelar requieren una transacción, que cuesta gas. Consulta la sección de Transacciones a continuación para más detalles.
 {% endhint %}
 
-### After the Rent is over
+### Después de que el Alquiler ha terminado
 
-After the Rent is over, you can either **Claim your LAND Back, or List it for Rent Again**.
+Después de que el Alquiler ha terminado, puedes **Reclamar tu LAND de Vuelta o Listarlo para Alquiler Nuevamente**.
 
-**Operator Permissions are not transferred automatically back to the LAND Owner**. In order to get them back, the LAND Owner has to Claim the LAND back by sending that transaction and paying for the gas fee. Confirming the transaction will take out Operator Permissions from the Tenant and give them back to the LAND Owner.
+**Los Permisos de Operador no se transfieren automáticamente de vuelta al Propietario de LAND**. Para recuperarlos, el Propietario de LAND tiene que Reclamar el LAND de vuelta enviando esa transacción y pagando la tarifa de gas. Confirmar la transacción quitará los Permisos de Operador del Inquilino y los devolverá al Propietario de LAND.
 
-![](broken-reference)
+![](broken-reference)
 
-The other possibility is to List the LAND for Rent Again, instead of claiming it back. This will not require paying for another transaction, but **Operator Permissions will be kept by the previous Tenant until a new Tenant confirms a new Rent.**
+La otra posibilidad es Listar el LAND para Alquiler Nuevamente, en lugar de reclamarlo de vuelta. Esto no requerirá pagar por otra transacción, pero **los Permisos de Operador serán mantenidos por el Inquilino anterior hasta que un nuevo Inquilino confirme un nuevo Alquiler.**
 
-The LAND Owner can edit the price, rent period, and listing expiration date for the new listing.
+El Propietario de LAND puede editar el precio, período de alquiler y fecha de vencimiento del listado para el nuevo listado.
 
-![](broken-reference)
+![](broken-reference)
 
-Both actions can be done from the LAND detail page in the Marketpalce.
+Ambas acciones se pueden hacer desde la página de detalles del LAND en el Marketplace.
 
-![](broken-reference)
+![](broken-reference)
 
-### Renting Status
+### Estado de Alquiler
 
-You can check the Status of any rented LAND in My Assets > Store > On Rent. The possible status are:
+Puedes verificar el Estado de cualquier LAND alquilado en Mis Activos > Tienda > En Alquiler. Los estados posibles son:
 
-* Listed for Rent - The listing was confirmed and it's available for users to rent in the Marketplace
-* Rented Period Over - At this stage, the LAND is available to Claim Back or List Again for Rent by the LAND Owner
-* Rented until _"date"_ - The LAND is already rented and the Tenant has Operator Permissions until it's claimed back or rented by another user
+* Listado para Alquiler - El listado fue confirmado y está disponible para que los usuarios lo alquilen en el Marketplace
+* Período de Alquiler Terminado - En esta etapa, el LAND está disponible para Reclamar de Vuelta o Listar Nuevamente para Alquiler por el Propietario de LAND
+* Alquilado hasta _"fecha"_ - El LAND ya está alquilado y el Inquilino tiene Permisos de Operador hasta que sea reclamado de vuelta o alquilado por otro usuario
 
-![](broken-reference)
+![](broken-reference)
 
-## For Tenants
+## Para Inquilinos
 
-### Rent LAND
+### Alquilar LAND
 
-All users can find LAND listed for rent in the Marketplace under the LAND section.
+Todos los usuarios pueden encontrar LAND listado para alquiler en el Marketplace bajo la sección LAND.
 
-![](broken-reference)
+![](broken-reference)
 
-There are LANDs that are available for Sale or Rent. In case both options are available, you can see the conditions available for each one by clicking on the toggle Sale/Rent.
+Hay LANDs que están disponibles para Venta o Alquiler. En caso de que ambas opciones estén disponibles, puedes ver las condiciones disponibles para cada una haciendo clic en el interruptor Venta/Alquiler.
 
-![](broken-reference)
+![](broken-reference)
 
-Once you find the LAND you want to rent, you need to select the Rent Period, this is the days you will have the LAND. After selecting the Rent Period, you will see the total price to be paid for the Rent.
+Una vez que encuentres el LAND que quieres alquilar, necesitas seleccionar el Período de Alquiler, estos son los días que tendrás el LAND. Después de seleccionar el Período de Alquiler, verás el precio total a pagar por el Alquiler.
 
-![](broken-reference)
+![](broken-reference)
 
-You'll need to approve the Rent Smart Contract to take the MANA from your account before you proceed.
+Necesitarás aprobar el Contrato Inteligente de Alquiler para tomar el MANA de tu cuenta antes de proceder.
 
-Before you confirm the Rent, you can decide who will manage the LAND (Operator Permission). It can be yourself or any other address you choose.
+Antes de confirmar el Alquiler, puedes decidir quién gestionará el LAND (Permiso de Operador). Puede ser tú mismo o cualquier otra dirección que elijas.
 
-![](broken-reference)
+![](broken-reference)
 
-Operator Permission can be changed later by the Tenant (the address who rented the LAND in the first place) from the [Builder](https://builder.decentraland.org/).
+El Permiso de Operador puede ser cambiado más tarde por el Inquilino (la dirección que alquiló el LAND en primer lugar) desde el [Builder](https://builder.decentraland.org/).
 
-![](broken-reference)
+![](broken-reference)
 
-After selecting all the details and approving the Rent Smart Contract to handle your MANA, you can confirm the Rent by sending a transaction.
+Después de seleccionar todos los detalles y aprobar el Contrato Inteligente de Alquiler para manejar tu MANA, puedes confirmar el Alquiler enviando una transacción.
 
-And you are all set! you can start working on your LAND, and deploy a scene using the Builder or the SDK.
+¡Y ya está todo listo! puedes comenzar a trabajar en tu LAND y desplegar una escena usando el Builder o el SDK.
 
-![](broken-reference)
+![](broken-reference)
 
-Note: after the Rent ends, the Tenant will still have Operator Permissions until the LAND Owner Claims it back, or somebody else rents it. **Make sure you save your content before the end of the rent, otherwise it could be lost.**
+Nota: después de que el Alquiler termine, el Inquilino aún tendrá Permisos de Operador hasta que el Propietario de LAND lo Reclame de vuelta, o alguien más lo alquile. **Asegúrate de guardar tu contenido antes del final del alquiler, de lo contrario podría perderse.**
 
 {% hint style="info" %}
-💡 Renting LAND does not transfer Voting Power to the Tenant. Voting Power is kept by the LAND Owner as defined by the DAO in this [Proposal](https://governance.decentraland.org/proposal/?id=c98bd010-74b1-11ed-a9bf-f772a12a0556)
+💡 Alquilar LAND no transfiere Poder de Voto al Inquilino. El Poder de Voto lo mantiene el Propietario de LAND como lo define el DAO en esta [Propuesta](https://governance.decentraland.org/proposal/?id=c98bd010-74b1-11ed-a9bf-f772a12a0556)
 {% endhint %}
 
-## Transactions
+## Transacciones
 
-For the sake of **security and decentralization**, the Renting system relies on the Ethereum blockchain as a source of truth.
+Por el bien de la **seguridad y descentralización**, el sistema de Alquiler se basa en la blockchain de Ethereum como fuente de verdad.
 
-But, not every action involved requires an entry in the blockchain. If that was the case, it would be too expensive for both parties.
+Pero, no todas las acciones involucradas requieren una entrada en la blockchain. Si ese fuera el caso, sería demasiado costoso para ambas partes.
 
-Transactions in the blockchain are minimum in order to provide a **robust and trustless system for LAND renting while keeping it affordable.** These are all the transactions to consider:
+Las transacciones en la blockchain son mínimas para proporcionar un **sistema robusto y sin confianza para el alquiler de LAND mientras se mantiene asequible.** Estas son todas las transacciones a considerar:
 
-### For Land Owners
+### Para Propietarios de Land
 
-#### List for Rent
+#### Listar para Alquiler
 
-Before Listing the first Parcel or Estate for rent, LAND Owners need to allow the Rents Smart Contract to operate LAND on their behalf. This has to be done only once for Parcels and only once for Estates.
+Antes de Listar la primera Parcela o Estate para alquiler, los Propietarios de LAND necesitan permitir que el Contrato Inteligente de Alquileres opere LAND en su nombre. Esto tiene que hacerse solo una vez para Parcelas y solo una vez para Estates.
 
-![](broken-reference)
+![](broken-reference)
 
-#### Claim LAND Back or List for Rent Again
+#### Reclamar LAND de Vuelta o Listar para Alquiler Nuevamente
 
-After the renting period ends, **Operator Permissions are not transferred automatically back to the LAND Owner**. In order to get them back, the LAND Owner has to Claim the LAND back by sending that transaction and paying for the gas fee.
+Después de que el período de alquiler termina, **los Permisos de Operador no se transfieren automáticamente de vuelta al Propietario de LAND**. Para recuperarlos, el Propietario de LAND tiene que Reclamar el LAND de vuelta enviando esa transacción y pagando la tarifa de gas.
 
-![](broken-reference)
+![](broken-reference)
 
-Another possibility is to List the LAND for Rent Again, instead of claiming it back. This will not require paying for another transaction, but Operator Permissions will be kept by the previous Tenant until a new Tenant confirms a new Rent.
+Otra posibilidad es Listar el LAND para Alquiler Nuevamente, en lugar de reclamarlo de vuelta. Esto no requerirá pagar por otra transacción, pero los Permisos de Operador serán mantenidos por el Inquilino anterior hasta que un nuevo Inquilino confirme un nuevo Alquiler.
 
-#### Edit Listing
+#### Editar Listado
 
-If either the Price, Rent Period, or Expiration Date is changed, a transaction has to be sent by the LAND Owner in order to protect themselves from somebody using the previous listing signature on the Smart Contract directly (not from the Marketplace UI) and getting it from a lower price than desired or for an undesired duration.
+Si se cambia el Precio, Período de Alquiler o Fecha de Vencimiento, el Propietario de LAND debe enviar una transacción para protegerse de que alguien use la firma del listado anterior en el Contrato Inteligente directamente (no desde la interfaz del Marketplace) y obtenerlo por un precio más bajo del deseado o por una duración no deseada.
 
-![](broken-reference)
+![](broken-reference)
 
-### For Tenants
+### Para Inquilinos
 
-#### Allow Rent Contract to operate your MANA
+#### Permitir que el Contrato de Alquiler opere tu MANA
 
-Whether it's a Parcel or an Estate, every user that wants to Rent LAND has to send one transaction to allow the Rent Smart Contract to operate MANA on their behalf. This is needed because the Smart Contract has to pull the MANA and transfer it to the LAND Owner when the rent is activated. This is done only once for all LAND to be rented from that moment onwards.
+Ya sea una Parcela o un Estate, cada usuario que quiera Alquilar LAND tiene que enviar una transacción para permitir que el Contrato Inteligente de Alquiler opere MANA en su nombre. Esto es necesario porque el Contrato Inteligente tiene que retirar el MANA y transferirlo al Propietario de LAND cuando el alquiler se activa. Esto se hace solo una vez para todos los LAND que se alquilarán desde ese momento en adelante.
 
-#### Rent LAND
+#### Alquilar LAND
 
-After approving the Rent Smart Contract to operate your MANA, you are ready to confirm your first Rent. Once you find the LAND you want, choose the rent period, and confirm the Rent transaction, Operator Permissions are transferred to the selected address.
+Después de aprobar el Contrato Inteligente de Alquiler para operar tu MANA, estás listo para confirmar tu primer Alquiler. Una vez que encuentres el LAND que deseas, elige el período de alquiler y confirma la transacción de Alquiler, los Permisos de Operador se transfieren a la dirección seleccionada.
 
-If you want to rent another Parcel or Estate, you only need to send one transaction to confirm it, there is no need to approve the Smart Contract to operate your MANA again.
+Si quieres alquilar otra Parcela o Estate, solo necesitas enviar una transacción para confirmarlo, no hay necesidad de aprobar el Contrato Inteligente para operar tu MANA nuevamente.
 
-![](broken-reference)
+![](broken-reference)
 
-#### Change Operator
+#### Cambiar Operador
 
-At the moment of renting the LAND, the user can choose which address will have Operator Permissions for that LAND. If that address wants to be changed, a transaction has to be sent.
+En el momento de alquilar el LAND, el usuario puede elegir qué dirección tendrá Permisos de Operador para ese LAND. Si esa dirección quiere ser cambiada, se debe enviar una transacción.
 
-![](broken-reference)
+![](broken-reference)
 
-## Smart Contract Wallets
+## Billeteras de Contratos Inteligentes
 
-The Rentals feature relies heavily on off-chain signatures. Off-chain actions allow Land Owners to list LANDs for rent without paying the transaction cost.
+La función de Alquileres depende en gran medida de firmas fuera de la cadena. Las acciones fuera de la cadena permiten a los Propietarios de Land listar LANDs para alquiler sin pagar el costo de la transacción.
 
-By signing a listing, the Rent Smart Contract can verify that the listing was created by the signer.
+Al firmar un listado, el Contrato Inteligente de Alquiler puede verificar que el listado fue creado por el firmante.
 
-Signing has the particularity that it requires a private key. All EOA (Externally Owned Accounts) have one, and they can sign listings with it. The Rentals Smart Contract will then verify the EOA generated signature when executing a rental.
+La firma tiene la particularidad de que requiere una clave privada. Todas las EOA (Cuentas de Propiedad Externa) tienen una, y pueden firmar listados con ella. El Contrato Inteligente de Alquileres luego verificará la firma generada por la EOA al ejecutar un alquiler.
 
-Smart Contracts Wallets, which are Smart Contracts. Do not have a private key, thus, they are unable to sign messages. Instead, an EOA authorized by the Smart Contract Wallet has to sign.
+Las Billeteras de Contratos Inteligentes, que son Contratos Inteligentes, no tienen una clave privada, por lo tanto, no pueden firmar mensajes. En su lugar, una EOA autorizada por la Billetera de Contrato Inteligente tiene que firmar.
 
-To support these signatures, the Rent Smart Contract verifies with the Smart Contract Wallet if the signature is valid by following the [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) standard. If the signature is valid, the rental can be executed.
+Para admitir estas firmas, el Contrato Inteligente de Alquiler verifica con la Billetera de Contrato Inteligente si la firma es válida siguiendo el estándar [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271). Si la firma es válida, el alquiler puede ejecutarse.
 
-The Smart Contract Wallet not only has to have the standard signature verification method defined in the EIP-1271 but also the token receiver method defined in the [EIP-721 standard](https://eips.ethereum.org/EIPS/eip-721). This is required while claiming LAND back because the Rent Smart Contract will call a `safeTransferFrom` to return the NFT to the Smart Contract Wallet, and if it has not implemented the appropriate `onERC721Received` function, it will fail to recover the LAND.
+La Billetera de Contrato Inteligente no solo tiene que tener el método de verificación de firma estándar definido en el EIP-1271, sino también el método receptor de token definido en el [estándar EIP-721](https://eips.ethereum.org/EIPS/eip-721). Esto es necesario al reclamar LAND de vuelta porque el Contrato Inteligente de Alquiler llamará a un `safeTransferFrom` para devolver el NFT a la Billetera de Contrato Inteligente, y si no ha implementado la función `onERC721Received` apropiada, fallará en recuperar el LAND.

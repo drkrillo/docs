@@ -1,32 +1,29 @@
 ---
-description: How to get in touch with Decentraland and Support
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/contact-and-support
+description: Cómo ponerse en contacto con Decentraland y Soporte
 ---
 
-# Contact & Support
+# Contacto y Soporte
 
 <details>
 
-<summary>I need help, how do I contact the Support Team?</summary>
+<summary>Necesito ayuda, ¿cómo contacto al Equipo de Soporte?</summary>
 
-In the bottom right of any [decentraland.org](http://decentraland.org) page, you'll see a chat icon. Click on this to open a chat with the Support Team or go to [decentraland.org/help](http://decentraland.org/help).
+En la parte inferior derecha de cualquier página de [decentraland.org](http://decentraland.org), verás un ícono de chat. Haz clic en este para abrir un chat con el Equipo de Soporte o ve a [decentraland.org/help](http://decentraland.org/help).
 
 </details>
 
 <details>
 
-<summary>Where can I contact the Decentraland Foundation to discuss a partnership?</summary>
+<summary>¿Dónde puedo contactar a la Fundación Decentraland para discutir una asociación?</summary>
 
-You can email the Foundation's partnership team at partnerships@decentraland.org.
+Puedes enviar un correo electrónico al equipo de asociaciones de la Fundación a partnerships@decentraland.org.
 
 </details>
 
 <details>
 
-<summary>How can I stay up to date with Decentraland news?</summary>
+<summary>¿Cómo puedo mantenerme actualizado con las noticias de Decentraland?</summary>
 
-Follow Decentraland on [Instagram](https://www.instagram.com/decentraland_foundation/), [Discord](https://dcl.gg/discord), or [X](https://twitter.com/decentraland), and [subscribe](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to make sure you never miss and update!
+Sigue a Decentraland en [Instagram](https://www.instagram.com/decentraland_foundation/), [Discord](https://dcl.gg/discord), o [X](https://twitter.com/decentraland), y [suscríbete](https://decentraland.beehiiv.com/subscribe) al boletín semanal para asegurarte de nunca perder una actualización!
 
 </details>

@@ -1,97 +1,97 @@
 ---
-description: General Overview about Decentraland
+description: Descripción General sobre Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/introduction/about-decentraland
 ---
 
-# About Decentraland
+# Acerca de Decentraland
 
-Welcome to Decentraland's vibrant, international community of creators & explorers! Here you'll make new friends, explore a traversable world of community creations, attend diverse events, and unleash your creativity in a dynamic virtual world built by Decentraland citizens like you.
+¡Bienvenido a la vibrante comunidad internacional de creadores y exploradores de Decentraland! Aquí harás nuevos amigos, explorarás un mundo transitable de creaciones comunitarias, asistirás a diversos eventos y desatarás tu creatividad en un mundo virtual dinámico construido por ciudadanos de Decentraland como tú.
 
 <details>
 
-<summary>What is Decentraland?</summary>
+<summary>¿Qué es Decentraland?</summary>
 
-Decentraland was the world's first fully decentralized, social virtual world, empowering users to own, create, and control their digital assets and experiences. Launched in 2020, Decentraland features an open, traversable landscape filled with user-generated content that evolves and changes in real-time. Built on blockchain technology, it offers a thriving digital asset economy where creators keep 97.5% of their earnings, the highest revenue share in the industry, with 2.5% reinvested into the community through the Decentraland DAO. Governed by its community, Decentraland embodies the core values of connection, creativity, collaboration, and openess. As a dynamic, ever-evolving social world, Decentraland empowers users to shape the platform's future and fosters a vibrant space where ownership, innovation, and social interaction flourish.
+Decentraland fue el primer mundo virtual social completamente descentralizado del mundo, empoderando a los usuarios para poseer, crear y controlar sus activos y experiencias digitales. Lanzado en 2020, Decentraland presenta un paisaje abierto y transitable lleno de contenido generado por usuarios que evoluciona y cambia en tiempo real. Construido sobre tecnología blockchain, ofrece una economía próspera de activos digitales donde los creadores mantienen el 97.5% de sus ganancias, la participación de ingresos más alta de la industria, con un 2.5% reinvertido en la comunidad a través del DAO de Decentraland. Gobernado por su comunidad, Decentraland encarna los valores fundamentales de conexión, creatividad, colaboración y apertura. Como un mundo social dinámico y en constante evolución, Decentraland empodera a los usuarios para dar forma al futuro de la plataforma y fomenta un espacio vibrante donde florecen la propiedad, la innovación y la interacción social.
 
 </details>
 
 <details>
 
-<summary>What can I do in Decentraland?</summary>
+<summary>¿Qué puedo hacer en Decentraland?</summary>
 
-Decentraland is a social virtual world where you can explore, create, connect, and truly own your digital experiences. Here's what makes it special:
+Decentraland es un mundo virtual social donde puedes explorar, crear, conectar y realmente poseer tus experiencias digitales. Esto es lo que lo hace especial:
 
-* **Explore a Vibrant World**: Wander through an open, user-generated landscape filled with unique builds and experiences. Discover art galleries, games, and live events like concerts and fashion shows, all created by the community.
-* **Find Your People**: Connect with a global community from anywhere! Whether you're attending a party, joining a game, or just exploring, Decentraland offers countless opportunities to make friends and build meaningful relationships.
-* **Express Yourself**: Customize your avatar with community-designed Wearables and Emotes to craft a digital identity that's truly you. Be whoever you want to be!
-* **Own and Build**: Claim your virtual space with LAND or a World and make it your own. Build anything you can imagine: art installations, interactive games, virtual businesses, or alien worlds—it's up to you.
-* **Engage with a Thriving Economy**: Trade digital assets like LAND, Wearables, and Emotes in a robust marketplace. As a creator, you can sell your designs and earn the highest revenue share in the industry, keeping 97.5% of your earnings.
-* **Join Live Events**: From multi-day music festivals and art exhibitions to casual hangouts and themed parties, there's always something happening in Decentraland.
-* **Shape the Platform's Future**: As a Decentraland user, you're part of a community that decides the platform's direction. Through the [DAO](https://github.com/decentraland/docs-player/blob/main/dao/dao-userguide.md), you can propose changes, vote on initiatives, and contribute to projects that shape our world.
+* **Explora un Mundo Vibrante**: Pasea por un paisaje abierto generado por usuarios lleno de construcciones y experiencias únicas. Descubre galerías de arte, juegos y eventos en vivo como conciertos y desfiles de moda, todo creado por la comunidad.
+* **Encuentra a tu Gente**: ¡Conecta con una comunidad global desde cualquier lugar! Ya sea asistiendo a una fiesta, uniéndote a un juego o simplemente explorando, Decentraland ofrece innumerables oportunidades para hacer amigos y construir relaciones significativas.
+* **Exprésate**: Personaliza tu avatar con Wearables y Emotes diseñados por la comunidad para crear una identidad digital que sea verdaderamente tuya. ¡Sé quien quieras ser!
+* **Posee y Construye**: Reclama tu espacio virtual con LAND o un World y hazlo tuyo. Construye cualquier cosa que puedas imaginar: instalaciones de arte, juegos interactivos, negocios virtuales o mundos alienígenas—depende de ti.
+* **Participa en una Economía Próspera**: Comercia activos digitales como LAND, Wearables y Emotes en un mercado robusto. Como creador, puedes vender tus diseños y ganar la participación de ingresos más alta de la industria, manteniendo el 97.5% de tus ganancias.
+* **Únete a Eventos en Vivo**: Desde festivales de música de varios días y exposiciones de arte hasta reuniones casuales y fiestas temáticas, siempre hay algo sucediendo en Decentraland.
+* **Da Forma al Futuro de la Plataforma**: Como usuario de Decentraland, eres parte de una comunidad que decide la dirección de la plataforma. A través del [DAO](https://github.com/decentraland/docs-player/blob/main/dao/dao-userguide.md), puedes proponer cambios, votar en iniciativas y contribuir a proyectos que dan forma a nuestro mundo.
 
-Whether you're looking for creativity, connection, or ownership, Decentraland offers endless opportunities to explore and be part of a thriving community. Dive in and see where your imagination takes you! Download Decentraland [here](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq).
-
-</details>
-
-<details>
-
-<summary>Decentraland is community-driven—what does that mean?</summary>
-
-Because Decentraland is decentralized, there is no central entity that controls the platform or its future—this platform belongs to its users. Decentraland's operations and future are proposed, voted on, and decided by the community in [governance forums](https://decentraland.org/dao) through the DAO (Decentralized Autonomous Organization). Decentraland's code is also open source, so anyone can [**make improvements**](https://github.com/decentraland/docs-player/blob/main/contributor/README.md) or build on top of it, and its content is stored on a distributed network of servers, so it can never be shut down.
-
-The contents of Decentraland's virtual world is built by its community, from the builds on LAND parcels to the Wearables & Emotes in the [Marketplace](https://decentraland.org/marketplace), creating a dynamic and ever-evolving environment. Creators benefit from a thriving digital economy, keeping 97.5% of their earnings—the highest revenue share in the industry—while 2.5% is reinvested into the DAO for community initiatives.
-
-[**Daily events**](https://events.decentraland.org/) are also organized by the community, ranging from concerts to art gallery openings and hang outs to game releases. Anyone can submit an event they've organized somewhere in Genesis City or in a [**World**](https://decentraland.org/blog/announcements/introducing-decentraland-worlds-beta-your-own-3d-space-in-the-metaverse), personal virtual spaces off of the main map.
-
-All this is what makes Decentraland a truly community-driven world. [**Download Decentraland**](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq) and explore dynamic community content, built side-by-side, or even [**contribute**](https://github.com/decentraland/docs-player/blob/main/creator/README.md) to it yourself!
+Ya sea que busques creatividad, conexión o propiedad, Decentraland ofrece infinitas oportunidades para explorar y ser parte de una comunidad próspera. ¡Sumérgete y ve a donde te lleve tu imaginación! Descarga Decentraland [aquí](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq).
 
 </details>
 
 <details>
 
-<summary>How was Decentraland started?</summary>
+<summary>Decentraland es impulsado por la comunidad—¿qué significa eso?</summary>
 
-The concept for Decentraland was born in 2015 as a simple prototype exploring the use of blockchain technology to track digital land ownership. Early experiments focused on using a decentralized ledger to assign ownership of virtual plots and provide a foundation for user-generated content. By 2017, the project published its [first white paper](https://github.com/decentraland/docs-player/blob/main/introduction/whitepaper.md), outlining a bold vision for a decentralized virtual world where users could own, create, and control their digital lives.
+Debido a que Decentraland está descentralizado, no hay una entidad central que controle la plataforma o su futuro—esta plataforma pertenece a sus usuarios. Las operaciones y el futuro de Decentraland son propuestos, votados y decididos por la comunidad en [foros de gobernanza](https://decentraland.org/dao) a través del DAO (Organización Autónoma Descentralizada). El código de Decentraland también es de código abierto, por lo que cualquiera puede [**hacer mejoras**](https://github.com/decentraland/docs-player/blob/main/contributor/README.md) o construir sobre él, y su contenido se almacena en una red distribuida de servidores, por lo que nunca puede cerrarse.
 
-Development kicked off soon after, and in 2020, Decentraland officially launched as the world's first fully decentralized virtual world. Today, Decentraland has evolved into a vibrant social space shaped by its global community of creators and explorers.
+El contenido del mundo virtual de Decentraland es construido por su comunidad, desde las construcciones en parcelas LAND hasta los Wearables y Emotes en el [Marketplace](https://decentraland.org/marketplace), creando un entorno dinámico y en constante evolución. Los creadores se benefician de una economía digital próspera, manteniendo el 97.5% de sus ganancias—la participación de ingresos más alta de la industria—mientras que el 2.5% se reinvierte en el DAO para iniciativas comunitarias.
 
-Read more about Decentraland's history in its latest, [white paper 2.0](https://decentraland.org/whitepaper2.pdf), published in late 2024.
+Los [**eventos diarios**](https://events.decentraland.org/) también son organizados por la comunidad, desde conciertos hasta inauguraciones de galerías de arte, reuniones y lanzamientos de juegos. Cualquiera puede enviar un evento que haya organizado en algún lugar de Genesis City o en un [**World**](https://decentraland.org/blog/announcements/introducing-decentraland-worlds-beta-your-own-3d-space-in-the-metaverse), espacios virtuales personales fuera del mapa principal.
 
-</details>
-
-<details>
-
-<summary>What is the DAO?</summary>
-
-The [Decentraland DAO](https://github.com/decentraland/docs-player/blob/main/dao/dao-userguide.md) (Decentralized Autonomous Organization) is the governance system that puts the power to shape Decentraland directly into the hands of its users. It allows the community to propose and vote on important decisions that impact the platform's future, such as changes to policies, funding for community projects, and updates to key smart contracts like LAND ownership or Marketplace operations.
-
-The DAO manages Decentraland's treasury, which is used to support community-driven initiatives, events, and developments. By participating in the DAO, users with Voting Power—earned through owning assets like MANA, LAND, or NAMEs—can directly influence how Decentraland evolves.
-
-The DAO is a core part of Decentraland's decentralized structure, ensuring the platform reflects the values, creativity, and vision of its community.
+Todo esto es lo que hace de Decentraland un mundo verdaderamente impulsado por la comunidad. [**Descarga Decentraland**](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq) y explora contenido comunitario dinámico, construido lado a lado, ¡o incluso [**contribuye**](https://github.com/decentraland/docs-player/blob/main/creator/README.md) tú mismo!
 
 </details>
 
 <details>
 
-<summary>What is the Decentraland Foundation?</summary>
+<summary>¿Cómo comenzó Decentraland?</summary>
 
-The Decentraland Foundation is the non-profit organization that oversees the development, security, and growth of Decentraland. It was established at the platform's launch in 2020 to ensure Decentraland had a strong foundation during its early years. The Foundation plays a key role in building and maintaining the platform's technical infrastructure, including the desktop client, Marketplace, and creator tools.
+El concepto de Decentraland nació en 2015 como un prototipo simple que exploraba el uso de la tecnología blockchain para rastrear la propiedad de tierras digitales. Los primeros experimentos se enfocaron en usar un registro descentralizado para asignar la propiedad de parcelas virtuales y proporcionar una base para contenido generado por usuarios. Para 2017, el proyecto publicó su [primer whitepaper](https://github.com/decentraland/docs-player/blob/main/introduction/whitepaper.md), describiendo una visión audaz para un mundo virtual descentralizado donde los usuarios pudieran poseer, crear y controlar sus vidas digitales.
 
-In addition to development, the Foundation supports Decentraland's global community through marketing, events, and educational resources, helping to produce iconic events such as the annual Metaverse Fashion Week and Decentraland Music Festival.
+El desarrollo comenzó poco después, y en 2020, Decentraland se lanzó oficialmente como el primer mundo virtual completamente descentralizado del mundo. Hoy, Decentraland ha evolucionado en un espacio social vibrante moldeado por su comunidad global de creadores y exploradores.
 
-The Foundation is funded through a portion of MANA that was allocated at Decentraland's inception, ensuring long-term resources to grow the platform. However, as Decentraland evolves, the Foundation will gradually phase out, with all responsibilities transitioning to the Decentraland DAO, making the platform fully community-driven by 2030.
+Lee más sobre la historia de Decentraland en su último [whitepaper 2.0](https://decentraland.org/whitepaper2.pdf), publicado a finales de 2024.
 
 </details>
 
 <details>
 
-<summary>Is Decentraland free to use?</summary>
+<summary>¿Qué es el DAO?</summary>
 
-Yes! Exploring Decentraland and connecting with its community is free. You can create an avatar, play games and discover cool builds, attend events, and interact with others without any cost. Money only comes into play if you would like to purchase digital assets from the [Marketplace](https://decentraland.org/marketplace), such as community-made Wearables & Emotes, LAND, or NAMEs. Additionally, there is a fee associated with publishing your own Wearables & Emotes for sale in the Marketplace.
+El [DAO de Decentraland](https://github.com/decentraland/docs-player/blob/main/dao/dao-userguide.md) (Organización Autónoma Descentralizada) es el sistema de gobernanza que pone el poder de dar forma a Decentraland directamente en manos de sus usuarios. Permite a la comunidad proponer y votar sobre decisiones importantes que impactan el futuro de la plataforma, como cambios en políticas, financiamiento para proyectos comunitarios y actualizaciones a contratos inteligentes clave como la propiedad de LAND u operaciones del Marketplace.
 
-As there is no centralized entity to benefit from profit in Decentraland, its economy is designed to be creator-first (voted on by the community itself through DAO governance). Decentraland creators keep 97.5% of their sales and earn 2.5% royalties on secondary sales, the highest revenue share in the industry to date (2024). The 2.5% withheld from creator earnings is the transaction fee that is associated with any sale in the Marketplace. This fee is collected in Decentraland's DAO treasury to be reinvested into the platform through community initiatives or to cover operational costs.
+El DAO gestiona el tesoro de Decentraland, que se utiliza para apoyar iniciativas, eventos y desarrollos impulsados por la comunidad. Al participar en el DAO, los usuarios con Poder de Voto—ganado a través de poseer activos como MANA, LAND o NAMEs—pueden influir directamente en cómo evoluciona Decentraland.
+
+El DAO es una parte central de la estructura descentralizada de Decentraland, asegurando que la plataforma refleje los valores, creatividad y visión de su comunidad.
+
+</details>
+
+<details>
+
+<summary>¿Qué es la Fundación Decentraland?</summary>
+
+La Fundación Decentraland es la organización sin fines de lucro que supervisa el desarrollo, seguridad y crecimiento de Decentraland. Se estableció en el lanzamiento de la plataforma en 2020 para asegurar que Decentraland tuviera una base sólida durante sus primeros años. La Fundación juega un papel clave en la construcción y mantenimiento de la infraestructura técnica de la plataforma, incluyendo el cliente de escritorio, Marketplace y herramientas de creación.
+
+Además del desarrollo, la Fundación apoya a la comunidad global de Decentraland a través de marketing, eventos y recursos educativos, ayudando a producir eventos icónicos como la Semana Anual de la Moda del Metaverso y el Festival de Música de Decentraland.
+
+La Fundación se financia a través de una porción de MANA que fue asignada en el inicio de Decentraland, asegurando recursos a largo plazo para hacer crecer la plataforma. Sin embargo, a medida que Decentraland evoluciona, la Fundación se eliminará gradualmente, con todas las responsabilidades transfiriéndose al DAO de Decentraland, haciendo que la plataforma esté completamente impulsada por la comunidad para 2030.
+
+</details>
+
+<details>
+
+<summary>¿Es Decentraland gratuito para usar?</summary>
+
+¡Sí! Explorar Decentraland y conectar con su comunidad es gratuito. Puedes crear un avatar, jugar juegos y descubrir construcciones geniales, asistir a eventos e interactuar con otros sin ningún costo. El dinero solo entra en juego si deseas comprar activos digitales del [Marketplace](https://decentraland.org/marketplace), como Wearables y Emotes hechos por la comunidad, LAND o NAMEs. Además, hay una tarifa asociada con la publicación de tus propios Wearables y Emotes para venta en el Marketplace.
+
+Como no hay una entidad centralizada que se beneficie de las ganancias en Decentraland, su economía está diseñada para ser primero para los creadores (votado por la comunidad misma a través de la gobernanza del DAO). Los creadores de Decentraland mantienen el 97.5% de sus ventas y ganan 2.5% de regalías en ventas secundarias, la participación de ingresos más alta de la industria hasta la fecha (2024). El 2.5% retenido de las ganancias de los creadores es la tarifa de transacción asociada con cualquier venta en el Marketplace. Esta tarifa se recopila en el tesoro del DAO de Decentraland para ser reinvertida en la plataforma a través de iniciativas comunitarias o para cubrir costos operativos.
 
 </details>

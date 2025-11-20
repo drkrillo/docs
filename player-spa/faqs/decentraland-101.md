@@ -1,5 +1,5 @@
 ---
-description: General Overview about Decentraland
+description: Descripción General sobre Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/decentraland-101
@@ -7,228 +7,228 @@ metaLinks:
 
 # Decentraland 101
 
-## Getting Started
+## Primeros Pasos
 
 <details>
 
-<summary>How do I enter Decentraland?</summary>
+<summary>¿Cómo entro a Decentraland?</summary>
 
-1. The first step is downloading the Decentraland app onto your computer. Go to the download page [here](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq).
-2. Once you've successfully installed and loaded Decentraland on your computer, you'll be asked to log into your Decentraland account, a process that happens online, so you can expect a browser window to open.
-3. Create and sign into your Decentraland account by connecting your Google or Discord account or another social profile or a digital wallet such as MetaMask or Coinbase. Check out a tutorial for [making an account with a social profile](https://www.youtube.com/watch?v=ylZrPisyPl4) or [with an external wallet like MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
-4. Once online verification is complete, open the Decentraland app window on your computer and click 'Jump Into Decentraland'.
-5. You're in! From here you can click on the backpack icon to customize your avatar, run around exploring Decentraland's community-built world, or attend an [event](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) and make some friends. Have fun!
+1. El primer paso es descargar la aplicación de Decentraland en tu computadora. Ve a la página de descargas [aquí](https://decentraland.org/download?utm_org=dcl\&utm_source=decentraland\&utm_medium=organic\&utm_campaign=evergreen\&utm_term=generaldocs\&utm_content=faq).
+2. Una vez que hayas instalado y cargado exitosamente Decentraland en tu computadora, se te pedirá que inicies sesión en tu cuenta de Decentraland, un proceso que ocurre en línea, así que puedes esperar que se abra una ventana del navegador.
+3. Crea e inicia sesión en tu cuenta de Decentraland conectando tu cuenta de Google o Discord u otro perfil social o una billetera digital como MetaMask o Coinbase. Consulta un tutorial para [crear una cuenta con un perfil social](https://www.youtube.com/watch?v=ylZrPisyPl4) o [con una billetera externa como MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
+4. Una vez completada la verificación en línea, abre la ventana de la aplicación de Decentraland en tu computadora y haz clic en 'Saltar a Decentraland'.
+5. ¡Estás dentro! Desde aquí puedes hacer clic en el ícono de la mochila para personalizar tu avatar, correr explorando el mundo construido por la comunidad de Decentraland, o asistir a un [evento](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) y hacer algunos amigos. ¡Diviértete!
 
 </details>
 
 <details>
 
-<summary>Do I need crypto or a digital wallet to use Decentraland?</summary>
+<summary>¿Necesito cripto o una billetera digital para usar Decentraland?</summary>
 
-No, you do not need to own crypto or already have a digital wallet to use Decentraland. Decentraland is free to use, and if you'd like to purchase something from the [Marketplace](https://market.decentraland.org/), you can use a credit/debit card in addition to cryptocurrency.
+No, no necesitas poseer cripto o tener ya una billetera digital para usar Decentraland. Decentraland es gratuito para usar, y si deseas comprar algo del [Marketplace](https://market.decentraland.org/), puedes usar una tarjeta de crédito/débito además de criptomoneda.
 
-See a tutorial for [making an account with a social profile](https://www.youtube.com/watch?v=ylZrPisyPl4) or [with an external wallet like MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
+Consulta un tutorial para [crear una cuenta con un perfil social](https://www.youtube.com/watch?v=ylZrPisyPl4) o [con una billetera externa como MetaMask](https://www.youtube.com/watch?v=w3CCVrVe1M4).
 
-In Decentraland users truly own their digital assets, such as Wearables or NAMEs, with ownership registered on the blockchain.To enable this, every Decentraland account is linked to a unique digital wallet. However, if you don't already have a digital wallet, you don't need to get one yourself. If you sign into Decentraland with a social account such as Google or Discord, a digital wallet will be made for your account behind the scenes, so you don't have to worry about anything.
+En Decentraland los usuarios realmente poseen sus activos digitales, como Wearables o NAMEs, con la propiedad registrada en la blockchain. Para habilitar esto, cada cuenta de Decentraland está vinculada a una billetera digital única. Sin embargo, si aún no tienes una billetera digital, no necesitas conseguir una tú mismo. Si inicias sesión en Decentraland con una cuenta social como Google o Discord, se creará una billetera digital para tu cuenta detrás de escena, así que no tienes que preocuparte por nada.
 
 </details>
 
 <details>
 
-<summary>What hardware do I need to run Decentraland?</summary>
+<summary>¿Qué hardware necesito para ejecutar Decentraland?</summary>
 
-Currently, Decentraland is available for PC on Windows and Mac. The minimum hardware specs for Decentraland to run smoothly are listed below:
+Actualmente, Decentraland está disponible para PC en Windows y Mac. Las especificaciones mínimas de hardware para que Decentraland funcione sin problemas se enumeran a continuación:
 
 **Windows**
 
-|         | Minimum Required                                                          | Recommended Settings                              |
-| ------- | ------------------------------------------------------------------------- | ------------------------------------------------- |
-| OS      | Windows 10 64-bit                                                         | Windows 11 64-bit                                 |
-| CPU     | Intel i5 7th generation or AMD Ryzen 5 Series                             | Intel i7 12th generation or AMD Ryzen 7 Series    |
-| GPU     | Nvidia RTX 20 Series or AMD Radeon RX 5000 Series (DirectX 12 compatible) | Nvidia RTX 30 Series or AMD Radeon RX 6000 Series |
-| VRAM    | 6 GB                                                                      | 12 GB                                             |
-| RAM     | 16GB                                                                      | 32 GB                                             |
-| Storage | 8GB HDD                                                                   | 20GB SDD                                          |
+|         | Mínimo Requerido                                                       | Configuración Recomendada                        |
+| ------- | ---------------------------------------------------------------------- | ------------------------------------------------ |
+| SO      | Windows 10 64-bit                                                      | Windows 11 64-bit                                |
+| CPU     | Intel i5 7ª generación o AMD Ryzen 5 Series                            | Intel i7 12ª generación o AMD Ryzen 7 Series     |
+| GPU     | Nvidia RTX 20 Series o AMD Radeon RX 5000 Series (compatible DirectX 12) | Nvidia RTX 30 Series o AMD Radeon RX 6000 Series |
+| VRAM    | 6 GB                                                                   | 12 GB                                            |
+| RAM     | 16GB                                                                   | 32 GB                                            |
+| Almacen | 8GB HDD                                                                | 20GB SDD                                         |
 
 **Mac**
 
-|         | Minimum Required                                 | Recommended Settings               |
-| ------- | ------------------------------------------------ | ---------------------------------- |
-| OS      | macOS 11 Big Sur                                 | macOS 12 Monterey                  |
-| CPU     | Apple M1                                         | Apple M1 Pro/M2                    |
-| GPU     | Apple M1 integrated GPU (Metal support required) | Apple M1 Pro/M2 Pro integrated GPU |
-| VRAM    | 6 GB                                             | 12 GB                              |
-| RAM     | 16GB                                             | 32 GB                              |
-| Storage | 8GB HDD                                          | 20GB SDD                           |
+|         | Mínimo Requerido                                       | Configuración Recomendada      |
+| ------- | ------------------------------------------------------ | ------------------------------ |
+| SO      | macOS 11 Big Sur                                       | macOS 12 Monterey              |
+| CPU     | Apple M1                                               | Apple M1 Pro/M2                |
+| GPU     | Apple M1 GPU integrado (soporte Metal requerido)       | Apple M1 Pro/M2 Pro GPU integrado |
+| VRAM    | 6 GB                                                   | 12 GB                          |
+| RAM     | 16GB                                                   | 32 GB                          |
+| Almacen | 8GB HDD                                                | 20GB SDD                       |
 
 {% hint style="warning" %}
-**📔 Note**: Decentraland currently does not run on any mobile devices.
+**📔 Nota**: Decentraland actualmente no funciona en ningún dispositivo móvil.
 {% endhint %}
 
 </details>
 
 <details>
 
-<summary>How do I explore and navigate Decentraland?</summary>
+<summary>¿Cómo exploro y navego por Decentraland?</summary>
 
-Decentraland consists of the open, traversable **Genesis City** made up of community parcels that are referenced by coordinates (e.g. Genesis Plaza, Decentraland's central default spawn point is 0,0), as well as individual **Worlds**, more intimate 3D spaces in the Decentraland ecosystem that can be teleported into.
+Decentraland consiste en la **Genesis City** abierta y transitable, compuesta por parcelas comunitarias que se referencian por coordenadas (por ejemplo, Genesis Plaza, el punto de aparición predeterminado central de Decentraland está en 0,0), así como **Worlds** individuales, espacios 3D más íntimos en el ecosistema de Decentraland a los que se puede teletransportar.
 
-To explore **Genesis City**, you can run around using your arrow or WASD keys, jump to locations by clicking on them from the map, or teleport by typing the following command into the chat box and hitting 'Enter':
+Para explorar **Genesis City**, puedes correr usando las teclas de flechas o WASD, saltar a ubicaciones haciendo clic en ellas desde el mapa, o teletransportarte escribiendo el siguiente comando en el cuadro de chat y presionando 'Enter':
 
-• `/goto x,y` (x,y are the coordinates of a scene)
+• `/goto x,y` (x,y son las coordenadas de una escena)
 
-To teleport to a specific **World**, you'll also use a chat command:
+Para teletransportarte a un **World** específico, también usarás un comando de chat:
 
-• `/goto World'sName`
+• `/goto NombreDelWorld`
 
-![](broken-reference)
-
-</details>
-
-<details>
-
-<summary>How do I get Wearables, Emotes, LAND, and NAMEs in the Marketplace?</summary>
-
-Ready to start your Decentraland shopping spree in the [Marketplace](https://decentraland.org/marketplace/)? Browse through hundreds of community-made Wearables and Emotes to customize your digital identity, buy or rent Genesis City LAND parcels, or claim your unique NAME (which comes with it's own World!).
-
-Once you've found an item you'd like to buy, you can easily pay by card or with a wide variety of cryptocurrencies. If you're buying a Wearable or Emote, the item will appear in your Backpack in a matter of minutes and you can feel happy in the knowledge that you're supporting Decentraland creators, who keep 97.5% of sales!
-
-Anything you purchase in the Marketplace is truly owned by you, with your ownership registered on the blockchain. You can resell items whenever you wish, which will also support the original creator with 2.5% royalties.
+![](broken-reference)
 
 </details>
 
 <details>
 
-<summary>How can I meet people in Decentraland?</summary>
+<summary>¿Cómo obtengo Wearables, Emotes, LAND y NAMEs en el Marketplace?</summary>
 
-The best way to meet new people in Decentraland is to attend [events](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) and start chatting! Browse the event page for current and upcoming events and don't be shy once you jump in, Decentraland's community is known for being welcoming. 💜
+¿Listo para comenzar tu ola de compras en Decentraland en el [Marketplace](https://decentraland.org/marketplace/)? Navega a través de cientos de Wearables y Emotes hechos por la comunidad para personalizar tu identidad digital, compra o alquila parcelas LAND de Genesis City, o reclama tu NAME único (¡que viene con su propio World!).
 
-Keep an eye out for weekly tours and meetups, such as ABC DCL - Adventures of Decentraland, which are specifically targeted at new community members!
+Una vez que hayas encontrado un artículo que te gustaría comprar, puedes pagar fácilmente con tarjeta o con una amplia variedad de criptomonedas. Si estás comprando un Wearable o Emote, el artículo aparecerá en tu Mochila en cuestión de minutos y puedes sentirte feliz sabiendo que estás apoyando a los creadores de Decentraland, ¡quienes mantienen el 97.5% de las ventas!
 
-</details>
-
-<details>
-
-<summary>How can I learn about in-world events?</summary>
-
-Decentraland's [Event Page](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) is the official place where anyone in the community can post their in-world events to invite everyone to come. To stay on top of events, check the event page regularly and you can also follow Decentraland on social channels, such as [X](https://x.com/decentraland), or [subscribe](https://decentraland.beehiiv.com/) to the weekly newsletter to learn about upcoming activities!
+Cualquier cosa que compres en el Marketplace es verdaderamente tuya, con tu propiedad registrada en la blockchain. Puedes revender artículos cuando desees, lo que también apoyará al creador original con un 2.5% de regalías.
 
 </details>
 
 <details>
 
-<summary>How do I take pictures in-world?</summary>
+<summary>¿Cómo puedo conocer gente en Decentraland?</summary>
 
-If you'd like to get snapshots of your favorite moments in Decentraland, just press C on your keyboard to open the Camera. A helpful guide with camera controls can be found on the bottom right of your screen.
+La mejor manera de conocer gente nueva en Decentraland es asistir a [eventos](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) y ¡comenzar a chatear! Navega por la página de eventos para eventos actuales y próximos y no seas tímido una vez que entres, la comunidad de Decentraland es conocida por ser acogedora. 💜
 
-![](broken-reference)
+¡Estate atento a tours y encuentros semanales, como ABC DCL - Adventures of Decentraland, que están específicamente dirigidos a nuevos miembros de la comunidad!
 
-Your Gallery has space for up to 500 photos, from there you can easily share your images with a link or download them onto your computer.
+</details>
+
+<details>
+
+<summary>¿Cómo puedo aprender sobre eventos en el mundo?</summary>
+
+La [Página de Eventos](https://decentraland.org/events?utm_org=dcl\&utm_source=generaldocs\&utm_medium=organic\&utm_content=faq) de Decentraland es el lugar oficial donde cualquier persona en la comunidad puede publicar sus eventos en el mundo para invitar a todos a venir. Para mantenerte al tanto de los eventos, consulta la página de eventos regularmente y también puedes seguir a Decentraland en canales sociales, como [X](https://x.com/decentraland), o [suscribirte](https://decentraland.beehiiv.com/) al boletín semanal para conocer las próximas actividades!
+
+</details>
+
+<details>
+
+<summary>¿Cómo tomo fotos en el mundo?</summary>
+
+Si deseas obtener instantáneas de tus momentos favoritos en Decentraland, solo presiona C en tu teclado para abrir la Cámara. Una guía útil con controles de cámara se puede encontrar en la parte inferior derecha de tu pantalla.
+
+![](broken-reference)
+
+Tu Galería tiene espacio para hasta 500 fotos, desde allí puedes compartir fácilmente tus imágenes con un enlace o descargarlas en tu computadora.
 
 {% hint style="info" %}
-**Pro tip:** Feature your favorite photos on your Decentraland Profile by toggling the 'Set as Public' option from the three dots menu in the upper right of your selected photo.
+**Consejo profesional:** Presenta tus fotos favoritas en tu Perfil de Decentraland activando la opción 'Establecer como Público' desde el menú de tres puntos en la esquina superior derecha de tu foto seleccionada.
 {% endhint %}
 
 </details>
 
 <details>
 
-<summary>How can I get involved in Decentraland governance?</summary>
+<summary>¿Cómo puedo participar en la gobernanza de Decentraland?</summary>
 
-Decentraland's DAO is the heart of the community-driven world's governance. To get started, you can read through the [DAO forums](https://decentraland.org/governance) to learn about current issues, see what the community consensus is, and add your own comments. Learn more on the [DAO's official page](https://decentraland.org/dao/).
-
-</details>
-
-## The Basics
-
-<details>
-
-<summary>What are Wearables?</summary>
-
-Wearables are the digital assets you can mix and match to customize your avatar's appearance. They range from articles of clothing, accessories, body parts, and whole skins.
-
-![](broken-reference)
-
-A variety of free base Wearables are always available in your Backpack (click on the backpack icon on the left when you're in-world to try them on!), and you can browse through thousands of community-made items in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables\&vendor=decentraland\&page=1\&sortBy=newest\&status=on_sale) to craft your unique look. Can't find what you're looking for? Consider making your own.
+El DAO de Decentraland es el corazón de la gobernanza del mundo impulsado por la comunidad. Para comenzar, puedes leer los [foros del DAO](https://decentraland.org/governance) para conocer los problemas actuales, ver cuál es el consenso de la comunidad y agregar tus propios comentarios. Aprende más en la [página oficial del DAO](https://decentraland.org/dao/).
 
 </details>
 
+## Los Básicos
+
 <details>
 
-<summary>What are Emotes?</summary>
+<summary>¿Qué son los Wearables?</summary>
 
-Emotes are animations that allow your avatar to express reactions, perform dance moves, or engage in activities such as yoga or painting. Just like Wearables, there are a set of free, base Emotes available to everyone, but you can also browse the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item\&section=emotes\&vendor=decentraland\&page=1\&sortBy=recently_listed\&status=on_sale) to find an even larger variety. Or make your own!
+Los Wearables son los activos digitales que puedes mezclar y combinar para personalizar la apariencia de tu avatar. Van desde artículos de ropa, accesorios, partes del cuerpo y pieles completas.
 
-![](broken-reference)
+![](broken-reference)
 
-To use Emotes in Decentraland, you'll want to become familiar with the Emote Wheel pictured below. This shows a set of the 10 Emotes you are most likely to use (you can customize these Emote slots from your Backpack).
-
-To trigger an Emote, you have 3 options:
-
-* **Beginner:** Click on the icon of a dancing person in the bottom left of your screen to open the Emote Wheel and click on the Emote you want to use
-* **Intermediate:** Press **B** on your keyboard to open the Emote Wheel and click on the Emote you want to use
-* **Pro:** Use the shortcut **B** + the number of the Emote you want to use (e.g. **B1**) on your keyboard to trigger an Emote without opening the Emote Wheel
-
-![](broken-reference)
+Una variedad de Wearables base gratuitos siempre están disponibles en tu Mochila (¡haz clic en el ícono de la mochila a la izquierda cuando estés en el mundo para probarlos!), y puedes navegar a través de miles de artículos hechos por la comunidad en el [Marketplace](https://decentraland.org/marketplace/browse?section=wearables\&vendor=decentraland\&page=1\&sortBy=newest\&status=on_sale) para crear tu look único. ¿No encuentras lo que buscas? Considera hacer el tuyo propio.
 
 </details>
 
 <details>
 
-<summary>What is a NAME?</summary>
+<summary>¿Qué son los Emotes?</summary>
 
-A Decentraland NAME is like an official username for your avatar, owned by you on the blockchain. When you see other avatars with a name that doesn't have something like '#1234' at the end, it's because they have equipped a NAME to their avatar.
+Los Emotes son animaciones que permiten a tu avatar expresar reacciones, realizar movimientos de baile o participar en actividades como yoga o pintura. Al igual que los Wearables, hay un conjunto de Emotes base gratuitos disponibles para todos, pero también puedes navegar por el [Marketplace](https://decentraland.org/marketplace/browse?assetType=item\&section=emotes\&vendor=decentraland\&page=1\&sortBy=recently_listed\&status=on_sale) para encontrar una variedad aún mayor. ¡O hacer los tuyos propios!
 
-Having a Decentraland NAME comes with a few extra perks: in addition to making your avatar uniquely recognizable, each NAME comes with a World—your personal virtual space to experiment with builds or host your own get-togethers. Each NAME you own also gives you 100 VP (Voting Power) to use in [DAO governance](https://dao.decentraland.org/). Decentraland NAMEs are also part of the ENS network, so you could use your NAME across Web3.
+![](broken-reference)
 
-[Claim your unique NAME](https://decentraland.org/marketplace/names/claim) now or check out a [helpful tutorial](https://www.youtube.com/watch?v=OKqXmO5fD0s\&ab_channel=Decentraland) first.
+Para usar Emotes en Decentraland, querrás familiarizarte con la Rueda de Emotes que se muestra a continuación. Esta muestra un conjunto de los 10 Emotes que es más probable que uses (puedes personalizar estas ranuras de Emotes desde tu Mochila).
 
-Once you've claimed your NAME, assign it to your avatar at [decentraland.org/builder/names](https://decentraland.org/builder/names).
+Para activar un Emote, tienes 3 opciones:
 
-</details>
+* **Principiante:** Haz clic en el ícono de una persona bailando en la parte inferior izquierda de tu pantalla para abrir la Rueda de Emotes y haz clic en el Emote que deseas usar
+* **Intermedio:** Presiona **B** en tu teclado para abrir la Rueda de Emotes y haz clic en el Emote que deseas usar
+* **Profesional:** Usa el atajo **B** + el número del Emote que deseas usar (por ejemplo, **B1**) en tu teclado para activar un Emote sin abrir la Rueda de Emotes
 
-<details>
-
-<summary>What is MANA?</summary>
-
-[**MANA**](https://etherscan.io/token/decentraland) is Decentraland's fungible, ERC20 cryptocurrency token. MANA can be used to purchase LAND parcels, NAMEs, and other digital assets or can be traded for various goods and services within the Decentraland ecosystem. For a current summary of critical stats like total and circulating supply, please visit the [**MANA Token Information**](https://governance.decentraland.org/transparency/) transparency dashboard.
+![](broken-reference)
 
 </details>
 
 <details>
 
-<summary>What is LAND?</summary>
+<summary>¿Qué es un NAME?</summary>
 
-LAND is a non-fungible digital asset maintained in an Ethereum smart contract. LAND parcels, make up the map of Decentraland's Genesis City and are referenced using unique x,y coordinates. Each LAND token includes a record of its coordinates, its owner, and a reference to a content description file or parcel manifest that describes and encodes the content the owner wishes to serve on their LAND.
+Un NAME de Decentraland es como un nombre de usuario oficial para tu avatar, de tu propiedad en la blockchain. Cuando ves otros avatares con un nombre que no tiene algo como '#1234' al final, es porque han equipado un NAME a su avatar.
 
-One parcel of LAND is 16m x 16m, or 52ft x 52ft. Height is restricted based on scene limitations.
+Tener un NAME de Decentraland viene con algunas ventajas adicionales: además de hacer que tu avatar sea únicamente reconocible, cada NAME viene con un World—tu espacio virtual personal para experimentar con construcciones u organizar tus propias reuniones. Cada NAME que posees también te da 100 VP (Poder de Voto) para usar en la [gobernanza del DAO](https://dao.decentraland.org/). Los NAMEs de Decentraland también son parte de la red ENS, por lo que podrías usar tu NAME en toda la Web3.
 
-</details>
+[Reclama tu NAME único](https://decentraland.org/marketplace/names/claim) ahora o consulta primero un [tutorial útil](https://www.youtube.com/watch?v=OKqXmO5fD0s\&ab_channel=Decentraland).
 
-<details>
-
-<summary>What is an Estate?</summary>
-
-Like LAND, an Estate is a non-fungible digital asset. An Estate is an association of two or more directly adjacent parcels of LAND. These parcels must be directly adjacent and cannot be separated by a road, plaza or any other parcel. By connecting parcels to form Estates, you can more easily manage your larger LAND holdings. Estates are especially useful when building larger scenes that span more than one parcel.
+Una vez que hayas reclamado tu NAME, asígnalo a tu avatar en [decentraland.org/builder/names](https://decentraland.org/builder/names).
 
 </details>
 
 <details>
 
-<summary>What are Worlds?</summary>
+<summary>¿Qué es MANA?</summary>
 
-Worlds are your personal 3D space in the metaverse. The exist separately from the open-world map of Decentraland's Genesis City and are perfect for those looking to experiment with 3D creation or host their own virtual space.
-
-Getting your own World is easy: when you [**claim a Decentraland NAME**](https://decentraland.org/marketplace/names/claim) you not only get a unique username that can be used across Web3, but also 100 Voting Power (used in Decentraland governance), and of course your own World to use as you wish. Learn more [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
+[**MANA**](https://etherscan.io/token/decentraland) es el token de criptomoneda fungible ERC20 de Decentraland. MANA se puede usar para comprar parcelas LAND, NAMEs y otros activos digitales o se puede intercambiar por varios bienes y servicios dentro del ecosistema de Decentraland. Para un resumen actual de estadísticas críticas como el suministro total y circulante, visita el panel de transparencia [**Información del Token MANA**](https://governance.decentraland.org/transparency/).
 
 </details>
 
 <details>
 
-<summary>What is a wallet address?</summary>
+<summary>¿Qué es LAND?</summary>
 
-In Decentraland users truly own their digital assets, such as Wearables or NAMEs, with ownership registered on the blockchain. To enable this, every Decentraland account is linked to a unique digital wallet. If you created your Decentraland account by signing into a social profile such as Google or Discord, a digital wallet was made for your account behind the scenes.
+LAND es un activo digital no fungible mantenido en un contrato inteligente de Ethereum. Las parcelas LAND conforman el mapa de Genesis City de Decentraland y se referencian usando coordenadas x,y únicas. Cada token LAND incluye un registro de sus coordenadas, su propietario y una referencia a un archivo de descripción de contenido o manifiesto de parcela que describe y codifica el contenido que el propietario desea servir en su LAND.
 
-A wallet address is a unique string of characters associated with a digital wallet, similar to a bank account number. With it, others can send you items, such as Wearables. You can find the wallet address associated with your account under your name when you view your profile online or in-world.
+Una parcela de LAND es de 16m x 16m, o 52ft x 52ft. La altura está restringida según las limitaciones de la escena.
+
+</details>
+
+<details>
+
+<summary>¿Qué es un Estate?</summary>
+
+Al igual que LAND, un Estate es un activo digital no fungible. Un Estate es una asociación de dos o más parcelas directamente adyacentes de LAND. Estas parcelas deben ser directamente adyacentes y no pueden estar separadas por una carretera, plaza o cualquier otra parcela. Al conectar parcelas para formar Estates, puedes administrar más fácilmente tus propiedades LAND más grandes. Los Estates son especialmente útiles al construir escenas más grandes que abarcan más de una parcela.
+
+</details>
+
+<details>
+
+<summary>¿Qué son los Worlds?</summary>
+
+Los Worlds son tu espacio 3D personal en el metaverso. Existen separadamente del mapa de mundo abierto de Genesis City de Decentraland y son perfectos para aquellos que buscan experimentar con la creación 3D u organizar su propio espacio virtual.
+
+Obtener tu propio World es fácil: cuando [**reclamas un NAME de Decentraland**](https://decentraland.org/marketplace/names/claim) no solo obtienes un nombre de usuario único que se puede usar en toda la Web3, sino también 100 Poder de Voto (usado en la gobernanza de Decentraland), y por supuesto tu propio World para usar como desees. Aprende más [**aquí**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
+
+</details>
+
+<details>
+
+<summary>¿Qué es una dirección de billetera?</summary>
+
+En Decentraland los usuarios realmente poseen sus activos digitales, como Wearables o NAMEs, con la propiedad registrada en la blockchain. Para habilitar esto, cada cuenta de Decentraland está vinculada a una billetera digital única. Si creaste tu cuenta de Decentraland iniciando sesión en un perfil social como Google o Discord, se creó una billetera digital para tu cuenta detrás de escena.
+
+Una dirección de billetera es una cadena única de caracteres asociada con una billetera digital, similar a un número de cuenta bancaria. Con ella, otros pueden enviarte artículos, como Wearables. Puedes encontrar la dirección de billetera asociada con tu cuenta bajo tu nombre cuando ves tu perfil en línea o en el mundo.
 
 </details>

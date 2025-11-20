@@ -1,52 +1,52 @@
 ---
-description: The DAO is the decision making platform for Decentraland.
+description: El DAO es la plataforma de toma de decisiones para Decentraland.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao/what-is-the-dao
 ---
 
-# What is the DAO
+# Qué es el DAO
 
-The Decentraland DAO is the decision-making tool for MANA, NAMES and LAND holders in Decentraland's virtual world. Through votes in the DAO, the community can issue grants and make changes to the lists of banned names, POIs, and catalyst nodes. The DAO also controls the LAND and Estate smart contracts.
+El DAO de Decentraland es la herramienta de toma de decisiones para los poseedores de MANA, NAMEs y LAND en el mundo virtual de Decentraland. A través de votos en el DAO, la comunidad puede emitir subvenciones y hacer cambios a las listas de nombres prohibidos, POIs y nodos catalyst. El DAO también controla los smart contracts de LAND y Estate.
 
-Issuing grants and making changes to the records and contracts owned by the DAO can only be done by using predefined proposals accessible in [governance.decentraland.org](https://governance.decentraland.org).
+Emitir subvenciones y hacer cambios a los registros y contratos propiedad del DAO solo se puede hacer usando propuestas predefinidas accesibles en [governance.decentraland.org](https://governance.decentraland.org).
 
-These proposals, the votes submitted, and final results are all stored in IPFS via Snapshot, a gas-less voting client. Approved proposals with binding actions are enacted on the Ethereum blockchain by a committee by means of a multi-sig wallet. This committee is overseen by the Security Advisory Board (SAB), another multisig with trusted key holders. This Committee was voted into place by the community in the previous release of the DAO. [The original proposal can be found here](https://forum.decentraland.org/t/proposal-for-a-more-accessible-and-affordable-dao/450).
+Estas propuestas, los votos enviados y los resultados finales se almacenan en IPFS a través de Snapshot, un cliente de votación sin gas. Las propuestas aprobadas con acciones vinculantes son promulgadas en la blockchain de Ethereum por un comité mediante una billetera multi-sig. Este comité es supervisado por la Junta Asesora de Seguridad (SAB), otro multisig con titulares de claves confiables. Este Comité fue votado por la comunidad en la versión anterior del DAO. [La propuesta original se puede encontrar aquí](https://forum.decentraland.org/t/proposal-for-a-more-accessible-and-affordable-dao/450).
 
-The remainder of this document explains in greater detail what the DAO is, how it works, and what it can be used for.
+El resto de este documento explica con mayor detalle qué es el DAO, cómo funciona y para qué se puede usar.
 
-For a detailed tutorial on how to use the Decentraland DAO, visit the [DAO User Guide](../dao-userguide.md).
+Para un tutorial detallado sobre cómo usar el DAO de Decentraland, visita la [Guía de Usuario del DAO](../dao-userguide.md).
 
-## The DAO is powered by smart contracts
+## El DAO está impulsado por smart contracts
 
-All DAOs, or decentralized autonomous organizations, are part of a new approach to organizational management and decision making made possible by Ethereum.
+Todos los DAOs, u organizaciones autónomas descentralizadas, son parte de un nuevo enfoque para la gestión organizacional y toma de decisiones hecho posible por Ethereum.
 
-Ethereum extended what's possible with blockchains by adding the ability to decentralize the handling of data more complex than just records of token ownership. Ethereum did this by allowing people to put smart contracts on a blockchain.
+Ethereum amplió lo que es posible con las blockchains al agregar la capacidad de descentralizar el manejo de datos más complejos que solo registros de propiedad de tokens. Ethereum hizo esto al permitir que las personas pongan smart contracts en una blockchain.
 
-### What's a smart contract?
+### ¿Qué es un smart contract?
 
-A smart contract is a computer program that is run on the Ethereum blockchain. It can store both functions (bits of code that do things) and data (information). Smart contracts are often compared to vending machines. If you put in specific inputs, you get specific outputs. If I walk up to a vending machine, insert $1, and press the "orange soda" button, then I'll get an orange soda if there's any left in the machine. If there's no more orange sodas, I'll get my dollar back.
+Un smart contract es un programa de computadora que se ejecuta en la blockchain de Ethereum. Puede almacenar tanto funciones (bits de código que hacen cosas) como datos (información). Los smart contracts a menudo se comparan con máquinas expendedoras. Si pones entradas específicas, obtienes salidas específicas. Si me acerco a una máquina expendedora, inserto $1 y presiono el botón de "soda naranja", entonces obtendré una soda naranja si queda alguna en la máquina. Si no quedan más sodas naranjas, recuperaré mi dólar.
 
-Smart contracts work the same way, people can interact with them by sending information with the expectation of receiving specific results or information. Just like the vending machine doesn't have a little person inside handing out sodas, smart contracts are automatic (dare we say, autonomous).
+Los smart contracts funcionan de la misma manera, las personas pueden interactuar con ellos enviando información con la expectativa de recibir resultados o información específicos. Al igual que la máquina expendedora no tiene una personita dentro repartiendo sodas, los smart contracts son automáticos (nos atrevemos a decir, autónomos).
 
-If you'd like to learn more about Ethereum smart contracts, the [Ethereum documentation](https://ethereum.org/en/developers/docs/smart-contracts/) is the best place to dive in.
+Si deseas aprender más sobre los smart contracts de Ethereum, la [documentación de Ethereum](https://ethereum.org/en/developers/docs/smart-contracts/) es el mejor lugar para sumergirte.
 
-### The DAO controls Decentraland's critical smart contracts
+### El DAO controla los smart contracts críticos de Decentraland
 
-The second important quality of smart contracts is their **ability to own other smart contracts**.
+La segunda cualidad importante de los smart contracts es su **capacidad de poseer otros smart contracts**.
 
-That's right, every smart contract has its own address (just like the address of your Ethereum wallet) that allows it to own other smart contracts and cryptocurrencies.
+Así es, cada smart contract tiene su propia dirección (al igual que la dirección de tu billetera de Ethereum) que le permite poseer otros smart contracts y criptomonedas.
 
-So, in slightly more technical terms, a DAO is one or more smart contracts that can perform specific, pre-defined tasks and maintain ownership of cryptocurrencies. DAOs are built in such a way that they will only perform their tasks under specific conditions, such as the passing of a proposal voted on by a group of people who own a certain token (like MANA, NAMES or LAND). All of this is done on a blockchain. Hence the name, "decentralized autonomous organization".
+Entonces, en términos un poco más técnicos, un DAO es uno o más smart contracts que pueden realizar tareas específicas predefinidas y mantener la propiedad de criptomonedas. Los DAOs están construidos de tal manera que solo realizarán sus tareas bajo condiciones específicas, como la aprobación de una propuesta votada por un grupo de personas que poseen un cierto token (como MANA, NAMEs o LAND). Todo esto se hace en una blockchain. De ahí el nombre, "organización autónoma descentralizada".
 
-Decentraland's DAO also owns a sum of MANA and other tokens along with the LAND and Estate smart contracts. [This fund](https://governance.decentraland.org/transparency/) has been set aside to help sponsor community grants and to help grow the Decentraland platform according to the decisions and directions voted on by the community.
+El DAO de Decentraland también posee una suma de MANA y otros tokens junto con los smart contracts de LAND y Estate. [Este fondo](https://governance.decentraland.org/transparency/) se ha reservado para ayudar a patrocinar subvenciones comunitarias y ayudar a hacer crecer la plataforma Decentraland de acuerdo con las decisiones y direcciones votadas por la comunidad.
 
 {% hint style="warning" %}
-**📔 Note** The DAO does not own, and so cannot modify, the [MANA smart contract](https://etherscan.io/address/0x0f5d2fb29fb7d3cfee444a200298f468908cc942#readContract).
+**📔 Nota** El DAO no posee, y por lo tanto no puede modificar, el [smart contract de MANA](https://etherscan.io/address/0x0f5d2fb29fb7d3cfee444a200298f468908cc942#readContract).
 
-The MANA contract's owner is the [TokenSale contract](https://etherscan.io/address/0xa66d83716c7cfe425b44d0f7ef92de263468fb3d#readContract). The owner of the TokenSale contract is a separate contract that self-destructed on deployment ([as you can see on Etherscan here](https://etherscan.io/address/0xdf861993edbe95bafbfa7760838f8ebbd5afda9f)). This means that there is no other contract or wallet with the permissions to modify or pause the MANA supply.
+El propietario del contrato MANA es el [contrato TokenSale](https://etherscan.io/address/0xa66d83716c7cfe425b44d0f7ef92de263468fb3d#readContract). El propietario del contrato TokenSale es un contrato separado que se autodestruyó en el despliegue ([como puedes ver en Etherscan aquí](https://etherscan.io/address/0xdf861993edbe95bafbfa7760838f8ebbd5afda9f)). Esto significa que no hay otro contrato o billetera con los permisos para modificar o pausar el suministro de MANA.
 {% endhint %}
 
-There is other information that the DAO controls as well, such as the list of harmful or offensive names that are not permitted in Decentraland, a list of notable locations (POIs or Points of Interest) to be promoted to new users, and the list of community run servers that host Decentraland's virtual world.
+Hay otra información que el DAO controla también, como la lista de nombres dañinos u ofensivos que no están permitidos en Decentraland, una lista de ubicaciones notables (POIs o Puntos de Interés) para ser promovidos a nuevos usuarios, y la lista de servidores administrados por la comunidad que alojan el mundo virtual de Decentraland.
 
-Transferring any of the DAO's MANA, modifying the LAND or Estate smart contracts, or modifying any of the other listed information controlled by the DAO **can only be done** with the approval of MANA, NAMES and LAND holders.
+Transferir cualquiera de los MANA del DAO, modificar los smart contracts de LAND o Estate, o modificar cualquiera de la otra información listada controlada por el DAO **solo se puede hacer** con la aprobación de los poseedores de MANA, NAMEs y LAND.

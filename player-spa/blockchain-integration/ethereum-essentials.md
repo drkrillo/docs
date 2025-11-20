@@ -1,151 +1,149 @@
 ---
-description: How Decentraland uses the Ethereum blockchain.
+description: Cómo Decentraland usa la blockchain de Ethereum.
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/blockchain-integration/ethereum-essentials
 ---
 
-# About the Blockchain
+# Acerca del Blockchain
 
-All blockchains are in essence decentralized databases that are distributed among the machines of a network. Transactions are grouped into "blocks" and processed sequentially to form a _chain_ of events.
+Todas las blockchains son en esencia bases de datos descentralizadas que se distribuyen entre las máquinas de una red. Las transacciones se agrupan en "bloques" y se procesan secuencialmente para formar una _cadena_ de eventos.
 
-Ethereum is one of the most popular blockchains. What sets it apart from others, such as Bitcoin, is that it uses the blockchain as storage for more than just a record of currency transactions. Ethereum can store more complex information to distinguish different kinds of tokens or even handle unique tokens with specific characteristics. The Ethereum blockchain also runs smart contracts, these allow to execute more complex transactions that can also depend on agreed upon events.
+Ethereum es una de las blockchains más populares. Lo que la distingue de otras, como Bitcoin, es que usa la blockchain como almacenamiento para más que solo un registro de transacciones de moneda. Ethereum puede almacenar información más compleja para distinguir diferentes tipos de tokens o incluso manejar tokens únicos con características específicas. La blockchain de Ethereum también ejecuta smart contracts, estos permiten ejecutar transacciones más complejas que también pueden depender de eventos acordados.
 
-Decentraland uses the Ethereum blockchain to record the ownership of the digital assets, and other tradable items that can be read and reacted to by a 3D scene.
+Decentraland usa la blockchain de Ethereum para registrar la propiedad de los activos digitales y otros artículos comerciables que pueden ser leídos y reaccionados por una escena 3D.
 
-The blockchain isn't used to store the scene state, player position or anything that needs to change in real time as a player interacts with a scene, all of that is either stored locally on each player's machine, or on a private server owned by the scene owner. The developers of each scene must choose what information is worth storing on the blockchain, and what to store in a private server.
+La blockchain no se usa para almacenar el estado de la escena, la posición del jugador o cualquier cosa que necesite cambiar en tiempo real cuando un jugador interactúa con una escena, todo eso se almacena localmente en la máquina de cada jugador o en un servidor privado propiedad del dueño de la escena. Los desarrolladores de cada escena deben elegir qué información vale la pena almacenar en la blockchain y qué almacenar en un servidor privado.
 
-## Wallets
+## Billeteras
 
-Ethereum tokens are held by wallets. An Ethereum wallet can hold various tokens, including Ether, MANA, LAND, and other tokens that may be used by games or experiences in Decentraland.
+Los tokens de Ethereum se mantienen en billeteras. Una billetera de Ethereum puede contener varios tokens, incluyendo Ether, MANA, LAND y otros tokens que pueden ser usados por juegos o experiencias en Decentraland.
 
-There are many wallet providers where you can hold Decentraland tokens. To use the Marketplace, or to enter Decentraland, you must use a wallet that is integrated to your web browser, so we recommend that you use:
+Hay muchos proveedores de billeteras donde puedes mantener tokens de Decentraland. Para usar el Marketplace, o para entrar a Decentraland, debes usar una billetera que esté integrada a tu navegador web, por lo que recomendamos que uses:
 
 * [Metamask](https://metamask.io/)
-* [Trezor](https://trezor.io/)/[Ledger](https://www.ledger.com/) hardware wallets
+* Billeteras de hardware [Trezor](https://trezor.io/)/[Ledger](https://www.ledger.com/)
 
-Every wallet has a public and a private key. The hash of your public key is your wallet's unique address, used to route transactions and identify a player. Your private key is used by your wallet to sign each transaction that you send to the network and certify that it was truly sent by you. Your private key is also used to restore your wallet in case you forget your password, so keep it in a safe place and don't share it with anyone.
+Cada billetera tiene una clave pública y una privada. El hash de tu clave pública es la dirección única de tu billetera, utilizada para enrutar transacciones e identificar a un jugador. Tu clave privada es utilizada por tu billetera para firmar cada transacción que envías a la red y certificar que realmente fue enviada por ti. Tu clave privada también se usa para restaurar tu billetera en caso de que olvides tu contraseña, así que guárdala en un lugar seguro y no la compartas con nadie.
 
-In Decentraland, player identities are built around wallets. Since wallet public keys are unique, your scene can use them to identify a Decentraland user in a persistent way. Wallets can also hold different tokens that can give a player a unique avatar, a wearable item, permissions to enter scenes that choose to restrict access, a special weapon to use in a game, etc.
+En Decentraland, las identidades de los jugadores se construyen alrededor de las billeteras. Como las claves públicas de las billeteras son únicas, tu escena puede usarlas para identificar a un usuario de Decentraland de manera persistente. Las billeteras también pueden contener diferentes tokens que pueden darle a un jugador un avatar único, un artículo wearable, permisos para entrar a escenas que eligen restringir el acceso, un arma especial para usar en un juego, etc.
 
-## Transactions
+## Transacciones
 
-Transactions make changes to the information that's stored in the blockchain. Typical transactions involve tokens changing owners, for example user A giving his LAND token to user B in exchange for an amount of MANA tokens. In the Ethereum network, however, a transaction can also mean changing the information that's stored about a token without changing its owner. For example, changing the description of a parcel, or merging several parcels into an Estate.
+Las transacciones hacen cambios a la información que está almacenada en la blockchain. Las transacciones típicas involucran tokens cambiando de propietarios, por ejemplo, el usuario A dando su token LAND al usuario B a cambio de una cantidad de tokens MANA. En la red de Ethereum, sin embargo, una transacción también puede significar cambiar la información que está almacenada sobre un token sin cambiar su propietario. Por ejemplo, cambiar la descripción de una parcela, o fusionar varias parcelas en un Estate.
 
-All transactions that occur in Ethereum's main chain have a cost that is paid in Ether tokens. This fee is referred to as the 'gas' fee, and it's paid to the network user that 'mines' the transaction.
+Todas las transacciones que ocurren en la cadena principal de Ethereum tienen un costo que se paga en tokens Ether. Esta tarifa se refiere como la tarifa de 'gas', y se paga al usuario de la red que 'mina' la transacción.
 
-When you request a transaction to take place, you set the gas price that you're willing to pay for the transaction to be mined. Transactions that offer higher prices get mined faster, since miners give these priority. Market prices for these transactions oscillate regularly, they tend to be more expensive when there is a higher usage of the network. Make sure that what you offer isn't below the market price, otherwise your transaction could remain in an unprocessed pool indefinitely.
+Cuando solicitas que una transacción tenga lugar, estableces el precio de gas que estás dispuesto a pagar para que la transacción sea minada. Las transacciones que ofrecen precios más altos se minan más rápido, ya que los mineros dan prioridad a estas. Los precios de mercado para estas transacciones oscilan regularmente, tienden a ser más caros cuando hay un mayor uso de la red. Asegúrate de que lo que ofreces no esté por debajo del precio de mercado, de lo contrario tu transacción podría permanecer en un pool sin procesar indefinidamente.
 
-All transactions must be signed by an Ethereum address, using the addresse's private key. This is what certifies that the transaction was carried out by that address.
+Todas las transacciones deben ser firmadas por una dirección de Ethereum, usando la clave privada de la dirección. Esto es lo que certifica que la transacción fue llevada a cabo por esa dirección.
 
-#### Transaction validation
+#### Validación de transacciones
 
-Blockchain transactions aren't immediate, they require time to be "mined" by one of the nodes in the network, and then to be propagated throughout the rest of the machines. The more transactions that are being requested by the network, the more time they take to be validated.
+Las transacciones de blockchain no son inmediatas, requieren tiempo para ser "minadas" por uno de los nodos en la red, y luego ser propagadas a través del resto de las máquinas. Cuantas más transacciones sean solicitadas por la red, más tiempo tardan en ser validadas.
 
-In brief terms, this is how a transaction is validated:
+En términos breves, así es como se valida una transacción:
 
-1. A new transaction occurs, it goes into a pool of unconfirmed transactions.
-2. One of the machines in the network successfully solves an algorithm to mine a new "block" containing a handful of transactions from this pool, including this one. It attaches this new block to the end of the chain.
-3. The block is shared with other machines of the network. Each machine verifies that each transaction in a block is valid and checks the block's hash to ensure it's legitimate, then it adds it to its own version of the chain.
-4. The new block is propagated throughout the whole network. There's a universally shared understanding that this transaction has taken place.
+1. Ocurre una nueva transacción, va a un pool de transacciones no confirmadas.
+2. Una de las máquinas en la red resuelve con éxito un algoritmo para minar un nuevo "bloque" que contiene un puñado de transacciones de este pool, incluida esta. Adjunta este nuevo bloque al final de la cadena.
+3. El bloque se comparte con otras máquinas de la red. Cada máquina verifica que cada transacción en un bloque sea válida y verifica el hash del bloque para asegurar que sea legítimo, luego lo agrega a su propia versión de la cadena.
+4. El nuevo bloque se propaga por toda la red. Hay un entendimiento compartido universalmente de que esta transacción ha tenido lugar.
 
 #### Sidechains
 
-Decentraland is partnering with [Matic](https://matic.network/) to create a _sidechain_ (a special kind of blockchain) that will be able to handle transactions faster and cheaper than the main Ethereum network. This sidechain will be ideal for in-game transactions, as changes can occur closer to real time and at a very low cost. For transactions that involve valuable items, we'll still recommend the main Ethereum chain, as it will be more secure.
+Decentraland se está asociando con [Matic](https://matic.network/) para crear una _sidechain_ (un tipo especial de blockchain) que podrá manejar transacciones más rápido y más barato que la red principal de Ethereum. Esta sidechain será ideal para transacciones dentro del juego, ya que los cambios pueden ocurrir más cerca del tiempo real y a un costo muy bajo. Para transacciones que involucren artículos valiosos, todavía recomendaremos la cadena principal de Ethereum, ya que será más segura.
 
-Each developer working on a scene will be able to choose whether to use the mainchain, the sidechain or a combination of both for different transactions.
+Cada desarrollador que trabaje en una escena podrá elegir si usar la cadena principal, la sidechain o una combinación de ambas para diferentes transacciones.
 
-The sidechain will be kept interoperable with the Ethereum's mainchain. You'll be able to load tokens from the main chain into the side chain and vice versa. Transactions that take place in the sidechain are eventually reflected in the mainchain when the tokens "exit" back into the mainchain.
+La sidechain se mantendrá interoperable con la cadena principal de Ethereum. Podrás cargar tokens de la cadena principal a la sidechain y viceversa. Las transacciones que tienen lugar en la sidechain eventualmente se reflejan en la cadena principal cuando los tokens "salen" de vuelta a la cadena principal.
 
-#### Trigger transactions from a scene
+#### Activar transacciones desde una escena
 
-Your scene's code can trigger transactions, both on the Ethereum mainchain and on Decentraland's sidechain. You could have a store in your scene that sells tokens (like NFTs), or have a game that rewards game items to players that achieve certain goals.
+El código de tu escena puede activar transacciones, tanto en la cadena principal de Ethereum como en la sidechain de Decentraland. Podrías tener una tienda en tu escena que venda tokens (como NFTs), o tener un juego que recompense artículos del juego a los jugadores que logren ciertos objetivos.
 
-The user must always approve these transactions explicitly on their Ethereum client. For example, when using Metamask, Metamask prompts the user to accept each transaction before it's processed.
+El usuario siempre debe aprobar estas transacciones explícitamente en su cliente de Ethereum. Por ejemplo, cuando se usa Metamask, Metamask solicita al usuario que acepte cada transacción antes de que se procese.
 
-## Types of tokens
+## Tipos de tokens
 
-Different types of tokens can be handled in the Ethereum network. A few standards have emerged that group tokens that share the same characteristics.
+Diferentes tipos de tokens pueden ser manejados en la red de Ethereum. Algunos estándares han surgido que agrupan tokens que comparten las mismas características.
 
-In Decentraland, you can use tokens to represent items that relate to your game or experience, such as a weapon or a trophy. As tokens are held in a player's wallet, they accompany a player from scene to scene, so each scene can choose if and how they want to react to every existing kind of token.
+En Decentraland, puedes usar tokens para representar artículos que se relacionen con tu juego o experiencia, como un arma o un trofeo. Como los tokens se mantienen en la billetera de un jugador, acompañan a un jugador de escena en escena, por lo que cada escena puede elegir si y cómo quieren reaccionar a cada tipo existente de token.
 
-Read [What are NFTs](https://decentraland.org/blog/technology/what-are-nfts/) on our blog for a more in-depth look at the emergence and evolution of non-fungible tokens.
+Lee [Qué son los NFTs](https://decentraland.org/blog/technology/what-are-nfts/) en nuestro blog para una mirada más profunda del surgimiento y evolución de los tokens no fungibles.
 
-#### Fungible tokens
+#### Tokens Fungibles
 
-If an item is fungible, then it can be substituted or exchanged for any similar item. Fiat currencies, like the US dollar, are fungible. One dollar bill can be exchanged for any other dollar bill.
+Si un artículo es fungible, entonces puede ser sustituido o intercambiado por cualquier artículo similar. Las monedas fiat, como el dólar estadounidense, son fungibles. Un billete de dólar puede ser intercambiado por cualquier otro billete de dólar.
 
-Cryptocurrency tokens like Bitcoin, Ethereum, and MANA are all fungible because one token unit can be exchanged for any other token unit.
+Los tokens de criptomoneda como Bitcoin, Ethereum y MANA son todos fungibles porque una unidad de token puede ser intercambiada por cualquier otra unidad de token.
 
-You could also create custom fungible tokens to use in Decentraland scenes and use them to depict items that are all equal and have no distinctive or customizable properties between them. You could, for example, create a game that revolves around collecting a large quantity of identical items, and represent these through a fungible token . You could also use a fungible token to represent a golden ticket that gives players who hold it access to a specific region or service.
+También podrías crear tokens fungibles personalizados para usar en escenas de Decentraland y usarlos para representar artículos que sean todos iguales y no tengan propiedades distintivas o personalizables entre ellos. Podrías, por ejemplo, crear un juego que gire en torno a recolectar una gran cantidad de artículos idénticos y representarlos a través de un token fungible. También podrías usar un token fungible para representar un boleto dorado que le da a los jugadores que lo poseen acceso a una región o servicio específico.
 
-_ERC20_ is the most accepted standard for fungible tokens in the Ethereum Network. MANA is built upon this standard.
+_ERC20_ es el estándar más aceptado para tokens fungibles en la Red de Ethereum. MANA está construido sobre este estándar.
 
-#### Non-Fungible tokens
+#### Tokens No Fungibles
 
-Non-fungible tokens (or NFTs) have characteristics that make each unit objectively different from others. Parcels of LAND in Decentraland are NFTs, as the location of each parcel is unique. The adjacency to other parcels, roads, or districts make these locations relevant to token owners.
+Los tokens no fungibles (o NFTs) tienen características que hacen que cada unidad sea objetivamente diferente de otras. Las parcelas de LAND en Decentraland son NFTs, ya que la ubicación de cada parcela es única. La adyacencia a otras parcelas, carreteras o distritos hace que estas ubicaciones sean relevantes para los propietarios de tokens.
 
-In Decentraland, you can use NFTs to represent in-game items such as avatars, wearables, weapons, and other inventory items. You could, for example, use a single type of NFT to represent all weapons in your game, and differentiate them by setting different properties in these NFT.
+En Decentraland, puedes usar NFTs para representar artículos del juego como avatares, wearables, armas y otros artículos del inventario. Podrías, por ejemplo, usar un solo tipo de NFT para representar todas las armas en tu juego y diferenciarlas estableciendo diferentes propiedades en estos NFT.
 
-NFTs can be used to provide provably scarce digital goods. Because of the legitimate scarcity made possible by the blockchain, buyers can rest assured that the art they purchase is, in fact, rare. This gives digital art real value that we've never seen before.
+Los NFTs se pueden usar para proporcionar bienes digitales demostrablemente escasos. Debido a la escasez legítima posible gracias a la blockchain, los compradores pueden estar seguros de que el arte que compran es, de hecho, raro. Esto le da al arte digital un valor real que nunca antes habíamos visto.
 
-Game items will have a history that's stored in the blockchain. This history could deem an item more valuable, for example if it was used to accomplish great achievements or used by someone who's admired.
+Los artículos del juego tendrán una historia que se almacena en la blockchain. Esta historia podría considerar un artículo más valioso, por ejemplo, si se usó para lograr grandes logros o fue usado por alguien que es admirado.
 
-Depending on the contract describing the token, each NFT could either be immutable, or you could allow players to customize and change certain characteristics about them if they choose to.
+Dependiendo del contrato que describe el token, cada NFT podría ser inmutable, o podrías permitir a los jugadores personalizar y cambiar ciertas características sobre ellos si así lo eligen.
 
-_ERC721_ is the most accepted standard for non-fungible tokens in the Ethereum Network. LAND tokens follow the ERC721 standard.
+_ERC721_ es el estándar más aceptado para tokens no fungibles en la Red de Ethereum. Los tokens LAND siguen el estándar ERC721.
 
 ## Smart Contracts
 
-A contract consists of a both code (its methods) and data (its state) that resides at a specific address on the Ethereum blockchain.
+Un contrato consiste tanto en código (sus métodos) como en datos (su estado) que reside en una dirección específica en la blockchain de Ethereum.
 
-The methods in a contract are always called via a transaction that has the _to_ field set to the contract's address. The code that's executed by the contract's method can include calls to other contracts, these trigger more transactions that have the _from_ field set to the contract's address.
+Los métodos en un contrato siempre se llaman a través de una transacción que tiene el campo _to_ establecido en la dirección del contrato. El código que ejecuta el método del contrato puede incluir llamadas a otros contratos, estas activan más transacciones que tienen el campo _from_ establecido en la dirección del contrato.
 
-A contract can't trigger any actions on its own or based on a time event. All actions performed by a smart contract always arise from a transaction that calls one of the contract's functions.
+Un contrato no puede activar ninguna acción por sí solo o basado en un evento de tiempo. Todas las acciones realizadas por un smart contract siempre surgen de una transacción que llama a una de las funciones del contrato.
 
-You can use smart contracts to condition transactions based on custom conditions. For example, players could stake a bet on the outcome of a game, and the corresponding payments would occur as soon as the outcome of the game is informed to the contract.
+Puedes usar smart contracts para condicionar transacciones basadas en condiciones personalizadas. Por ejemplo, los jugadores podrían apostar en el resultado de un juego, y los pagos correspondientes ocurrirían tan pronto como el resultado del juego se informe al contrato.
 
-The entire code for a smart contract is public to whoever wants to read it. This allows developers to create publicly verifiable rules.
+Todo el código de un smart contract es público para quien quiera leerlo. Esto permite a los desarrolladores crear reglas públicamente verificables.
 
-All Tokens are defined by a smart contract that specifies its characteristics and what can be done with it. Decentraland has written and maintains a number of smart contracts. LAND and MANA tokens themselves are defined by the _LANDregistry_ and _MANAtoken_ contracts respectively.
+Todos los Tokens están definidos por un smart contract que especifica sus características y qué se puede hacer con él. Decentraland ha escrito y mantiene varios smart contracts. Los tokens LAND y MANA están definidos por los contratos _LANDregistry_ y _MANAtoken_ respectivamente.
 
-You can find the address of every contract created by Decentraland in [Decentraland smart contracts](https://contracts.decentraland.org/addresses.json).
+Puedes encontrar la dirección de cada contrato creado por Decentraland en [Contratos inteligentes de Decentraland](https://contracts.decentraland.org/addresses.json).
 
-You can read the full code of each of those contracts, as it's public information on the blockchain. You can find the contract by name on [Etherscan](https://etherscan.io/contractsVerified) and read its content there.
+Puedes leer el código completo de cada uno de esos contratos, ya que es información pública en la blockchain. Puedes encontrar el contrato por nombre en [Etherscan](https://etherscan.io/contractsVerified) y leer su contenido allí.
 
 ## dApps
 
-_dApps_ (decentralized applications) are applications that are built upon smart contracts and the blockchain.
+Las _dApps_ (aplicaciones descentralizadas) son aplicaciones que se construyen sobre smart contracts y la blockchain.
 
-A dApp can be as simple as something that validates that your wallet holds a certain token and lets you use a service. Or it can be a fully fledged application with its own UI, such as the Decentraland Marketplace.
+Una dApp puede ser tan simple como algo que valida que tu billetera posee un cierto token y te permite usar un servicio. O puede ser una aplicación completamente desarrollada con su propia interfaz de usuario, como el Marketplace de Decentraland.
 
-## Sepolia test network
+## Red de prueba Sepolia
 
-Before you deploy a smart contract, create a new type of token, or a Decentraland scene that relies on transactions on the Ethereum network, you need to make sure that it has no bugs or gaps that malicious users could exploit.
+Antes de desplegar un smart contract, crear un nuevo tipo de token o una escena de Decentraland que dependa de transacciones en la red de Ethereum, necesitas asegurarte de que no tenga errores o brechas que usuarios maliciosos puedan explotar.
 
-The Sepolia test network is an alternative version of Ethereum that's specifically made for running tests.
+La red de prueba Sepolia es una versión alternativa de Ethereum que está específicamente hecha para ejecutar pruebas.
 
-Tokens in the Sepolia network have no real value, so you can afford to make mistakes without running any real risk. You can replenish any lost tokens for free by using a faucet:
+Los tokens en la red Sepolia no tienen valor real, por lo que puedes permitirte cometer errores sin correr ningún riesgo real. Puedes reponer cualquier token perdido gratis usando un faucet:
 
-* Sepolia Ether faucet ([https://www.alchemy.com/faucets/ethereum-sepolia/](https://www.alchemy.com/faucets/ethereum-sepolia/))
+* Faucet de Ether Sepolia ([https://www.alchemy.com/faucets/ethereum-sepolia/](https://www.alchemy.com/faucets/ethereum-sepolia/))
 
-If you're developing a scene that triggers transactions, testing these transactions in the Sepolia network is free, as the tokens you send don't have a value. In mainnet you would otherwise have to pay at the very least a real gas fee in Ether for each test transaction you carry out.
+Si estás desarrollando una escena que activa transacciones, probar estas transacciones en la red Sepolia es gratis, ya que los tokens que envías no tienen valor. En la red principal de lo contrario tendrías que pagar como mínimo una tarifa de gas real en Ether por cada transacción de prueba que realices.
 
-Once you're confident that your code works as expected and can't be exploited, you can deploy to the Ethereum mainnet.
+Una vez que estés seguro de que tu código funciona como se espera y no puede ser explotado, puedes desplegar en la red principal de Ethereum.
 
-## Blockchain reorgs
+## Reorgs de blockchain
 
-Occasionally, multiple machines will create alternative new blocks at roughly the same time. This is a problem, because this forks the chain into two diverging versions that could potentially contradict each other. When a fork occurs, Ethereum solves this by always giving priority to the longest chain and discarding any shorter chains. Even though it's possible for two rivaling chains to exist at the same time, soon one of the two chains will add another block and outgrow the other. Due to the time it takes to solve the mining algorithms, it becomes increasingly difficult for rivaling chains to keep growing in perfect sync with each other. Sooner or later one will prevail over the other.
+Ocasionalmente, múltiples máquinas crearán bloques nuevos alternativos aproximadamente al mismo tiempo. Esto es un problema, porque esto bifurca la cadena en dos versiones divergentes que potencialmente podrían contradecirse entre sí. Cuando ocurre una bifurcación, Ethereum resuelve esto siempre dando prioridad a la cadena más larga y descartando cualquier cadena más corta. Aunque es posible que dos cadenas rivales existan al mismo tiempo, pronto una de las dos cadenas agregará otro bloque y superará a la otra. Debido al tiempo que toma resolver los algoritmos de minería, se vuelve cada vez más difícil para las cadenas rivales seguir creciendo en perfecta sincronía entre sí. Tarde o temprano una prevalecerá sobre la otra.
 
-When one chain outgrows the other and the dispute is resolved, machines that had adopted the shorter chain need to make adjustments. This is what's known as a "reorg". They need to roll back on all of the transactions included in the blocks from the branch they're in until they reach the point at which the fork occurred. Then they need to add the new blocks from the longer branch that's considered legitimate.
+Cuando una cadena supera a la otra y se resuelve la disputa, las máquinas que habían adoptado la cadena más corta necesitan hacer ajustes. Esto es lo que se conoce como una "reorg". Necesitan retroceder en todas las transacciones incluidas en los bloques de la rama en la que están hasta que lleguen al punto en el que ocurrió la bifurcación. Luego necesitan agregar los nuevos bloques de la rama más larga que se considera legítima.
 
-Rolled back transactions may return to the pool of pending transactions until they're picked up again by a miner (or are discarded). Any gas fees paid for these transactions are also rolled back.
+Las transacciones retrocedidas pueden volver al pool de transacciones pendientes hasta que sean recogidas nuevamente por un minero (o sean descartadas). Cualquier tarifa de gas pagada por estas transacciones también se retrocede.
 
-Blocks that were just added to the end of a chain have a substantial chance of being rolled back because of the mechanisms explained above. As subsequent blocks are added to the end of the chain, it becomes less and less likely that the blocks that are further back in the blockchain could be rolled back, because that would require a larger reorg. Due to this, each new block that's added to the end of the chain after a transaction is called a confirmation for that transaction.
+Los bloques que se acaban de agregar al final de una cadena tienen una posibilidad sustancial de ser retrocedidos debido a los mecanismos explicados anteriormente. A medida que se agregan bloques subsiguientes al final de la cadena, se vuelve menos y menos probable que los bloques que están más atrás en la blockchain puedan ser retrocedidos, porque eso requeriría una reorg más grande. Debido a esto, cada nuevo bloque que se agrega al final de la cadena después de una transacción se llama una confirmación para esa transacción.
 
-When creating applications (or scenes) that use information from off the blockchain, you should be aware of the occurrence of reorgs. You might want to only consider transactions as verified when a certain number of confirmations have occurred, and the transaction is no longer at the very end of the chain.
+Al crear aplicaciones (o escenas) que usan información fuera de la blockchain, debes ser consciente de la ocurrencia de reorgs. Es posible que desees considerar las transacciones como verificadas solo cuando haya ocurrido un cierto número de confirmaciones, y la transacción ya no esté al final de la cadena.
 
-Using several confirmations will make the information very stable, but transactions will take a long time to be reflected.
-
-Using few confirmations, changes will be reflected faster, but there will sometimes be hiccups that appear to undo transactions when reorgs occur. If these transactions have off-chain consequences in your scene, then you might need to somehow reverse these consequences as well.
+Usar varias confirmaciones hará que la información sea muy estable, pero las transacciones tardarán mucho tiempo en reflejarse.

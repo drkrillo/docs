@@ -1,38 +1,38 @@
 ---
-description: Shortcuts & Chat Commands in Decentraland
+description: Atajos y Comandos de Chat en Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/shortcuts-and-chat-commands
 ---
 
-# Shortcuts & Chat Commands
+# Atajos y Comandos de Chat
 
-![](broken-reference)
+![](broken-reference)
 
-## Keyboard Shortcuts
+## Atajos de Teclado
 
-In addition to using the WASD or arrow keys to move your avatar around Decentraland, your keyboard can do a lot more for you when you're in-world. All the keyboard shortcuts are shown above. You can pull up this graphic in-world whenever you need it, just click the keyboard icon in the sidebar menu.
+Además de usar las teclas WASD o de flechas para mover tu avatar por Decentraland, tu teclado puede hacer mucho más por ti cuando estás en el mundo. Todos los atajos de teclado se muestran arriba. Puedes ver este gráfico en el mundo cuando lo necesites, solo haz clic en el ícono del teclado en el menú de la barra lateral.
 
-**Remember these shortcuts:**
+**Recuerda estos atajos:**
 
-* \[**B**]: Open Emote Wheel
-* \[**Shift**]: Run while moving
-* \[**C**]: Open Camera
-* \[**K**]: Open Photo Gallery
-* \[**U**]: Show/Hide UI
-* \[**N**]: Show/Hide nametags
+* \[**B**]: Abrir Rueda de Emotes
+* \[**Shift**]: Correr mientras te mueves
+* \[**C**]: Abrir Cámara
+* \[**K**]: Abrir Galería de Fotos
+* \[**U**]: Mostrar/Ocultar IU
+* \[**N**]: Mostrar/Ocultar etiquetas de nombres
 
-## Chat Commands
+## Comandos de Chat
 
-When you're in-world, you can always see a chat bar in the lower left corner of your screen. This is where you can access chats with your friends, as well as the **Nearby Chat**. Identifiable by the Decentraland icon, Nearby Chat is where you can chat freely with people around you in-world, even if you aren't friends. The Nearby Chat can also be used for entering Chat commands that only you will see.
+Cuando estás en el mundo, siempre puedes ver una barra de chat en la esquina inferior izquierda de tu pantalla. Aquí es donde puedes acceder a chats con tus amigos, así como al **Chat Cercano**. Identificable por el ícono de Decentraland, el Chat Cercano es donde puedes chatear libremente con personas a tu alrededor en el mundo, incluso si no son amigos. El Chat Cercano también se puede usar para ingresar comandos de Chat que solo tú verás.
 
-Chat commands are specific strings of text used to trigger actions, such as teleporting or reloading. To use one, type the command in the Nearby Chat, and hit \[**Enter**].
+Los comandos de chat son cadenas específicas de texto utilizadas para activar acciones, como teletransportarse o recargar. Para usar uno, escribe el comando en el Chat Cercano y presiona \[**Enter**].
 
-* **Teleporting around Genesis City** `/goto x,y` (e.g. `/goto 0,0` for Genesis Plaza)
-* **Visiting Worlds** `/goto World'sName` (e.g. `/goto officehours`)
-* **Reloading a Scene** `/reload`
-* **Open Debug Mode (shows FPS and other metrics)** `/debug`
-* **Discover More Chat Commands** `/help`
+* **Teletransportarse por Genesis City** `/goto x,y` (por ejemplo, `/goto 0,0` para Genesis Plaza)
+* **Visitar Worlds** `/goto NombreDelWorld` (por ejemplo, `/goto officehours`)
+* **Recargar una Escena** `/reload`
+* **Abrir Modo Debug (muestra FPS y otras métricas)** `/debug`
+* **Descubrir Más Comandos de Chat** `/help`
 
-![](broken-reference)
+![](broken-reference)

@@ -1,86 +1,86 @@
 ---
-description: Welcome to Decentraland Player Documentation
+description: Bienvenido a la Documentación para Jugadores de Decentraland
 icon: hand-wave
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/
 ---
 
-# Welcome Player
+# Bienvenido Jugador
 
-Welcome to the Decentraland Player Documentation! This guide will help you navigate, explore, and make the most of your experience in Decentraland's vibrant virtual world.
+¡Bienvenido a la Documentación para Jugadores de Decentraland! Esta guía te ayudará a navegar, explorar y aprovechar al máximo tu experiencia en el vibrante mundo virtual de Decentraland.
 
-## What You'll Find Here
+## Lo que encontrarás aquí
 
-This documentation covers everything you need to know as a Decentraland player:
+Esta documentación cubre todo lo que necesitas saber como jugador de Decentraland:
 
-### 🌟 Introduction
+### 🌟 Introducción
 
-Learn about Decentraland and its history
+Aprende sobre Decentraland y su historia
 
-* [About Decentraland](introduction/about-decentraland.md) - Discover what makes this virtual world special
-* [Whitepapers](introduction/whitepaper.md) - Read the vision and technical foundation
+* [Acerca de Decentraland](introduction/about-decentraland.md) - Descubre qué hace especial a este mundo virtual
+* [Whitepapers](introduction/whitepaper.md) - Lee la visión y fundamentos técnicos
 
-### ❓ FAQs
+### ❓ Preguntas Frecuentes
 
-Find answers to common questions about:
+Encuentra respuestas a preguntas comunes sobre:
 
-* Getting started with Decentraland
-* Creating content and monetizing your work
-* Account management and security
-* Events, Places, and support
+* Primeros pasos en Decentraland
+* Crear contenido y monetizar tu trabajo
+* Gestión de cuenta y seguridad
+* Eventos, Lugares y soporte
 
-### 🔗 Blockchain Integration
+### 🔗 Integración con Blockchain
 
-Understand how Decentraland uses blockchain technology:
+Comprende cómo Decentraland usa la tecnología blockchain:
 
-* Setting up your wallet
-* Understanding Ethereum and smart contracts
-* Managing transactions in Polygon
+* Configurar tu billetera
+* Entender Ethereum y contratos inteligentes
+* Gestionar transacciones en Polygon
 
-### 🏛️ DAO (Decentralized Autonomous Organization)
+### 🏛️ DAO (Organización Autónoma Descentralizada)
 
-Learn how the community governs Decentraland:
+Aprende cómo la comunidad gobierna Decentraland:
 
-* How to participate in the DAO
-* Understanding voting power
-* Creating and voting on proposals
-* The DAO's structure and limitations
+* Cómo participar en el DAO
+* Entender el poder de voto
+* Crear y votar propuestas
+* La estructura y limitaciones del DAO
 
-### 🎮 In-World Experience
+### 🎮 Experiencia en el Mundo
 
-Master your Decentraland experience:
+Domina tu experiencia en Decentraland:
 
-* Exploring Genesis City and Worlds
-* Customizing your avatar
-* Making friends and chatting
-* Finding and attending events
-* Earning rewards
-* Settings and performance optimization
+* Explorar Genesis City y los Worlds
+* Personalizar tu avatar
+* Hacer amigos y chatear
+* Encontrar y asistir a eventos
+* Ganar recompensas
+* Optimización de configuración y rendimiento
 
 ### 🛍️ Marketplace
 
-Trade and manage your Decentraland assets:
+Comercia y gestiona tus activos de Decentraland:
 
-* Buying and selling LAND, Wearables, and Emotes
-* Managing your LAND parcels and Estates
-* Renting LAND
+* Comprar y vender LAND, Wearables y Emotes
+* Gestionar tus parcelas LAND y Estates
+* Alquilar LAND
 
-## Quick Links
+## Enlaces Rápidos
 
-* [Download Decentraland](https://decentraland.org/download)
-* [Visit the Marketplace](https://decentraland.org/marketplace)
-* [Join the DAO](https://decentraland.org/dao)
-* [Explore Events](https://events.decentraland.org/)
-* [Get Support](https://decentraland.org/help)
+* [Descargar Decentraland](https://decentraland.org/download)
+* [Visitar el Marketplace](https://decentraland.org/marketplace)
+* [Únete al DAO](https://decentraland.org/dao)
+* [Explorar Eventos](https://events.decentraland.org/)
+* [Obtener Soporte](https://decentraland.org/help)
 
-## Community
+## Comunidad
 
-* [Discord](https://dcl.gg/discord) - Join the conversation
-* [Forum](https://forum.decentraland.org/) - Discuss proposals and ideas
-* [Twitter](https://twitter.com/decentraland) - Stay updated with news
-* [Newsletter](https://decentraland.beehiiv.com/subscribe) - Weekly updates
+* [Discord](https://dcl.gg/discord) - Únete a la conversación
+* [Foro](https://forum.decentraland.org/) - Discute propuestas e ideas
+* [Twitter](https://twitter.com/decentraland) - Mantente actualizado con las noticias
+* [Newsletter](https://decentraland.beehiiv.com/subscribe) - Actualizaciones semanales
 
 ***
 
-Ready to explore? Start with [About Decentraland](introduction/about-decentraland.md) or jump straight to [Getting Started](faqs/decentraland-101.md)!
+¿Listo para explorar? ¡Comienza con [Acerca de Decentraland](introduction/about-decentraland.md) o ve directo a [Primeros Pasos](faqs/decentraland-101.md)!

@@ -1,46 +1,43 @@
 ---
-description: Account settings
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/my-account
+description: Configuración de cuenta
 ---
 
-# My Account
+# Mi Cuenta
 
 <details>
 
-<summary>How do I assign a NAME to my avatar?</summary>
+<summary>¿Cómo asigno un NAME a mi avatar?</summary>
 
-Congratulations! You've claimed your unique NAME. All NAME management takes place at [decentraland.org/builder/names](https://decentraland.org/builder/names). There, you'll see the NAME you've just acquired and can assign it to your avatar.
+¡Felicitaciones! Has reclamado tu NAME único. Toda la gestión de NAMEs tiene lugar en [decentraland.org/builder/names](https://decentraland.org/builder/names). Allí, verás el NAME que acabas de adquirir y podrás asignarlo a tu avatar.
 
 </details>
 
 <details>
 
-<summary>Where can I find my wallet address?</summary>
+<summary>¿Dónde puedo encontrar mi dirección de billetera?</summary>
 
-You can easily copy the wallet address associated with your Decentraland account in-world or from decentraland.org.
+Puedes copiar fácilmente la dirección de billetera asociada con tu cuenta de Decentraland en el mundo o desde decentraland.org.
 
-In-world, click on your profile picture in the top left, and your wallet address will be under your avatar's name. Online, make sure you're logged in, then open your profile. You wallet address will be under your avatar's name.
-
-</details>
-
-<details>
-
-<summary>How can I get customized email notifications?</summary>
-
-Want to stay up to date with what's happening in-world while your're offline? Sign up to get personal notifications to your email from [Account Settings](https://decentraland.org/account/).
-
-From the Decentraland website, click on your profile picture in the upper right to open the personal menu, select 'Account Settings', and then 'Email Notifications' on the left.
-
-After adding your email, you'll be able to select the types of notifications you'd like to get emails about, e.g. Marketplace sales, Event reminders, or DAO activity.
+En el mundo, haz clic en tu foto de perfil en la parte superior izquierda, y tu dirección de billetera estará debajo del nombre de tu avatar. En línea, asegúrate de haber iniciado sesión, luego abre tu perfil. Tu dirección de billetera estará debajo del nombre de tu avatar.
 
 </details>
 
 <details>
 
-<summary>I've lost access to the digital wallet linked to my Decentraland account, now what?</summary>
+<summary>¿Cómo puedo obtener notificaciones personalizadas por correo electrónico?</summary>
 
-Unfortunately, if you lose access to your wallet, the Decentraland account linked to it cannot be recovered. You will need to make a new Decentraland account. Please remember to always keep your wallet recovery pass phrases in a safe and secure location.
+¿Quieres mantenerte actualizado con lo que está sucediendo en el mundo mientras estás desconectado? Regístrate para recibir notificaciones personales en tu correo electrónico desde [Configuración de Cuenta](https://decentraland.org/account/).
+
+Desde el sitio web de Decentraland, haz clic en tu foto de perfil en la parte superior derecha para abrir el menú personal, selecciona 'Configuración de Cuenta' y luego 'Notificaciones por Correo Electrónico' a la izquierda.
+
+Después de agregar tu correo electrónico, podrás seleccionar los tipos de notificaciones sobre las que te gustaría recibir correos, por ejemplo, ventas en el Marketplace, recordatorios de Eventos o actividad del DAO.
+
+</details>
+
+<details>
+
+<summary>He perdido el acceso a la billetera digital vinculada a mi cuenta de Decentraland, ¿y ahora qué?</summary>
+
+Desafortunadamente, si pierdes el acceso a tu billetera, la cuenta de Decentraland vinculada a ella no se puede recuperar. Necesitarás hacer una nueva cuenta de Decentraland. Por favor, recuerda siempre mantener tus frases de recuperación de billetera en un lugar seguro.
 
 </details>

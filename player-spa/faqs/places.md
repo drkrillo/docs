@@ -1,68 +1,65 @@
 ---
-description: Places
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/places
+description: Lugares
 ---
 
-# Places
+# Lugares
 
 <details>
 
-<summary>What are Places?</summary>
+<summary>¿Qué son los Places?</summary>
 
-[Places](https://decentraland.org/places/) shows certain points of interest in Genesis City and Worlds.
+[Places](https://decentraland.org/places/) muestra ciertos puntos de interés en Genesis City y Worlds.
 
 </details>
 
 <details>
 
-<summary>How do I edit the title, description or image of my Place?</summary>
+<summary>¿Cómo edito el título, descripción o imagen de mi Place?</summary>
 
-The title, description and image of your Place are taken from the scene metadata. Learn more about editing scene metadata in the Creator documentation.
-
-</details>
-
-<details>
-
-<summary>How does my Place get updated?</summary>
-
-When you re-upload your scene, the Places website will update any metadata automatically.
+El título, descripción e imagen de tu Place se toman de los metadatos de la escena. Aprende más sobre editar metadatos de escena en la documentación para Creadores.
 
 </details>
 
 <details>
 
-<summary>What happens if I change my Place significantly?</summary>
+<summary>¿Cómo se actualiza mi Place?</summary>
 
-Each Place is assigned a unique ID. When certain conditions are met, your Place may be deemed "new", resulting in a new ID assignment. This change will cause your Place to lose any accumulated favorites and likes. For details on these conditions, please refer to [**ADR: Place Identifiers**](https://adr.decentraland.org/adr/ADR-186).
-
-</details>
-
-<details>
-
-<summary>How is the like percentage calculated?</summary>
-
-In order to prevent abuse, the like percentage is calculated from likes and dislikes from users who have at least 100 voting power. Anyone with an account can like or dislike, but only qualifying votes are used to calculate the like percentage.
-
-Increase your chances of getting a good rating by making sure your Place has a title, description and thumbnail.
+Cuando vuelves a subir tu escena, el sitio web de Places actualizará cualquier metadato automáticamente.
 
 </details>
 
 <details>
 
-<summary>How can my Place become a Point of Interest?</summary>
+<summary>¿Qué sucede si cambio mi Place significativamente?</summary>
 
-Points of interest are notable locations in Decentraland. These "POIs" are promoted in several areas of the virtual world's UI, and are promoted as good places for users to explore, especially people new to Decentraland.
-
-You can create a proposal in the [**DAO**](https://decentraland.org/dao/en/) to nominate your Place as a Point of Interest.
+A cada Place se le asigna un ID único. Cuando se cumplen ciertas condiciones, tu Place puede considerarse "nuevo", resultando en una nueva asignación de ID. Este cambio hará que tu Place pierda cualquier favorito y like acumulado. Para detalles sobre estas condiciones, consulta [**ADR: Identificadores de Place**](https://adr.decentraland.org/adr/ADR-186).
 
 </details>
 
 <details>
 
-<summary>Which Worlds appear in the Worlds tab?</summary>
+<summary>¿Cómo se calcula el porcentaje de likes?</summary>
 
-As defined in the _Worlds 1.0 - Short-Term Plan_ [**DAO proposal**](https://decentraland.org/governance/proposal/?id=e712bb50-e822-11ed-b8f1-75dbe089d333/), we allow discoverability of Worlds deployed to Foundation's World Content Server only for NAME owners that also hold LAND or an active LAND rental contract.
+Para prevenir el abuso, el porcentaje de likes se calcula a partir de likes y dislikes de usuarios que tienen al menos 100 de poder de voto. Cualquiera con una cuenta puede dar like o dislike, pero solo los votos calificados se usan para calcular el porcentaje de likes.
+
+Aumenta tus posibilidades de obtener una buena calificación asegurándote de que tu Place tenga un título, descripción y miniatura.
+
+</details>
+
+<details>
+
+<summary>¿Cómo puede mi Place convertirse en un Punto de Interés?</summary>
+
+Los puntos de interés son ubicaciones notables en Decentraland. Estos "POIs" se promueven en varias áreas de la interfaz del mundo virtual y se promueven como buenos lugares para que los usuarios exploren, especialmente personas nuevas en Decentraland.
+
+Puedes crear una propuesta en el [**DAO**](https://decentraland.org/dao/en/) para nominar tu Place como Punto de Interés.
+
+</details>
+
+<details>
+
+<summary>¿Qué Worlds aparecen en la pestaña de Worlds?</summary>
+
+Como se define en la propuesta del [**DAO**](https://decentraland.org/governance/proposal/?id=e712bb50-e822-11ed-b8f1-75dbe089d333/) _Worlds 1.0 - Plan a Corto Plazo_, permitimos la descubribilidad de Worlds desplegados en el World Content Server de la Fundación solo para propietarios de NAMEs que también posean LAND o un contrato de alquiler de LAND activo.
 
 </details>

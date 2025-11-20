@@ -1,5 +1,5 @@
 ---
-description: Meet the LAND marketplace
+description: Conoce el Marketplace de LAND
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/marketplace/marketplace
@@ -7,122 +7,122 @@ metaLinks:
 
 # Marketplace
 
-The Marketplace is the go-to place to trade and manage all your Decentraland assets like Wearables, Emotes, LAND, and more.
+El Marketplace es el lugar ideal para comerciar y gestionar todos tus activos de Decentraland como Wearables, Emotes, LAND y más.
 
-Access the Marketplace at [https://decentraland.org/marketplace/](https://decentraland.org/marketplace/).
+Accede al Marketplace en [https://decentraland.org/marketplace/](https://decentraland.org/marketplace/).
 
-The Marketplace allows you to:
+El Marketplace te permite:
 
-* **Sell** parcels and Estates of LAND, Wearables, Emotes and unique NAMEs. Set your own price in MANA and an expiration date for the listing.
-* **Buy** parcels and Estates, Wearables, Emotes, and unique NAMEs for sale.
-* **Transfer** your Decentraland assets to another user.
+* **Vender** parcelas y Estates de LAND, Wearables, Emotes y NAMEs únicos. Establece tu propio precio en MANA y una fecha de vencimiento para el listado.
+* **Comprar** parcelas y Estates, Wearables, Emotes y NAMEs únicos en venta.
+* **Transferir** tus activos de Decentraland a otro usuario.
 
-## Logging In
+## Iniciar Sesión
 
-You can freely navigate the Marketplace without the need to log in, but it's recomended to log in while browsing the Marketplace for an enhanced experience. If you want to log in, you can use any of the available options like Gmail, Discord, or using Wallets like Metamask.
+Puedes navegar libremente por el Marketplace sin necesidad de iniciar sesión, pero se recomienda iniciar sesión mientras navegas por el Marketplace para una experiencia mejorada. Si deseas iniciar sesión, puedes usar cualquiera de las opciones disponibles como Gmail, Discord o usando Wallets como Metamask.
 
 {% hint style="warning" %}
-**📔 Note**: If you would like to use your Ledger hardware wallet in the Marketplace, it will require you to connect it to MetaMask. Please ensure you follow all the [given steps](https://support.metamask.io/more-web3/wallets/how-to-connect-a-trezor-or-ledger-hardware-wallet/) and updates to allow a seamless Ledger usage.
+**📔 Nota**: Si deseas usar tu billetera de hardware Ledger en el Marketplace, requerirá que la conectes a MetaMask. Por favor asegúrate de seguir todos los [pasos dados](https://support.metamask.io/more-web3/wallets/how-to-connect-a-trezor-or-ledger-hardware-wallet/) y actualizaciones para permitir un uso sin problemas de Ledger.
 {% endhint %}
 
-## LANDs Map View
+## Vista de Mapa de LANDs
 
-The Atlas view gives you a bird's-eye perspective of every color-coded parcel, Estate, road, district, and plaza in Decentraland.
+La vista de Atlas te da una perspectiva aérea de cada parcela, Estate, carretera, distrito y plaza codificados por colores en Decentraland.
 
-![](broken-reference)
+![](broken-reference)
 
-You can click and drag the map to move around, zoom in and out, or hover your cursor over a parcel to see its x,y location and owner.
+Puedes hacer clic y arrastrar el mapa para moverte, acercar y alejar, o pasar el cursor sobre una parcela para ver su ubicación x,y y propietario.
 
-Any parcel that is currently for sale or rent in the Marketplace will be highlighted.
+Cualquier parcela que esté actualmente en venta o alquiler en el Marketplace estará resaltada.
 
-Click on a parcel to view its status, coordinates, and owner's public wallet address (if it has an owner). From the map view, you can click on any LAND to go to see its details, buy it, make an offer to buy it, and even rent it.
+Haz clic en una parcela para ver su estado, coordenadas y dirección pública de billetera del propietario (si tiene un propietario). Desde la vista del mapa, puedes hacer clic en cualquier LAND para ver sus detalles, comprarla, hacer una oferta para comprarla e incluso alquilarla.
 
-## Browsing
+## Navegar
 
-Select the **Collectibles** tab to see all the items that are for sale.
+Selecciona la pestaña **Coleccionables** para ver todos los artículos que están en venta.
 
-* Select the **Category** to view all the Wearables and Emotes types.
-* Use the **Search bar** to find Wearables, Emotes, Collections, and Creators.
-* **Sort** results by different criteria like most recent, cheapest, using the drop down on the top right.
-* **Filter** items by name, rarity, price, and more to find exaclty what you are looking for.
+* Selecciona la **Categoría** para ver todos los tipos de Wearables y Emotes.
+* Usa la **Barra de búsqueda** para encontrar Wearables, Emotes, Colecciones y Creadores.
+* **Ordena** los resultados por diferentes criterios como más reciente, más barato, usando el menú desplegable en la parte superior derecha.
+* **Filtra** artículos por nombre, rareza, precio y más para encontrar exactamente lo que estás buscando.
 
-## Buy MANA or Pay With Your Local Currency
+## Comprar MANA o Pagar Con Tu Moneda Local
 
-You can purchase Wearables, Emotes, and NAMEs with debit or credit cards, or with bank transfer (availability depends on your location). Or you can buy "Ehtereum MANA" to purchase LAND, NAMEs, and some special Wearables. Or you can buy "Polygon MANA" to purchase most Wearables and Emotes.
+Puedes comprar Wearables, Emotes y NAMEs con tarjetas de débito o crédito, o con transferencia bancaria (disponibilidad depende de tu ubicación). O puedes comprar "MANA de Ethereum" para comprar LAND, NAMEs y algunos Wearables especiales. O puedes comprar "MANA de Polygon" para comprar la mayoría de los Wearables y Emotes.
 
-**To buy MANA**
+**Para comprar MANA**
 
-1. Click **BUY MANA** on the top right.
-2. Choose the type of MANA you want to buy (depending on the item you wish to get).
-3. Choose a provider and follow the steps. You might need to perform a light or full KYC process.
-4. And you are ready to get some amazing items.
+1. Haz clic en **COMPRAR MANA** en la parte superior derecha.
+2. Elige el tipo de MANA que quieres comprar (dependiendo del artículo que desees obtener).
+3. Elige un proveedor y sigue los pasos. Podrías necesitar realizar un proceso KYC ligero o completo.
+4. ¡Y estás listo para obtener algunos artículos increíbles!
 
-## Buy items
+## Comprar artículos
 
-To buy LAND, Wearables, Emotes or NAMEs in Decentraland:
+Para comprar LAND, Wearables, Emotes o NAMEs en Decentraland:
 
-1. Browse listings to find something that you'd like to buy and click it to open its details.
+1. Navega por los listados para encontrar algo que te gustaría comprar y haz clic en él para abrir sus detalles.
 
 {% hint style="info" %}
-**💡 Tip**: For LAND and Estates, you can also browse using the _Atlas_ view.
+**💡 Consejo**: Para LAND y Estates, también puedes navegar usando la vista de _Atlas_.
 {% endhint %}
 
-2. On it's details page, click **Buy with Crypto** or **Buy with Card**.
-3. Confirm this transaction following the steps.
+2. En su página de detalles, haz clic en **Comprar con Cripto** o **Comprar con Tarjeta**.
+3. Confirma esta transacción siguiendo los pasos.
 
 {% hint style="warning" %}
-**📔 Note**: If this is your first time buying something on the Marketplace, you might be asked to confirm a one-time transaction to allow the Marketplace to operate with your MANA, **this has no cost and it never will**.
+**📔 Nota**: Si es la primera vez que compras algo en el Marketplace, se te puede pedir que confirmes una transacción única para permitir que el Marketplace opere con tu MANA, **esto no tiene costo y nunca lo tendrá**.
 {% endhint %}
 
-## Make an offer for an item
+## Hacer una oferta por un artículo
 
-If an item isn't listed on sale, you can still place a _bid_ on it and offer to buy it at a specific price. The other steps of the process are just like those of buying an item.
+Si un artículo no está listado en venta, aún puedes colocar una _oferta_ en él y ofrecer comprarlo a un precio específico. Los demás pasos del proceso son como los de comprar un artículo.
 
 {% hint style="info" %}
-**💡 Tip**: View items that aren't for sale by untoggling the _On sale_ option. For LAND and Estates, you can also browse using the _Atlas_ view and select any parcel.
+**💡 Consejo**: Ve artículos que no están en venta desactivando la opción _En venta_. Para LAND y Estates, también puedes navegar usando la vista de _Atlas_ y seleccionar cualquier parcela.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: If this is your first time placing a bid on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to handle bids.
+**📔 Nota**: Si es la primera vez que colocas una oferta en el Marketplace, también se te pedirá que confirmes una transacción única para permitir que el Marketplace maneje ofertas.
 {% endhint %}
 
-To view a list of your open and pending bids, select _My Assets_ > _Bids_ on the tabs above.
+Para ver una lista de tus ofertas abiertas y pendientes, selecciona _Mis Activos_ > _Ofertas_ en las pestañas de arriba.
 
-## Sell a parcel or Estate
+## Vender una parcela o Estate
 
-To sell one of your items:
+Para vender uno de tus artículos:
 
-1. Open **My Assets** and open its details page.
-2. In the details page, click **Sell**.
-3. Set a price and expiration date and click **List for sale**. Then retype the price you're selling it at to confirm.
-4. Confirm this transaction on your wallet and wait for the network to verify it.
+1. Abre **Mis Activos** y abre su página de detalles.
+2. En la página de detalles, haz clic en **Vender**.
+3. Establece un precio y fecha de vencimiento y haz clic en **Listar para venta**. Luego vuelve a escribir el precio al que lo estás vendiendo para confirmar.
+4. Confirma esta transacción en tu billetera y espera a que la red la verifique.
 
 {% hint style="warning" %}
-**📔 Note**: If this is your first time selling an item of this asset type on the Marketplace, you will also be asked to confirm a one-time transaction to allow the Marketplace to accept MANA.
+**📔 Nota**: Si es la primera vez que vendes un artículo de este tipo de activo en el Marketplace, también se te pedirá que confirmes una transacción única para permitir que el Marketplace acepte MANA.
 {% endhint %}
 
-You can change the price of a sale that you already put on sale without having to cancel and re-create the listing. Just click **Update price** in the parcel or Estate's details page.
+Puedes cambiar el precio de una venta que ya pusiste en venta sin tener que cancelar y recrear el listado. Simplemente haz clic en **Actualizar precio** en la página de detalles de la parcela o Estate.
 
-## Transfer LAND
+## Transferir LAND
 
-To transfer a LAND parcel or Estate to another user:
+Para transferir una parcela LAND o Estate a otro usuario:
 
-1. Open **My Assets** and open the details page of the parcel or the Estate you'd like to transfer and click **Transfer**.
-2. Enter the public address of the Ethereum wallet of the recipient.
+1. Abre **Mis Activos** y abre la página de detalles de la parcela o el Estate que deseas transferir y haz clic en **Transferir**.
+2. Ingresa la dirección pública de la billetera Ethereum del destinatario.
 
 {% hint style="warning" %}
-**📔 Note**: Please double check this address, since you cannot cancel the operation. While the recipient could always transfer the LAND back to you, the original owner cannot reverse the action.
+**📔 Nota**: Por favor verifica dos veces esta dirección, ya que no puedes cancelar la operación. Aunque el destinatario siempre podría transferir el LAND de vuelta a ti, el propietario original no puede revertir la acción.
 {% endhint %}
 
-3. Click **Submit**.
-4. Confirm this transaction on your Ethereum client and wait for the network to verify it.
+3. Haz clic en **Enviar**.
+4. Confirma esta transacción en tu cliente de Ethereum y espera a que la red la verifique.
 
 {% hint style="warning" %}
-**📔 Note**: If the LAND parcel or Estate is currently on sale, you won't be able to transfer it. First click **Remove listing** to cancel the sale.
+**📔 Nota**: Si la parcela LAND o Estate está actualmente en venta, no podrás transferirla. Primero haz clic en **Eliminar listado** para cancelar la venta.
 {% endhint %}
 
-## Providing Feedback
+## Proporcionar Comentarios
 
-We've worked hard to ensure that the Marketplace is simple and easy to use but if you ever have questions or feedback please reach out to us by clicking on the Feature Request link in the footer.
+Hemos trabajado duro para asegurar que el Marketplace sea simple y fácil de usar, pero si alguna vez tienes preguntas o comentarios, por favor contáctanos haciendo clic en el enlace de Solicitud de Función en el pie de página.
 
-As with all of our other tools, the Marketplace is open-source software, and [you can find the code here](https://github.com/decentraland/marketplace). Feel free to create an issue, or submit a pull-request!
+Como con todas nuestras otras herramientas, el Marketplace es software de código abierto, y [puedes encontrar el código aquí](https://github.com/decentraland/marketplace). ¡Siéntete libre de crear un issue o enviar un pull-request!

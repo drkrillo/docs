@@ -1,58 +1,55 @@
 ---
-description: Security recommendations
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/security
+description: Recomendaciones de seguridad
 ---
 
-# Security
+# Seguridad
 
 <details>
 
-<summary>Is it ok to share my wallet address?</summary>
+<summary>¿Está bien compartir mi dirección de billetera?</summary>
 
-Yes, your wallet address, a unique sting of numbers and letters, is like a bank account number. Others can use it to send you gifts, like a Wearable, but not to take items from you.
+Sí, tu dirección de billetera, una cadena única de números y letras, es como un número de cuenta bancaria. Otros pueden usarla para enviarte regalos, como un Wearable, pero no para quitarte artículos.
 
-You can find your Decentraland account wallet address by clicking on your profile in-world or when you're logged in on decentraland.org. It will be under your avatar's name.
+Puedes encontrar la dirección de billetera de tu cuenta de Decentraland haciendo clic en tu perfil en el mundo o cuando has iniciado sesión en decentraland.org. Estará debajo del nombre de tu avatar.
 
 </details>
 
 <details>
 
-<summary>Someone wants to send me an item for free—is it a scam?</summary>
+<summary>Alguien quiere enviarme un artículo gratis—¿es una estafa?</summary>
 
-Sending gifts of Wearables or Emotes is a common tradition in Decentraland, so this should not automatically register as a red flag. For someone to send you a gift, they will need your wallet address, a unique string of numbers and letters, but data this alone is not something that can be used to scam you. If someone sends you a gift using your wallet address, it should appear in your Backpack without any necessary action from you.
+Enviar regalos de Wearables o Emotes es una tradición común en Decentraland, por lo que esto no debería registrarse automáticamente como una señal de alerta. Para que alguien te envíe un regalo, necesitarán tu dirección de billetera, una cadena única de números y letras, pero este dato por sí solo no es algo que pueda usarse para estafarte. Si alguien te envía un regalo usando tu dirección de billetera, debería aparecer en tu Mochila sin ninguna acción necesaria de tu parte.
 
-What you should **never** give out is your 'seed phrase' (this applies if your Decentraland account is linked to an external digital wallet).
-
-</details>
-
-<details>
-
-<summary>What are the most common scams to look out for?</summary>
-
-One of the most common scams are websites, social accounts, emails, and DMs impersonating Decentraland and advertising a free airdrop of MANA. This is something Decentraland will **NEVER** do.
-
-Another common tactic is pretending to be a potential client and sending a file containing a virus. Always be very cautious with messages from people you don't know personally and **never** download files from them.
-
-![](broken-reference)
-
-A good rule is to always take the time to verify urls and email addresses before taking any actions. True Decentraland websites will always have the base [decentraland.org](http://decentraland.org) and the weekly newsletter will only come from hello@decentraland.org.
-
-Read more about [Safety Tips & Tricks](https://decentraland.org/blog/about-decentraland/how-to-keep-your-digital-assets-safe-in-the-metaverse).
+Lo que **nunca** debes compartir es tu 'frase semilla' (esto aplica si tu cuenta de Decentraland está vinculada a una billetera digital externa).
 
 </details>
 
 <details>
 
-<summary>What should I do if my account/digital wallet has been compromised?</summary>
+<summary>¿Cuáles son las estafas más comunes a tener en cuenta?</summary>
 
-If you've unfortunately been the victim of account compromise and notice your wallet has been drained, there are a few things you should do next, depending on how the hack occurred:
+Una de las estafas más comunes son sitios web, cuentas sociales, correos electrónicos y mensajes directos que se hacen pasar por Decentraland y anuncian un airdrop gratuito de MANA. Esto es algo que Decentraland **NUNCA** hará.
 
-* If you have any remaining assets in your wallet, you can try to transfer them to a new, uncompromised account immediately and discontinue using the compromised wallet completely. Create your new wallet from a different device in case the virus is still present on your computer.
-* If the hack occurred through a downloaded file, you'll want to wipe your PC completely to remove any malware.
-* Regardless of how the hack occurred, you can report the incident to your local authorities. This can not only help with the investigation—given local legislation—but also assist in creating a police report, which can be useful for flagging compromised assets on platforms like Opensea.
+Otra táctica común es hacerse pasar por un cliente potencial y enviar un archivo que contiene un virus. Siempre ten mucho cuidado con los mensajes de personas que no conoces personalmente y **nunca** descargues archivos de ellos.
 
-After securing your assets and ensuring your devices are clean, you can create a new Decentraland account and get back to exploring.
+![](../images/players/domains.png)
+
+Una buena regla es siempre tomarse el tiempo para verificar las URLs y direcciones de correo electrónico antes de tomar cualquier acción. Los sitios web verdaderos de Decentraland siempre tendrán la base [decentraland.org](http://decentraland.org) y el boletín semanal solo vendrá de hello@decentraland.org.
+
+Lee más sobre [Consejos y Trucos de Seguridad](https://decentraland.org/blog/about-decentraland/how-to-keep-your-digital-assets-safe-in-the-metaverse).
+
+</details>
+
+<details>
+
+<summary>¿Qué debo hacer si mi cuenta/billetera digital ha sido comprometida?</summary>
+
+Si desafortunadamente has sido víctima de compromiso de cuenta y notas que tu billetera ha sido vaciada, hay algunas cosas que debes hacer a continuación, dependiendo de cómo ocurrió el hackeo:
+
+* Si tienes activos restantes en tu billetera, puedes intentar transferirlos a una cuenta nueva no comprometida inmediatamente y dejar de usar completamente la billetera comprometida. Crea tu nueva billetera desde un dispositivo diferente en caso de que el virus aún esté presente en tu computadora.
+* Si el hackeo ocurrió a través de un archivo descargado, querrás limpiar tu PC completamente para eliminar cualquier malware.
+* Independientemente de cómo ocurrió el hackeo, puedes reportar el incidente a tus autoridades locales. Esto no solo puede ayudar con la investigación—dada la legislación local—sino también asistir en la creación de un reporte policial, que puede ser útil para marcar activos comprometidos en plataformas como Opensea.
+
+Después de asegurar tus activos y asegurarte de que tus dispositivos estén limpios, puedes crear una nueva cuenta de Decentraland y volver a explorar.
 
 </details>

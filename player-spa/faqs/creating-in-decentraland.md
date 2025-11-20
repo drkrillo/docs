@@ -1,104 +1,104 @@
 ---
-description: How to create content for Decentraland
+description: Cómo crear contenido para Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/creating-in-decentraland
 ---
 
-# Creating in Decentraland
+# Crear en Decentraland
 
 <details>
 
-<summary>What can I create in Decentraland?</summary>
+<summary>¿Qué puedo crear en Decentraland?</summary>
 
-It would be easier to ask what you _can't_ create in Decentraland! As a virtual world created by its users, in Decentraland you can create just about everything you see.
+¡Sería más fácil preguntar qué _no_ puedes crear en Decentraland! Como un mundo virtual creado por sus usuarios, en Decentraland puedes crear casi todo lo que ves.
 
-Decentraland Creators make all the components that go into crafting a digital identity, such as Wearables (this can include whole skins, body parts, articles of clothing, hair styles, accessories, etc.) as well as Emotes, animations for your avatar which can include props and sounds in addition to movement.
+Los creadores de Decentraland hacen todos los componentes que entran en la elaboración de una identidad digital, como Wearables (esto puede incluir pieles completas, partes del cuerpo, artículos de ropa, peinados, accesorios, etc.) así como Emotes, animaciones para tu avatar que pueden incluir props y sonidos además de movimiento.
 
-The landscape and activities of Decentraland are also all shaped by creators. Walking through Decentraland's Genesis City, you can explore a variety of content from different creators, built side-by-side: art galleries, theaters, gardens, night clubs, racetracks, casinos, entire game experiences, and more can be explored and created by everyone! To start building, [download](https://decentraland.org/download/creator-hub) Decentraland's Creator Hub.
+El paisaje y las actividades de Decentraland también están moldeados por los creadores. Caminando por Genesis City de Decentraland, puedes explorar una variedad de contenido de diferentes creadores, construido lado a lado: galerías de arte, teatros, jardines, clubes nocturnos, pistas de carreras, casinos, experiencias de juegos completas y más, ¡pueden ser explorados y creados por todos! Para comenzar a construir, [descarga](https://decentraland.org/download/creator-hub) el Creator Hub de Decentraland.
 
-Learn more about creating in Decentraland at [decentraland.org/create](http://decentraland.org/create).
+Aprende más sobre crear en Decentraland en [decentraland.org/create](http://decentraland.org/create).
 
 </details>
 
 <details>
 
-<summary>How do I become a Decentraland creator?</summary>
+<summary>¿Cómo me convierto en un creador de Decentraland?</summary>
 
-Anyone can be a Decentraland creator, all it takes is a little knowhow and endless creative ideas! Depending on what you want to create, the knowledge you need to know differs. If you just want to create cool virtual scenes for yourself or to host events, then you can get started creating scenes right away by [**downloading**](https://decentraland.org/download/creator-hub) Decentraland's Creator Hub.
+Cualquiera puede ser un creador de Decentraland, ¡todo lo que se necesita es un poco de conocimiento e ideas creativas infinitas! Dependiendo de lo que quieras crear, el conocimiento que necesitas saber difiere. Si solo quieres crear escenas virtuales geniales para ti o para organizar eventos, entonces puedes comenzar a crear escenas de inmediato [**descargando**](https://decentraland.org/download/creator-hub) el Creator Hub de Decentraland.
 
-For those familiar with or willing to learn 3D modeling and/or programming, all the technical specs and procedures you need to know to create in Decentraland can be found on the Creator Docs page, and there are many tutorials available online for creating [**Wearables**](https://www.youtube.com/watch?v=zl43Fw7zROQ\&list=PLEl6fe1igtKBFDcxaC64Uxamo7kQUi5mf\&pp=iAQB), [**Emotes**](https://www.youtube.com/watch?v=-iWslh4uQIk\&list=PLAcRraQmr_GN8LcnnQk2BByo9L2Orvp9c\&pp=iAQB), and [**experiences**](https://www.youtube.com/watch?v=fblj_FxUvM4\&list=PLAcRraQmr_GP_K8WN7csnKnImK4R2TgMA\&pp=iAQB).
+Para aquellos familiarizados con o dispuestos a aprender modelado 3D y/o programación, todas las especificaciones técnicas y procedimientos que necesitas saber para crear en Decentraland se pueden encontrar en la página de Documentación para Creadores, y hay muchos tutoriales disponibles en línea para crear [**Wearables**](https://www.youtube.com/watch?v=zl43Fw7zROQ\&list=PLEl6fe1igtKBFDcxaC64Uxamo7kQUi5mf\&pp=iAQB), [**Emotes**](https://www.youtube.com/watch?v=-iWslh4uQIk\&list=PLAcRraQmr_GN8LcnnQk2BByo9L2Orvp9c\&pp=iAQB), y [**experiencias**](https://www.youtube.com/watch?v=fblj_FxUvM4\&list=PLAcRraQmr_GP_K8WN7csnKnImK4R2TgMA\&pp=iAQB).
 
 **Wearables & Emotes**
 
-If you're interested in designing interactive experiences, [**download**](https://decentraland.org/download/creator-hub) Decentraland's Creator Hub and start creating immersive scenes and games which you can then publish to [**Worlds**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space) or LAND in Decentraland's open-world Genesis City. You retain all control over your content, can edit or remove it whenever you wish, and keep all proceeds of any funds you may generate through your experiences.
+Si estás interesado en diseñar experiencias interactivas, [**descarga**](https://decentraland.org/download/creator-hub) el Creator Hub de Decentraland y comienza a crear escenas inmersivas y juegos que luego puedes publicar en [**Worlds**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space) o LAND en Genesis City, el mundo abierto de Decentraland. Conservas todo el control sobre tu contenido, puedes editarlo o eliminarlo cuando desees, y te quedas con todas las ganancias de los fondos que puedas generar a través de tus experiencias.
 
 </details>
 
 <details>
 
-<summary>What tools are necessary to be a Decentraland creator?</summary>
+<summary>¿Qué herramientas son necesarias para ser un creador de Decentraland?</summary>
 
-To build scenes or interactive experiences for Genesis City or Worlds, Decentraland's Creator Hub is your one-stop-shop. Download it [here](https://decentraland.org/download/creator-hub) to get started and check out [these tutorials](https://www.youtube.com/watch?v=wm8ZD2kSyKA\&list=PLAcRraQmr_GPrMmQekqbMWhyBxo3lXs8p\&pp=iAQB) to learn the ropes.
+Para construir escenas o experiencias interactivas para Genesis City o Worlds, el Creator Hub de Decentraland es tu ventanilla única. Descárgalo [aquí](https://decentraland.org/download/creator-hub) para comenzar y consulta [estos tutoriales](https://www.youtube.com/watch?v=wm8ZD2kSyKA\&list=PLAcRraQmr_GPrMmQekqbMWhyBxo3lXs8p\&pp=iAQB) para aprender los fundamentos.
 
-If you'd like to design Wearables or Emotes, the most common program Decentraland creators use is the free, Blender. Get started with these handy tutorials for [Wearables](https://www.youtube.com/watch?v=zl43Fw7zROQ\&list=PLEl6fe1igtKBFDcxaC64Uxamo7kQUi5mf) and [Emotes](https://www.youtube.com/watch?v=-iWslh4uQIk\&list=PLAcRraQmr_GN8LcnnQk2BByo9L2Orvp9c\&pp=iAQB).
+Si deseas diseñar Wearables o Emotes, el programa más común que usan los creadores de Decentraland es el gratuito, Blender. Comienza con estos tutoriales útiles para [Wearables](https://www.youtube.com/watch?v=zl43Fw7zROQ\&list=PLEl6fe1igtKBFDcxaC64Uxamo7kQUi5mf) y [Emotes](https://www.youtube.com/watch?v=-iWslh4uQIk\&list=PLAcRraQmr_GN8LcnnQk2BByo9L2Orvp9c\&pp=iAQB).
 
-Learn more about creating in Decentraland with the Creator Docs.
-
-</details>
-
-<details>
-
-<summary>Is it possible to monetize my creations?</summary>
-
-Yes, of course! Decentraland creators are able to monetize their skills in many ways:
-
-* Wearable and Emote creators earn 97.5% of the profits on all primary sales and 2.5% royalties on any secondary sales after publishing their creations in the Marketplace paying a $100 USD publication fee
-* Scene creators are free to monetize their in-world experiences and retain 100% of the revenue they generate
-* Creators can offer their services for hire on [**Decentraland Studios**](https://studios.decentraland.org/).
+Aprende más sobre crear en Decentraland con la Documentación para Creadores.
 
 </details>
 
 <details>
 
-<summary>Does Decentraland take a cut from creator earnings?</summary>
+<summary>¿Es posible monetizar mis creaciones?</summary>
 
-As a decentralized platform with no centralized entity looking to make a profit, Decentraland's revenue-share model puts creators first. Decentraland creators keep **97.5%** of the earnings from sales of their items—the highest revenue-share of any platform in the industry to date—and additionally earn **2.5%** royalties on secondary sales.
+¡Sí, por supuesto! Los creadores de Decentraland pueden monetizar sus habilidades de muchas maneras:
 
-The 2.5% withheld from creator earnings is the transaction fee that is associated with any sale in the Marketplace. This fee is collected in Decentraland's DAO treasury to be reinvested into the platform through community initiatives or to cover operational costs.
-
-</details>
-
-<details>
-
-<summary>Do I need to own LAND to build in Decentraland?</summary>
-
-Not necessarily. Anyone is free to create content (scenes and interactive experiences) with Decentraland's [**Creator Hub**](https://decentraland.org/download/creator-hub/)—once it's time to publish your creations in-world, there are multiple options available besides owning LAND.
-
-* **Worlds:** Worlds are your personal 3D space in the metaverse. The exist separately from the open-world map of Decentraland's Genesis City and are perfect for those looking to experiment with 3D creation or host their own virtual space. You can get your own when you [get a Decentraland NAME](https://decentraland.org/marketplace/names/claim). Learn more about NAMEs [**here**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
-* **Rent LAND:** If you want to publish in Decentraland's open-world Genesis City but don't want to commit to a LAND purchase, you don't have to! It's easy to rent LAND for the short or long term in the Marketplace where you can pay by card, bank transfer, or cryptocurrency. [**Browse rentals**](https://decentraland.org/marketplace/lands?assetType=nft\&section=land\&vendor=decentraland\&page=1\&sortBy=newest\&onlyOnRent=true) to see what's available.
-* **Open Calls for Creators:** The Foundation often announces [**Open Calls**](https://twitter.com/decentraland/status/1704918402907726030) to collaborate with creators to build experiences and scenes for various Decentraland events such as the annual music, art, and fashion festivals. Stay tuned to Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated!
-* **Community Magic:** If you're passionate about sharing your creations with the community, in Decentraland there will always be a way to make it happen. The creator community is very welcoming and helpful. If you're just getting started, join the [**Community Building Discord**](https://discord.gg/cbdcl) to start making connections.
+* Los creadores de Wearables y Emotes ganan el 97.5% de las ganancias en todas las ventas primarias y 2.5% de regalías en cualquier venta secundaria después de publicar sus creaciones en el Marketplace pagando una tarifa de publicación de $100 USD
+* Los creadores de escenas son libres de monetizar sus experiencias en el mundo y conservar el 100% de los ingresos que generen
+* Los creadores pueden ofrecer sus servicios de contratación en [**Decentraland Studios**](https://studios.decentraland.org/).
 
 </details>
 
 <details>
 
-<summary>Where can I hire creators to design or build something for me?</summary>
+<summary>¿Decentraland toma un porcentaje de las ganancias de los creadores?</summary>
 
-[Decentraland Studios](https://studios.decentraland.org/) is a vetted registry of Decentraland's most talented creators skilled in everything from Wearable design and 3D building to event management. Check it out to find a team to work with!
+Como una plataforma descentralizada sin una entidad centralizada que busque obtener ganancias, el modelo de participación de ingresos de Decentraland pone a los creadores primero. Los creadores de Decentraland mantienen **97.5%** de las ganancias de las ventas de sus artículos—la participación de ingresos más alta de cualquier plataforma en la industria hasta la fecha—y además ganan **2.5%** de regalías en ventas secundarias.
+
+El 2.5% retenido de las ganancias de los creadores es la tarifa de transacción asociada con cualquier venta en el Marketplace. Esta tarifa se recopila en el tesoro del DAO de Decentraland para ser reinvertida en la plataforma a través de iniciativas comunitarias o para cubrir costos operativos.
 
 </details>
 
 <details>
 
-<summary>Can I control who can see the content of my World or LAND?</summary>
+<summary>¿Necesito poseer LAND para construir en Decentraland?</summary>
 
-Yes. World permissions can be accessed at [decentraland.org/builder/worlds](https://decentraland.org/builder/worlds). Here you can restrict public access and create a customized list of up to 100 accounts that are allowed to visit your World. From here you can also grant editing and streaming permissions for your World.
+No necesariamente. Cualquiera es libre de crear contenido (escenas y experiencias interactivas) con el [**Creator Hub**](https://decentraland.org/download/creator-hub/) de Decentraland—una vez que sea el momento de publicar tus creaciones en el mundo, hay múltiples opciones disponibles además de poseer LAND.
 
-For restricting access to your LAND: You can control how certain content on your parcel is served to other users within the Decentraland network. For example, you could make 3D models, images, video, or sound content only visible to a player in Decentraland after they have submitted a payment or fulfilled some other requirement. However, remember that by uploading content to Decentraland's content servers, you are essentially making it publicly available since the content servers are a distributed file system.
+* **Worlds:** Los Worlds son tu espacio 3D personal en el metaverso. Existen separadamente del mapa de mundo abierto de Genesis City de Decentraland y son perfectos para aquellos que buscan experimentar con la creación 3D u organizar su propio espacio virtual. Puedes obtener el tuyo cuando [obtienes un NAME de Decentraland](https://decentraland.org/marketplace/names/claim). Aprende más sobre NAMEs [**aquí**](https://decentraland.org/blog/about-decentraland/decentraland-worlds-your-own-virtual-space).
+* **Alquilar LAND:** Si quieres publicar en Genesis City, el mundo abierto de Decentraland, pero no quieres comprometerte con una compra de LAND, ¡no tienes que hacerlo! Es fácil alquilar LAND a corto o largo plazo en el Marketplace donde puedes pagar con tarjeta, transferencia bancaria o criptomoneda. [**Explorar alquileres**](https://decentraland.org/marketplace/lands?assetType=nft\&section=land\&vendor=decentraland\&page=1\&sortBy=newest\&onlyOnRent=true) para ver qué está disponible.
+* **Convocatorias Abiertas para Creadores:** La Fundación a menudo anuncia [**Convocatorias Abiertas**](https://twitter.com/decentraland/status/1704918402907726030) para colaborar con creadores para construir experiencias y escenas para diversos eventos de Decentraland como los festivales anuales de música, arte y moda. ¡Mantente atento a las [**redes sociales**](https://twitter.com/decentraland) de Decentraland o [**suscríbete**](https://decentraland.beehiiv.com/subscribe) al boletín semanal para mantenerte actualizado!
+* **Magia Comunitaria:** Si te apasiona compartir tus creaciones con la comunidad, en Decentraland siempre habrá una manera de hacerlo realidad. La comunidad de creadores es muy acogedora y servicial. Si estás comenzando, únete al [**Discord de Community Building**](https://discord.gg/cbdcl) para comenzar a hacer conexiones.
 
-You can control who you can see and interact with (and who can see and interact with you) within Decentraland. For example, imagine that you have a house on your parcel and you only want to invite certain friends into your house. You will be able to specify which players you can see (and which players can see you) within your house, but you won't necessarily be able to prevent anyone from seeing your house or its contents since the assets required to render your house reside on the content server.
+</details>
+
+<details>
+
+<summary>¿Dónde puedo contratar creadores para diseñar o construir algo para mí?</summary>
+
+[Decentraland Studios](https://studios.decentraland.org/) es un registro verificado de los creadores más talentosos de Decentraland, expertos en todo, desde el diseño de Wearables y construcción 3D hasta la gestión de eventos. ¡Consúltalo para encontrar un equipo con el que trabajar!
+
+</details>
+
+<details>
+
+<summary>¿Puedo controlar quién puede ver el contenido de mi World o LAND?</summary>
+
+Sí. Los permisos de World se pueden acceder en [decentraland.org/builder/worlds](https://decentraland.org/builder/worlds). Aquí puedes restringir el acceso público y crear una lista personalizada de hasta 100 cuentas que tienen permitido visitar tu World. Desde aquí también puedes otorgar permisos de edición y streaming para tu World.
+
+Para restringir el acceso a tu LAND: Puedes controlar cómo se sirve cierto contenido en tu parcela a otros usuarios dentro de la red de Decentraland. Por ejemplo, podrías hacer que los modelos 3D, imágenes, video o contenido de sonido solo sean visibles para un jugador en Decentraland después de que haya enviado un pago o cumplido con algún otro requisito. Sin embargo, recuerda que al subir contenido a los servidores de contenido de Decentraland, esencialmente lo estás haciendo públicamente disponible ya que los servidores de contenido son un sistema de archivos distribuido.
+
+Puedes controlar a quién puedes ver e interactuar (y quién puede verte e interactuar contigo) dentro de Decentraland. Por ejemplo, imagina que tienes una casa en tu parcela y solo quieres invitar a ciertos amigos a tu casa. Podrás especificar qué jugadores puedes ver (y qué jugadores pueden verte) dentro de tu casa, pero no necesariamente podrás evitar que nadie vea tu casa o su contenido ya que los activos necesarios para renderizar tu casa residen en el servidor de contenido.
 
 </details>

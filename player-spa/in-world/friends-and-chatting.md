@@ -1,90 +1,90 @@
 ---
-description: Friends & Chatting in Decentraland
+description: Amigos y Chat en Decentraland
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/friends-and-chatting
 ---
 
-# Friends & Chatting
+# Amigos y Chat
 
-Decentraland is all about bringing people from around the world together. Making friends and chatting is key to feeling a part of the virtual world's community. Here you'll learn how to manage your friendships and chats.
+Decentraland se trata de reunir a personas de todo el mundo. Hacer amigos y chatear es clave para sentirse parte de la comunidad del mundo virtual. Aquí aprenderás cómo gestionar tus amistades y chats.
 
-## Friendship Management
+## Gestión de Amistades
 
-The Friends icon lives in the bottom left of your screen and is home to your Friends List, Friend Requests, and Blocked accounts.
+El ícono de Amigos vive en la parte inferior izquierda de tu pantalla y es el hogar de tu Lista de Amigos, Solicitudes de Amistad y cuentas Bloqueadas.
 
-### **Friend's List**
+### **Lista de Amigos**
 
-Hovering by a Friend's name will make other options appear. If your friend is online, you can chat or jump to their location. If you click on the three dots by their name, you can access their personal menu.
+Pasar el cursor sobre el nombre de un Amigo hará que aparezcan otras opciones. Si tu amigo está en línea, puedes chatear o saltar a su ubicación. Si haces clic en los tres puntos junto a su nombre, puedes acceder a su menú personal.
 
-![](broken-reference)
+![](broken-reference)
 
-### **Friend Requests**
+### **Solicitudes de Amistad**
 
-To send a friend request to someone, open their profile (hovering over any avatar with your mouse will show the option to 'View Profile'). In the top right corner of the profile card, you'll see a ruby 'Add Friend' button. After selecting that, you'll have the option to add a message to your friend request before sending it out.
+Para enviar una solicitud de amistad a alguien, abre su perfil (pasar el mouse sobre cualquier avatar mostrará la opción 'Ver Perfil'). En la esquina superior derecha de la tarjeta de perfil, verás un botón rojo 'Agregar Amigo'. Después de seleccionarlo, tendrás la opción de agregar un mensaje a tu solicitud de amistad antes de enviarla.
 
-See requests you've sent and received in the 'Requests' tab of your Friends interface. Requests with an envelop icon have a message attached. Read it by clicking on the envelope.
+Consulta las solicitudes que has enviado y recibido en la pestaña 'Solicitudes' de tu interfaz de Amigos. Las solicitudes con un ícono de sobre tienen un mensaje adjunto. Léelo haciendo clic en el sobre.
 
-![](broken-reference)
+![](broken-reference)
 
-To cancel a request or unfriend someone, you'll use the same button in their profile, as it changes in relation to your status with someone. Hovering over the button will show the option to cancel requests or unfriend.
+Para cancelar una solicitud o dejar de ser amigo de alguien, usarás el mismo botón en su perfil, ya que cambia en relación con tu estado con alguien. Pasar el cursor sobre el botón mostrará la opción de cancelar solicitudes o dejar de ser amigos.
 
-![](broken-reference)
+![](broken-reference)
 
-## Blocking Accounts
+## Bloquear Cuentas
 
-If you block a player in Decentraland, you will no longer see their avatar in-world, and they will not be able to send you friend requests or messages. You will also not see each other's messages in public or private chats.
+Si bloqueas a un jugador en Decentraland, ya no verás su avatar en el mundo, y no podrán enviarte solicitudes de amistad o mensajes. Tampoco verán los mensajes de cada uno en chats públicos o privados.
 
-**How to Block a Player**
+**Cómo Bloquear a un Jugador**
 
-To block a player, open their profile card by clicking on their avatar and click on the three dots in the upper right corner above their avatar image, then select the option 'Block'. You can also block someone within a chat by clicking on their name to open their personal menu and selecting 'Block'.
+Para bloquear a un jugador, abre su tarjeta de perfil haciendo clic en su avatar y haz clic en los tres puntos en la esquina superior derecha sobre su imagen de avatar, luego selecciona la opción 'Bloquear'. También puedes bloquear a alguien dentro de un chat haciendo clic en su nombre para abrir su menú personal y seleccionando 'Bloquear'.
 
-![](broken-reference)
+![](broken-reference)
 
-**How to Unblock a Player**
+**Cómo Desbloquear a un Jugador**
 
-Blocked accounts appear in a sperate tab of your 'Friends' interface. Hovering over someone's name in this section will reveal the 'Unblock' button.
+Las cuentas bloqueadas aparecen en una pestaña separada de tu interfaz de 'Amigos'. Pasar el cursor sobre el nombre de alguien en esta sección revelará el botón 'Desbloquear'.
 
 ## Chats
 
-In Decentraland, the main line of communication is text-based chatting. In-world, you can always see a chat bar in the lower left of your screen. This is where you can send DMs to friends (or anyone depending on selected settings) and chat with the people around you via the Nearby Chat.
+En Decentraland, la principal línea de comunicación es el chat basado en texto. En el mundo, siempre puedes ver una barra de chat en la parte inferior izquierda de tu pantalla. Aquí es donde puedes enviar mensajes directos a amigos (o a cualquiera dependiendo de la configuración seleccionada) y chatear con las personas a tu alrededor a través del Chat Cercano.
 
-### Nearby Chat
+### Chat Cercano
 
-Identifiable by the Decentraland icon, Nearby Chat is where you can chat with the people around you in-world, even if you aren't friends. It will always be listed at the top of your chat list. Nearby Chat can also be used for entering Chat commands that only you will see—learn more [**here**](shortcuts-and-chat-commands.md#chat-commands).
+Identificable por el ícono de Decentraland, el Chat Cercano es donde puedes chatear con las personas a tu alrededor en el mundo, incluso si no son amigos. Siempre estará listado en la parte superior de tu lista de chats. El Chat Cercano también se puede usar para ingresar comandos de Chat que solo tú verás—aprende más [**aquí**](shortcuts-and-chat-commands.md#chat-commands).
 
-![](broken-reference)
+![](broken-reference)
 
-### Private Chats
+### Chats Privados
 
-The option to start chatting with someone can be accessed from their Profile or personal menu. If you are friends with them, a chat icon will also appear next to their name in your Friends List. However, keep in mind, outside of friendships, who you can send and receive DMs from will depend on both parties' chat settings.
+La opción de comenzar a chatear con alguien se puede acceder desde su Perfil o menú personal. Si son amigos, un ícono de chat también aparecerá junto a su nombre en tu Lista de Amigos. Sin embargo, ten en cuenta que, fuera de las amistades, a quién puedes enviar y recibir mensajes directos dependerá de la configuración de chat de ambas partes.
 
-![](broken-reference)
+![](broken-reference)
 
-Please also note that messages can only be sent to players that are currently online.
+Ten en cuenta también que los mensajes solo se pueden enviar a jugadores que están actualmente en línea.
 
-![](broken-reference)
+![](broken-reference)
 
-### Chat Settings
+### Configuración de Chat
 
-Within your in-world Settings, you'll see a Chat tab.
+Dentro de tu Configuración en el mundo, verás una pestaña de Chat.
 
-![](broken-reference)
+![](broken-reference)
 
-**DM Permissions**
+**Permisos de Mensajes Directos**
 
-There are two options when it comes to selecting who you want to be able to send and receive DMs from:
+Hay dos opciones cuando se trata de seleccionar a quién quieres poder enviar y recibir mensajes directos:
 
-* **Friends Only:** You'll only be able to send and receive private messages from Friends
-* **Everyone:** Players who select this option will be able to send private messages to each other, even if they are not friends.
+* **Solo Amigos:** Solo podrás enviar y recibir mensajes privados de Amigos
+* **Todos:** Los jugadores que seleccionen esta opción podrán enviarse mensajes privados entre sí, incluso si no son amigos.
 
-**Notification Pings**
+**Notificaciones de Ping**
 
-If you have your sound on, you have the option of receiving a notification ping for selected chats. You can set your preferences from each individual chat by clicking on the 3 dots in the upper right of a chat box. From the main Chat Settings, you can select the setting for all your chats simultaneously.
+Si tienes tu sonido activado, tienes la opción de recibir un ping de notificación para chats seleccionados. Puedes establecer tus preferencias desde cada chat individual haciendo clic en los 3 puntos en la parte superior derecha de un cuadro de chat. Desde la Configuración de Chat principal, puedes seleccionar la configuración para todos tus chats simultáneamente.
 
-![](broken-reference)
+![](broken-reference)
 
-**Chat Bubbles**
+**Burbujas de Chat**
 
-You may notice chat bubbles appearing over avatars when you're in-world. Currently, you can choose to see chat bubbles for no chats, all chats, or only the Nearby Chat. Chat bubbles from private chats can only be seen by the chat's participants.
+Puedes notar burbujas de chat apareciendo sobre los avatares cuando estás en el mundo. Actualmente, puedes elegir ver burbujas de chat para ningún chat, todos los chats o solo el Chat Cercano. Las burbujas de chat de chats privados solo pueden ser vistas por los participantes del chat.

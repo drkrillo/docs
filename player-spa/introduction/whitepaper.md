@@ -1,5 +1,5 @@
 ---
-description: Read more about the philosophy and design of Decentraland in our white paper.
+description: Lee más sobre la filosofía y diseño de Decentraland en nuestro whitepaper.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/introduction/whitepaper
@@ -7,14 +7,14 @@ metaLinks:
 
 # Whitepapers
 
-## White Paper 2.0 (2024)
+## Whitepaper 2.0 (2024)
 
-With 7 years passed since the original white paper's publishing, a new white paper was published in 2024 as part of the 'Decentraland 2.0' movement, which involved the release of an entirely new desktop client for Decentraland, integrating the learnings gathered since the platform's original launch in 2020. Serving as a guide for both veterans and newcomers, this document expands on the need for decentralized technology and reaffirms Decentraland's mission, documents its history, evolution, and impact since release, details its technological architecture, and lays out the roadmap planned for its continued development.
+Habiendo pasado 7 años desde la publicación del whitepaper original, un nuevo whitepaper fue publicado en 2024 como parte del movimiento 'Decentraland 2.0', que involucró el lanzamiento de un cliente de escritorio completamente nuevo para Decentraland, integrando los aprendizajes recopilados desde el lanzamiento original de la plataforma en 2020. Sirviendo como guía tanto para veteranos como para recién llegados, este documento amplía la necesidad de tecnología descentralizada y reafirma la misión de Decentraland, documenta su historia, evolución e impacto desde el lanzamiento, detalla su arquitectura tecnológica y presenta la hoja de ruta planificada para su desarrollo continuo.
 
-[Read Decentraland's 2024 white paper 2.0 here](https://decentraland.org/whitepaper2.pdf)
+[Lee el whitepaper 2.0 de Decentraland de 2024 aquí](https://decentraland.org/whitepaper2.pdf)
 
-## Original White Paper (2017)
+## Whitepaper Original (2017)
 
-Decentraland's original white paper was published in 2017, 3 years before the platform would launch to the public. It was written by Decentraland founders Esteban Ordano, Ariel Meilich, Yemel Jardi, and Manuel Araoz. This white paper presents a detailed explanation of the original philosophical motivations behind the Decentraland project, along with a rigorous discussion of the proposed technical and economic approaches to building Decentraland.
+El whitepaper original de Decentraland fue publicado en 2017, 3 años antes de que la plataforma se lanzara al público. Fue escrito por los fundadores de Decentraland Esteban Ordano, Ariel Meilich, Yemel Jardi y Manuel Araoz. Este whitepaper presenta una explicación detallada de las motivaciones filosóficas originales detrás del proyecto Decentraland, junto con una discusión rigurosa de los enfoques técnicos y económicos propuestos para construir Decentraland.
 
-[Read Decentraland's original 2017 white paper here](https://decentraland.org/whitepaper.pdf)
+[Lee el whitepaper original de Decentraland de 2017 aquí](https://decentraland.org/whitepaper.pdf)

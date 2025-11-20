@@ -1,28 +1,28 @@
 ---
-description: Exploring Decentraland Overview
+description: Resumen de Explorar Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/overview
 ---
 
-# Overview
+# Resumen
 
-**'In-World'** refers to anything happening inside Decentraland's virtual world—this is where the magic happens!
+**'En el Mundo'** se refiere a cualquier cosa que suceda dentro del mundo virtual de Decentraland—¡aquí es donde ocurre la magia!
 
-![](broken-reference)
+![](broken-reference)
 
-Decentraland's main landmass, Genesis City.
+La masa terrestre principal de Decentraland, Genesis City.
 
-## **How to Jump Into Decentraland**
+## **Cómo Entrar a Decentraland**
 
-To enter the virtual world, you must first download [Decentraland's desktop app](https://decentraland.org/download/). Once you've installed it and logged into your Decentraland account, you can start exploring Decentraland's Genesis City (pictured above), and it's archipelago of off-map Worlds.
+Para entrar al mundo virtual, primero debes descargar [la aplicación de escritorio de Decentraland](https://decentraland.org/download/). Una vez que la hayas instalado e iniciado sesión en tu cuenta de Decentraland, puedes comenzar a explorar Genesis City de Decentraland (en la imagen de arriba), y su archipiélago de Worlds fuera del mapa.
 
-## Genesis City vs. Worlds: Decentraland's Landscape Explained
+## Genesis City vs. Worlds: El Paisaje de Decentraland Explicado
 
-**Genesis City** is the main landmass of Decentraland, visible on the virtual world's map. It's made up of thousands of community-owned LAND parcels, each 16m x 16m in size, and traded in [Decentraland's Marketplace](https://decentraland.org/marketplace/lands). As the city is laid out in a massive, four-quadrant grid, each parcel is referenced by a set of coordinates—at the very center (0,0), lies Decentraland's default spawn point: Genesis Plaza.
+**Genesis City** es la masa terrestre principal de Decentraland, visible en el mapa del mundo virtual. Está compuesta por miles de parcelas LAND propiedad de la comunidad, cada una de 16m x 16m de tamaño, y comercializadas en [el Marketplace de Decentraland](https://decentraland.org/marketplace/lands). Como la ciudad está distribuida en una cuadrícula masiva de cuatro cuadrantes, cada parcela se referencia por un conjunto de coordenadas—en el centro (0,0), se encuentra el punto de aparición predeterminado de Decentraland: Genesis Plaza.
 
-Despite being a patchwork of individually-owned parcels, Genesis City is unique in its openness and traversability. If you're looking for an adventure, just take a walk across the map—there's always something new to discover from Decentraland's global community!
+A pesar de ser un mosaico de parcelas de propiedad individual, Genesis City es única en su apertura y transitabilidad. Si buscas una aventura, ¡solo camina por el mapa—siempre hay algo nuevo que descubrir de la comunidad global de Decentraland!
 
-In contrast to Genesis City LAND parcels, **Worlds** are more intimate virtual spaces, like personal islands located off the Decentraland map. While you can't walk to them, you can teleport to a World if you know its name or have an invite link. Unlock your own World by [getting a Decentraland NAME](https://decentraland.org/marketplace/names/claim). It's your space to use as you wish—set it as private or public, host events, or practice your building skills. Learn more about NAMEs [here](../faqs/decentraland-101.md#what-is-a-name).
+En contraste con las parcelas LAND de Genesis City, los **Worlds** son espacios virtuales más íntimos, como islas personales ubicadas fuera del mapa de Decentraland. Aunque no puedes caminar hacia ellos, puedes teletransportarte a un World si conoces su nombre o tienes un enlace de invitación. Desbloquea tu propio World [obteniendo un NAME de Decentraland](https://decentraland.org/marketplace/names/claim). Es tu espacio para usar como desees—configúralo como privado o público, organiza eventos o practica tus habilidades de construcción. Aprende más sobre NAMEs [aquí](../faqs/decentraland-101.md#what-is-a-name).
 
-Learn more about how to explore and navigate Decentraland [**here**](exploring.md).
+Aprende más sobre cómo explorar y navegar por Decentraland [**aquí**](exploring.md).

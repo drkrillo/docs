@@ -1,15 +1,15 @@
 ---
 description: >-
-  An explanation of what you need in order to create and vote in proposals in
-  the DAO.
+  Una explicación de lo que necesitas para crear y votar en propuestas en
+  el DAO.
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao/what-do-you-need-to-participate
 ---
 
-# Participation Requirements
+# Requisitos de Participación
 
-Broadly speaking, DAOs are organizations comprising token holders. In Decentraland's case, the tokens needed to be a member of the DAO are MANA, NAMES or LAND. By holding either MANA, NAMES or LAND, you may create and vote in proposals. Your vote on a proposal is weighted according to the balance of MANA, NAMES and LAND you have at the time that proposal was created. For more information, see the Voting Power section in the [DAO User Guide](../dao-userguide.md).
+En términos generales, los DAOs son organizaciones que comprenden poseedores de tokens. En el caso de Decentraland, los tokens necesarios para ser miembro del DAO son MANA, NAMEs o LAND. Al poseer ya sea MANA, NAMEs o LAND, puedes crear y votar en propuestas. Tu voto en una propuesta se pondera de acuerdo al saldo de MANA, NAMEs y LAND que tienes en el momento en que se creó esa propuesta. Para más información, consulta la sección de Poder de Voto en la [Guía de Usuario del DAO](../dao-userguide.md).
 
-Anyone is allowed and welcome to participate in discussions related to the DAO in [Discord](https://dcl.gg/daodiscord), the [Forum](https://forum.decentraland.org/), or any of Decentraland's other social channels, but only token holders can cast votes and create proposals.
+Cualquiera puede y es bienvenido a participar en discusiones relacionadas con el DAO en [Discord](https://dcl.gg/daodiscord), el [Foro](https://forum.decentraland.org/), o cualquiera de los otros canales sociales de Decentraland, pero solo los poseedores de tokens pueden emitir votos y crear propuestas.

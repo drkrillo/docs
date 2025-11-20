@@ -1,19 +1,19 @@
 ---
-description: Finding Events in Decentraland
+description: Encontrar Eventos en Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/in-world/finding-events
 ---
 
-# Finding Events
+# Encontrar Eventos
 
-The best way to meet new people in Decentraland is to attend events! Anyone in the community can submit an event to Decentraland's Event page, so you can discover a wide variety of events, from annual music festivals to weekly hang outs, if you stay updated.
+¡La mejor manera de conocer gente nueva en Decentraland es asistir a eventos! Cualquiera en la comunidad puede enviar un evento a la página de Eventos de Decentraland, por lo que puedes descubrir una amplia variedad de eventos, desde festivales de música anuales hasta reuniones semanales, si te mantienes actualizado.
 
-**How to check current and upcoming events in Decentraland:**
+**Cómo consultar eventos actuales y próximos en Decentraland:**
 
-* **Event Page:** Browse Decentraland's Event page at [decentraland.org/events](http://decentraland.org/events). You can jump directly to live events or RSVP to upcoming events to get an in-world notification when they start.
-* **Genesis Plaza:** Check the Event board when you land in Genesis Plaza. It will display events happening soon.
-* **World Map:** To see where live events are happening, open the map in-world and look for a red and white icon. Clicking on it will bring up event info and a jump in button.
-* Follow Decentraland [**socials**](https://twitter.com/decentraland) or [**subscribe**](https://decentraland.beehiiv.com/subscribe) to the weekly newsletter to stay updated
+* **Página de Eventos:** Navega por la página de Eventos de Decentraland en [decentraland.org/events](http://decentraland.org/events). Puedes ir directamente a eventos en vivo o confirmar asistencia a eventos próximos para recibir una notificación en el mundo cuando comiencen.
+* **Genesis Plaza:** Consulta el tablero de Eventos cuando aterrices en Genesis Plaza. Mostrará eventos que sucederán pronto.
+* **Mapa del Mundo:** Para ver dónde están sucediendo eventos en vivo, abre el mapa en el mundo y busca un ícono rojo y blanco. Hacer clic en él mostrará información del evento y un botón para entrar.
+* Sigue las [**redes sociales**](https://twitter.com/decentraland) de Decentraland o [**suscríbete**](https://decentraland.beehiiv.com/subscribe) al boletín semanal para mantenerte actualizado
 
-Want to submit your own event? Learn more [**here**](../faqs/posting-events.md).
+¿Quieres enviar tu propio evento? Aprende más [**aquí**](../faqs/posting-events.md).

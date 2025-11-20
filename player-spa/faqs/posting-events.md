@@ -1,42 +1,39 @@
 ---
-description: How to post events in Decentraland
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/faqs/posting-events
+description: Cómo publicar eventos en Decentraland
 ---
 
-# Posting Events
+# Publicar Eventos
 
 <details>
 
-<summary>Can anyone post an event on the Event Page?</summary>
+<summary>¿Puede alguien publicar un evento en la Página de Eventos?</summary>
 
-Yes, anyone in the Decentraland community can create an Event listing for an event that takes place within Genesis City or a World. Being a LAND owner is not a requirement.
+Sí, cualquiera en la comunidad de Decentraland puede crear una lista de Evento para un evento que tiene lugar dentro de Genesis City o un World. No es un requisito ser propietario de LAND.
 
 </details>
 
 <details>
 
-<summary>How do I post an event to the Event page?</summary>
+<summary>¿Cómo publico un evento en la página de Eventos?</summary>
 
-Check out a quick breakdown here: https://www.youtube.com/watch?v=jMNk\_W1yqjU
+Consulta un desglose rápido aquí: https://www.youtube.com/watch?v=jMNk\_W1yqjU
 
-And yes you can edit event details after publishing!
-
-</details>
-
-<details>
-
-<summary>How does the event review process work?</summary>
-
-Review times depend on day/time of event submission, but won't take longer than a few hours. Events are reviewed by the team at the Decentraland Foundation. Add your email or Discord username so you can be contacted if necessary.
+¡Y sí, puedes editar los detalles del evento después de publicarlo!
 
 </details>
 
 <details>
 
-<summary>My event wasn't published, why not?</summary>
+<summary>¿Cómo funciona el proceso de revisión de eventos?</summary>
 
-Your event may not have passed review because you did not fill in all the required information. Make sure you complete every field in the form when submitting an event.
+Los tiempos de revisión dependen del día/hora de envío del evento, pero no tomarán más de unas pocas horas. Los eventos son revisados por el equipo de la Fundación Decentraland. Agrega tu correo electrónico o nombre de usuario de Discord para que puedan contactarte si es necesario.
+
+</details>
+
+<details>
+
+<summary>Mi evento no fue publicado, ¿por qué no?</summary>
+
+Tu evento puede no haber pasado la revisión porque no completaste toda la información requerida. Asegúrate de completar cada campo en el formulario al enviar un evento.
 
 </details>

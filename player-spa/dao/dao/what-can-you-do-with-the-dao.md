@@ -1,68 +1,68 @@
 ---
-description: The DAO allows users to create and vote on proposals that shape the metaverse.
+description: El DAO permite a los usuarios crear y votar en propuestas que dan forma al metaverso.
 metaLinks:
   alternates:
     - >-
       https://app.gitbook.com/s/UWbeOuof0RchgfvQfPTf/dao/dao/what-can-you-do-with-the-dao
 ---
 
-# What can you do with the DAO
+# Qué puedes hacer con el DAO
 
-The DAO allows for two general types of proposals: **proposals with direct binding actions**, and **governance proposals**.
+El DAO permite dos tipos generales de propuestas: **propuestas con acciones vinculantes directas**, y **propuestas de gobernanza**.
 
-## Proposals with direct binding actions
+## Propuestas con acciones vinculantes directas
 
-The DAO allows the community to vote on **binding actions** that will result in changes made to Decentraland's smart contracts on the Ethereum network. Those binding actions are:
+El DAO permite a la comunidad votar en **acciones vinculantes** que resultarán en cambios hechos a los smart contracts de Decentraland en la red de Ethereum. Esas acciones vinculantes son:
 
-* Funding a community project by transferring a portion of the DAO's resources to a grant vesting contract.
-* Adding a catalyst node to the network of servers that host and run Decentraland's virtual world.
-* Adding or removing points of interest (POIs), or highlighted locations within the virtual world, to a list that is shown to users. This list helps users to find popular and interesting locations to explore.
-* Banning a name from Decentraland. This proposal type allows users to ensure that avatars cannot be given offensive and harmful names.
+* Financiar un proyecto comunitario transfiriendo una porción de los recursos del DAO a un contrato de adjudicación de subvención.
+* Agregar un nodo catalyst a la red de servidores que alojan y ejecutan el mundo virtual de Decentraland.
+* Agregar o eliminar puntos de interés (POIs), o ubicaciones destacadas dentro del mundo virtual, a una lista que se muestra a los usuarios. Esta lista ayuda a los usuarios a encontrar ubicaciones populares e interesantes para explorar.
+* Prohibir un nombre de Decentraland. Este tipo de propuesta permite a los usuarios asegurar que los avatares no puedan recibir nombres ofensivos y dañinos.
 
-## Governance proposals
+## Propuestas de gobernanza
 
-Some proposals are not as simple as adding or removing an item from a list, they require community signaling, discussions and implementation paths. Those proposals should be submitted thorugh a three-stage governance process that starts with a poll and ends with a binding proposal.
+Algunas propuestas no son tan simples como agregar o eliminar un artículo de una lista, requieren señalización comunitaria, discusiones y caminos de implementación. Esas propuestas deben ser enviadas a través de un proceso de gobernanza de tres etapas que comienza con una encuesta y termina con una propuesta vinculante.
 
-The voting process includes three steps: a Pre-Proposal Poll, a Draft Proposal, and a Governance Proposal. Each tier will have progressively increasing submission and passage thresholds to ensure important governance decisions are made by a representative majority (based on Voting Power). Each step must reach the defined VP threshold to be promoted to the next one.
+El proceso de votación incluye tres pasos: una Encuesta de Pre-Propuesta, una Propuesta Borrador y una Propuesta de Gobernanza. Cada nivel tendrá umbrales de envío y aprobación progresivamente crecientes para asegurar que las decisiones importantes de gobernanza sean tomadas por una mayoría representativa (basada en Poder de Voto). Cada paso debe alcanzar el umbral de VP definido para ser promovido al siguiente.
 
-### Stage 1: Pre-Proposal Poll
+### Etapa 1: Encuesta de Pre-Propuesta
 
-* Submission Threshold: 100 VP
-* Passage Threshold: 500K VP ( A poll that reaches at least 500K VP and does not garner a majority of participating voting power, may still advance to the Draft Proposal stage - ensuring all issues with enough support have an initial pathway toward passage into policy.)
-* Voting Period: 5 Days
-* Goal: Introduce a governance issue to the community, gauge community sentiment, and determine if there is enough support to move forward with drafting an initial proposal.
+* Umbral de Envío: 100 VP
+* Umbral de Aprobación: 500K VP (Una encuesta que alcanza al menos 500K VP y no obtiene una mayoría del poder de voto participante, aún puede avanzar a la etapa de Propuesta Borrador - asegurando que todos los problemas con suficiente apoyo tengan un camino inicial hacia la aprobación en política.)
+* Período de Votación: 5 Días
+* Objetivo: Introducir un problema de gobernanza a la comunidad, medir el sentimiento de la comunidad y determinar si hay suficiente apoyo para avanzar con la redacción de una propuesta inicial.
 
-### Stage 2: Draft Proposal
+### Etapa 2: Propuesta Borrador
 
-* Submission Threshold: 1,000 VP
-* Passage Threshold: 1M VP and simple majority (51%) of participating voting power (A Draft Proposal that fails or does not reach this threshold can be amended and resubmitted one time.)
-* Voting Period: 1 Week
-* Goal: Present a potential policy to the community in a structured format and formalize discussion about the proposal's potential impacts and implementation pathways. A Draft Proposal that fails or does not reach this threshold can be amended and resubmitted one time.
+* Umbral de Envío: 1,000 VP
+* Umbral de Aprobación: 1M VP y mayoría simple (51%) del poder de voto participante (Una Propuesta Borrador que falla o no alcanza este umbral puede ser enmendada y reenviada una vez.)
+* Período de Votación: 1 Semana
+* Objetivo: Presentar una política potencial a la comunidad en un formato estructurado y formalizar la discusión sobre los impactos potenciales de la propuesta y caminos de implementación. Una Propuesta Borrador que falla o no alcanza este umbral puede ser enmendada y reenviada una vez.
 
-### Stage 3: Governance Proposal
+### Etapa 3: Propuesta de Gobernanza
 
-* Submission Threshold: 2,500 VP
-* Passage Threshold: 6M VP and simple majority of participating VP (or needed acceptance criteria for their category)
-* Voting Period: 2 Weeks
-* Goal: Formalize the passed version of a Draft Proposal into a binding Governance outcome.
+* Umbral de Envío: 2,500 VP
+* Umbral de Aprobación: 6M VP y mayoría simple del VP participante (o criterios de aceptación necesarios para su categoría)
+* Período de Votación: 2 Semanas
+* Objetivo: Formalizar la versión aprobada de una Propuesta Borrador en un resultado de Gobernanza vinculante.
 
-It is important to notice that anyone who meet the submission threshold can take a passed proposal (either a Poll or a Draft) and move it to the next stage, not only the proposal author.
+Es importante notar que cualquiera que cumpla con el umbral de envío puede tomar una propuesta aprobada (ya sea una Encuesta o un Borrador) y moverla a la siguiente etapa, no solo el autor de la propuesta.
 
-## What about modifying the LAND or Estate smart contracts?
+## ¿Qué hay de modificar los smart contracts de LAND o Estate?
 
-Right now, the DAO owns both the LAND and Estate smart contracts. Any modifications to either of these contracts must be carried out by the Security Advisory Board (SAB) and DAO Committee – groups of trusted and elected persons tasked with ensuring the continued security of these important pieces of Decentraland's infrastructure.
+Ahora mismo, el DAO posee tanto los smart contracts de LAND como de Estate. Cualquier modificación a cualquiera de estos contratos debe ser llevada a cabo por la Junta Asesora de Seguridad (SAB) y el Comité del DAO – grupos de personas confiables y elegidas encargadas de asegurar la seguridad continua de estas piezas importantes de la infraestructura de Decentraland.
 
-The SAB must vote through a multi-sig wallet to approve any changes to the LAND or Estate contracts, preventing a rogue SAB member from introducing a vulnerability.
+El SAB debe votar a través de una billetera multi-sig para aprobar cualquier cambio a los contratos de LAND o Estate, previniendo que un miembro SAB deshonesto introduzca una vulnerabilidad.
 
-Currently, there are no predefined proposal categories for modifying the LAND or Estate smart contracts via the DAO's UI. That doesn't mean it is impossible for a non-SAB member to initiate changes, but it is a lengthier process that requires obtaining support from the broader community in addition to having the technical expertise needed to supply the code changes and a trusted third party to audit those changes.
+Actualmente, no hay categorías de propuesta predefinidas para modificar los smart contracts de LAND o Estate a través de la interfaz del DAO. Eso no significa que sea imposible para un miembro que no es SAB iniciar cambios, pero es un proceso más largo que requiere obtener apoyo de la comunidad más amplia además de tener la experiencia técnica necesaria para suministrar los cambios de código y un tercero de confianza para auditar esos cambios.
 
-The source code for the LAND and Estate contracts is available on GitHub [here](https://github.com/decentraland/land/tree/master/contracts).
+El código fuente de los contratos de LAND y Estate está disponible en GitHub [aquí](https://github.com/decentraland/land/tree/master/contracts).
 
-Generally speaking, the process for modifying either contract would be:
+En términos generales, el proceso para modificar cualquiera de los contratos sería:
 
-* Polling the community via the DAO publishing a **pre-proposal poll**, and publicly discussing your proposed changes to gather support
-* After gaining the initial community's support, publishing a **Draft proposal** detailing the changes and getting acceptance through a votation.
-* Writing the updated code to be merged into the contract
-* Obtaining a successful code review and audit from a reputable third-party
-* Presenting the audited code to the community using a binding **Governance proposal** and obtaining their approval to have it merged with the contract
-* Once approved by another community vote, the DAO Committee or SAB would perform the contract upgrade with the new code
+* Encuestar a la comunidad a través del DAO publicando una **encuesta de pre-propuesta**, y discutir públicamente tus cambios propuestos para reunir apoyo
+* Después de obtener el apoyo inicial de la comunidad, publicar una **Propuesta Borrador** detallando los cambios y obtener aceptación a través de una votación.
+* Escribir el código actualizado para ser fusionado en el contrato
+* Obtener una revisión de código exitosa y auditoría de un tercero de buena reputación
+* Presentar el código auditado a la comunidad usando una **Propuesta de Gobernanza** vinculante y obtener su aprobación para que sea fusionado con el contrato
+* Una vez aprobado por otro voto comunitario, el Comité del DAO o SAB realizaría la actualización del contrato con el nuevo código
