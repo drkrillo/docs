@@ -1,130 +1,129 @@
-# UI Standards
+# Estándares de IU
 
-This section provides comprehensive guidelines for building user interfaces in Decentraland applications using Redux Toolkit (RTK) and RTK Query. These standards ensure consistent state management, optimal performance, and maintainable code across all UI projects.
+Esta sección proporciona guías completas para construir interfaces de usuario en aplicaciones de Decentraland usando Redux Toolkit (RTK) y RTK Query. Estos estándares aseguran gestión de estado consistente, rendimiento óptimo y código mantenible a través de todos los proyectos de IU.
 
-## Overview
+## Resumen
 
-Our UI architecture is built on three core technologies:
+Nuestra arquitectura de IU está construida sobre tres tecnologías fundamentales:
 
-* **Redux Toolkit (RTK)** - Modern Redux with less boilerplate
-* **RTK Query** - Powerful data fetching and caching
-* **TypeScript** - Type-safe state management
+* **Redux Toolkit (RTK)** - Redux moderno con menos código repetitivo
+* **RTK Query** - Obtención y caché de datos poderosa
+* **TypeScript** - Gestión de estado type-safe
 
-### Guiding Principles
+### Principios Guía
 
-1. **Simplicity first** - Use RTK Query for remote data; `createSlice` for UI/local state
-2. **Feature co-location** - Keep related code together (slices, endpoints, selectors)
-3. **Serializable store** - Never store non-serializable objects in Redux
-4. **Lean store** - Keep ephemeral state in React components
-5. **Strict typing** - Leverage TypeScript for better DX and fewer bugs
-6. **Web3-aware** - Handle blockchain state changes gracefully
+1. **Simplicidad primero** - Usar RTK Query para datos remotos; `createSlice` para estado UI/local
+2. **Co-localización de características** - Mantener el código relacionado junto (slices, endpoints, selectores)
+3. **Store serializable** - Nunca almacenar objetos no serializables en Redux
+4. **Store ligero** - Mantener estado efímero en componentes React
+5. **Tipado estricto** - Aprovechar TypeScript para mejor DX y menos bugs
+6. **Consciente de Web3** - Manejar cambios de estado blockchain con gracia
 
-## Documentation Sections
+## Secciones de Documentación
 
-* **[Store Setup](store-setup.md)** - Configure the Redux store, typed hooks, and folder structure
-* **[RTK Query](rtk-query.md)** - Data fetching, caching, tags, and invalidation
-* **[State Management](state-management.md)** - Creating slices and managing UI state
-* **[Component Patterns](component-patterns.md)** - Using hooks effectively in components
-* **[Web3 Integration](web3-integration.md)** - Patterns for blockchain integration
-* **[Testing & Performance](testing-and-performance.md)** - Best practices, testing, and optimization
+* **[Configuración de Store](store-setup.md)** - Configurar el store Redux, hooks tipados y estructura de carpetas
+* **[RTK Query](rtk-query.md)** - Obtención de datos, caché, tags e invalidación
+* **[Gestión de Estado](state-management.md)** - Crear slices y gestionar estado UI
+* **[Patrones de Componentes](component-patterns.md)** - Usar hooks efectivamente en componentes
+* **[Integración Web3](web3-integration.md)** - Patrones para integración blockchain
+* **[Pruebas y Rendimiento](testing-and-performance.md)** - Mejores prácticas, pruebas y optimización
 
-## Quick Reference: Glossary
+## Referencia Rápida: Glosario
 
-### Core Concepts
+### Conceptos Fundamentales
 
-| Term | Description |
-|------|-------------|
-| **Store** | The single Redux state tree for the app |
-| **Slice** | A module created with `createSlice` (name + initial state + reducers) |
-| **Action** | A plain object describing "what happened" (`type` + optional `payload`) |
-| **Reducer** | A pure function that updates state based on actions |
-| **Selector** | A function that reads/derives data from the store (can be memoized) |
+| Término | Descripción |
+|---------|-------------|
+| **Store** | El árbol de estado Redux único para la app |
+| **Slice** | Un módulo creado con `createSlice` (nombre + estado inicial + reducers) |
+| **Action** | Un objeto plano describiendo "qué pasó" (`type` + `payload` opcional) |
+| **Reducer** | Una función pura que actualiza estado basado en acciones |
+| **Selector** | Una función que lee/deriva datos del store (puede ser memoizada) |
 
 ### RTK Query
 
-| Term | Description |
-|------|-------------|
-| **RTK Query** | Data-fetching layer: endpoints, caching, refetch, invalidations |
-| **Base Query** | The low-level fetcher (e.g., `fetchBaseQuery`) used by endpoints |
-| **Endpoint** | One RTK Query operation (`query` = read; `mutation` = write) |
-| **Tags** | Strings/objects for cache `provides`/`invalidates` to sync views |
-| **`onQueryStarted`** | Lifecycle hook for optimistic updates and rollback |
+| Término | Descripción |
+|---------|-------------|
+| **RTK Query** | Capa de obtención de datos: endpoints, caché, refetch, invalidaciones |
+| **Base Query** | El fetcher de bajo nivel (ej. `fetchBaseQuery`) usado por endpoints |
+| **Endpoint** | Una operación RTK Query (`query` = lectura; `mutation` = escritura) |
+| **Tags** | Strings/objetos para `provides`/`invalidates` de caché para sincronizar vistas |
+| **`onQueryStarted`** | Hook de ciclo de vida para actualizaciones optimistas y rollback |
 
-### Patterns
+### Patrones
 
-| Term | Description |
-|------|-------------|
-| **Optimistic update** | Temporarily update UI before server confirms; rollback if fails |
-| **Entity Adapter** | Helpers to manage normalized collections (ids/entities, sorting) |
-| **UI/local state** | Client-owned state (filters, modals, form inputs) |
-| **Remote data** | Server-owned/cached data (catalog, NFTs, orders) |
-| **Typed hooks** | `useAppSelector`/`useAppDispatch` bound to `RootState`/`AppDispatch` |
+| Término | Descripción |
+|---------|-------------|
+| **Actualización optimista** | Actualizar temporalmente UI antes de que el servidor confirme; rollback si falla |
+| **Entity Adapter** | Helpers para gestionar colecciones normalizadas (ids/entities, ordenamiento) |
+| **Estado UI/local** | Estado propiedad del cliente (filtros, modales, inputs de formulario) |
+| **Datos remotos** | Datos en caché propiedad del servidor (catálogo, NFTs, órdenes) |
+| **Hooks tipados** | `useAppSelector`/`useAppDispatch` vinculados a `RootState`/`AppDispatch` |
 
-## Why Typed Hooks?
+## ¿Por Qué Hooks Tipados?
 
-We use `useAppSelector` and `useAppDispatch` instead of the standard Redux hooks because:
+Usamos `useAppSelector` y `useAppDispatch` en lugar de los hooks estándar de Redux porque:
 
-* **Type Safety** - Selector return types are checked against `RootState`
-* **Less Boilerplate** - No `<RootState>` generics needed per usage
-* **Easier Refactors** - Change store types once; all components follow
-* **Better DX** - Works seamlessly with RTK Query type inference
+* **Type Safety** - Los tipos de retorno del selector se verifican contra `RootState`
+* **Menos Código Repetitivo** - No se necesitan genéricos `<RootState>` por uso
+* **Refactors Más Fáciles** - Cambiar tipos de store una vez; todos los componentes siguen
+* **Mejor DX** - Funciona perfectamente con la inferencia de tipos de RTK Query
 
-## Getting Started
+## Comenzando
 
-1. Review the [Store Setup](store-setup.md) to understand project structure
-2. Learn [RTK Query](rtk-query.md) for managing remote data
-3. Understand [State Management](state-management.md) for local UI state
-4. Study [Component Patterns](component-patterns.md) for implementation
-5. Follow [Web3 Integration](web3-integration.md) for blockchain features
-6. Apply [Testing & Performance](testing-and-performance.md) best practices
+1. Revisar la [Configuración de Store](store-setup.md) para entender la estructura del proyecto
+2. Aprender [RTK Query](rtk-query.md) para gestionar datos remotos
+3. Entender [Gestión de Estado](state-management.md) para estado UI local
+4. Estudiar [Patrones de Componentes](component-patterns.md) para implementación
+5. Seguir [Integración Web3](web3-integration.md) para características blockchain
+6. Aplicar [Pruebas y Rendimiento](testing-and-performance.md) mejores prácticas
 
-## Standards Compliance
+## Cumplimiento de Estándares
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this documentation are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+Las palabras clave "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" y "OPTIONAL" en esta documentación deben interpretarse como se describe en [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
-## What's Different About Our Approach
+## Qué es Diferente Sobre Nuestro Enfoque
 
-### RTK Query First
+### RTK Query Primero
 
-We prioritize RTK Query for all remote data instead of writing custom async actions. This gives us:
+Priorizamos RTK Query para todos los datos remotos en lugar de escribir acciones asíncronas personalizadas. Esto nos da:
 
-* Built-in caching and deduplication
-* Automatic refetching and background updates
-* Optimistic updates with rollback
-* Loading and error states out of the box
+* Caché y deduplicación incorporadas
+* Refetch automático y actualizaciones en segundo plano
+* Actualizaciones optimistas con rollback
+* Estados de carga y error listos para usar
 
-### Minimal Store Footprint
+### Huella de Store Mínima
 
-We keep the Redux store focused on:
+Mantenemos el store Redux enfocado en:
 
-* **Remote data cache** (via RTK Query)
-* **Global UI state** (filters, preferences, session)
-* **Cross-component state** (modals, notifications)
+* **Caché de datos remotos** (vía RTK Query)
+* **Estado UI global** (filtros, preferencias, sesión)
+* **Estado entre componentes** (modales, notificaciones)
 
-Transient state stays in React components.
+El estado transitorio permanece en componentes React.
 
-### Web3 Considerations
+### Consideraciones Web3
 
-Our patterns account for blockchain-specific challenges:
+Nuestros patrones toman en cuenta desafíos específicos de blockchain:
 
-* Non-serializable objects (providers, signers) stay outside Redux
-* Cache invalidation on network/account changes
-* Optimistic updates for pending transactions
-* Event-driven state updates from blockchain events
+* Objetos no serializables (providers, signers) permanecen fuera de Redux
+* Invalidación de caché en cambios de red/cuenta
+* Actualizaciones optimistas para transacciones pendientes
+* Actualizaciones de estado dirigidas por eventos desde eventos blockchain
 
-## Anti-Patterns to Avoid
+## Anti-Patrones a Evitar
 
 {% hint style="danger" %}
-**Never do these:**
+**Nunca hagas esto:**
 
-* Store `window.ethereum`, providers, signers, or sockets in Redux
-* Duplicate the same collection in a slice and in RTK Query
-* Dispatch actions during React render
-* Return new objects from selectors without memoization
-* Create mutations that don't invalidate or patch caches
+* Almacenar `window.ethereum`, providers, signers o sockets en Redux
+* Duplicar la misma colección en un slice y en RTK Query
+* Despachar acciones durante render de React
+* Retornar nuevos objetos de selectores sin memoización
+* Crear mutaciones que no invaliden o parcheen cachés
 {% endhint %}
 
-## Next Steps
+## Próximos Pasos
 
-Start with [Store Setup](store-setup.md) to learn how to structure your project and configure Redux properly.
-
+Comienza con [Configuración de Store](store-setup.md) para aprender cómo estructurar tu proyecto y configurar Redux apropiadamente.

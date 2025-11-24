@@ -1,126 +1,126 @@
-# API Documentation Standards
+# Estándares de Documentación de API
 
-This page covers standards for documenting APIs using OpenAPI specifications across all Decentraland services.
+Esta página cubre los estándares para documentar APIs usando especificaciones OpenAPI a través de todos los servicios de Decentraland.
 
-## Goals
+## Objetivos
 
-Our API documentation approach ensures:
+Nuestro enfoque de documentación de API asegura:
 
-* **Standardization** - Consistent OpenAPI specs across all services
-* **Automation** - Validation, bundling, and deployment via GitHub Actions
-* **Centralization** - All service documentation published through GitBook
-* **Ownership** - Documentation lives with each service repository
-* **Accessibility** - Contributor-friendly, up-to-date API references
+* **Estandarización** - Especificaciones OpenAPI consistentes a través de todos los servicios
+* **Automatización** - Validación, empaquetado y despliegue vía GitHub Actions
+* **Centralización** - Toda la documentación de servicios publicada a través de GitBook
+* **Propiedad** - La documentación vive con cada repositorio de servicio
+* **Accesibilidad** - Referencias de API amigables para contribuidores y actualizadas
 
 ---
 
-## Repository Structure
+## Estructura del Repositorio
 
-Each service repository MUST include a `/docs` directory with the following structure:
+Cada repositorio de servicio DEBE incluir un directorio `/docs` con la siguiente estructura:
 
 ```bash
 /docs
-  openapi.yaml        # Source of truth (OpenAPI 3.1)
-  openapi.json        # Auto-generated in CI for Hugo/renderers
-  index.html          # Auto-generated standalone docs (optional)
+  openapi.yaml        # Fuente de verdad (OpenAPI 3.1)
+  openapi.json        # Auto-generado en CI para Hugo/renders
+  index.html          # Documentación standalone auto-generada (opcional)
 ```
 
-### File Requirements
+### Requisitos de Archivos
 
 #### `openapi.yaml`
 
-* **MUST** be the canonical source file
-* **MUST** use OpenAPI 3.1 specification
-* **MAY** have a service-identifying prefix (e.g., `worlds-openapi.yaml`)
-* **MAY** split into `components/` or `examples/` directories if needed
+* **DEBE** ser el archivo fuente canónico
+* **DEBE** usar la especificación OpenAPI 3.1
+* **PUEDE** tener un prefijo de identificación de servicio (ej., `worlds-openapi.yaml`)
+* **PUEDE** dividirse en directorios `components/` o `examples/` si es necesario
 
 #### `openapi.json`
 
-* Auto-generated during CI/CD
-* Used by Hugo and other renderers
-* Do not edit manually
+* Auto-generado durante CI/CD
+* Usado por Hugo y otros renderizadores
+* No editar manualmente
 
 #### `index.html`
 
-* Auto-generated standalone documentation
-* Built using Redocly
-* Deployed to GitHub Pages
+* Documentación standalone auto-generada
+* Construida usando Redocly
+* Desplegada a GitHub Pages
 
 ---
 
-## OpenAPI Standards
+## Estándares OpenAPI
 
-When writing `openapi.yaml`, follow these conventions to ensure consistency and clarity.
+Al escribir `openapi.yaml`, seguir estas convenciones para asegurar consistencia y claridad.
 
-### Endpoint Summary
+### Resumen de Endpoint
 
-**MUST** reflect the actual endpoint path:
+**DEBE** reflejar la ruta del endpoint actual:
 
 ```yaml
-# ✅ Good: Clear endpoint path
+# ✅ Bien: Ruta de endpoint clara
 paths:
   /world/{world_name}/about:
     get:
       summary: /world/{world_name}/about
-      description: Retrieves information about a specific world
+      description: Recupera información sobre un mundo específico
       
-# ❌ Bad: Generic summary
+# ❌ Mal: Resumen genérico
 paths:
   /world/{world_name}/about:
     get:
       summary: Get world info
 ```
 
-### Operation ID
+### ID de Operación
 
-**MUST** include the service name for global uniqueness:
+**DEBE** incluir el nombre del servicio para unicidad global:
 
 ```yaml
-# ✅ Good: Service-prefixed operation ID
+# ✅ Bien: ID de operación con prefijo de servicio
 operationId: worldsContentServer_getWorldAbout
 
-# ✅ Good: Another example
+# ✅ Bien: Otro ejemplo
 operationId: socialService_getFriends
 
-# ❌ Bad: Generic, could conflict
+# ❌ Mal: Genérico, podría entrar en conflicto
 operationId: getAbout
 ```
 
-**Naming convention**: `{serviceName}_{operationDescription}`
+**Convención de nomenclatura**: `{serviceName}_{operationDescription}`
 
-* Use camelCase
-* Be descriptive but concise
-* Include HTTP method context when helpful (e.g., `createUser`, `deleteParcel`)
+* Usar camelCase
+* Ser descriptivo pero conciso
+* Incluir contexto del método HTTP cuando sea útil (ej., `createUser`, `deleteParcel`)
 
-### Versioning
+### Versionado
 
-**MUST** use semantic versioning (`MAJOR.MINOR.PATCH`) in `info.version`:
+**DEBE** usar versionado semántico (`MAJOR.MINOR.PATCH`) en `info.version`:
 
 ```yaml
 openapi: 3.1.0
 info:
   title: Worlds Content Server API
-  version: 1.2.0  # Semantic versioning
-  description: API for managing Decentraland worlds
+  version: 1.2.0  # Versionado semántico
+  description: API para gestionar mundos de Decentraland
 ```
 
-**Version bumping rules**:
-* **MAJOR**: Breaking changes (incompatible API changes)
-* **MINOR**: New functionality (backward-compatible)
-* **PATCH**: Bug fixes (backward-compatible)
+**Reglas de incremento de versión**:
+* **MAJOR**: Cambios que rompen compatibilidad (cambios de API incompatibles)
+* **MINOR**: Nueva funcionalidad (compatible hacia atrás)
+* **PATCH**: Correcciones de bugs (compatible hacia atrás)
 
-### Tags and Grouping
+### Tags y Agrupación
 
-**MUST** use tags to group related endpoints:
+**DEBE** usar tags para agrupar endpoints relacionados:
 
 ```yaml
 tags:
   - name: Worlds
-    description: World management operations
+    description: Operaciones de gestión de mundos
   - name: Deployments
-    description: World deployment operations
+    description: Operaciones de despliegue de mundos
   - name: Health
-    description: Health check endpoints
+    description: Endpoints de verificación de salud
 
 paths:
   /worlds:
@@ -139,32 +139,32 @@ paths:
 ```
 
 {% hint style="info" %}
-Operations are grouped by tag in GitBook's navigation. Group related endpoints under the same tag for better organization.
+Las operaciones se agrupan por tag en la navegación de GitBook. Agrupar endpoints relacionados bajo el mismo tag para mejor organización.
 {% endhint %}
 
-### Complete Example
+### Ejemplo Completo
 
 ```yaml
 openapi: 3.1.0
 info:
   title: Social Service API
   version: 2.1.0
-  description: API for managing social interactions in Decentraland
+  description: API para gestionar interacciones sociales en Decentraland
   contact:
     name: Decentraland Contributors
     url: https://decentraland.org
 
 servers:
   - url: https://social.decentraland.org
-    description: Production server
+    description: Servidor de producción
   - url: https://social.decentraland.zone
-    description: Staging server
+    description: Servidor de staging
 
 tags:
   - name: Friends
-    description: Friend management
+    description: Gestión de amigos
   - name: Blocked Users
-    description: User blocking operations
+    description: Operaciones de bloqueo de usuarios
 
 paths:
   /friends:
@@ -173,7 +173,7 @@ paths:
         - Friends
       summary: /friends
       operationId: socialService_getFriends
-      description: Returns a list of the authenticated user's friends
+      description: Retorna una lista de los amigos del usuario autenticado
       parameters:
         - name: limit
           in: query
@@ -188,7 +188,7 @@ paths:
             default: 0
       responses:
         '200':
-          description: Successful response
+          description: Respuesta exitosa
           content:
             application/json:
               schema:
@@ -199,7 +199,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Friend'
         '401':
-          description: Unauthorized
+          description: No autorizado
 
 components:
   schemas:
@@ -211,31 +211,31 @@ components:
       properties:
         address:
           type: string
-          description: Ethereum address of the friend
+          description: Dirección Ethereum del amigo
         createdAt:
           type: string
           format: date-time
-          description: When the friendship was established
+          description: Cuándo se estableció la amistad
 ```
 
 ---
 
-## Local Development
+## Desarrollo Local
 
-### Preview Documentation Locally
+### Vista Previa de Documentación Localmente
 
-Use Redocly CLI to preview your OpenAPI documentation:
+Usar Redocly CLI para previsualizar su documentación OpenAPI:
 
 ```bash
-# Build HTML documentation
+# Construir documentación HTML
 yarn redocly build-docs docs/openapi.yaml -o docs/index.html
 
-# Then open docs/index.html in your browser
+# Luego abrir docs/index.html en su navegador
 ```
 
-### Add to package.json
+### Agregar a package.json
 
-Add a build script for convenience:
+Agregar un script de construcción por conveniencia:
 
 ```json
 {
@@ -246,48 +246,48 @@ Add a build script for convenience:
 }
 ```
 
-### Install Redocly CLI
+### Instalar Redocly CLI
 
 ```bash
-# Using npm
+# Usando npm
 npm install -g @redocly/cli
 
-# Using yarn
+# Usando yarn
 yarn global add @redocly/cli
 ```
 
-### Validate OpenAPI Spec
+### Validar Especificación OpenAPI
 
 ```bash
-# Validate your spec
+# Validar su especificación
 redocly lint docs/openapi.yaml
 
-# Bundle and validate
+# Empaquetar y validar
 redocly bundle docs/openapi.yaml
 ```
 
 ---
 
-## Automation Setup
+## Configuración de Automatización
 
-### Step 1: Configure GitBook Secrets
+### Paso 1: Configurar Secretos de GitBook
 
-To publish API specs to GitBook, add these secrets to your repository:
+Para publicar especificaciones de API a GitBook, agregar estos secretos a su repositorio:
 
 **Settings → Secrets and variables → Actions → New repository secret**
 
-| Secret Name | Description | Where to Find |
+| Nombre del Secreto | Descripción | Dónde Encontrar |
 |-------------|-------------|---------------|
-| `GITBOOK_ORGANIZATION_ID` | Your GitBook organization ID | GitBook Settings → Organization |
-| `GITBOOK_TOKEN` | GitBook API token | GitBook Settings → API Tokens |
+| `GITBOOK_ORGANIZATION_ID` | Su ID de organización de GitBook | GitBook Settings → Organization |
+| `GITBOOK_TOKEN` | Token de API de GitBook | GitBook Settings → API Tokens |
 
 {% hint style="warning" %}
-These secrets MUST be configured for the automated workflow to publish to GitBook.
+Estos secretos DEBEN configurarse para que el flujo de trabajo automatizado publique a GitBook.
 {% endhint %}
 
-### Step 2: Add GitHub Actions Workflow
+### Paso 2: Agregar Flujo de Trabajo de GitHub Actions
 
-Create `.github/workflows/build-api-docs.yml` in your repository:
+Crear `.github/workflows/build-api-docs.yml` en su repositorio:
 
 ```yaml
 name: build-app-docs
@@ -308,114 +308,114 @@ jobs:
       api-spec-file: 'docs/openapi.yaml'
       output-file: 'docs/index.html'
       output-directory: './docs'
-      api-spec-name: '{service-name}-api'  # e.g., 'social-service-api'
+      api-spec-name: '{service-name}-api'  # ej., 'social-service-api'
       node-version: '20'
     secrets: inherit
 ```
 
-**Parameters**:
+**Parámetros**:
 
-* `api-spec-file`: Path to your OpenAPI spec (usually `docs/openapi.yaml`)
-* `output-file`: Where to generate HTML docs
-* `output-directory`: Directory for output files
-* `api-spec-name`: Unique name for your API spec (used in GitBook)
-* `node-version`: Node.js version to use
+* `api-spec-file`: Ruta a su especificación OpenAPI (usualmente `docs/openapi.yaml`)
+* `output-file`: Dónde generar documentación HTML
+* `output-directory`: Directorio para archivos de salida
+* `api-spec-name`: Nombre único para su especificación de API (usado en GitBook)
+* `node-version`: Versión de Node.js a usar
 
-**This workflow will**:
+**Este flujo de trabajo:**
 
-1. ✅ Validate the OpenAPI spec
-2. ✅ Bundle the spec into a single file
-3. ✅ Build static HTML documentation using Redocly
-4. ✅ Deploy automatically to GitHub Pages
-5. ✅ Publish spec to GitBook (if secrets are configured)
+1. ✅ Valida la especificación OpenAPI
+2. ✅ Empaqueta la especificación en un solo archivo
+3. ✅ Construye documentación HTML estática usando Redocly
+4. ✅ Despliega automáticamente a GitHub Pages
+5. ✅ Publica especificación a GitBook (si los secretos están configurados)
 
-### Step 3: Enable GitHub Pages
+### Paso 3: Habilitar GitHub Pages
 
-Configure GitHub Pages in your repository:
+Configurar GitHub Pages en su repositorio:
 
-1. Go to **Settings → Pages**
-2. Under **Build and deployment**:
-   * Set **Source** to **GitHub Actions**
-3. Ensure there is an environment named **github-pages**
-4. Save settings
+1. Ir a **Settings → Pages**
+2. Bajo **Build and deployment**:
+   * Establecer **Source** a **GitHub Actions**
+3. Asegurar que exista un environment llamado **github-pages**
+4. Guardar configuración
 
-After the first successful workflow run, your documentation will be available at:
+Después de la primera ejecución exitosa del flujo de trabajo, su documentación estará disponible en:
 
 * **HTML Docs**: `https://decentraland.github.io/<repo>/index.html`
 * **OpenAPI Spec**: `https://decentraland.github.io/<repo>/openapi.yaml`
 * **Bundled JSON**: `https://decentraland.github.io/<repo>/openapi.json`
 
 {% hint style="success" %}
-These URLs remain valid as long as the repository exists and GitHub Pages is enabled.
+Estas URLs permanecen válidas mientras el repositorio exista y GitHub Pages esté habilitado.
 {% endhint %}
 
 ---
 
-## Adding to GitBook
+## Agregar a GitBook
 
-Once your API documentation is deployed, add it to the centralized GitBook documentation.
+Una vez que su documentación de API esté desplegada, agregarla a la documentación centralizada de GitBook.
 
-### Manual Addition (Current Process)
+### Adición Manual (Proceso Actual)
 
-1. Navigate to the GitBook space
-2. Go to the **API Reference** section
-3. Click **Add API Reference**
-4. Enter your service details:
-   * **Name**: Your service name (e.g., "Social Service")
+1. Navegar al espacio de GitBook
+2. Ir a la sección **API Reference**
+3. Hacer clic en **Add API Reference**
+4. Ingresar los detalles de su servicio:
+   * **Name**: Nombre de su servicio (ej., "Social Service")
    * **OpenAPI URL**: `https://decentraland.github.io/{repo-name}/openapi.yaml`
-5. Save
+5. Guardar
 
-### GitBook Integration Features
+### Características de Integración con GitBook
 
-GitBook will automatically:
+GitBook automáticamente:
 
-* Parse your OpenAPI spec
-* Generate interactive API documentation
-* Create endpoint navigation based on tags
-* Provide "Try it" functionality
-* Keep docs in sync when you update the spec
+* Parseará su especificación OpenAPI
+* Generará documentación de API interactiva
+* Creará navegación de endpoints basada en tags
+* Proporcionará funcionalidad "Try it"
+* Mantendrá documentación sincronizada cuando actualice la especificación
 
 ---
 
-## Complete Setup Flow
+## Flujo de Configuración Completo
 
-### Initial Setup
+### Configuración Inicial
 
 ```mermaid
 graph TD
-    A[Create /docs/openapi.yaml] --> B[Add GitHub Actions workflow]
-    B --> C[Configure GitBook secrets]
-    C --> D[Enable GitHub Pages]
-    D --> E[Push to main branch]
-    E --> F[Workflow runs automatically]
-    F --> G[Docs deployed to GitHub Pages]
-    G --> H[Add to GitBook manually]
+    A[Crear /docs/openapi.yaml] --> B[Agregar flujo de trabajo GitHub Actions]
+    B --> C[Configurar secretos GitBook]
+    C --> D[Habilitar GitHub Pages]
+    D --> E[Push a rama main]
+    E --> F[Flujo de trabajo se ejecuta automáticamente]
+    F --> G[Documentación desplegada a GitHub Pages]
+    G --> H[Agregar a GitBook manualmente]
 ```
 
-### Ongoing Updates
+### Actualizaciones Continuas
 
 ```mermaid
 graph LR
-    A[Update openapi.yaml] --> B[Create PR]
-    B --> C[Workflow validates]
-    C --> D[Merge to main]
-    D --> E[Auto-deploy to GitHub Pages]
-    E --> F[GitBook syncs automatically]
+    A[Actualizar openapi.yaml] --> B[Crear PR]
+    B --> C[Flujo de trabajo valida]
+    C --> D[Fusionar a main]
+    D --> E[Auto-desplegar a GitHub Pages]
+    E --> F[GitBook sincroniza automáticamente]
 ```
 
 ---
 
-## Best Practices
+## Mejores Prácticas
 
-### Documentation Quality
+### Calidad de Documentación
 
-* **Be descriptive**: Write clear summaries and descriptions
-* **Provide examples**: Include request/response examples
-* **Document errors**: Describe all possible error responses
-* **Use components**: Reuse schemas via `$ref` to avoid duplication
-* **Add descriptions**: Every parameter, property, and response should have a description
+* **Ser descriptivo**: Escribir resúmenes y descripciones claros
+* **Proporcionar ejemplos**: Incluir ejemplos de solicitud/respuesta
+* **Documentar errores**: Describir todas las respuestas de error posibles
+* **Usar componentes**: Reusar esquemas vía `$ref` para evitar duplicación
+* **Agregar descripciones**: Cada parámetro, propiedad y respuesta debería tener una descripción
 
-### Example with Best Practices
+### Ejemplo con Mejores Prácticas
 
 ```yaml
 paths:
@@ -426,20 +426,20 @@ paths:
       summary: /users/{address}/friends
       operationId: socialService_getUserFriends
       description: |
-        Retrieves a paginated list of friends for the specified user.
-        Returns friend addresses and metadata including when the friendship was established.
+        Recupera una lista paginada de amigos para el usuario especificado.
+        Retorna direcciones de amigos y metadata incluyendo cuándo se estableció la amistad.
       parameters:
         - name: address
           in: path
           required: true
-          description: Ethereum address of the user (0x-prefixed)
+          description: Dirección Ethereum del usuario (con prefijo 0x)
           schema:
             type: string
             pattern: '^0x[a-fA-F0-9]{40}$'
           example: '0x1234567890abcdef1234567890abcdef12345678'
         - name: limit
           in: query
-          description: Maximum number of friends to return (1-100)
+          description: Número máximo de amigos a retornar (1-100)
           schema:
             type: integer
             minimum: 1
@@ -447,14 +447,14 @@ paths:
             default: 50
         - name: offset
           in: query
-          description: Number of friends to skip for pagination
+          description: Número de amigos a omitir para paginación
           schema:
             type: integer
             minimum: 0
             default: 0
       responses:
         '200':
-          description: Successfully retrieved friends list
+          description: Lista de amigos recuperada exitosamente
           content:
             application/json:
               schema:
@@ -467,7 +467,7 @@ paths:
                 offset: 0
                 limit: 50
         '400':
-          description: Invalid address format
+          description: Formato de dirección inválido
           content:
             application/json:
               schema:
@@ -476,14 +476,14 @@ paths:
                 error: 'Invalid address format'
                 code: 'INVALID_ADDRESS'
         '404':
-          description: User not found
+          description: Usuario no encontrado
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
 ```
 
-### Schema Reusability
+### Reutilización de Esquemas
 
 ```yaml
 components:
@@ -496,13 +496,13 @@ components:
       properties:
         error:
           type: string
-          description: Human-readable error message
+          description: Mensaje de error legible por humanos
         code:
           type: string
-          description: Machine-readable error code
+          description: Código de error legible por máquina
         details:
           type: object
-          description: Additional error context
+          description: Contexto de error adicional
           
     PaginatedResponse:
       type: object
@@ -513,16 +513,16 @@ components:
       properties:
         offset:
           type: integer
-          description: Number of items skipped
+          description: Número de elementos omitidos
         limit:
           type: integer
-          description: Maximum items per page
+          description: Elementos máximos por página
         total:
           type: integer
-          description: Total number of items available
+          description: Número total de elementos disponibles
 ```
 
-### Security Schemas
+### Esquemas de Seguridad
 
 ```yaml
 components:
@@ -531,7 +531,7 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      description: JWT token obtained from authentication endpoint
+      description: Token JWT obtenido del endpoint de autenticación
 
 security:
   - BearerAuth: []
@@ -539,11 +539,11 @@ security:
 
 ---
 
-## Validation and Quality Checks
+## Validación y Verificaciones de Calidad
 
-### Pre-Commit Validation
+### Validación Pre-Commit
 
-Add a pre-commit hook or CI check:
+Agregar un hook pre-commit o verificación de CI:
 
 ```yaml
 # .github/workflows/validate-api-spec.yml
@@ -563,74 +563,73 @@ jobs:
       - run: redocly lint docs/openapi.yaml
 ```
 
-### Common Validation Rules
+### Reglas de Validación Comunes
 
-* All paths have operation IDs
-* All operations have tags
-* All parameters have descriptions
-* All responses are documented
-* Examples are provided
-* Schemas are properly referenced
-
----
-
-## Troubleshooting
-
-### Workflow Fails
-
-**Problem**: GitHub Actions workflow fails
-
-**Solutions**:
-* Check workflow logs for validation errors
-* Run `redocly lint docs/openapi.yaml` locally
-* Verify file paths in workflow configuration
-* Ensure secrets are properly configured
-
-### GitHub Pages Not Working
-
-**Problem**: Docs not appearing at GitHub Pages URL
-
-**Solutions**:
-* Verify GitHub Pages is enabled in repository settings
-* Check that workflow completed successfully
-* Wait a few minutes for GitHub Pages to update
-* Verify the `github-pages` environment exists
-
-### GitBook Not Syncing
-
-**Problem**: GitBook not showing updated API docs
-
-**Solutions**:
-* Verify GitBook secrets are correct
-* Check that the OpenAPI URL is accessible
-* Manually trigger a refresh in GitBook
-* Verify OpenAPI spec is valid
+* Todas las rutas tienen IDs de operación
+* Todas las operaciones tienen tags
+* Todos los parámetros tienen descripciones
+* Todas las respuestas están documentadas
+* Se proporcionan ejemplos
+* Los esquemas están correctamente referenciados
 
 ---
 
-## Migration from Existing Docs
+## Solución de Problemas
 
-If you have existing API documentation:
+### El Flujo de Trabajo Falla
 
-1. **Export to OpenAPI**: Convert existing docs to OpenAPI 3.1 format
-2. **Validate**: Use `redocly lint` to ensure compliance
-3. **Add workflow**: Set up GitHub Actions automation
-4. **Test**: Verify docs build and deploy correctly
-5. **Update links**: Point old documentation links to new GitHub Pages URL
-6. **Archive old docs**: Keep old docs for reference during transition
+**Problema**: El flujo de trabajo de GitHub Actions falla
+
+**Soluciones**:
+* Verificar logs del flujo de trabajo para errores de validación
+* Ejecutar `redocly lint docs/openapi.yaml` localmente
+* Verificar rutas de archivo en configuración del flujo de trabajo
+* Asegurar que los secretos estén correctamente configurados
+
+### GitHub Pages No Funciona
+
+**Problema**: La documentación no aparece en la URL de GitHub Pages
+
+**Soluciones**:
+* Verificar que GitHub Pages esté habilitado en configuración del repositorio
+* Verificar que el flujo de trabajo se completó exitosamente
+* Esperar unos minutos para que GitHub Pages se actualice
+* Verificar que el environment `github-pages` existe
+
+### GitBook No Se Sincroniza
+
+**Problema**: GitBook no muestra documentación de API actualizada
+
+**Soluciones**:
+* Verificar que los secretos de GitBook sean correctos
+* Verificar que la URL de OpenAPI sea accesible
+* Activar manualmente una actualización en GitBook
+* Verificar que la especificación OpenAPI sea válida
 
 ---
 
-## Next Steps
+## Migración desde Documentación Existente
 
-* Review the [Well-Known Components](well-known-components/) standards for API implementation
-* See [Testing Standards](testing-standards/) for API testing guidelines
-* Check out existing API examples in the [API Reference](https://docs.decentraland.org) section
+Si tiene documentación de API existente:
 
-## Resources
+1. **Exportar a OpenAPI**: Convertir documentación existente a formato OpenAPI 3.1
+2. **Validar**: Usar `redocly lint` para asegurar cumplimiento
+3. **Agregar flujo de trabajo**: Configurar automatización de GitHub Actions
+4. **Probar**: Verificar que la documentación se construya y despliegue correctamente
+5. **Actualizar enlaces**: Apuntar enlaces de documentación antigua a nueva URL de GitHub Pages
+6. **Archivar documentación antigua**: Mantener documentación antigua para referencia durante transición
+
+---
+
+## Próximos Pasos
+
+* Revisar los estándares de [Well-Known Components](well-known-components/) para implementación de API
+* Ver [Estándares de Pruebas](testing-standards/) para guías de pruebas de API
+* Revisar ejemplos de API existentes en la sección [API Reference](https://docs.decentraland.org)
+
+## Recursos
 
 * **OpenAPI Specification**: [spec.openapis.org](https://spec.openapis.org/oas/latest.html)
 * **Redocly CLI**: [redocly.com/docs/cli](https://redocly.com/docs/cli/)
-* **GitBook API Integration**: [docs.gitbook.com](https://docs.gitbook.com)
-* **Platform Actions Repo**: [github.com/decentraland/platform-actions](https://github.com/decentraland/platform-actions)
-
+* **Integración de API GitBook**: [docs.gitbook.com](https://docs.gitbook.com)
+* **Repositorio Platform Actions**: [github.com/decentraland/platform-actions](https://github.com/decentraland/platform-actions)

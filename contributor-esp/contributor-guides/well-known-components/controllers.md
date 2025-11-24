@@ -1,23 +1,23 @@
-# Controllers
+# Controladores
 
-Controllers are responsible for handling HTTP and WebSocket requests in your application. They serve as the entry point for external requests and act as the bridge between the transport layer and your business logic.
+Los controladores son responsables de manejar solicitudes HTTP y WebSocket en su aplicación. Sirven como el punto de entrada para solicitudes externas y actúan como el puente entre la capa de transporte y su lógica de negocio.
 
-## Purpose
+## Propósito
 
-Controllers MUST only perform these specific tasks:
+Los controladores DEBEN realizar solo estas tareas específicas:
 
-1. **Validate transport layer input** - Verify authentication, authorization, and input format
-2. **Call logic components** - Delegate business logic to appropriate logic components
-3. **Transform input** - Convert request data into parameters for logic component calls
-4. **Handle errors** - Catch and properly respond to errors from logic components
+1. **Validar entrada de capa de transporte** - Verificar autenticación, autorización y formato de entrada
+2. **Llamar componentes lógicos** - Delegar lógica de negocio a componentes lógicos apropiados
+3. **Transformar entrada** - Convertir datos de solicitud en parámetros para llamadas de componentes lógicos
+4. **Manejar errores** - Capturar y responder apropiadamente a errores de componentes lógicos
 
 {% hint style="warning" %}
-Controllers should NOT contain business logic. All business rules MUST be implemented in logic components.
+Los controladores NO deberían contener lógica de negocio. Todas las reglas de negocio DEBEN implementarse en componentes lógicos.
 {% endhint %}
 
-## Location
+## Ubicación
 
-All controllers MUST be placed under the `/src/controllers` directory and be named in reference to the action they perform.
+Todos los controladores DEBEN colocarse bajo el directorio `/src/controllers` y nombrarse en referencia a la acción que realizan.
 
 ```
 src/
@@ -32,9 +32,9 @@ src/
     └── health.ts
 ```
 
-## Controller Structure
+## Estructura del Controlador
 
-### Basic HTTP Handler
+### Handler HTTP Básico
 
 ```tsx
 import { HandlerContextWithPath } from '@dcl/platform-server-commons'
@@ -51,7 +51,7 @@ export async function getUserHandler(
   const logger = logs.getLogger('get-user-handler')
 
   try {
-    // 1. Validate authentication
+    // 1. Validar autenticación
     if (!verification?.auth) {
       return {
         status: 401,
@@ -62,7 +62,7 @@ export async function getUserHandler(
       }
     }
 
-    // 2. Validate input
+    // 2. Validar entrada
     if (!id || typeof id !== 'string') {
       return {
         status: 400,
@@ -73,10 +73,10 @@ export async function getUserHandler(
       }
     }
 
-    // 3. Call logic component
+    // 3. Llamar componente lógico
     const user = await userLogic.getUser(id)
 
-    // 4. Return success response
+    // 4. Retornar respuesta exitosa
     return {
       status: 200,
       body: {
@@ -85,7 +85,7 @@ export async function getUserHandler(
       }
     }
   } catch (error) {
-    // 5. Handle errors
+    // 5. Manejar errores
     logger.error('Error fetching user', error)
 
     if (error instanceof UserNotFoundError) {
@@ -109,7 +109,7 @@ export async function getUserHandler(
 }
 ```
 
-### POST Request Handler
+### Handler de Solicitud POST
 
 ```tsx
 export async function createUserHandler(
@@ -124,7 +124,7 @@ export async function createUserHandler(
   const logger = logs.getLogger('create-user-handler')
 
   try {
-    // 1. Validate authentication
+    // 1. Validar autenticación
     if (!verification?.auth) {
       return {
         status: 401,
@@ -135,7 +135,7 @@ export async function createUserHandler(
       }
     }
 
-    // 2. Parse and validate request body
+    // 2. Parsear y validar cuerpo de solicitud
     const body = await request.json()
     
     if (!body.username || !body.email) {
@@ -148,17 +148,17 @@ export async function createUserHandler(
       }
     }
 
-    // 3. Transform input for logic component
+    // 3. Transformar entrada para componente lógico
     const userData = {
       username: body.username.toLowerCase(),
       email: body.email.toLowerCase(),
       display_name: body.display_name || body.username
     }
 
-    // 4. Call logic component
+    // 4. Llamar componente lógico
     const user = await userLogic.createUser(userData)
 
-    // 5. Return success response
+    // 5. Retornar respuesta exitosa
     return {
       status: 201,
       body: {
@@ -200,7 +200,7 @@ export async function createUserHandler(
 }
 ```
 
-### Query Parameters Handler
+### Handler de Parámetros de Query
 
 ```tsx
 export async function searchUsersHandler(
@@ -215,7 +215,7 @@ export async function searchUsersHandler(
   const logger = logs.getLogger('search-users-handler')
 
   try {
-    // 1. Validate authentication
+    // 1. Validar autenticación
     if (!verification?.auth) {
       return {
         status: 401,
@@ -226,7 +226,7 @@ export async function searchUsersHandler(
       }
     }
 
-    // 2. Extract and validate query parameters (lowercase!)
+    // 2. Extraer y validar parámetros de query (¡en minúsculas!)
     const searchParams = new URLSearchParams(url.search)
     const query = searchParams.get('query')?.toLowerCase()
     const limit = parseInt(searchParams.get('limit') || '10', 10)
@@ -242,14 +242,14 @@ export async function searchUsersHandler(
       }
     }
 
-    // 3. Call logic component
+    // 3. Llamar componente lógico
     const results = await userLogic.searchUsers({
       query,
       limit,
       offset
     })
 
-    // 4. Return success response
+    // 4. Retornar respuesta exitosa
     return {
       status: 200,
       body: {
@@ -271,16 +271,16 @@ export async function searchUsersHandler(
 }
 ```
 
-## Input Requirements
+## Requisitos de Entrada
 
-All input keys received through controllers (JSON body, query parameters, URL parameters, headers, etc.) **MUST be in lowercase** to prevent casing issues when processing data.
+Todas las claves de entrada recibidas a través de controladores (cuerpo JSON, parámetros de query, parámetros de URL, headers, etc.) **DEBEN estar en minúsculas** para prevenir problemas de capitalización al procesar datos.
 
-### Multi-word Parameters
+### Parámetros Multi-palabra
 
-Multi-word parameters MUST be defined using **snake_case**.
+Los parámetros multi-palabra DEBEN definirse usando **snake_case**.
 
 {% hint style="danger" %}
-**Incorrect naming:**
+**Nomenclatura incorrecta:**
 
 * `minPrice`
 * `Car`
@@ -289,7 +289,7 @@ Multi-word parameters MUST be defined using **snake_case**.
 {% endhint %}
 
 {% hint style="success" %}
-**Correct naming:**
+**Nomenclatura correcta:**
 
 * `min_price`
 * `car`
@@ -297,36 +297,36 @@ Multi-word parameters MUST be defined using **snake_case**.
 * `user_id`
 {% endhint %}
 
-### Example
+### Ejemplo
 
 ```tsx
-// Request body
+// Cuerpo de solicitud
 {
-  "user_name": "john_doe",        // ✅ Correct
-  "email_address": "john@example.com",  // ✅ Correct
-  "display_name": "John Doe",     // ✅ Correct
-  "max_items": 100                // ✅ Correct
+  "user_name": "john_doe",        // ✅ Correcto
+  "email_address": "john@example.com",  // ✅ Correcto
+  "display_name": "John Doe",     // ✅ Correcto
+  "max_items": 100                // ✅ Correcto
 }
 
-// Query parameters
-?search_query=test&max_results=50&sort_by=created_at  // ✅ Correct
+// Parámetros de query
+?search_query=test&max_results=50&sort_by=created_at  // ✅ Correcto
 
-// URL parameters
-/users/:user_id/posts/:post_id   // ✅ Correct
+// Parámetros de URL
+/users/:user_id/posts/:post_id   // ✅ Correcto
 ```
 
-## Error Handling
+## Manejo de Errores
 
-### Standard Error Responses
+### Respuestas de Error Estándar
 
-Controllers should return consistent error response formats:
+Los controladores deberían retornar formatos de respuesta de error consistentes:
 
 ```tsx
 // 400 Bad Request
 {
   "error": "Bad Request",
-  "message": "Detailed error message",
-  "details": {} // Optional additional details
+  "message": "Mensaje de error detallado",
+  "details": {} // Detalles adicionales opcionales
 }
 
 // 401 Unauthorized
@@ -360,15 +360,15 @@ Controllers should return consistent error response formats:
 }
 ```
 
-### Error Mapping
+### Mapeo de Errores
 
-Map domain errors to appropriate HTTP status codes:
+Mapear errores de dominio a códigos de estado HTTP apropiados:
 
 ```tsx
 function mapErrorToResponse(error: Error, logger: ILogger) {
   logger.error('Handler error', error)
 
-  // Domain-specific errors
+  // Errores específicos del dominio
   if (error instanceof UserNotFoundError) {
     return { status: 404, body: { error: 'Not Found', message: error.message } }
   }
@@ -385,7 +385,7 @@ function mapErrorToResponse(error: Error, logger: ILogger) {
     return { status: 400, body: { error: 'Bad Request', message: error.message } }
   }
 
-  // Generic error
+  // Error genérico
   return {
     status: 500,
     body: {
@@ -396,12 +396,12 @@ function mapErrorToResponse(error: Error, logger: ILogger) {
 }
 ```
 
-## Authentication and Authorization
+## Autenticación y Autorización
 
-### Authentication Check
+### Verificación de Autenticación
 
 ```tsx
-// Require authentication
+// Requerir autenticación
 if (!verification?.auth) {
   return {
     status: 401,
@@ -415,10 +415,10 @@ if (!verification?.auth) {
 const userAddress = verification.auth.toLowerCase()
 ```
 
-### Authorization Check
+### Verificación de Autorización
 
 ```tsx
-// Check permissions through logic component
+// Verificar permisos a través del componente lógico
 const canAccess = await permissionsLogic.canUserAccessResource(
   userAddress,
   resourceId
@@ -435,52 +435,52 @@ if (!canAccess) {
 }
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Keep Controllers Thin
+### 1. Mantener Controladores Ligeros
 
-Controllers should be thin wrappers around logic components:
+Los controladores deberían ser envoltorios ligeros alrededor de componentes lógicos:
 
 ```tsx
-// ✅ Good: Thin controller
+// ✅ Bien: Controlador ligero
 export async function handler(context) {
   const { userLogic } = context.components
   const user = await userLogic.getUser(context.params.id)
   return { status: 200, body: { data: user } }
 }
 
-// ❌ Bad: Business logic in controller
+// ❌ Mal: Lógica de negocio en controlador
 export async function handler(context) {
   const { database } = context.components
   const user = await database.query('SELECT * FROM users...')
-  const processed = processUser(user) // Business logic!
-  const validated = validateUser(processed) // Business logic!
+  const processed = processUser(user) // ¡Lógica de negocio!
+  const validated = validateUser(processed) // ¡Lógica de negocio!
   return { status: 200, body: { data: validated } }
 }
 ```
 
-### 2. Validate Early
+### 2. Validar Temprano
 
-Validate and fail fast:
+Validar y fallar rápido:
 
 ```tsx
-// Validate authentication first
+// Validar autenticación primero
 if (!verification?.auth) {
   return { status: 401, body: { error: 'Unauthorized' } }
 }
 
-// Then validate input
+// Luego validar entrada
 if (!params.id) {
   return { status: 400, body: { error: 'Bad Request' } }
 }
 
-// Then proceed with business logic
+// Luego proceder con lógica de negocio
 const result = await logic.doSomething(params.id)
 ```
 
-### 3. Use Type Safety
+### 3. Usar Type Safety
 
-Leverage TypeScript for type safety:
+Aprovechar TypeScript para type safety:
 
 ```tsx
 interface CreateUserRequest {
@@ -492,9 +492,9 @@ interface CreateUserRequest {
 const body: CreateUserRequest = await request.json()
 ```
 
-### 4. Log Appropriately
+### 4. Registrar Apropiadamente
 
-Log important events and errors:
+Registrar eventos importantes y errores:
 
 ```tsx
 logger.info('User created', { userId: user.id, userAddress })
@@ -502,7 +502,6 @@ logger.warn('Rate limit approaching', { userAddress, requests })
 logger.error('Failed to create user', { error, userAddress })
 ```
 
-## Testing Controllers
+## Probar Controladores
 
-See the [Testing Services (WKC)](../testing-standards/testing-services-wkc.md) documentation for integration testing guidance.
-
+Ver la documentación de [Probar Servicios (WKC)](../testing-standards/testing-services-wkc.md) para guía de pruebas de integración.

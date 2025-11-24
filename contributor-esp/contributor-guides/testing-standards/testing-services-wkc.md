@@ -1,17 +1,17 @@
-# Testing Services (Well-Known-Component)
+# Probar Servicios (Well-Known-Component)
 
-Well known component services are servers built with the [well known component](https://well-known-components.github.io/documentation/) architecture, where each part of the service is modularized and encapsulated in a component. These components, alongside the ability of being easy to be interchanged, have the ability of being easy to unit test, as all of their dependencies are injected when created.
+Los servicios well known component son servidores construidos con la arquitectura [well known component](https://well-known-components.github.io/documentation/), donde cada parte del servicio está modularizada y encapsulada en un componente. Estos componentes, junto con la capacidad de ser fácilmente intercambiados, tienen la capacidad de ser fácilmente probados unitariamente, ya que todas sus dependencias son inyectadas cuando se crean.
 
-Testing these services SHOULD be done using two different types of test, **unit** and **integration**. Components that contain logic MUST be tested using unit tests and components that have mostly interactions with external services SHOULD be tested using integrations tests. That is, a database adapter component which does not contain any logic and contains mostly database queries MUST be tested integratedly.
+Probar estos servicios DEBERÍA hacerse usando dos tipos diferentes de prueba, **unitaria** e **de integración**. Los componentes que contienen lógica DEBEN ser probados usando pruebas unitarias y los componentes que tienen principalmente interacciones con servicios externos DEBERÍAN ser probados usando pruebas de integración. Es decir, un componente adaptador de base de datos que no contiene ninguna lógica y contiene principalmente consultas de base de datos DEBE ser probado integrativamente.
 
-## Unit testing well known component components
+## Pruebas unitarias de componentes well known component
 
-All components MUST be unit tested and MUST be written following the section defined here on how to write tests.
+Todos los componentes DEBEN ser probados unitariamente y DEBEN escribirse siguiendo la sección definida aquí sobre cómo escribir pruebas.
 
-To show how these component are tested, here's a simple component with only one method and two dependencies, **settings** and **friends**:
+Para mostrar cómo estos componentes son probados, aquí hay un componente simple con solo un método y dos dependencias, **settings** y **friends**:
 
 ```tsx
-// Voice component
+// Componente Voice
 
 export function createVoiceComponent(dependencies: Pick<AppComponents, 'settings' | 'friends'>) {
 	const { settings, friends } = dependencies
@@ -28,33 +28,33 @@ export function createVoiceComponent(dependencies: Pick<AppComponents, 'settings
 }
 ```
 
-In order to test this component, proper mocks must be built, that is, mocks that have the correct types to interface with the component to be tested and that are flexible to allow us to create all types of tests. These mocks should also be immutable between tests, preserving the idea that each test is executed in its own context, isolated from the others.
+Para probar este componente, se deben construir mocks apropiados, es decir, mocks que tengan los tipos correctos para interactuar con el componente a probar y que sean flexibles para permitirnos crear todos los tipos de pruebas. Estos mocks también deberían ser inmutables entre pruebas, preservando la idea de que cada prueba se ejecuta en su propio contexto, aislada de las demás.
 
-These mocks SHOULD be created using component mock creator functions and SHOULD be named as create**ComponentName**MockedComponent. Taking as an example the component created above, here's an example on how they SHOULD look like:
+Estos mocks DEBERÍAN crearse usando funciones creadoras de componentes mock y DEBERÍAN nombrarse como create**ComponentName**MockedComponent. Tomando como ejemplo el componente creado arriba, aquí hay un ejemplo de cómo DEBERÍAN verse:
 
 ```tsx
-// Placed in the /test/mocks/settings.ts file
+// Colocado en el archivo /test/mocks/settings.ts
 export function createSettingsMockedComponent(overrides?: Partial<jest.Mocked<ISettingsComponent>>): jest.Mocked<ISettingsComponent> {
   return {
     getPrivacySettings: overrides?.getPrivacySettings ?? jest.fn()
   }
 }
 
-// Places in the test/mocks/friends.ts file
+// Colocado en el archivo test/mocks/friends.ts
 export function createFriendsMockedComponent(overrides?: Partial<jest.Mocked<IFriendsComponent>>): jest.Mocked<IFriendsComponent> {
 	return {
-	  // We have the flexibility to define behavior upon any of the methods exported by the component.
+	  // Tenemos la flexibilidad de definir comportamiento sobre cualquiera de los métodos exportados por el componente.
 	  areUsersFriends: overrides?.areUsersFriends ?? jest.fn(),
-	  // Methods that are not used can be avoided in the overrides parameter, making them a simple function mock.
+	  // Los métodos que no se usan pueden evitarse en el parámetro overrides, convirtiéndolos en un simple mock de función.
 	  hasBlockedUser: overrides?.hasBlockedUser ?? jest.fn()
 	}
 }
 ```
 
-By using these mocks carefully placed inside a `beforeEach`, we can be sure that the mocks are defined correctly isolated from different executions. Here's an example on how these mocks can be used:
+Al usar estos mocks cuidadosamente colocados dentro de un `beforeEach`, podemos estar seguros de que los mocks están definidos correctamente aislados de diferentes ejecuciones. Aquí hay un ejemplo de cómo estos mocks pueden usarse:
 
 ```tsx
-// Defines the mocked functions in the context so we can change its mock.
+// Define las funciones mockeadas en el contexto para que podamos cambiar su mock.
 let getPrivacySettingsMock: jest.MockedFn<ISettingsComponent['getPrivacySettings']>
 let areUsersFriendsMock: jest.MockedFn<IFriendsComponent['areUsersFriends']>
 let voice: IVoiceComponent
@@ -62,19 +62,19 @@ let voice: IVoiceComponent
 beforeEach({
   getPrivacySettingsMock = jest.fn()
   areUsersFriendsMock = jest.fn()
-  // Builds the mock
+  // Construye el mock
   const settings = createSettingsMockedComponent({ getPrivacySettings: getPrivacySettingsMock })
-  // Initializes the component mock with only the methods that are going to be used in the tests
+  // Inicializa el mock del componente solo con los métodos que se van a usar en las pruebas
   const friends = createFriendsMockedComponent({ areUsersFriends: areUsersFriendsMock })
-  // Creates the component to be tested using the mocks
+  // Crea el componente a probar usando los mocks
   voice = createVoiceComponent({ settings, friends })
 })
 ```
 
-This way of defining the mocks not only allows us to correctly isolate the contexts of the tests between executions, but also builds the grounds for a proper context initialization, as by having the mocked functions already defined, it's quite easy to build each context:
+Esta forma de definir los mocks no solo nos permite aislar correctamente los contextos de las pruebas entre ejecuciones, sino que también construye las bases para una inicialización de contexto apropiada, ya que al tener las funciones mockeadas ya definidas, es bastante fácil construir cada contexto:
 
 ```tsx
-// Defined after the previous code block.
+// Definido después del bloque de código anterior.
 
 describe('when checking if two users can call each other', () => {
 	const calleeAddress = '0xd7D746d39D142b6bE752efd7626cE28F245a25D1'
@@ -82,7 +82,7 @@ describe('when checking if two users can call each other', () => {
 
   describe('and the callee only accepts calls from friends', () => {
     beforeEach(() => {
-      // Defines the mock for the context, making the callee 
+      // Define el mock para el contexto, haciendo que el callee 
       getPrivacySettingsMock.mockImplementation((address: string) => {
 	      switch(address) {
 	        case caleeAddress:
@@ -116,17 +116,17 @@ describe('when checking if two users can call each other', () => {
     })
   })
   
-  //... other contexts
+  //... otros contextos
 })
 ```
 
-## Integration testing
+## Pruebas de integración
 
-All endpoints, WS RPC calls, jobs or task MUST be integrally tested and MUST be written following the section defined here on how to write tests. Integration tests must be placed under the `test/integration` directory and must be named in accordance with the entry point we want to test.
+Todos los endpoints, llamadas WS RPC, jobs o tareas DEBEN ser probados integrativamente y DEBEN escribirse siguiendo la sección definida aquí sobre cómo escribir pruebas. Las pruebas de integración deben colocarse bajo el directorio `test/integration` y deben nombrarse de acuerdo con el punto de entrada que queremos probar.
 
-Integration tests should be limited to testing either specific integration conditions that can't be tested with unit tests (SQL queries, Redis operations, etc) and the integration between our logic components and the protocol (HTTP, WS).
+Las pruebas de integración deberían limitarse a probar condiciones de integración específicas que no pueden probarse con pruebas unitarias (consultas SQL, operaciones Redis, etc) y la integración entre nuestros componentes lógicos y el protocolo (HTTP, WS).
 
-To show an example on how integration tests must be made, we'll be testing a simple HTTP request that retrieves a user's friends.
+Para mostrar un ejemplo de cómo deben hacerse las pruebas de integración, estaremos probando una solicitud HTTP simple que recupera los amigos de un usuario.
 
 ```tsx
 export async function getFriendHandler(
@@ -166,11 +166,10 @@ export async function getFriendHandler(
 }
 ```
 
-And a friends component having the following:
+Y un componente friends que tiene lo siguiente:
 
 ```tsx
 async function getFriends(addres: string) {
 	friendsDb.getFriends()
 }
 ```
-

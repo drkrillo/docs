@@ -1,17 +1,17 @@
-# Components
+# Componentes
 
-Components are self-contained pieces of software designed as black boxes that receive other components (or none) to perform their tasks. The main objective is to decouple code sections and maximize testability.
+Los componentes son piezas de software auto-contenidas diseñadas como cajas negras que reciben otros componentes (o ninguno) para realizar sus tareas. El objetivo principal es desacoplar secciones de código y maximizar la probabilidad.
 
-## Directory Structure
+## Estructura de Directorios
 
-All components MUST be defined inside a dedicated directory containing at least these four files:
+Todos los componentes DEBEN definirse dentro de un directorio dedicado que contenga al menos estos cuatro archivos:
 
-* `component.ts` - Contains the component's implementation code
-* `types.ts` - Contains the component's interface and exposed types
-* `errors.ts` - Contains all exported error classes
-* `index.ts` - Exports the public API of the component
+* `component.ts` - Contiene el código de implementación del componente
+* `types.ts` - Contiene la interfaz del componente y tipos expuestos
+* `errors.ts` - Contiene todas las clases de error exportadas
+* `index.ts` - Exporta la API pública del componente
 
-### Example Structure
+### Ejemplo de Estructura
 
 ```
 src/
@@ -23,15 +23,15 @@ src/
         └── index.ts
 ```
 
-## Type File
+## Archivo de Tipos
 
-Components conform to an interface that defines their public API. This interface can be shared between interchangeable components or used to understand the methods exposed by the component.
+Los componentes se conforman a una interfaz que define su API pública. Esta interfaz puede compartirse entre componentes intercambiables o usarse para entender los métodos expuestos por el componente.
 
-All components that have their own interface MUST define it in a `types.ts` file inside the component's directory.
+Todos los componentes que tienen su propia interfaz DEBEN definirla en un archivo `types.ts` dentro del directorio del componente.
 
-Other types exposed by the component MUST also be placed in this file.
+Otros tipos expuestos por el componente TAMBIÉN DEBEN colocarse en este archivo.
 
-### Example: `types.ts`
+### Ejemplo: `types.ts`
 
 ```tsx
 export type Something = {
@@ -45,39 +45,39 @@ export interface IMyComponent {
 }
 ```
 
-### Shared Types
+### Tipos Compartidos
 
-Types shared between multiple components, such as common interfaces, MUST be placed in a `types.ts` file in the root directory of the project's source code (`/src/types.ts`).
+Los tipos compartidos entre múltiples componentes, como interfaces comunes, DEBEN colocarse en un archivo `types.ts` en el directorio raíz del código fuente del proyecto (`/src/types.ts`).
 
-## Component File
+## Archivo del Componente
 
-The component file contains the component creator function. This function follows a specific naming and structure convention.
+El archivo del componente contiene la función creadora del componente. Esta función sigue una convención específica de nomenclatura y estructura.
 
-### Naming Convention
+### Convención de Nomenclatura
 
-Component creator functions MUST be named as: `create` + `ComponentName` + `Component`
+Las funciones creadoras de componentes DEBEN nombrarse como: `create` + `ComponentName` + `Component`
 
-**Example:** `createMyNewComponent`
+**Ejemplo:** `createMyNewComponent`
 
-### Function Signature
+### Firma de la Función
 
-The creator function MUST:
+La función creadora DEBE:
 
-1. Receive a components object as the first parameter containing all dependencies
-2. Optionally receive additional configuration parameters
-3. Return an object containing the exposed (public) methods
+1. Recibir un objeto de componentes como el primer parámetro conteniendo todas las dependencias
+2. Opcionalmente recibir parámetros de configuración adicionales
+3. Retornar un objeto conteniendo los métodos expuestos (públicos)
 
-### Component Structure
+### Estructura del Componente
 
-At the start of the component creator function:
+Al inicio de la función creadora del componente:
 
-1. Extract dependencies from the components object
-2. Initialize common variables (e.g., loggers, configuration)
-3. Define internal helper functions
-4. Define public methods
-5. Return the public API
+1. Extraer dependencias del objeto de componentes
+2. Inicializar variables comunes (ej., loggers, configuración)
+3. Definir funciones auxiliares internas
+4. Definir métodos públicos
+5. Retornar la API pública
 
-### Example: `component.ts`
+### Ejemplo: `component.ts`
 
 ```tsx
 import { IMyComponent, Something } from './types'
@@ -89,7 +89,7 @@ export function createMyNewComponent(
   const { logs } = components
   const logger = logs.getLogger('my-component')
 
-  // Internal method - not exposed
+  // Método interno - no expuesto
   function computeString(fstString: string, sndString: string): string {
     if (fstString.length === 0) {
       throw new WrongStringError()
@@ -98,12 +98,12 @@ export function createMyNewComponent(
     return fstString + ' ' + sndString
   }
 
-  // Public method - exposed in return object
+  // Método público - expuesto en objeto de retorno
   function myFunction(): boolean {
     return true
   }
 
-  // Public method - exposed in return object
+  // Método público - expuesto en objeto de retorno
   function getSomething(): Something {
     logger.info('Getting something')
     
@@ -113,7 +113,7 @@ export function createMyNewComponent(
     }
   }
 
-  // Return the public API
+  // Retorna la API pública
   return {
     myFunction,
     getSomething
@@ -121,11 +121,11 @@ export function createMyNewComponent(
 }
 ```
 
-## Errors File
+## Archivo de Errores
 
-The errors file contains custom error classes that a component can throw. These errors can be used in other components or controllers to correctly identify and handle specific error conditions.
+El archivo de errores contiene clases de error personalizadas que un componente puede lanzar. Estos errores pueden usarse en otros componentes o controladores para identificar y manejar correctamente condiciones de error específicas.
 
-### Example: `errors.ts`
+### Ejemplo: `errors.ts`
 
 ```tsx
 export class WrongStringError extends Error {
@@ -143,18 +143,18 @@ export class ComponentNotInitializedError extends Error {
 }
 ```
 
-### Error Handling Best Practices
+### Mejores Prácticas para Manejo de Errores
 
-* Create specific error classes for different error conditions
-* Include meaningful error messages
-* Set the `name` property to match the class name for easier debugging
-* Document which errors can be thrown by each public method
+* Crear clases de error específicas para diferentes condiciones de error
+* Incluir mensajes de error significativos
+* Establecer la propiedad `name` para que coincida con el nombre de la clase para facilitar la depuración
+* Documentar qué errores pueden ser lanzados por cada método público
 
-## Index File
+## Archivo Index
 
-The index file serves as the public entry point for the component, exporting only what should be accessible to other parts of the application.
+El archivo index sirve como el punto de entrada público para el componente, exportando solo lo que debería ser accesible a otras partes de la aplicación.
 
-### Example: `index.ts`
+### Ejemplo: `index.ts`
 
 ```tsx
 export { createMyNewComponent } from './component'
@@ -162,22 +162,21 @@ export type { IMyComponent, Something } from './types'
 export { WrongStringError } from './errors'
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-1. **Single Responsibility** - Each component should have one clear purpose
-2. **Explicit Dependencies** - All dependencies should be injected through the components parameter
-3. **Immutability** - Prefer immutable data structures where possible
-4. **Error Handling** - Use custom error classes for different error conditions
-5. **Logging** - Use the logger for debugging and monitoring
-6. **Type Safety** - Leverage TypeScript's type system fully
-7. **Documentation** - Document complex methods and business logic
+1. **Responsabilidad Única** - Cada componente debería tener un propósito claro
+2. **Dependencias Explícitas** - Todas las dependencias deberían inyectarse a través del parámetro components
+3. **Inmutabilidad** - Preferir estructuras de datos inmutables donde sea posible
+4. **Manejo de Errores** - Usar clases de error personalizadas para diferentes condiciones de error
+5. **Logging** - Usar el logger para depuración y monitoreo
+6. **Type Safety** - Aprovechar completamente el sistema de tipos de TypeScript
+7. **Documentación** - Documentar métodos complejos y lógica de negocio
 
-## Component Lifecycle
+## Ciclo de Vida del Componente
 
-Some components may need to perform setup or cleanup operations. WKC provides lifecycle methods:
+Algunos componentes pueden necesitar realizar operaciones de configuración o limpieza. WKC proporciona métodos de ciclo de vida:
 
-* `[START_COMPONENT]` - Called when the component starts
-* `[STOP_COMPONENT]` - Called when the component stops
+* `[START_COMPONENT]` - Llamado cuando el componente inicia
+* `[STOP_COMPONENT]` - Llamado cuando el componente se detiene
 
-See the [Adapters](adapters.md) section for examples of components using lifecycle methods.
-
+Ver la sección [Adaptadores](adapters.md) para ejemplos de componentes usando métodos de ciclo de vida.

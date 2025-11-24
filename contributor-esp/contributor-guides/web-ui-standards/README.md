@@ -1,92 +1,92 @@
-# Web UI Standards
+# Estándares de IU Web
 
-This section explains how Decentraland builds web UI for dApps using our component library and design system. These standards ensure consistency, accessibility, and maintainability across all web applications.
+Esta sección explica cómo Decentraland construye IU web para dApps usando nuestra biblioteca de componentes y sistema de diseño. Estos estándares aseguran consistencia, accesibilidad y mantenibilidad a través de todas las aplicaciones web.
 
-## Overview
+## Resumen
 
-Our web UI architecture is built on three core pillars:
+Nuestra arquitectura de IU web está construida sobre tres pilares fundamentales:
 
-* **UI2 (`decentraland-ui2`)** - Our primary component library and design system
-* **Material UI (MUI)** - The foundation wrapped by UI2 with Decentraland theming
-* **Design System** - Unified colors, typography, spacing, and components
+* **UI2 (`decentraland-ui2`)** - Nuestra biblioteca de componentes principal y sistema de diseño
+* **Material UI (MUI)** - La base envuelta por UI2 con la tematización de Decentraland
+* **Sistema de Diseño** - Colores, tipografía, espaciado y componentes unificados
 
-### UI2: The Single Source of Truth
+### UI2: La Única Fuente de Verdad
 
-**UI2** is our current component library that wraps Material UI components with Decentraland's theme and provides custom components like `Navbar` that don't exist in MUI.
+**UI2** es nuestra biblioteca de componentes actual que envuelve componentes de Material UI con el tema de Decentraland y proporciona componentes personalizados como `Navbar` que no existen en MUI.
 
-* **Live Demo**: [ui2.decentraland.org](http://ui2.decentraland.org)
+* **Demo en Vivo**: [ui2.decentraland.org](http://ui2.decentraland.org)
 * **GitHub**: [github.com/decentraland/ui2](https://github.com/decentraland/ui2)
-* **Figma Library**: [Decentraland UI2 on Figma](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2)
+* **Biblioteca Figma**: [Decentraland UI2 en Figma](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2)
 
-### UI1: Legacy Library
+### UI1: Biblioteca Legada
 
-**UI1** (`decentraland-ui`) is our previous component library, still maintained but being gradually migrated to UI2. See the [Migration Guide](broken-reference) for details on transitioning components.
+**UI1** (`decentraland-ui`) es nuestra biblioteca de componentes anterior, todavía mantenida pero siendo gradualmente migrada a UI2. Ver la [Guía de Migración](migration.md) para detalles sobre la transición de componentes.
 
-## Documentation Sections
+## Secciones de Documentación
 
-* [**Process Overview**](process-overview.md) - UX discovery, Figma design, and implementation workflow
-* [**Custom Components**](custom-components.md) - Guidelines for project-specific and reusable components
-* [**Styling & Theming**](styling-and-theming.md) - Comprehensive styling standards using styled-components
-* [**Migration Guide**](broken-reference) - Migrating components from UI1 to UI2
+* [**Resumen del Proceso**](process-overview.md) - Descubrimiento UX, diseño Figma y flujo de trabajo de implementación
+* [**Componentes Personalizados**](custom-components.md) - Guías para componentes específicos del proyecto y reutilizables
+* [**Estilos y Tematización**](styling-and-theming.md) - Estándares completos de estilo usando styled-components
+* [**Guía de Migración**](migration.md) - Migrando componentes de UI1 a UI2
 
-## Key Principles
+## Principios Clave
 
-### 1. Design-Implementation Alignment
+### 1. Alineación Diseño-Implementación
 
-What's designed in Figma is what gets built in code. Our process ensures:
+Lo que se diseña en Figma es lo que se construye en código. Nuestro proceso asegura:
 
-* UX defines goals, flows, and states
-* Designers work from our Figma library (mirrors MUI + Decentraland theme)
-* Developers implement using UI2 components
+* UX define objetivos, flujos y estados
+* Los diseñadores trabajan desde nuestra biblioteca Figma (refleja MUI + tema Decentraland)
+* Los desarrolladores implementan usando componentes UI2
 
-### 2. Theme-First Approach
+### 2. Enfoque Tema-Primero
 
-All visual properties MUST come from the UI2 theme:
+Todas las propiedades visuales DEBEN venir del tema UI2:
 
-* **Colors**: `theme.palette` and `dclColors`
-* **Typography**: Material Design type scale
-* **Spacing**: `theme.spacing(n)`
-* **Breakpoints**: Predefined responsive breakpoints
-* **No arbitrary values**: No ad-hoc hex codes or pixel values
+* **Colores**: `theme.palette` y `dclColors`
+* **Tipografía**: Escala de tipo Material Design
+* **Espaciado**: `theme.spacing(n)`
+* **Breakpoints**: Breakpoints responsivos predefinidos
+* **Sin valores arbitrarios**: Sin códigos hex o valores de píxeles ad-hoc
 
-### 3. Accessibility by Default
+### 3. Accesibilidad por Defecto
 
-Every component MUST:
+Cada componente DEBE:
 
-* Support keyboard navigation
-* Provide visible focus states
-* Include ARIA labels where appropriate
-* Meet color contrast requirements
-* Handle all states (loading, error, disabled)
+* Soportar navegación por teclado
+* Proporcionar estados de foco visibles
+* Incluir etiquetas ARIA donde sea apropiado
+* Cumplir requisitos de contraste de color
+* Manejar todos los estados (carga, error, deshabilitado)
 
-### 4. Strong Typing
+### 4. Tipado Fuerte
 
-Use TypeScript throughout:
+Usar TypeScript en todo:
 
-* Typed theme with autocomplete
-* Typed component props
-* Typed styled-components
-* No `any` types
+* Tema tipado con autocompletado
+* Props de componentes tipados
+* Styled-components tipados
+* Sin tipos `any`
 
-## Component Hierarchy
+## Jerarquía de Componentes
 
 ```
 UI2 (decentraland-ui2)
-├── MUI Components (themed)
+├── Componentes MUI (tematizados)
 │   ├── Button, Card, TextField, etc.
-│   └── Decentraland theme applied
-├── Custom Components
+│   └── Tema Decentraland aplicado
+├── Componentes Personalizados
 │   ├── Navbar
 │   ├── UserMenu
-│   └── Other Decentraland-specific components
-└── Theme System
-    ├── Colors (dclColors)
-    ├── Typography
-    ├── Spacing
+│   └── Otros componentes específicos de Decentraland
+└── Sistema de Tema
+    ├── Colores (dclColors)
+    ├── Tipografía
+    ├── Espaciado
     └── Breakpoints
 ```
 
-## Quick Start Example
+## Ejemplo de Inicio Rápido
 
 ```tsx
 import { ThemeProvider } from '@mui/material/styles';
@@ -94,7 +94,7 @@ import { Button, Card } from '@mui/material';
 import { theme, dclColors } from 'decentraland-ui2';
 import { styled } from '@mui/material/styles';
 
-// Use UI2 theme provider
+// Usar proveedor de tema UI2
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -103,18 +103,18 @@ function App() {
   );
 }
 
-// Use MUI components directly
+// Usar componentes MUI directamente
 function MyComponent() {
   return (
     <Card>
       <Button variant="contained" color="primary">
-        Click Me
+        Haz Click
       </Button>
     </Card>
   );
 }
 
-// Create styled components using theme
+// Crear componentes estilizados usando tema
 const CustomCard = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),
   borderRadius: theme.shape.borderRadius,
@@ -123,60 +123,60 @@ const CustomCard = styled('div')(({ theme }) => ({
 }));
 ```
 
-## Theme Reference
+## Referencia de Tema
 
-### Colors
+### Colores
 
 ```tsx
 import { dclColors } from 'decentraland-ui2';
 
-// Usage
+// Uso
 dclColors.rarity.unique
 dclColors.rarity.mythic
 theme.palette.primary.main
 theme.palette.text.primary
 ```
 
-**Source**: [colors.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colors.ts)
+**Fuente**: [colors.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colors.ts)
 
-### Typography
+### Tipografía
 
 ```tsx
-// Available variants
-<Typography variant="h1">Heading 1</Typography>
-<Typography variant="body1">Body text</Typography>
-<Typography variant="caption">Caption</Typography>
+// Variantes disponibles
+<Typography variant="h1">Encabezado 1</Typography>
+<Typography variant="body1">Texto de cuerpo</Typography>
+<Typography variant="caption">Subtítulo</Typography>
 ```
 
-**Source**: [typography.ts](https://github.com/decentraland/ui2/blob/master/src/theme/typography.ts)
+**Fuente**: [typography.ts](https://github.com/decentraland/ui2/blob/master/src/theme/typography.ts)
 
 ### Breakpoints
 
 ```tsx
-xs: 768px   // Extra small (mobile)
-sm: 991px   // Small (tablet)
-md: 1024px  // Medium (small desktop)
-lg: 1280px  // Large (desktop)
-xl: 1500px  // Extra large (large desktop)
+xs: 768px   // Extra pequeño (móvil)
+sm: 991px   // Pequeño (tablet)
+md: 1024px  // Mediano (escritorio pequeño)
+lg: 1280px  // Grande (escritorio)
+xl: 1500px  // Extra grande (escritorio grande)
 ```
 
-**Source**: [index.ts](https://github.com/decentraland/ui2/blob/master/src/theme/index.ts)
+**Fuente**: [index.ts](https://github.com/decentraland/ui2/blob/master/src/theme/index.ts)
 
-## Standards Compliance
+## Cumplimiento de Estándares
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this documentation are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+Las palabras clave "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" y "OPTIONAL" en esta documentación deben interpretarse como se describe en [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
-## Getting Started
+## Comenzando
 
-1. Review the [Process Overview](process-overview.md) to understand the workflow
-2. Learn about [Custom Components](custom-components.md) for when to create new components
-3. Study [Styling & Theming](styling-and-theming.md) for implementation details
-4. If migrating from UI1, see the [Migration Guide](broken-reference)
+1. Revisar el [Resumen del Proceso](process-overview.md) para entender el flujo de trabajo
+2. Aprender sobre [Componentes Personalizados](custom-components.md) para cuándo crear nuevos componentes
+3. Estudiar [Estilos y Tematización](styling-and-theming.md) para detalles de implementación
+4. Si estás migrando desde UI1, ver la [Guía de Migración](migration.md)
 
-## Resources
+## Recursos
 
 * **Storybook**: [ui2.decentraland.org](http://ui2.decentraland.org)
-* **Figma Library**: [DCL UI2 Design System](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2)
-* **Material UI Docs**: [mui.com](https://mui.com/material-ui/)
+* **Biblioteca Figma**: [Sistema de Diseño DCL UI2](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2)
+* **Documentación Material UI**: [mui.com](https://mui.com/material-ui/)
 * **Material Design**: [material.io](https://m2.material.io/)
-* **GitHub Repository**: [decentraland/ui2](https://github.com/decentraland/ui2)
+* **Repositorio GitHub**: [decentraland/ui2](https://github.com/decentraland/ui2)

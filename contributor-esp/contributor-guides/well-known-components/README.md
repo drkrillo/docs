@@ -1,65 +1,64 @@
-# Well-Known Components Servers
+# Servidores Well-Known Components
 
-This section provides comprehensive guidelines for building services using the [Well-Known Components (WKC) standard](https://well-known-components.github.io/documentation/). Following these standards ensures consistency, testability, and maintainability across all Decentraland services.
+Esta sección proporciona guías completas para construir servicios usando el estándar [Well-Known Components (WKC)](https://well-known-components.github.io/documentation/). Seguir estos estándares asegura consistencia, probabilidad y mantenibilidad a través de todos los servicios de Decentraland.
 
-## Overview
+## Resumen
 
-Well-Known Components services are built using a modular architecture based on two main building blocks:
+Los servicios Well-Known Components se construyen usando una arquitectura modular basada en dos bloques de construcción principales:
 
-* **[Components](components.md)** - Reusable, testable black-box units that encapsulate functionality
-* **[Controllers](controllers.md)** - Request handlers that manage HTTP and WebSocket communication
+* **[Componentes](components.md)** - Unidades reutilizables y probables de caja negra que encapsulan funcionalidad
+* **[Controladores](controllers.md)** - Manejadores de solicitudes que gestionan comunicación HTTP y WebSocket
 
-### Component Types
+### Tipos de Componentes
 
-We distinguish between two primary types of components:
+Distinguimos entre dos tipos principales de componentes:
 
-* **[Adapters](adapters.md)** - Components that handle I/O processes and external integrations
-* **[Logic Components](logic-components.md)** - Components that contain business logic
+* **[Adaptadores](adapters.md)** - Componentes que manejan procesos de I/O e integraciones externas
+* **[Componentes Lógicos](logic-components.md)** - Componentes que contienen lógica de negocio
 
-## Key Principles
+## Principios Clave
 
-WKC services follow these core principles:
+Los servicios WKC siguen estos principios fundamentales:
 
-1. **Modularity** - Each component is self-contained with clear interfaces
-2. **Testability** - Components are designed to be easily unit and integration tested
-3. **Dependency Injection** - Components receive their dependencies explicitly
-4. **Interchangeability** - Components can be swapped with alternative implementations
-5. **Separation of Concerns** - Business logic is separated from I/O operations
+1. **Modularidad** - Cada componente es auto-contenido con interfaces claras
+2. **Probabilidad** - Los componentes están diseñados para ser fácilmente probados unitaria e integradamente
+3. **Inyección de Dependencias** - Los componentes reciben sus dependencias explícitamente
+4. **Intercambiabilidad** - Los componentes pueden ser intercambiados con implementaciones alternativas
+5. **Separación de Responsabilidades** - La lógica de negocio está separada de las operaciones de I/O
 
-## Architecture
+## Arquitectura
 
 ```
-Service
-├── Components
-│   ├── Adapters (I/O operations)
-│   │   ├── Database adapters
-│   │   ├── External API clients
-│   │   └── Storage adapters
-│   └── Logic (Business logic)
-│       ├── Domain logic
-│       └── Orchestration
-└── Controllers (Transport layer)
-    ├── HTTP handlers
-    └── WebSocket handlers
+Servicio
+├── Componentes
+│   ├── Adaptadores (operaciones I/O)
+│   │   ├── Adaptadores de base de datos
+│   │   ├── Clientes de API externa
+│   │   └── Adaptadores de almacenamiento
+│   └── Lógica (Lógica de negocio)
+│       ├── Lógica de dominio
+│       └── Orquestación
+└── Controladores (Capa de transporte)
+    ├── Manejadores HTTP
+    └── Manejadores WebSocket
 ```
 
-## Component Sources
+## Fuentes de Componentes
 
-Components can be imported from:
+Los componentes pueden importarse de:
 
-* [WKC Organization](https://github.com/well-known-components/) - Standard WKC components
-* [Core Components Repository](https://github.com/decentraland/core-components) - Decentraland-specific components
+* [Organización WKC](https://github.com/well-known-components/) - Componentes WKC estándar
+* [Repositorio Core Components](https://github.com/decentraland/core-components) - Componentes específicos de Decentraland
 
-## Getting Started
+## Comenzando
 
-To build a WKC-compliant service:
+Para construir un servicio compatible con WKC:
 
-1. Review the [Components](components.md) documentation to understand component structure
-2. Learn about [Adapters](adapters.md) for handling external integrations
-3. Understand [Logic Components](logic-components.md) for implementing business logic
-4. Study [Controllers](controllers.md) for handling HTTP/WebSocket requests
+1. Revisar la documentación de [Componentes](components.md) para entender la estructura de componentes
+2. Aprender sobre [Adaptadores](adapters.md) para manejar integraciones externas
+3. Entender [Componentes Lógicos](logic-components.md) para implementar lógica de negocio
+4. Estudiar [Controladores](controllers.md) para manejar solicitudes HTTP/WebSocket
 
-## Standards Compliance
+## Cumplimiento de Estándares
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this documentation are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
-
+Las palabras clave "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" y "OPTIONAL" en esta documentación deben interpretarse como se describe en [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).

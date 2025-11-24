@@ -1,44 +1,44 @@
 
 
 ### When is needed to create a new entity?
-First, check if an existing entity can solve the needed use case to avoid over engineering a solution.
-If none of the existing entity types defined in https://github.com/decentraland/common-schemas/blob/main/src/platform/entity.ts#L13 satisfies the requirements, then you may need to create a new entity type.
+Primero, verifica si una entidad existente puede resolver el caso de uso necesario para evitar sobre-ingeniería de una solución.
+Si ninguno de los tipos de entidad existentes definidos en https://github.com/decentraland/common-schemas/blob/main/src/platform/entity.ts#L13 satisface los requisitos, entonces puede que necesites crear un nuevo tipo de entidad.
 
 ### First answer:
-- Is the new entity an NFT Collection?
-- How will the ownership be validated?
-- Which will be the size of it?
-- What is the amount entities that will be created?
+- ¿Es la nueva entidad una Colección NFT?
+- ¿Cómo se validará la propiedad?
+- ¿Cuál será el tamaño de ella?
+- ¿Cuál es la cantidad de entidades que se crearán?
 
 
 ### Steps
 
-First create a ADR in https://github.com/decentraland/adr where you will define the schema and the date to start validating the new entity.
+Primero crea un ADR en https://github.com/decentraland/adr donde definirás el schema y la fecha para comenzar a validar la nueva entidad.
 
 #### Repositories
 
 ##### @dcl/schemas
-1. Create the new entity type in the enum: https://github.com/decentraland/common-schemas/blob/main/src/platform/entity.ts#L19
-2. Create the folder and files in https://github.com/decentraland/common-schemas/tree/main/src/platform generating the type and JSON schema, for example: https://github.com/decentraland/common-schemas/blob/main/src/platform/profile/profile.ts#L20
+1. Crea el nuevo tipo de entidad en el enum: https://github.com/decentraland/common-schemas/blob/main/src/platform/entity.ts#L19
+2. Crea la carpeta y archivos en https://github.com/decentraland/common-schemas/tree/main/src/platform generando el tipo y JSON schema, por ejemplo: https://github.com/decentraland/common-schemas/blob/main/src/platform/profile/profile.ts#L20
 
 ##### @dcl/content-validator
 
-Implement the validations defined in the ADR, taking into account the date of that ADR in https://github.com/decentraland/content-validator/blob/main/src/validations/timestamps.ts. For example: https://github.com/decentraland/content-validator/blob/main/src/validations/items/emotes.ts#L8
+Implementa las validaciones definidas en el ADR, teniendo en cuenta la fecha de ese ADR en https://github.com/decentraland/content-validator/blob/main/src/validations/timestamps.ts. Por ejemplo: https://github.com/decentraland/content-validator/blob/main/src/validations/items/emotes.ts#L8
 
-1. Add the code to check the ownership of the new entity type in https://github.com/decentraland/content-validator/tree/main/src/validations/access-checker
-2. Implement the validationForType for the new type, for example: https://github.com/decentraland/content-validator/blob/main/src/validations/profile.ts#L112
-3. Here you will need to define the max size per entity in https://github.com/decentraland/content-validator/blob/main/src/validations/ADR51.ts.
+1. Agrega el código para verificar la propiedad del nuevo tipo de entidad en https://github.com/decentraland/content-validator/tree/main/src/validations/access-checker
+2. Implementa el validationForType para el nuevo tipo, por ejemplo: https://github.com/decentraland/content-validator/blob/main/src/validations/profile.ts#L112
+3. Aquí necesitarás definir el tamaño máximo por entidad en https://github.com/decentraland/content-validator/blob/main/src/validations/ADR51.ts.
 
 ##### @dcl/urn-resolver
-1. If the new entity corresponds to a Collection, then nothing has to be added.
-2. If not, then create a new urn corresponding to the new entity and define it in  https://github.com/decentraland/urn-resolver adding a resolver in https://github.com/decentraland/urn-resolver/blob/main/src/resolvers.ts#L23
+1. Si la nueva entidad corresponde a una Colección, entonces no hay que agregar nada.
+2. Si no, entonces crea un nuevo urn correspondiente a la nueva entidad y defínelo en https://github.com/decentraland/urn-resolver agregando un resolver en https://github.com/decentraland/urn-resolver/blob/main/src/resolvers.ts#L23
 
 ##### Catalyst: Content Server
-1. No change in database needed.
-2. Update all modified libraries detailed above.
+1. No se necesita cambio en la base de datos.
+2. Actualiza todas las bibliotecas modificadas detalladas arriba.
 
 ##### Catalyst: Lambdas Server
-1. Update all modified libraries detailed above.
-2. Check if the profile sanitization needs to be updated (`/lambdas/profiles` endpoint)
-3. Check if the erc collections endpoint needs to be updated (`/lambdas/collections` endpoint)
-4. Create an endpoint to show that entity, for example `/lambdas/wearables-by-owner`
+1. Actualiza todas las bibliotecas modificadas detalladas arriba.
+2. Verifica si la sanitización de perfiles necesita ser actualizada (endpoint `/lambdas/profiles`)
+3. Verifica si el endpoint de colecciones erc necesita ser actualizado (endpoint `/lambdas/collections`)
+4. Crea un endpoint para mostrar esa entidad, por ejemplo `/lambdas/wearables-by-owner`

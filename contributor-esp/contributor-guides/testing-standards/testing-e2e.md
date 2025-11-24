@@ -1,40 +1,40 @@
-# Testing End-to-End (E2E)
+# Pruebas End-to-End (E2E)
 
 {% hint style="info" %}
-This section is currently a Work in Progress (WIP).
+Esta sección actualmente es un Trabajo en Progreso (WIP).
 {% endhint %}
 
-This section describes how developers will test codebase related to the e2e tests.
+Esta sección describe cómo los desarrolladores probarán el código relacionado con las pruebas e2e.
 
-## Testing stack
+## Stack de Pruebas
 
-All of our UI tests MUST be done using [Cypress](https://www.cypress.io/) as the main testing frameworks with [Synpress](https://github.com/Synthetixio/synpress) for wallet support. The test's code MUST be written using [Typescript](https://www.typescriptlang.org/) and ran using [ts-jest](https://github.com/kulshekhar/ts-jest) to have type checking support.
+Todas nuestras pruebas de IU DEBEN realizarse usando [Cypress](https://www.cypress.io/) como framework principal de pruebas con [Synpress](https://github.com/Synthetixio/synpress) para soporte de wallet. El código de prueba DEBE escribirse usando [Typescript](https://www.typescriptlang.org/) y ejecutarse usando [ts-jest](https://github.com/kulshekhar/ts-jest) para tener soporte de verificación de tipos.
 
-## Directory structure
+## Estructura de Directorios
 
-New tests MUST be placed in a `tests/e2e` directory, in the root path. The files will be named as the flow that they will be testing, that is, if the e2e tests file will be testing the `Collection Publication` flow, the name of the file MUST be `collection-publication.spec.cy.ts`.
+Las nuevas pruebas DEBEN colocarse en un directorio `tests/e2e`, en la ruta raíz. Los archivos se nombrarán según el flujo que estarán probando, es decir, si el archivo de pruebas e2e estará probando el flujo de `Publicación de Colección`, el nombre del archivo DEBE ser `collection-publication.spec.cy.ts`.
 
-## How frequent they will run
+## Con Qué Frecuencia Se Ejecutarán
 
-Scheduled via GitHub Actions. Frequency TBD.
+Programadas vía GitHub Actions. Frecuencia por definir.
 
-## What to test
+## Qué Probar
 
-* Most relevant user interactions in the dApps (Items Publications, NFTs Purchases, etc.)
+* Las interacciones de usuario más relevantes en las dApps (Publicaciones de Items, Compras de NFTs, etc.)
 
-## How to test
+## Cómo Probar
 
-All of our tests MUST follow the semi-structured style of **Given-When-Then** (GWT).
+Todas nuestras pruebas DEBEN seguir el estilo semi-estructurado de **Given-When-Then** (GWT).
 
-The following example:
+El siguiente ejemplo:
 
-1. **Given** a user visits `https://example.cypress.io`
-2. **When** they click the link labeled `type`
-3. And they type "fake@email.com" into the `[data-testid="action-email"]` input
-4. **Then** the URL should include `/commands/actions`
-5. And the `[data-testid="action-email"]` input has "fake@email.com" as its value
+1. **Given** un usuario visita `https://example.cypress.io`
+2. **When** hace clic en el enlace etiquetado como `type`
+3. Y escribe "fake@email.com" en el input `[data-testid="action-email"]`
+4. **Then** la URL debe incluir `/commands/actions`
+5. Y el input `[data-testid="action-email"]` tiene "fake@email.com" como su valor
 
-Should be written as:
+Debe escribirse como:
 
 ```jsx
 describe('Given a user visits https://example.cypress.io', () => {
@@ -68,7 +68,6 @@ describe('Given a user visits https://example.cypress.io', () => {
 })
 ```
 
-## Testing contracts
+## Probar Contratos
 
-For testing smart contracts, refer to the Solidity Standards documentation.
-
+Para probar smart contracts, referirse a la documentación de Estándares Solidity.

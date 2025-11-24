@@ -1,18 +1,18 @@
-# Adapters
+# Adaptadores
 
-Adapters are components responsible for handling **I/O processes** and external integrations. They serve as the bridge between your business logic and external systems such as databases, APIs, file systems, or cache stores.
+Los adaptadores son componentes responsables de manejar **procesos de I/O** e integraciones externas. Sirven como el puente entre su lógica de negocio y sistemas externos como bases de datos, APIs, sistemas de archivos o almacenamiento en caché.
 
-## Purpose
+## Propósito
 
-Adapters abstract away the implementation details of external dependencies, allowing:
+Los adaptadores abstraen los detalles de implementación de dependencias externas, permitiendo:
 
-* **Interchangeability** - Easily swap implementations (e.g., PostgreSQL → MongoDB)
-* **Testability** - Mock external dependencies in tests
-* **Isolation** - Keep business logic independent of infrastructure concerns
+* **Intercambiabilidad** - Intercambiar fácilmente implementaciones (ej., PostgreSQL → MongoDB)
+* **Probabilidad** - Mockear dependencias externas en pruebas
+* **Aislamiento** - Mantener la lógica de negocio independiente de preocupaciones de infraestructura
 
-## Location
+## Ubicación
 
-All adapter components MUST be placed under the `src/adapters` directory in the project.
+Todos los componentes adaptadores DEBEN colocarse bajo el directorio `src/adapters` en el proyecto.
 
 ```
 src/
@@ -23,11 +23,11 @@ src/
     └── external-api/
 ```
 
-## Shared Interfaces
+## Interfaces Compartidas
 
-Adapters SHOULD be built with interchangeability in mind. Define shared interfaces in `src/types.ts` so that multiple adapters can implement the same contract.
+Los adaptadores DEBERÍAN construirse con intercambiabilidad en mente. Definir interfaces compartidas en `src/types.ts` para que múltiples adaptadores puedan implementar el mismo contrato.
 
-### Example: Storage Interface
+### Ejemplo: Interfaz de Storage
 
 ```tsx
 // src/types.ts
@@ -38,11 +38,11 @@ export interface IStorage {
 }
 ```
 
-## Memory Storage Adapter
+## Adaptador de Memory Storage
 
-Here's a simple in-memory storage adapter implementation, useful for testing or development.
+Aquí hay una implementación simple de adaptador de almacenamiento en memoria, útil para pruebas o desarrollo.
 
-### Directory Structure
+### Estructura de Directorios
 
 ```
 src/adapters/memory-storage/
@@ -52,13 +52,13 @@ src/adapters/memory-storage/
 └── index.ts
 ```
 
-### Implementation: `component.ts`
+### Implementación: `component.ts`
 
 ```tsx
 import { IStorage } from '../../types'
 
 export function createMemoryStorageAdapter(): IStorage {
-  // Internal state - scoped to this component instance
+  // Estado interno - con alcance a esta instancia de componente
   const memory: Record<string, any> = {}
 
   async function set(key: string, value: any): Promise<void> {
@@ -81,11 +81,11 @@ export function createMemoryStorageAdapter(): IStorage {
 }
 ```
 
-## Redis Storage Adapter
+## Adaptador de Redis Storage
 
-Here's a production-ready Redis adapter that demonstrates lifecycle management.
+Aquí hay un adaptador Redis listo para producción que demuestra gestión de ciclo de vida.
 
-### Implementation: `component.ts`
+### Implementación: `component.ts`
 
 ```tsx
 import { createClient, RedisClientType } from 'redis'
@@ -101,7 +101,7 @@ export function createRedisStorageAdapter(
   const hostUrl = config.requireString('REDIS_URL')
   const client: RedisClientType = createClient({ url: hostUrl })
 
-  // Lifecycle method: called when the component starts
+  // Método de ciclo de vida: llamado cuando el componente inicia
   async function start(): Promise<void> {
     try {
       await client.connect()
@@ -112,7 +112,7 @@ export function createRedisStorageAdapter(
     }
   }
 
-  // Lifecycle method: called when the component stops
+  // Método de ciclo de vida: llamado cuando el componente se detiene
   async function stop(): Promise<void> {
     try {
       await client.quit()
@@ -149,7 +149,7 @@ export function createRedisStorageAdapter(
 }
 ```
 
-### Error Handling: `errors.ts`
+### Manejo de Errores: `errors.ts`
 
 ```tsx
 export class RedisConnectionError extends Error {
@@ -160,9 +160,9 @@ export class RedisConnectionError extends Error {
 }
 ```
 
-## Database Adapter Example
+## Ejemplo de Adaptador de Base de Datos
 
-Here's an example of a PostgreSQL database adapter.
+Aquí hay un ejemplo de un adaptador de base de datos PostgreSQL.
 
 ```tsx
 import { Pool, QueryResult } from 'pg'
@@ -180,7 +180,7 @@ export function createPostgresAdapter(
   })
 
   async function start(): Promise<void> {
-    // Test the connection
+    // Probar la conexión
     const client = await pool.connect()
     logger.info('Database connection pool initialized')
     client.release()
@@ -207,28 +207,28 @@ export function createPostgresAdapter(
 }
 ```
 
-## Lifecycle Methods
+## Métodos de Ciclo de Vida
 
-WKC provides special lifecycle methods that are automatically called:
+WKC proporciona métodos de ciclo de vida especiales que se llaman automáticamente:
 
-* `[Lifecycle.ComponentStarted]` or `[START_COMPONENT]` - Called when the service starts
-* `[Lifecycle.ComponentStopped]` or `[STOP_COMPONENT]` - Called when the service shuts down
+* `[Lifecycle.ComponentStarted]` o `[START_COMPONENT]` - Llamado cuando el servicio inicia
+* `[Lifecycle.ComponentStopped]` o `[STOP_COMPONENT]` - Llamado cuando el servicio se apaga
 
-### When to Use Lifecycle Methods
+### Cuándo Usar Métodos de Ciclo de Vida
 
-Use lifecycle methods when your adapter needs to:
+Usar métodos de ciclo de vida cuando su adaptador necesita:
 
-* Establish connections (database, cache, message queue)
-* Initialize pools or clients
-* Perform health checks
-* Clean up resources on shutdown
-* Close connections gracefully
+* Establecer conexiones (base de datos, caché, cola de mensajes)
+* Inicializar pools o clientes
+* Realizar verificaciones de salud
+* Limpiar recursos al apagarse
+* Cerrar conexiones correctamente
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Error Handling
+### 1. Manejo de Errores
 
-Always handle connection errors and throw meaningful custom errors:
+Siempre manejar errores de conexión y lanzar errores personalizados significativos:
 
 ```tsx
 try {
@@ -239,9 +239,9 @@ try {
 }
 ```
 
-### 2. Configuration
+### 2. Configuración
 
-Use the config component to manage adapter settings:
+Usar el componente config para gestionar configuraciones del adaptador:
 
 ```tsx
 const {
@@ -253,7 +253,7 @@ const {
 
 ### 3. Logging
 
-Log important operations for debugging and monitoring:
+Registrar operaciones importantes para depuración y monitoreo:
 
 ```tsx
 logger.info('Operation completed', { recordId, duration })
@@ -263,7 +263,7 @@ logger.error('Operation failed', { error, context })
 
 ### 4. Type Safety
 
-Always type your return values properly:
+Siempre tipar sus valores de retorno apropiadamente:
 
 ```tsx
 async function getUser(id: string): Promise<User | null> {
@@ -272,9 +272,9 @@ async function getUser(id: string): Promise<User | null> {
 }
 ```
 
-### 5. Resource Management
+### 5. Gestión de Recursos
 
-Always clean up resources in the stop lifecycle method:
+Siempre limpiar recursos en el método de ciclo de vida stop:
 
 ```tsx
 async function stop(): Promise<void> {
@@ -284,11 +284,11 @@ async function stop(): Promise<void> {
 }
 ```
 
-## Testing Adapters
+## Probar Adaptadores
 
-See the [Testing Services (WKC)](../testing-standards/testing-services-wkc.md) documentation for detailed guidance on testing adapters.
+Ver la documentación de [Probar Servicios (WKC)](../testing-standards/testing-services-wkc.md) para guía detallada sobre probar adaptadores.
 
-### Quick Example
+### Ejemplo Rápido
 
 ```tsx
 describe('when creating a memory storage adapter', () => {
@@ -307,4 +307,3 @@ describe('when creating a memory storage adapter', () => {
   })
 })
 ```
-

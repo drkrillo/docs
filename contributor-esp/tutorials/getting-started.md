@@ -1,49 +1,49 @@
-Ever felt curious about how Decentraland Catalyst nodes work? Ever wanted to run your own node and felt overwhelmed about where to start? Are you building content for Decentraland and finding it hard to do the whole development and testing cycles on production servers?
+¿Alguna vez has sentido curiosidad sobre cómo funcionan los nodos Catalyst de Decentraland? ¿Alguna vez has querido ejecutar tu propio nodo y te sentiste abrumado sobre por dónde empezar? ¿Estás construyendo contenido para Decentraland y te resulta difícil hacer todo el ciclo de desarrollo y pruebas en servidores de producción?
 
-If you are (or have been there), fear no more. This tutorial will help you in the process of planning, figuring out what you need to decide and then guide you step by step in starting up the server. Also, in case something might not go according to the plan, there is a troubleshooting section at the end with a few of the most common problems and how to fix them.
+Si estás (o has estado allí), no temas más. Este tutorial te ayudará en el proceso de planificación, averiguar qué necesitas decidir y luego guiarte paso a paso para iniciar el servidor. Además, en caso de que algo no salga según el plan, hay una sección de solución de problemas al final con algunos de los problemas más comunes y cómo solucionarlos.
 
-Ready? Hands on to the task.
+¿Listo? Manos a la obra.
 
 ## Hardware requirements
 
-The Decentraland Foundation servers are deployed on Amazon AWS on `t2.xlarge` instances. So while those servers are meant for public use, your own one may be ok with much smaller specs, depending on what the intended use will be.
+Los servidores de Decentraland Foundation están desplegados en Amazon AWS en instancias `t2.xlarge`. Entonces, mientras que esos servidores están destinados para uso público, el tuyo puede estar bien con especificaciones mucho más pequeñas, dependiendo de cuál será el uso previsto.
 
-An AWS EC2 `t2.xlarge` has the following hardware:
+Un AWS EC2 `t2.xlarge` tiene el siguiente hardware:
 
 - 4 vCPUs.
 - 16 Gb RAM
 
-And for file storage + DB storage, an SSD / HDD with 2 Tb capacity should be more than sufficient. At the time of this writing the foundation servers are using a little over 1 Tb for all storage.
+Y para almacenamiento de archivos + almacenamiento de DB, un SSD / HDD con capacidad de 2 Tb debería ser más que suficiente. Al momento de escribir esto, los servidores de la foundation están usando un poco más de 1 Tb para todo el almacenamiento.
 
 ## Software pre-requisites
 
-The following are required for running catalyst-owner:
+Los siguientes son requeridos para ejecutar catalyst-owner:
 
-- Linux / MacOS operating system
+- Sistema operativo Linux / MacOS
 - Docker / docker-compose
 - Git
 - LiveKit Cluster 
 
 ## Some options to consider before we start
 
-- Do you want your node to be publicly exposed on the Internet? If so, you will need an internet-exposed instance and a public URL to connect to it.
-- Is the node going to be used for the development of scenes, wearables, etc? In this case, the hardware specs can be a lot smaller, as it will probably be one or two people accessing it, not hundreds of users.
-- Do you want to sync all entity types? If you are using this for developing scenes, probably you want to skip synchronization of profiles, as they take a lot of time, bandwidth and most importantly disk space and won’t benefit you for your goal.
+- ¿Quieres que tu nodo esté expuesto públicamente en Internet? Si es así, necesitarás una instancia expuesta a internet y una URL pública para conectarte a ella.
+- ¿El nodo se usará para el desarrollo de escenas, wearables, etc? En este caso, las especificaciones de hardware pueden ser mucho menores, ya que probablemente serán una o dos personas accediendo, no cientos de usuarios.
+- ¿Quieres sincronizar todos los tipos de entidad? Si estás usando esto para desarrollar escenas, probablemente quieras omitir la sincronización de perfiles, ya que toman mucho tiempo, ancho de banda y lo más importante espacio en disco y no te beneficiarán para tu objetivo.
 
 ## LiveKit
 
-An external LiveKit cluster is in needed by the Catalyst's Comms service to orchestrate the communications between players. For that, there are two options: use a LiveKit Cloud account or run your own LiveKit cluster.
+El servicio Comms del Catalyst necesita un cluster externo de LiveKit para orquestar las comunicaciones entre jugadores. Para eso, hay dos opciones: usar una cuenta de LiveKit Cloud o ejecutar tu propio cluster de LiveKit.
 
-The recommendation is to setup [Livekit Cloud account](https://cloud.livekit.io/) which comes with a free tier that can manage 100 users, or paying the service according to the traffic. This approach is easier as it doesn’t require to provision extra infrastructure and the service can manage the scaling.
-Otherwise a LiveKit cluster will need to be provisioned. LiveKit does a very good job with their documentation:
+La recomendación es configurar una [cuenta de Livekit Cloud](https://cloud.livekit.io/) que viene con un tier gratuito que puede gestionar 100 usuarios, o pagar el servicio según el tráfico. Este enfoque es más fácil ya que no requiere provisionar infraestructura extra y el servicio puede gestionar el escalado.
+De lo contrario, se necesitará provisionar un cluster de LiveKit. LiveKit hace un muy buen trabajo con su documentación:
 - [Deployment](https://docs.livekit.io/oss/deployment/)
 - [Distributed Setup](https://docs.livekit.io/oss/deployment/distributed/)
 
-*In case you would like to deep dive on the technical details needed to support LiveKit transport based communications, check out the [ADR-70 New Communications Architecture](https://adr.decentraland.org/adr/ADR-70).*
+*En caso de que quieras profundizar en los detalles técnicos necesarios para soportar comunicaciones basadas en transporte LiveKit, consulta el [ADR-70 New Communications Architecture](https://adr.decentraland.org/adr/ADR-70).*
 
 ## Step by step guide
 
-First thing to do is clone the [catalyst-owner](https://github.com/decentraland/catalyst-owner) repository from GitHub
+Lo primero que hay que hacer es clonar el repositorio [catalyst-owner](https://github.com/decentraland/catalyst-owner) desde GitHub
 
 ```bash
 > git clone https://github.com/decentraland/catalyst-owner.git
@@ -57,21 +57,21 @@ Resolving deltas: 100% (1257/1257), done.
 > cd catalyst-owner
 ```
 
-Once that’s done, it’s time to configure the environment variables for the node, and make any changes as appropriate.
+Una vez hecho esto, es momento de configurar las variables de entorno para el nodo, y hacer cualquier cambio apropiado.
 
 ```bash
-# On the /catalyst-owner folder
+# En la carpeta /catalyst-owner
 > cp .env.example .env
 > cp .env-advanced.example .env-advanced
 ```
 
-Now using your favorite text editor, make any needed changes in these files. For e.g., setting up the `EMAIL` environment variable with valid email is required so that you can receive updates about Certbot certificate expiration.
+Ahora usando tu editor de texto favorito, haz cualquier cambio necesario en estos archivos. Por ejemplo, configurar la variable de entorno `EMAIL` con un email válido es requerido para que puedas recibir actualizaciones sobre la expiración del certificado de Certbot.
 
-Also setting up your particular value for `CATALYST_URL` may be required, especially if your server is going to be exposed publicly on the Internet. For use in your local machine, the default of `http://localhost` will do.
+También configurar tu valor particular para `CATALYST_URL` puede ser requerido, especialmente si tu servidor va a estar expuesto públicamente en Internet. Para uso en tu máquina local, el valor predeterminado de `http://localhost` funcionará.
 
 #### Comms Service
 
-Once the LiveKit cluster is available you will need to set the specific LiveKit variables for the Comms service to work, e.g.:
+Una vez que el cluster de LiveKit esté disponible, necesitarás establecer las variables específicas de LiveKit para que el servicio Comms funcione, por ejemplo:
 
 ```
 LIVEKIT_HOST=wss://livekit-1.mydomain.org
@@ -80,27 +80,27 @@ LIVEKIT_API_SECRET=J7YSHmNzkNCEfT2
 ROOM_PREFIX=my-prefix
 ```
 
-The `ROOM_PREFIX` variable is optional and can be configured to identify LiveKit rooms created by the Catalyst. This is useful if more than one Catalyst is using the same LiveKit Cluster.
+La variable `ROOM_PREFIX` es opcional y puede configurarse para identificar salas de LiveKit creadas por el Catalyst. Esto es útil si más de un Catalyst está usando el mismo Cluster de LiveKit.
 
 #### Content Server 
 
-There is a variable called `CONTENT_SERVER_STORAGE` that defines the local folder that the content server will use for storage. This defaults to `CONTENT_SERVER_STORAGE=./storage`. You may change this value to store files somewhere else, or at least make sure that the referenced folder exists. You may need to create it like this:
+Hay una variable llamada `CONTENT_SERVER_STORAGE` que define la carpeta local que el servidor de contenido usará para almacenamiento. Esto por defecto es `CONTENT_SERVER_STORAGE=./storage`. Puedes cambiar este valor para almacenar archivos en otro lugar, o al menos asegurarte de que la carpeta referenciada existe. Puede que necesites crearla así:
 
 ```bash
-# On the /catalyst-owner folder or wherever CONTENT_SERVER_STORAGE is pointing to
+# En la carpeta /catalyst-owner o donde CONTENT_SERVER_STORAGE esté apuntando
 > mkdir storage
 ```
 
-There is another interesting variable `SYNC_IGNORED_ENTITY_TYPES` which allows ignoring certain entity types during the synchronization process. If you are going to use the Catalyst server for development, perhaps you don't need all content type to be synchronized. You can set env var `SYNC_IGNORED_ENTITY_TYPES="profile,store"` so that only scenes and wearables will be brought from the DAO servers. This will save a lot of time, bandwidth and disk storage in your server.
+Hay otra variable interesante `SYNC_IGNORED_ENTITY_TYPES` que permite ignorar ciertos tipos de entidad durante el proceso de sincronización. Si vas a usar el servidor Catalyst para desarrollo, quizás no necesites que se sincronice todo tipo de contenido. Puedes establecer la variable de entorno `SYNC_IGNORED_ENTITY_TYPES="profile,store"` para que solo las escenas y wearables se traigan de los servidores del DAO. Esto ahorrará mucho tiempo, ancho de banda y almacenamiento en disco en tu servidor.
 
->💡 For a more exhaustive list of supported environment variables please have a look at the [Environment variables](#environment-variables) section below.
+>💡 Para una lista más exhaustiva de variables de entorno soportadas, por favor echa un vistazo a la sección [Environment variables](#environment-variables) abajo.
 
 ### Launch the Catalyst node 
 
-Once all environment variables have been set up, it is time to start the node. That should be as easy as running the `init.sh` script in the root folder.
+Una vez que todas las variables de entorno han sido configuradas, es momento de iniciar el nodo. Eso debería ser tan fácil como ejecutar el script `init.sh` en la carpeta raíz.
 
 ```bash
-# On the /catalyst-owner folder
+# En la carpeta /catalyst-owner
 
 > ./init.sh
 ## Loading env variables... [ OK ]
@@ -161,17 +161,17 @@ Creating nginx                           ... done
 ## Catalyst server is up and running at http://localhost
 ```
 
-If all went well, we now have a full Decentraland node running. You can now head to the browser and type the URL. If using the default, it should be [`http://localhost`](http://localhost/).
+Si todo salió bien, ahora tenemos un nodo completo de Decentraland ejecutándose. Ahora puedes ir al navegador y escribir la URL. Si usas el predeterminado, debería ser [`http://localhost`](http://localhost/).
 
-We can check the content server logs with this docker command:
+Podemos verificar los logs del servidor de contenido con este comando docker:
 
 ```bash
 > docker logs catalyst-owner_content-server_1
 ```
 
-Even though the server is now running, it’s not 100% ready to be in business. It needs to synchronize the content from the other [servers of the DAO](https://decentraland.github.io/catalyst-monitor) so it can offer the same experience to users connected to it. Synchronization can take a long time. On a good internet connection, 6 hours should be pretty common. So… time to have a coffee, a nap, a good night's rest, and come back tomorrow.
+Aunque el servidor ahora está ejecutándose, no está 100% listo para estar en funcionamiento. Necesita sincronizar el contenido de los otros [servidores del DAO](https://decentraland.github.io/catalyst-monitor) para que pueda ofrecer la misma experiencia a usuarios conectados a él. La sincronización puede tomar mucho tiempo. En una buena conexión a internet, 6 horas debería ser bastante común. Así que... tiempo de tomar un café, una siesta, un buen descanso nocturno, y volver mañana.
 
-One way of knowing whether synchronization is complete consists of checking the results of the content status endpoint: [http://localhost/content/status](http://localhost/content/status) (use your URL here).
+Una forma de saber si la sincronización está completa consiste en verificar los resultados del endpoint de estado de contenido: [http://localhost/content/status](http://localhost/content/status) (usa tu URL aquí).
 ```json
 {
   "synchronizationStatus": {
@@ -194,7 +194,7 @@ One way of knowing whether synchronization is complete consists of checking the 
 }
 ```
 
-While `synchronizationState` is `Bootstrapping`, the node will temporarily suspend the acceptance of new deployments. This measure ensures that no new entities are deployed until the node is brought up-to-date within the DAO network. Once the status changes to `Syncing`, it indicates that the node has successfully caught up and is now continuously receiving the latest updates. This is the healthy state in which the node is fully working and accepting new deployments.
+Mientras `synchronizationState` sea `Bootstrapping`, el nodo suspenderá temporalmente la aceptación de nuevos deployments. Esta medida asegura que no se desplieguen nuevas entidades hasta que el nodo esté actualizado dentro de la red del DAO. Una vez que el estado cambie a `Syncing`, indica que el nodo se ha puesto al día exitosamente y ahora está recibiendo continuamente las últimas actualizaciones. Este es el estado saludable en el que el nodo está completamente funcionando y aceptando nuevos deployments.
 
 ```json
 {
@@ -218,11 +218,11 @@ While `synchronizationState` is `Bootstrapping`, the node will temporarily suspe
 }
 ```
 
-If you are more of cli-kind-of-guy, you can grep the content server docker image logs for this message: `Starting to sync entities from servers pointer changes`. Once you see that text, the content server is fully synchronized and ready for full use.
+Si eres más del tipo cli, puedes hacer grep en los logs de la imagen docker del servidor de contenido para este mensaje: `Starting to sync entities from servers pointer changes`. Una vez que veas ese texto, el servidor de contenido está completamente sincronizado y listo para uso completo.
 
 ## Environment variables
 
-The following is a comprehensive list of all the content server environment variables with their default values, as logged in the content server logs during startup:
+La siguiente es una lista completa de todas las variables de entorno del servidor de contenido con sus valores predeterminados, como se registra en los logs del servidor de contenido durante el inicio:
 
 ```jsx
 STORAGE_ROOT_FOLDER: "/app/storage/content_server/"
@@ -276,38 +276,38 @@ RETRY_FAILED_DEPLOYMENTS_DELAY_TIME: 900000
 
 ## Using your node for production
 
-If you want to run your own server and help scale the network, first of all that’s awesome, the community and the foundation really appreciate you doing so.
+Si quieres ejecutar tu propio servidor y ayudar a escalar la red, primero que todo eso es increíble, la comunidad y la foundation realmente aprecian que lo hagas.
 
-In this case, you’ll have to go through the process of requesting the DAO for approval to join the network by visiting [this link](https://governance.decentraland.org/submit/catalyst/). You may also ask for a MANA grant in order to cover the infrastructure and management expenses.
+En este caso, tendrás que pasar por el proceso de solicitar aprobación al DAO para unirte a la red visitando [este enlace](https://governance.decentraland.org/submit/catalyst/). También puedes solicitar un grant de MANA para cubrir los gastos de infraestructura y gestión.
 
-It is important that your hardware specs are more inline with what is suggested above in the hardware requirements, as the server will be used by any members of the community to enter Decentraland.
+Es importante que tus especificaciones de hardware estén más alineadas con lo sugerido arriba en los requisitos de hardware, ya que el servidor será usado por cualquier miembro de la comunidad para entrar a Decentraland.
 
 ## API Specs
 
-For more details on the APIs for content, lambdas and comms servers you can check the [API specs](https://decentraland.github.io/catalyst-api-specs).
+Para más detalles sobre las APIs para servidores de content, lambdas y comms puedes consultar las [API specs](https://decentraland.github.io/catalyst-api-specs).
 
 ## Troubleshooting/FAQ
 
-A few things could go wrong while starting your server. Here is a few of the most common issues encountered over time and how to fix them.
+Algunas cosas podrían salir mal al iniciar tu servidor. Aquí hay algunos de los problemas más comunes encontrados con el tiempo y cómo solucionarlos.
 
 ### Port 5432 is used by local postgres
 
-If you run the node on a machine used for development, or if it is already hosting other services, chances are there’s already a postgres database server running on that machine. So port 5432 will be already taken.
+Si ejecutas el nodo en una máquina usada para desarrollo, o si ya está alojando otros servicios, es probable que ya haya un servidor de base de datos postgres ejecutándose en esa máquina. Así que el puerto 5432 ya estará tomado.
 
-The easiest way to fix this is to stop the postgres that is already running locally and then restart the postgres docker container using `docker start postgres`.
+La forma más fácil de solucionar esto es detener el postgres que ya está ejecutándose localmente y luego reiniciar el contenedor docker de postgres usando `docker start postgres`.
 
-If you have knowledge on docker compose, you can start fiddling with `docker-compose.yml` and environment variables to try to get it to work on a different port. For the sake of keeping things simple here, we will avoid going that path in this tutorial.
+Si tienes conocimiento de docker compose, puedes empezar a jugar con `docker-compose.yml` y variables de entorno para intentar que funcione en un puerto diferente. Por el bien de mantener las cosas simples aquí, evitaremos ir por ese camino en este tutorial.
 
 ### Port 80 port is used by local nginx
 
-Same thing can happen with port 80 (and even port 443). If you are running nginx in the local machine, chances are that ports 80/443 are already bound that that service, so the Catalyst Docker container won’t be able to use them.
+Lo mismo puede suceder con el puerto 80 (e incluso el puerto 443). Si estás ejecutando nginx en la máquina local, es probable que los puertos 80/443 ya estén vinculados a ese servicio, por lo que el contenedor Docker de Catalyst no podrá usarlos.
 
-Again, the simplest approach would be to stop the local nginx service and then restart the docker container using `docker start nginx`. Or alternatively, you need to leverage `docker-compose.yml` and `.env` to get it to work on a different port.
+Nuevamente, el enfoque más simple sería detener el servicio nginx local y luego reiniciar el contenedor docker usando `docker start nginx`. O alternativamente, necesitas aprovechar `docker-compose.yml` y `.env` para que funcione en un puerto diferente.
 
 ## Additional docs for reference
 
-If you want to understand better what a Catalyst server does, what services it includes, etc. you can check the architecture repo https://github.com/decentraland/architecture that explains the parts in detail.
+Si quieres entender mejor qué hace un servidor Catalyst, qué servicios incluye, etc. puedes consultar el repo de arquitectura https://github.com/decentraland/architecture que explica las partes en detalle.
 
-If you would like to contribute to Catalyst servers code, make sure to check the [contributing guide](https://github.com/decentraland/catalyst/blob/main/docs/CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
+Si te gustaría contribuir al código de servidores Catalyst, asegúrate de revisar la [guía de contribución](https://github.com/decentraland/catalyst/blob/main/docs/CONTRIBUTING.md) para aprender sobre nuestro proceso de desarrollo, cómo proponer correcciones de errores y mejoras, y cómo construir y probar tus cambios.
 
-And finally, if you need to contact the team, you can do so via [Discord](https://discord.com/channels/417796904760639509/948230185457696820) or submitting [GitHub issues](https://github.com/decentraland/catalyst/issues).
+Y finalmente, si necesitas contactar al equipo, puedes hacerlo vía [Discord](https://discord.com/channels/417796904760639509/948230185457696820) o enviando [GitHub issues](https://github.com/decentraland/catalyst/issues).

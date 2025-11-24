@@ -1,223 +1,223 @@
-# Process Overview
+# Resumen del Proceso
 
-Our development process ensures that what's designed is what gets built. Work flows through three distinct stages with clear deliverables and responsibilities at each step.
+Nuestro proceso de desarrollo asegura que lo que se diseña es lo que se construye. El trabajo fluye a través de tres etapas distintas con entregables claros y responsabilidades en cada paso.
 
-## Workflow Stages
+## Etapas del Flujo de Trabajo
 
 ```mermaid
 flowchart LR
-    UX[UX Discovery] --> Figma[Figma Design] --> dApp[dApp Implementation]
+    UX[UX Discovery] --> Figma[Diseño Figma] --> dApp[Implementación dApp]
     
     style UX fill:#e3f2fd
     style Figma fill:#fff3e0
     style dApp fill:#e8f5e9
 ```
 
-Each stage builds on the previous one, ensuring alignment from concept to code.
+Cada etapa se construye sobre la anterior, asegurando alineación desde el concepto hasta el código.
 
 ---
 
 ## UX Discovery
 
-The UX stage establishes the foundation for everything that follows. Clear requirements at this stage prevent costly changes later.
+La etapa UX establece la base para todo lo que sigue. Requisitos claros en esta etapa previenen cambios costosos más adelante.
 
-### Required Deliverables
+### Entregables Requeridos
 
-#### Goal and Scope
+#### Objetivo y Alcance
 
-**MUST** define:
+**DEBE** definir:
 
-* **Business objective** - What problem are we solving?
-* **Target user** - Who is this for?
-* **Success metrics** - How do we measure success?
-* **Constraints** - Technical, timeline, or resource limitations
+* **Objetivo de negocio** - ¿Qué problema estamos resolviendo?
+* **Usuario objetivo** - ¿Para quién es esto?
+* **Métricas de éxito** - ¿Cómo medimos el éxito?
+* **Restricciones** - Limitaciones técnicas, de línea de tiempo o recursos
 
-**Example**:
+**Ejemplo**:
 ```
-Goal: Enable users to browse and filter their land parcels efficiently
-Target: Land owners with 10+ parcels
-Success: 80% of users can find a specific parcel in under 10 seconds
-Constraints: Must work on mobile; no backend changes allowed
-```
-
-#### Interaction Flows
-
-**MUST** map end-to-end user journeys:
-
-* **All use cases** - Primary and secondary user paths
-* **Edge cases** - Empty states, first-time users, errors
-* **Alternate paths** - Different ways to accomplish goals
-* **Visual aids** - Wireframes or flow diagrams when helpful
-
-**Example**:
-```
-Primary Flow:
-1. User clicks "My Land"
-2. System loads parcels
-3. User applies filter
-4. Results update immediately
-
-Edge Cases:
-- User has no parcels → Show empty state with CTA
-- Filter returns no results → Show "no results" message
-- Loading takes >2s → Show skeleton loaders
+Objetivo: Permitir a los usuarios navegar y filtrar sus parcelas de tierra eficientemente
+Objetivo: Propietarios de tierra con 10+ parcelas
+Éxito: 80% de usuarios pueden encontrar una parcela específica en menos de 10 segundos
+Restricciones: Debe funcionar en móvil; no se permiten cambios en el backend
 ```
 
-#### UI States
+#### Flujos de Interacción
 
-**SHOULD** specify all component states:
+**DEBE** mapear recorridos de usuario de extremo a extremo:
 
-* **Idle** - Default state
-* **Loading** - Data fetching or processing
-* **Error** - Failed operations
-* **Empty** - No data available
-* **Success** - Successful operations
-* **Disabled** - Unavailable actions
+* **Todos los casos de uso** - Caminos de usuario primarios y secundarios
+* **Casos extremos** - Estados vacíos, usuarios primerizos, errores
+* **Caminos alternos** - Diferentes formas de lograr objetivos
+* **Ayudas visuales** - Wireframes o diagramas de flujo cuando sea útil
 
-**SHOULD** outline error recovery:
-
-* What happens when an error occurs?
-* How can users retry or resolve it?
-* What information do users need?
-
-#### Analytics Tracking
-
-**MUST** agree on tracking at this stage:
-
-* **Events** - What actions to track
-* **Properties** - What data to capture
-* **User properties** - Relevant user attributes
-* **Conversion goals** - Key success metrics
-
-**Example**:
+**Ejemplo**:
 ```
-Events:
+Flujo Principal:
+1. Usuario hace clic en "My Land"
+2. Sistema carga parcelas
+3. Usuario aplica filtro
+4. Resultados se actualizan inmediatamente
+
+Casos Extremos:
+- Usuario no tiene parcelas → Mostrar estado vacío con CTA
+- Filtro no retorna resultados → Mostrar mensaje "sin resultados"
+- La carga toma >2s → Mostrar skeleton loaders
+```
+
+#### Estados de IU
+
+**DEBERÍA** especificar todos los estados de componentes:
+
+* **Idle** - Estado por defecto
+* **Loading** - Obtención o procesamiento de datos
+* **Error** - Operaciones fallidas
+* **Empty** - No hay datos disponibles
+* **Success** - Operaciones exitosas
+* **Disabled** - Acciones no disponibles
+
+**DEBERÍA** delinear recuperación de errores:
+
+* ¿Qué pasa cuando ocurre un error?
+* ¿Cómo pueden los usuarios reintentar o resolverlo?
+* ¿Qué información necesitan los usuarios?
+
+#### Seguimiento de Analytics
+
+**DEBE** acordar seguimiento en esta etapa:
+
+* **Eventos** - Qué acciones rastrear
+* **Propiedades** - Qué datos capturar
+* **Propiedades de usuario** - Atributos de usuario relevantes
+* **Objetivos de conversión** - Métricas clave de éxito
+
+**Ejemplo**:
+```
+Eventos:
 - parcel_filter_applied { filter_type, filter_value }
 - parcel_selected { parcel_id, source }
 - parcel_transfer_initiated { parcel_id }
 
-Properties:
+Propiedades:
 - user_parcel_count
 - filter_used (boolean)
 - time_to_result (ms)
 ```
 
-### Recommended Deliverables
+### Entregables Recomendados
 
-#### Accessibility Intent
+#### Intención de Accesibilidad
 
-**SHOULD** describe:
+**DEBERÍA** describir:
 
-* **Keyboard flows** - Tab order and shortcuts
-* **Focus order** - Logical focus progression
-* **Screen reader labels** - ARIA labels and descriptions
-* **Alternative content** - Text for images, icons, graphs
+* **Flujos de teclado** - Orden de tabulación y atajos
+* **Orden de foco** - Progresión de foco lógica
+* **Etiquetas de lector de pantalla** - Etiquetas y descripciones ARIA
+* **Contenido alternativo** - Texto para imágenes, íconos, gráficos
 
-**Example**:
+**Ejemplo**:
 ```
-Keyboard Navigation:
-- Tab: Navigate through filters
-- Enter: Apply selected filter
-- Escape: Close filter dropdown
-- Arrow keys: Navigate filter options
+Navegación por Teclado:
+- Tab: Navegar a través de filtros
+- Enter: Aplicar filtro seleccionado
+- Escape: Cerrar dropdown de filtro
+- Teclas de flecha: Navegar opciones de filtro
 
-Screen Reader:
-- "Filter by: Owner address. Type to search or select from list"
-- "3 parcels found matching your filters"
+Lector de Pantalla:
+- "Filtrar por: Dirección del propietario. Escribe para buscar o selecciona de la lista"
+- "3 parcelas encontradas que coinciden con tus filtros"
 ```
 
-#### Accessibility Readability
+#### Legibilidad de Accesibilidad
 
-**SHOULD** ensure:
+**DEBERÍA** asegurar:
 
-* **Color contrast** - Minimum WCAG AA ratios
-  * Normal text: 4.5:1
-  * Large text (18pt+): 3:1
-  * UI components: 3:1
-* **Text sizing** - Readable at default sizes
-* **Interactive targets** - Minimum 44×44px touch targets
+* **Contraste de color** - Ratios mínimos WCAG AA
+  * Texto normal: 4.5:1
+  * Texto grande (18pt+): 3:1
+  * Componentes UI: 3:1
+* **Tamaño de texto** - Legible en tamaños por defecto
+* **Objetivos interactivos** - Objetivos táctiles mínimos de 44×44px
 
-#### UI Interactive Elements
+#### Elementos Interactivos de IU
 
-**SHOULD** define states for all interactive elements:
+**DEBERÍA** definir estados para todos los elementos interactivos:
 
-* **Enabled** - Default interactive state
-* **Disabled** - Non-interactive state
-* **Hover** - Mouse over (desktop)
-* **Pressed/Active** - During interaction
-* **Focus** - Keyboard focus state
+* **Enabled** - Estado interactivo por defecto
+* **Disabled** - Estado no interactivo
+* **Hover** - Mouse sobre (escritorio)
+* **Pressed/Active** - Durante interacción
+* **Focus** - Estado de foco de teclado
 
-**SHOULD** specify user feedback:
+**DEBERÍA** especificar retroalimentación de usuario:
 
-* Visual changes on interaction
-* Loading indicators
-* Success/error messages
-* Haptic feedback (mobile)
+* Cambios visuales en interacción
+* Indicadores de carga
+* Mensajes de éxito/error
+* Retroalimentación háptica (móvil)
 
 ---
 
-## Figma Design
+## Diseño Figma
 
-Designers MUST start from our [Figma library](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2), which mirrors Material UI components and uses the Decentraland theme defined in UI2.
+Los diseñadores DEBEN comenzar desde nuestra [biblioteca Figma](https://www.figma.com/design/tsyaDSedcsVZ8iM9N0McT2/DCL-UI2), que refleja componentes Material UI y usa el tema Decentraland definido en UI2.
 
 {% hint style="warning" %}
-Special colors, sizes, or styles SHOULD NOT be used. Exceptions may exist but MUST be justified in the spec and approved during review.
+Colores, tamaños o estilos especiales NO DEBERÍAN usarse. Pueden existir excepciones pero DEBEN justificarse en la especificación y aprobarse durante la revisión.
 {% endhint %}
 
-### Required Standards
+### Estándares Requeridos
 
-#### Use Decentraland Figma Library
+#### Usar Biblioteca Figma de Decentraland
 
-**MUST** use MUI components when an equivalent exists:
+**DEBE** usar componentes MUI cuando existe un equivalente:
 
-* Check MUI component library first
-* Use Decentraland variants and styles
-* Don't create custom versions of existing components
+* Verificar biblioteca de componentes MUI primero
+* Usar variantes y estilos de Decentraland
+* No crear versiones personalizadas de componentes existentes
 
-**If a required UI element doesn't exist:**
+**Si un elemento UI requerido no existe:**
 
-1. Check if it can be composed from existing components
-2. If not, propose a custom component (see [Custom Components](custom-components.md))
-3. Document the rationale in the spec
-4. Get approval during design review
+1. Verificar si puede componerse desde componentes existentes
+2. Si no, proponer un componente personalizado (ver [Componentes Personalizados](custom-components.md))
+3. Documentar la razón en la especificación
+4. Obtener aprobación durante revisión de diseño
 
-#### Colors
+#### Colores
 
-**MUST** match Figma color styles to UI2 theme names:
+**DEBE** coincidir estilos de color de Figma con nombres de tema UI2:
 
 ```tsx
 import { dclColors } from 'decentraland-ui2';
 
-// Figma "Rarity / Unique" → Code
+// Figma "Rarity / Unique" → Código
 dclColors.rarity.unique
 
-// Figma "Primary / Main" → Code
+// Figma "Primary / Main" → Código
 theme.palette.primary.main
 
-// Figma "Text / Secondary" → Code
+// Figma "Text / Secondary" → Código
 theme.palette.text.secondary
 ```
 
-**Source of truth**: [colors.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colors.ts)
+**Fuente de verdad**: [colors.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colors.ts)
 
-#### Typography
+#### Tipografía
 
-**MUST** use defined variants:
+**DEBE** usar variantes definidas:
 
-Available variants:
-* `h1`, `h2`, `h3`, `h4`, `h5`, `h6` - Headings
-* `subtitle1`, `subtitle2` - Subheadings
-* `body1`, `body2` - Body text
-* `button` - Button text
-* `caption` - Captions
-* `overline` - Overline text
+Variantes disponibles:
+* `h1`, `h2`, `h3`, `h4`, `h5`, `h6` - Encabezados
+* `subtitle1`, `subtitle2` - Subencabezados
+* `body1`, `body2` - Texto de cuerpo
+* `button` - Texto de botón
+* `caption` - Subtítulos
+* `overline` - Texto overline
 
-**References**:
-* [Typography source](https://github.com/decentraland/ui2/blob/master/src/theme/typography.ts)
+**Referencias**:
+* [Fuente de tipografía](https://github.com/decentraland/ui2/blob/master/src/theme/typography.ts)
 * [MUI Typography](https://mui.com/material-ui/react-typography/)
-* [Material Design Type System](https://m2.material.io/design/typography/the-type-system.html#type-scale)
+* [Sistema de Tipo Material Design](https://m2.material.io/design/typography/the-type-system.html#type-scale)
 
-**Example mapping**:
+**Ejemplo de mapeo**:
 ```
 Figma "H1" → <Typography variant="h1">
 Figma "Body 1" → <Typography variant="body1">
@@ -226,155 +226,154 @@ Figma "Caption" → <Typography variant="caption">
 
 #### Breakpoints
 
-**MUST** design for these breakpoints:
+**DEBE** diseñar para estos breakpoints:
 
-| Name | Width | Typical Device |
+| Nombre | Ancho | Dispositivo Típico |
 |------|-------|----------------|
-| `xs` | 768px | Mobile |
+| `xs` | 768px | Móvil |
 | `sm` | 991px | Tablet |
-| `md` | 1024px | Small Desktop |
-| `lg` | 1280px | Desktop |
-| `xl` | 1500px | Large Desktop |
+| `md` | 1024px | Escritorio Pequeño |
+| `lg` | 1280px | Escritorio |
+| `xl` | 1500px | Escritorio Grande |
 
-**Source**: [index.ts](https://github.com/decentraland/ui2/blob/master/src/theme/index.ts)
+**Fuente**: [index.ts](https://github.com/decentraland/ui2/blob/master/src/theme/index.ts)
 
-**Best practices**:
-* Design mobile-first (start at `xs`)
-* Show key breakpoints in Figma frames
-* Document responsive behavior
-* Test at viewport edges (767px, 768px, etc.)
+**Mejores prácticas**:
+* Diseñar mobile-first (empezar en `xs`)
+* Mostrar breakpoints clave en frames de Figma
+* Documentar comportamiento responsivo
+* Probar en bordes de viewport (767px, 768px, etc.)
 
-#### Border Radius and Palettes
+#### Border Radius y Paletas
 
-**MUST** use theme-defined values:
+**DEBE** usar valores definidos por el tema:
 
-* Don't introduce new border radius values
-* Don't create new palette roles
-* Exceptions require spec justification and approval
+* No introducir nuevos valores de border radius
+* No crear nuevos roles de paleta
+* Las excepciones requieren justificación en especificación y aprobación
 
-**Theme values**:
+**Valores de tema**:
 ```tsx
-theme.shape.borderRadius // Default radius
-theme.palette.primary    // Primary colors
-theme.palette.secondary  // Secondary colors
-theme.palette.error      // Error colors
-theme.palette.text       // Text colors
-theme.palette.background // Background colors
-theme.palette.divider    // Divider colors
+theme.shape.borderRadius // Radio por defecto
+theme.palette.primary    // Colores primarios
+theme.palette.secondary  // Colores secundarios
+theme.palette.error      // Colores de error
+theme.palette.text       // Colores de texto
+theme.palette.background // Colores de fondo
+theme.palette.divider    // Colores de divisor
 ```
 
-#### Color Schemes
+#### Esquemas de Color
 
-**If the screen supports multiple color schemes:**
+**Si la pantalla soporta múltiples esquemas de color:**
 
-**MUST** provide:
-* Which scheme applies (see [colorSchemes.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colorSchemes.ts))
-* Light mode preview
-* Dark mode preview
-* Documentation on switching schemes in Storybook
+**DEBE** proporcionar:
+* Qué esquema aplica (ver [colorSchemes.ts](https://github.com/decentraland/ui2/blob/master/src/theme/colorSchemes.ts))
+* Vista previa del modo claro
+* Vista previa del modo oscuro
+* Documentación sobre cambio de esquemas en Storybook
 
-**Example**:
+**Ejemplo**:
 ```
-Supported Schemes: Light, Dark
-Default: System preference
-Toggle: Settings menu → Appearance
-Storybook: Use "Theme" control in toolbar
+Esquemas Soportados: Claro, Oscuro
+Por defecto: Preferencia del sistema
+Toggle: Menú de configuración → Apariencia
+Storybook: Usar control "Theme" en la barra de herramientas
 ```
 
-### Component Selection
+### Selección de Componentes
 
-**SHOULD** reuse prepared components:
+**DEBERÍA** reusar componentes preparados:
 
-1. **Check MUI first** - Does MUI have this component?
-2. **Check UI2** - Is there a Decentraland variant?
-3. **Compose if possible** - Can you combine existing components?
-4. **Custom as last resort** - Follow [Custom Components](custom-components.md) process
+1. **Verificar MUI primero** - ¿MUI tiene este componente?
+2. **Verificar UI2** - ¿Hay una variante de Decentraland?
+3. **Componer si es posible** - ¿Puedes combinar componentes existentes?
+4. **Personalizado como último recurso** - Seguir proceso de [Componentes Personalizados](custom-components.md)
 
 ---
 
-## dApp Implementation
+## Implementación dApp
 
-Developers implement designs using UI2 components and following our [Styling & Theming](styling-and-theming.md) standards.
+Los desarrolladores implementan diseños usando componentes UI2 y siguiendo nuestros estándares de [Estilos y Tematización](styling-and-theming.md).
 
-### Implementation Checklist
+### Lista de Verificación de Implementación
 
-- [ ]  Start with UI2 component if available
-- [ ]  Use MUI component with Decentraland theme if no UI2 equivalent
-- [ ]  Follow [Styling & Theming](styling-and-theming.md) standards
-- [ ]  Implement all states from UX spec
-- [ ]  Add analytics tracking as specified
-- [ ]  Test at all breakpoints
-- [ ]  Verify keyboard navigation
-- [ ]  Check color contrast
-- [ ]  Test with screen reader
-- [ ]  Handle loading and error states
-- [ ]  Add to Storybook if it's a reusable component
+- [ ]  Empezar con componente UI2 si está disponible
+- [ ]  Usar componente MUI con tema Decentraland si no hay equivalente UI2
+- [ ]  Seguir estándares de [Estilos y Tematización](styling-and-theming.md)
+- [ ]  Implementar todos los estados de la especificación UX
+- [ ]  Agregar seguimiento de analytics como se especificó
+- [ ]  Probar en todos los breakpoints
+- [ ]  Verificar navegación por teclado
+- [ ]  Verificar contraste de color
+- [ ]  Probar con lector de pantalla
+- [ ]  Manejar estados de carga y error
+- [ ]  Agregar a Storybook si es un componente reutilizable
 
-### Component Implementation Flow
+### Flujo de Implementación de Componentes
 
 ```
-1. Check UI2 for component
+1. Verificar UI2 para componente
    ↓
-2. Found? → Use it
+2. ¿Encontrado? → Usarlo
    ↓
-3. Not found? → Check MUI
+3. ¿No encontrado? → Verificar MUI
    ↓
-4. Found in MUI? → Use with Decentraland theme
+4. ¿Encontrado en MUI? → Usar con tema Decentraland
    ↓
-5. Need customization? → See Custom Components guide
+5. ¿Necesitas personalización? → Ver guía de Componentes Personalizados
    ↓
-6. Implement following Styling standards
+6. Implementar siguiendo estándares de Estilos
    ↓
-7. Add to Storybook (if reusable)
+7. Agregar a Storybook (si es reutilizable)
 ```
 
-### Quality Gates
+### Puertas de Calidad
 
-Before marking implementation complete:
+Antes de marcar la implementación como completa:
 
-1. **Visual match** - Matches Figma pixel-perfect at key breakpoints
-2. **Theme compliance** - All values from UI2 theme
-3. **States implemented** - All UX-specified states work
-4. **Accessibility** - Keyboard nav, focus states, ARIA labels
-5. **Analytics** - Events fire as specified
-6. **Responsive** - Works at all breakpoints
-7. **Performance** - No unnecessary re-renders
-8. **Tests** - Component tests pass
-9. **Storybook** - Stories added (if reusable)
-10. **Code review** - Approved by maintainers
+1. **Coincidencia visual** - Coincide con Figma pixel-perfect en breakpoints clave
+2. **Cumplimiento de tema** - Todos los valores del tema UI2
+3. **Estados implementados** - Todos los estados especificados en UX funcionan
+4. **Accesibilidad** - Navegación por teclado, estados de foco, etiquetas ARIA
+5. **Analytics** - Los eventos se disparan como se especificó
+6. **Responsivo** - Funciona en todos los breakpoints
+7. **Rendimiento** - Sin re-renders innecesarios
+8. **Pruebas** - Las pruebas de componentes pasan
+9. **Storybook** - Historias agregadas (si es reutilizable)
+10. **Revisión de código** - Aprobado por maintainers
 
 ---
 
-## Handoff Best Practices
+## Mejores Prácticas de Handoff
 
-### From UX to Design
+### De UX a Diseño
 
-* Clear requirements document
-* User flows with annotations
-* State diagrams for complex interactions
-* Analytics event specifications
+* Documento de requisitos claro
+* Flujos de usuario con anotaciones
+* Diagramas de estado para interacciones complejas
+* Especificaciones de eventos de analytics
 
-### From Design to Development
+### De Diseño a Desarrollo
 
-* Figma file with dev mode enabled
-* Component specifications
-* Responsive behavior notes
-* Color and typography token mapping
-* Accessibility annotations
-* Link to UX requirements
+* Archivo Figma con modo dev habilitado
+* Especificaciones de componentes
+* Notas de comportamiento responsivo
+* Mapeo de tokens de color y tipografía
+* Anotaciones de accesibilidad
+* Enlace a requisitos UX
 
-### During Implementation
+### Durante la Implementación
 
-* Regular check-ins between designer and developer
-* Early feedback on technical constraints
-* Iterative reviews at key milestones
-* Final review before merging
+* Check-ins regulares entre diseñador y desarrollador
+* Retroalimentación temprana sobre restricciones técnicas
+* Revisiones iterativas en hitos clave
+* Revisión final antes de fusionar
 
 ---
 
-## Next Steps
+## Próximos Pasos
 
-* Learn about [Custom Components](custom-components.md) for creating new components
-* Review [Styling & Theming](styling-and-theming.md) for implementation details
-* See [Migration Guide](migration.md) if working with UI1 components
-
+* Aprender sobre [Componentes Personalizados](custom-components.md) para crear nuevos componentes
+* Revisar [Estilos y Tematización](styling-and-theming.md) para detalles de implementación
+* Ver [Guía de Migración](migration.md) si trabajas con componentes UI1

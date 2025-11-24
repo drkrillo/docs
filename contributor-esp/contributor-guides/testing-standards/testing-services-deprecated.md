@@ -1,32 +1,32 @@
-# Testing Services (Deprecated)
+# Probar Servicios (Obsoleto)
 
 {% hint style="warning" %}
-This is a deprecated approach for testing services. For new services, please refer to [Testing Services (Well-Known-Component)](testing-services-wkc.md).
+Este es un enfoque obsoleto para probar servicios. Para nuevos servicios, por favor refiérase a [Probar Servicios (Well-Known-Component)](testing-services-wkc.md).
 {% endhint %}
 
-Services SHOULD be mainly tested using **API tests**, that is, a set of tests that exercise the code of the service through its API by getting the service up, with its external dependencies being mocked (DBs and APIs). **Unit test** SHOULD be included in cases where utility sections of code with a high number of cases to be exercised or non-performant code is found, making it impossible or hard to test with API tests. The rationale behind this is that due to our micro-services architecture, that reduces the responsibilities thus the amount of code to be tested, the logic of the services is simple, making API tests the most time per value option when ensuring that the services work correctly.
+Los servicios DEBERÍAN ser probados principalmente usando **pruebas de API**, es decir, un conjunto de pruebas que ejercitan el código del servicio a través de su API levantando el servicio, con sus dependencias externas siendo mockeadas (DBs y APIs). **Las pruebas unitarias** DEBERÍAN incluirse en casos donde se encuentran secciones de utilidad de código con un alto número de casos a ejercitar o código no performante, haciendo imposible o difícil probar con pruebas de API. La razón detrás de esto es que debido a nuestra arquitectura de micro-servicios, que reduce las responsabilidades y así la cantidad de código a probar, la lógica de los servicios es simple, haciendo que las pruebas de API sean la opción más eficiente en tiempo por valor al asegurar que los servicios funcionan correctamente.
 
-## Testing stack
+## Stack de pruebas
 
-Services MUST be tested using [Jest](https://jestjs.io/) as the main testing framework with [supertest](https://github.com/visionmedia/supertest) as the framework to set up the server and test it.
+Los servicios DEBEN ser probados usando [Jest](https://jestjs.io/) como el framework principal de pruebas con [supertest](https://github.com/visionmedia/supertest) como el framework para configurar el servidor y probarlo.
 
-## Directory structure
+## Estructura de directorios
 
-As services MAY have both API test and unit tests, there will be more than one place where the tests will go:
+Como los servicios PUEDEN tener tanto pruebas de API como pruebas unitarias, habrá más de un lugar donde las pruebas irán:
 
-* Unit tests MUST go alongside the file or module that they're testing, with the same name, but with the extension `spec.ts` instead of `ts`.
-* API tests will exercise code all along the service, so they MUST be placed in a `test` directory, in the root path. The files will be named as the service's resource that they will be testing, that is, if the API tests will be testing the resource `books`, usually under `/books`, the name of the file MUST be `books.spec.ts` and MUST be placed in the `test` directory.
+* Las pruebas unitarias DEBEN ir junto al archivo o módulo que están probando, con el mismo nombre, pero con la extensión `spec.ts` en lugar de `ts`.
+* Las pruebas de API ejercitarán código a lo largo del servicio, por lo que DEBEN colocarse en un directorio `test`, en la ruta raíz. Los archivos se nombrarán como el recurso del servicio que estarán probando, es decir, si las pruebas de API estarán probando el recurso `books`, usualmente bajo `/books`, el nombre del archivo DEBE ser `books.spec.ts` y DEBE colocarse en el directorio `test`.
 
-## What to test
+## Qué probar
 
-* Middlewares applied to the route (auth, etc), to ensure that the route works as expected.
-* The controllers logic, to ensure that the route does what we expect it to do.
+* Middlewares aplicados a la ruta (auth, etc), para asegurar que la ruta funciona como se espera.
+* La lógica de los controladores, para asegurar que la ruta hace lo que esperamos que haga.
 
-## API testing services
+## Probar servicios con API
 
-As mentioned before, API tests will be done using Jest and supertest.
+Como se mencionó antes, las pruebas de API se harán usando Jest y supertest.
 
-To illustrate how a developer will do API tests, we have the following example:
+Para ilustrar cómo un desarrollador hará pruebas de API, tenemos el siguiente ejemplo:
 
 ```tsx
 import express from "express"
@@ -51,30 +51,30 @@ app.post('/books', authMiddleware, async (req, res) => {
 })
 ```
 
-We find in the example one route with different HTTP methods, GET and POST. Both endpoints refer to the same resource, books, so a file, named `books.spec.ts` MUST be created under the `test` directory to hold the tests for them.
+Encontramos en el ejemplo una ruta con diferentes métodos HTTP, GET y POST. Ambos endpoints se refieren al mismo recurso, books, por lo que un archivo, llamado `books.spec.ts` DEBE ser creado bajo el directorio `test` para contener las pruebas para ellos.
 
-All the routes and the different flows of executions MUST be tested throughly. These are the cases that the developer MUST test for these endpoints:
+Todas las rutas y los diferentes flujos de ejecuciones DEBEN ser probados exhaustivamente. Estos son los casos que el desarrollador DEBE probar para estos endpoints:
 
-* Requesting all the books works, responding with a 200 and the list of all books.
-* Requesting all the books of a given author works, responding with a 200 and the list of all books of that author.
-* Posting a book unauthenticated fails, responding with a 401 and an error message.
-* Posting a book authenticated works, responding with a 200 and inserting the book.
+* Solicitar todos los libros funciona, respondiendo con un 200 y la lista de todos los libros.
+* Solicitar todos los libros de un autor dado funciona, respondiendo con un 200 y la lista de todos los libros de ese autor.
+* Publicar un libro sin autenticar falla, respondiendo con un 401 y un mensaje de error.
+* Publicar un libro autenticado funciona, respondiendo con un 200 e insertando el libro.
 
-These cases will definitely get their **it**s and the expectation of those its MUST contain at least **the expected response status** and what is **expected in the response body** (if there's any).
+Estos casos definitivamente obtendrán sus **it**s y la expectativa de esos its DEBE contener al menos **el código de estado de respuesta esperado** y lo que se **espera en el cuerpo de la respuesta** (si hay alguno).
 
-This is how these endpoint tests should be written:
+Así es como estas pruebas de endpoint deberían escribirse:
 
 ```tsx
 import db from '../db'
 import app from '../express_app.ts'
-// We only mock external dependencies such a DBs
+// Solo mockeamos dependencias externas como DBs
 jest.mock('../db')
 
 const mockDb = db as jest.Mocked<typeof db>
 
 const server = supertest(app.getApp())
 
-// This might be also written as /books?
+// Esto también podría escribirse como /books?
 describe('when requesting the books resource', () => {
 	let url: string
 	let aBook: Book
@@ -95,7 +95,7 @@ describe('when requesting the books resource', () => {
 	      .get(url)
 	      .expect(200)
 	      .then((response) => {
-					expect(response.body).toEqual([aBook, anotherBook])
+				expect(response.body).toEqual([aBook, anotherBook])
 	      })
 		})
 	})
@@ -111,7 +111,7 @@ describe('when requesting the books resource', () => {
 				.query({ author: 'anotherAuthor' })
 	      .expect(200)
 	      .then((response) => {
-					expect(response.body).toEqual([anotherBook])
+				expect(response.body).toEqual([anotherBook])
 	      })
 		})
 	})
@@ -123,7 +123,7 @@ describe('when requesting the books resource', () => {
 				.send(book)
 	      .expect(401)
 	      .then((response) => {
-					expect(response.body).toEqual({ error: 'Unauthenticated' })
+				expect(response.body).toEqual({ error: 'Unauthenticated' })
 	      })
 		})
 	})
@@ -136,11 +136,10 @@ describe('when requesting the books resource', () => {
 				.send(aBook)
 	      .expect(200)
 	      .then(() => {
-					// Checks that the book was inserted
+				// Verifica que el libro fue insertado
 	        expect(db.insertBook).toHaveBeenCalledWith(aBook)
 	      })
 		})
 	})
 })
 ```
-

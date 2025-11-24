@@ -1,24 +1,24 @@
-# Logic Components
+# Componentes Lógicos
 
 {% hint style="info" %}
-This section is currently being developed. Check back soon for comprehensive documentation on logic components.
+Esta sección está actualmente siendo desarrollada. Vuelva pronto para documentación completa sobre componentes lógicos.
 {% endhint %}
 
-Logic components are pieces of software that contain the **business logic** of your application. They are organized semantically by domain or functionality and serve as the orchestration layer between controllers and adapters.
+Los componentes lógicos son piezas de software que contienen la **lógica de negocio** de su aplicación. Están organizados semánticamente por dominio o funcionalidad y sirven como la capa de orquestación entre controladores y adaptadores.
 
-## Purpose
+## Propósito
 
-Logic components:
+Los componentes lógicos:
 
-* Implement business rules and domain logic
-* Orchestrate operations across multiple adapters
-* Encapsulate complex workflows
-* Remain independent of transport layer (HTTP, WebSocket) concerns
-* Can be thoroughly unit tested without I/O dependencies
+* Implementan reglas de negocio y lógica de dominio
+* Orquestan operaciones a través de múltiples adaptadores
+* Encapsulan flujos de trabajo complejos
+* Permanecen independientes de preocupaciones de la capa de transporte (HTTP, WebSocket)
+* Pueden ser probados unitariamente exhaustivamente sin dependencias de I/O
 
-## Location
+## Ubicación
 
-Logic components SHOULD be placed under the `src/logic` or `src/components` directory, organized by domain:
+Los componentes lógicos DEBERÍAN colocarse bajo el directorio `src/logic` o `src/components`, organizados por dominio:
 
 ```
 src/
@@ -29,11 +29,11 @@ src/
     └── notifications/
 ```
 
-## Characteristics
+## Características
 
-### 1. Adapter Consumption
+### 1. Consumo de Adaptadores
 
-Logic components are the primary consumers of adapters. They use adapters to interact with external resources while focusing on business rules.
+Los componentes lógicos son los consumidores principales de adaptadores. Usan adaptadores para interactuar con recursos externos mientras se enfocan en reglas de negocio.
 
 ```tsx
 export function createUserLogic(
@@ -43,19 +43,19 @@ export function createUserLogic(
   const logger = logs.getLogger('user-logic')
 
   async function getUserProfile(userId: string): Promise<UserProfile> {
-    // Check cache first
+    // Verificar caché primero
     const cached = await cache.get(`user:${userId}`)
     if (cached) {
       return cached
     }
 
-    // Fetch from database
+    // Obtener de base de datos
     const user = await database.query('SELECT * FROM users WHERE id = $1', [userId])
     
-    // Apply business logic
+    // Aplicar lógica de negocio
     const profile = transformUserToProfile(user)
     
-    // Cache the result
+    // Cachear el resultado
     await cache.set(`user:${userId}`, profile, { ttl: 3600 })
     
     return profile
@@ -67,13 +67,13 @@ export function createUserLogic(
 }
 ```
 
-### 2. Business Rules
+### 2. Reglas de Negocio
 
-Logic components enforce business rules and validation:
+Los componentes lógicos hacen cumplir reglas de negocio y validación:
 
 ```tsx
 async function createUser(userData: CreateUserInput): Promise<User> {
-  // Business rule: username must be unique
+  // Regla de negocio: el nombre de usuario debe ser único
   const existing = await database.query(
     'SELECT id FROM users WHERE username = $1',
     [userData.username]
@@ -83,12 +83,12 @@ async function createUser(userData: CreateUserInput): Promise<User> {
     throw new UserAlreadyExistsError(userData.username)
   }
 
-  // Business rule: validate user data
+  // Regla de negocio: validar datos de usuario
   if (!isValidEmail(userData.email)) {
     throw new InvalidEmailError(userData.email)
   }
 
-  // Create the user
+  // Crear el usuario
   const user = await database.query(
     'INSERT INTO users (username, email) VALUES ($1, $2) RETURNING *',
     [userData.username, userData.email]
@@ -100,31 +100,31 @@ async function createUser(userData: CreateUserInput): Promise<User> {
 }
 ```
 
-### 3. Workflow Orchestration
+### 3. Orquestación de Flujos de Trabajo
 
-Logic components coordinate complex multi-step operations:
+Los componentes lógicos coordinan operaciones complejas de múltiples pasos:
 
 ```tsx
 async function publishContent(
   userId: string,
   content: ContentInput
 ): Promise<PublishedContent> {
-  // Step 1: Validate permissions
+  // Paso 1: Validar permisos
   const canPublish = await permissions.canUserPublish(userId)
   if (!canPublish) {
     throw new UnauthorizedError('User cannot publish content')
   }
 
-  // Step 2: Process content
+  // Paso 2: Procesar contenido
   const processed = await processContent(content)
 
-  // Step 3: Store content
+  // Paso 3: Almacenar contenido
   const stored = await storage.save(processed)
 
-  // Step 4: Update indexes
+  // Paso 4: Actualizar índices
   await searchIndex.index(stored)
 
-  // Step 5: Notify subscribers
+  // Paso 5: Notificar suscriptores
   await notifications.notifySubscribers(userId, stored)
 
   logger.info('Content published', { contentId: stored.id, userId })
@@ -133,40 +133,40 @@ async function publishContent(
 }
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Single Responsibility
+### 1. Responsabilidad Única
 
-Each logic component should focus on one domain or bounded context:
+Cada componente lógico debería enfocarse en un dominio o contexto delimitado:
 
 ```tsx
-// Good: Focused on user domain
+// Bien: Enfocado en dominio de usuario
 createUserLogic()
 createContentLogic()
 createPermissionsLogic()
 
-// Avoid: Mixed responsibilities
+// Evitar: Responsabilidades mixtas
 createUserAndContentLogic()
 ```
 
-### 2. Dependency Injection
+### 2. Inyección de Dependencias
 
-Always inject dependencies through the components parameter:
+Siempre inyectar dependencias a través del parámetro components:
 
 ```tsx
 export function createOrderLogic(
   components: Pick<AppComponents, 'database' | 'payments' | 'inventory' | 'logs'>
 ): IOrderLogic {
-  // Use injected dependencies
+  // Usar dependencias inyectadas
 }
 ```
 
-### 3. Error Handling
+### 3. Manejo de Errores
 
-Throw meaningful domain errors that controllers can catch and handle:
+Lanzar errores de dominio significativos que los controladores pueden capturar y manejar:
 
 ```tsx
-// Define domain-specific errors
+// Definir errores específicos del dominio
 export class InsufficientInventoryError extends Error {
   constructor(public readonly productId: string, public readonly requested: number) {
     super(`Insufficient inventory for product ${productId}. Requested: ${requested}`)
@@ -175,25 +175,25 @@ export class InsufficientInventoryError extends Error {
 }
 ```
 
-### 4. Pure Business Logic
+### 4. Lógica de Negocio Pura
 
-Keep logic components free from transport layer concerns:
+Mantener los componentes lógicos libres de preocupaciones de la capa de transporte:
 
 ```tsx
-// Good: Pure business logic
+// Bien: Lógica de negocio pura
 async function calculateOrderTotal(items: OrderItem[]): Promise<number> {
   return items.reduce((total, item) => total + item.price * item.quantity, 0)
 }
 
-// Avoid: HTTP/transport layer concerns
+// Evitar: Preocupaciones de capa HTTP/transporte
 async function calculateOrderTotal(req: Request, res: Response): Promise<void> {
-  // Don't do this in logic components
+  // No hacer esto en componentes lógicos
 }
 ```
 
-## Testing Logic Components
+## Probar Componentes Lógicos
 
-Logic components should be thoroughly unit tested. See the [Testing Services (WKC)](../testing-standards/testing-services-wkc.md) documentation for details.
+Los componentes lógicos deberían ser probados unitariamente exhaustivamente. Ver la documentación de [Probar Servicios (WKC)](../testing-standards/testing-services-wkc.md) para detalles.
 
 ```tsx
 describe('when creating a user', () => {
@@ -219,14 +219,13 @@ describe('when creating a user', () => {
 })
 ```
 
-## Coming Soon
+## Próximamente
 
-This section will be expanded with:
+Esta sección se expandirá con:
 
-* Detailed examples of domain-driven logic components
-* Patterns for handling complex workflows
-* Guidelines for organizing large domain logic
-* Integration with event systems
-* Caching strategies
-* Transaction management patterns
-
+* Ejemplos detallados de componentes lógicos dirigidos por dominio
+* Patrones para manejar flujos de trabajo complejos
+* Guías para organizar lógica de dominio grande
+* Integración con sistemas de eventos
+* Estrategias de caché
+* Patrones de gestión de transacciones
