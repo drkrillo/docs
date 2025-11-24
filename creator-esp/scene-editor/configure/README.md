@@ -1,19 +1,16 @@
 ---
-description: Configure scene settings and properties
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/configure
+description: Configura la configuración y propiedades de la escena
 ---
 
-# Configure
+# Configuración de Escena
 
-Configure your scene's properties, settings, and metadata to prepare it for deployment. This section covers all the configuration options available in the Scene Editor.
+Configura las propiedades, configuraciones y metadatos de tu escena para prepararla para el despliegue. Esta sección cubre todas las opciones de configuración disponibles en el Scene Editor.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Setting scene metadata
-* Configuring scene boundaries
-* Managing spawn points
-* Setting scene permissions
+* Establecer metadatos de escena
+* Configurar límites de escena
+* Gestionar spawn points
+* Establecer permisos de escena
 
-Proper configuration ensures your scene displays correctly and behaves as expected when deployed to Decentraland.
+La configuración adecuada asegura que tu escena se muestre correctamente y se comporte como se espera cuando se despliegue en Decentraland.

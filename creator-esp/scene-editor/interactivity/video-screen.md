@@ -1,79 +1,75 @@
 ---
-description: Play Videos in your scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/video-screen
+description: Reproduce Videos en tu escena
 ---
 
 # Video Screen
 
-To play pre-recorded or streamed videos on a screen on your scene, use the Video Player [Smart Item](../../../creator/scene-editor/interactivity/smart-items.md).
+Para reproducir videos pre-grabados o transmitidos en una pantalla en tu escena, usa el Video Player [Smart Item](../scene-editor/interactivity/smart-items.md).
 
-![](../../.gitbook/assets/video-player-item.png)
+![](../images/editor/admin/video-player-item.png)
 
-### General settings
+### Configuraciones generales
 
-These settings are relevant for all scenarios, either if you're playing videos or streaming.
+Estas configuraciones son relevantes para todos los escenarios, ya sea que estés reproduciendo videos o transmitiendo.
 
-![](../../.gitbook/assets/video-automatic.png)
+![](../images/editor/admin/video-automatic.png)
 
-You can configure the volume of the video's audio. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
+Puedes configurar el volumen del audio del video. Ten en cuenta que el audio del stream no es posicional, se escucha a un volumen uniforme a través de toda tu escena.
 
-The **Default Media Source** dropdown lets you pick between two different kinds of sources:
+El desplegable **Default Media Source** te permite elegir entre dos tipos diferentes de fuentes:
 
-* **Video URL**: Fetch a video or a stream from a URL or local video file
-* **Live Stream**: Use Decentraland's free streaming infrastructure to display a stream. To use this, you must also include an [Admin tools](../../../creator/scene-editor/live-ops/scene-admin.md) smart item in your scene.
+* **Video URL**: Obtén un video o un stream desde una URL o archivo de video local
+* **Live Stream**: Usa la infraestructura de streaming gratuita de Decentraland para mostrar un stream. Para usar esto, también debes incluir un smart item [Admin tools](../scene-editor/live-ops/scene-admin.md) en tu escena.
 
-### Play Videos
+### Reproducir Videos
 
-You can Play pre-recorded videos from either:
+Puedes reproducir videos pre-grabados desde:
 
-* **Local files**: Upload a video file as part of the scene, then point the _URL_ field to the path to that file.
-* **Stream from a URL**: Point to a live or pre-recorded stream on the web, for example from Vimeo. See [streaming videos](video-screen.md#streaming-videos)
+* **Archivos locales**: Sube un archivo de video como parte de la escena, luego apunta el campo _URL_ a la ruta a ese archivo.
+* **Stream desde una URL**: Apunta a un stream en vivo o pre-grabado en la web, por ejemplo desde Vimeo. Consulta [streaming videos](video-screen.md#streaming-videos)
 
-The timing of when the Video Player smart item plays a video can depend on different things:
+El momento en que el smart item Video Player reproduce un video puede depender de diferentes cosas:
 
-*   **Automatic**: The video starts playing as soon as the scene loads. For this, set the default media source dropdown to **Video URL** and paste a URL directly into the **Default Video URL** field.
+*   **Automatic**: El video comienza a reproducirse tan pronto como se carga la escena. Para esto, establece el desplegable de media source predeterminado en **Video URL** y pega una URL directamente en el campo **Default Video URL**.
 
-    ![](../../.gitbook/assets/video-automatic.png)
-* **Triggered by an admin**: A [Scene admin](../../../creator/scene-editor/live-ops/scene-admin.md) who's currently in the scene can use the Admin UI to paste a video URL and play it for all players who are currently in the scene.
-*   **Based on player actions**: Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of interacting with some other smart item, like walking into a room, or pushing a button. See [Smart Items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md).
+    ![](../images/editor/admin/video-automatic.png)
+* **Activado por un admin**: Un [Scene admin](../scene-editor/live-ops/scene-admin.md) que está actualmente en la escena puede usar la UI de Admin para pegar una URL de video y reproducirlo para todos los jugadores que están actualmente en la escena.
+*   **Basado en acciones del jugador**: Define una Action de tipo **Play Video Stream**. Esto te permite activar la reproducción del video como resultado de interactuar con algún otro smart item, como caminar a una habitación o presionar un botón. Consulta [Smart Items - Advanced](../scene-editor/interactivity/smart-items-advanced.md).
 
-    ![](../../.gitbook/assets/video-from-action.png)
+    ![](../images/editor/video-from-action.png)
 
-In all cases you configure the video to either loop or play once.
+En todos los casos, configuras el video para que se reproduzca en bucle o una sola vez.
 
 {% hint style="warning" %}
-**📔 Note**: If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority is determined based on proximity to the player, direction of the camera and size of the screen. The maximum amount of simultaneous videos depends on the player's quality settings.
+**📔 Nota**: Si demasiados videos se están reproduciendo al mismo tiempo en tu escena, algunos serán pausados por el motor. La prioridad se determina en función de la proximidad al jugador, dirección de la cámara y tamaño de la pantalla. La cantidad máxima de videos simultáneos depende de la configuración de calidad del jugador.
 
 * Low: 1
 * Medium: 5
 * High: 10
 
-We also recommend starting to play the video when the player is near or performs an action to do that. Starting to play a video when your scene is loaded far in the horizon will unnecessarily affect performance while players visit neighboring scenes.
+También recomendamos comenzar a reproducir el video cuando el jugador está cerca o realiza una acción para hacerlo. Comenzar a reproducir un video cuando tu escena se carga lejos en el horizonte afectará innecesariamente el rendimiento mientras los jugadores visitan escenas vecinas.
 {% endhint %}
 
-#### About Video Files
+#### Acerca de los Archivos de Video
 
-The following file formats are supported:
+Los siguientes formatos de archivo son soportados:
 
 * _.mp4_
 * _.ogg_
 * _.webm_
 
-Keep in mind that a video file adds to the total size of the scene, which makes the scene take longer to download for players walking into your scene. The video size might also make you go over the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md), as you have a maximum of 15 MB per parcel to use. We recommend compressing the video as much as possible, so that it's less of a problem.
+Ten en cuenta que un archivo de video se suma al tamaño total de la escena, lo que hace que la escena tarde más en descargarse para los jugadores que caminan hacia tu escena. El tamaño del video también podría hacer que superes las [scene limitations](../sdk7/optimizing/scene-limitations.md), ya que tienes un máximo de 15 MB por parcel para usar. Recomendamos comprimir el video tanto como sea posible, para que sea menos problemático.
 
 ### Live streaming
 
-For end-to-end live streaming (OBS setup, stream keys, admin controls), see [Live Streaming](../../../creator/scene-editor/live-ops/live-streaming.md).
+Para transmisión en vivo de extremo a extremo (configuración de OBS, stream keys, controles de admin), consulta [Live Streaming](../scene-editor/live-ops/live-streaming.md).
 
-#### Streaming from other sources
+#### Streaming desde otras fuentes
 
-You can also stream videos using other streaming infrastructures. To do this, simply configure the Video Player smart item to use the **Video URL** media source, and paste the stream URL into the **Default Video URL** field.
+También puedes transmitir videos usando otras infraestructuras de streaming. Para hacer esto, simplemente configura el smart item Video Player para usar la media source **Video URL**, y pega la URL del stream en el campo **Default Video URL**.
 
-The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. This means you can't stream a video from YouTube or similar sites, as these only allow displaying their content in their branded HTML widget. See [About External Streaming](../../../creator/sdk7/media/video-playing.md#about-external-streaming) for options and tips.
+La fuente del streaming debe ser una URL _https_ (las URLs _http_ no son soportadas), y la fuente debe tener [políticas CORS (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) que permitan acceder a ella externamente. Esto significa que no puedes transmitir un video desde YouTube o sitios similares, ya que estos solo permiten mostrar su contenido en su widget HTML de marca. Consulta [About External Streaming](../sdk7/media/video-playing.md#about-external-streaming) para opciones y tips.
 
-There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/), [Livepeer Studio](https://livepeer.studio/) or [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) where you pay a fee to the provider to manage all the streaming infrastructure.
+Hay una serie de opciones para transmitir video. La opción más simple es usar un proveedor de hosting administrado como [Vimeo](https://vimeo.com/), [Livepeer Studio](https://livepeer.studio/) o [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) donde pagas una tarifa al proveedor para administrar toda la infraestructura de streaming.
 
-Read [Setting up OBS for successful streaming](../../../creator/sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming) for tips on how to best stream content into Decentraland.
+Lee [Setting up OBS for successful streaming](../sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming) para tips sobre cómo transmitir mejor contenido a Decentraland.

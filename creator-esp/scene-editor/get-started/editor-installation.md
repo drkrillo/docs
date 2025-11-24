@@ -1,42 +1,38 @@
 ---
-description: How to install the scene editor.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/get-started/editor-installation
+description: Cómo instalar el scene editor.
 ---
 
-# Editor Installation
+# Instalación del Editor
 
-![](../../.gitbook/assets/icon-creator-hub.png)
+![](../images/editor/icon-creator-hub.png)
 
-Download the Creator Hub [HERE](https://decentraland.org/download/creator-hub).
+Descarga el Creator Hub [AQUÍ](https://decentraland.org/download/creator-hub).
 
-### Updating the Creator Hub
+### Actualizar el Creator Hub
 
-The Creator Hub application checks for updates every time you open it, and self-updates if there's a new version available.
+La aplicación Creator Hub busca actualizaciones cada vez que la abres, y se auto-actualiza si hay una nueva versión disponible.
 
-You can also check for updates manually by clicking on the **Check for updates** button in the **Settings** menu. For this,
+También puedes buscar actualizaciones manualmente haciendo clic en el botón **Check for updates** en el menú **Settings**. Para esto,
 
-1.  Open the wheel icon in the top-right of the screen
+1.  Abre el ícono de rueda en la parte superior derecha de la pantalla
 
-    ![](../../.gitbook/assets/settings-icon.png)
-2. Click **Check for updates**
+    ![](../images/editor/settings-icon.png)
+2. Haz clic en **Check for updates**
 
-### Editing code
+### Editar código
 
-If you also plan on reading and editing code in your scene, you'll also need to install either:
+Si también planeas leer y editar código en tu escena, también necesitarás instalar cualquiera de:
 
-* ![](../../.gitbook/assets/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
-* ![](../../.gitbook/assets/cursor-icon.png) [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
+* ![](../images/editor/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): Esta es la opción recomendada para desarrolladores experimentados.
+* ![](../images/editor/cursor-icon.png) [Cursor AI](https://www.cursor.com/): Este es un poderoso editor de código que está integrado con AI. Te permite elegir diferentes modelos de AI para ayudarte a escribir código, todos ellos son gratuitos. Esta es una buena opción para desarrolladores que son nuevos en Decentraland o TypeScript, o si quieres ahorrar tiempo escribiendo código.
 
-You may need to select your Code Editor in the settings of the Creator Hub. To do this,
+Puede que necesites seleccionar tu Code Editor en la configuración del Creator Hub. Para hacer esto,
 
-1.  Open the wheel icon in the top-right of the screen
+1.  Abre el ícono de rueda en la parte superior derecha de la pantalla
 
-    ![](../../.gitbook/assets/settings-icon.png)
-2. Under **Code editor of choice**, select your Code Editor. You may find your editor listed in the dropdown, or you may need to select **Chose from your device** to find it.
+    ![](../images/editor/settings-icon.png)
+2. Bajo **Code editor of choice**, selecciona tu Code Editor. Puedes encontrar tu editor listado en el desplegable, o puede que necesites seleccionar **Chose from your device** para encontrarlo.
 
-### Troubleshooting
+### Solución de problemas
 
-If you run into issues, see the [troubleshooting](../../../creator/sdk7/debugging/troubleshooting.md) section.
+Si encuentras problemas, consulta la sección [troubleshooting](../sdk7/debugging/troubleshooting.md).

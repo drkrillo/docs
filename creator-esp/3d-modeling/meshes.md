@@ -1,107 +1,104 @@
 ---
-description: Learn hat mesh properties are supported on 3D models imported to Decentraland.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/meshes
+description: Aprende qué propiedades de mesh son compatibles con modelos 3D importados a Decentraland.
 ---
 
 # Meshes
 
-3D models have a _mesh_ composed of triangular _faces_. These faces meet each other on _edges_ (the lines along which they touch) and _vertices_ (the points where their corners join).
+Los modelos 3D tienen un _mesh_ compuesto de _faces_ triangulares. Estas faces se encuentran entre sí en _edges_ (las líneas a lo largo de las cuales se tocan) y _vertices_ (los puntos donde sus esquinas se unen).
 
-### Space Limitations
+### Limitaciones de Espacio
 
-All 3D models in your scene must fit within the limits of its parcels. If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered.
+Todos los modelos 3D en tu escena deben caber dentro de los límites de sus parcels. Si alguna parte de tus modelos se extiende más allá de estos límites al ejecutar un preview, estas partes que se extienden serán cortadas y no renderizadas.
 
-![](../.gitbook/assets/cut-train.png)
+![](../images/editor/cut-train.png)
 
-In the Creator Hub editor, you will see the model tinted red and its bounding box marked in red.
+En el editor del Creator Hub, verás el modelo teñido de rojo y su bounding box marcado en rojo.
 
-![](../.gitbook/assets/train-out-of-bounds.png)
+![](../images/editor/train-out-of-bounds.png)
 
 {% hint style="info" %}
-**📔 Note**: In the older Web client of Decentraland, for performance reasons, if any part of a 3D model was out of bounds, even if just the bounding box, then the entire model was not rendered. As of the Decentraland 2.0 desktop client, only the parts of a model that are out of bounds are cut off. The parts of the model that are within the scene are rendered.
+**📔 Nota**: En el antiguo cliente Web de Decentraland, por razones de performance, si alguna parte de un modelo 3D estaba fuera de límites, incluso si solo era el bounding box, entonces el modelo completo no se renderizaba. A partir del cliente desktop de Decentraland 2.0, solo las partes de un modelo que están fuera de límites se cortan. Las partes del modelo que están dentro de la escena se renderizan.
 {% endhint %}
 
 ### Bounding Boxes
 
-If you have a model that has all of its vertices neatly inside the scene area, but that has large bounding boxes that are mostly empty and extend beyond the scene limits, the entire model will be marked as outside the scene limits in the Creator Hub. The parts of the model that are inside your parcels will be rendered correctly, and you will be allowed to publish your scene.
+Si tienes un modelo que tiene todos sus vértices ordenadamente dentro del área de la escena, pero que tiene grandes bounding boxes que están mayormente vacíos y se extienden más allá de los límites de la escena, el modelo completo será marcado como fuera de los límites de la escena en el Creator Hub. Las partes del modelo que están dentro de tus parcels se renderizarán correctamente, y se te permitirá publicar tu escena.
 
-Every mesh has a bounding box, that surrounds the limits of the shape. To make a 3D model more usable inside Decentraland, make sure that its bounding boxes don’t extend beyond the model more than necessary.
+Cada mesh tiene un bounding box, que rodea los límites de la forma. Para hacer un modelo 3D más utilizable dentro de Decentraland, asegúrate de que sus bounding boxes no se extiendan más allá del modelo más de lo necesario.
 
-To avoid this problem, you can clean up your 3D models to reset positions and rotations of meshes so that bounding boxes don’t extend beyond the meshes they wrap.
+Para evitar este problema, puedes limpiar tus modelos 3D para restablecer posiciones y rotaciones de meshes para que los bounding boxes no se extiendan más allá de los meshes que envuelven.
 
-![](../.gitbook/assets/07-apply-rotations.gif)
+![](../images/3d-models-and-animations/3d-essentials/07-apply-rotations.gif)
 
-_On Blender you can do that by selecting the objects, pressing Ctrl+A and then Apply “All transforms”._
+_En Blender puedes hacer eso seleccionando los objetos, presionando Ctrl+A y luego Apply "All transforms"._
 
-For example, be cautious when rotating a sub-mesh near the border of your model. Since bounding boxes are cubes, even if the mesh is round, the corners of its bounding box might end up sticking out after rotating it 45°.
+Por ejemplo, ten cuidado al rotar un sub-mesh cerca del borde de tu modelo. Como los bounding boxes son cubos, incluso si el mesh es redondo, las esquinas de su bounding box pueden terminar sobresaliendo después de rotarlo 45°.
 
-![](../.gitbook/assets/10-apply-rotation.png)
+![](../images/3d-models-and-animations/3d-essentials/10-apply-rotation.png)
 
-We recommend that you bake the rotation and scale of every mesh in the model, to make sure that there are no unwanted bounding boxes extending beyond the size they need to have.
+Recomendamos que hornees la rotation y scale de cada mesh en el modelo, para asegurarte de que no haya bounding boxes no deseados extendiéndose más allá del tamaño que necesitan tener.
 
-### Triangle Limitations
+### Limitaciones de Triángulos
 
-Because Decentraland is an open world full of different scenes and objects that are being downloaded on the fly (in the same 3D space) is important to optimize our meshes in order to have a good performance while playing. In that sense, there are some scene limitations that we always need to keep in mind when it comes to meshes:
+Porque Decentraland es un mundo abierto lleno de diferentes escenas y objetos que se están descargando sobre la marcha (en el mismo espacio 3D), es importante optimizar nuestros meshes para tener un buen performance mientras se juega. En ese sentido, hay algunas limitaciones de escena que siempre debemos tener en cuenta cuando se trata de meshes:
 
-> n represents the number of parcels that a scene occupies.
+> n representa el número de parcels que ocupa una escena.
 
-* **Triangles:** n x 10000 Total amount of triangles for all the models in the scene.
-* **Height:** log2(n+1) x 20 Height in meters.
-* **File size:** 15 MB per parcel - 300 MB max Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn’t include files that aren’t uploaded, such as node.js packages.
-* **Max file size 50 MB per file** No individual file of any type in the scene can exceed 50 MB, no matter how many parcels the scene has.
+* **Triangles:** n x 10000 Cantidad total de triángulos para todos los modelos en la escena.
+* **Height:** log2(n+1) x 20 Altura en metros.
+* **File size:** 15 MB por parcel - 300 MB max Tamaño total de los archivos cargados al content server. Incluye modelos 3D y audio. No incluye archivos que no se cargan, como paquetes node.js.
+* **Max file size 50 MB por archivo** Ningún archivo individual de ningún tipo en la escena puede exceder 50 MB, sin importar cuántos parcels tenga la escena.
 
-For more information check all the scene limitations [here.](https://docs.decentraland.org/creator/development-guide/scene-limitations/)
+Para más información verifica todas las limitaciones de escena [aquí.](https://docs.decentraland.org/creator/development-guide/scene-limitations/)
 
 {% hint style="warning" %}
-**🔥Optimization Tip🔥: Add Polygon Count** A valuable tip is to always keep on track of the polycount of your models. To do that in blender you need to turn on statistics on the viewport overlays panel.
+**🔥Tip de Optimización🔥: Agregar Polygon Count** Un tip valioso es siempre mantener un seguimiento del polycount de tus modelos. Para hacer eso en blender necesitas activar statistics en el panel viewport overlays.
 
-<img src="../.gitbook/assets/41-stats.gif" alt="" data-size="original">
+![](../images/3d-models-and-animations/3d-essentials/41-stats.gif)
 {% endhint %}
 
-### Meshes On Large Scenes
+### Meshes en Escenas Grandes
 
-When creating meshes, we should keep in mind these 2 best practices:
+Al crear meshes, debemos tener en cuenta estas 2 mejores prácticas:
 
-* **Modularity:** Break down large meshes into smaller, modular parts. For example, instead of having a single mesh for an entire building, the building could be divided into separate meshes for each wall, floor, and section of the building. This allows Unity's frustum culling to work more effectively, as only the visible parts need to be considered for rendering. It will also improve memory foot-print, because one mesh can be re-used several time for same object in different locations (to achieve this you will need to reference same mesh in your SDK7 scene definition or use instances instead of duplicated objects when exporting the scene from Blender).
-* **Bounding Volume**: Ensure that the bounding volume of each object fits as tightly as possible. Extraneous space in the bounding volume can cause objects to be rendered when they're not visible.
+* **Modularity:** Divide meshes grandes en partes más pequeñas y modulares. Por ejemplo, en lugar de tener un solo mesh para un edificio completo, el edificio podría dividirse en meshes separados para cada pared, piso y sección del edificio. Esto permite que el frustum culling de Unity funcione más efectivamente, ya que solo las partes visibles necesitan ser consideradas para rendering. También mejorará el memory foot-print, porque un mesh puede ser reutilizado varias veces para el mismo objeto en diferentes ubicaciones (para lograr esto necesitarás referenciar el mismo mesh en tu definición de escena SDK7 o usar instancias en lugar de objetos duplicados al exportar la escena desde Blender).
+* **Bounding Volume**: Asegúrate de que el bounding volume de cada objeto se ajuste lo más apretado posible. El espacio extraño en el bounding volume puede causar que los objetos se rendericen cuando no son visibles.
 
-![](../.gitbook/assets/40-modularity.png)
+![](../images/3d-models-and-animations/3d-essentials/40-modularity.png)
 
-#### What is Frustrum Culling?
+#### ¿Qué es Frustrum Culling?
 
-Frustum Culling is an optimization technique that disables the renderers (meshes) for objects that are outside the camera’s viewing area. See these 2 examples:
+Frustum Culling es una técnica de optimización que desactiva los renderers (meshes) para objetos que están fuera del área de visualización de la cámara. Ve estos 2 ejemplos:
 
-![](../.gitbook/assets/18-frustum-culling.png)
+![](../images/3d-models-and-animations/3d-essentials/18-frustum-culling.png)
 
-_A maze-like indoor level. This normal scene view shows all visible Game Objects._
+_Un nivel interior tipo laberinto. Esta vista de escena normal muestra todos los Game Objects visibles._
 
-![](../.gitbook/assets/19-frustum-culling-2.gif)
+![](../images/3d-models-and-animations/3d-essentials/19-frustum-culling-2.gif)
 
-_Regular frustum culling only renders objects within the camera’s view. This is automatic and always happens._
+_El frustum culling regular solo renderiza objetos dentro de la vista de la cámara. Esto es automático y siempre sucede._
 
 ### Instancing Objects vs Duplicating Objects
 
-In Blender, duplicating an object creates a completely separate copy of the object, while instancing an object creates a duplicate that shares the same data as the original object.
+En Blender, duplicar un objeto crea una copia completamente separada del objeto, mientras que hacer instancing de un objeto crea un duplicado que comparte los mismos datos que el objeto original.
 
-When an object is duplicated, it creates a new object with a completely independent set of data, including all of its geometry, materials, and animations. This means that any changes made to the original object will not be reflected in the duplicate object, and vice versa.
+Cuando un objeto se duplica, crea un nuevo objeto con un conjunto completamente independiente de datos, incluyendo toda su geometría, materials y animaciones. Esto significa que cualquier cambio hecho al objeto original no se reflejará en el objeto duplicado, y viceversa.
 
-On the other hand, when an object is instanced, any changes made to the original object will be reflected in all of its instances, and vice versa. This is because all of the instances share the same underlying data.
+Por otro lado, cuando un objeto tiene instancing, cualquier cambio hecho al objeto original se reflejará en todas sus instancias, y viceversa. Esto es porque todas las instancias comparten los mismos datos subyacentes.
 
-In terms of performance, instancing can be much more efficient than duplicating, especially when working with complex scenes or large numbers of objects. This is because instancing uses less memory than duplicating, since it doesn’t create new data for each instance. Additionally, instancing can allow Blender to optimize the rendering process by treating all of the instances as a single object, rather than rendering each duplicate separately.
+En términos de performance, el instancing puede ser mucho más eficiente que duplicar, especialmente cuando se trabaja con escenas complejas o grandes números de objetos. Esto es porque el instancing usa menos memoria que duplicar, ya que no crea nuevos datos para cada instancia. Además, el instancing puede permitir que Blender optimice el proceso de rendering tratando todas las instancias como un solo objeto, en lugar de renderizar cada duplicado por separado.
 
-Overall, instancing can be a powerful tool for improving performance and workflow efficiency in Blender and on your Decentraland Scene, especially when working with large, complex scenes.
+En general, el instancing puede ser una herramienta poderosa para mejorar el performance y la eficiencia del flujo de trabajo en Blender y en tu Escena de Decentraland, especialmente cuando se trabaja con escenas grandes y complejas.
 
-![](../.gitbook/assets/20-duplicate-objects.png)
+![](../images/3d-models-and-animations/3d-essentials/20-duplicate-objects.png)
 
-In some cases, when duplicating objects like trees, plants, and light posts, instancing can significantly improve performance compared to duplicating them. For example, this scene has fourteen light posts, all of them are exactly the same. We know that each light post has two different textures, one for the post and another one for the light. So in this case we will have two draw calls, one per texture.
+En algunos casos, al duplicar objetos como árboles, plantas y postes de luz, el instancing puede mejorar significativamente el performance en comparación con duplicarlos. Por ejemplo, esta escena tiene catorce postes de luz, todos exactamente iguales. Sabemos que cada poste de luz tiene dos texturas diferentes, una para el poste y otra para la luz. Así que en este caso tendremos dos draw calls, uno por textura.
 
-![](../.gitbook/assets/21-duplicate-objects-2.png)
+![](../images/3d-models-and-animations/3d-essentials/21-duplicate-objects-2.png)
 
-On Blender, when you are at the stage of cloning and positioning elements on the space, you have three options. Duplicate, Instance or Merge objects.
+En Blender, cuando estás en la etapa de clonar y posicionar elementos en el espacio, tienes tres opciones. Duplicate, Instance o Merge objects.
 
-Let's analyze what are the pros and cons of each procedure.
+Analicemos cuáles son los pros y contras de cada procedimiento.
 
 #### Duplicate Objects
 
@@ -109,9 +106,9 @@ Let's analyze what are the pros and cons of each procedure.
 | ------- | -------------------------- |
 | Hotkey: | Shift-D                    |
 
-This will create a visually-identical copy of the selected object but they will be treated as different objects. So when you export it will have 2 draw calls per object, 2 \* 14 = 28 draw calls, and a total disk usage of 320kb.
+Esto creará una copia visualmente idéntica del objeto seleccionado pero serán tratados como objetos diferentes. Así que cuando lo exportes tendrá 2 draw calls por objeto, 2 \* 14 = 28 draw calls, y un uso total de disco de 320kb.
 
-![](../.gitbook/assets/22-duplicate-objects-3.png)
+![](../images/3d-models-and-animations/3d-essentials/22-duplicate-objects-3.png)
 
 #### Instancing Objects
 
@@ -120,40 +117,40 @@ This will create a visually-identical copy of the selected object but they will 
 | Menu:   | Object ‣ Duplicate Linked                 |
 | Hotkey: | Alt-D                                     |
 
-This will create a new object with all of its data linked to the original object. If you modify one of the linked objects in Edit Mode, all linked copies are modified. Transform properties still remain copies, not links, so you still can rotate, scale, and move freely without affecting the other copies.
+Esto creará un nuevo objeto con todos sus datos vinculados al objeto original. Si modificas uno de los objetos vinculados en Edit Mode, todas las copias vinculadas se modifican. Las propiedades Transform todavía permanecen como copias, no links, así que aún puedes rotar, escalar y mover libremente sin afectar las otras copias.
 
-![](../.gitbook/assets/23-instancing.png)
+![](../images/3d-models-and-animations/3d-essentials/23-instancing.png)
 
-_When we export these models, we will still have the same number of draw calls (28). However, note that we now have only one mesh, which significantly reduces disk usage (41 kb)._
+_Cuando exportamos estos modelos, todavía tendremos el mismo número de draw calls (28). Sin embargo, nota que ahora tenemos solo un mesh, lo que reduce significativamente el uso de disco (41 kb)._
 
-![](../.gitbook/assets/24-instancing-2.png)
+![](../images/3d-models-and-animations/3d-essentials/24-instancing-2.png)
 
-_To keep things organized you can simply instance collections in your scene, this way allows you to control all instances from one single folder and source._
+_Para mantener las cosas organizadas puedes simplemente hacer instance de collections en tu escena, de esta manera te permite controlar todas las instancias desde una sola carpeta y fuente._
 
-### Mesh Naming
+### Nomenclatura de Mesh
 
-Use meaningful names for your meshes. Name should give context of where the asset is used or to which part of the object it relates.
+Usa nombres significativos para tus meshes. El nombre debe dar contexto de dónde se usa el asset o a qué parte del objeto se relaciona.
 
-For asset naming use mix of `PascalCase` and `snake_case`, which we can call `PascalSnake_case`. Basic rules there - new word or word after separator (`_`) starts with **Capital letter.**
+Para la nomenclatura de assets usa una mezcla de `PascalCase` y `snake_case`, que podemos llamar `PascalSnake_case`. Las reglas básicas allí son: una palabra nueva o palabra después del separador (`_`) comienza con **Letra Mayúscula.**
 
-* Use meaningful names for your meshes **Examples:** 🟢 **Prefer** names - `Theater`, `Tram` 🔴 **Avoid** names - `Untitiled.008`, `primitive(1)`, `Cylinder.091`, `_sphere-AB`
-* Use underscore `_` as a separator to bring more context to the name. Put more common things first and specifics at the end. **Examples:** 🟢 **Prefer** names - `FountainStatue`, `TheaterMainWall`, `TramWheelLeft` 🔴 **Avoid** names - `North_MainWall_Theater`, `Tram_LeftFront_Wheel`
+* Usa nombres significativos para tus meshes **Ejemplos:** 🟢 **Prefiere** nombres - `Theater`, `Tram` 🔴 **Evita** nombres - `Untitiled.008`, `primitive(1)`, `Cylinder.091`, `_sphere-AB`
+* Usa guión bajo `_` como separador para aportar más contexto al nombre. Pon las cosas más comunes primero y los específicos al final. **Ejemplos:** 🟢 **Prefiere** nombres - `FountainStatue`, `TheaterMainWall`, `TramWheelLeft` 🔴 **Evita** nombres - `North_MainWall_Theater`, `Tram_LeftFront_Wheel`
 
-If there is more than one object with the same name add a number after the word: `FountainStatue01, FountainStatue02, etc.`
+Si hay más de un objeto con el mismo nombre agrega un número después de la palabra: `FountainStatue01, FountainStatue02, etc.`
 
-### Tools For Creating Models
+### Herramientas para Crear Modelos
 
-There are lots of addons and externals tools that facilitate the work when creating assets to make the pipeline faster and more efficient, some of they are free and some to purchase, to name a few:
+Hay muchos addons y herramientas externas que facilitan el trabajo al crear assets para hacer el pipeline más rápido y eficiente, algunos de ellos son gratuitos y algunos para comprar, por nombrar algunos:
 
 #### Decimate
 
-This is a well known modifier that can be used to reduce the amount of tris of your mesh while keeping the surface structure of the model. While this is a very powerful tool to optimize models take into account that once the model is decimated the topology may be affected causing a bad topology (because it breaks the geometry into unpredictable pieces). In another hand, decimation will convert the quads of your mesh into triangles making it difficult to modify it after being used. In that regard **decimation can be useful for static models but is not preferred for animated models.**
+Este es un modifier bien conocido que puede usarse para reducir la cantidad de tris de tu mesh mientras mantiene la estructura de superficie del modelo. Aunque esta es una herramienta muy poderosa para optimizar modelos, ten en cuenta que una vez que el modelo está decimated, la topología puede verse afectada causando una mala topología (porque rompe la geometría en piezas impredecibles). Por otro lado, la decimation convertirá los quads de tu mesh en triángulos haciéndolo difícil de modificar después de ser usado. En ese sentido **la decimation puede ser útil para modelos estáticos pero no es preferida para modelos animados.**
 
-![](../.gitbook/assets/42-decimate-01.png) ![](../.gitbook/assets/43-decimate-02.png)
+![](../images/3d-models-and-animations/3d-essentials/42-decimate-01.png) ![](../images/3d-models-and-animations/3d-essentials/43-decimate-02.png)
 
-Another way to optimize your meshes using decimation is to decimate the model and then do a proper retopology. This way you can assure a more predictable result and clean topology.
+Otra forma de optimizar tus meshes usando decimation es decimate el modelo y luego hacer una retopología adecuada. De esta manera puedes asegurar un resultado más predecible y una topología limpia.
 
-Some retopology addons that can be useful are (some of them are paid):
+Algunos addons de retopología que pueden ser útiles son (algunos de ellos son pagos):
 
 * **Simplygon:** https://www.simplygon.com/
 * **Speedretopo:** https://blendermarket.com/products/speedretopo?ref=2
@@ -161,24 +158,24 @@ Some retopology addons that can be useful are (some of them are paid):
 
 #### Mirror Modifier
 
-The Mirror Modifier in Blender is a tool used for creating symmetrical models by mirroring one half of an object to any direction (X,Y,Z). It's a great tool when you have symetrical models because it reduces the time of 3D modeling, doing UV Unwrapping (because you will need only to unwrapp one part of the model and the rest will share the same UV coordinates) and also optimize your textures avoiding wasting texture resolution on parts that are essentially mirrored.
+El Mirror Modifier en Blender es una herramienta usada para crear modelos simétricos reflejando una mitad de un objeto en cualquier dirección (X,Y,Z). Es una gran herramienta cuando tienes modelos simétricos porque reduce el tiempo de modelado 3D, haciendo UV Unwrapping (porque solo necesitarás desenvolver una parte del modelo y el resto compartirá las mismas coordenadas UV) y también optimiza tus texturas evitando desperdiciar resolución de textura en partes que son esencialmente reflejadas.
 
-![](../.gitbook/assets/44-mirror-modifier.png)
+![](../images/3d-models-and-animations/3d-essentials/44-mirror-modifier.png)
 
 #### Batch Rename
 
-A very handy tool to change name conventions in an easy way is using the Batch Rename that Blender has integrated in their toolkit. To access it go to _Edit_ and then _Batch Rename_.
+Una herramienta muy útil para cambiar convenciones de nombres de manera fácil es usar el Batch Rename que Blender tiene integrado en su toolkit. Para acceder a él ve a _Edit_ y luego _Batch Rename_.
 
-![](../.gitbook/assets/45-batch-rename.png)
+![](../images/3d-models-and-animations/3d-essentials/45-batch-rename.png)
 
-Select the objects you want to change the name and just replace the default object name for the new one. This tool provides different methods and type of asset to rename so it's very flexible to change the names also for meshes, animations, bones, etc.
+Selecciona los objetos que quieres cambiar el nombre y simplemente reemplaza el nombre de objeto por defecto por el nuevo. Esta herramienta proporciona diferentes métodos y tipos de asset para renombrar así que es muy flexible para cambiar los nombres también para meshes, animations, bones, etc.
 
-![](../.gitbook/assets/47-batch-rename-methods.png) ![](../.gitbook/assets/46-batch-rename-types.png)
+![](../images/3d-models-and-animations/3d-essentials/47-batch-rename-methods.png) ![](../images/3d-models-and-animations/3d-essentials/46-batch-rename-types.png)
 
-### Best practices for geometries [#](https://docs.decentraland.org/creator/3d-modeling/meshes/#best-practices-for-geometries)
+### Mejores prácticas para geometrías
 
-* Be mindful of how many faces you add to your 3D models, as more faces make its rendering more demanding. See [**scene limitations**](https://docs.decentraland.org/creator/development-guide/scene-limitations/) for the limits imposed by a scene.
-* Make sure there are no hidden faces that can’t be seen but that add to the triangle count.
-* For shapes that should have rounded sides, set them to be _smooth_ rather than adding additional faces.
-* Make sure the _normals_ of all faces are facing outwards instead of inwards. If there are faces in your model that seem not to be there when you render it, this is most likely the cause.
-* Bake the rotation and scale of your meshes, so that their bounding boxes don’t extend out unnecessarily.
+* Ten en cuenta cuántas faces agregas a tus modelos 3D, ya que más faces hacen su rendering más exigente. Ve [**scene limitations**](https://docs.decentraland.org/creator/development-guide/scene-limitations/) para los límites impuestos por una escena.
+* Asegúrate de que no haya faces ocultas que no se puedan ver pero que se agreguen al triangle count.
+* Para formas que deberían tener lados redondeados, configúralas para que sean _smooth_ en lugar de agregar faces adicionales.
+* Asegúrate de que las _normals_ de todas las faces estén mirando hacia afuera en lugar de hacia adentro. Si hay faces en tu modelo que parecen no estar allí cuando lo renderizas, esto es probablemente la causa.
+* Hornea la rotation y scale de tus meshes, para que sus bounding boxes no se extiendan innecesariamente.

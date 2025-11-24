@@ -1,55 +1,55 @@
-# Custom Components
+# Componentes Personalizados
 
-We distinguish between two types of custom components, each with different processes and expectations.
+Distinguimos entre dos tipos de componentes personalizados, cada uno con procesos y expectativas diferentes.
 
-## Component Types
+## Tipos de Componentes
 
-### A) Project-Specific Custom Components
+### A) Componentes Personalizados Específicos del Proyecto
 
-Components built for a specific project or screen, not intended for reuse across other projects.
+Componentes construidos para un proyecto o pantalla específica, no destinados para reutilización en otros proyectos.
 
-**Examples:**
+**Ejemplos:**
 
-* A `Box` with special layout used within one project
-* A `Card` variant with bespoke layout for one project's screens
-* Project-specific data visualizations
-* One-off layout components
+* Un `Box` con diseño especial usado dentro de un proyecto
+* Una variante de `Card` con diseño personalizado para las pantallas de un proyecto
+* Visualizaciones de datos específicas del proyecto
+* Componentes de layout únicos
 
-**When to use:**
+**Cuándo usar:**
 
-* Component solves a problem unique to one project
-* Unlikely to be needed in other projects
-* Too specific to generalize
+* El componente resuelve un problema único de un proyecto
+* Es poco probable que se necesite en otros proyectos
+* Demasiado específico para generalizar
 
-### B) UI2 Candidate Components
+### B) Componentes Candidatos UI2
 
-Components intended for reuse across multiple projects and products.
+Componentes destinados para reutilización en múltiples proyectos y productos.
 
-**Examples:**
+**Ejemplos:**
 
-* `Navbar` - Site-wide navigation
-* `UserMenu` - User account menu
-* Standardized `Modal` dialogs
-* Components being migrated from UI1
+* `Navbar` - Navegación general del sitio
+* `UserMenu` - Menú de cuenta de usuario
+* Diálogos `Modal` estandarizados
+* Componentes siendo migrados desde UI1
 
-**When to use:**
+**Cuándo usar:**
 
-* Component will be used in multiple projects
-* Represents a common Decentraland pattern
-* Replaces or extends a UI1 component
+* El componente se usará en múltiples proyectos
+* Representa un patrón común de Decentraland
+* Reemplaza o extiende un componente UI1
 
 ***
 
-## Project-Specific Components
+## Componentes Específicos del Proyecto
 
-### Requirements
+### Requisitos
 
-#### Use MUI as Base
+#### Usa MUI como Base
 
-**MUST** extend existing MUI components whenever possible:
+**DEBE** extender componentes MUI existentes siempre que sea posible:
 
 ```tsx
-// ✅ Good: Extends MUI Card
+// ✅ Bien: Extiende Card de MUI
 import { Card as MuiCard } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -60,28 +60,28 @@ const ProjectCard = styled(MuiCard)(({ theme }) => ({
   gap: theme.spacing(2),
 }));
 
-// ❌ Bad: Builds from scratch
+// ❌ Mal: Construye desde cero
 const ProjectCard = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   borderRadius: '4px',
   boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-  // Duplicating Card functionality
+  // Duplicando funcionalidad de Card
 }));
 ```
 
-**Don't fork or duplicate patterns that MUI already covers:**
+**No hagas fork o dupliques patrones que MUI ya cubre:**
 
-* Use `Card` instead of creating a custom box with shadows
-* Use `Button` instead of creating a styled anchor
-* Use `TextField` instead of creating a custom input
-* Extend `Dialog` instead of creating a custom modal
+* Usa `Card` en lugar de crear un box personalizado con sombras
+* Usa `Button` en lugar de crear un anchor estilizado
+* Usa `TextField` en lugar de crear un input personalizado
+* Extiende `Dialog` en lugar de crear un modal personalizado
 
-#### Theme Values Only
+#### Solo Valores del Theme
 
-**MUST** use values from the UI2 theme:
+**DEBE** usar valores del theme UI2:
 
 ```tsx
-// ✅ Good: All values from theme
+// ✅ Bien: Todos los valores del theme
 const StyledBox = styled('div')(({ theme }) => ({
   color: theme.palette.text.primary,
   backgroundColor: theme.palette.background.paper,
@@ -90,7 +90,7 @@ const StyledBox = styled('div')(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
 }));
 
-// ❌ Bad: Ad-hoc values
+// ❌ Mal: Valores ad-hoc
 const StyledBox = styled('div')({
   color: '#333333',
   backgroundColor: '#FFFFFF',
@@ -100,21 +100,21 @@ const StyledBox = styled('div')({
 });
 ```
 
-**No arbitrary values allowed:**
+**No se permiten valores arbitrarios:**
 
-* Colors: Use `theme.palette` or `dclColors`
-* Spacing: Use `theme.spacing(n)`
-* Border radius: Use `theme.shape.borderRadius`
-* Typography: Use `theme.typography` variants
-* Breakpoints: Use `theme.breakpoints` helpers
+* Colores: Usa `theme.palette` o `dclColors`
+* Espaciado: Usa `theme.spacing(n)`
+* Border radius: Usa `theme.shape.borderRadius`
+* Tipografía: Usa variantes de `theme.typography`
+* Breakpoints: Usa helpers de `theme.breakpoints`
 
-#### States and Accessibility
+#### Estados y Accesibilidad
 
-**MUST** define and implement all interactive states:
+**DEBE** definir e implementar todos los estados interactivos:
 
 ```tsx
 const ActionButton = styled('button')(({ theme }) => ({
-  // Base/idle state
+  // Estado base/idle
   padding: theme.spacing(1, 2),
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.primary.contrastText,
@@ -123,23 +123,23 @@ const ActionButton = styled('button')(({ theme }) => ({
   cursor: 'pointer',
   transition: theme.transitions.create(['background-color', 'transform']),
   
-  // Hover state
+  // Estado hover
   '&:hover': {
     backgroundColor: theme.palette.primary.dark,
   },
   
-  // Focus state (keyboard navigation)
+  // Estado focus (navegación por teclado)
   '&:focus-visible': {
     outline: `2px solid ${theme.palette.primary.main}`,
     outlineOffset: 2,
   },
   
-  // Active/pressed state
+  // Estado active/pressed
   '&:active': {
     transform: 'scale(0.98)',
   },
   
-  // Disabled state
+  // Estado disabled
   '&:disabled': {
     backgroundColor: theme.palette.action.disabledBackground,
     color: theme.palette.action.disabled,
@@ -148,15 +148,15 @@ const ActionButton = styled('button')(({ theme }) => ({
 }));
 ```
 
-**MUST** implement basic accessibility:\*\*
+**DEBE** implementar accesibilidad básica:**
 
-* **Keyboard navigation** - Focusable and operable with keyboard
-* **Focus indicators** - Visible focus states
-* **ARIA labels** - Where text isn't visible
-* **Semantic HTML** - Use appropriate elements
-* **Color contrast** - Meet WCAG AA standards
+* **Navegación por teclado** - Enfocable y operable con teclado
+* **Indicadores de foco** - Estados de foco visibles
+* **Etiquetas ARIA** - Donde el texto no es visible
+* **HTML semántico** - Usa elementos apropiados
+* **Contraste de color** - Cumple estándares WCAG AA
 
-### Example: Project-Specific Component
+### Ejemplo: Componente Específico del Proyecto
 
 ```tsx
 // src/components/LandCard/LandCard.tsx
@@ -215,18 +215,18 @@ export function LandCard({ parcel, onTransfer, onView }: LandCardProps) {
 
 ***
 
-## UI2 Candidate Components
+## Componentes Candidatos UI2
 
-Components that will be shared across projects require higher standards and more thorough documentation.
+Los componentes que se compartirán entre proyectos requieren estándares más altos y documentación más completa.
 
-### Requirements
+### Requisitos
 
-#### Theme Alignment
+#### Alineación con el Theme
 
-**MUST** rely exclusively on UI2 theme values:
+**DEBE** depender exclusivamente de valores del theme UI2:
 
 ```tsx
-// ✅ Good: Full theme integration
+// ✅ Bien: Integración completa con theme
 const NavbarContainer = styled('nav')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   borderBottom: `1px solid ${theme.palette.divider}`,
@@ -242,35 +242,35 @@ const NavbarContainer = styled('nav')(({ theme }) => ({
 }));
 ```
 
-#### Storybook Coverage
+#### Cobertura de Storybook
 
-**MUST** add comprehensive Storybook stories:
+**DEBE** agregar stories comprehensivos de Storybook:
 
-**Required coverage:**
+**Cobertura requerida:**
 
-1. **All props and variants**
-   * Every prop combination
-   * All size variants
-   * All color variants
-2. **All states**
+1. **Todos los props y variantes**
+   * Cada combinación de props
+   * Todas las variantes de tamaño
+   * Todas las variantes de color
+2. **Todos los estados**
    * Idle/default
    * Loading
    * Error
    * Disabled
    * Hover (via pseudo states addon)
    * Focus (via pseudo states addon)
-3. **Interactions**
+3. **Interacciones**
    * Click handlers
-   * Form submissions
-   * Keyboard navigation
-4. **Color schemes**
+   * Envíos de formularios
+   * Navegación por teclado
+4. **Esquemas de color**
    * Light mode
    * Dark mode
-5. **Responsive behavior**
-   * Key breakpoints (xs, md, lg)
-   * Document behavior at each breakpoint
+5. **Comportamiento responsive**
+   * Breakpoints clave (xs, md, lg)
+   * Documentar comportamiento en cada breakpoint
 
-**Example Storybook file:**
+**Ejemplo de archivo Storybook:**
 
 ```tsx
 // Navbar.stories.tsx
@@ -326,7 +326,7 @@ export const Loading: Story = {
   },
 };
 
-// Test different viewports
+// Prueba diferentes viewports
 export const Mobile: Story = {
   args: {
     variant: 'compact',
@@ -351,7 +351,7 @@ export const Tablet: Story = {
   },
 };
 
-// Test color schemes
+// Prueba esquemas de color
 export const DarkMode: Story = {
   args: {
     variant: 'default',
@@ -365,41 +365,41 @@ export const DarkMode: Story = {
 };
 ```
 
-### Component Structure
+### Estructura del Componente
 
-UI2 candidate components SHOULD follow this structure:
+Los componentes candidatos UI2 DEBEN seguir esta estructura:
 
 ```
 src/components/Navbar/
-├── Navbar.tsx           # Main component
-├── Navbar.styles.ts     # Styled components
-├── Navbar.stories.tsx   # Storybook stories
-├── Navbar.test.tsx      # Unit tests
-├── types.ts             # TypeScript types
-├── index.ts             # Public exports
-└── README.md            # Component documentation
+├── Navbar.tsx           # Componente principal
+├── Navbar.styles.ts     # Componentes estilizados
+├── Navbar.stories.tsx   # Stories de Storybook
+├── Navbar.test.tsx      # Tests unitarios
+├── types.ts             # Tipos TypeScript
+├── index.ts             # Exports públicos
+└── README.md            # Documentación del componente
 ```
 
-### Documentation Requirements
+### Requisitos de Documentación
 
-**MUST** include in component README:
+**DEBE** incluir en el README del componente:
 
-1. **Purpose** - What problem does this solve?
-2. **Usage** - How to use the component
-3. **Props** - All props with types and descriptions
-4. **Examples** - Common use cases
-5. **Accessibility** - Keyboard support, ARIA labels
-6. **Theming** - Which theme values it uses
-7. **Migration notes** - If replacing a UI1 component
+1. **Propósito** - ¿Qué problema resuelve esto?
+2. **Uso** - Cómo usar el componente
+3. **Props** - Todos los props con tipos y descripciones
+4. **Ejemplos** - Casos de uso comunes
+5. **Accesibilidad** - Soporte de teclado, etiquetas ARIA
+6. **Theming** - Qué valores del theme usa
+7. **Notas de migración** - Si reemplaza un componente UI1
 
-**Example README:**
+**Ejemplo de README:**
 
 ```markdown
 # Navbar
 
-Site-wide navigation component with user menu and responsive behavior.
+Componente de navegación general del sitio con menú de usuario y comportamiento responsive.
 
-## Usage
+## Uso
 
 \```tsx
 import { Navbar } from 'decentraland-ui2';
@@ -420,20 +420,20 @@ function App() {
 
 | Prop         | Type                   | Default   | Description                   |
 | ------------ | ---------------------- | --------- | ----------------------------- |
-| variant      | 'default' \| 'compact' | 'default' | Navigation variant            |
-| showUserMenu | boolean                | true      | Show user menu when logged in |
-| onLogoClick  | () => void             | -         | Logo click handler            |
-| onLoginClick | () => void             | -         | Login button click handler    |
+| variant      | 'default' \| 'compact' | 'default' | Variante de navegación        |
+| showUserMenu | boolean                | true      | Mostrar menú de usuario       |
+| onLogoClick  | () => void             | -         | Handler de click en logo      |
+| onLoginClick | () => void             | -         | Handler de click en login     |
 
-## Accessibility
+## Accesibilidad
 
-* Keyboard navigation: Tab through menu items
-* ARIA: Proper landmarks and labels
-* Screen reader: Announces menu state
+* Navegación por teclado: Tab a través de items del menú
+* ARIA: Landmarks y labels apropiados
+* Screen reader: Anuncia estado del menú
 
 ## Theming
 
-Uses these theme values:
+Usa estos valores del theme:
 
 * `theme.palette.background.paper`
 * `theme.palette.divider`
@@ -442,15 +442,15 @@ Uses these theme values:
 
 ```
 
-### Testing Requirements
+### Requisitos de Testing
 
-**MUST** include tests for:
+**DEBE** incluir tests para:
 
-* Prop rendering
-* User interactions
-* Accessibility features
-* Responsive behavior
-* Error states
+* Renderizado de props
+* Interacciones de usuario
+* Funcionalidades de accesibilidad
+* Comportamiento responsive
+* Estados de error
 
 ```tsx
 // Navbar.test.tsx
@@ -484,52 +484,52 @@ describe('Navbar', () => {
 
 ***
 
-## Decision Matrix
+## Matriz de Decisión
 
-Use this to decide which type of component to create:
+Usa esto para decidir qué tipo de componente crear:
 
-| Question                           | Project-Specific | UI2 Candidate |
-| ---------------------------------- | ---------------- | ------------- |
-| Will other projects use this?      | No               | Yes           |
-| Does UI1 have an equivalent?       | N/A              | Probably      |
-| Needs Storybook documentation?     | No               | **Yes**       |
-| Needs comprehensive tests?         | Basic            | **Extensive** |
-| Design review required?            | Project-level    | **UI2-level** |
-| Can use project-specific patterns? | Yes              | **No**        |
-| Must work in all themes?           | No               | **Yes**       |
+| Pregunta                              | Específico del Proyecto | Candidato UI2 |
+| ------------------------------------- | ----------------------- | ------------- |
+| ¿Otros proyectos usarán esto?         | No                      | Sí            |
+| ¿UI1 tiene un equivalente?            | N/A                     | Probablemente |
+| ¿Necesita documentación de Storybook? | No                      | **Sí**        |
+| ¿Necesita tests comprehensivos?       | Básico                  | **Extensivo** |
+| ¿Se requiere revisión de diseño?      | Nivel proyecto          | **Nivel UI2** |
+| ¿Puede usar patrones del proyecto?    | Sí                      | **No**        |
+| ¿Debe funcionar en todos los themes?  | No                      | **Sí**        |
 
 ***
 
-## Approval Process
+## Proceso de Aprobación
 
-### Project-Specific Components
+### Componentes Específicos del Proyecto
 
-1. Code review by project maintainer
-2. Verify theme compliance
-3. Test in project context
-4. Merge when approved
+1. Code review del maintainer del proyecto
+2. Verificar cumplimiento del theme
+3. Probar en contexto del proyecto
+4. Merge cuando sea aprobado
 
-### UI2 Candidate Components
+### Componentes Candidatos UI2
 
-1. Design review and approval
-2. Technical design review
-3. Implementation
-4. Storybook stories
-5. Comprehensive tests
-6. Accessibility review
+1. Revisión y aprobación de diseño
+2. Revisión de diseño técnico
+3. Implementación
+4. Stories de Storybook
+5. Tests comprehensivos
+6. Revisión de accesibilidad
 7. Code review
-8. PR to UI2 repository
-9. Version and publish
-10. Update dependent projects
+8. PR al repositorio UI2
+9. Versionado y publicación
+10. Actualizar proyectos dependientes
 
 ***
 
-## Best Practices
+## Mejores Prácticas
 
-### Composition Over Customization
+### Composición Sobre Personalización
 
 ```tsx
-// ✅ Good: Compose MUI components
+// ✅ Bien: Compone componentes MUI
 function FeatureCard({ title, children }) {
   return (
     <Card>
@@ -541,7 +541,7 @@ function FeatureCard({ title, children }) {
   );
 }
 
-// ❌ Bad: Re-implement Card functionality
+// ❌ Mal: Re-implementa funcionalidad de Card
 function FeatureCard({ title, children }) {
   return (
     <div className="custom-card">
@@ -554,30 +554,30 @@ function FeatureCard({ title, children }) {
 }
 ```
 
-### Progressive Enhancement
+### Mejora Progresiva
 
-Start simple and add features as needed:
+Empieza simple y agrega funcionalidades según sea necesario:
 
-1. Basic version with core functionality
-2. Add responsive behavior
-3. Add accessibility features
-4. Add advanced interactions
-5. Optimize performance
+1. Versión básica con funcionalidad core
+2. Agregar comportamiento responsive
+3. Agregar funcionalidades de accesibilidad
+4. Agregar interacciones avanzadas
+5. Optimizar performance
 
-### Documentation First
+### Documentación Primero
 
-Before writing code:
+Antes de escribir código:
 
-1. Write component README
-2. Define props interface
-3. List required states
-4. Plan Storybook stories
-5. Then implement
+1. Escribe el README del componente
+2. Define interface de props
+3. Lista estados requeridos
+4. Planea stories de Storybook
+5. Luego implementa
 
 ***
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Styling & Theming](styling-and-theming.md) for implementation details
-* See [Migration Guide](broken-reference) for UI1 to UI2 migrations
-* Check [Process Overview](process-overview.md) for the full workflow
+* Revisa [Styling & Theming](styling-and-theming.md) para detalles de implementación
+* Ve [Migration Guide](broken-reference) para migraciones UI1 a UI2
+* Verifica [Process Overview](process-overview.md) para el flujo de trabajo completo

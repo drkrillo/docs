@@ -1,12 +1,12 @@
 # RTK Query
 
-RTK Query is Redux Toolkit's powerful data fetching and caching layer. It eliminates the need to write async action creators and manages loading states, caching, and data synchronization automatically.
+RTK Query es la poderosa capa de obtención y caché de datos de Redux Toolkit. Elimina la necesidad de escribir creadores de acciones asíncronas y gestiona estados de carga, caché y sincronización de datos automáticamente.
 
-## Base Client Configuration
+## Configuración del Cliente Base
 
-All RTK Query endpoints extend from a single base client instance.
+Todos los endpoints de RTK Query se extienden desde una sola instancia de cliente base.
 
-### Base Query Setup
+### Configuración de Base Query
 
 ```tsx
 // src/services/baseQuery.ts
@@ -14,35 +14,35 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { RootState } from '@/app/store';
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL, // e.g., https://api.decentraland.org
+  baseUrl: process.env.NEXT_PUBLIC_API_URL, // ej., https://api.decentraland.org
   
   prepareHeaders: (headers, { getState }) => {
     const state = getState() as RootState;
     
-    // Add authentication token
+    // Agregar token de autenticación
     const token = state.user.session?.authToken;
     if (token) {
       headers.set('authorization', `Bearer ${token}`);
     }
     
-    // Add chain ID for web3 context
+    // Agregar chain ID para contexto web3
     const chainId = state.user.chainId;
     if (chainId) {
       headers.set('x-chain-id', String(chainId));
     }
     
-    // Standard headers
+    // Headers estándar
     headers.set('accept', 'application/json');
     headers.set('content-type', 'application/json');
     
     return headers;
   },
   
-  credentials: 'omit', // or 'include' if backend requires cookies
+  credentials: 'omit', // o 'include' si el backend requiere cookies
 });
 ```
 
-### Client Instance
+### Instancia del Cliente
 
 ```tsx
 // src/services/client.ts
@@ -53,7 +53,7 @@ export const client = createApi({
   reducerPath: 'client',
   baseQuery,
   
-  // Define all possible tag types for cache invalidation
+  // Definir todos los tipos de tag posibles para invalidación de caché
   tagTypes: [
     'User',
     'Profile',
@@ -65,53 +65,53 @@ export const client = createApi({
     'NFTs',
   ],
   
-  // Cache configuration
-  keepUnusedDataFor: 60,         // Keep unused data for 60 seconds
-  refetchOnFocus: true,           // Refetch when window regains focus
-  refetchOnReconnect: true,       // Refetch when reconnecting
-  refetchOnMountOrArgChange: 30,  // Refetch if data is older than 30s
+  // Configuración de caché
+  keepUnusedDataFor: 60,         // Mantener datos no usados por 60 segundos
+  refetchOnFocus: true,           // Re-obtener cuando la ventana recupera el foco
+  refetchOnReconnect: true,       // Re-obtener al reconectar
+  refetchOnMountOrArgChange: 30,  // Re-obtener si los datos tienen más de 30s
   
-  // Endpoints will be injected in feature files
+  // Los endpoints se inyectarán en archivos de características
   endpoints: () => ({}),
 });
 ```
 
-## Tag Conventions
+## Convenciones de Tags
 
-Tags are used for cache invalidation and synchronization. Follow these conventions:
+Los tags se usan para invalidación de caché y sincronización. Seguir estas convenciones:
 
-### Tag Naming
+### Nomenclatura de Tags
 
-| Resource Type | Query Tags | Mutation Invalidates |
+| Tipo de Recurso | Query Tags | Mutation Invalida |
 |--------------|------------|---------------------|
-| **Collections** | `'Parcels'` (plural) | `'Parcels'` |
-| **Single Entity** | `{type: 'Parcels', id: '123'}` | `{type: 'Parcels', id: '123'}` |
-| **List + Detail** | `['Parcels', {type: 'Parcels', id}]` | `['Parcels']` or specific id |
+| **Colecciones** | `'Parcels'` (plural) | `'Parcels'` |
+| **Entidad Única** | `{type: 'Parcels', id: '123'}` | `{type: 'Parcels', id: '123'}` |
+| **Lista + Detalle** | `['Parcels', {type: 'Parcels', id}]` | `['Parcels']` o id específico |
 
-### Tag Examples
+### Ejemplos de Tags
 
 ```tsx
-// Collection: provides list tag
+// Colección: proporciona tag de lista
 providesTags: ['Parcels']
 
-// Single entity: provides specific tag + list tag
+// Entidad única: proporciona tag específico + tag de lista
 providesTags: (result) => 
   result 
     ? [{ type: 'Parcels', id: result.id }, 'Parcels']
     : ['Parcels']
 
-// Mutation: invalidates both list and specific entity
+// Mutation: invalida tanto la lista como la entidad específica
 invalidatesTags: (result, error, arg) => [
   { type: 'Parcels', id: arg.id },
   'Parcels'
 ]
 ```
 
-## Creating Endpoints
+## Crear Endpoints
 
-Endpoints SHOULD be co-located with their feature in `feature.client.ts` files.
+Los endpoints DEBERÍAN co-localizarse con su característica en archivos `feature.client.ts`.
 
-### Query Endpoint (Read)
+### Endpoint Query (Lectura)
 
 ```tsx
 // src/features/land/land.client.ts
@@ -135,13 +135,13 @@ export type Parcel = {
 
 export const landClient = client.injectEndpoints({
   endpoints: (build) => ({
-    // Get all tiles
+    // Obtener todos los tiles
     getTiles: build.query<Record<string, Tile>, void>({
       query: () => '/v1/tiles',
       providesTags: ['Parcels'],
     }),
     
-    // Get parcel by coordinates
+    // Obtener parcel por coordenadas
     getParcelByCoords: build.query<Parcel, { x: number; y: number }>({
       query: ({ x, y }) => `/v1/lands/${x}/${y}`,
       providesTags: (result, error, arg) =>
@@ -150,7 +150,7 @@ export const landClient = client.injectEndpoints({
           : ['Parcels'],
     }),
     
-    // Get parcels by owner
+    // Obtener parcels por propietario
     getParcelsByOwner: build.query<Parcel[], { owner: string }>({
       query: ({ owner }) => `/v1/lands/owner/${owner}`,
       providesTags: (result) =>
@@ -165,7 +165,7 @@ export const landClient = client.injectEndpoints({
   overrideExisting: false,
 });
 
-// Export hooks
+// Exportar hooks
 export const {
   useGetTilesQuery,
   useGetParcelByCoordsQuery,
@@ -173,15 +173,15 @@ export const {
 } = landClient;
 ```
 
-### Mutation Endpoint (Write)
+### Endpoint Mutation (Escritura)
 
 ```tsx
-// src/features/land/land.client.ts (continued)
+// src/features/land/land.client.ts (continuación)
 export const landClient = client.injectEndpoints({
   endpoints: (build) => ({
-    // ... query endpoints ...
+    // ... endpoints query ...
     
-    // Update parcel name
+    // Actualizar nombre de parcel
     updateParcelName: build.mutation<
       Parcel,
       { id: string; name: string }
@@ -197,7 +197,7 @@ export const landClient = client.injectEndpoints({
       ],
     }),
     
-    // Transfer parcel
+    // Transferir parcel
     transferParcel: build.mutation<
       { ok: boolean },
       { id: string; to: string }
@@ -209,7 +209,7 @@ export const landClient = client.injectEndpoints({
       }),
       invalidatesTags: (result, error, arg) => [
         { type: 'Parcels', id: arg.id },
-        'Parcels', // Invalidate list to update owner filters
+        'Parcels', // Invalidar lista para actualizar filtros de propietario
       ],
     }),
   }),
@@ -221,9 +221,9 @@ export const {
 } = landClient;
 ```
 
-## Optimistic Updates
+## Actualizaciones Optimistas
 
-Use `onQueryStarted` for optimistic UI updates with automatic rollback on failure.
+Usar `onQueryStarted` para actualizaciones optimistas de UI con rollback automático en caso de falla.
 
 ```tsx
 // src/features/credits/credits.client.ts
@@ -254,9 +254,9 @@ export const creditsClient = client.injectEndpoints({
         body,
       }),
       
-      // Optimistic update
+      // Actualización optimista
       async onQueryStarted({ address, amount }, { dispatch, queryFulfilled }) {
-        // Optimistically update the cache
+        // Actualizar optimistamente el caché
         const patchResult = dispatch(
           client.util.updateQueryData('getBalance', { address }, (draft) => {
             draft.amount += amount;
@@ -265,22 +265,22 @@ export const creditsClient = client.injectEndpoints({
         );
         
         try {
-          // Wait for the mutation to complete
+          // Esperar a que la mutación se complete
           const { data } = await queryFulfilled;
           
-          // Update with server response
+          // Actualizar con respuesta del servidor
           dispatch(
             client.util.updateQueryData('getBalance', { address }, (draft) => {
               draft.amount = data.newBalance;
             })
           );
         } catch {
-          // Rollback on failure
+          // Rollback en caso de falla
           patchResult.undo();
         }
       },
       
-      // Also invalidate to ensure consistency
+      // También invalidar para asegurar consistencia
       invalidatesTags: (result, error, arg) => [
         { type: 'Credits', id: arg.address }
       ],
@@ -291,22 +291,22 @@ export const creditsClient = client.injectEndpoints({
 export const { useGetBalanceQuery, useGrantCreditsMutation } = creditsClient;
 ```
 
-## Advanced Query Options
+## Opciones Avanzadas de Query
 
 ### Polling
 
 ```tsx
-// Poll every 10 seconds
+// Hacer polling cada 10 segundos
 const { data } = useGetBalanceQuery(
   { address },
   { pollingInterval: 10000 }
 );
 ```
 
-### Skip Query
+### Omitir Query
 
 ```tsx
-// Skip query if address is not available
+// Omitir query si la dirección no está disponible
 const { data } = useGetBalanceQuery(
   { address: address! },
   { skip: !address }
@@ -318,13 +318,13 @@ const { data } = useGetBalanceQuery(
 ```tsx
 const [trigger, result] = useLazyGetParcelByCoordsQuery();
 
-// Trigger manually
+// Activar manualmente
 const handleClick = () => {
   trigger({ x: 10, y: 20 });
 };
 ```
 
-### Transform Response
+### Transformar Respuesta
 
 ```tsx
 getParcel: build.query<Parcel, string>({
@@ -333,9 +333,9 @@ getParcel: build.query<Parcel, string>({
 })
 ```
 
-### Custom Serialization
+### Serialización Personalizada
 
-For pagination or search, customize cache key serialization:
+Para paginación o búsqueda, personalizar serialización de clave de caché:
 
 ```tsx
 searchParcels: build.query<Parcel[], { q: string; owner?: string; page?: number }>({
@@ -344,13 +344,13 @@ searchParcels: build.query<Parcel[], { q: string; owner?: string; page?: number 
     params: args,
   }),
   
-  // Custom cache key to handle optional params
+  // Clave de caché personalizada para manejar parámetros opcionales
   serializeQueryArgs: ({ endpointName, queryArgs }) => {
     const { q, owner = 'any', page = 1 } = queryArgs;
     return `${endpointName}-${q}-${owner}-${page}`;
   },
   
-  // Merge results for pagination
+  // Fusionar resultados para paginación
   merge(currentCache, newItems, { arg }) {
     if (arg.page === 1) {
       return newItems;
@@ -358,7 +358,7 @@ searchParcels: build.query<Parcel[], { q: string; owner?: string; page?: number 
     return [...currentCache, ...newItems];
   },
   
-  // Force refetch when args change
+  // Forzar re-obtención cuando los args cambian
   forceRefetch({ currentArg, previousArg }) {
     return JSON.stringify(currentArg) !== JSON.stringify(previousArg);
   },
@@ -367,9 +367,9 @@ searchParcels: build.query<Parcel[], { q: string; owner?: string; page?: number 
 })
 ```
 
-## Error Handling
+## Manejo de Errores
 
-### Custom Error Handling
+### Manejo Personalizado de Errores
 
 ```tsx
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
@@ -392,7 +392,7 @@ export function isErrorWithMessage(
 }
 ```
 
-Usage in components:
+Uso en componentes:
 
 ```tsx
 const { data, error } = useGetParcelQuery({ id });
@@ -407,12 +407,12 @@ if (error) {
 }
 ```
 
-## Cache Management
+## Gestión de Caché
 
-### Manual Cache Updates
+### Actualizaciones Manuales de Caché
 
 ```tsx
-// Update cache directly
+// Actualizar caché directamente
 dispatch(
   client.util.updateQueryData('getBalance', { address }, (draft) => {
     draft.amount = 1000;
@@ -420,93 +420,92 @@ dispatch(
 );
 ```
 
-### Invalidate Cache
+### Invalidar Caché
 
 ```tsx
-// Invalidate all Credits queries
+// Invalidar todas las queries de Credits
 dispatch(client.util.invalidateTags(['Credits']));
 
-// Invalidate specific entity
+// Invalidar entidad específica
 dispatch(client.util.invalidateTags([{ type: 'Credits', id: address }]));
 ```
 
-### Reset Client State
+### Resetear Estado del Cliente
 
 ```tsx
-// Reset entire client state
+// Resetear estado completo del cliente
 dispatch(client.util.resetApiState());
 ```
 
-### Prefetch Data
+### Prefetch de Datos
 
 ```tsx
-// Prefetch data before navigation
+// Prefetch de datos antes de navegación
 dispatch(
   client.util.prefetch('getParcel', { id: '123' }, { force: false })
 );
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Use Descriptive Endpoint Names
+### 1. Usar Nombres Descriptivos de Endpoints
 
 ```tsx
-// ✅ Good
+// ✅ Bien
 getParcelByCoords
 getParcelsByOwner
 updateParcelName
 
-// ❌ Bad
+// ❌ Mal
 getParcel
 fetch
 update
 ```
 
-### 2. Provide Comprehensive Tags
+### 2. Proporcionar Tags Completos
 
 ```tsx
-// ✅ Good: Provides both list and entity tags
+// ✅ Bien: Proporciona tanto tags de lista como de entidad
 providesTags: (result) =>
   result
     ? [{ type: 'Parcels', id: result.id }, 'Parcels']
     : ['Parcels']
 
-// ❌ Bad: Only provides list tag
+// ❌ Mal: Solo proporciona tag de lista
 providesTags: ['Parcels']
 ```
 
-### 3. Handle Loading and Error States
+### 3. Manejar Estados de Carga y Error
 
 ```tsx
-// ✅ Good: Complete state handling
+// ✅ Bien: Manejo completo de estados
 const { data, isLoading, isFetching, isError, error } = useGetParcelQuery({ id });
 
 if (isLoading) return <Spinner />;
 if (isError) return <Error error={error} />;
 if (!data) return null;
 
-// ❌ Bad: Incomplete state handling
+// ❌ Mal: Manejo incompleto de estados
 const { data } = useGetParcelQuery({ id });
-return <div>{data.name}</div>; // May crash if data is undefined
+return <div>{data.name}</div>; // Puede fallar si data es undefined
 ```
 
-### 4. Use Type Guards
+### 4. Usar Type Guards
 
 ```tsx
-// ✅ Good: Type-safe error handling
+// ✅ Bien: Manejo de errores type-safe
 if (isFetchBaseQueryError(error)) {
-  // Handle fetch error
+  // Manejar error de fetch
 } else if (isErrorWithMessage(error)) {
-  // Handle error with message
+  // Manejar error con mensaje
 }
 
-// ❌ Bad: Unsafe type casting
+// ❌ Mal: Casting de tipos inseguro
 const message = (error as any).message;
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Learn about [State Management](state-management.md) for local UI state
-* Review [Component Patterns](component-patterns.md) for usage examples
-* Understand [Web3 Integration](web3-integration.md) for blockchain data
-
+* Aprender sobre [Gestión de Estado](state-management.md) para estado UI local
+* Revisar [Patrones de Componentes](component-patterns.md) para ejemplos de uso
+* Entender [Integración Web3](web3-integration.md) para datos blockchain

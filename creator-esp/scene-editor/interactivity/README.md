@@ -1,21 +1,18 @@
 ---
-description: Add interactivity to your scene
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity
+description: Agrega interactividad a tu escena
 ---
 
-# Interactivity
+# Agregando Interactividad
 
-Make your scene interactive by adding smart items, custom behaviors, and triggers. This section covers all the tools for creating engaging, interactive experiences without writing code.
+Haz tu escena interactiva agregando smart items, comportamientos personalizados y triggers. Esta sección cubre todas las herramientas para crear experiencias interactivas y atractivas sin escribir código.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Using smart items with pre-built behaviors
-* Creating custom items with Actions
-* Making any item smart with the Actions tab
-* Working with states and conditions
-* Setting up trigger areas
-* Adding video screens
+* Usar smart items con comportamientos pre-construidos
+* Crear ítems personalizados con Actions
+* Hacer cualquier ítem smart con la pestaña Actions
+* Trabajar con states y conditions
+* Configurar trigger areas
+* Agregar video screens
 
-The Scene Editor's interactivity features let you create complex, engaging experiences using a visual interface.
+Las características de interactividad del Scene Editor te permiten crear experiencias complejas y atractivas usando una interfaz visual.

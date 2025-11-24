@@ -1,46 +1,46 @@
 # Styling & Theming
 
-This page covers comprehensive styling standards for Decentraland web UIs using styled-components with Material UI's styling solution.
+Esta página cubre estándares comprehensivos de styling para IU web de Decentraland usando styled-components con la solución de styling de Material UI.
 
 {% hint style="info" %}
-All code examples in this document are illustrative. They do not represent production components but demonstrate patterns and standards.
+Todos los ejemplos de código en este documento son ilustrativos. No representan componentes de producción pero demuestran patrones y estándares.
 {% endhint %}
 
-## Core Principles
+## Principios Fundamentales
 
-1. **Object syntax only** - Use object notation for strong TypeScript support
-2. **Theme-first** - All values come from the UI2 theme
-3. **No inline styles** - Use styled components for all styling
-4. **Typed everything** - Leverage TypeScript for props and theme
-5. **Responsive by default** - Use theme breakpoints
+1. **Solo sintaxis de objetos** - Usa notación de objetos para soporte fuerte de TypeScript
+2. **Theme primero** - Todos los valores vienen del theme UI2
+3. **Sin estilos inline** - Usa styled components para todo el styling
+4. **Todo tipado** - Aprovecha TypeScript para props y theme
+5. **Responsive por defecto** - Usa breakpoints del theme
 
 ***
 
-## Object Syntax Standard
+## Estándar de Sintaxis de Objetos
 
-UI2 components **MUST** use the object syntax. This ensures strong TypeScript support, csstype validation, and direct theme integration.
+Los componentes UI2 **DEBEN** usar la sintaxis de objetos. Esto asegura soporte fuerte de TypeScript, validación csstype e integración directa con theme.
 
 {% hint style="warning" %}
-Template literal syntax is **not allowed**. Always use object notation.
+La sintaxis de template literals **no está permitida**. Siempre usa notación de objetos.
 {% endhint %}
 
-### Basic Example
+### Ejemplo Básico
 
 ```tsx
-// ✅ Good: Object syntax
+// ✅ Bien: Sintaxis de objetos
 const Button = styled('button')({
   color: 'turquoise',
   padding: '8px 16px',
 });
 
-// ❌ Bad: Template literal syntax
+// ❌ Mal: Sintaxis de template literals
 const Button = styled.button`
   color: turquoise;
   padding: 8px 16px;
 `;
 ```
 
-### With Theme and Props
+### Con Theme y Props
 
 ```tsx
 interface ButtonProps {
@@ -48,7 +48,7 @@ interface ButtonProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-// ✅ Good: Object syntax with theme and props
+// ✅ Bien: Sintaxis de objetos con theme y props
 const Button = styled('button')<ButtonProps>(({ theme, primary, size = 'medium' }) => ({
   color: primary ? theme.palette.primary.main : theme.palette.text.primary,
   backgroundColor: primary ? theme.palette.primary.main : 'transparent',
@@ -62,19 +62,19 @@ const Button = styled('button')<ButtonProps>(({ theme, primary, size = 'medium' 
 ```
 
 {% hint style="danger" %}
-**Rule**: Values MUST always come from the UI2 theme. Arbitrary hex codes or pixel values are not allowed.
+**Regla**: Los valores DEBEN siempre venir del theme UI2. No se permiten códigos hex arbitrarios o valores en píxeles.
 {% endhint %}
 
 ***
 
-## Element Syntax
+## Sintaxis de Elementos
 
-When styling native HTML elements, always use the function call form `styled('tag')`.
+Al estilizar elementos HTML nativos, siempre usa la forma de llamada a función `styled('tag')`.
 
-### Correct Syntax
+### Sintaxis Correcta
 
 ```tsx
-// ✅ Good: Function call form
+// ✅ Bien: Forma de llamada a función
 const Container = styled('div')({
   display: 'flex',
   flexDirection: 'column',
@@ -91,10 +91,10 @@ const Label = styled('label')(({ theme }) => ({
 }));
 ```
 
-### Incorrect Syntax
+### Sintaxis Incorrecta
 
 ```tsx
-// ❌ Bad: Property form (legacy syntax)
+// ❌ Mal: Forma de propiedad (sintaxis legacy)
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -107,22 +107,22 @@ const Action = styled.button`
 
 ***
 
-## No Inline Styles
+## Sin Estilos Inline
 
-Inline styles (`style={...}`) **MUST NOT** be used in UI2 components.
+Los estilos inline (`style={...}`) **NO DEBEN** usarse en componentes UI2.
 
-### Why Not Inline Styles?
+### ¿Por Qué No Estilos Inline?
 
-* Bypass theme typing
-* Harder to maintain
-* Prevent reusability
-* Can't be optimized
-* No TypeScript validation
+* Evitan el tipado del theme
+* Más difíciles de mantener
+* Previenen reutilización
+* No pueden optimizarse
+* Sin validación de TypeScript
 
-### The Right Way
+### La Forma Correcta
 
 ```tsx
-// ❌ Bad: Inline styles
+// ❌ Mal: Estilos inline
 <Card 
   key={id} 
   style={{ backgroundColor: color } as React.CSSProperties}
@@ -132,7 +132,7 @@ Inline styles (`style={...}`) **MUST NOT** be used in UI2 components.
   </CardHeader>
 </Card>
 
-// ✅ Good: Styled components with props
+// ✅ Bien: Styled components con props
 interface CardProps {
   backgroundColor: string;
 }
@@ -163,28 +163,28 @@ const Title = styled('h2')<TitleProps>(({ size, theme }) => ({
 
 ## Breakpoints
 
-Use `theme.breakpoints` helpers instead of hardcoded pixel values.
+Usa helpers de `theme.breakpoints` en lugar de valores en píxeles hardcodeados.
 
-### Breakpoint Helpers
+### Helpers de Breakpoint
 
-| Helper                | Usage                                   | Description             |
-| --------------------- | --------------------------------------- | ----------------------- |
-| `up(key)`             | `theme.breakpoints.up('md')`            | Min-width and up        |
-| `down(key)`           | `theme.breakpoints.down('md')`          | Max-width and down      |
-| `between(start, end)` | `theme.breakpoints.between('sm', 'lg')` | Between two breakpoints |
-| `only(key)`           | `theme.breakpoints.only('md')`          | Only at this breakpoint |
+| Helper                | Uso                                     | Descripción            |
+| --------------------- | --------------------------------------- | ---------------------- |
+| `up(key)`             | `theme.breakpoints.up('md')`            | Min-width hacia arriba |
+| `down(key)`           | `theme.breakpoints.down('md')`          | Max-width hacia abajo  |
+| `between(start, end)` | `theme.breakpoints.between('sm', 'lg')` | Entre dos breakpoints  |
+| `only(key)`           | `theme.breakpoints.only('md')`          | Solo en ese breakpoint |
 
-### Examples
+### Ejemplos
 
 ```tsx
-// ❌ Bad: Hardcoded breakpoints
+// ❌ Mal: Breakpoints hardcodeados
 const Panel = styled('div')`
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
 
-// ✅ Good: Theme breakpoints
+// ✅ Bien: Breakpoints del theme
 interface PanelProps {
   expanded: boolean;
 }
@@ -199,7 +199,7 @@ const Panel = styled('div')<PanelProps>(({ theme, expanded }) => ({
 }));
 ```
 
-### Multiple Breakpoints
+### Múltiples Breakpoints
 
 ```tsx
 const Layout = styled('div')(({ theme }) => ({
@@ -207,22 +207,22 @@ const Layout = styled('div')(({ theme }) => ({
   gridTemplateColumns: '1fr 320px',
   gap: theme.spacing(2),
   
-  // Mobile: single column
+  // Mobile: columna única
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: '1fr',
   },
   
-  // Large desktop: wider sidebar
+  // Desktop grande: sidebar más ancho
   [theme.breakpoints.up('xl')]: {
     gridTemplateColumns: '1fr 400px',
   },
   
-  // Tablet range: different gap
+  // Rango tablet: gap diferente
   [theme.breakpoints.between('sm', 'lg')]: {
     gap: theme.spacing(3),
   },
   
-  // Only tablet
+  // Solo tablet
   [theme.breakpoints.only('md')]: {
     padding: theme.spacing(2),
   },
@@ -231,27 +231,27 @@ const Layout = styled('div')(({ theme }) => ({
 
 ***
 
-## Spacing Scale
+## Escala de Espaciado
 
-Use `theme.spacing` exclusively for margins, paddings, and gaps.
+Usa `theme.spacing` exclusivamente para margins, paddings y gaps.
 
-### Spacing Convention
+### Convención de Espaciado
 
-* `theme.spacing(n)` where `n` is a number
-* Base unit is typically 8px
+* `theme.spacing(n)` donde `n` es un número
+* La unidad base típicamente es 8px
 * `spacing(1)` = 8px, `spacing(2)` = 16px, etc.
-* Decimals allowed: `spacing(1.5)` = 12px
+* Se permiten decimales: `spacing(1.5)` = 12px
 
 ```tsx
-// ✅ Good: Theme spacing
+// ✅ Bien: Espaciado del theme
 const Box = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),           // 16px
   margin: theme.spacing(1, 0),         // 8px vertical, 0 horizontal
   gap: theme.spacing(1.5),             // 12px
-  paddingInline: theme.spacing(3),     // 24px left/right
+  paddingInline: theme.spacing(3),     // 24px izquierda/derecha
 }));
 
-// ❌ Bad: Raw pixel values
+// ❌ Mal: Valores en píxeles raw
 const Box = styled('div')({
   padding: '16px',
   margin: '8px 0',
@@ -259,33 +259,33 @@ const Box = styled('div')({
 });
 ```
 
-### Common Spacing Patterns
+### Patrones Comunes de Espaciado
 
 ```tsx
 const Card = styled('div')(({ theme }) => ({
-  // Even spacing all around
+  // Espaciado uniforme alrededor
   padding: theme.spacing(3),
   
-  // Different vertical/horizontal
+  // Diferente vertical/horizontal
   padding: theme.spacing(2, 3),  // 16px vertical, 24px horizontal
   
-  // All sides different
+  // Todos los lados diferentes
   padding: theme.spacing(1, 2, 3, 2),  // top, right, bottom, left
   
-  // Logical properties (preferred for RTL support)
-  paddingBlock: theme.spacing(2),      // top and bottom
-  paddingInline: theme.spacing(3),     // left and right
+  // Propiedades lógicas (preferidas para soporte RTL)
+  paddingBlock: theme.spacing(2),      // top y bottom
+  paddingInline: theme.spacing(3),     // left y right
   marginBlockStart: theme.spacing(1),  // margin-top
 }));
 ```
 
 ***
 
-## Z-Index and Stacking
+## Z-Index y Stacking
 
-Follow the theme's z-index scale. Never use arbitrary z-index values.
+Sigue la escala z-index del theme. Nunca uses valores z-index arbitrarios.
 
-### Theme Z-Index Values
+### Valores Z-Index del Theme
 
 ```tsx
 theme.zIndex.mobileStepper  // 1000
@@ -298,10 +298,10 @@ theme.zIndex.snackbar       // 1400
 theme.zIndex.tooltip        // 1500
 ```
 
-### Correct Usage
+### Uso Correcto
 
 ```tsx
-// ✅ Good: Theme z-index
+// ✅ Bien: Z-index del theme
 const StickyBar = styled('div')(({ theme }) => ({
   position: 'sticky',
   top: 0,
@@ -316,36 +316,36 @@ const Overlay = styled('div')(({ theme }) => ({
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
 }));
 
-// ❌ Bad: Arbitrary z-index
+// ❌ Mal: Z-index arbitrario
 const StickyBar = styled('div')({
   position: 'sticky',
   top: 0,
-  zIndex: 999,  // Don't do this
+  zIndex: 999,  // No hagas esto
 });
 ```
 
-### Stacking Context Best Practices
+### Mejores Prácticas de Stacking Context
 
-* Be conscious of creating new stacking contexts
-* Avoid unnecessary `position: relative` on parents
-* Document why a z-index is needed
-* If you need a new layer, add it to the theme first
+* Sé consciente de crear nuevos stacking contexts
+* Evita `position: relative` innecesario en padres
+* Documenta por qué se necesita un z-index
+* Si necesitas una nueva capa, agrégala primero al theme
 
 ***
 
-## Color Tokens
+## Tokens de Color
 
-Always consume colors from `theme.palette` and `dclColors`. No ad-hoc hex values.
+Siempre consume colores desde `theme.palette` y `dclColors`. No uses valores hex ad-hoc.
 
-### Palette Structure
+### Estructura de Palette
 
 ```tsx
-// Text colors
+// Colores de texto
 theme.palette.text.primary
 theme.palette.text.secondary
 theme.palette.text.disabled
 
-// Background colors
+// Colores de fondo
 theme.palette.background.default
 theme.palette.background.paper
 
@@ -355,23 +355,23 @@ theme.palette.primary.light
 theme.palette.primary.dark
 theme.palette.primary.contrastText
 
-// Action colors
+// Colores de acción
 theme.palette.action.active
 theme.palette.action.hover
 theme.palette.action.selected
 theme.palette.action.disabled
 theme.palette.action.disabledBackground
 
-// Dividers
+// Divisores
 theme.palette.divider
 ```
 
-### Decentraland Colors
+### Colores de Decentraland
 
 ```tsx
 import { dclColors } from 'decentraland-ui2';
 
-// Rarity colors
+// Colores de rarity
 dclColors.rarity.unique
 dclColors.rarity.mythic
 dclColors.rarity.legendary
@@ -381,10 +381,10 @@ dclColors.rarity.uncommon
 dclColors.rarity.common
 ```
 
-### Examples
+### Ejemplos
 
 ```tsx
-// ✅ Good: Theme colors
+// ✅ Bien: Colores del theme
 const Chip = styled('span')(({ theme }) => ({
   color: theme.palette.text.secondary,
   backgroundColor: theme.palette.background.paper,
@@ -397,12 +397,12 @@ const Chip = styled('span')(({ theme }) => ({
 
 const RarityBadge = styled('span')<{ rarity: string }>(({ rarity }) => ({
   backgroundColor: dclColors.rarity[rarity],
-  color: '#FFFFFF', // Contrast color - acceptable if documented
+  color: '#FFFFFF', // Color de contraste - aceptable si está documentado
   padding: '4px 8px',
   borderRadius: '4px',
 }));
 
-// ❌ Bad: Arbitrary hex values
+// ❌ Mal: Valores hex arbitrarios
 const Chip = styled('span')({
   color: '#666666',
   backgroundColor: '#FFFFFF',
@@ -412,15 +412,15 @@ const Chip = styled('span')({
 
 ***
 
-## Interactive States
+## Estados Interactivos
 
-All interactive controls MUST show visible states for hover, focus, active, and disabled.
+Todos los controles interactivos DEBEN mostrar estados visibles para hover, focus, active y disabled.
 
-### Complete Interactive Component
+### Componente Interactivo Completo
 
 ```tsx
 const InteractiveButton = styled('button')(({ theme }) => ({
-  // Base state
+  // Estado base
   padding: theme.spacing(1, 2),
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.primary.contrastText,
@@ -434,25 +434,25 @@ const InteractiveButton = styled('button')(({ theme }) => ({
     'box-shadow',
   ]),
   
-  // Hover state (mouse)
+  // Estado hover (mouse)
   '&:hover': {
     backgroundColor: theme.palette.primary.dark,
   },
   
-  // Focus state (keyboard navigation)
+  // Estado focus (navegación por teclado)
   '&:focus-visible': {
     outline: `2px solid ${theme.palette.primary.main}`,
     outlineOffset: 2,
     boxShadow: theme.shadows[2],
   },
   
-  // Active/Pressed state
+  // Estado active/pressed
   '&:active': {
     backgroundColor: theme.palette.primary.dark,
     transform: 'scale(0.98)',
   },
   
-  // Disabled state
+  // Estado disabled
   '&:disabled': {
     backgroundColor: theme.palette.action.disabledBackground,
     color: theme.palette.action.disabled,
@@ -462,18 +462,18 @@ const InteractiveButton = styled('button')(({ theme }) => ({
 }));
 ```
 
-### Focus-Visible Pattern
+### Patrón Focus-Visible
 
-Always use `:focus-visible` instead of `:focus` to avoid showing focus rings on mouse clicks:
+Siempre usa `:focus-visible` en lugar de `:focus` para evitar mostrar anillos de foco en clics de mouse:
 
 ```tsx
-// ✅ Good: Only shows focus ring for keyboard
+// ✅ Bien: Solo muestra anillo de foco para teclado
 '&:focus-visible': {
   outline: `2px solid ${theme.palette.primary.main}`,
   outlineOffset: 2,
 }
 
-// ❌ Bad: Shows focus ring on every click
+// ❌ Mal: Muestra anillo de foco en cada click
 '&:focus': {
   outline: `2px solid ${theme.palette.primary.main}`,
 }
@@ -481,12 +481,12 @@ Always use `:focus-visible` instead of `:focus` to avoid showing focus rings on 
 
 ***
 
-## Typography
+## Tipografía
 
-Use theme typography variants instead of custom font properties.
+Usa variantes de tipografía del theme en lugar de propiedades de fuente personalizadas.
 
 ```tsx
-// ✅ Good: Typography variants
+// ✅ Bien: Variantes de tipografía
 const Heading = styled('h1')(({ theme }) => ({
   ...theme.typography.h1,
   marginBottom: theme.spacing(2),
@@ -497,11 +497,11 @@ const Body = styled('p')(({ theme}) => ({
   color: theme.palette.text.secondary,
 }));
 
-// With MUI Typography component (preferred)
+// Con componente Typography de MUI (preferido)
 <Typography variant="h1">Heading</Typography>
 <Typography variant="body1">Body text</Typography>
 
-// ❌ Bad: Custom typography
+// ❌ Mal: Tipografía personalizada
 const Heading = styled('h1')({
   fontSize: '32px',
   fontWeight: 700,
@@ -511,12 +511,12 @@ const Heading = styled('h1')({
 
 ***
 
-## Performance Optimization
+## Optimización de Performance
 
-### Don't Create Styled Components in Render
+### No Crees Styled Components en Render
 
 ```tsx
-// ❌ Bad: Creates new component on every render
+// ❌ Mal: Crea nuevo componente en cada render
 function Component({ color }) {
   const Box = styled('div')({
     backgroundColor: color,
@@ -524,7 +524,7 @@ function Component({ color }) {
   return <Box />;
 }
 
-// ✅ Good: Create once, pass props
+// ✅ Bien: Crea una vez, pasa props
 const Box = styled('div')<{ color: string }>(({ color }) => ({
   backgroundColor: color,
 }));
@@ -534,13 +534,13 @@ function Component({ color }) {
 }
 ```
 
-### Memoize Derived Props
+### Memoiza Props Derivados
 
 ```tsx
-// ❌ Bad: Creates new object on every render
+// ❌ Mal: Crea nuevo objeto en cada render
 <StyledComponent style={{ color: isDark ? 'white' : 'black' }} />
 
-// ✅ Good: Pass primitive props
+// ✅ Bien: Pasa props primitivos
 const StyledComponent = styled('div')<{ isDark: boolean }>(({ isDark, theme }) => ({
   color: isDark ? theme.palette.common.white : theme.palette.common.black,
 }));
@@ -550,29 +550,29 @@ const StyledComponent = styled('div')<{ isDark: boolean }>(({ isDark, theme }) =
 
 ***
 
-## Naming Conventions
+## Convenciones de Nombres
 
-### Component Names
+### Nombres de Componentes
 
-* **PascalCase** for components
-* Descriptive names
+* **PascalCase** para componentes
+* Nombres descriptivos
 
 ```tsx
-// ✅ Good names
+// ✅ Nombres buenos
 const UserCard = styled('div')({...});
 const PrimaryButton = styled('button')({...});
 const NavigationList = styled('ul')({...});
 
-// ❌ Bad names
+// ❌ Nombres malos
 const card = styled('div')({...});
 const btn = styled('button')({...});
 const list1 = styled('ul')({...});
 ```
 
-### File Structure
+### Estructura de Archivos
 
 ```
-Component.tsx        # Main component
+Component.tsx        # Componente principal
 Component.styles.ts  # Styled components
 Component.test.tsx   # Tests
 Component.stories.tsx # Storybook
@@ -580,8 +580,8 @@ Component.stories.tsx # Storybook
 
 ***
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Custom Components](custom-components.md) for component creation guidelines
-* See [Migration Guide](broken-reference) for UI1 to UI2 migrations
-* Check [Process Overview](process-overview.md) for the complete workflow
+* Revisa [Custom Components](custom-components.md) para guías de creación de componentes
+* Ve [Migration Guide](broken-reference) para migraciones UI1 a UI2
+* Verifica [Process Overview](process-overview.md) para el flujo de trabajo completo

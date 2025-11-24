@@ -1,91 +1,89 @@
 ---
-description: Understand how an item's components work
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/build/components
+description: Entiende cómo funcionan los componentes de un ítem
 ---
 
 # Components
 
-Select an item by clicking on it on the canvas or on the entity tree. You'll then see its components displayed on the properties panel, on the right of the screen. Different items have different components that each display specific settings.
+Selecciona un ítem haciendo clic en él en el canvas o en el entity tree. Luego verás sus componentes mostrados en el panel de propiedades, a la derecha de la pantalla. Diferentes ítems tienen diferentes componentes que cada uno muestra configuraciones específicas.
 
-![](../../.gitbook/assets/components-in-editor.png)
+![](../images/editor/components-in-editor.png)
 
-Most non-interactive items have the following components:
+La mayoría de los ítems no interactivos tienen los siguientes componentes:
 
-* **Transform**: Sets the position, rotation, and scale of the item. If the item is a child of another item on the [Entity Tree](../../../creator/scene-editor/get-started/scene-editor-essentials.md#the-entity-tree), these value are relative to those of the parent's.
-* **GLTF**: What 3D model to load. It includes the local path to the file for this 3D model. It also includes some properties for configuring [colliders](../../../creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models) on the model.
+* **Transform**: Establece la posición, rotación y escala del ítem. Si el ítem es hijo de otro ítem en el [Entity Tree](../scene-editor/get-started/scene-editor-essentials.md#the-entity-tree), estos valores son relativos a los del padre.
+* **GLTF**: Qué modelo 3D cargar. Incluye la ruta local al archivo para este modelo 3D. También incluye algunas propiedades para configurar [colliders](../sdk7/3d-essentials/colliders.md#colliders-on-3d-models) en el modelo.
 
-The items in your scene are all **Entities**. Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
+Los ítems en tu escena son todos **Entities**. Todo en una escena es una Entity, son los bloques de construcción básicos de las escenas. Los ítems son Entities que tienen al menos una posición y una forma visible.
 
-### Add components
+### Agregar componentes
 
-To add Components to any Entity, click the **+** sign at the top of the properties tab and select the Component from the list. See [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
+Para agregar Components a cualquier Entity, haz clic en el signo **+** en la parte superior de la pestaña de propiedades y selecciona el Component de la lista. Consulta [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md)
 
-![](../../.gitbook/assets/add-component.png)
+![](../images/editor/add-component.png)
 
-You can delete any Component from an Entity by clicking the three dots icon on its right, and selecting **Delete Component**.
+Puedes eliminar cualquier Component de una Entity haciendo clic en el ícono de tres puntos a su derecha y seleccionando **Delete Component**.
 
-### Create an entity from scratch
+### Crear una entidad desde cero
 
-To create a fresh new Entity, right click on the root **Scene** Entity in the Entity tree, or on any other Entity, and select **Add Child**
+Para crear una nueva Entity desde cero, haz clic derecho en la Entity raíz **Scene** en el Entity tree, o en cualquier otra Entity, y selecciona **Add Child**
 
-![](../../.gitbook/assets/new-entity.png)
+![](../images/editor/new-entity.png)
 
-This creates an empty Entity with just a **Transform** Component. The new entity is a child of the parent entity you clicked on. You can then add any other Components you want to it to shape it into anything you desire.
+Esto crea una Entity vacía con solo un Component **Transform**. La nueva entidad es hija de la entidad padre en la que hiciste clic. Luego puedes agregar cualquier otro Component que desees para darle forma a lo que desees.
 
-### Available components
+### Componentes disponibles
 
-The following Components can be added to any Entity via the Scene Editor UI:
+Los siguientes Components se pueden agregar a cualquier Entity a través de la UI del Scene Editor:
 
-* **Mesh Renderer**: Gives the Entity a visible shape based on a primitive shape (cube, plane, cylinder, cone, or sphere).
-* **Mesh Collider**: Gives the Entity an invisible collider geometry. This can block the player from walking through the item, and/or can make it clickable. See [collider](../../../creator/sdk7/3d-essentials/colliders.md).
-*   **Material**: Defines the color, texture, and other properties of an Entity that has a **Mesh Renderer** Component. See [materials](../../../creator/sdk7/3d-essentials/materials.md).
+* **Mesh Renderer**: Le da a la Entity una forma visible basada en una forma primitiva (cubo, plano, cilindro, cono o esfera).
+* **Mesh Collider**: Le da a la Entity una geometría de collider invisible. Esto puede bloquear al jugador de caminar a través del ítem, y/o puede hacerlo clickeable. Consulta [collider](../sdk7/3d-essentials/colliders.md).
+*   **Material**: Define el color, textura y otras propiedades de una Entity que tiene un Component **Mesh Renderer**. Consulta [materials](../sdk7/3d-essentials/materials.md).
 
-    \{% hint style="warning" %\} **📔 Note**: The item Must have a **Mesh Renderer** Component. It doesn't affect items with a **GLTF** visible shape. \{% endhint %\}
-* **Visibility**: Defines if an Entity is invisible.
-* **Light Source**: Adds a light to the Entity.
+    {% hint style="warning" %}
+    **📔 Nota**: El ítem DEBE tener un Component **Mesh Renderer**. No afecta ítems con una forma visible **GLTF**.
+    {% endhint %}
+* **Visibility**: Define si una Entity es invisible.
+* **Light Source**: Agrega una luz a la Entity.
 
-\-- **Swap Material**: Swaps the material of an Entity that has a **GLTF** component. If the 3D model has multiple meshes, you can swap the material of each mesh individually.
+\-- **Swap Material**: Intercambia el material de una Entity que tiene un componente **GLTF**. Si el modelo 3D tiene múltiples meshes, puedes intercambiar el material de cada mesh individualmente.
 
-* **Audio Source**: Plays a sound from a sound file at the location of the Entity. See [Sounds](../../../creator/sdk7/3d-essentials/sounds.md).
-* **Text Shape**: Displays text in the 3D space. See [Text](../../../creator/sdk7/3d-essentials/text.md).
-* **Pointer Events**: Marks an Entity as clickable, displaying a hover-hint.
+* **Audio Source**: Reproduce un sonido desde un archivo de sonido en la ubicación de la Entity. Consulta [Sounds](../sdk7/3d-essentials/sounds.md).
+* **Text Shape**: Muestra texto en el espacio 3D. Consulta [Text](../sdk7/3d-essentials/text.md).
+* **Pointer Events**: Marca una Entity como clickeable, mostrando un hover-hint.
 
 {% hint style="warning" %}
-**📔 Note**: The **Pointer Events** Component only provides feedback. To perform actions when an Entity is interacted with, see [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
+**📔 Nota**: El Component **Pointer Events** solo proporciona retroalimentación. Para realizar acciones cuando se interactúa con una Entity, consulta [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md)
 {% endhint %}
 
-* **Multiplayer**: Shares any changes that happen to the Entity so that all players in the scene see it too. It can be configured to only share changes on certain components. See [Serverless Multiplayer](../../../creator/sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced) for more details.
+* **Multiplayer**: Comparte cualquier cambio que ocurra en la Entity para que todos los jugadores en la escena también lo vean. Se puede configurar para compartir solo cambios en ciertos componentes. Consulta [Serverless Multiplayer](../sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced) para más detalles.
 
 {% hint style="warning" %}
-**📔 Note**: Other components exist on the SDK that are currently only usable via code. You can also create your own [Custom components](../../../creator/sdk7/architecture/custom-components.md) via code, these won't have a UI representation, but can be added and edited via code.
+**📔 Nota**: Existen otros componentes en el SDK que actualmente solo son utilizables a través de código. También puedes crear tus propios [Custom components](../sdk7/architecture/custom-components.md) a través de código, estos no tendrán una representación UI, pero se pueden agregar y editar a través de código.
 
-See [Combine with code](../../../creator/scene-editor/code/overview.md) for how to edit the code of your scene.
+Consulta [Combine with code](../scene-editor/code/overview.md) para saber cómo editar el código de tu escena.
 
-Also note that an Entity can only hold **one** of each Component. It's not possible to assign a second instance of a Component that already exists in the entity. For example, you can't two **Actions** components to a same Entity.
+También ten en cuenta que una Entity solo puede contener **uno** de cada Component. No es posible asignar una segunda instancia de un Component que ya existe en la entidad. Por ejemplo, no puedes tener dos componentes **Actions** en una misma Entity.
 {% endhint %}
 
 ### Smart items
 
-[Smart items](../../../creator/scene-editor/interactivity/smart-items.md) can also include special components that Control the Entity's interactivity. These are typically:
+Los [Smart items](../scene-editor/interactivity/smart-items.md) también pueden incluir componentes especiales que controlan la interactividad de la Entity. Estos son típicamente:
 
-* **Actions**: Lists all the possible actions the item can carry out.
-* **Triggers**: Determines when the actions from the Actions component are carried out.
-* **States**: Keeps track of the item's current state. The state can be used for conditional logic, to only trigger certain actions if the item is on certain state.
-* **Counter**: Keeps track of a counter. The counter can be used for conditional logic, to only trigger certain actions if the counter's value is equal/greater/lower than a given value.
+* **Actions**: Lista todas las acciones posibles que el ítem puede llevar a cabo.
+* **Triggers**: Determina cuándo se llevan a cabo las acciones del componente Actions.
+* **States**: Rastrea el estado actual del ítem. El estado se puede usar para lógica condicional, para activar solo ciertas acciones si el ítem está en cierto estado.
+* **Counter**: Rastrea un contador. El contador se puede usar para lógica condicional, para activar solo ciertas acciones si el valor del contador es igual/mayor/menor que un valor dado.
 
-See [Smart items advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md) for more details.
+Consulta [Smart items advanced](../scene-editor/interactivity/smart-items-advanced.md) para más detalles.
 
-### About entities and components
+### Acerca de entidades y componentes
 
-Everything in a scene is an Entity. All the items and smart items in the scene are Entities.
+Todo en una escena es una Entity. Todos los ítems y smart items en la escena son Entities.
 
-All the traits of an Entity are determined by its components. They define what the Entity is, where it is, how it sounds, and how it behaves. For example, a **Transform** component stores the Entity's coordinates, rotation and scale. A **MeshRenderer** component gives the Entity a visible shape (like a cube or a sphere), and a **Material** component gives the Entity a color or texture.
+Todos los rasgos de una Entity están determinados por sus componentes. Definen qué es la Entity, dónde está, cómo suena y cómo se comporta. Por ejemplo, un componente **Transform** almacena las coordenadas, rotación y escala de la Entity. Un componente **MeshRenderer** le da a la Entity una forma visible (como un cubo o una esfera), y un componente **Material** le da a la Entity un color o textura.
 
-The values on components can change over time. In the Scene Editor you configure the initial values for these components. But once your scene is running, the player's actions or the passage of time can change those values.
+Los valores en los componentes pueden cambiar con el tiempo. En el Scene Editor configuras los valores iniciales para estos componentes. Pero una vez que tu escena está en ejecución, las acciones del jugador o el paso del tiempo pueden cambiar esos valores.
 
-For example, a moving platform Smart Item has an initial position that you set via its **Transform** component, but after the actions of this item make it move, its **Transform** will hold different values.
+Por ejemplo, un Smart Item de plataforma móvil tiene una posición inicial que estableces a través de su componente **Transform**, pero después de que las acciones de este ítem lo hagan moverse, su **Transform** tendrá valores diferentes.
 
-See [Entities and components](../../../creator/sdk7/architecture/entities-components.md) for an in-depth look at this concept and how they're used by Decentraland scenes.
+Consulta [Entities and components](../sdk7/architecture/entities-components.md) para una mirada en profundidad de este concepto y cómo se usan en las escenas de Decentraland.

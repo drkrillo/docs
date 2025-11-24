@@ -1,130 +1,127 @@
 ---
 description: >-
-  Learn How To Create Animations That Can Be Embedded On 3D Models Imported To
+  Aprende cómo crear animaciones que pueden ser embebidas en modelos 3D importados a
   Decentraland.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/animations
 ---
 
-# Animations
+# Animaciones
 
-Animation is the art of bringing life into things. And there’s no better way to make you scene more lively then adding some animations to your 3D models.
+La animación es el arte de dar vida a las cosas. Y no hay mejor manera de hacer tu escena más viva que agregando algunas animaciones a tus modelos 3D.
 
-There are a couple ways to do it though: through **object animation** or through a **rig (skeletal animation)**.
+Sin embargo, hay un par de formas de hacerlo: a través de **object animation** o a través de un **rig (skeletal animation)**.
 
-**Object animation** is best for simple models, such as a bouncing ball, a spinning globe or a floating chair and it doesn’t need an armature. It’s important to mention that object animation is different from **vertex animation**. In object animation, the model will be animated as a whole, while in vertex animation, as the name says, each vertex of the object can be animated separately (which is super helpful for creating shape keys, for example). While object animation is perfectly fine to use, **vertex animation is currently not supported by Decentraland’s engine**.
+**Object animation** es mejor para modelos simples, como una pelota rebotando, un globo girando o una silla flotante y no necesita un armature. Es importante mencionar que object animation es diferente de **vertex animation**. En object animation, el modelo se animará como un todo, mientras que en vertex animation, como su nombre lo dice, cada vértice del objeto puede ser animado por separado (lo cual es súper útil para crear shape keys, por ejemplo). Aunque object animation está perfectamente bien para usar, **vertex animation actualmente no es soportado por el motor de Decentraland**.
 
-If you have a more complex model, such as a person, creature or machinery, then you’ll need a **rig**. A rig is nothing more than a digital skeleton that will move and deform the mesh. The process of binding the mesh to the skeleton is called Skinning, where you define which bone will affect each vertex group and how strong that influence is going be, making sure the model deforms in the best way possible.
+Si tienes un modelo más complejo, como una persona, criatura o maquinaria, entonces necesitarás un **rig**. Un rig no es más que un esqueleto digital que moverá y deformará el mesh. El proceso de vincular el mesh al skeleton se llama Skinning, donde defines qué bone afectará a cada vertex group y qué tan fuerte será esa influencia, asegurándote de que el modelo se deforme de la mejor manera posible.
 
-For either method, though, all animations of a 3D model must be embedded inside its _glTF_ file since you can’t reference animations in separate files.
+Para cualquiera de los dos métodos, todas las animaciones de un modelo 3D deben estar embebidas dentro de su archivo _glTF_ ya que no puedes referenciar animaciones en archivos separados.
 
-### Creating An Animation
+### Creando una Animación
 
-This is how you create animations using Blender.
+Así es como creas animaciones usando Blender.
 
 #### Object Animation
 
-* Make sure you have the _**Dope Sheet**_ > _**Action Editor**_ tab open and click on _**New**_ to add an animation clip.
-* Rename it as you see fit and make sure to toggle _**Fake User**_ (the shield icon) so your animation is saved.
-* Set a keyframe in the first frame by selecting the object and pressing _**I**_. Then move the object around, rotate or scale it and, in another frame in the timeline, press _**I**_ again to set another keyframe with the current transforms.
-* The final frame of the animation should be the same as the first one, so just copy the first frame and paste it on the last.
+* Asegúrate de tener la pestaña _**Dope Sheet**_ > _**Action Editor**_ abierta y haz clic en _**New**_ para agregar un animation clip.
+* Renómbralo como mejor te parezca y asegúrate de activar _**Fake User**_ (el ícono del escudo) para que tu animación se guarde.
+* Establece un keyframe en el primer frame seleccionando el objeto y presionando _**I**_. Luego mueve el objeto, rótalo o escálalo y, en otro frame en el timeline, presiona _**I**_ nuevamente para establecer otro keyframe con los transforms actuales.
+* El frame final de la animación debe ser igual al primero, así que simplemente copia el primer frame y pégalo en el último.
 
-![](../.gitbook/assets/01_object_animation_02.gif)
+![](../images/3d-models-and-animations/animations/01_object_animation_02.gif)
 
-_Creating an animation clip and adding keyframes._
+_Creando un animation clip y agregando keyframes._
 
 #### Rig Animation
 
-For a rig animation, you’ll need an armature. If you want to do it yourself, see [Create a Rig](https://www.notion.so/686e6f59a1604585b059f990a36b2d55) for instructions on how to set up a consistent armature.
+Para una rig animation, necesitarás un armature. Si quieres hacerlo tú mismo, consulta [Create a Rig](https://www.notion.so/686e6f59a1604585b059f990a36b2d55) para instrucciones sobre cómo configurar un armature consistente.
 
-When the rigging is done and skinning has nice deformations, you’re ready to start your animation! The process is very similar to Object Animation, but instead of doing it in _**Object Mode**_, you will animate it in _**Pose Mode**_.
+Cuando el rigging esté listo y el skinning tenga buenas deformaciones, ¡estás listo para comenzar tu animación! El proceso es muy similar a Object Animation, pero en lugar de hacerlo en _**Object Mode**_, lo animarás en _**Pose Mode**_.
 
-* Go to _**Pose Mode**_ and make sure you have the _**Dope Sheet**_ > _**Action Editor**_ tab open and click on _**New**_ to add an animation clip.
-* Rename it as you see fit and make sure to toggle _**Fake User**_ (the shield icon) so your animation is saved.
-* With the mouse on the _**Viewport**_, Press _**A**_ to select everything and then _**I**_ to set a keyframe to the whole armature.
-* Move to a different frame in the timeline and manipulate the bone however you like to get the pose you want. You can change a bone’s location, rotation and scale depending on how you set your rig up.
-* When you have a nice result, set another keyframe to the whole armature. Keep doing that until you finish your animation. Remember to have the first and last frames the same if the animation is going to loop.
+* Ve a _**Pose Mode**_ y asegúrate de tener la pestaña _**Dope Sheet**_ > _**Action Editor**_ abierta y haz clic en _**New**_ para agregar un animation clip.
+* Renómbralo como mejor te parezca y asegúrate de activar _**Fake User**_ (el ícono del escudo) para que tu animación se guarde.
+* Con el mouse en el _**Viewport**_, presiona _**A**_ para seleccionar todo y luego _**I**_ para establecer un keyframe para todo el armature.
+* Muévete a un frame diferente en el timeline y manipula el bone como quieras para obtener la pose que deseas. Puedes cambiar la location, rotation y scale de un bone dependiendo de cómo configuraste tu rig.
+* Cuando tengas un buen resultado, establece otro keyframe para todo el armature. Sigue haciendo eso hasta que termines tu animación. Recuerda tener el primer y último frames iguales si la animación va a hacer loop.
 
-![](../.gitbook/assets/02_rig_animation_02.gif)
+![](../images/3d-models-and-animations/animations/02_rig_animation_02.gif)
 
-If you’re new to the animation process, check out this tutorial with some nice tips for beginners:
+Si eres nuevo en el proceso de animación, mira este tutorial con algunos buenos consejos para principiantes:
 
 [![Video Preview](https://img.youtube.com/vi/-iWslh4uQIk/maxresdefault.jpg)](https://youtu.be/-iWslh4uQIk)
 
 ### Skinned Animations vs Transform Animations
 
-**Transform animations are typically better than skinned mesh animations for performance because they involve less overhead in terms of computational resources required to display the animation.**
+**Las transform animations típicamente son mejores que las skinned mesh animations en términos de performance porque implican menos sobrecarga en términos de recursos computacionales requeridos para mostrar la animación.**
 
-Skinned mesh animation involves using a mesh with a skeleton of bones that are weighted to the vertices of the mesh. The skeleton is animated, which in turn animates the mesh. This process can be quite computationally intensive, especially when there are a large number of vertices to animate.
+La skinned mesh animation implica usar un mesh con un skeleton de bones que están ponderados a los vértices del mesh. El skeleton se anima, lo que a su vez anima el mesh. Este proceso puede ser bastante computacionalmente intensivo, especialmente cuando hay un gran número de vértices para animar.
 
-Transform animations, on the other hand, involve animating the transform properties of an object (such as its position, rotation, and scale) directly. This can be done with fewer computational resources than skinned mesh animation, since there are typically fewer transform properties to animate than vertices in a mesh.
+Las transform animations, por otro lado, implican animar las propiedades de transform de un objeto (como su position, rotation y scale) directamente. Esto puede hacerse con menos recursos computacionales que la skinned mesh animation, ya que típicamente hay menos propiedades de transform para animar que vértices en un mesh.
 
-Additionally, transform animations can often be pre-calculated and stored in a more compact format, such as keyframe data, which can be quickly accessed and played back without the need for intensive calculations in real-time.
+Además, las transform animations a menudo pueden ser pre-calculadas y almacenadas en un formato más compacto, como keyframe data, que puede ser rápidamente accedido y reproducido sin la necesidad de cálculos intensivos en tiempo real.
 
-Overall, while skinned mesh animation can produce more detailed and realistic animations, transform animations are often preferred for performance-critical applications such as video games.
+En general, aunque la skinned mesh animation puede producir animaciones más detalladas y realistas, las transform animations son a menudo preferidas para aplicaciones críticas de performance como videojuegos.
 
-### Creating and Exporting Multiple Animation Clips
+### Creando y Exportando Múltiples Animation Clips
 
-You can have as many animations clips as you want for you model. You can check on how to create, browse and delete animations in [this section here](https://www.notion.so/5e962e5d54a24bcb9b906748007eb4cc).
+Puedes tener tantos animation clips como quieras para tu modelo. Puedes ver cómo crear, navegar y eliminar animaciones en [esta sección aquí](https://www.notion.so/5e962e5d54a24bcb9b906748007eb4cc).
 
-In the video below, you will learn how to export multiple animations from Blender in a single GLB file.
+En el video a continuación, aprenderás cómo exportar múltiples animaciones desde Blender en un solo archivo GLB.
 
 [![Video Preview](https://img.youtube.com/vi/YxAB4bujO_w/maxresdefault.jpg)](https://www.youtube.com/watch?v=YxAB4bujO_w\&ab_channel=Decentraland)
 
-### Exporting Many Animations as a Single One
+### Exportando Muchas Animaciones como una Sola
 
-Unlike in a skeletal animation, where you can rig multiple objects and combine their animations in a single animation clip, in object animation you can’t do that. The animations will be exported separately and only one object will play at a time. A solution for that is merging many animations into a single one, so you have an animation clip that has all objects moving at the same time.
+A diferencia de una skeletal animation, donde puedes hacer rig de múltiples objetos y combinar sus animaciones en un solo animation clip, en object animation no puedes hacer eso. Las animaciones se exportarán por separado y solo un objeto se reproducirá a la vez. Una solución para eso es fusionar muchas animaciones en una sola, para que tengas un animation clip que tenga todos los objetos moviéndose al mismo tiempo.
 
-To do that, push down to the _**Nonlinear Animation Track**_ the animation of every object, as shown below.
+Para hacer eso, empuja hacia abajo al _**Nonlinear Animation Track**_ la animación de cada objeto, como se muestra a continuación.
 
-![](../.gitbook/assets/03_object_animation_push_down_02.gif)
+![](../images/3d-models-and-animations/animations/03_object_animation_push_down_02.gif)
 
-_Push down every object’s animation to the NLA Track._
+_Empuja hacia abajo la animación de cada objeto al NLA Track._
 
-Once all the animations are listed on the NLA Editor, select all the objects, go to **File > Export > glTF2.0**. Expand Include and check Selected Objects. Expand Animation, expand Animation again and uncheck **Group by NLA Track**. You can rename the animation clip in Merged Animation Name and then just press **Export glTF 2.0**.
+Una vez que todas las animaciones estén listadas en el NLA Editor, selecciona todos los objetos, ve a **File > Export > glTF2.0**. Expande Include y marca Selected Objects. Expande Animation, expande Animation nuevamente y desmarca **Group by NLA Track**. Puedes renombrar el animation clip en Merged Animation Name y luego simplemente presiona **Export glTF 2.0**.
 
-![](../.gitbook/assets/04_export_single_animation_clip.png)
+![](../images/3d-models-and-animations/animations/04_export_single_animation_clip.png)
 
-_Settings to export multiple animations as a single one._
+_Configuración para exportar múltiples animaciones como una sola._
 
-Keep in mind that this will only work if the objects have a single animation each. If the objects have multiple animation clips, it’s best to export them separately.
+Ten en cuenta que esto solo funcionará si los objetos tienen una sola animación cada uno. Si los objetos tienen múltiples animation clips, es mejor exportarlos por separado.
 
 {% hint style="info" %}
-**💡 Tip**: Instead of creating your own animations, you can also download generic animations and apply them to your model. For example, for 3D characters with human-like characteristics, you can download free or paid animations from [Mixamo](https://www.mixamo.com/#/).
+**💡 Tip**: En lugar de crear tus propias animaciones, también puedes descargar animaciones genéricas y aplicarlas a tu modelo. Por ejemplo, para personajes 3D con características humanas, puedes descargar animaciones gratuitas o de pago desde [Mixamo](https://www.mixamo.com/#/).
 {% endhint %}
 
 ### Sampling
 
-Sometimes your animation file might end up being too heavy due to the amount of animations or the combination of animation+model.
+A veces tu archivo de animación puede terminar siendo demasiado pesado debido a la cantidad de animaciones o la combinación de animación+modelo.
 
-Sampling is a good way to optimize the animation. The sampling rate will define how often a keyframe will be baked in the animation. For example, if the sampling rate is set to 2, that means a keyframe will be created at every two frames. A sampling rate of 3 will bake a keyframe every three frames and so on. The higher the sampling rate, the lighter the file.
+Sampling es una buena manera de optimizar la animación. El sampling rate definirá con qué frecuencia se horneará un keyframe en la animación. Por ejemplo, si el sampling rate se establece en 2, eso significa que se creará un keyframe cada dos frames. Un sampling rate de 3 horneará un keyframe cada tres frames y así sucesivamente. Cuanto mayor sea el sampling rate, más ligero será el archivo.
 
-The drawback, however, is that the animation will start getting less and less fluid since it loses some important keyframes (they are distributed through the animation in an uneven way). It’s also important to notice that **sampling is NOT dividing the number of the animation’s frames by the sampling rate**.
+El inconveniente, sin embargo, es que la animación comenzará a ser menos y menos fluida ya que pierde algunos keyframes importantes (se distribuyen a través de la animación de manera desigual). También es importante notar que **sampling NO está dividiendo el número de frames de la animación por el sampling rate**.
 
-Usually, a **sampling rate of 2 or 3** will do the trick. Those numbers can optimize the animation without compromising the quality.
+Usualmente, un **sampling rate de 2 o 3** hará el truco. Esos números pueden optimizar la animación sin comprometer la calidad.
 
-You can find the _**Sampling Rate**_ in the export settings, under _**Animation**_.
+Puedes encontrar el _**Sampling Rate**_ en la configuración de exportación, bajo _**Animation**_.
 
-![](../.gitbook/assets/05_sampling_rate.png)
+![](../images/3d-models-and-animations/animations/05_sampling_rate.png)
 
 {% hint style="info" %}
-**💡 Tip**: If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.
+**💡 Tip**: Si el número de frames de la animación puede ser dividido por el sampling rate, ¡eso es bueno! Significa que el frame final será horneado, preservando la transición desde el final hasta el inicio de la animación.
 {% endhint %}
 
-### Implementing Animations
+### Implementando Animaciones
 
-This document covers how to add animations into a 3D model. See [**handle animations**](https://docs.decentraland.org/creator/development-guide/3d-model-animations/) for instructions on how to activate and handle animations in a scene.
+Este documento cubre cómo agregar animaciones en un modelo 3D. Ve [**handle animations**](https://docs.decentraland.org/creator/development-guide/3d-model-animations/) para instrucciones sobre cómo activar y manejar animaciones en una escena.
 
-### Best Practices for Animations
+### Mejores Prácticas para Animaciones
 
-* Keep the armature as simple as possible, only create bones for the parts of the model that you intend to animate. Bones can affect performance, so make sure to only add what’s actually necessary.
-* If the animation is going to loop in your scene, make sure the final pose is identical to the starting one for better transition.
-* Never leave have a character without animation, even if they aren’t actually doing anything. Create an “idle” animation for when the character is still. The idle can include subtle movements like breathing and perhaps occasional glances.
-* Don’t leave bones unposed, like hands, fingers, head or neck. Details are really important in a good animation and stiff movement will only make it less believable.
-* Avoid too many keyframes, unless it’s extremely necessary. The more keyframes you add, the higher the chances of getting bad interpolation and a heavier animation.
-* Select all your bones (including the deforming ones) and set a keyframe on the first and last frames of your animation. This will avoid having bones with no information, causing one animation to affect the other unintentionally.
-* Make sure your file only has one armature when you export it. When importing animations, an armature will also be imported with it. All animations must to be performed by the same base armature, so delete anything that you don’t need.
-* Always rename your bones and animations. Keep everything organized!
-* When exporting the _glTF_ model, confirm that you’re exporting all the objects and animations. Some exporters will only export the _**currently selected**_ by default.
-* After exporting the model, inspect it in [Babylon Sandbox](https://sandbox.babylonjs.com/) and check if all animations are working and are named as expected.
+* Mantén el armature lo más simple posible, solo crea bones para las partes del modelo que intentas animar. Los bones pueden afectar el performance, así que asegúrate de agregar solo lo que sea realmente necesario.
+* Si la animación va a hacer loop en tu escena, asegúrate de que la pose final sea idéntica a la inicial para una mejor transición.
+* Nunca dejes un personaje sin animación, incluso si realmente no están haciendo nada. Crea una animación "idle" para cuando el personaje esté quieto. El idle puede incluir movimientos sutiles como respirar y quizás miradas ocasionales.
+* No dejes bones sin posar, como manos, dedos, cabeza o cuello. Los detalles son realmente importantes en una buena animación y el movimiento rígido solo la hará menos creíble.
+* Evita demasiados keyframes, a menos que sea extremadamente necesario. Cuantos más keyframes agregues, mayores serán las posibilidades de obtener mala interpolación y una animación más pesada.
+* Selecciona todos tus bones (incluyendo los deformantes) y establece un keyframe en el primer y último frame de tu animación. Esto evitará tener bones sin información, causando que una animación afecte a la otra involuntariamente.
+* Asegúrate de que tu archivo solo tenga un armature cuando lo exportes. Al importar animaciones, también se importará un armature con él. Todas las animaciones deben ser realizadas por el mismo armature base, así que elimina cualquier cosa que no necesites.
+* Siempre renombra tus bones y animaciones. ¡Mantén todo organizado!
+* Al exportar el modelo _glTF_, confirma que estás exportando todos los objetos y animaciones. Algunos exportadores solo exportarán lo _**actualmente seleccionado**_ por defecto.
+* Después de exportar el modelo, inspecciónalo en [Babylon Sandbox](https://sandbox.babylonjs.com/) y verifica si todas las animaciones están funcionando y están nombradas como se espera.

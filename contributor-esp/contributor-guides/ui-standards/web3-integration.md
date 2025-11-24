@@ -1,25 +1,25 @@
-# Web3 Integration
+# Integración Web3
 
-This page covers patterns for integrating blockchain functionality with Redux and RTK Query, including handling wallet connections, transactions, and on-chain events.
+Esta página cubre patrones para integrar funcionalidad blockchain con Redux y RTK Query, incluyendo manejo de conexiones de wallet, transacciones y eventos on-chain.
 
-## Core Principle: Keep Web3 Objects Outside Redux
+## Principio Fundamental: Mantén Objetos Web3 Fuera de Redux
 
 {% hint style="danger" %}
-**Never store these in Redux:**
+**Nunca almacenes esto en Redux:**
 
 * `window.ethereum`
-* Provider instances (`ethers.Provider`, `Web3Provider`)
-* Signer instances
-* WebSocket connections
-* Contract instances
-* `AbortController` instances
+* Instancias de Provider (`ethers.Provider`, `Web3Provider`)
+* Instancias de Signer
+* Conexiones WebSocket
+* Instancias de Contract
+* Instancias de `AbortController`
 
-These are non-serializable and violate Redux principles.
+Estos son no serializables y violan los principios de Redux.
 {% endhint %}
 
-## Recommended Architecture
+## Arquitectura Recomendada
 
-### Web3 Context (Outside Redux)
+### Web3 Context (Fuera de Redux)
 
 ```tsx
 // src/contexts/Web3Context.tsx
@@ -66,7 +66,7 @@ export function Web3Provider({ children }: { children: ReactNode }) {
     setChainId(null);
   };
 
-  // Listen to account changes
+  // Escucha cambios de cuenta
   useEffect(() => {
     if (!window.ethereum) return;
 
@@ -110,9 +110,9 @@ export function useWeb3() {
 }
 ```
 
-### Redux Slice for Web3 State
+### Redux Slice para State Web3
 
-Store only serializable Web3 state in Redux:
+Almacena solo state Web3 serializable en Redux:
 
 ```tsx
 // src/features/web3/web3.slice.ts
@@ -208,9 +208,9 @@ export const selectPendingTxs = (state: RootState) =>
   Object.values(state.web3.pendingTxs);
 ```
 
-## Syncing Context with Redux
+## Sincronizando Context con Redux
 
-Connect the Web3 context to Redux:
+Conecta el context Web3 con Redux:
 
 ```tsx
 // src/components/Web3Sync.tsx
@@ -224,7 +224,7 @@ export function Web3Sync() {
   const { account, chainId, connect } = useWeb3();
   const dispatch = useAppDispatch();
 
-  // Sync connection state
+  // Sincroniza estado de conexión
   useEffect(() => {
     if (account && chainId) {
       dispatch(connected({ account, chainId }));
@@ -233,18 +233,18 @@ export function Web3Sync() {
     }
   }, [account, chainId, dispatch]);
 
-  // Reset cache on account/chain change
+  // Reinicia cache en cambio de cuenta/chain
   useEffect(() => {
     if (account || chainId) {
-      // Option 1: Reset entire client state
+      // Opción 1: Reinicia todo el state del client
       dispatch(client.util.resetApiState());
       
-      // Option 2: Invalidate specific tags
+      // Opción 2: Invalida tags específicos
       // dispatch(client.util.invalidateTags(['User', 'Parcels', 'Credits']));
     }
   }, [account, chainId, dispatch]);
 
-  // Auto-connect on mount if previously connected
+  // Auto-conecta al montar si estaba conectado previamente
   useEffect(() => {
     const autoConnect = async () => {
       const wasConnected = localStorage.getItem('walletConnected');
@@ -264,9 +264,9 @@ export function Web3Sync() {
 }
 ```
 
-## Transaction Lifecycle
+## Ciclo de Vida de Transacciones
 
-### Sending Transactions
+### Enviando Transacciones
 
 ```tsx
 // src/hooks/useTransferParcel.ts
@@ -286,14 +286,14 @@ export function useTransferParcel() {
       throw new Error('Wallet not connected');
     }
 
-    // Get contract instance
+    // Obtiene instancia del contrato
     const contract = ParcelContract.connect(signer);
 
     try {
-      // Send transaction
+      // Envía transacción
       const tx = await contract.transfer(parcelId, to);
 
-      // Add to pending
+      // Agrega a pendientes
       dispatch(txPending({
         hash: tx.hash,
         type: 'transfer',
@@ -301,30 +301,30 @@ export function useTransferParcel() {
         timestamp: Date.now(),
       }));
 
-      // Optimistically update cache
+      // Actualiza cache optimistically
       dispatch(
         client.util.updateQueryData('getParcel', { id: parcelId }, (draft) => {
           draft.owner = to;
         })
       );
 
-      // Wait for confirmation
+      // Espera confirmación
       const receipt = await tx.wait();
 
       if (receipt.status === 1) {
-        // Transaction confirmed
+        // Transacción confirmada
         dispatch(txConfirmed(tx.hash));
         
-        // Invalidate affected queries
+        // Invalida queries afectados
         dispatch(client.util.invalidateTags([
           { type: 'Parcels', id: parcelId },
           'Parcels',
         ]));
       } else {
-        // Transaction failed
+        // Transacción falló
         dispatch(txFailed(tx.hash));
         
-        // Rollback optimistic update
+        // Revierte actualización optimistic
         dispatch(client.util.invalidateTags([
           { type: 'Parcels', id: parcelId },
         ]));
@@ -332,12 +332,12 @@ export function useTransferParcel() {
 
       return receipt;
     } catch (error) {
-      // Transaction rejected or failed
+      // Transacción rechazada o falló
       if (error.hash) {
         dispatch(txFailed(error.hash));
       }
       
-      // Rollback optimistic update
+      // Revierte actualización optimistic
       dispatch(client.util.invalidateTags([
         { type: 'Parcels', id: parcelId },
       ]));
@@ -348,7 +348,7 @@ export function useTransferParcel() {
 }
 ```
 
-### Using in Components
+### Usando en Componentes
 
 ```tsx
 function TransferParcelButton({ parcelId }: { parcelId: string }) {
@@ -388,7 +388,7 @@ function TransferParcelButton({ parcelId }: { parcelId: string }) {
 }
 ```
 
-## Listening to On-Chain Events
+## Escuchando Eventos On-Chain
 
 ```tsx
 // src/hooks/useParcelEvents.ts
@@ -407,21 +407,21 @@ export function useParcelEvents() {
 
     const contract = ParcelContract.connect(provider);
 
-    // Listen for Transfer events
+    // Escucha eventos Transfer
     const handleTransfer = (from: string, to: string, tokenId: string) => {
       console.log(`Parcel ${tokenId} transferred from ${from} to ${to}`);
       
-      // Invalidate affected queries
+      // Invalida queries afectados
       dispatch(client.util.invalidateTags([
         { type: 'Parcels', id: tokenId },
         'Parcels',
       ]));
     };
 
-    // Subscribe to events
+    // Suscribe a eventos
     contract.on('Transfer', handleTransfer);
 
-    // Cleanup
+    // Limpieza
     return () => {
       contract.off('Transfer', handleTransfer);
     };
@@ -429,9 +429,9 @@ export function useParcelEvents() {
 }
 ```
 
-## RTK Query with Web3 Data
+## RTK Query con Datos Web3
 
-Create endpoints that use blockchain data:
+Crea endpoints que usan datos blockchain:
 
 ```tsx
 // src/features/nft/nft.client.ts
@@ -440,15 +440,15 @@ import { ethers } from 'ethers';
 
 export const nftClient = client.injectEndpoints({
   endpoints: (build) => ({
-    // Hybrid: fetch from API and verify on-chain
+    // Híbrido: fetch desde API y verifica on-chain
     getNFTWithOwnership: build.query<NFT, { id: string; account?: string }>({
       async queryFn({ id, account }, { getState }) {
         try {
-          // Fetch metadata from API
+          // Fetch metadata desde API
           const response = await fetch(`/api/nfts/${id}`);
           const nft = await response.json();
 
-          // Verify ownership on-chain if account provided
+          // Verifica ownership on-chain si se proporciona account
           if (account && window.ethereum) {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const contract = NFTContract.connect(provider);
@@ -470,12 +470,12 @@ export const nftClient = client.injectEndpoints({
 });
 ```
 
-## Cache Invalidation Strategies
+## Estrategias de Invalidación de Cache
 
-### On Network Change
+### En Cambio de Network
 
 ```tsx
-// Invalidate all data when network changes
+// Invalida todos los datos cuando cambia la network
 useEffect(() => {
   if (chainId) {
     dispatch(client.util.resetApiState());
@@ -483,10 +483,10 @@ useEffect(() => {
 }, [chainId, dispatch]);
 ```
 
-### On Account Change
+### En Cambio de Account
 
 ```tsx
-// Invalidate user-specific data
+// Invalida datos específicos del usuario
 useEffect(() => {
   if (account) {
     dispatch(client.util.invalidateTags(['User', 'Credits', 'NFTs']));
@@ -494,36 +494,36 @@ useEffect(() => {
 }, [account, dispatch]);
 ```
 
-### After Transaction Confirmation
+### Después de Confirmación de Transacción
 
 ```tsx
-// Invalidate related data after transaction
+// Invalida datos relacionados después de transacción
 if (receipt.status === 1) {
   dispatch(client.util.invalidateTags([
     { type: 'Parcels', id: parcelId },
     'Parcels',
-    'User', // May affect user's balance
+    'User', // Puede afectar balance del usuario
   ]));
 }
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Separate Concerns
+### 1. Separa Responsabilidades
 
 ```tsx
-// ✅ Good: Web3 in context, state in Redux
-const { signer } = useWeb3(); // From context
-const account = useAppSelector(selectAccount); // From Redux
+// ✅ Bien: Web3 en context, state en Redux
+const { signer } = useWeb3(); // Desde context
+const account = useAppSelector(selectAccount); // Desde Redux
 
-// ❌ Bad: Everything in Redux
-const { signer, account } = useAppSelector(selectWeb3); // Don't do this
+// ❌ Mal: Todo en Redux
+const { signer, account } = useAppSelector(selectWeb3); // No hagas esto
 ```
 
-### 2. Handle Transaction States
+### 2. Maneja Estados de Transacciones
 
 ```tsx
-// ✅ Good: Track all states
+// ✅ Bien: Rastrea todos los estados
 const tx = await contract.transfer(...);
 dispatch(txPending(tx.hash));
 const receipt = await tx.wait();
@@ -533,14 +533,14 @@ if (receipt.status === 1) {
   dispatch(txFailed(tx.hash));
 }
 
-// ❌ Bad: Fire and forget
+// ❌ Mal: Fire and forget
 await contract.transfer(...);
 ```
 
-### 3. Optimistic Updates with Rollback
+### 3. Actualizaciones Optimistas con Rollback
 
 ```tsx
-// ✅ Good: Optimistic with rollback
+// ✅ Bien: Optimistic con rollback
 dispatch(client.util.updateQueryData(...));
 try {
   await tx.wait();
@@ -549,29 +549,28 @@ try {
   dispatch(client.util.invalidateTags(...)); // Rollback
 }
 
-// ❌ Bad: No rollback
+// ❌ Mal: Sin rollback
 dispatch(client.util.updateQueryData(...));
-await tx.wait(); // What if this fails?
+await tx.wait(); // ¿Qué pasa si esto falla?
 ```
 
-### 4. Event Listener Cleanup
+### 4. Limpieza de Event Listeners
 
 ```tsx
-// ✅ Good: Clean up listeners
+// ✅ Bien: Limpia listeners
 useEffect(() => {
   contract.on('Transfer', handler);
   return () => contract.off('Transfer', handler);
 }, [contract]);
 
-// ❌ Bad: Memory leak
+// ❌ Mal: Memory leak
 useEffect(() => {
   contract.on('Transfer', handler);
 }, [contract]);
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Testing & Performance](testing-and-performance.md) for optimization
-* See [Component Patterns](component-patterns.md) for usage examples
-* Understand [RTK Query](rtk-query.md) for cache management
-
+* Revisa [Testing & Performance](testing-and-performance.md) para optimización
+* Ve [Component Patterns](component-patterns.md) para ejemplos de uso
+* Entiende [RTK Query](rtk-query.md) para gestión de cache

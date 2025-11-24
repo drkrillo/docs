@@ -1,91 +1,90 @@
 ---
-description: Combine content created on the Scene Editor with the power of writing code.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/code
+description: Combina contenido creado en el Scene Editor con el poder de escribir código.
 ---
 
-# Code
+# Overview
 
-The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
-For example, you can take advantage of an existing lever smart item, that already comes with its sounds and animations and states, and write code that detects when the lever is pulled to run your own custom logic.
 
-See [Reference items in code](../../../creator/scene-editor/code/reference-items.md) for how to fetch items by name or by tags from your code.
+El Creator Hub más código personalizado es una combinación muy poderosa para crear contenido. Puedes usar el canvas para posicionar ítems visualmente de forma intuitiva, y luego escribir código que interactúa con estos ítems con completa libertad. Incluso puedes colocar un smart item, que tiene su propio comportamiento predeterminado, y escribir código que reacciona cuando el ítem se activa.
 
-### Editing code
+Por ejemplo, puedes aprovechar un smart item de palanca existente, que ya viene con sus sonidos y animaciones y estados, y escribir código que detecta cuándo se tira de la palanca para ejecutar tu propia lógica personalizada.
 
-You must install a code editor on your machine to edit the code of your scene. The recommended options are:
+Consulta [Reference items in code](../scene-editor/code/reference-items.md) para saber cómo obtener ítems por nombre o por tags desde tu código.
 
-* ![](../../.gitbook/assets/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
-* ![](../../.gitbook/assets/cursor-icon.png) [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
+### Editar código
 
-{% hint style="warning" %}
-**📔 Note**: If you are on macOS, make sure the code editor app is in the Applications directory.
-{% endhint %}
+Debes instalar un editor de código en tu máquina para editar el código de tu escena. Las opciones recomendadas son:
 
-Once installed, you may need to select your Code Editor in the settings of the Creator Hub. To do this,
-
-1.  Open the wheel icon in the top-right of the screen
-
-    ![](../../.gitbook/assets/settings-icon.png)
-2. Under **Code editor of choice**, select your Code Editor. You may find your editor listed in the dropdown, or you may need to select **Chose from your device** to find it.
-
-### Open a scene's code
-
-Once you installed a code editor on your machine, and selected it in the settings of the Creator Hub, you can click the **< > CODE** button to open it on your scene project.
-
-![](../../.gitbook/assets/code-button.png)
-
-This opens a separate window with the code editor. On the left margin you can navigate the files and folder structure of your project.
-
-![](../../.gitbook/assets/files-on-vs-studio.png)
-
-Add your custom code in the `index.ts` file under `/src`, inside the `main()` function. You can otherwise add custom code outside that function or create new `.ts` files inside the `/src` folder, but these must be somehow referenced inside the `main()` function of `index.ts`.
+* ![](../images/editor/vscode.png) [Visual Studio Code](https://code.visualstudio.com/): Esta es la opción recomendada para desarrolladores experimentados.
+* ![](../images/editor/cursor-icon.png) [Cursor AI](https://www.cursor.com/): Este es un poderoso editor de código que está integrado con AI. Te permite elegir diferentes modelos de AI para ayudarte a escribir código, todos ellos son gratuitos. Esta es una buena opción para desarrolladores que son nuevos en Decentraland o TypeScript, o si quieres ahorrar tiempo escribiendo código.
 
 {% hint style="warning" %}
-**📔 Note**: If you have VS Code or Cursor installed but the **CODE** button doesn't open it, it may be that VS Code is not properly configured on your machine to open via the command line. In most cases, this is handled as part of the default installation, but in case it's not, see [these instructions from VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) to enable VS Code from the command line.
+**📔 Nota**: Si estás en macOS, asegúrate de que la aplicación del editor de código esté en el directorio Applications.
 {% endhint %}
 
-If you have a preview window open running your scene, whenever you change the code in your files and save, the scene reloads automatically with your changes.
+Una vez instalado, puede que necesites seleccionar tu Code Editor en la configuración del Creator Hub. Para hacer esto,
 
-### Using AI with Cursor
+1.  Abre el ícono de rueda en la parte superior derecha de la pantalla
 
-If you are using Cursor, you can use the AI assistant to help you write code. To do this,
+    ![](../images/editor/settings-icon.png)
+2. Bajo **Code editor of choice**, selecciona tu Code Editor. Puedes encontrar tu editor listado en el desplegable, o puede que necesites seleccionar **Chose from your device** para encontrarlo.
 
-1.  Open the Cursor AI assistant by clicking the **AI** button in the top-right of the screen
+### Abrir el código de una escena
 
-    ![](../../.gitbook/assets/cursor-icon.png)
-2. There you can prompt the AI assistant to help you write code. You can also select a model to use from the dropdown.
+Una vez que instalaste un editor de código en tu máquina y lo seleccionaste en la configuración del Creator Hub, puedes hacer clic en el botón **< > CODE** para abrirlo en tu proyecto de escena.
 
-Decentraland provides a context folder for the AI assistant to help you write code, this context folder is located at `/dclcontext` in your scene project. The AI assistant will know to search this context whenever generating code, to get familiar with the Decentraland SDK.
+![](../images/editor/code-button.png)
 
-This folder is updated with the latest context files every time your scene's dependencies are updated. You can also force update this folder by running the following:
+Esto abre una ventana separada con el editor de código. En el margen izquierdo puedes navegar los archivos y la estructura de carpetas de tu proyecto.
+
+![](../images/editor/files-on-vs-studio.png)
+
+Agrega tu código personalizado en el archivo `index.ts` bajo `/src`, dentro de la función `main()`. De lo contrario, puedes agregar código personalizado fuera de esa función o crear nuevos archivos `.ts` dentro de la carpeta `/src`, pero estos deben ser referenciados de alguna manera dentro de la función `main()` de `index.ts`.
+
+{% hint style="warning" %}
+**📔 Nota**: Si tienes VS Code o Cursor instalado pero el botón **CODE** no lo abre, puede ser que VS Code no esté configurado correctamente en tu máquina para abrirse a través de la línea de comandos. En la mayoría de los casos, esto se maneja como parte de la instalación predeterminada, pero en caso de que no sea así, consulta [estas instrucciones de VS](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) para habilitar VS Code desde la línea de comandos.
+{% endhint %}
+
+Si tienes una ventana de preview abierta ejecutando tu escena, cada vez que cambias el código en tus archivos y guardas, la escena se recarga automáticamente con tus cambios.
+
+### Usar AI con Cursor
+
+Si estás usando Cursor, puedes usar el asistente AI para ayudarte a escribir código. Para hacer esto,
+
+1.  Abre el asistente AI de Cursor haciendo clic en el botón **AI** en la parte superior derecha de la pantalla
+
+    ![](../images/editor/cursor-icon.png)
+2. Allí puedes solicitar al asistente AI que te ayude a escribir código. También puedes seleccionar un modelo para usar desde el desplegable.
+
+Decentraland proporciona una carpeta de contexto para que el asistente AI te ayude a escribir código, esta carpeta de contexto se encuentra en `/dclcontext` en tu proyecto de escena. El asistente AI sabrá buscar este contexto cada vez que genere código, para familiarizarse con el Decentraland SDK.
+
+Esta carpeta se actualiza con los últimos archivos de contexto cada vez que se actualizan las dependencias de tu escena. También puedes forzar la actualización de esta carpeta ejecutando lo siguiente:
 
 ```
 npx sdk-commands get-context-files
 ```
 
 {% hint style="info" %}
-**💡 Tip**: You can also add your own context files to this folder to help the AI assistant understand your scene and project. If you do, make sure to add them to a new file in that folder, as the default files are overwritten when SDK updates happen.
+**💡 Tip**: También puedes agregar tus propios archivos de contexto a esta carpeta para ayudar al asistente AI a entender tu escena y proyecto. Si lo haces, asegúrate de agregarlos a un nuevo archivo en esa carpeta, ya que los archivos predeterminados se sobrescriben cuando ocurren actualizaciones del SDK.
 {% endhint %}
 
-### Version control
+### Control de versiones
 
-We recommend that you create a repo for your project on GitHub, and use it to keep track of your project's versions and to work collaboratively with others.
+Recomendamos que crees un repositorio para tu proyecto en GitHub y lo uses para hacer seguimiento de las versiones de tu proyecto y trabajar colaborativamente con otros.
 
-If you're not familiar with how to do this, see [Quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories), or use the [GitHub desktop appliacation](https://desktop.github.com/download/) for an simpler UI-based flow.
+Si no estás familiarizado con cómo hacer esto, consulta [Quickstart for repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories), o usa la [aplicación de escritorio de GitHub](https://desktop.github.com/download/) para un flujo más simple basado en UI.
 
 {% hint style="warning" %}
-**📔 Note**: Upload the entire project folder to a GitHub repo, but make sure the `/node-modules` or `/bin` folders and the `package-lock.json` file are all included in the `.gitignore` file, to avoid syncing them. This should be the case if you configure the repo to be of type `node`. These files are all auto-generated, and the content may differ for different machines.
+**📔 Nota**: Sube toda la carpeta del proyecto a un repositorio de GitHub, pero asegúrate de que las carpetas `/node-modules` o `/bin` y el archivo `package-lock.json` estén todos incluidos en el archivo `.gitignore`, para evitar sincronizarlos. Este debería ser el caso si configuras el repositorio para que sea de tipo `node`. Todos estos archivos se generan automáticamente, y el contenido puede diferir para diferentes máquinas.
 {% endhint %}
 
-### See also
+### Ver también
 
-* [Smart items - Basics](../../../creator/scene-editor/interactivity/smart-items.md)
-* [Smart items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md)
-* [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md)
-* [Making any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
-* [SDK Quick start](../../../creator/sdk7/getting-started/sdk-101.md): follow this mini tutorial for a quick crash course.
-* [Development workflow](../../../creator/sdk7/getting-started/dev-workflow.md): read this to understand scene creation from end to end.
-* [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [States and conditions](../scene-editor/interactivity/states-and-conditions.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [SDK Quick start](../sdk7/getting-started/sdk-101.md): sigue este mini tutorial para un curso intensivo rápido.
+* [Development workflow](../sdk7/getting-started/dev-workflow.md): lee esto para entender la creación de escenas de principio a fin.
+* [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): sumérgete directamente en ejemplos de escenas funcionales.

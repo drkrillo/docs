@@ -1,41 +1,37 @@
 ---
-description: React to the player's position
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/trigger-area
+description: Reacciona a la posición del jugador
 ---
 
 # Trigger Area
 
-To trigger an action when the player walks into or out of an area, use the Trigger Area [Smart Item](../../../creator/scene-editor/interactivity/smart-items.md).
+Para activar una acción cuando el jugador camina dentro o fuera de un área, usa el Trigger Area [Smart Item](../scene-editor/interactivity/smart-items.md).
 
-![](../../.gitbook/assets/trigger.png)
+![](../images/editor/trigger.png)
 
-The orange cube you see while editing your scene is only visible in the Scene Editor, it becomes invisible when running a preview of the scene. You can easily adjust and scale the orange cube to cover exactly the area you need.
+El cubo naranja que ves mientras editas tu escena solo es visible en el Scene Editor, se vuelve invisible al ejecutar un preview de la escena. Puedes ajustar y escalar fácilmente el cubo naranja para cubrir exactamente el área que necesitas.
 
-If any part of the player's body overlaps with this orange cube, the assigned event will be called.
+Si alguna parte del cuerpo del jugador se superpone con este cubo naranja, se llamará al evento asignado.
 
-Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on the item's **Triggers** component. The actions on these trigger events are activated every time that the player enters or leaves the area.
+Usa los tipos de trigger **On Player Enters Area** y **On Player Leaves Area** en el componente **Triggers** del ítem. Las acciones en estos eventos de trigger se activan cada vez que el jugador entra o sale del área.
 
-![](../../.gitbook/assets/on_player_enters.png)
+![](../images/editor/on_player_enters.png)
 
-You can add as many different actions on the same trigger event, this will activate them all simultaneously.
+Puedes agregar tantas acciones diferentes en el mismo evento de trigger, esto las activará todas simultáneamente.
 
 {% hint style="info" %}
-**💡 Tip**: If the trigger areas in your scene start getting in the way of editing other content, remember you can always lock and/or hide them from the [Entity Tree](../../../creator/scene-editor/get-started/scene-editor-essentials.md#the-entity-tree).
+**💡 Tip**: Si las trigger areas en tu escena comienzan a interponerse en la edición de otro contenido, recuerda que siempre puedes bloquearlas y/o ocultarlas desde el [Entity Tree](../scene-editor/get-started/scene-editor-essentials.md#the-entity-tree).
 
-<img src="../../.gitbook/assets/hide-trigger.png" alt="" data-size="original">
+![](../images/editor/hide-trigger.png)
 {% endhint %}
 
-You can also add **Trigger conditions**, so that the actions are only carried out if certain conditions are met in the scene. For example, you could have a trigger area that opens a sliding door when the player walks in; you could use a condition there to check the state of a lever that acts as a power switch, and only open the door if the power is on. See [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md) for more details.
+También puedes agregar **Trigger conditions**, para que las acciones solo se lleven a cabo si se cumplen ciertas condiciones en la escena. Por ejemplo, podrías tener un trigger area que abre una puerta deslizante cuando el jugador camina; podrías usar una condición allí para verificar el estado de una palanca que actúa como un interruptor de energía, y solo abrir la puerta si la energía está encendida. Consulta [States and conditions](../scene-editor/interactivity/states-and-conditions.md) para más detalles.
 
-![](../../.gitbook/assets/trigger-conditions-trigger-area.png)
+![](../images/editor/trigger-conditions-trigger-area.png)
 
-Multiple trigger areas can overlap, and don't affect each other.
+Múltiples trigger areas pueden superponerse, y no se afectan entre sí.
 
 {% hint style="info" %}
-**📔 Note**: You can also use **On Player Enters Area** and **On Player Leaves Area** trigger events on any other smart item, but keep in mind that it can be challenging to know the area covered by the trigger.
+**📔 Nota**: También puedes usar eventos de trigger **On Player Enters Area** y **On Player Leaves Area** en cualquier otro smart item, pero ten en cuenta que puede ser difícil conocer el área cubierta por el trigger.
 
-The size of the triggerable area doesn't relate to the item's visible shape or its colliders, it's always a cube of 1m on each side, affected by the scale of the item.
+El tamaño del área activable no se relaciona con la forma visible del ítem o sus colliders, siempre es un cubo de 1m en cada lado, afectado por la escala del ítem.
 {% endhint %}

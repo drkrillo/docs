@@ -1,72 +1,72 @@
-# UI1 to UI2 Migration Guide
+# Guía de Migración UI1 a UI2
 
-This guide covers the process of migrating components from UI1 (`decentraland-ui`) to UI2 (`decentraland-ui2`).
+Esta guía cubre el proceso de migrar componentes desde UI1 (`decentraland-ui`) a UI2 (`decentraland-ui2`).
 
-## When to Migrate
+## Cuándo Migrar
 
-Migrations can start for three valid reasons:
+Las migraciones pueden comenzar por tres razones válidas:
 
-### 1. Technical Improvement
+### 1. Mejora Técnica
 
-You want to migrate a component for:
-* Better theming support
-* Improved TypeScript types
-* Consistency with other UI2 components
-* Performance optimization
-* Accessibility improvements
+Quieres migrar un componente para:
+* Mejor soporte de theming
+* Tipos TypeScript mejorados
+* Consistencia con otros componentes UI2
+* Optimización de performance
+* Mejoras de accesibilidad
 
-### 2. Updating a Component
+### 2. Actualización de un Componente
 
-* A UI1 component needs to be updated
-* There is no UI2 equivalent yet
-* **Requirement**: Create it in UI2 first, then use it
+* Un componente UI1 necesita ser actualizado
+* Todavía no hay un equivalente UI2
+* **Requisito**: Créalo en UI2 primero, luego úsalo
 
-### 3. Project Needs
+### 3. Necesidades del Proyecto
 
-* The component will be used in a new or existing project
-* There is time available to migrate it properly
-* Project resources allow for thorough migration
+* El componente se usará en un proyecto nuevo o existente
+* Hay tiempo disponible para migrarlo apropiadamente
+* Los recursos del proyecto permiten una migración completa
 
 {% hint style="warning" %}
-**Do not** migrate components "just because." Each migration should have a clear business or technical justification.
+**No** migres componentes "solo porque sí." Cada migración debe tener una justificación clara de negocio o técnica.
 {% endhint %}
 
 ---
 
-## Migration Process
+## Proceso de Migración
 
-### Step 1: Planning
+### Paso 1: Planificación
 
-Before starting the migration:
+Antes de comenzar la migración:
 
-1. **Identify dependencies**
-   * What other components does it use?
-   * What projects currently use it?
-   * Are there any breaking changes planned?
+1. **Identifica dependencias**
+   * ¿Qué otros componentes usa?
+   * ¿Qué proyectos lo usan actualmente?
+   * ¿Hay cambios breaking planeados?
 
-2. **Review current usage**
-   * How many projects use this component?
-   * What props are most commonly used?
-   * Are there any known issues?
+2. **Revisa el uso actual**
+   * ¿Cuántos proyectos usan este componente?
+   * ¿Qué props se usan más comúnmente?
+   * ¿Hay problemas conocidos?
 
-3. **Define scope**
-   * Will this be a 1:1 migration?
-   * Are there planned improvements?
-   * What's the timeline?
+3. **Define alcance**
+   * ¿Será una migración 1:1?
+   * ¿Hay mejoras planeadas?
+   * ¿Cuál es el timeline?
 
-### Step 2: Create UI2 Component
+### Paso 2: Crear Componente UI2
 
-Follow the [Custom Components](custom-components.md) guide for UI2 candidate components.
+Sigue la guía de [Custom Components](custom-components.md) para componentes candidatos UI2.
 
-**Requirements:**
+**Requisitos:**
 
-* Use object syntax for styled-components
-* Use only theme values (no arbitrary values)
-* Add comprehensive Storybook stories
-* Write complete tests
-* Document all props and behaviors
+* Usa sintaxis de objetos para styled-components
+* Usa solo valores del theme (sin valores arbitrarios)
+* Agrega stories comprehensivos de Storybook
+* Escribe tests completos
+* Documenta todos los props y comportamientos
 
-**Example structure:**
+**Estructura de ejemplo:**
 
 ```
 ui2/src/components/Button/
@@ -79,14 +79,14 @@ ui2/src/components/Button/
 └── README.md
 ```
 
-### Step 3: Maintain Compatibility
+### Paso 3: Mantener Compatibilidad
 
-The UI2 component **MUST** expose the same props and behaviors as the UI1 version.
+El componente UI2 **DEBE** exponer los mismos props y comportamientos que la versión UI1.
 
-#### Same Props
+#### Mismos Props
 
 ```tsx
-// UI1 Button
+// Button UI1
 interface ButtonProps {
   primary?: boolean;
   size?: 'small' | 'medium' | 'large';
@@ -95,88 +95,88 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-// UI2 Button - MUST support same props
+// Button UI2 - DEBE soportar mismos props
 interface ButtonProps {
   primary?: boolean;
   size?: 'small' | 'medium' | 'large';
   onClick?: () => void;
   disabled?: boolean;
   children: React.ReactNode;
-  // Can add new optional props
+  // Puede agregar nuevos props opcionales
   variant?: 'text' | 'outlined' | 'contained';
 }
 ```
 
-#### Backward Compatible Changes
+#### Cambios Retrocompatibles
 
-If you need to change or add props:
+Si necesitas cambiar o agregar props:
 
-1. **First**, add the new props to UI1 as optional
-2. **Then**, migrate UI1 consumers to use the new props
-3. **Finally**, create the UI2 component with the new API
+1. **Primero**, agrega los nuevos props a UI1 como opcionales
+2. **Luego**, migra los consumidores de UI1 para usar los nuevos props
+3. **Finalmente**, crea el componente UI2 con la nueva API
 
 ```tsx
-// Step 1: Add optional prop to UI1
+// Paso 1: Agregar prop opcional a UI1
 interface ButtonProps {
   primary?: boolean;
-  // New optional prop
+  // Nuevo prop opcional
   variant?: 'primary' | 'secondary';
 }
 
-// Step 2: Update UI1 implementation
+// Paso 2: Actualizar implementación UI1
 export function Button({ primary, variant = primary ? 'primary' : 'secondary' }: ButtonProps) {
-  // Use variant instead of primary internally
+  // Usa variant en lugar de primary internamente
 }
 
-// Step 3: Create UI2 with new API
+// Paso 3: Crear UI2 con nueva API
 interface ButtonProps {
-  // variant is now the primary prop
+  // variant es ahora el prop principal
   variant?: 'primary' | 'secondary';
-  // Keep primary for compatibility, mark as deprecated
-  /** @deprecated Use variant instead */
+  // Mantener primary por compatibilidad, marcar como deprecated
+  /** @deprecated Usa variant en su lugar */
   primary?: boolean;
 }
 ```
 
-### Step 4: Deprecate UI1 Component
+### Paso 4: Deprecar Componente UI1
 
-Add a deprecation notice to the UI1 component:
+Agrega un aviso de deprecación al componente UI1:
 
 ```tsx
 /**
- * @deprecated This component has been migrated to UI2.
- * Import from 'decentraland-ui2' instead:
+ * @deprecated Este componente ha sido migrado a UI2.
+ * Importa desde 'decentraland-ui2' en su lugar:
  * 
  * ```tsx
  * import { Button } from 'decentraland-ui2';
  * ```
  * 
- * See migration guide: https://docs.decentraland.org/contributor-guides/web-ui-standards/migration
+ * Ve guía de migración: https://docs.decentraland.org/contributor-guides/web-ui-standards/migration
  */
 export function Button(props: ButtonProps) {
-  // ... existing implementation
+  // ... implementación existente
 }
 ```
 
-### Step 5: Gradual Adoption
+### Paso 5: Adopción Gradual
 
-Don't force immediate migration. Allow gradual adoption:
+No fuerces la migración inmediata. Permite adopción gradual:
 
-1. **Publish** UI2 component
-2. **Document** migration path
-3. **Update** new projects to use UI2
-4. **Migrate** existing projects opportunistically
-5. **Plan** eventual UI1 removal (with notice)
+1. **Publica** componente UI2
+2. **Documenta** el camino de migración
+3. **Actualiza** nuevos proyectos para usar UI2
+4. **Migra** proyectos existentes oportunísticamente
+5. **Planea** eventual remoción de UI1 (con aviso)
 
 ---
 
-## Migration Examples
+## Ejemplos de Migración
 
-### Example 1: Simple Component
+### Ejemplo 1: Componente Simple
 
-Migrating a basic `Card` component:
+Migrando un componente básico `Card`:
 
-#### UI1 Version
+#### Versión UI1
 
 ```tsx
 // decentraland-ui/src/components/Card/Card.tsx
@@ -197,7 +197,7 @@ export function Card({ className, children }: CardProps) {
 }
 ```
 
-#### UI2 Version
+#### Versión UI2
 
 ```tsx
 // decentraland-ui2/src/components/Card/Card.tsx
@@ -228,11 +228,11 @@ export function Card({ className, children }: CardProps) {
 }
 ```
 
-### Example 2: Component with Variants
+### Ejemplo 2: Componente con Variantes
 
-Migrating a `Button` with variants:
+Migrando un `Button` con variantes:
 
-#### UI1 Version
+#### Versión UI1
 
 ```tsx
 // UI1
@@ -256,16 +256,16 @@ export function Button({ primary, secondary, size = 'medium', ...props }: Button
 }
 ```
 
-#### UI2 Version
+#### Versión UI2
 
 ```tsx
 // UI2
 import { styled } from '@mui/material/styles';
 
 interface ButtonProps {
-  /** @deprecated Use variant="contained" instead */
+  /** @deprecated Usa variant="contained" en su lugar */
   primary?: boolean;
-  /** @deprecated Use variant="outlined" instead */
+  /** @deprecated Usa variant="outlined" en su lugar */
   secondary?: boolean;
   variant?: 'text' | 'outlined' | 'contained';
   size?: 'small' | 'medium' | 'large';
@@ -318,7 +318,7 @@ export function Button({
   variant, 
   ...props 
 }: ButtonProps) {
-  // Handle deprecated props
+  // Maneja props deprecated
   const actualVariant = variant || 
     (primary ? 'contained' : secondary ? 'outlined' : 'text');
   
@@ -328,51 +328,51 @@ export function Button({
 
 ---
 
-## Migration Checklist
+## Checklist de Migración
 
-Use this checklist for each component migration:
+Usa este checklist para cada migración de componente:
 
-### Planning Phase
+### Fase de Planificación
 
-- [ ]  Identify all projects using the component
-- [ ]  Document current props and behaviors
-- [ ]  Define migration scope and timeline
-- [ ]  Get stakeholder approval
+- [ ]  Identifica todos los proyectos usando el componente
+- [ ]  Documenta props y comportamientos actuales
+- [ ]  Define alcance y timeline de migración
+- [ ]  Obtén aprobación de stakeholders
 
-### Implementation Phase
+### Fase de Implementación
 
-- [ ]  Create UI2 component following standards
-- [ ]  Maintain prop compatibility
-- [ ]  Use object syntax for styling
-- [ ]  Use only theme values
-- [ ]  Implement all states (idle, hover, focus, disabled, error)
-- [ ]  Add comprehensive Storybook stories
-- [ ]  Write unit tests
-- [ ]  Document accessibility features
+- [ ]  Crea componente UI2 siguiendo estándares
+- [ ]  Mantén compatibilidad de props
+- [ ]  Usa sintaxis de objetos para styling
+- [ ]  Usa solo valores del theme
+- [ ]  Implementa todos los estados (idle, hover, focus, disabled, error)
+- [ ]  Agrega stories comprehensivos de Storybook
+- [ ]  Escribe tests unitarios
+- [ ]  Documenta funcionalidades de accesibilidad
 
-### Deprecation Phase
+### Fase de Deprecación
 
-- [ ]  Add deprecation notice to UI1 component
-- [ ]  Update UI1 documentation
-- [ ]  Create migration guide for consumers
-- [ ]  Publish UI2 component
+- [ ]  Agrega aviso de deprecación al componente UI1
+- [ ]  Actualiza documentación de UI1
+- [ ]  Crea guía de migración para consumidores
+- [ ]  Publica componente UI2
 
-### Adoption Phase
+### Fase de Adopción
 
-- [ ]  Update new projects to use UI2
-- [ ]  Create migration PRs for existing projects
-- [ ]  Monitor for issues
-- [ ]  Gather feedback
-- [ ]  Plan UI1 removal timeline
+- [ ]  Actualiza nuevos proyectos para usar UI2
+- [ ]  Crea PRs de migración para proyectos existentes
+- [ ]  Monitorea problemas
+- [ ]  Recolecta feedback
+- [ ]  Planea timeline de remoción de UI1
 
 ---
 
-## Common Migration Patterns
+## Patrones Comunes de Migración
 
-### CSS to Styled Components
+### CSS a Styled Components
 
 ```tsx
-// UI1: CSS file
+// UI1: Archivo CSS
 .dcl-card {
   background: #fff;
   padding: 16px;
@@ -387,27 +387,27 @@ const Card = styled('div')(({ theme }) => ({
 }));
 ```
 
-### Class Names to Props
+### Class Names a Props
 
 ```tsx
-// UI1: Class-based variants
+// UI1: Variantes basadas en clases
 <Button className={primary ? 'primary' : 'secondary'} />
 
-// UI2: Prop-based variants
+// UI2: Variantes basadas en props
 <Button variant={primary ? 'contained' : 'outlined'} />
 ```
 
-### Fixed Values to Theme
+### Valores Fijos a Theme
 
 ```tsx
-// UI1: Fixed values
+// UI1: Valores fijos
 const styles = {
   color: '#333',
   fontSize: '14px',
   padding: '8px 16px',
 };
 
-// UI2: Theme values
+// UI2: Valores del theme
 const Component = styled('div')(({ theme }) => ({
   color: theme.palette.text.primary,
   fontSize: theme.typography.body2.fontSize,
@@ -417,43 +417,43 @@ const Component = styled('div')(({ theme }) => ({
 
 ---
 
-## Breaking Changes
+## Cambios Breaking
 
-Sometimes breaking changes are necessary. Handle them carefully:
+A veces los cambios breaking son necesarios. Manéjalos cuidadosamente:
 
-### When Breaking Changes Are Acceptable
+### Cuándo los Cambios Breaking Son Aceptables
 
-* Security fixes
-* Critical bugs
-* Major version updates
-* Removing deprecated features (with notice)
+* Correcciones de seguridad
+* Bugs críticos
+* Actualizaciones de versión mayor
+* Remoción de funcionalidades deprecated (con aviso)
 
-### How to Handle Breaking Changes
+### Cómo Manejar Cambios Breaking
 
-1. **Announce early** - Communicate changes well in advance
-2. **Provide migration path** - Document how to update
-3. **Version bump** - Follow semantic versioning
-4. **Deprecation period** - Give time to migrate
-5. **Codemods** - Provide automated migration tools if possible
+1. **Anuncia temprano** - Comunica cambios con anticipación
+2. **Proporciona camino de migración** - Documenta cómo actualizar
+3. **Version bump** - Sigue semantic versioning
+4. **Período de deprecación** - Da tiempo para migrar
+5. **Codemods** - Proporciona herramientas de migración automatizada si es posible
 
-### Example: Removing Deprecated Props
+### Ejemplo: Remover Props Deprecated
 
 ```tsx
-// Version 1.0: Introduce new API, deprecate old
+// Versión 1.0: Introduce nueva API, depreca antigua
 interface ButtonProps {
-  /** @deprecated Use variant="contained" instead */
+  /** @deprecated Usa variant="contained" en su lugar */
   primary?: boolean;
   variant?: 'text' | 'outlined' | 'contained';
 }
 
-// Version 1.5: Warn about removal
+// Versión 1.5: Advierte sobre remoción
 interface ButtonProps {
-  /** @deprecated Will be removed in 2.0. Use variant instead */
+  /** @deprecated Se removerá en 2.0. Usa variant en su lugar */
   primary?: boolean;
   variant?: 'text' | 'outlined' | 'contained';
 }
 
-// Version 2.0: Remove deprecated prop
+// Versión 2.0: Remueve prop deprecated
 interface ButtonProps {
   variant?: 'text' | 'outlined' | 'contained';
 }
@@ -461,16 +461,16 @@ interface ButtonProps {
 
 ---
 
-## Testing Migration
+## Testing de Migración
 
-Ensure migrated components work correctly:
+Asegura que los componentes migrados funcionen correctamente:
 
-### Visual Regression Testing
+### Testing de Regresión Visual
 
-Compare UI1 and UI2 components visually:
+Compara componentes UI1 y UI2 visualmente:
 
 ```tsx
-// Storybook story for comparison
+// Story de Storybook para comparación
 export const ComparisonStory: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '2rem' }}>
@@ -487,9 +487,9 @@ export const ComparisonStory: Story = {
 };
 ```
 
-### Behavioral Testing
+### Testing de Comportamiento
 
-Ensure props work the same way:
+Asegura que los props funcionen de la misma manera:
 
 ```tsx
 describe('Button migration', () => {
@@ -497,7 +497,7 @@ describe('Button migration', () => {
     const { container: ui1 } = render(<UI1Button primary>Test</UI1Button>);
     const { container: ui2 } = render(<UI2Button primary>Test</UI2Button>);
     
-    // Compare rendered output
+    // Compara output renderizado
     expect(ui1.textContent).toBe(ui2.textContent);
   });
 });
@@ -505,49 +505,48 @@ describe('Button migration', () => {
 
 ---
 
-## Documentation Updates
+## Actualizaciones de Documentación
 
-After migration, update documentation:
+Después de la migración, actualiza la documentación:
 
-### Update UI1 Component Docs
+### Actualizar Documentos del Componente UI1
 
 ```markdown
 # Button (UI1 - Deprecated)
 
-> ⚠️ **This component has been migrated to UI2.**
-> See the [UI2 Button documentation](../ui2/button) for the new version.
+> ⚠️ **Este componente ha sido migrado a UI2.**
+> Ve la [documentación del Button UI2](../ui2/button) para la nueva versión.
 
-This component is deprecated and will be removed in a future version.
-Please migrate to UI2.
+Este componente está deprecated y será removido en una versión futura.
+Por favor migra a UI2.
 
-## Migration Guide
+## Guía de Migración
 
-See [Migration Guide](./migration) for details.
+Ve [Guía de Migración](./migration) para detalles.
 ```
 
-### Create UI2 Component Docs
+### Crear Documentos del Componente UI2
 
 ```markdown
 # Button (UI2)
 
-Modern button component with full theme support.
+Componente de botón moderno con soporte completo de theme.
 
-## Migration from UI1
+## Migración desde UI1
 
-If you're migrating from UI1:
+Si estás migrando desde UI1:
 
-- `primary` prop → `variant="contained"`
-- `secondary` prop → `variant="outlined"`
-- CSS classes → styled-components
+- Prop `primary` → `variant="contained"`
+- Prop `secondary` → `variant="outlined"`
+- Clases CSS → styled-components
 
-See full [Migration Guide](./migration) for details.
+Ve la [Guía de Migración](./migration) completa para detalles.
 ```
 
 ---
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Custom Components](custom-components.md) for creating UI2 components
-* See [Styling & Theming](styling-and-theming.md) for styling standards
-* Check [Process Overview](process-overview.md) for the complete workflow
-
+* Revisa [Custom Components](custom-components.md) para crear componentes UI2
+* Ve [Styling & Theming](styling-and-theming.md) para estándares de styling
+* Verifica [Process Overview](process-overview.md) para el flujo de trabajo completo

@@ -1,28 +1,28 @@
-# Store Setup
+# Configuración del Store
 
-This page covers how to configure your Redux store, set up typed hooks, and organize your project structure.
+Esta página cubre cómo configurar su store Redux, configurar hooks tipados y organizar su estructura de proyecto.
 
-## Folder Structure
+## Estructura de Carpetas
 
-Projects MUST follow this structure for consistency and maintainability:
+Los proyectos DEBEN seguir esta estructura para consistencia y mantenibilidad:
 
 ```
 src/
   app/
-    store.ts              # Store configuration
-    hooks.ts              # Typed hooks (useAppDispatch/useAppSelector)
+    store.ts              # Configuración del store
+    hooks.ts              # Hooks tipados (useAppDispatch/useAppSelector)
   shared/
-    types/                # DTOs (API), Domain models, mappers
-    utils/                # Shared utilities
+    types/                # DTOs (API), modelos de dominio, mappers
+    utils/                # Utilidades compartidas
   services/
-    client.ts             # RTK Query base client
-    baseQuery.ts          # Base query with auth/chainId/retry
+    client.ts             # Cliente base RTK Query
+    baseQuery.ts          # Base query con auth/chainId/retry
   features/
     user/
-      user.client.ts      # RTK Query endpoints
-      user.slice.ts       # UI state slice
-      user.selectors.ts   # Memoized selectors
-      __tests__/          # Tests
+      user.client.ts      # Endpoints RTK Query
+      user.slice.ts       # Slice de estado UI
+      user.selectors.ts   # Selectores memoizados
+      __tests__/          # Pruebas
     land/
       land.client.ts
       land.slice.ts
@@ -33,17 +33,17 @@ src/
       credits.selectors.ts
 ```
 
-### Folder Organization Principles
+### Principios de Organización de Carpetas
 
-* **Feature-based** - Group by business domain, not technical role
-* **Co-location** - Keep related code together
-* **Clear separation** - Distinguish between remote data (`.client.ts`) and local state (`.slice.ts`)
+* **Basado en características** - Agrupar por dominio de negocio, no por rol técnico
+* **Co-localización** - Mantener código relacionado junto
+* **Separación clara** - Distinguir entre datos remotos (`.client.ts`) y estado local (`.slice.ts`)
 
-## Store Configuration
+## Configuración del Store
 
-The store MUST be configured with RTK's `configureStore` and include all necessary middleware.
+El store DEBE configurarse con `configureStore` de RTK e incluir todo el middleware necesario.
 
-### Basic Store Setup
+### Configuración Básica del Store
 
 ```tsx
 // src/app/store.ts
@@ -55,10 +55,10 @@ import creditsReducer from '@/features/credits/credits.slice';
 
 export const store = configureStore({
   reducer: {
-    // RTK Query client reducer (MUST be included)
+    // Reducer del cliente RTK Query (DEBE ser incluido)
     [client.reducerPath]: client.reducer,
     
-    // Feature slices
+    // Slices de características
     user: userReducer,
     land: landReducer,
     credits: creditsReducer,
@@ -67,51 +67,51 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        // Ignore redux-persist or other known non-serializable paths
+        // Ignorar redux-persist u otras rutas no serializables conocidas
         ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
         ignoredPaths: ['register'],
       },
-    }).concat(client.middleware), // MUST include RTK Query middleware
+    }).concat(client.middleware), // DEBE incluir middleware RTK Query
     
   devTools: process.env.NODE_ENV !== 'production',
 });
 
-// Export types for use throughout the app
+// Exportar tipos para usar a través de la app
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 ```
 
-### Configuration Options
+### Opciones de Configuración
 
-#### Serializable Check
+#### Verificación de Serializable
 
-The `serializableCheck` middleware validates that all state is serializable. Configure it to ignore known exceptions:
+El middleware `serializableCheck` valida que todo el estado sea serializable. Configurarlo para ignorar excepciones conocidas:
 
 ```tsx
 serializableCheck: {
-  // Actions to ignore
+  // Acciones a ignorar
   ignoredActions: [
     'persist/PERSIST',
     'persist/REHYDRATE',
   ],
-  // State paths to ignore
+  // Rutas de estado a ignorar
   ignoredPaths: ['register', 'socket.connection'],
 }
 ```
 
 {% hint style="warning" %}
-**Never disable `serializableCheck` entirely.** Instead, configure exceptions and keep non-serializable data outside Redux.
+**Nunca deshabilitar `serializableCheck` completamente.** En su lugar, configurar excepciones y mantener datos no serializables fuera de Redux.
 {% endhint %}
 
 #### Dev Tools
 
-Enable Redux DevTools in development for debugging:
+Habilitar Redux DevTools en desarrollo para depuración:
 
 ```tsx
 devTools: process.env.NODE_ENV !== 'production'
 ```
 
-For production debugging (if needed), use specific configuration:
+Para depuración de producción (si es necesario), usar configuración específica:
 
 ```tsx
 devTools: process.env.NODE_ENV !== 'production' ? true : {
@@ -121,55 +121,55 @@ devTools: process.env.NODE_ENV !== 'production' ? true : {
 }
 ```
 
-## Typed Hooks
+## Hooks Tipados
 
-Create typed versions of `useDispatch` and `useSelector` for better type inference and developer experience.
+Crear versiones tipadas de `useDispatch` y `useSelector` para mejor inferencia de tipos y experiencia de desarrollador.
 
-### Hook Setup
+### Configuración de Hooks
 
 ```tsx
 // src/app/hooks.ts
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from './store';
 
-// Typed dispatch hook
+// Hook de dispatch tipado
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
-// Typed selector hook
+// Hook de selector tipado
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
 
-### Usage in Components
+### Uso en Componentes
 
 ```tsx
-// ❌ Bad: Using standard hooks
+// ❌ Mal: Usando hooks estándar
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/app/store';
 
 function Component() {
-  const dispatch = useDispatch(); // No type inference
-  const user = useSelector((state: RootState) => state.user); // Manual typing
+  const dispatch = useDispatch(); // Sin inferencia de tipos
+  const user = useSelector((state: RootState) => state.user); // Tipado manual
 }
 
-// ✅ Good: Using typed hooks
+// ✅ Bien: Usando hooks tipados
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 function Component() {
-  const dispatch = useAppDispatch(); // Typed automatically
-  const user = useAppSelector((state) => state.user); // RootState inferred
+  const dispatch = useAppDispatch(); // Tipado automáticamente
+  const user = useAppSelector((state) => state.user); // RootState inferido
 }
 ```
 
-### Benefits of Typed Hooks
+### Beneficios de Hooks Tipados
 
-1. **Autocomplete** - Full IntelliSense for state shape
-2. **Type Safety** - Catch errors at compile time
-3. **Refactoring** - Rename state properties with confidence
-4. **Less Boilerplate** - No need to specify `RootState` repeatedly
+1. **Autocompletado** - IntelliSense completo para forma del estado
+2. **Type Safety** - Detectar errores en tiempo de compilación
+3. **Refactorización** - Renombrar propiedades de estado con confianza
+4. **Menos Código Repetitivo** - No necesidad de especificar `RootState` repetidamente
 
-## Provider Setup
+## Configuración del Provider
 
-Wrap your app with the Redux Provider:
+Envolver su app con el Provider de Redux:
 
 ### Next.js App Router
 
@@ -233,9 +233,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 );
 ```
 
-## Environment Configuration
+## Configuración de Entorno
 
-Configure environment-specific settings:
+Configurar ajustes específicos de entorno:
 
 ```tsx
 // src/config/constants.ts
@@ -243,29 +243,29 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.decentral
 export const WS_URL = process.env.NEXT_PUBLIC_WS_URL || 'wss://api.decentraland.org';
 export const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID || '1';
 
-// RTK Query settings
+// Configuración RTK Query
 export const RTK_QUERY_CONFIG = {
-  keepUnusedDataFor: 60, // seconds
+  keepUnusedDataFor: 60, // segundos
   refetchOnFocus: true,
   refetchOnReconnect: true,
-  refetchOnMountOrArgChange: 30, // seconds
+  refetchOnMountOrArgChange: 30, // segundos
 } as const;
 ```
 
-## Type Definitions
+## Definiciones de Tipos
 
-Create shared type definitions for consistency:
+Crear definiciones de tipos compartidos para consistencia:
 
 ```tsx
 // src/shared/types/api.types.ts
-/** API response wrapper */
+/** Envoltorio de respuesta API */
 export interface ApiResponse<T> {
   ok: boolean;
   data: T;
   error?: string;
 }
 
-/** Paginated response */
+/** Respuesta paginada */
 export interface PaginatedResponse<T> {
   items: T[];
   total: number;
@@ -273,7 +273,7 @@ export interface PaginatedResponse<T> {
   limit: number;
 }
 
-/** Common API error */
+/** Error común de API */
 export interface ApiError {
   message: string;
   code: string;
@@ -283,7 +283,7 @@ export interface ApiError {
 
 ```tsx
 // src/shared/types/domain.types.ts
-/** User domain model */
+/** Modelo de dominio User */
 export interface User {
   id: string;
   address: string;
@@ -292,7 +292,7 @@ export interface User {
   createdAt: string;
 }
 
-/** Parcel domain model */
+/** Modelo de dominio Parcel */
 export interface Parcel {
   id: string;
   x: number;
@@ -302,9 +302,9 @@ export interface Parcel {
 }
 ```
 
-## Multiple Store Instances
+## Múltiples Instancias de Store
 
-For testing or micro-frontends, you may need multiple store instances:
+Para pruebas o micro-frontends, puede necesitar múltiples instancias de store:
 
 ```tsx
 // src/app/store.ts
@@ -316,11 +316,11 @@ export function createStore(preloadedState?: Partial<RootState>) {
       // ... reducers
     },
     preloadedState,
-    // ... other config
+    // ... otra configuración
   });
 }
 
-// Default store instance
+// Instancia de store por defecto
 export const store = createStore();
 
 export type AppStore = ReturnType<typeof createStore>;
@@ -328,24 +328,24 @@ export type RootState = ReturnType<AppStore['getState']>;
 export type AppDispatch = AppStore['dispatch'];
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Single Store
+### 1. Store Único
 
-Always use a single store instance per application:
+Siempre usar una sola instancia de store por aplicación:
 
 ```tsx
-// ✅ Good: One store
+// ✅ Bien: Un store
 export const store = configureStore({ ... });
 
-// ❌ Bad: Multiple stores
+// ❌ Mal: Múltiples stores
 export const userStore = configureStore({ ... });
 export const cartStore = configureStore({ ... });
 ```
 
-### 2. Lazy Loading Reducers
+### 2. Carga Lazy de Reducers
 
-For code splitting, inject reducers dynamically:
+Para code splitting, inyectar reducers dinámicamente:
 
 ```tsx
 import { combineReducers } from '@reduxjs/toolkit';
@@ -361,7 +361,7 @@ export function createReducer(asyncReducers = {}) {
   });
 }
 
-// In store
+// En el store
 let currentReducers = createReducer();
 
 export function injectReducer(key: string, reducer: Reducer) {
@@ -372,7 +372,7 @@ export function injectReducer(key: string, reducer: Reducer) {
 
 ### 3. Hot Module Replacement
 
-Enable HMR for reducers in development:
+Habilitar HMR para reducers en desarrollo:
 
 ```tsx
 if (process.env.NODE_ENV === 'development' && module.hot) {
@@ -383,9 +383,9 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 }
 ```
 
-### 4. State Persistence
+### 4. Persistencia de Estado
 
-When using redux-persist, configure carefully:
+Al usar redux-persist, configurar cuidadosamente:
 
 ```tsx
 import { persistStore, persistReducer } from 'redux-persist';
@@ -394,18 +394,17 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
-  // Only persist specific slices
+  // Solo persistir slices específicos
   whitelist: ['user', 'preferences'],
-  // Never persist RTK Query cache
+  // Nunca persistir caché RTK Query
   blacklist: ['client'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Learn about [RTK Query](rtk-query.md) for data fetching
-* Understand [State Management](state-management.md) for local state
-* Review [Component Patterns](component-patterns.md) for usage examples
-
+* Aprender sobre [RTK Query](rtk-query.md) para obtención de datos
+* Entender [Gestión de Estado](state-management.md) para estado local
+* Revisar [Patrones de Componentes](component-patterns.md) para ejemplos de uso

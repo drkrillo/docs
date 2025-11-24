@@ -1,33 +1,29 @@
 ---
-description: Reference items in your code by name or by tag.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/code/reference-items
+description: Referencia ítems en tu código por nombre o por tag.
 ---
 
-# Reference Items
+# Referenciar Ítems
 
-You can reference items that are added via the Creator Hub drag-and-drop interface in your code. This is useful to add sophisticated behavior to those items, or to reference them from other parts of your code.
+Puedes referenciar ítems que se agregan a través de la interfaz de arrastrar y soltar del Creator Hub en tu código. Esto es útil para agregar comportamiento sofisticado a esos ítems, o para referenciarlos desde otras partes de tu código.
 
-### Fetch by name
+### Obtener por nombre
 
-When using the Creator Hub and adding entities by dragging them into the canvas, each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code.
+Cuando usas el Creator Hub y agregas entidades arrastrándolas al canvas, cada entidad tiene un nombre único. Usa la función `engine.getEntityOrNullByName()` para referenciar una de estas entidades desde tu código.
 
-Use the `EntityNames` enum to easily access the names of the entities that you added via the Creator Hub, or write the name as a string as written on the scene's entity tree view in the Scene Editor.
+Usa el enum `EntityNames` para acceder fácilmente a los nombres de las entidades que agregaste a través del Creator Hub, o escribe el nombre como una cadena tal como está escrito en la vista del entity tree de la escena en el Scene Editor.
 
 ```ts
 import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
 
-	// Use the EntityNames enum
+	// Usa el enum EntityNames
 	const door1 = engine.getEntityOrNullByName(EntityNames.Door_1)
 
-	// Write the name as a string
+	// Escribe el nombre como una cadena
 	const door2 = engine.getEntityOrNullByName('Door 2')
 
-	// Ensure both doors exsist in the scene
+	// Asegúrate de que ambas puertas existan en la escena
 	(if door1 && door2){
 		// 
 	}
@@ -35,13 +31,13 @@ function main() {
 }
 ```
 
-![](../../.gitbook/assets/door-names.png)
+![](../images/editor/door-names.png)
 
-The `EntityNames` enum contains the full list of entities added by the Creator Hub and is updated immediately as soon as you make any changes. If you import `EntityNames.` into your code, your IDE will present you with a dropdown including all the names of the entities available.
+El enum `EntityNames` contiene la lista completa de entidades agregadas por el Creator Hub y se actualiza inmediatamente tan pronto como haces cualquier cambio. Si importas `EntityNames.` en tu código, tu IDE te presentará un desplegable que incluye todos los nombres de las entidades disponibles.
 
-![](../../.gitbook/assets/EntityNames.png)
+![](../images/editor/EntityNames.png)
 
-You can also use the `engine.getEntityByName<EntityNames>()` function, passing `<EntityNames>` as a [TypeScript generic](https://www.typescriptlang.org/docs/handbook/2/generics.html), to validate that an entity by that name really exists in your scene. If the referenced entity is renamed on the Creator Hub, this method will warn you with an error. As the output of this function can't be `null`, you can avoid checking that the entity exists.
+También puedes usar la función `engine.getEntityByName<EntityNames>()`, pasando `<EntityNames>` como un [genérico de TypeScript](https://www.typescriptlang.org/docs/handbook/2/generics.html), para validar que una entidad con ese nombre realmente existe en tu escena. Si la entidad referenciada se renombra en el Creator Hub, este método te advertirá con un error. Como la salida de esta función no puede ser `null`, puedes evitar verificar que la entidad existe.
 
 ```ts
 import { EntityNames } from '../assets/scene/entity-names'
@@ -50,41 +46,41 @@ function main() {
 
 	const door1 = engine.getEntityByName<EntityNames>(EntityNames.Door_1)
 
-	// Ne need to check for null
+	// No es necesario verificar null
 	console.log(Transform.get(door1).position.x)
 
 }
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` and `engine.getEntityByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the Scene Editor may not yet be instanced.
+**📔 Nota**: Asegúrate de usar solo `engine.getEntityOrNullByName()` y `engine.getEntityByName()` dentro de la función `main()`, en funciones que se ejecutan después de `main()`, o en un system. Si se usa fuera de uno de esos contextos, las entidades creadas en el Scene Editor puede que aún no estén instanciadas.
 {% endhint %}
 
-Once you fetched a reference to an entity with any of the above methods, you're free to perform any action with it, like add or remove components, modify values of existing components, or even remove the entity from the engine.
+Una vez que obtuviste una referencia a una entidad con cualquiera de los métodos anteriores, eres libre de realizar cualquier acción con ella, como agregar o eliminar componentes, modificar valores de componentes existentes, o incluso eliminar la entidad del motor.
 
 ```ts
 import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	// fetch entity
+	// obtener entidad
 	const door = engine.getEntityOrNullByName(EntityNames.Door_3)
-	// verify that the entity exists
+	// verificar que la entidad existe
 	if (door) {
-		// add a pointer events callback
+		// agregar un callback de pointer events
 		pointerEventsSystem.onPointerDown(
 			{
 				entity: door,
 				opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open' },
 			},
 			function () {
-				// open door
+				// abrir puerta
 			}
 		)
 	}
 }
 ```
 
-All the entities added via the Scene Editor have a `Name` component, you can also iterate over all of them like this:
+Todas las entidades agregadas a través del Scene Editor tienen un componente `Name`, también puedes iterar sobre todas ellas así:
 
 ```ts
 function main() {
@@ -94,21 +90,21 @@ function main() {
 }
 ```
 
-### Fetch by Tag
+### Obtener por Tag
 
-You can also fetch entities by their tags. Tags are a way to group entities together, and are useful to identify entities that have the same purpose or behavior.
+También puedes obtener entidades por sus tags. Los tags son una forma de agrupar entidades juntas, y son útiles para identificar entidades que tienen el mismo propósito o comportamiento.
 
-Add Tags to an entity via the **Tags** section at the top of the item's properties panel. You can pick from the generic tags like **Tag Group 1** through to **Tag Group 4**, or create your own with a more specific name.
+Agrega Tags a una entidad a través de la sección **Tags** en la parte superior del panel de propiedades del ítem. Puedes elegir de los tags genéricos como **Tag Group 1** hasta **Tag Group 4**, o crear el tuyo propio con un nombre más específico.
 
-![](../../.gitbook/assets/tags.png)
+![](../images/editor/tags.png)
 
 {% hint style="info" %}
-**💡 Tip**: A single entity can have multiple tags assigned to it.
+**💡 Tip**: Una sola entidad puede tener múltiples tags asignados a ella.
 
-<img src="../../.gitbook/assets/tags-multiple.png" alt="" data-size="original">
+![](../images/editor/tags-multiple.png)
 {% endhint %}
 
-You can then fetch all entities that have a specific tag by using the `engine.getEntitiesByTag()` function. This is ideal for when you want to iterate over a group of entities that have the same purpose or behavior.
+Luego puedes obtener todas las entidades que tienen un tag específico usando la función `engine.getEntitiesByTag()`. Esto es ideal para cuando quieres iterar sobre un grupo de entidades que tienen el mismo propósito o comportamiento.
 
 ```ts
 import { engine } from '@dcl/sdk/ecs'
@@ -117,12 +113,12 @@ export function main() {
 	const taggedEntities = engine.getEntitiesByTag('myTag')
   
 	for (const entity of taggedEntities) {
-      // Do something with each entity
+      // Hacer algo con cada entidad
     }
 }
 ```
 
-You can also add or remove tags to an entity from your code. This is useful if you want to change tags based on some logic, or to spawn entities dynamically that have specific tags.
+También puedes agregar o eliminar tags a una entidad desde tu código. Esto es útil si quieres cambiar tags basándote en alguna lógica, o para generar entidades dinámicamente que tienen tags específicos.
 
 ```ts
 import { Tags } from '@dcl/sdk/ecs'
@@ -131,29 +127,29 @@ Tags.remove(entity, tagName);
 Tags.add(entity, tagName);
 ```
 
-### Fetch all the children of an item
+### Obtener todos los hijos de un ítem
 
-You can also write a script that lets you deal with all of the items that are grouped as children of a certain item on the entity tree on the left of the screen. The following script iterates over all entities that have a Transform and a parent, and checks if the name of the parent matches the name `some-parent` in this case. You can then apply any custom logic you want to those specific entities.
+También puedes escribir un script que te permita tratar con todos los ítems que están agrupados como hijos de un cierto ítem en el entity tree a la izquierda de la pantalla. El siguiente script itera sobre todas las entidades que tienen un Transform y un padre, y verifica si el nombre del padre coincide con el nombre `some-parent` en este caso. Luego puedes aplicar cualquier lógica personalizada que desees a esas entidades específicas.
 
 ```ts
 import { engine, Entity, Transform, Name } from '@dcl/sdk/ecs'
 import { EntityNames } from '../assets/scene/entity-names'
 
 function main() {
-	// get parent entity
+	// obtener entidad padre
 	const parent = engine.getEntityByName<EntityNames>(EntityNames.ParentEntity)
 	
-	// obtain all children entities of that parent
+	// obtener todas las entidades hijas de ese padre
 	const childEntities = getChildren(parent)
 	
-	// loop over each child
+	// recorrer cada hijo
 	for(const entity of childEntities){
-		// handle entity
+		// manejar entidad
 	}
 
 }
 
-// reusable function to obtain all the child entities of a parent
+// función reutilizable para obtener todas las entidades hijas de un padre
 function getChildren(parent: Entity): Entity[] {
 	const childEntities: Entity[] = []
 	for (const [entity, transform] of engine.getEntitiesWith(Transform)) {
@@ -165,15 +161,15 @@ function getChildren(parent: Entity): Entity[] {
 }
 ```
 
-### Smart item triggers
+### Triggers de smart item
 
-You can detect a smart item's **Trigger events**, and respond to these with custom code. For example, you could place a button smart item, and activate custom code when the button is clicked.
+Puedes detectar los **eventos de Trigger** de un smart item, y responder a estos con código personalizado. Por ejemplo, podrías colocar un smart item de botón, y activar código personalizado cuando se hace clic en el botón.
 
-Use `getTriggerEvents` to fetch an object that can handle trigger events on from a particular smart item, then use the `.on()` function of the returned object to subscribe a callback function. This callback function gets executed every time that the trigger event happens.
+Usa `getTriggerEvents` para obtener un objeto que pueda manejar eventos de trigger de un smart item particular, luego usa la función `.on()` del objeto devuelto para suscribir una función de callback. Esta función de callback se ejecuta cada vez que ocurre el evento de trigger.
 
-For example, if a scene has a button with the following generic **On Click** event, you can write the code below to run custom code whenever the button is activated.
+Por ejemplo, si una escena tiene un botón con el siguiente evento genérico **On Click**, puedes escribir el código a continuación para ejecutar código personalizado cada vez que se activa el botón.
 
-![](../../.gitbook/assets/restart-button.png)
+![](../images/editor/restart-button.png)
 
 ```ts
 import { engine } from '@dcl/sdk/ecs'
@@ -192,17 +188,17 @@ function main() {
 }
 ```
 
-You can similarly subscribe to any other type of trigger events, like **ON\_PLAYER\_ENTERS\_AREA**, **ON\_SPAWN**, **ON\_TWEEN\_END**, etc.
+De manera similar, puedes suscribirte a cualquier otro tipo de eventos de trigger, como **ON\_PLAYER\_ENTERS\_AREA**, **ON\_SPAWN**, **ON\_TWEEN\_END**, etc.
 
-### Smart item actions
+### Acciones de smart item
 
-You can detect the activation of a smart item's **Actions**, and respond to these with custom code. For example, you could place a door smart item, and run custom code whenever the **Open** action gets called.
+Puedes detectar la activación de las **Actions** de un smart item, y responder a estas con código personalizado. Por ejemplo, podrías colocar un smart item de puerta, y ejecutar código personalizado cada vez que se llama a la acción **Open**.
 
-Use `getActionEvents` to fetch an object for handling the actions of a specific smart item. Then you can use the `.on()` function of the returned object to subscribe a callback function. This callback function gets executed every time that the action happens, regardless of if the action was activated by another smart item, or even by custom code of your own.
+Usa `getActionEvents` para obtener un objeto para manejar las acciones de un smart item específico. Luego puedes usar la función `.on()` del objeto devuelto para suscribir una función de callback. Esta función de callback se ejecuta cada vez que ocurre la acción, independientemente de si la acción fue activada por otro smart item, o incluso por código personalizado tuyo.
 
-For example, if a scene has a door with the following default **Open** action, you can write the code below to run custom code whenever the door is opened.
+Por ejemplo, si una escena tiene una puerta con la siguiente acción predeterminada **Open**, puedes escribir el código a continuación para ejecutar código personalizado cada vez que se abre la puerta.
 
-![](../../.gitbook/assets/door-actions.png)
+![](../images/editor/door-actions.png)
 
 ```ts
 import { engine } from '@dcl/sdk/ecs'
@@ -213,24 +209,24 @@ import { EntityNames } from '../assets/scene/entity-names'
 function main() {
 	const door = engine.getEntityOrNullByName(EntityNames.Wooden_Door)
 	if (door) {
-		// detect actions
+		// detectar acciones
 		const actions = getActionEvents(door)
 		actions.on('Open', () => {
 			console.log('Door opened!!')
-			// custom code
+			// código personalizado
 		})
 
-		// detect triggers
+		// detectar triggers
 		const triggers = getTriggerEvents(door)
 		triggers.on(TriggerType.ON_CLICK, () => {
 			console.log('Door clicked!!')
-			// custom code
+			// código personalizado
 		})
 	}
 }
 ```
 
-You can also emit action events from your code, this allows you to take advantage of actions that are already defined inside the smart item's Action component. The following snippet calls the "Open" action on a door smart item whenever a button smart item is triggered.
+También puedes emitir eventos de acción desde tu código, esto te permite aprovechar las acciones que ya están definidas dentro del componente Action del smart item. El siguiente fragmento llama a la acción "Open" en un smart item de puerta cada vez que se activa un smart item de botón.
 
 ```ts
 import { engine } from '@dcl/sdk/ecs'
@@ -242,13 +238,13 @@ function main() {
 	const button = engine.getEntityOrNullByName(EntityNames.Red_Button)
 	const door = engine.getEntityOrNullByName(EntityNames.Wooden_Door)
 	if (button && door) {
-		// references to actions and triggers
+		// referencias a acciones y triggers
 		const buttonTriggers = getTriggerEvents(button)
 		const doorActions = getActionEvents(door)
 
-		// detect triggers on button
+		// detectar triggers en el botón
 		buttonTriggers.on(TriggerType.ON_INPUT_ACTION, () => {
-			// open door
+			// abrir puerta
 			doorActions.emit('Open', {})
 		})
 	}
@@ -256,14 +252,14 @@ function main() {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: If you're not trying to do something very complicated, instead of writing code you can also create a custom smart item to handle the actions you want to perform. See [Making any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md).
+**💡 Tip**: Si no estás tratando de hacer algo muy complicado, en lugar de escribir código también puedes crear un smart item personalizado para manejar las acciones que quieres realizar. Consulta [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md).
 {% endhint %}
 
-### Other smart item components
+### Otros componentes de smart item
 
-Smart items can include special components that are part of the asset-packs library, like `States` or `Counter`. These components are not part of the Decentraland SDK, but they can be fetched via the `getComponents()` function from the library. You can then read or write values to these components from your scene's code, to have an even tighter integration between smart item behavior and code.
+Los smart items pueden incluir componentes especiales que son parte de la biblioteca asset-packs, como `States` o `Counter`. Estos componentes no son parte del Decentraland SDK, pero se pueden obtener a través de la función `getComponents()` de la biblioteca. Luego puedes leer o escribir valores a estos componentes desde el código de tu escena, para tener una integración aún más estrecha entre el comportamiento del smart item y el código.
 
-The example below reads and logs the value of a State component of a chest smart item, whenever the chest's actions are triggered.
+El ejemplo a continuación lee y registra el valor de un componente State de un smart item de cofre, cada vez que se activan las acciones del cofre.
 
 ```ts
 

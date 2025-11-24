@@ -1,99 +1,99 @@
 ---
 description: >-
-  The scene Editor is a simple visual tool that lets you create and publish
-  Decentraland scenes.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/get-started/about-editor
+  El Scene Editor es una herramienta visual simple que te permite crear y publicar
+  escenas de Decentraland.
 ---
 
-# About the Scene Editor
+# Acerca del Scene Editor
 
-The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
+El Creator Hub incluye un poderoso Scene Editor que combina una interfaz simple sin código con la capacidad de escribir código para personalizar aún más tus escenas.
 
-![](../../.gitbook/assets/icon-creator-hub.png)
+![](../images/editor/icon-creator-hub.png)
 
-See [Creator Hub Installation](../../../creator/scene-editor/get-started/editor-installation.md) to get started.
+Consulta [Instalación del Creator Hub](../scene-editor/get-started/editor-installation.md) para comenzar.
 
-### Create a scene
 
-To create a new scene, open the Creator Hub and press the _Create scene_ button.
 
-![](../../.gitbook/assets/create-scene.png)
+### Crear una escena
 
-You can then select what template to use as a starting point. You can pick a blank scene or a project with some initial content.
+Para crear una nueva escena, abre el Creator Hub y presiona el botón _Create scene_.
 
-Then you'll be asked to name your scene, and choose a location to save it.
+![](../images/editor/create-scene.png)
 
-See [Manage scenes](../../../creator/scene-editor/get-started/manage-scenes.md) for more details.
+Luego puedes seleccionar qué template usar como punto de partida. Puedes elegir una escena en blanco o un proyecto con algo de contenido inicial.
 
-### Moving around
+Luego se te pedirá que nombres tu escena y elijas una ubicación para guardarla.
 
-To find your way around the Scene Editor:
+Consulta [Gestionar escenas](../scene-editor/get-started/manage-scenes.md) para más detalles.
 
-* Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
-* Use **S** and **D** to move sideways.
-* Use **Q** and **E** to move up and down.
-* Use the **Left Mouse Button** to click and select items and to move them around.
-*   Use the **Right Mouse Button** and drag to rotate the camera.
+### Moverse
 
-    \{% hint style="info" %\} **💡 Tip**: You can also rotate the camera by pressing **Alt** on Windows, or **Option** on Mac while dragging. This is especially handy when using a trackpad instead of a mouse. \{% endhint %\}
-* Press **Space bar** to reset the camera back to the default position
+Para encontrar tu camino alrededor del Scene Editor:
 
-### Add items
+* Usa **A** y **W** para moverte cerca o lejos. También puedes usar la rueda del mouse, o las teclas **+** y **-**
+* Usa **S** y **D** para moverte lateralmente.
+* Usa **Q** y **E** para moverte arriba y abajo.
+* Usa el **Botón Izquierdo del Mouse** para hacer clic y seleccionar ítems y moverlos.
+*   Usa el **Botón Derecho del Mouse** y arrastra para rotar la cámara.
 
-Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
+    {% hint style="info" %}
+    **💡 Tip**: También puedes rotar la cámara presionando **Alt** en Windows, u **Option** en Mac mientras arrastras. Esto es especialmente útil cuando usas un trackpad en lugar de un mouse.
+    {% endhint %}
+* Presiona la **barra espaciadora** para restablecer la cámara a la posición predeterminada
 
-![](../../.gitbook/assets/asset-packs.png)
+### Agregar ítems
 
-To place an item, click and drag it in from the asset pack menu into a location on your scene in the canvas.
+Navega por las categorías de asset packs temáticos en el menú de la parte inferior para encontrar diferentes ítems que puedes colocar en tu escena.
 
-![](../../.gitbook/assets/drop-item.gif)
+![](../images/editor/asset-packs.png)
 
-Click and drag a selected item to move it freely around the scene at ground level. See [Scene editor essentials](../../../creator/scene-editor/get-started/scene-editor-essentials.md#position-items) for more details.
+Para colocar un ítem, haz clic y arrástralo desde el menú de asset pack hacia una ubicación en tu escena en el canvas.
+
+![](../images/editor/drop-item.gif)
+
+Haz clic y arrastra un ítem seleccionado para moverlo libremente alrededor de la escena al nivel del suelo. Consulta [Scene editor essentials](../scene-editor/get-started/scene-editor-essentials.md#position-items) para más detalles.
 
 {% hint style="info" %}
-**💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See [Smart items](../../../creator/scene-editor/interactivity/smart-items.md) for more details.
+**💡 Tip**: Algunos ítems son **Smart items**, estos vienen con comportamientos interactivos incorporados. Consulta [Smart items](../scene-editor/interactivity/smart-items.md) para más detalles.
 {% endhint %}
 
-![](../../.gitbook/assets/smart-items.jpg)
+![](../images/editor/smart-items.jpg)
 
 ### Preview
 
-To test your scene and experience it like a player, click the _Preview_ button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
+Para probar tu escena y experimentarla como un jugador, haz clic en el botón _Preview_ en la esquina superior derecha. Esto abrirá una nueva ventana con el Decentraland Desktop Explorer, ejecutando solo tu escena. Allí puedes moverte por la escena e interactuar con ítems interactivos.
 
 {% hint style="warning" %}
-**📔 Note**: If you don't have it installed on your machine, download the **Decentraland Launcher** from [Decentraland.org](https://decentraland.org).
+**📔 Nota**: Si no lo tienes instalado en tu máquina, descarga el **Decentraland Launcher** desde [Decentraland.org](https://decentraland.org).
 {% endhint %}
 
-![](../../.gitbook/assets/preview-button.png)
+![](../images/editor/preview-button.png)
 
-Configure different preview options from the dropdown menu next to the **Preview** button:
+Configura diferentes opciones de preview desde el menú desplegable junto al botón **Preview**:
 
-* **Open Console Window During Preview**: Opens a new window with the console output of the scene. This is useful to debug errors in the scene.
-* **Skip Auth Screen**: Skips the account selection screen and automatically logs you in with your currently logged in account. This is disabled by default, enable it if you want to test multiple accounts.
-* **Landscape Terrain Enabled**: Toggles the landscape around the scene. This is enabled by default, disable it to lower the scene's memory footprint.
+* **Open Console Window During Preview**: Abre una nueva ventana con la salida de consola de la escena. Esto es útil para depurar errores en la escena.
+* **Skip Auth Screen**: Omite la pantalla de selección de cuenta e inicia sesión automáticamente con tu cuenta actualmente conectada. Esto está deshabilitado por defecto, habilítalo si quieres probar múltiples cuentas.
+* **Landscape Terrain Enabled**: Alterna el paisaje alrededor de la escena. Esto está habilitado por defecto, deshabilítalo para reducir la huella de memoria de la escena.
 
-### Scene settings
+### Configuración de escena
 
-Click the **Pencil icon** on the top-right of the screen. This opens a series of scene-level properties to edit, including name, thumbnail, scene size, and more.
+Haz clic en el **ícono de Lápiz** en la parte superior derecha de la pantalla. Esto abre una serie de propiedades a nivel de escena para editar, incluyendo nombre, miniatura, tamaño de escena y más.
 
-![](../../.gitbook/assets/pencil-icon.png)
+![](../images/editor/pencil-icon.png)
 
-See [Scene Settings](../../../creator/scene-editor/configure/scene-settings.md) for more details.
+Consulta [Scene Settings](../scene-editor/configure/scene-settings.md) para más detalles.
 
-### Publish your scene
+### Publicar tu escena
 
-Once you're happy with your scene, press _Publish scene_.
+Una vez que estés satisfecho con tu escena, presiona _Publish scene_.
 
-![](../../.gitbook/assets/publish-options.png)
+![](../images/editor/publish-options.png)
 
-See [Publish scene](../../../creator/scene-editor/publish/publish-scene.md) for more details.
+Consulta [Publish scene](../scene-editor/publish/publish-scene.md) para más detalles.
 
-### See also
+### Ver también
 
-* See [Scene Editor Essentials](../../../creator/scene-editor/get-started/scene-editor-essentials.md) for more details about the Scene Editor's interface.
-* See [Smart items](../../../creator/scene-editor/interactivity/smart-items.md) for how to add simple interactivity to your scene.
-* See [Combine with code](../../../creator/scene-editor/code/overview.md) for how to edit the code of your scene.
-* See [Publish scene](../../../creator/scene-editor/publish/publish-scene.md) for how to publish your scene to Decentraland.
+* Consulta [Scene Editor Essentials](../scene-editor/get-started/scene-editor-essentials.md) para más detalles sobre la interfaz del Scene Editor.
+* Consulta [Smart items](../scene-editor/interactivity/smart-items.md) para saber cómo agregar interactividad simple a tu escena.
+* Consulta [Combine with code](../scene-editor/code/overview.md) para saber cómo editar el código de tu escena.
+* Consulta [Publish scene](../scene-editor/publish/publish-scene.md) para saber cómo publicar tu escena en Decentraland.

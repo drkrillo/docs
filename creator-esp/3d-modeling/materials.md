@@ -1,34 +1,31 @@
 ---
 description: >-
-  Learn what material properties and textures are supported on 3D models
-  imported to Decentraland.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/materials
+  Aprende qué propiedades de materials y texturas son compatibles con modelos 3D
+  importados a Decentraland.
 ---
 
 # Materials
 
-Materials are embedded into a _.gltf_ or _.glb_ file.
+Los materials están embebidos en un archivo _.gltf_ o _.glb_.
 
-This document refers to materials that are imported in a 3D model. For materials defined via code to apply onto primitive shapes, see [**materials**](https://docs.decentraland.org/creator/development-guide/materials/) .
+Este documento se refiere a materials que se importan en un modelo 3D. Para materials definidos via código para aplicar en primitive shapes, ve [**materials**](https://docs.decentraland.org/creator/development-guide/materials/).
 
 {% hint style="warning" %}
-**📔 Note**: You can't currently dynamically change the materials of a 3D model from your scene's code, unless this is a primitive shape.
+**📔 Nota**: Actualmente no puedes cambiar dinámicamente los materials de un modelo 3D desde el código de tu escena, a menos que sea una primitive shape.
 {% endhint %}
 
-### Shader Support
+### Soporte de Shader
 
-Not all shaders can be used in models that are imported into Decentraland. Make sure you use one of the following:
+No todos los shaders se pueden usar en modelos que se importan a Decentraland. Asegúrate de usar uno de los siguientes:
 
-* **Standard materials:** any shaders are supported, for example diffuse, specular, transparency, etc.
-* **PBR (Physically Based Rendering) materials**: This shader is more flexible, as it includes properties like diffuse, roughness, metalness and emission that allow you to configure how a material interacts with light.
+* **Standard materials:** cualquier shader es soportado, por ejemplo diffuse, specular, transparency, etc.
+* **PBR (Physically Based Rendering) materials**: Este shader es más flexible, ya que incluye propiedades como diffuse, roughness, metalness y emission que te permiten configurar cómo un material interactúa con la luz.
 
-The image below shows two identical models, created with the same colors and textures. The model on the left uses all _PBR_ materials, some of them include _metalness_, _transparency_, and _emissiveness_. The model on the right uses all _standard_ materials, some including _transparency_ and _emissiveness_.
+La imagen a continuación muestra dos modelos idénticos, creados con los mismos colores y texturas. El modelo a la izquierda usa todos los materials _PBR_, algunos de ellos incluyen _metalness_, _transparency_ y _emissiveness_. El modelo a la derecha usa todos los materials _standard_, algunos incluyen _transparency_ y _emissiveness_.
 
-![](../.gitbook/assets/30-materials.png)
+![](../images/3d-models-and-animations/3d-essentials/30-materials.png)
 
-#### PBR Properties that currently works with Decentraland Engine
+#### Propiedades PBR que Actualmente Funcionan con el Motor de Decentraland
 
 > * Base Color
 > * Metallic
@@ -39,139 +36,139 @@ The image below shows two identical models, created with the same colors and tex
 > * Alpha
 > * Normal
 
-![](../.gitbook/assets/60-principledBSDF.png)
+![](../images/3d-models-and-animations/3d-essentials/60-principledBSDF.png)
 
-In order to visualize how these properties behavies in world you can go to this [testing world](decentraland://?realm=TestEnvironment.dcl.eth) to find different objects and materials and how they interact with lights and world environment.
+Para visualizar cómo se comportan estas propiedades en el mundo, puedes ir a este [testing world](decentraland://?realm=TestEnvironment.dcl.eth) para encontrar diferentes objetos y materials y cómo interactúan con las luces y el entorno del mundo.
 
-![](../.gitbook/assets/55-testing-environment.png)
+![](../images/3d-models-and-animations/3d-essentials/55-testing-environment.png)
 
 #### Base/Diffuse Color
 
-Defines the the base color of the object surface. By itself it doesn't have any affectance by the lightning, that's why it is combined to other nodes such as roughness, metallic, specular, etc.
+Define el color base de la superficie del objeto. Por sí solo no tiene ninguna afectación por la iluminación, es por eso que se combina con otros nodos como roughness, metallic, specular, etc.
 
 #### Metallic
 
-A metallic shader refers to a type of rendering technique used to simulate the appearance of metallic surfaces. A metallic shader takes into account the physical properties of metals and how they interact with light to produce the characteristic shiny and reflective qualities of metal.
+Un shader metallic se refiere a un tipo de técnica de rendering usado para simular la apariencia de superficies metálicas. Un shader metallic tiene en cuenta las propiedades físicas de los metales y cómo interactúan con la luz para producir las cualidades características brillantes y reflectantes del metal.
 
-![](../.gitbook/assets/61-metallic-material.png)
+![](../images/3d-models-and-animations/3d-essentials/61-metallic-material.png)
 
 #### Roughness
 
-Roughness materials are related to realistic simulation of how light interacts with the material's surface. Normally the roughness maps are used to give to the models a range of "smoothness" or "roughness" in their surfaces. A grayscale value texture map is normally used to provide information of this type.
+Los materials roughness están relacionados con la simulación realista de cómo la luz interactúa con la superficie del material. Normalmente se usan roughness maps para darle a los modelos un rango de "suavidad" o "rugosidad" en sus superficies. Un texture map de valor de escala de grises se usa normalmente para proporcionar información de este tipo.
 
-![](../.gitbook/assets/63-roughness.png)
+![](../images/3d-models-and-animations/3d-essentials/63-roughness.png)
 
-This property blends between a non-metallic and metallic material model. A value of 1.0 gives a fully specular reflection tinted with the base color, without diffuse reflection or transmission. At 0.0 the material consists of a diffuse or transmissive base layer, with a specular reflection layer on top.
+Esta propiedad mezcla entre un modelo de material no metálico y metálico. Un valor de 1.0 da una reflexión specular completamente teñida con el color base, sin reflexión diffuse o transmisión. En 0.0 el material consiste en una capa base diffuse o transmisiva, con una capa de reflexión specular encima.
 
 #### Specular
 
-In a Physically-Based Rendering (PBR) shader, the specular properties refer to how light interacts with a surface in terms of its reflectivity and shininess. Specular reflection is the mirror-like reflection of light off a surface. In PBR, this property is used to control how much light a surface reflects in a mirror-like manner. Materials like metals typically have high specular reflection, creating sharp, bright highlights, while non-metallic materials like plastics have lower specular reflection, resulting in broader and softer highlights.
+En un shader Physically-Based Rendering (PBR), las propiedades specular se refieren a cómo la luz interactúa con una superficie en términos de su reflectividad y brillo. La reflexión specular es la reflexión tipo espejo de la luz fuera de una superficie. En PBR, esta propiedad se usa para controlar cuánta luz refleja una superficie de manera similar a un espejo. Materiales como metales típicamente tienen alta reflexión specular, creando highlights brillantes y nítidos, mientras que materiales no metálicos como plásticos tienen menor reflexión specular, resultando en highlights más amplios y suaves.
 
-![](../.gitbook/assets/62-specular.png)
+![](../images/3d-models-and-animations/3d-essentials/62-specular.png)
 
 #### Alpha
 
-You can set a material to be _transparent_. Transparent materials can be seen through to varying degrees, depending on their _alpha_. To do this, activate the transparency property of the material and then set its _alpha_ to the desired amount. An alpha of 1 will make the material completely opaque, an alpha of 0 will make it invisible.
+Puedes configurar un material para que sea _transparent_. Los materials transparentes se pueden ver a través de ellos en diversos grados, dependiendo de su _alpha_. Para hacer esto, activa la propiedad transparency del material y luego establece su _alpha_ a la cantidad deseada. Un alpha de 1 hará que el material sea completamente opaco, un alpha de 0 lo hará invisible.
 
-The image below shows two identical models created with standard materials. The one on the left uses only opaque materials, the one on the right uses both transparent and opaque materials in some of its parts.
+La imagen a continuación muestra dos modelos idénticos creados con standard materials. El de la izquierda usa solo materials opacos, el de la derecha usa materials tanto transparentes como opacos en algunas de sus partes.
 
 {% hint style="warning" %}
-💡 Remember that using transparent materials is always more expensive in terms of performance than diffuse materials. Always try to keep the transparent materials as low as you can.
+💡 Recuerda que usar materials transparentes siempre es más costoso en términos de performance que materials diffuse. Siempre trata de mantener los materials transparentes lo más bajos que puedas.
 {% endhint %}
 
-![](../.gitbook/assets/31-transparent-materials.png)
+![](../images/3d-models-and-animations/3d-essentials/31-transparent-materials.png)
 
-There are two main different transparency modes: _Alpha Clip_ and _Alpha Blend_. The main differences are:
+Hay dos modos de transparencia principales diferentes: _Alpha Clip_ y _Alpha Blend_. Las principales diferencias son:
 
-* **Alpha Clip:** Alpha Clip render absolut values being 0 or 1 given a clip threshold of a grayscale value. The previous color will be overwritten by the surface color, but only if the alpha value is above the Clip Threshold value.
+* **Alpha Clip:** Alpha Clip renderiza valores absolutos siendo 0 o 1 dado un clip threshold de un valor en escala de grises. El color anterior será sobrescrito por el color de la superficie, pero solo si el valor alpha está por encima del valor Clip Threshold.
 
-![](../.gitbook/assets/33-alpha-clip.png)
+![](../images/3d-models-and-animations/3d-essentials/33-alpha-clip.png)
 
-* **Alpha Blend:** Alpha Blend interpolates the values between 0 and 1. You can use alpha blending to overlay the surface color on top of the previous color.
+* **Alpha Blend:** Alpha Blend interpola los valores entre 0 y 1. Puedes usar alpha blending para superponer el color de la superficie encima del color anterior.
 
-![](../.gitbook/assets/34-alpha-blend.png)
+![](../images/3d-models-and-animations/3d-essentials/34-alpha-blend.png)
 
 {% hint style="warning" %}
-**🔥Optimization Tip🔥** Unless you specifically want to be able to have an intermediate level of transparency, **it's always more performant for rendering to use \_Alpha Clip**_\*\* instead of \*\*_**Alpha Blend**\_**.**
+**🔥Tip de Optimización🔥** A menos que específicamente quieras poder tener un nivel intermedio de transparencia, **siempre es más performante para rendering usar **_**Alpha Clip**_** en lugar de **_**Alpha Blend**_**.**
 {% endhint %}
 
 {% hint style="warning" %}
-**⚠️ Sorting Issues**
+**⚠️ Problemas de Sorting**
 
-When you use transparent blend modes in your game, it's crucial to consider the order in which the color blending takes place. This is because the final output color can be significantly impacted by the blending order. Currently, the engine only supports per-object sorting, which means that it automatically sorts all transparent surfaces based on object origin. However, per-fragment (pixel) sorting and per-triangle sorting are not currently supported.
+Cuando usas blend modes transparentes en tu juego, es crucial considerar el orden en el que tiene lugar el color blending. Esto es porque el color de salida final puede verse significativamente afectado por el blending order. Actualmente, el motor solo soporta per-object sorting, lo que significa que automáticamente ordena todas las superficies transparentes basándose en el origen del objeto. Sin embargo, per-fragment (pixel) sorting y per-triangle sorting no están actualmente soportados.
 
-To avoid issues related to sorting, it's best to avoid using objects with both alpha clip and alpha blend on the same mesh. This can help prevent unexpected blending artifacts and ensure that your game looks its best.
+Para evitar problemas relacionados con sorting, es mejor evitar usar objetos con alpha clip y alpha blend en el mismo mesh. Esto puede ayudar a prevenir artefactos de blending inesperados y asegurar que tu juego se vea de la mejor manera.
 {% endhint %}
 
 #### Emissive
 
-You can also make a material _emissive_. Emissive materials cast their own light. Note that when rendered, they don’t actually illuminate nearby objects in the scene, they just seem to have a blurred glow around them.
+También puedes hacer un material _emissive_. Los materials emissive proyectan su propia luz. Ten en cuenta que cuando se renderizan, no iluminan realmente objetos cercanos en la escena, solo parecen tener un resplandor difuminado alrededor de ellos.
 
-The image below shows two identical models created with standard materials. The one on the right has glowing emissive materials on some of its surfaces.
+La imagen a continuación muestra dos modelos idénticos creados con standard materials. El de la derecha tiene materials emissive brillantes en algunas de sus superficies.
 
-![](../.gitbook/assets/34-emissive-materials.png) ![](../.gitbook/assets/35-emissive-nodes.png)
+![](../images/3d-models-and-animations/3d-essentials/34-emissive-materials.png) ![](../images/3d-models-and-animations/3d-essentials/35-emissive-nodes.png)
 
-_To make a material emissive in Blender, simply add an `emission` shader to the material._
+_Para hacer un material emissive en Blender, simplemente agrega un shader `emission` al material._
 
-#### Emissive Strenght
+#### Emissive Strength
 
-Strength of the emitted light. A value of 1.0 will ensure that the object in the image has the exact same color as the Emission Color, i.e. make it ‘shadeless’.
+Strength de la luz emitida. Un valor de 1.0 asegurará que el objeto en la imagen tenga exactamente el mismo color que el Emission Color, es decir, lo hace 'shadeless'.
 
-![](../.gitbook/assets/52-emissive-materials.png)
+![](../images/3d-models-and-animations/3d-essentials/52-emissive-materials.png)
 
-_You can check in the_ [_testing world_](decentraland://?realm=TestEnvironment.dcl.eth) _how the emission strenght behavies in world_
+_Puedes verificar en el_ [_testing world_](decentraland://?realm=TestEnvironment.dcl.eth) _cómo se comporta el emission strength en el mundo_
 
 #### Normal
 
-The "normal" node in a PBR shader is a fundamental component used to control the surface normals of a material. Normals are vectors that define the direction perpendicular to a surface at a specific point, and they play a crucial role in determining how light interacts with the surface.
+El nodo "normal" en un shader PBR es un componente fundamental usado para controlar las normales de superficie de un material. Las normales son vectores que definen la dirección perpendicular a una superficie en un punto específico, y juegan un papel crucial en determinar cómo la luz interactúa con la superficie.
 
-![](../.gitbook/assets/50-normal.gif)
+![](../images/3d-models-and-animations/3d-essentials/50-normal.gif)
 
 ### Vertex Painting
 
-Vertex painting of 3D models isn’t currently supported by Decentraland’s engine.
+El vertex painting de modelos 3D actualmente no es soportado por el motor de Decentraland.
 
-### Material Limitations
+### Limitaciones de Material
 
-Take into account that material limits per parcel are:
+Ten en cuenta que los límites de material por parcel son:
 
-> log2(n+1) x 20 Amount of materials in the scene. It includes materials imported as part of models.
+> log2(n+1) x 20 Cantidad de materials en la escena. Incluye materials importados como parte de modelos.
 
-It's important to take into account that each material represent one draw call per objetc so it's crucial to keep the materials as minimun as possible and try to reutilize materials as much as possible doing techniques like Texture Atlases, this also is going to benefit the scene having a cohesive style between the assets of your scene.
+Es importante tener en cuenta que cada material representa un draw call por objeto, así que es crucial mantener los materials lo más mínimo posible y tratar de reutilizar materials tanto como sea posible haciendo técnicas como Texture Atlases, esto también beneficiará a la escena teniendo un estilo cohesivo entre los assets de tu escena.
 
-### Material Naming
+### Nomenclatura de Material
 
-In order to have an organized and healthy art pipeline we recommend to name your materials properly. One way to do it is using this convention method.
+Para tener un pipeline de arte organizado y saludable, recomendamos nombrar tus materials apropiadamente. Una forma de hacerlo es usando este método de convención.
 
 ```
-<Object>_<Classification>_<Sub-Classification(optional)>_<_MAT>
+<Object>_<Classification>_<Sub-Classification(opcional)>_<_MAT>
 ```
 
-So for example, let's say we did 2 different trees, one that is emissive and glowy for spring and another cold and metallic for winter. We could name the materials: _"TreeSpring\_Emissive\_MAT"_ and another one _"TreeWinter\_Metallic\_MAT"_
+Entonces, por ejemplo, digamos que hicimos 2 árboles diferentes, uno que es emissive y brillante para primavera y otro frío y metálico para invierno. Podríamos nombrar los materials: _"TreeSpring\_Emissive\_MAT"_ y otro _"TreeWinter\_Metallic\_MAT"_
 
-In conclusion,
+En conclusión,
 
-* 🟢 **Prefer** using names starting with the object and clasification: _"Wood\_Oak\_MAT"_, _"SciFiFence\_Metallic\_MAT"_, etc.
-* 🔴 **Avoid** using names like _"Material009"_, _"material1"_, which makes the scene and models really difficult to track and analize.
+* 🟢 **Prefiere** usar nombres comenzando con el objeto y clasificación: _"Wood\_Oak\_MAT"_, _"SciFiFence\_Metallic\_MAT"_, etc.
+* 🔴 **Evita** usar nombres como _"Material009"_, _"material1"_, que hace que la escena y los modelos sean realmente difíciles de rastrear y analizar.
 
-### Override glTF materials
+### Override de glTF materials
 
-You can override the materials of a _glTF_ model by using the [GltfNodeModifiers](../sdk7/3d-essentials/materials.md#modify-gltf-materials) component in your scene's code. See [Modify glTF materials](../sdk7/3d-essentials/materials.md#modify-gltf-materials) for more details.
+Puedes sobreescribir los materials de un modelo _glTF_ usando el componente [GltfNodeModifiers](../sdk7/3d-essentials/materials.md#modify-gltf-materials) en el código de tu escena. Ve [Modify glTF materials](../sdk7/3d-essentials/materials.md#modify-gltf-materials) para más detalles.
 
-### Best Practices For Materials
+### Mejores Prácticas para Materials
 
-* If your scene includes multiple models that use the same texture, reference the texture as an external file instead of having it embedded in the 3D model.
+* Si tu escena incluye múltiples modelos que usan la misma textura, referencia la textura como un archivo externo en lugar de tenerla embebida en el modelo 3D.
 
-Embedded textures get duplicated for each model and add to the scene’s size. _.glb_ files have their textures embedded by default, but you can use [**glTF pipeline**](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) to extract it outside.
+Las texturas embebidas se duplican para cada modelo y se agregan al tamaño de la escena. Los archivos _.glb_ tienen sus texturas embebidas por defecto, pero puedes usar [**glTF pipeline**](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) para extraerla afuera.
 
-> Note: After referencing a file for a texture that won’t be embedded, make sure that file won’t be moved or renamed, as otherwise the reference to the file will be lost. The file must also be inside the scene folder so that it’s uploaded together with the scene.
+> Nota: Después de referenciar un archivo para una textura que no estará embebida, asegúrate de que ese archivo no se moverá o renombrará, ya que de lo contrario la referencia al archivo se perderá. El archivo también debe estar dentro de la carpeta de la escena para que se cargue junto con la escena.
 
-* When setting transparency of a material, try to always use _Alpha clip_ rather than _Alpha blend_, unless you specifically need to have a material that’s partially transparent (like glass). This will avoid problems where the engine renders the wrong model in front of the other.
-* As a rule of thumbs remember to always set _backface culling_ in your materials. This will make your scene more perfermant giving that the engine is going to render only the visible face of your models. Only untoggle _backface culling_ in case you need a model to be renderer in both sides (for example, a group of leafs of a tree made by 3D planes).
+* Al configurar transparency de un material, trata de siempre usar _Alpha clip_ en lugar de _Alpha blend_, a menos que específicamente necesites tener un material que sea parcialmente transparente (como vidrio). Esto evitará problemas donde el motor renderiza el modelo incorrecto frente al otro.
+* Como regla general recuerda siempre establecer _backface culling_ en tus materials. Esto hará que tu escena sea más performante dado que el motor va a renderizar solo la cara visible de tus modelos. Solo desactiva _backface culling_ en caso de que necesites que un modelo se renderice en ambos lados (por ejemplo, un grupo de hojas de un árbol hechas por planos 3D).
 
-![](../.gitbook/assets/59-backface-culling.png)
+![](../images/3d-models-and-animations/3d-essentials/59-backface-culling.png)
 
-* Use the Decentraland [**default textures**](https://github.com/decentraland/builder-assets/tree/master/textures) , which are pre-loaded by players, making your assets render a lot faster.
-* Read [**this article**](https://www.khronos.org/blog/art-pipeline-for-gltf) for a detailed overview of a full art pipeline that uses PBR textures in glTF models.
-* You can find a detailed reference about how to create glTF compatible materials with Blender in [**Blender’s documentation**](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html) .
-* Find free, high quality PBR textures in [**cgbookcase**](https://cgbookcase.com/) .
+* Usa las [**texturas por defecto**](https://github.com/decentraland/builder-assets/tree/master/textures) de Decentraland, que están pre-cargadas por los jugadores, haciendo que tus assets se rendericen mucho más rápido.
+* Lee [**este artículo**](https://www.khronos.org/blog/art-pipeline-for-gltf) para una descripción detallada de un pipeline de arte completo que usa texturas PBR en modelos glTF.
+* Puedes encontrar una referencia detallada sobre cómo crear materials compatibles con glTF con Blender en [**la documentación de Blender**](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html).
+* Encuentra texturas PBR gratuitas de alta calidad en [**cgbookcase**](https://cgbookcase.com/).

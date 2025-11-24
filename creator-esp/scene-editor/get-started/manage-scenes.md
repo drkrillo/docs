@@ -1,45 +1,41 @@
 ---
-description: Managing your scene projects
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/get-started/manage-scenes
+description: Gestionando tus proyectos de escenas
 ---
 
-# Manage Scenes
+# Gestionar Escenas
 
-Each of your available scenes is shown as a card. Open the card to edit that scene, from there you can preview it or publish it too.
+Cada una de tus escenas disponibles se muestra como una tarjeta. Abre la tarjeta para editar esa escena, desde allí también puedes hacer preview o publicarla.
 
-### Create a scene
+### Crear una escena
 
-Click **Create scene** to create a new scene. You'll then be asked to choose a template, there are a few options, including a blank scene.
+Haz clic en **Create scene** para crear una nueva escena. Luego se te pedirá que elijas un template, hay algunas opciones, incluyendo una escena en blanco.
 
-Then you'll be asked to name your scene, and choose a location to save it.
+Luego se te pedirá que nombres tu escena y elijas una ubicación para guardarla.
 
-Once you confirm these steps, the scene project will be created. This may take a minute or two, as it downloads dependencies and sets up a folder on your local machine with everything it needs. When done, your scene will be opened in the [Scene Editor](../../../creator/scene-editor/get-started/scene-editor-essentials.md).
+Una vez que confirmes estos pasos, el proyecto de escena se creará. Esto puede tomar un minuto o dos, ya que descarga dependencias y configura una carpeta en tu máquina local con todo lo que necesita. Cuando termine, tu escena se abrirá en el [Scene Editor](../scene-editor/get-started/scene-editor-essentials.md).
 
-Click the three dots on an already created scene's card and click **Duplicate** to make a copy of an existing scene.
+Haz clic en los tres puntos en la tarjeta de una escena ya creada y haz clic en **Duplicate** para hacer una copia de una escena existente.
 
-To rename your scene, open it and click the pencil icon to change the **Name** field and other properties.
+Para renombrar tu escena, ábrela y haz clic en el ícono de lápiz para cambiar el campo **Name** y otras propiedades.
 
-### Import a scene
+### Importar una escena
 
-The scene manager displays the scenes it finds in the default path on your machine.
+El administrador de escenas muestra las escenas que encuentra en la ruta predeterminada en tu máquina.
 
-To add a scene that is elsewhere on your local disk, click **Import scene** and find the path to the project folder. The imported scene will now be available as a new card in the scene manager screen.
+Para agregar una escena que está en otro lugar en tu disco local, haz clic en **Import scene** y encuentra la ruta a la carpeta del proyecto. La escena importada ahora estará disponible como una nueva tarjeta en la pantalla del administrador de escenas.
 
-The imported scene does not get moved in your local disk.
+La escena importada no se mueve en tu disco local.
 
 {% hint style="warning" %}
-**📔 Note**: Do not manually rename or move the folder of an imported scene directly from your file manager. The Scene Editor will no longer be able to find the imported scene in its new path.
+**📔 Nota**: No renombres ni muevas manualmente la carpeta de una escena importada directamente desde tu administrador de archivos. El Scene Editor ya no podrá encontrar la escena importada en su nueva ruta.
 {% endhint %}
 
-Scenes you created on the older web editor are stored in the cloud. To work on these scenes from the desktop Scene Editor, you must export the scene from the Web Editor, unzip it into a folder, and then import it on the desktop Scene Editor. See [Migrate from Web Editor](../../../creator/scene-editor/get-started/migrate-from-web.md) for more details.
+Las escenas que creaste en el antiguo editor web se almacenan en la nube. Para trabajar en estas escenas desde el Scene Editor de escritorio, debes exportar la escena desde el Web Editor, descomprimirla en una carpeta y luego importarla en el Scene Editor de escritorio. Consulta [Migrate from Web Editor](../scene-editor/get-started/migrate-from-web.md) para más detalles.
 
-### Delete a scene
+### Eliminar una escena
 
-In the scene selector screen, press the _three dots_ icon and select _Delete_.
+En la pantalla del selector de escenas, presiona el ícono de _tres puntos_ y selecciona _Delete_.
 
-This removes the scene from your Scene Editor home screen, but doesn't delete the files from your machine.
+Esto elimina la escena de tu pantalla de inicio del Scene Editor, pero no elimina los archivos de tu máquina.
 
-If you wish to delete the project files, you must do this manually. By default projects created via the Scene Editor are kept inside a `.decentraland` folder under your user directory. You can navigate here by clicking the three dots on a project card and selecting **Open folder**.
+Si deseas eliminar los archivos del proyecto, debes hacerlo manualmente. Por defecto, los proyectos creados a través del Scene Editor se mantienen dentro de una carpeta `.decentraland` bajo tu directorio de usuario. Puedes navegar aquí haciendo clic en los tres puntos en una tarjeta de proyecto y seleccionando **Open folder**.

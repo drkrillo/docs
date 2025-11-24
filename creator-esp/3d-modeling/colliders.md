@@ -1,102 +1,99 @@
 ---
-description: Learn how to add colliders to 3D models imported to Decentraland.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/colliders
+description: Aprende cómo agregar colliders a modelos 3D importados a Decentraland.
 ---
 
 # Colliders
 
-To enable collisions between a 3D model and users of your scene, you must give the model colliders. Without a collider, players are able to walk through models as if they weren’t there. Colliders are also required to make an object respond to the player’s pointer events or to block them, or to be intersected by raycasts or block them. For performance reasons, colliders are often modeled separately as a simpler invisible geometry that has less vertices than the visible geometry.
+Para habilitar colisiones entre un modelo 3D y los usuarios de tu escena, debes darle colliders al modelo. Sin un collider, los jugadores podrán caminar a través de los modelos como si no estuvieran allí. Los colliders también son requeridos para hacer que un objeto responda a los pointer events del jugador o los bloquee, o para ser intersectado por raycasts o bloquearlos. Por razones de performance, los colliders a menudo se modelan por separado como una geometría invisible más simple que tiene menos vértices que la geometría visible.
 
-The model can either use an invisible geometry to use as colliders, or (as of SDK7) you can instead assign the visible geometry to behave as a collider. See [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#colliders-on-3d-models) . You can also assign different layer of collisions to the different geometries, to separately control player physics, pointer events, and other custom layers, see [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#collision-layers) .
+El modelo puede usar una geometría invisible para usar como colliders, o (desde SDK7) puedes en su lugar asignar la geometría visible para que se comporte como un collider. Ve [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#colliders-on-3d-models). También puedes asignar diferentes capas de colisiones a las diferentes geometrías, para controlar por separado la física del jugador, pointer events y otras capas personalizadas, ve [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#collision-layers).
 
-Colliders don’t affect how models and entities interact with each other, they can always overlap. Colliders only affect how the model interacts with the player’s avatar.
+Los colliders no afectan cómo los modelos y entities interactúan entre sí, siempre pueden superponerse. Los colliders solo afectan cómo el modelo interactúa con el avatar del jugador.
 
-For an object to be recognized by a Decentraland scene as a collider, all it needs is to be named in a certain way. The object’s name must include the the suffix “\_collider” at the end.
+Para que un objeto sea reconocido por una escena de Decentraland como un collider, todo lo que necesita es ser nombrado de cierta manera. El nombre del objeto debe incluir el sufijo "\_collider" al final.
 
-For example, to create a collider for a lamp post you can create a simple box object surrounding its trunk. Players in the scene won’t see this box, but it will block their path.
+Por ejemplo, para crear un collider para un poste de luz puedes crear un objeto box simple rodeando su tronco. Los jugadores en la escena no verán esta caja, pero bloqueará su camino.
 
-![](../.gitbook/assets/25-collider.png)
+![](../images/3d-models-and-animations/3d-essentials/25-collider.png)
 
-In this case, we can name the box “LampPos&#x74;_&#x63;ollider” and export both the tree and the box as a single \_\_gltf model. The \*\_\_collider_\* tag alerts the Decentraland world engine that the box object belongs to the collection of colliders, making the collider mesh invisible.
+En este caso, podemos nombrar la caja "LampPos&#x74;_&#x63;ollider" y exportar tanto el árbol como la caja como un solo modelo _gltf_. La etiqueta *\_collider\_* alerta al motor del mundo de Decentraland que el objeto box pertenece a la colección de colliders, haciendo el collider mesh invisible.
 
-Whenever a player views the lamp post model in your scene, they will see the complex model for your lamp. However, when they walk into it, they will collide with the box, not the tree.
+Siempre que un jugador vea el modelo del poste de luz en tu escena, verá el modelo complejo de tu lámpara. Sin embargo, cuando caminen hacia él, colisionarán con la caja, no con el árbol.
 
-### Player Spatial Constraints
+### Restricciones Espaciales del Jugador
 
-When you design models that are meant for players to walk around in, you need to keep in mind the following reference measurements:
+Cuando diseñas modelos que están destinados a que los jugadores caminen alrededor, debes tener en cuenta las siguientes medidas de referencia:
 
-* Players can walk up a step of up to 30 centimeters in height without jumping
-* Players can walk up slopes of an angle of up to 45 degrees without jumping
-* Players can jump up to 1,8 meters in height
-* Avatars measure around 1.9 meters in height, but consider that they might have hats or other wearables on their head.
+* Los jugadores pueden subir un escalón de hasta 30 centímetros de altura sin saltar
+* Los jugadores pueden subir pendientes de un ángulo de hasta 45 grados sin saltar
+* Los jugadores pueden saltar hasta 1,8 metros de altura
+* Los avatars miden alrededor de 1,9 metros de altura, pero considera que pueden tener sombreros u otros wearables en su cabeza.
 
-Whenever a player views the tree model in your scene, they will see the complex model for your tree. However, when they walk into your tree, they will collide with the box, not the tree.
+Siempre que un jugador vea el modelo del árbol en tu escena, verá el modelo complejo de tu árbol. Sin embargo, cuando caminen hacia tu árbol, colisionarán con la caja, no con el árbol.
 
-#### Add A Collider To a Staircase
+#### Agregar un Collider a una Escalera
 
-Stairs are a very common use-case for collider objects. In order for players to climb stairs, there must be a corresponding \_collider object that the players are able to step on.
+Las escaleras son un caso de uso muy común para objetos collider. Para que los jugadores suban escaleras, debe haber un objeto \_collider correspondiente en el que los jugadores puedan pisar.
 
-We recommend using a ramp object for your stair colliders, this provides a much better experience when walking up or down. When they climb up your stairs, it will appear as a smooth ascent or descent, instead of requiring them to “jump” up each individual step.
+Recomendamos usar un objeto ramp para tus colliders de escaleras, esto proporciona una experiencia mucho mejor al subir o bajar. Cuando suben tus escaleras, aparecerá como un ascenso o descenso suave, en lugar de requerir que "salten" cada escalón individual.
 
-Using a ramp object also avoids creating unnecessary geometry, saving room for other more complicated models. Keep in mind that collider geometry is also taken into account when calculating the [**scene limitations**](https://docs.decentraland.org/creator/development-guide/scene-limitations/)
+Usar un objeto ramp también evita crear geometría innecesaria, ahorrando espacio para otros modelos más complicados. Ten en cuenta que la geometría del collider también se tiene en cuenta al calcular las [**scene limitations**](https://docs.decentraland.org/creator/development-guide/scene-limitations/)
 
-1. Create a new object in the shape of a ramp that resembles the size and proportions of the original stairs.
+1. Crea un nuevo objeto en forma de ramp que se asemeje al tamaño y proporciones de las escaleras originales.
 
-![](../.gitbook/assets/26-collider-2.png)
+![](../images/3d-models-and-animations/3d-essentials/26-collider-2.png)
 
-2. Name the ramp object something similar to &#x53;_&#x74;air\_collider_. It must end in \__collider_.
-3. Overlay the ramp object to the stairs so that they occupy the same space.
+2. Nombra el objeto ramp algo similar a &#x53;_&#x74;air\_collider_. Debe terminar en \__collider_.
+3. Superpón el objeto ramp a las escaleras para que ocupen el mismo espacio.
 
-![](../.gitbook/assets/27-collider.png)
+![](../images/3d-models-and-animations/3d-essentials/27-collider.png)
 
-4. Export both objects together as a single _glTF_ model.
+4. Exporta ambos objetos juntos como un solo modelo _glTF_.
 
-Now when players view the stairs in your scene, they’ll see the more elaborate model of the stairs, but when they climb them, they’ll collide with the ramp.
+Ahora, cuando los jugadores vean las escaleras en tu escena, verán el modelo más elaborado de las escaleras, pero cuando las suban, colisionarán con el ramp.
 
-### Optimizing Colliders
+### Optimizando Colliders
 
-* Prefer using **Box**, **Sphere** and **Capsule** collision meshes, because it will be more performant on loading and at runtime.
-* Consider approximating complex collision mesh by several Primitive collision meshes (**Box**/**Sphere**/**Capsule**)
+* Prefiere usar collision meshes **Box**, **Sphere** y **Capsule**, porque será más performante en la carga y en runtime.
+* Considera aproximar collision mesh complejos con varios collision meshes Primitivos (**Box**/**Sphere**/**Capsule**)
 
-![](../.gitbook/assets/28-optimizing-colliders.png)
+![](../images/3d-models-and-animations/3d-essentials/28-optimizing-colliders.png)
 
-_Example: Collider for Ring can be composed as several Capsule or Box colliders_
+_Ejemplo: El collider para Ring puede componerse de varios colliders Capsule o Box_
 
-* Put collision mesh inside the Hierarchy of the object to which it is related. For example Spaceship\_collider can be a child inside Spaceship parent (from Hierarchy point of view)
+* Coloca el collision mesh dentro de la Hierarchy del objeto al que está relacionado. Por ejemplo, Spaceship\_collider puede ser un child dentro del parent Spaceship (desde el punto de vista de Hierarchy)
 
-#### Convex vs Concave Colliders
+#### Colliders Convex vs Concave
 
-If using arbitrary mesh collider is the only possibility, then make collision mesh Convex (not Concave). It will prevent strange physics situations, like stuttering, stuckings inside the collider or clipping through it. Note, that it is often possible to mimic concave mesh by several convex meshes.
+Si usar un collision mesh arbitrario es la única posibilidad, entonces haz que el collision mesh sea Convex (no Concave). Esto evitará situaciones físicas extrañas, como stuttering, quedarse atascado dentro del collider o clipping a través de él. Ten en cuenta que a menudo es posible imitar un mesh concave con varios meshes convex.
 
-![](../.gitbook/assets/29-convex-collider.png)
+![](../images/3d-models-and-animations/3d-essentials/29-convex-collider.png)
 
-### Collision Naming
+### Nomenclatura de Colisiones
 
-**Use meaningful names. Name should give context of where the asset is used or to which part of the object it relates.**
+**Usa nombres significativos. El nombre debe dar contexto de dónde se usa el asset o a qué parte del objeto se relaciona.**
 
-For asset naming we use mix of `PascalCase` and `snake_case`, which we can call `PascalSnake_case`. Basic rules there - new word or word after separator (`_`) starts with **Capital letter.**
+Para la nomenclatura de assets usamos una mezcla de `PascalCase` y `snake_case`, que podemos llamar `PascalSnake_case`. Las reglas básicas allí son: una palabra nueva o palabra después del separador (`_`) comienza con **Letra Mayúscula.**
 
-Collision Mesh is the mesh which is used as reference for creating a collider in the Explorer
+Collision Mesh es el mesh que se usa como referencia para crear un collider en el Explorer
 
-* It follows same principles as Meshes above, but has `_collider` suffix at the end **Examples:** 🟢 **Prefer** names - `Tram_Wheel_LeftFront_collider` 🔴 **Avoid** names - `Primitive.001_Collider`, `collider (1)`, `Cylinder.007_collider`,
+* Sigue los mismos principios que Meshes arriba, pero tiene el sufijo `_collider` al final **Ejemplos:** 🟢 **Prefiere** nombres - `Tram_Wheel_LeftFront_collider` 🔴 **Evita** nombres - `Primitive.001_Collider`, `collider (1)`, `Cylinder.007_collider`,
 
 {% hint style="warning" %}
-**🔥Optimization Tip🔥**
+**🔥Tip de Optimización🔥**
 
-If a collider can be approximated by a Box, Sphere or Capsule shape then use additional suffix with one of these 3 possible variations \_box, \_sphere or \_capsule. Using these 3 shapes instead of arbitrary mesh for collision detection will increase your scene performance and loading time 💪🚀
+Si un collider puede ser aproximado por una forma Box, Sphere o Capsule, entonces usa un sufijo adicional con una de estas 3 variaciones posibles \_box, \_sphere o \_capsule. Usar estas 3 formas en lugar de mesh arbitrario para detección de colisiones aumentará el performance de tu escena y el tiempo de carga 💪🚀
 
-Examples: 🟢 Teater\_MainWall\_North\_collider\_box, Fountain\_Statue\_collider\_sphere
+Ejemplos: 🟢 Teater\_MainWall\_North\_collider\_box, Fountain\_Statue\_collider\_sphere
 {% endhint %}
 
-### Best Practices For Colliders
+### Mejores Prácticas para Colliders
 
-* **Always use the smallest number of triangles possible when creating colliders.** Avoid making a copy of a complex object to use as a collider. Simple colliders guarantee a good user-experience in and keep your scene within the triangle limitations.
-* **Collider objects shouldn’t have any material**, as players of your scene will never see it. Colliders are invisible to players.
-* **All collider objects names must end with \_**_**collider**_**.** For example, &#x54;_&#x72;ee\_collider_.
-* **If you use a \_plane**\_\*\* as a collider, it will only block in one direction.\*\* If you want colliders to block from both sides, for example for a wall, you need to create two planes with their normals facing in opposite directions.
-* When duplicating collider objects, pay attention to their names. Some programs append a \__1_ to the end of the filename to avoid duplicates, for example _tree\_collider\_1_. Objects that are named like this will be interpreted by the Decentraland World Engine as normal objects, not colliders.
-* You can avoid adding a collider mesh if you add an invisible `MeshCollider` component to the entity, that approximates the shape of the 3D model.
-* You can also avoid adding a collider mesh if you configure the `GLTFContainer` component to use the visible geometry as a collider. See [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#colliders-on-3d-models) .
-* If you’re creating a 3D model with many mesh shapes that each need their collider, there are some handy add-ons that can help. For Blender you can use the batch rename option inside Blender \*\*\*\*to automatically add a `_collider` suffix to all mesh names in a group. More about this tool on “**Using Blender to rename assets” section**
+* **Siempre usa el menor número posible de triángulos al crear colliders.** Evita hacer una copia de un objeto complejo para usar como collider. Los colliders simples garantizan una buena experiencia de usuario y mantienen tu escena dentro de las limitaciones de triángulos.
+* **Los objetos collider no deben tener ningún material**, ya que los jugadores de tu escena nunca lo verán. Los colliders son invisibles para los jugadores.
+* **Todos los nombres de objetos collider deben terminar con \_**_**collider**_**.** Por ejemplo, &#x54;_&#x72;ee\_collider_.
+* **Si usas un **_**plane**_** como collider, solo bloqueará en una dirección.** Si quieres que los colliders bloqueen desde ambos lados, por ejemplo para una pared, necesitas crear dos planes con sus normales mirando en direcciones opuestas.
+* Al duplicar objetos collider, presta atención a sus nombres. Algunos programas agregan un \__1_ al final del nombre de archivo para evitar duplicados, por ejemplo _tree\_collider\_1_. Los objetos que se nombran así serán interpretados por el Motor del Mundo de Decentraland como objetos normales, no colliders.
+* Puedes evitar agregar un collider mesh si agregas un componente `MeshCollider` invisible a la entity, que aproxima la forma del modelo 3D.
+* También puedes evitar agregar un collider mesh si configuras el componente `GLTFContainer` para usar la geometría visible como collider. Ve [**Colliders on 3D models**](https://docs.decentraland.org/creator/development-guide/sdk7/colliders/#colliders-on-3D-models).
+* Si estás creando un modelo 3D con muchas mesh shapes que cada una necesita su collider, hay algunos add-ons útiles que pueden ayudar. Para Blender puedes usar la opción batch rename dentro de Blender para agregar automáticamente un sufijo `_collider` a todos los nombres de mesh en un grupo. Más sobre esta herramienta en la sección "**Using Blender to rename assets"

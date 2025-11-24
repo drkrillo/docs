@@ -1,10 +1,10 @@
 # Testing & Performance
 
-This page covers testing strategies for Redux/RTK Query applications and performance optimization techniques.
+Esta página cubre estrategias de testing para aplicaciones Redux/RTK Query y técnicas de optimización de performance.
 
-## Testing Redux Slices
+## Testing de Redux Slices
 
-### Basic Reducer Tests
+### Tests Básicos de Reducers
 
 ```tsx
 // user.slice.test.ts
@@ -38,7 +38,7 @@ describe('user slice', () => {
 });
 ```
 
-### Testing Entity Adapters
+### Testing de Entity Adapters
 
 ```tsx
 // credits.slice.test.ts
@@ -66,9 +66,9 @@ describe('credits slice with entity adapter', () => {
 });
 ```
 
-## Testing Selectors
+## Testing de Selectors
 
-### Simple Selectors
+### Selectors Simples
 
 ```tsx
 // user.selectors.test.ts
@@ -80,7 +80,7 @@ describe('user selectors', () => {
       account: '0x123...',
       isAuthenticated: true,
     },
-    // ... other slices
+    // ... otros slices
   };
 
   it('should select account', () => {
@@ -93,7 +93,7 @@ describe('user selectors', () => {
 });
 ```
 
-### Memoized Selectors
+### Selectors Memoizados
 
 ```tsx
 // land.selectors.test.ts
@@ -124,15 +124,15 @@ describe('land selectors', () => {
     const result1 = selectFilteredParcels(mockState);
     const result2 = selectFilteredParcels(mockState);
     
-    // Same reference = memoized
+    // Misma referencia = memoizado
     expect(result1).toBe(result2);
   });
 });
 ```
 
-## Testing RTK Query with MSW
+## Testing de RTK Query con MSW
 
-### Setup MSW
+### Setup de MSW
 
 ```tsx
 // src/test/server.ts
@@ -171,7 +171,7 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 ```
 
-### Testing Queries
+### Testing de Queries
 
 ```tsx
 // land.client.test.tsx
@@ -209,7 +209,7 @@ describe('land client', () => {
 });
 ```
 
-### Testing Mutations
+### Testing de Mutations
 
 ```tsx
 // credits.client.test.tsx
@@ -251,7 +251,7 @@ describe('credits client mutations', () => {
 });
 ```
 
-### Testing Optimistic Updates
+### Testing de Optimistic Updates
 
 ```tsx
 // credits.client.test.ts
@@ -265,7 +265,7 @@ describe('optimistic updates', () => {
     const store = setupStore();
     const address = '0x123';
 
-    // Prefetch initial balance
+    // Prefetch balance inicial
     await store.dispatch(
       creditsClient.endpoints.getBalance.initiate({ address })
     );
@@ -274,16 +274,16 @@ describe('optimistic updates', () => {
       store.getState()
     ).data?.amount;
 
-    expect(initialBalance).toBe(100); // from MSW handler
+    expect(initialBalance).toBe(100); // desde handler MSW
 
-    // Mock failure
+    // Mock de failure
     server.use(
       http.post('/api/v1/credits/grant', () => {
         return HttpResponse.json({ error: 'Failed' }, { status: 500 });
       })
     );
 
-    // Trigger mutation
+    // Dispara mutation
     const mutation = store.dispatch(
       creditsClient.endpoints.grantCredits.initiate({
         address,
@@ -291,32 +291,32 @@ describe('optimistic updates', () => {
       })
     );
 
-    // Check optimistic update
+    // Verifica actualización optimistic
     const optimisticBalance = creditsClient.endpoints.getBalance.select({
       address,
     })(store.getState()).data?.amount;
 
     expect(optimisticBalance).toBe(150); // 100 + 50
 
-    // Wait for mutation to fail
+    // Espera que falle la mutation
     await expect(mutation).rejects.toThrow();
 
-    // Check rollback
+    // Verifica rollback
     const rolledBackBalance = creditsClient.endpoints.getBalance.select({
       address,
     })(store.getState()).data?.amount;
 
-    expect(rolledBackBalance).toBe(100); // Back to original
+    expect(rolledBackBalance).toBe(100); // De vuelta al original
   });
 });
 ```
 
-## Performance Optimization
+## Optimización de Performance
 
-### Use `selectFromResult` to Prevent Re-renders
+### Usa `selectFromResult` para Prevenir Re-renders
 
 ```tsx
-// ✅ Good: Only subscribes to specific fields
+// ✅ Bien: Solo se suscribe a campos específicos
 const { owner } = useGetParcelQuery(
   { id },
   {
@@ -326,77 +326,77 @@ const { owner } = useGetParcelQuery(
   }
 );
 
-// Component only re-renders when owner changes
+// Componente solo re-renderiza cuando owner cambia
 ```
 
-### Avoid Selecting Entire State
+### Evita Seleccionar State Completo
 
 ```tsx
-// ✅ Good: Select specific values
+// ✅ Bien: Selecciona valores específicos
 const viewMode = useAppSelector(selectViewMode);
 const filters = useAppSelector(selectFilters);
 
-// ❌ Bad: Selects entire slice
+// ❌ Mal: Selecciona el slice completo
 const ui = useAppSelector((state) => state.ui);
 ```
 
-### Memoize Expensive Selectors
+### Memoiza Selectors Costosos
 
 ```tsx
 import { createSelector } from '@reduxjs/toolkit';
 
-// ✅ Good: Memoized selector
+// ✅ Bien: Selector memoizado
 export const selectFilteredParcels = createSelector(
   [selectAllParcels, selectFilters],
   (parcels, filters) => {
-    // Expensive filtering logic
+    // Lógica costosa de filtrado
     return parcels.filter(/* ... */);
   }
 );
 
-// ❌ Bad: Computed in component
+// ❌ Mal: Computado en componente
 function Component() {
   const parcels = useAppSelector(selectAllParcels);
   const filters = useAppSelector(selectFilters);
   
-  // Re-computes on every render!
+  // ¡Re-computa en cada render!
   const filtered = parcels.filter(/* ... */);
 }
 ```
 
-### Use Entity Adapters for Normalized Data
+### Usa Entity Adapters para Datos Normalizados
 
 ```tsx
-// ✅ Good: Normalized with entity adapter
+// ✅ Bien: Normalizado con entity adapter
 const adapter = createEntityAdapter<Parcel>();
 
-// Efficient lookups by ID
+// Lookups eficientes por ID
 const parcel = adapter.getSelectors().selectById(state, id);
 
-// ❌ Bad: Array lookup
+// ❌ Mal: Lookup en array
 const parcel = state.parcels.find((p) => p.id === id);
 ```
 
-### Tune RTK Query Cache Settings
+### Ajusta Configuración de Cache de RTK Query
 
 ```tsx
 export const client = createApi({
   // ...
-  keepUnusedDataFor: 60, // Keep data for 60 seconds
-  refetchOnMountOrArgChange: 30, // Refetch if data is older than 30s
-  refetchOnFocus: true, // Refetch when window regains focus
-  refetchOnReconnect: true, // Refetch when reconnecting
+  keepUnusedDataFor: 60, // Mantiene datos por 60 segundos
+  refetchOnMountOrArgChange: 30, // Refetch si los datos tienen más de 30s
+  refetchOnFocus: true, // Refetch cuando la ventana recupera el foco
+  refetchOnReconnect: true, // Refetch al reconectar
 });
 ```
 
-### Prefetch for Better UX
+### Prefetch para Mejor UX
 
 ```tsx
 function ParcelListItem({ parcel }: { parcel: Parcel }) {
   const dispatch = useAppDispatch();
 
   const handleMouseEnter = () => {
-    // Prefetch on hover
+    // Prefetch al hacer hover
     dispatch(
       client.util.prefetch('getParcel', { id: parcel.id }, { force: false })
     );
@@ -410,22 +410,22 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
 }
 ```
 
-### Polling Strategy
+### Estrategia de Polling
 
 ```tsx
-// Poll only when needed
+// Poll solo cuando sea necesario
 const { data } = useGetBalanceQuery(
   { address },
   {
-    pollingInterval: isActive ? 10000 : 0, // Poll only when active
-    skipPollingIfUnfocused: true, // Pause when tab not focused
+    pollingInterval: isActive ? 10000 : 0, // Poll solo cuando está activo
+    skipPollingIfUnfocused: true, // Pausa cuando la pestaña no está enfocada
   }
 );
 ```
 
 ## Redux DevTools
 
-### Enable in Development
+### Habilita en Desarrollo
 
 ```tsx
 export const store = configureStore({
@@ -436,7 +436,7 @@ export const store = configureStore({
 
 ### Action Sanitizer
 
-Sanitize sensitive data in DevTools:
+Sanitiza datos sensibles en DevTools:
 
 ```tsx
 const actionSanitizer = (action: any) => {
@@ -460,53 +460,53 @@ export const store = configureStore({
 });
 ```
 
-## Best Practices Checklist
+## Checklist de Mejores Prácticas
 
 ### Performance
 
-- [ ]  Use `selectFromResult` for large query results
-- [ ]  Memoize expensive selectors with `createSelector`
-- [ ]  Use entity adapters for normalized collections
-- [ ]  Avoid selecting entire slices in components
-- [ ]  Tune `keepUnusedDataFor` based on your use case
-- [ ]  Prefetch data before navigation
-- [ ]  Use polling strategically (only when needed)
+- [ ]  Usa `selectFromResult` para resultados de query grandes
+- [ ]  Memoiza selectors costosos con `createSelector`
+- [ ]  Usa entity adapters para colecciones normalizadas
+- [ ]  Evita seleccionar slices completos en componentes
+- [ ]  Ajusta `keepUnusedDataFor` según tu caso de uso
+- [ ]  Prefetch de datos antes de navegación
+- [ ]  Usa polling estratégicamente (solo cuando sea necesario)
 
 ### Testing
 
-- [ ]  Unit test all reducers and actions
-- [ ]  Test memoized selectors for correctness and performance
-- [ ]  Use MSW for RTK Query endpoint tests
-- [ ]  Test optimistic updates and rollback logic
-- [ ]  Test error handling in components
-- [ ]  Write integration tests for critical flows
+- [ ]  Test unitario de todos los reducers y acciones
+- [ ]  Test de selectors memoizados para correctitud y performance
+- [ ]  Usa MSW para tests de endpoints RTK Query
+- [ ]  Test de optimistic updates y lógica de rollback
+- [ ]  Test de manejo de errores en componentes
+- [ ]  Escribe tests de integración para flujos críticos
 
-### Code Quality
+### Calidad de Código
 
-- [ ]  Use typed hooks (`useAppSelector`, `useAppDispatch`)
-- [ ]  Handle all query states (loading, error, success)
-- [ ]  Use `.unwrap()` for mutation error handling
-- [ ]  Invalidate or update cache after mutations
-- [ ]  Keep non-serializable data out of Redux
-- [ ]  Document complex selectors and logic
+- [ ]  Usa hooks tipados (`useAppSelector`, `useAppDispatch`)
+- [ ]  Maneja todos los estados de query (loading, error, success)
+- [ ]  Usa `.unwrap()` para manejo de errores en mutations
+- [ ]  Invalida o actualiza cache después de mutations
+- [ ]  Mantén datos no serializables fuera de Redux
+- [ ]  Documenta selectors y lógica complejos
 
-## Anti-Patterns to Avoid
+## Anti-Patrones a Evitar
 
 {% hint style="danger" %}
-**Don't do these:**
+**No hagas esto:**
 
-1. Store non-serializable objects (providers, signers) in Redux
-2. Duplicate data in both slices and RTK Query
-3. Dispatch actions during render
-4. Create selectors that return new objects without memoization
-5. Ignore loading and error states
-6. Fetch the same data in multiple components without RTK Query
-7. Over-poll or poll without `skipPollingIfUnfocused`
+1. Almacenar objetos no serializables (providers, signers) en Redux
+2. Duplicar datos en slices y RTK Query
+3. Despachar acciones durante render
+4. Crear selectors que retornan objetos nuevos sin memoización
+5. Ignorar estados de loading y error
+6. Fetch de los mismos datos en múltiples componentes sin RTK Query
+7. Hacer over-poll o poll sin `skipPollingIfUnfocused`
 {% endhint %}
 
-## Monitoring Performance
+## Monitoreando Performance
 
-### Track Selector Calls
+### Rastrea Llamadas a Selectors
 
 ```tsx
 import { createSelector } from '@reduxjs/toolkit';
@@ -514,13 +514,13 @@ import { createSelector } from '@reduxjs/toolkit';
 const selectExpensiveData = createSelector(
   [selectData],
   (data) => {
-    console.log('Selector called'); // Should only log when data changes
+    console.log('Selector called'); // Solo debe loguear cuando data cambia
     return expensiveOperation(data);
   }
 );
 ```
 
-### Monitor Re-renders
+### Monitorea Re-renders
 
 ```tsx
 import { useEffect, useRef } from 'react';
@@ -535,14 +535,13 @@ function useRenderCount() {
 }
 
 function Component() {
-  useRenderCount(); // Track re-renders
+  useRenderCount(); // Rastrea re-renders
   // ...
 }
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Component Patterns](component-patterns.md) for usage examples
-* See [RTK Query](rtk-query.md) for caching strategies
-* Understand [State Management](state-management.md) for slice optimization
-
+* Revisa [Component Patterns](component-patterns.md) para ejemplos de uso
+* Ve [RTK Query](rtk-query.md) para estrategias de caching
+* Entiende [State Management](state-management.md) para optimización de slices

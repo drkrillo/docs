@@ -1,24 +1,24 @@
-# State Management
+# Gestión de Estado
 
-This page covers creating Redux slices for UI and local state management using Redux Toolkit's `createSlice` and `createEntityAdapter`.
+Esta página cubre la creación de slices de Redux para gestión de estado UI y local usando `createSlice` y `createEntityAdapter` de Redux Toolkit.
 
-## When to Use Slices vs RTK Query
+## Cuándo Usar Slices vs RTK Query
 
-Choose the right tool for your state:
+Elegir la herramienta correcta para su estado:
 
-| State Type | Tool | Examples |
+| Tipo de Estado | Herramienta | Ejemplos |
 |------------|------|----------|
-| **Remote data** (server-owned) | RTK Query | User profiles, NFTs, catalog items, orders |
-| **UI state** (client-owned) | createSlice | Filters, modals, view preferences, form state |
-| **Normalized collections** | createEntityAdapter | Sorted/filtered lists, optimistic updates |
+| **Datos remotos** (propiedad del servidor) | RTK Query | Perfiles de usuario, NFTs, ítems de catálogo, órdenes |
+| **Estado UI** (propiedad del cliente) | createSlice | Filtros, modales, preferencias de vista, estado de formulario |
+| **Colecciones normalizadas** | createEntityAdapter | Listas ordenadas/filtradas, actualizaciones optimistas |
 
 {% hint style="warning" %}
-**Do not duplicate the same data** in both a slice and RTK Query. Choose one source of truth.
+**No duplicar los mismos datos** tanto en un slice como en RTK Query. Elegir una fuente de verdad.
 {% endhint %}
 
-## Creating a Basic Slice
+## Crear un Slice Básico
 
-Use `createSlice` for simple UI state:
+Usar `createSlice` para estado UI simple:
 
 ```tsx
 // src/features/ui/ui.slice.ts
@@ -43,12 +43,12 @@ const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    // Boolean toggles
+    // Toggles booleanos
     sidebarToggled(state) {
       state.sidebarOpen = !state.sidebarOpen;
     },
     
-    // Set specific value
+    // Establecer valor específico
     modalOpened(state) {
       state.modalOpen = true;
     },
@@ -57,7 +57,7 @@ const uiSlice = createSlice({
       state.modalOpen = false;
     },
     
-    // Payload actions
+    // Acciones con payload
     viewModeChanged(state, action: PayloadAction<'grid' | 'list'>) {
       state.viewMode = action.payload;
     },
@@ -66,14 +66,14 @@ const uiSlice = createSlice({
       state.theme = action.payload;
     },
     
-    // Multiple properties
+    // Múltiples propiedades
     uiReset() {
       return initialState;
     },
   },
 });
 
-// Export actions
+// Exportar acciones
 export const {
   sidebarToggled,
   modalOpened,
@@ -83,19 +83,19 @@ export const {
   uiReset,
 } = uiSlice.actions;
 
-// Export reducer
+// Exportar reducer
 export default uiSlice.reducer;
 
-// Export selectors
+// Exportar selectores
 export const selectSidebarOpen = (state: RootState) => state.ui.sidebarOpen;
 export const selectModalOpen = (state: RootState) => state.ui.modalOpen;
 export const selectViewMode = (state: RootState) => state.ui.viewMode;
 export const selectTheme = (state: RootState) => state.ui.theme;
 ```
 
-## Using Entity Adapters
+## Usar Entity Adapters
 
-For normalized collections (lists with IDs), use `createEntityAdapter`:
+Para colecciones normalizadas (listas con IDs), usar `createEntityAdapter`:
 
 ```tsx
 // src/features/credits/credits.slice.ts
@@ -111,13 +111,13 @@ export type CreditTransaction = {
   description?: string;
 };
 
-// Create entity adapter
+// Crear entity adapter
 const txAdapter = createEntityAdapter<CreditTransaction>({
   selectId: (tx) => tx.id,
-  sortComparer: (a, b) => b.timestamp - a.timestamp, // Latest first
+  sortComparer: (a, b) => b.timestamp - a.timestamp, // Más reciente primero
 });
 
-// Create slice with adapter's initial state
+// Crear slice con estado inicial del adapter
 const creditsSlice = createSlice({
   name: 'credits',
   initialState: txAdapter.getInitialState({
@@ -125,22 +125,22 @@ const creditsSlice = createSlice({
     error: null as string | null,
   }),
   reducers: {
-    // Add a single transaction
+    // Agregar una sola transacción
     txAdded: txAdapter.addOne,
     
-    // Add multiple transactions
+    // Agregar múltiples transacciones
     txsAdded: txAdapter.addMany,
     
-    // Update a transaction
+    // Actualizar una transacción
     txUpdated: txAdapter.updateOne,
     
-    // Remove a transaction
+    // Remover una transacción
     txRemoved: txAdapter.removeOne,
     
-    // Clear all transactions
+    // Limpiar todas las transacciones
     txsCleared: txAdapter.removeAll,
     
-    // Custom reducer with extra state
+    // Reducer personalizado con estado extra
     sendingStarted(state) {
       state.sending = true;
       state.error = null;
@@ -158,7 +158,7 @@ const creditsSlice = createSlice({
   },
 });
 
-// Export actions
+// Exportar acciones
 export const {
   txAdded,
   txsAdded,
@@ -170,19 +170,19 @@ export const {
   sendingFailed,
 } = creditsSlice.actions;
 
-// Export reducer
+// Exportar reducer
 export default creditsSlice.reducer;
 
-// Create selectors
+// Crear selectores
 const selectCreditsState = (state: RootState) => state.credits;
 
 export const creditsSelectors = txAdapter.getSelectors(selectCreditsState);
 
-// Additional custom selectors
+// Selectores personalizados adicionales
 export const selectIsSending = (state: RootState) => state.credits.sending;
 export const selectError = (state: RootState) => state.credits.error;
 
-// Memoized selectors
+// Selectores memoizados
 export const selectTotalCredits = (state: RootState) => {
   const txs = creditsSelectors.selectAll(state);
   return txs.reduce((total, tx) => {
@@ -191,58 +191,58 @@ export const selectTotalCredits = (state: RootState) => {
 };
 ```
 
-## Entity Adapter Methods
+## Métodos de Entity Adapter
 
-### State Mutations
+### Mutaciones de Estado
 
 ```tsx
-// Add
+// Agregar
 txAdapter.addOne(state, entity)
 txAdapter.addMany(state, entities)
 
-// Update
+// Actualizar
 txAdapter.updateOne(state, { id, changes })
 txAdapter.updateMany(state, updates)
 
-// Upsert (add or update)
+// Upsert (agregar o actualizar)
 txAdapter.upsertOne(state, entity)
 txAdapter.upsertMany(state, entities)
 
-// Remove
+// Remover
 txAdapter.removeOne(state, id)
 txAdapter.removeMany(state, ids)
 txAdapter.removeAll(state)
 
-// Set (replace all)
+// Set (reemplazar todo)
 txAdapter.setAll(state, entities)
 txAdapter.setOne(state, entity)
 txAdapter.setMany(state, entities)
 ```
 
-### Generated Selectors
+### Selectores Generados
 
 ```tsx
 const selectors = txAdapter.getSelectors(selectState);
 
-// Select all entities as array
+// Seleccionar todas las entidades como array
 selectors.selectAll(state)
 
-// Select entities as { [id]: entity }
+// Seleccionar entidades como { [id]: entity }
 selectors.selectEntities(state)
 
-// Select all IDs as array
+// Seleccionar todos los IDs como array
 selectors.selectIds(state)
 
-// Select total count
+// Seleccionar conteo total
 selectors.selectTotal(state)
 
-// Select single entity by ID
+// Seleccionar entidad única por ID
 selectors.selectById(state, id)
 ```
 
-## Complex State Example
+## Ejemplo de Estado Complejo
 
-Combining multiple concerns in one slice:
+Combinando múltiples preocupaciones en un slice:
 
 ```tsx
 // src/features/land/land.slice.ts
@@ -267,17 +267,17 @@ const selectedParcelsAdapter = createEntityAdapter<SelectedParcel>({
 });
 
 interface LandState {
-  // View state
+  // Estado de vista
   mapCenter: { x: number; y: number };
   mapZoom: number;
   
-  // Filter state
+  // Estado de filtro
   filters: LandFilter;
   
-  // Selection state (using adapter)
+  // Estado de selección (usando adapter)
   selectedParcels: ReturnType<typeof selectedParcelsAdapter.getInitialState>;
   
-  // UI state
+  // Estado UI
   showGrid: boolean;
   highlightOwned: boolean;
 }
@@ -295,7 +295,7 @@ const landSlice = createSlice({
   name: 'land',
   initialState,
   reducers: {
-    // Map controls
+    // Controles del mapa
     mapCenterChanged(state, action: PayloadAction<{ x: number; y: number }>) {
       state.mapCenter = action.payload;
     },
@@ -304,7 +304,7 @@ const landSlice = createSlice({
       state.mapZoom = action.payload;
     },
     
-    // Filters
+    // Filtros
     filtersUpdated(state, action: PayloadAction<Partial<LandFilter>>) {
       state.filters = { ...state.filters, ...action.payload };
     },
@@ -313,7 +313,7 @@ const landSlice = createSlice({
       state.filters = {};
     },
     
-    // Selection
+    // Selección
     parcelSelected(state, action: PayloadAction<SelectedParcel>) {
       selectedParcelsAdapter.addOne(state.selectedParcels, action.payload);
     },
@@ -326,7 +326,7 @@ const landSlice = createSlice({
       selectedParcelsAdapter.removeAll(state.selectedParcels);
     },
     
-    // UI toggles
+    // Toggles UI
     gridToggled(state) {
       state.showGrid = !state.showGrid;
     },
@@ -351,23 +351,23 @@ export const {
 
 export default landSlice.reducer;
 
-// Selectors
+// Selectores
 export const selectMapCenter = (state: RootState) => state.land.mapCenter;
 export const selectMapZoom = (state: RootState) => state.land.mapZoom;
 export const selectFilters = (state: RootState) => state.land.filters;
 export const selectShowGrid = (state: RootState) => state.land.showGrid;
 export const selectHighlightOwned = (state: RootState) => state.land.highlightOwned;
 
-// Selection selectors
+// Selectores de selección
 const selectSelectedParcelsState = (state: RootState) => state.land.selectedParcels;
 export const selectedParcelsSelectors = selectedParcelsAdapter.getSelectors(
   selectSelectedParcelsState
 );
 ```
 
-## Memoized Selectors
+## Selectores Memoizados
 
-Use `createSelector` from Reselect for computed/derived state:
+Usar `createSelector` de Reselect para estado computado/derivado:
 
 ```tsx
 // src/features/land/land.selectors.ts
@@ -375,7 +375,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import type { RootState } from '@/app/store';
 import { selectFilters } from './land.slice';
 
-// Expensive filtering logic - memoized
+// Lógica de filtrado costosa - memoizada
 export const selectActiveFiltersCount = createSelector(
   [selectFilters],
   (filters) => {
@@ -383,16 +383,16 @@ export const selectActiveFiltersCount = createSelector(
   }
 );
 
-// Combine multiple selectors
+// Combinar múltiples selectores
 export const selectHasActiveFilters = createSelector(
   [selectActiveFiltersCount],
   (count) => count > 0
 );
 
-// Multiple inputs
+// Múltiples entradas
 export const selectFilteredParcels = createSelector(
   [
-    (state: RootState) => state.land.allParcels, // assuming this exists
+    (state: RootState) => state.land.allParcels, // asumiendo que esto existe
     selectFilters,
   ],
   (parcels, filters) => {
@@ -407,9 +407,9 @@ export const selectFilteredParcels = createSelector(
 );
 ```
 
-## Async Logic with Extra Reducers
+## Lógica Asíncrona con Extra Reducers
 
-Handle RTK Query or async thunk responses in your slice:
+Manejar respuestas de RTK Query o async thunk en su slice:
 
 ```tsx
 import { createSlice } from '@reduxjs/toolkit';
@@ -437,30 +437,30 @@ const slice = createSlice({
 });
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Keep State Minimal
+### 1. Mantener el Estado Mínimo
 
 ```tsx
-// ✅ Good: Only store what you need
+// ✅ Bien: Solo almacenar lo que necesita
 interface State {
   userId: string | null;
   isAuthenticated: boolean;
 }
 
-// ❌ Bad: Storing derived/computed values
+// ❌ Mal: Almacenar valores derivados/computados
 interface State {
   userId: string | null;
   isAuthenticated: boolean;
-  hasUserId: boolean; // Can be computed
-  userIdLength: number; // Can be computed
+  hasUserId: boolean; // Puede ser computado
+  userIdLength: number; // Puede ser computado
 }
 ```
 
-### 2. Use Immer-Friendly Mutations
+### 2. Usar Mutaciones Amigables con Immer
 
 ```tsx
-// ✅ Good: Direct mutation (Immer handles it)
+// ✅ Bien: Mutación directa (Immer lo maneja)
 reducers: {
   itemAdded(state, action) {
     state.items.push(action.payload);
@@ -468,7 +468,7 @@ reducers: {
   }
 }
 
-// ❌ Bad: Manual spread (unnecessary)
+// ❌ Mal: Spread manual (innecesario)
 reducers: {
   itemAdded(state, action) {
     return {
@@ -480,16 +480,16 @@ reducers: {
 }
 ```
 
-### 3. Organize Reducers Logically
+### 3. Organizar Reducers Lógicamente
 
 ```tsx
-// ✅ Good: Grouped by functionality
+// ✅ Bien: Agrupado por funcionalidad
 reducers: {
-  // Modal controls
+  // Controles de modal
   modalOpened(state) { ... },
   modalClosed(state) { ... },
   
-  // Filter controls
+  // Controles de filtro
   filterApplied(state, action) { ... },
   filterCleared(state) { ... },
   
@@ -498,21 +498,21 @@ reducers: {
 }
 ```
 
-### 4. Type Actions Properly
+### 4. Tipar Acciones Apropiadamente
 
 ```tsx
-// ✅ Good: Explicit payload type
+// ✅ Bien: Tipo de payload explícito
 userUpdated(state, action: PayloadAction<{ id: string; name: string }>) {
   state.user = action.payload;
 }
 
-// ❌ Bad: Untyped payload
+// ❌ Mal: Payload sin tipar
 userUpdated(state, action) {
-  state.user = action.payload; // No type safety
+  state.user = action.payload; // Sin type safety
 }
 ```
 
-## Testing Slices
+## Probar Slices
 
 ```tsx
 // land.slice.test.ts
@@ -522,7 +522,7 @@ describe('land slice', () => {
   const initialState = {
     mapCenter: { x: 0, y: 0 },
     mapZoom: 1,
-    // ... other state
+    // ... otro estado
   };
 
   it('should handle mapCenterChanged', () => {
@@ -538,9 +538,8 @@ describe('land slice', () => {
 });
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Review [Component Patterns](component-patterns.md) for using slices in components
-* Learn about [Web3 Integration](web3-integration.md) for blockchain state
-* See [Testing & Performance](testing-and-performance.md) for optimization tips
-
+* Revisar [Patrones de Componentes](component-patterns.md) para usar slices en componentes
+* Aprender sobre [Integración Web3](web3-integration.md) para estado blockchain
+* Ver [Pruebas y Rendimiento](testing-and-performance.md) para consejos de optimización

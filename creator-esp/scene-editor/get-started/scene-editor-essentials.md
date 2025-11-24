@@ -1,194 +1,192 @@
 ---
-description: How to use the Scene Editor
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/get-started/scene-editor-essentials
+description: Cómo usar el Scene Editor
 ---
 
 # Scene Editor Essentials
 
-The Scene Editor's UI is divided into a few different sections, with different purposes.
+La UI del Scene Editor está dividida en algunas secciones diferentes, con diferentes propósitos.
 
-![](../../.gitbook/assets/editor-layout.png)
+![](../images/editor/editor-layout.png)
 
-* **Canvas**: Manipulate items directly and see what your scene looks like.
-* **Entity tree**: Contains a list of all items in the scene and their hierarchy.
-* **Properties**: Displays details about the currently selected item.
-* **Resources**: Shows resources that are available to use.
+* **Canvas**: Manipula ítems directamente y ve cómo se ve tu escena.
+* **Entity tree**: Contiene una lista de todos los ítems en la escena y su jerarquía.
+* **Properties**: Muestra detalles sobre el ítem actualmente seleccionado.
+* **Resources**: Muestra recursos que están disponibles para usar.
 
-### Moving around
+### Moverse
 
-To find your way around the Scene Editor:
+Para encontrar tu camino alrededor del Scene Editor:
 
-* Use **A** and **W** to move close or far. You can also use the mouse scroll wheel, or **+** and **-** keys
-* Use **S** and **D** to move sideways.
-* Use **Q** and **E** to move up and down.
-* Click the **Right Mouse Button** and drag to rotate the camera.
-* Press **Space bar** to reset the camera back to the default position
-* Use **Left Mouse Button** to click and select items and to move them around.
+* Usa **A** y **W** para moverte cerca o lejos. También puedes usar la rueda del mouse, o las teclas **+** y **-**
+* Usa **S** y **D** para moverte lateralmente.
+* Usa **Q** y **E** para moverte arriba y abajo.
+* Haz clic en el **Botón Derecho del Mouse** y arrastra para rotar la cámara.
+* Presiona la **barra espaciadora** para restablecer la cámara a la posición predeterminada
+* Usa el **Botón Izquierdo del Mouse** para hacer clic y seleccionar ítems y moverlos.
 
-### Set the Ground
+### Configurar el Suelo
 
-The scene's ground can use various different textures. You can find these in the different themed asset packs in the item menu.
+El suelo de la escena puede usar varias texturas diferentes. Puedes encontrarlas en los diferentes asset packs temáticos en el menú de ítems.
 
-Items of type **Ground** have a paint bucket icon on them. If you drag one of these into your scene, it covers all of your scene's ground with copies of this item.
+Los ítems de tipo **Ground** tienen un ícono de balde de pintura en ellos. Si arrastras uno de estos a tu escena, cubre todo el suelo de tu escena con copias de este ítem.
 
-![](../../.gitbook/assets/ground.png)
+![](../images/editor/ground.png)
 
-You can also add a single copy of the item by holding **Shift** while you drag the ground onto the scene.
+También puedes agregar una sola copia del ítem manteniendo presionado **Shift** mientras arrastras el ground a la escena.
 
-![](../../.gitbook/assets/ground-entities.png)
+![](../images/editor/ground-entities.png)
 
-The collection of ground items appear in the [entity tree](scene-editor-essentials.md#the-entity-tree) inside a folder. Each one of them is locked, to prevent accidentally selecting. [Untoggle](scene-editor-essentials.md#lock-or-hide-items) the items to move or edit them.
+La colección de ítems de ground aparece en el [entity tree](scene-editor-essentials.md#the-entity-tree) dentro de una carpeta. Cada uno de ellos está bloqueado, para evitar seleccionarlos accidentalmente. [Desactiva](scene-editor-essentials.md#lock-or-hide-items) los ítems para moverlos o editarlos.
 
-### Add items
+### Agregar ítems
 
-Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
+Navega por las categorías de asset packs temáticos en el menú de la parte inferior para encontrar diferentes ítems que puedes colocar en tu escena.
 
-![](../../.gitbook/assets/asset-packs.png)
+![](../images/editor/asset-packs.png)
 
-You can also use the search box. Note that when you're inside an asset pack, the search only looks in that asset pack.
+También puedes usar el cuadro de búsqueda. Ten en cuenta que cuando estás dentro de un asset pack, la búsqueda solo busca en ese asset pack.
 
-To place an item, click and drag it in from the asset pack menu into a location on your scene in the canvas. You'll
+Para colocar un ítem, haz clic y arrástralo desde el menú de asset pack hacia una ubicación en tu escena en el canvas.
 
-![](../../.gitbook/assets/drop-item.gif)
+![](../images/editor/drop-item.gif)
 
 {% hint style="info" %}
-**💡 Tip**: Your changes are saved automatically whenever you add, move, or edit properties of any of the items in your scene.
+**💡 Tip**: Tus cambios se guardan automáticamente cada vez que agregas, mueves o editas propiedades de cualquiera de los ítems en tu escena.
 {% endhint %}
 
-To duplicate an item, select it and hit **Ctrl + C** and then **Ctrl + V**. You can also find the item on the [entity tree](scene-editor-essentials.md#the-entity-tree) to right-click and select the option **Duplicate**. The new item will be perfectly overlapping the original.
+Para duplicar un ítem, selecciónalo y presiona **Ctrl + C** y luego **Ctrl + V**. También puedes encontrar el ítem en el [entity tree](scene-editor-essentials.md#the-entity-tree) para hacer clic derecho y seleccionar la opción **Duplicate**. El nuevo ítem estará perfectamente superpuesto al original.
 
-To delete an item from the scene, select it press the _Delete_ key.
+Para eliminar un ítem de la escena, selecciónalo y presiona la tecla _Delete_.
 
-See [Import items](../../../creator/scene-editor/build/import-items.md) for adding your own custom 3D models from disk.
+Consulta [Import items](../scene-editor/build/import-items.md) para agregar tus propios modelos 3D personalizados desde el disco.
 
 {% hint style="warning" %}
-**📔 Note**: Once you dragged a 3D model into your scene, it's downloaded into your project folder and remains there even if you delete it. These unused models can increase the size of your scene.
+**📔 Nota**: Una vez que arrastras un modelo 3D a tu escena, se descarga en tu carpeta de proyecto y permanece allí incluso si lo eliminas. Estos modelos no utilizados pueden aumentar el tamaño de tu escena.
 
-Open the **Local Assets** tab to delete any unused models.
+Abre la pestaña **Local Assets** para eliminar cualquier modelo no utilizado.
 {% endhint %}
 
-### Position items
+### Posicionar ítems
 
-Click with the **Left Mouse Button** and drag a selected item to move it freely around the scene at ground level.
 
-You can also use the tools on the top menu:
 
-![](../../.gitbook/assets/gizmos.png)
+Haz clic con el **Botón Izquierdo del Mouse** y arrastra un ítem seleccionado para moverlo libremente alrededor de la escena al nivel del suelo.
 
-* **Move tool**: Click and drag each arrow to move the item in a single axis at a time. With this tool you can also position things above the ground level.
-* **Rotate tool**: Click and drag each of the hoops around the item to rotate the item on one axis at a time.
-* **Scale tool**: Click on the center of the gizmo and drag in or out to enlarge. This tool also lets you stretch an item in a single axis to change its proportions, to do this click on one of the axis of the gizmo and drag.
+También puedes usar las herramientas en el menú superior:
 
-![](../../.gitbook/assets/move-items.gif)
+![](../images/editor/gizmos.png)
 
-To have greater precision while moving, rotating or scaling an item, press and hold the _Shift_ key while making adjustments. This will avoid snapping to the grid.
+* **Move tool**: Haz clic y arrastra cada flecha para mover el ítem en un solo eje a la vez. Con esta herramienta también puedes posicionar cosas por encima del nivel del suelo.
+* **Rotate tool**: Haz clic y arrastra cada uno de los aros alrededor del ítem para rotar el ítem en un eje a la vez.
+* **Scale tool**: Haz clic en el centro del gizmo y arrastra hacia adentro o hacia afuera para agrandar. Esta herramienta también te permite estirar un ítem en un solo eje para cambiar sus proporciones, para hacer esto haz clic en uno de los ejes del gizmo y arrastra.
 
-To change the movement granularity and other settings, click the downward arrow on the right of the tools. The following settings are available:
+![](../images/editor/move-items.gif)
 
-* **Snap**: Toggle the grid on or off. When off, the behavior of **Shift** is inverted: you don't follow the grid by default, you do if you hold **Shift**.
-  * **Position**: The size of movement increments in meters when **Snap** is on.
-  * **Rotation**: The size of rotation increments in degree when **Snap** is on.
-  * **Scale**: The size of scale increments when **Snap** is on.
-* **Align to world**: Refers to the axis of movement and rotation. They can either always align with the world, or align with the object's orientation. If aligned to world, the axis don't change with the object's orientation.
-  * **Position**: Does the Move tool axis align with the direction that the object faces? Or with the world?
-  * **Rotation**: Do the Rotate tool axis align with the object's orientation, or with the world?
+Para tener mayor precisión al mover, rotar o escalar un ítem, presiona y mantén presionada la tecla _Shift_ mientras haces ajustes. Esto evitará el ajuste a la cuadrícula.
 
-To select multiple items at the same time, press and hold the _Control_ key while selecting them. You can then move, rotate, scale, duplicate or delete all of them in a single action.
+Para cambiar la granularidad del movimiento y otras configuraciones, haz clic en la flecha hacia abajo a la derecha de las herramientas. Las siguientes configuraciones están disponibles:
+
+* **Snap**: Activa o desactiva la cuadrícula. Cuando está desactivada, el comportamiento de **Shift** se invierte: no sigues la cuadrícula por defecto, lo haces si mantienes presionado **Shift**.
+  * **Position**: El tamaño de los incrementos de movimiento en metros cuando **Snap** está activado.
+  * **Rotation**: El tamaño de los incrementos de rotación en grados cuando **Snap** está activado.
+  * **Scale**: El tamaño de los incrementos de escala cuando **Snap** está activado.
+* **Align to world**: Se refiere al eje de movimiento y rotación. Pueden alinearse siempre con el mundo, o alinearse con la orientación del objeto. Si está alineado con el mundo, los ejes no cambian con la orientación del objeto.
+  * **Position**: ¿El eje de Move tool se alinea con la dirección que enfrenta el objeto? ¿O con el mundo?
+  * **Rotation**: ¿El eje de Rotate tool se alinea con la orientación del objeto, o con el mundo?
+
+Para seleccionar múltiples ítems al mismo tiempo, presiona y mantén presionada la tecla _Control_ mientras los seleccionas. Luego puedes mover, rotar, escalar, duplicar o eliminar todos ellos en una sola acción.
 
 ### Smart items
 
-Smart items are special items that come with built-in interactive behaviors. See [Smart items](../../../creator/scene-editor/interactivity/smart-items.md) for more details.
+Los smart items son ítems especiales que vienen con comportamientos interactivos incorporados. Consulta [Smart items](../scene-editor/interactivity/smart-items.md) para más detalles.
 
-![](../../.gitbook/assets/smart-items.jpg)
+![](../images/editor/smart-items.jpg)
 
 ### The entity tree
 
-On the left margin, you'll see a tree structure with all of the entities in the scene. This includes all of the items you add, as well as a few default entities.
+En el margen izquierdo, verás una estructura de árbol con todas las entidades en la escena. Esto incluye todos los ítems que agregues, así como algunas entidades predeterminadas.
 
 {% hint style="info" %}
-**💡 Tip**: Everything in a scene is an Entity, they are the basic building blocks of scenes. Items are Entities that have at least a position and a visible shape.
+**💡 Tip**: Todo en una escena es una Entity, son los bloques de construcción básicos de las escenas. Los ítems son Entities que tienen al menos una posición y una forma visible.
 {% endhint %}
 
-Instead of selecting an item by clicking on it from the 3D view of the scne, you can select it from the tree view. Click the right-mouse button on an entity to reveal more options: you can rename, delete, or duplicate, also create a child entity, or add a component to the entity.
+En lugar de seleccionar un ítem haciendo clic en él desde la vista 3D de la escena, puedes seleccionarlo desde la vista de árbol. Haz clic con el botón derecho del mouse en una entidad para revelar más opciones: puedes renombrar, eliminar o duplicar, también crear una entidad hija, o agregar un componente a la entidad.
 
-Entities follow a hierarchy that can have as many levels as you want. Establish a parent-child relationship between two entities by dragging one item onto another on the tree. A child entity inherits the position of the parent, so when the parent moves, it carries any children with it. This can be practical while building a scene, for example you can set glasses and plates as children of a table, and then move the table without needing to readjust anything else. It can also be important when interacting with the scene, for items to move together.
+Las entidades siguen una jerarquía que puede tener tantos niveles como quieras. Establece una relación padre-hijo entre dos entidades arrastrando un ítem sobre otro en el árbol. Una entidad hija hereda la posición del padre, por lo que cuando el padre se mueve, lleva consigo a cualquier hijo. Esto puede ser práctico mientras construyes una escena, por ejemplo puedes establecer vasos y platos como hijos de una mesa, y luego mover la mesa sin necesidad de reajustar nada más. También puede ser importante al interactuar con la escena, para que los ítems se muevan juntos.
 
-![](../../.gitbook/assets/item-hierarchy.png)
+![](../images/editor/item-hierarchy.png)
 
-You can also minimize or expand the children of an entity to keep the view simple, this action has no effect on the scene.
+También puedes minimizar o expandir los hijos de una entidad para mantener la vista simple, esta acción no tiene efecto en la escena.
 
-#### Special entities
+#### Entidades especiales
 
-The scene includes a couple of special entities that you can see in the entity tree.
+La escena incluye un par de entidades especiales que puedes ver en el entity tree.
 
-* **Scene**: This refers to the root entity, everything you add in the scene is a child of this entity. You can open it to view [scene settings](scene-editor-essentials.md#scene-settings).
-* **Player**: The player's avatar. You can add special components to this entity that can change gameplay mechanics. You can also drag other entities to be children of the avatar. If an entity is a child of the avatar, its position will be fixed to the player. Use this for example to add a floating marker over the player's head, that follows the player around.
-* **Camera**: The player's camera. You can drag other entities to be children of the camera. If an entity is a child of the camera, its position will be fixed on screen. Use this for example to display a gun in a shooter game, that is always in view even if the player points up or down.
+* **Scene**: Esto se refiere a la entidad raíz, todo lo que agregas en la escena es un hijo de esta entidad. Puedes abrirlo para ver [scene settings](scene-editor-essentials.md#scene-settings).
+* **Player**: El avatar del jugador. Puedes agregar componentes especiales a esta entidad que pueden cambiar las mecánicas de juego. También puedes arrastrar otras entidades para que sean hijos del avatar. Si una entidad es hija del avatar, su posición estará fija al jugador. Úsalo por ejemplo para agregar un marcador flotante sobre la cabeza del jugador, que siga al jugador.
+* **Camera**: La cámara del jugador. Puedes arrastrar otras entidades para que sean hijos de la cámara. Si una entidad es hija de la cámara, su posición estará fija en la pantalla. Úsalo por ejemplo para mostrar un arma en un juego de disparos, que siempre esté a la vista incluso si el jugador apunta hacia arriba o hacia abajo.
 
-#### Lock or hide items
+#### Bloquear u ocultar ítems
 
-You might find it handy to sometimes lock an item, to prevent accidentally selecting and moving it. This is especially useful for background items, like the ground, or a building. To lock an item, look for it on the entity tree on the left, hover over it, and select the lock icon. You can toggle this behavior on and off via that same icon.
+Puede ser útil a veces bloquear un ítem, para evitar seleccionarlo y moverlo accidentalmente. Esto es especialmente útil para ítems de fondo, como el suelo o un edificio. Para bloquear un ítem, búscalo en el entity tree a la izquierda, pasa el mouse sobre él y selecciona el ícono de candado. Puedes alternar este comportamiento activado y desactivado a través de ese mismo ícono.
 
-You might also want to hide an item that could obstruct your view while placing others. This is especially useful to hide the roof or a building, while working on the interiors. Hidden items are only hidden in the Scene Editor's canvas window, not to players entering the scene. To hide an item, look for it on the entity tree on the left, hover over it, and select the eye icon. You can toggle this behavior on and off via that same icon.
+También puedes querer ocultar un ítem que podría obstruir tu vista mientras colocas otros. Esto es especialmente útil para ocultar el techo de un edificio, mientras trabajas en los interiores. Los ítems ocultos solo están ocultos en la ventana del canvas del Scene Editor, no para los jugadores que ingresan a la escena. Para ocultar un ítem, búscalo en el entity tree a la izquierda, pasa el mouse sobre él y selecciona el ícono de ojo. Puedes alternar este comportamiento activado y desactivado a través de ese mismo ícono.
 
-![](../../.gitbook/assets/hide-lock-item.png)
+![](../images/editor/hide-lock-item.png)
 
-### Properties panel
+### Panel de propiedades
 
-Select an item by clicking on it on the canvas or the entity tree. You'll then see its components displayed on the properties panel, on the right of the screen. Different items have different components that each display specific settings.
+Selecciona un ítem haciendo clic en él en el canvas o en el entity tree. Luego verás sus componentes mostrados en el panel de propiedades, a la derecha de la pantalla. Diferentes ítems tienen diferentes componentes que cada uno muestra configuraciones específicas.
 
-![](../../.gitbook/assets/components-in-editor.png)
+![](../images/editor/components-in-editor.png)
 
-Most non-interactive items have the following components:
+La mayoría de los ítems no interactivos tienen los siguientes componentes:
 
-* **Transform**: Sets position, rotation, and scale of the item.
-* **GLTF**: What 3D model to load.
+* **Transform**: Establece posición, rotación y escala del ítem.
+* **GLTF**: Qué modelo 3D cargar.
 
-[Smart items](../../../creator/scene-editor/interactivity/smart-items.md) can include other components.
+Los [Smart items](../scene-editor/interactivity/smart-items.md) pueden incluir otros componentes.
 
-See [Components](../../../creator/scene-editor/build/components.md) to learn more.
+Consulta [Components](../scene-editor/build/components.md) para aprender más.
 
-### Scene limitations
+### Limitaciones de escena
 
-Decentraland scenes need to follow certain limitations, to be able to run them one next to another. There is a maximum number of materials, textures, triangles, etc, that is proportional to the number of parcels in the scene. See [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md) for more details.
+Las escenas de Decentraland deben seguir ciertas limitaciones, para poder ejecutarlas una al lado de la otra. Hay un número máximo de materiales, texturas, triángulos, etc., que es proporcional al número de parcels en la escena. Consulta [scene limitations](../sdk7/optimizing/scene-limitations.md) para más detalles.
 
-If the content in your scene exceeds any of these limits, the Scene Editor will notify this on the bottom-left corner.
+Si el contenido en tu escena excede cualquiera de estos límites, el Scene Editor lo notificará en la esquina inferior izquierda.
 
-![](../../.gitbook/assets/triangle-limit1.png)
+![](../images/editor/triangle-limit1.png)
 
-You can expand this menu to view details.
+Puedes expandir este menú para ver detalles.
 
-![](../../.gitbook/assets/triangle-limit2.png)
+![](../images/editor/triangle-limit2.png)
 
 {% hint style="info" %}
-**💡 Tip**: If you're building a Decentraland World, you can always increase the [scene size](../../../creator/scene-editor/get-started/scene-editor-essentials.md#scene-sizes) to increase your limits.
+**💡 Tip**: Si estás construyendo un Decentraland World, siempre puedes aumentar el [scene size](../scene-editor/get-started/scene-editor-essentials.md#scene-sizes) para aumentar tus límites.
 {% endhint %}
 
-The content in a Decentraland scene must also avoid spilling onto neighbor parcels. If any part of the models in your scene extend beyond the limits, when you open the scene preview you will see these parts cut off. The Scene Editor will mark the entire model in red, but you should only really worry about the parts of the model that extend beyond the scene limits.
+El contenido en una escena de Decentraland también debe evitar derramarse en parcels vecinos. Si alguna parte de los modelos en tu escena se extiende más allá de los límites, cuando abras el preview de la escena verás estas partes cortadas. El Scene Editor marcará todo el modelo en rojo, pero solo debes preocuparte realmente por las partes del modelo que se extienden más allá de los límites de la escena.
 
-![](../../.gitbook/assets/out-of-bounds.png)
+![](../images/editor/out-of-bounds.png)
 
 {% hint style="info" %}
-**💡 Tip**: If the models you want to display don't fit, you may want to increase the size of your scene. See [scene size](../../../creator/scene-editor/get-started/scene-editor-essentials.md#scene-sizes) to enlarge your scene.
+**💡 Tip**: Si los modelos que quieres mostrar no caben, puede que quieras aumentar el tamaño de tu escena. Consulta [scene size](../scene-editor/get-started/scene-editor-essentials.md#scene-sizes) para agrandar tu escena.
 {% endhint %}
 
-Even if the whole geometry of the 3D model fits in your scene, a model might be marked in red if the model's Bounding Box extends beyond the area. If this is the case, you can ignore the warnings, as the entire model will be displayed correctly. Learn more about [Bounding Boxes](../../3d-modeling/meshes.md#bounding-boxes).
+Incluso si toda la geometría del modelo 3D cabe en tu escena, un modelo puede estar marcado en rojo si el Bounding Box del modelo se extiende más allá del área. Si este es el caso, puedes ignorar las advertencias, ya que todo el modelo se mostrará correctamente. Aprende más sobre [Bounding Boxes](../3d-modeling/meshes.md#bounding-boxes).
 
-### Scene settings
+### Configuración de escena
 
-Click the \*Pencil icon\*\* on the top-right of the screen. This opens a series of scene-level properties to edit.
+Haz clic en el **ícono de Lápiz** en la parte superior derecha de la pantalla. Esto abre una serie de propiedades a nivel de escena para editar.
 
-![](../../.gitbook/assets/pencil-icon.png)
+![](../images/editor/pencil-icon.png)
 
-Here you can configure multiple properties including title and thumbnail, scene size, scene category and age rating, player spawn locations, and feature toggles.
+Aquí puedes configurar múltiples propiedades incluyendo título y miniatura, tamaño de escena, categoría de escena y clasificación por edad, ubicaciones de spawn de jugadores y toggles de características.
 
-See [Scene Settings](../../../creator/scene-editor/configure/scene-settings.md).
+Consulta [Scene Settings](../scene-editor/configure/scene-settings.md).
 
-### See also
+### Ver también
 
-* See [Smart items](../../../creator/scene-editor/interactivity/smart-items.md) for how to add simple interactivity to your scene.
-* See [Combine with code](../../../creator/scene-editor/code/overview.md) for how to edit the code of your scene.
-* See [Publish scene](../../../creator/scene-editor/publish/publish-scene.md) for how to publish your scene to Decentraland.
+* Consulta [Smart items](../scene-editor/interactivity/smart-items.md) para saber cómo agregar interactividad simple a tu escena.
+* Consulta [Combine with code](../scene-editor/code/overview.md) para saber cómo editar el código de tu escena.
+* Consulta [Publish scene](../scene-editor/publish/publish-scene.md) para saber cómo publicar tu escena en Decentraland.

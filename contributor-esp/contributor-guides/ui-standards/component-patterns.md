@@ -1,10 +1,10 @@
-# Component Patterns
+# Patrones de Componentes
 
-This page covers how to effectively use Redux and RTK Query in React components, including hooks, optimization patterns, and best practices.
+Esta página cubre cómo usar efectivamente Redux y RTK Query en componentes React, incluyendo hooks, patrones de optimización y mejores prácticas.
 
-## Basic Query Usage
+## Uso Básico de Query
 
-Use generated hooks from RTK Query endpoints:
+Usa los hooks generados desde los endpoints de RTK Query:
 
 ```tsx
 import { useGetParcelByCoordsQuery } from '@/features/land/land.client';
@@ -25,13 +25,13 @@ function ParcelCard({ x, y }: { x: number; y: number }) {
 }
 ```
 
-## Optimizing Re-renders with `selectFromResult`
+## Optimizando Re-renders con `selectFromResult`
 
-Narrow the result to only the fields you need:
+Limita el resultado solo a los campos que necesitas:
 
 ```tsx
 function ParcelOwner({ x, y }: { x: number; y: number }) {
-  // ✅ Good: Only subscribes to owner field changes
+  // ✅ Bien: Solo se suscribe a cambios en el campo owner
   const { owner, isFetching } = useGetParcelByCoordsQuery(
     { x, y },
     {
@@ -46,27 +46,27 @@ function ParcelOwner({ x, y }: { x: number; y: number }) {
   return <span>Owner: {owner}</span>;
 }
 
-// ❌ Bad: Re-renders on any data change
+// ❌ Mal: Re-renderiza con cualquier cambio en data
 function ParcelOwnerBad({ x, y }: { x: number; y: number }) {
   const { data } = useGetParcelByCoordsQuery({ x, y });
   return <span>Owner: {data?.owner}</span>;
 }
 ```
 
-## Conditional Queries with `skip`
+## Queries Condicionales con `skip`
 
-Skip queries when arguments aren't ready:
+Omite queries cuando los argumentos no están listos:
 
 ```tsx
 function UserProfile() {
   const { data: session } = useGetSessionQuery();
   const userId = session?.userId;
 
-  // Skip profile query until we have userId
+  // Omite el query de perfil hasta que tengamos userId
   const { data: profile } = useGetProfileQuery(
     { id: userId! },
     {
-      skip: !userId, // Don't fetch if userId is undefined
+      skip: !userId, // No hace fetch si userId es undefined
     }
   );
 
@@ -77,15 +77,15 @@ function UserProfile() {
 }
 ```
 
-## Polling for Real-time Updates
+## Polling para Actualizaciones en Tiempo Real
 
 ```tsx
 function LiveBalance({ address }: { address: string }) {
   const { data } = useGetBalanceQuery(
     { address },
     {
-      pollingInterval: 10000, // Poll every 10 seconds
-      skipPollingIfUnfocused: true, // Pause when tab is not focused
+      pollingInterval: 10000, // Poll cada 10 segundos
+      skipPollingIfUnfocused: true, // Pausa cuando la pestaña no está enfocada
     }
   );
 
@@ -95,7 +95,7 @@ function LiveBalance({ address }: { address: string }) {
 
 ## Lazy Queries
 
-Trigger queries manually instead of on component mount:
+Dispara queries manualmente en lugar de en el montaje del componente:
 
 ```tsx
 function SearchParcels() {
@@ -130,9 +130,9 @@ function SearchParcels() {
 }
 ```
 
-## Mutation Usage
+## Uso de Mutation
 
-### Basic Mutation
+### Mutation Básica
 
 ```tsx
 function GrantCreditsButton({ address }: { address: string }) {
@@ -156,7 +156,7 @@ function GrantCreditsButton({ address }: { address: string }) {
 }
 ```
 
-### Mutation with Feedback
+### Mutation con Retroalimentación
 
 ```tsx
 import { isFetchBaseQueryError } from '@/services/client';
@@ -172,7 +172,7 @@ function UpdateParcelName({ parcelId }: { parcelId: string }) {
     try {
       const result = await updateName({ id: parcelId, name }).unwrap();
       toast.success(`Parcel renamed to "${result.name}"`);
-      setName(''); // Clear form
+      setName(''); // Limpia el formulario
     } catch (err) {
       if (isFetchBaseQueryError(err)) {
         toast.error(`Error: ${JSON.stringify(err.data)}`);
@@ -202,9 +202,9 @@ function UpdateParcelName({ parcelId }: { parcelId: string }) {
 }
 ```
 
-## Using Slice State
+## Usando State de Slice
 
-Access slice state with `useAppSelector`:
+Accede al state del slice con `useAppSelector`:
 
 ```tsx
 import { useAppSelector, useAppDispatch } from '@/app/hooks';
@@ -226,7 +226,7 @@ function ViewModeToggle() {
 }
 ```
 
-## Combining Multiple Queries
+## Combinando Múltiples Queries
 
 ```tsx
 function ParcelDetails({ id }: { id: string }) {
@@ -251,7 +251,7 @@ function ParcelDetails({ id }: { id: string }) {
 }
 ```
 
-## Derived State with Selectors
+## State Derivado con Selectores
 
 ```tsx
 import { useAppSelector } from '@/app/hooks';
@@ -277,7 +277,7 @@ function ParcelList() {
 }
 ```
 
-## Dispatching Actions
+## Despachando Acciones
 
 ```tsx
 import { useAppDispatch } from '@/app/hooks';
@@ -287,7 +287,7 @@ function TransferButton({ parcelId }: { parcelId: string }) {
   const dispatch = useAppDispatch();
 
   const handleClick = () => {
-    // Dispatch action to open modal
+    // Despacha acción para abrir modal
     dispatch(modalOpened());
   };
 
@@ -295,26 +295,26 @@ function TransferButton({ parcelId }: { parcelId: string }) {
 }
 ```
 
-## Entity Adapter Selectors
+## Selectores de Entity Adapter
 
 ```tsx
 import { useAppSelector } from '@/app/hooks';
 import { creditsSelectors, selectTotalCredits } from '@/features/credits/credits.slice';
 
 function CreditsSummary() {
-  // Get all transactions
+  // Obtiene todas las transacciones
   const allTxs = useAppSelector(creditsSelectors.selectAll);
   
-  // Get specific transaction
+  // Obtiene transacción específica
   const txId = 'tx-123';
   const tx = useAppSelector((state) => 
     creditsSelectors.selectById(state, txId)
   );
   
-  // Get total count
+  // Obtiene conteo total
   const count = useAppSelector(creditsSelectors.selectTotal);
   
-  // Get derived value
+  // Obtiene valor derivado
   const total = useAppSelector(selectTotalCredits);
 
   return (
@@ -334,9 +334,9 @@ function CreditsSummary() {
 }
 ```
 
-## Prefetching Data
+## Prefetching de Datos
 
-Prefetch data before navigation for faster UX:
+Prefetch de datos antes de la navegación para una UX más rápida:
 
 ```tsx
 import { useAppDispatch } from '@/app/hooks';
@@ -347,7 +347,7 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
   const dispatch = useAppDispatch();
 
   const handleMouseEnter = () => {
-    // Prefetch parcel details on hover
+    // Prefetch de detalles del parcel al hacer hover
     dispatch(
       client.util.prefetch('getParcel', { id: parcel.id }, { force: false })
     );
@@ -364,7 +364,7 @@ function ParcelListItem({ parcel }: { parcel: Parcel }) {
 }
 ```
 
-## Manual Cache Management
+## Gestión Manual del Cache
 
 ```tsx
 import { useAppDispatch } from '@/app/hooks';
@@ -374,10 +374,10 @@ function RefreshButton() {
   const dispatch = useAppDispatch();
 
   const handleRefresh = () => {
-    // Invalidate all Parcels queries
+    // Invalida todos los queries de Parcels
     dispatch(client.util.invalidateTags(['Parcels']));
     
-    // Or reset entire client state
+    // O reinicia todo el state del client
     // dispatch(client.util.resetApiState());
   };
 
@@ -385,21 +385,21 @@ function RefreshButton() {
 }
 ```
 
-## Handling Query States
+## Manejando Estados de Query
 
 ```tsx
 function ComprehensiveExample({ id }: { id: string }) {
   const {
     data,
-    isLoading,      // Initial load
-    isFetching,     // Any fetch (including refetch)
-    isSuccess,      // Query succeeded
-    isError,        // Query failed
-    error,          // Error object
-    refetch,        // Manual refetch function
+    isLoading,      // Carga inicial
+    isFetching,     // Cualquier fetch (incluyendo refetch)
+    isSuccess,      // Query exitoso
+    isError,        // Query falló
+    error,          // Objeto de error
+    refetch,        // Función de refetch manual
   } = useGetParcelQuery({ id });
 
-  // Different states
+  // Diferentes estados
   if (isLoading) {
     return <Spinner />;
   }
@@ -427,7 +427,7 @@ function ComprehensiveExample({ id }: { id: string }) {
 }
 ```
 
-## Form Integration
+## Integración de Formularios
 
 ```tsx
 import { useState } from 'react';
@@ -468,43 +468,43 @@ function FilterForm() {
 }
 ```
 
-## Best Practices
+## Mejores Prácticas
 
-### 1. Use Typed Hooks
+### 1. Usa Hooks Tipados
 
 ```tsx
-// ✅ Good: Uses typed hooks
+// ✅ Bien: Usa hooks tipados
 import { useAppSelector, useAppDispatch } from '@/app/hooks';
 
 const value = useAppSelector(selectValue);
 const dispatch = useAppDispatch();
 
-// ❌ Bad: Uses untyped hooks
+// ❌ Mal: Usa hooks sin tipar
 import { useSelector, useDispatch } from 'react-redux';
 
 const value = useSelector((state: RootState) => state.value);
 const dispatch = useDispatch();
 ```
 
-### 2. Handle All Query States
+### 2. Maneja Todos los Estados de Query
 
 ```tsx
-// ✅ Good: Comprehensive state handling
+// ✅ Bien: Manejo comprehensivo de estados
 const { data, isLoading, isError, error } = useQuery(args);
 if (isLoading) return <Loading />;
 if (isError) return <Error error={error} />;
 if (!data) return null;
 return <Content data={data} />;
 
-// ❌ Bad: Missing error handling
+// ❌ Mal: Falta manejo de errores
 const { data } = useQuery(args);
-return <Content data={data} />; // May crash
+return <Content data={data} />; // Puede crashear
 ```
 
-### 3. Use `.unwrap()` for Mutations
+### 3. Usa `.unwrap()` para Mutations
 
 ```tsx
-// ✅ Good: Explicit error handling
+// ✅ Bien: Manejo explícito de errores
 try {
   const result = await mutation(args).unwrap();
   toast.success('Success!');
@@ -512,38 +512,37 @@ try {
   toast.error('Failed!');
 }
 
-// ❌ Bad: No error handling
+// ❌ Mal: Sin manejo de errores
 mutation(args);
 ```
 
-### 4. Narrow Results with `selectFromResult`
+### 4. Limita Resultados con `selectFromResult`
 
 ```tsx
-// ✅ Good: Only subscribe to needed fields
+// ✅ Bien: Solo se suscribe a campos necesarios
 const { name } = useQuery(args, {
   selectFromResult: ({ data }) => ({ name: data?.name }),
 });
 
-// ❌ Bad: Subscribe to entire object
+// ❌ Mal: Se suscribe al objeto completo
 const { data } = useQuery(args);
 const name = data?.name;
 ```
 
-### 5. Avoid Selecting Entire Slices
+### 5. Evita Seleccionar Slices Completos
 
 ```tsx
-// ✅ Good: Select specific values
+// ✅ Bien: Selecciona valores específicos
 const viewMode = useAppSelector(selectViewMode);
 const filters = useAppSelector(selectFilters);
 
-// ❌ Bad: Select entire slice
+// ❌ Mal: Selecciona el slice completo
 const ui = useAppSelector((state) => state.ui);
 const viewMode = ui.viewMode;
 ```
 
-## Next Steps
+## Próximos Pasos
 
-* Learn about [Web3 Integration](web3-integration.md) for blockchain patterns
-* Review [Testing & Performance](testing-and-performance.md) for optimization
-* See [RTK Query](rtk-query.md) for advanced endpoint configuration
-
+* Aprende sobre [Web3 Integration](web3-integration.md) para patrones blockchain
+* Revisa [Testing & Performance](testing-and-performance.md) para optimización
+* Ve [RTK Query](rtk-query.md) para configuración avanzada de endpoints

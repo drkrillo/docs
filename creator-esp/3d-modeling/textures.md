@@ -1,35 +1,32 @@
 ---
-description: Learn about how textures works in Decentraland
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/textures
+description: Aprende cómo funcionan las texturas en Decentraland
 ---
 
 # Textures
 
-Textures are a key part of the 3D art pipeline to achieve the look and feel you want for your scene. In this section you will find everything you need to know to create your textures, limitations, nodes in Blender and optimizing them to perform as its best!
+Las texturas son una parte clave del pipeline de arte 3D para lograr el look and feel que deseas para tu escena. En esta sección encontrarás todo lo que necesitas saber para crear tus texturas, limitaciones, nodos en Blender y optimizarlas para que rindan de la mejor manera!
 
-### Limitations
+### Limitaciones
 
-#### Texture Size Constraints
+#### Restricciones de Tamaño de Textura
 
-Currently the Decentraland Explorer compress the textures at a maximun of 1024px for optimization purpeses using an Asset Bundle Converter after the scene is uplaoded to the content servers. Be sure to take this limitations into account when creating your assets!
+Actualmente el Decentraland Explorer comprime las texturas a un máximo de 1024px con fines de optimización usando un Asset Bundle Converter después de que la escena se carga a los content servers. ¡Asegúrate de tener en cuenta estas limitaciones al crear tus assets!
 
-Another important point to take into account is that textures should be always power of two, any textures that are not following this specification may bring issues when rendering the scene.
+Otro punto importante a tener en cuenta es que las texturas siempre deben ser power of two, cualquier textura que no siga esta especificación puede traer problemas al renderizar la escena.
 
-Texture sizes must use width and height numbers (in pixels) that match the following numbers:
+Los tamaños de textura deben usar números de width y height (en píxeles) que coincidan con los siguientes números:
 
 ```
 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
 ```
 
-> This sequence is made up of powers of two: `f(x) = 2 ^ x` . **512px is the maximum number we allow for a texture size.** This is a fairly common requirement among other rendering engines, it's there due internal optimizations of the graphics processors.
+> Esta secuencia está compuesta de potencias de dos: `f(x) = 2 ^ x`. **512px es el número máximo que permitimos para un tamaño de textura.** Este es un requisito bastante común entre otros motores de rendering, está ahí debido a optimizaciones internas de los procesadores gráficos.
 
-The width and height don't need to have the same number, but they both need to belong to this sequence.
+El width y height no necesitan tener el mismo número, pero ambos necesitan pertenecer a esta secuencia.
 
-**The recommended size for textures is 1024x1024**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
+**El tamaño recomendado para texturas es 1024x1024**, hemos encontrado que este es el tamaño óptimo para ser transportado a través de redes domésticas y para proporcionar experiencias razonables de carga/calidad.
 
-Examples of other valid sizes:
+Ejemplos de otros tamaños válidos:
 
 ```
 32x32px
@@ -39,235 +36,235 @@ Examples of other valid sizes:
 1024x1024px
 ```
 
-On another hand there is a limit for textures per parcel:
+Por otro lado hay un límite para texturas por parcel:
 
 ```
-log2(n+1) x 10 Amount of textures per parcel. It includes textures imported as part of models.
+log2(n+1) x 10 Cantidad de texturas por parcel. Incluye texturas importadas como parte de modelos.
 ```
 
 ### UVMapping
 
-UVmapping is the process of unwrapping the faces of your 3d model into a 2D coordinate that will be used later to add the different maps to your assets. It's a key part of the creation process. Doing a correct unwrap of your models is a key factor to squeeze the resolution of your models and also it will organize your maps to be flexible for modification.
+UVmapping es el proceso de desenvolver las faces de tu modelo 3D en una coordenada 2D que se usará más tarde para agregar los diferentes maps a tus assets. Es una parte clave del proceso de creación. Hacer un unwrap correcto de tus modelos es un factor clave para exprimir la resolución de tus modelos y también organizará tus maps para que sean flexibles para modificación.
 
-To know more about UV Unwrapping you can see this awesome video made by the Blender Foundation:
+Para saber más sobre UV Unwrapping puedes ver este increíble video hecho por Blender Foundation:
 
 [![Video Preview](https://i.ytimg.com/vi/Y7M-B6xnaEM/maxresdefault.jpg)](https://youtu.be/Y7M-B6xnaEM?si=qMnWTMsXxC-vxZAH)
 
-There is another great intermidiate level tutorial for unwrapping UVs made by \[Blender Guru] (https://www.youtube.com/@blenderguru) that explains how to unwrap a more complex model:
+Hay otro gran tutorial de nivel intermedio para desenvolver UVs hecho por \[Blender Guru] (https://www.youtube.com/@blenderguru) que explica cómo desenvolver un modelo más complejo:
 
 [![Video Preview](https://i.ytimg.com/vi/scPSP_U858k/maxresdefault.jpg)](https://youtu.be/scPSP_U858k?si=Uw0xHbv9jtqVstDS)
 
 ### Maps
 
-In the [materials section](https://docs.decentraland.org/creator/3d-modeling/materials/) we explained how Decentraland works with the PBR shaders. In this section we're going to show you how each texture map modify the shader and the look and feel of the 3D object that later is going to be exported to the world.
+En la [sección materials](https://docs.decentraland.org/creator/3d-modeling/materials/) explicamos cómo Decentraland funciona con los shaders PBR. En esta sección vamos a mostrarte cómo cada texture map modifica el shader y el look and feel del objeto 3D que más tarde va a ser exportado al mundo.
 
 ### Diffuse Maps
 
-This is the base color of the object's surface. Having a balanced color palette between your models is key to achieve a cohesive look and feel for your experience.
+Este es el color base de la superficie del objeto. Tener una paleta de colores equilibrada entre tus modelos es clave para lograr un look and feel cohesivo para tu experiencia.
 
-![](../.gitbook/assets/58-difusemap.png)
+![](../images/3d-models-and-animations/3d-essentials/58-difusemap.png)
 
-Here it is a cool free palette generator in case you need it!
+¡Aquí hay un generador de paleta gratuito genial en caso de que lo necesites!
 
 * **Coolors:** https://coolors.co/
 
-Or some palette inspiration provided by awesome films:
+O algo de inspiración de paleta proporcionada por películas increíbles:
 
 * **Movies in Color:** https://moviesincolor.com/
 
 ### Metallic Maps
 
-In a Metallic map, the grayscale map represents the grade of metalness an object posess, being white full metallic and black non metallic. In the following example we see how the light affects the model and how interacts with the environment.
+En un Metallic map, el map en escala de grises representa el grado de metalness que posee un objeto, siendo blanco completamente metálico y negro no metálico. En el siguiente ejemplo vemos cómo la luz afecta el modelo y cómo interactúa con el entorno.
 
-![](../.gitbook/assets/64-metallic-map.png)
+![](../images/3d-models-and-animations/3d-essentials/64-metallic-map.png)
 
-_In the image we can see how the dark parts of the texture affect the model. The dark stripes are opaque, while the white stripe is beahving under the metallic shader properties and gray being a mixture between both._
+_En la imagen podemos ver cómo las partes oscuras de la textura afectan el modelo. Las franjas oscuras son opacas, mientras que la franja blanca se comporta bajo las propiedades del shader metallic y el gris siendo una mezcla entre ambos._
 
 ### Roughness Maps
 
-In a roughness map, darker areas correspond to smoother surfaces, while brighter areas correspond to rough surfaces. This grayscale representation is used by rendering engines to determine how light should be scattered or reflected at different points on the surface.
+En un roughness map, las áreas más oscuras corresponden a superficies más suaves, mientras que las áreas más brillantes corresponden a superficies rugosas. Esta representación en escala de grises es usada por los motores de rendering para determinar cómo la luz debe ser dispersada o reflejada en diferentes puntos de la superficie.
 
-![](../.gitbook/assets/48-roughness.png) ![](../.gitbook/assets/49-roughness.gif)
+![](../images/3d-models-and-animations/3d-essentials/48-roughness.png) ![](../images/3d-models-and-animations/3d-essentials/49-roughness.gif)
 
 ### Transparent Maps
 
 #### Alpha Clip
 
-Alpha Clip in Blender, when used with a texture, involves using the alpha channel of the texture to determine which parts of the material should be visible. Pixels with alpha values above a specified threshold are shown, while those below the threshold are discarded, creating a cutout effect based on the texture's transparency information.
+Alpha Clip en Blender, cuando se usa con una textura, implica usar el canal alpha de la textura para determinar qué partes del material deben ser visibles. Los píxeles con valores alpha por encima de un threshold especificado se muestran, mientras que aquellos por debajo del threshold se descartan, creando un efecto de recorte basado en la información de transparencia de la textura.
 
-In the following example we used a material with alpha clip, using 2 textures, the diffuse color and the alpha texture in black and white connecting the color to the alpha channel.
+En el siguiente ejemplo usamos un material con alpha clip, usando 2 texturas, el diffuse color y la alpha texture en blanco y negro conectando el color al canal alpha.
 
-![](../.gitbook/assets/33-alpha-clip-leave.jpeg) ![](../.gitbook/assets/33-alpha-clip-mask.jpeg)
+![](../images/3d-models-and-animations/3d-essentials/33-alpha-clip-leave.jpeg) ![](../images/3d-models-and-animations/3d-essentials/33-alpha-clip-mask.jpeg)
 
-![](../.gitbook/assets/33-alpha-blender.png)
+![](../images/3d-models-and-animations/3d-essentials/33-alpha-blender.png)
 
-_As a result we can see the areas painted in black are discarted while the white area are being rendered_
+_Como resultado podemos ver que las áreas pintadas en negro se descartan mientras que las áreas blancas se están renderizando_
 
 #### Alpha Blend
 
-_Alpha Blend_ allows you to pick intermediate values per region.
+_Alpha Blend_ te permite elegir valores intermedios por región.
 
-Alpha Blend in Blender, when used with a texture, involves blending the transparent and opaque areas of the texture based on its alpha channel. This allows the texture to smoothly combine both visible and see-through portions, interacting naturally with the background or other objects in the scene.
+Alpha Blend en Blender, cuando se usa con una textura, implica mezclar las áreas transparentes y opacas de la textura basándose en su canal alpha. Esto permite que la textura combine suavemente las porciones visibles y transparentes, interactuando naturalmente con el fondo u otros objetos en la escena.
 
-![](../.gitbook/assets/33-alpha-blend.png)
+![](../images/3d-models-and-animations/3d-essentials/33-alpha-blend.png)
 
-_While Alpha Clip render values being 0 or 1 (in a specific threshold) Alpha Blend interpolates the values between 0 and 1. In the example above the alpha blend material shows the complete gradient transition while the alpha clip excludes part of the texture set by the clip threshold_
+_Mientras que Alpha Clip renderiza valores siendo 0 o 1 (en un threshold específico), Alpha Blend interpola los valores entre 0 y 1. En el ejemplo anterior, el material alpha blend muestra la transición de gradiente completa mientras que el alpha clip excluye parte de la textura establecida por el clip threshold_
 
 {% hint style="warning" %}
-**🔥Optimization Tip🔥**
+**🔥Tip de Optimización🔥**
 
-* Take into account that transparent textures (RGB+A) are always more expensive in termns of performance that using a grayscale value for transparencies.
-* Transparency is always an expensive operation when rendering the scene. Try always to keep the transparencies at minimun and use Alpha Blend only when it's necessary, otherwise Alpha Clip is preferred rather than Alpha Blend.
+* Ten en cuenta que las texturas transparentes (RGB+A) siempre son más costosas en términos de performance que usar un valor en escala de grises para transparencias.
+* La transparency siempre es una operación costosa al renderizar la escena. Trata siempre de mantener las transparencias al mínimo y usa Alpha Blend solo cuando sea necesario, de lo contrario Alpha Clip es preferido en lugar de Alpha Blend.
 {% endhint %}
 
 ### Emissive Maps
 
-An emissive map is a type of texture map used to control the self-illumination or the emitted light of a surface in a 3D scene. It's a component of the shader that determines how much light (and color of light) a particular part of a 3D model emits, independently of external light sources. Emissive maps are commonly used to simulate materials or objects that appear to emit their own light.
+Un emissive map es un tipo de texture map usado para controlar la auto-iluminación o la luz emitida de una superficie en una escena 3D. Es un componente del shader que determina cuánta luz (y color de luz) emite una parte particular de un modelo 3D, independientemente de las fuentes de luz externas. Los emissive maps se usan comúnmente para simular materiales u objetos que parecen emitir su propia luz.
 
-![](../.gitbook/assets/57-emissive-map.gif)
+![](../images/3d-models-and-animations/3d-essentials/57-emissive-map.gif)
 
-_In this example we can see the use of an emissive map combined with emissive strenght in an environment that uses glow postprocessing to test approxivamtely how the emissive behavies in world._
+_En este ejemplo podemos ver el uso de un emissive map combinado con emissive strength en un entorno que usa glow postprocessing para probar aproximadamente cómo se comporta el emissive en el mundo._
 
 ### Normal Maps
 
-A normal map is a type of texture used in 3D graphics to simulate fine surface details and create the illusion of complex geometry without actually altering the underlying geometry of a model. It's commonly used to enhance the realism of low-poly models by adding the appearance of bumps, crevices, and other surface irregularities. It also allows you to keep the object themselves lighter, as lots of details can be provided on the normal map layer instead of complex geometry.
+Un normal map es un tipo de textura usado en gráficos 3D para simular detalles finos de superficie y crear la ilusión de geometría compleja sin alterar realmente la geometría subyacente de un modelo. Se usa comúnmente para mejorar el realismo de modelos low-poly agregando la apariencia de bultos, grietas y otras irregularidades de superficie. También te permite mantener los objetos más ligeros, ya que muchos detalles se pueden proporcionar en la capa normal map en lugar de geometría compleja.
 
-![](../.gitbook/assets/51-normal-map.png) ![](../.gitbook/assets/50-normal.gif)
+![](../images/3d-models-and-animations/3d-essentials/51-normal-map.png) ![](../images/3d-models-and-animations/3d-essentials/50-normal.gif)
 
-To add a normal map to your material using the _Shader Editor_, you will need to connect the _**Normal Map**_ node between the texture and the _Principled BSDF_ shader.
+Para agregar un normal map a tu material usando el _Shader Editor_, necesitarás conectar el nodo _**Normal Map**_ entre la textura y el shader _Principled BSDF_.
 
-![](../.gitbook/assets/56-normal-map.png)
+![](../images/3d-models-and-animations/3d-essentials/56-normal-map.png)
 
 {% hint style="warning" %}
-**⚠️Important⚠️:** Never use a texture as albedo and normal at the same time because can create issues when rendering the scene.
+**⚠️Importante⚠️:** Nunca uses una textura como albedo y normal al mismo tiempo porque puede crear problemas al renderizar la escena.
 {% endhint %}
 
-### Optimizing Textures
+### Optimizando Texturas
 
-The process of optimization textures brings a lot of benefits when rendering the scene in the explorer but also it's a good way to keep the style of your scene consistent and more flexible in the design process. Some of these benefits are:
+El proceso de optimización de texturas trae muchos beneficios al renderizar la escena en el explorer pero también es una buena manera de mantener el estilo de tu escena consistente y más flexible en el proceso de diseño. Algunos de estos beneficios son:
 
-* Having optimized textures in size and compression will run the scene much smoother and faster, making it faster to download and easier to render (specially for players that have a slow internet connection).
-* It reduces the amount of memory and processing power to render your experience, resulting in a better user experience for your players.
-* It saves storage from the community content servers.
-* Using **Texture Atlases** and/or **Trim Sheets** will give you more flexibility to iterate the creation of your scene and style consistensy between the objects. Using these techniques you can easily swap textures, adjust colors or patterns instead of doing it individually for each model.
-* Sharing textures across models allows to have less textures per scene, reducing the draw calls in game drastically. If you're working with glbs (with embebbed textures) you will find an extruder in the following guidelines to extract the textures from it, redirecting the models to use the same texture.
+* Tener texturas optimizadas en tamaño y compresión hará que la escena funcione mucho más suave y rápido, haciéndola más rápida de descargar y más fácil de renderizar (especialmente para jugadores que tienen una conexión a internet lenta).
+* Reduce la cantidad de memoria y poder de procesamiento para renderizar tu experiencia, resultando en una mejor experiencia de usuario para tus jugadores.
+* Ahorra almacenamiento de los content servers de la comunidad.
+* Usar **Texture Atlases** y/o **Trim Sheets** te dará más flexibilidad para iterar la creación de tu escena y consistencia de estilo entre los objetos. Usando estas técnicas puedes fácilmente intercambiar texturas, ajustar colores o patrones en lugar de hacerlo individualmente para cada modelo.
+* Compartir texturas entre modelos permite tener menos texturas por escena, reduciendo los draw calls en juego drásticamente. Si estás trabajando con glbs (con texturas embebidas) encontrarás un extractor en las siguientes directrices para extraer las texturas de él, redirigiendo los modelos para usar la misma textura.
 
-### Shared Textures Between glTFs Models
+### Texturas Compartidas Entre Modelos glTFs
 
-A wise and common practice for optimizing your scene is sharing textures and materials between models across the scene. Doing this will reduce the draw calls drastically and your Decentraland scene will run much smoother.
+Una práctica sabia y común para optimizar tu escena es compartir texturas y materials entre modelos a través de la escena. Hacer esto reducirá los draw calls drásticamente y tu escena de Decentraland funcionará mucho más suave.
 
-The following tool based on [**glTF pipeline**](https://github.com/AnalyticalGraphicsInc/gltf-pipeline)**,** offers some optimizations that will make 3D models lighter and faster to download for players in your scene.
+La siguiente herramienta basada en [**glTF pipeline**](https://github.com/AnalyticalGraphicsInc/gltf-pipeline)**, ** ofrece algunas optimizaciones que harán que los modelos 3D sean más ligeros y más rápidos de descargar para los jugadores en tu escena.
 
 **Mac:** [MAC GLB Extractor](https://github.com/decentraland/docs-creator/blob/main/images/3d-models-and-animations/glb-extractor/texture_extractor.sh)
 
 **PC:** [PC GLB Extractor](https://github.com/decentraland/docs-creator/blob/main/images/3d-models-and-animations/glb-extractor/glb_texture_extract.bat)
 
-It converts .gltf format into .glb, which is binary and so occupies a lot less. It also places texture files outside the 3D model, which allows you to use the same texture on multiple models.
+Convierte el formato .gltf en .glb, que es binario y por lo tanto ocupa mucho menos. También coloca archivos de textura fuera del modelo 3D, lo que te permite usar la misma textura en múltiples modelos.
 
-> 📔 Note: .glb format by default always has textures embedded in the file. The engine can’t recognize two embedded textures as the same, they need to be external files that share a same hash.
+> 📔 Nota: el formato .glb por defecto siempre tiene texturas embebidas en el archivo. El motor no puede reconocer dos texturas embebidas como las mismas, necesitan ser archivos externos que compartan un mismo hash.
 
-#### How To Use GLB Texture Extractor
+#### Cómo Usar GLB Texture Extractor
 
-In this example scene, we have a simple sci-fi scene in Blender.
+En esta escena de ejemplo, tenemos una escena sci-fi simple en Blender.
 
-![](../.gitbook/assets/01-scene-base.png)
+![](../images/3d-models-and-animations/glb-extractor/01-scene-base.png)
 
-This scene contains the base environment for the static models but there are also two other assets, a droid and a spaceship that we want to export separately in order to move them later by code, so they can interact with the players. In this case we used 4 textures (one for the floor, one atlas color map for most of the assets, one emissive and a UI sci-fi texture for the panels)
+Esta escena contiene el entorno base para los modelos estáticos pero también hay otros dos assets, un droid y una spaceship que queremos exportar por separado para poder moverlos más tarde por código, para que puedan interactuar con los jugadores. En este caso usamos 4 texturas (una para el piso, un atlas color map para la mayoría de los assets, uno emissive y una textura UI sci-fi para los paneles)
 
-![](../.gitbook/assets/02-model-01.png) ![](../.gitbook/assets/03-model-02.png)
+![](../images/3d-models-and-animations/glb-extractor/02-model-01.png) ![](../images/3d-models-and-animations/glb-extractor/03-model-02.png)
 
-Once we export all of these assets to the models folder we have 3 models, the environment static scene, the spaceship and the droid.
+Una vez que exportamos todos estos assets a la carpeta models tenemos 3 modelos, la escena estática del entorno, la spaceship y el droid.
 
-![](../.gitbook/assets/04-models-folder.png)
+![](../images/3d-models-and-animations/glb-extractor/04-models-folder.png)
 
-But we have a problem, the .glb files have the textures embedded in them, so if you are exporting different assets that reuse the textures, these would be duplicated each time there is a new asset in the folder. To avoid having duplicated textures we can use this helpful tool.
+Pero tenemos un problema, los archivos .glb tienen las texturas embebidas en ellos, así que si estás exportando diferentes assets que reutilizan las texturas, estas se duplicarían cada vez que haya un nuevo asset en la carpeta. Para evitar tener texturas duplicadas podemos usar esta herramienta útil.
 
 {% hint style="warning" %}
-⚠️ IMPORTANT NOTE: Before using the tool do a BACKUP of your models, just in case something goes wrong!!!
+⚠️ NOTA IMPORTANTE: Antes de usar la herramienta haz un BACKUP de tus modelos, ¡por si algo sale mal!!!
 {% endhint %}
 
-**On Mac**
+**En Mac**
 
-Once you have exported all the assets to your models folder you can drag the script file to it.
+Una vez que hayas exportado todos los assets a tu carpeta models puedes arrastrar el archivo script a ella.
 
-![](../.gitbook/assets/05-texture-extractor.png)
+![](../images/3d-models-and-animations/glb-extractor/05-texture-extractor.png)
 
-1 - Open the folder in the terminal by dragging the folder to it.
+1 - Abre la carpeta en el terminal arrastrando la carpeta a él.
 
-![](../.gitbook/assets/06-move-to-terminal.png)
+![](../images/3d-models-and-animations/glb-extractor/06-move-to-terminal.png)
 
-2 - Drag the texture-extractor.sh to the terminal.
+2 - Arrastra texture-extractor.sh al terminal.
 
-![](../.gitbook/assets/06-terminal.png)
+![](../images/3d-models-and-animations/glb-extractor/06-terminal.png)
 
-3 - Run the command. It may take some seconds to process all the assets. After that, you will see something like this:
+3 - Ejecuta el comando. Puede tomar algunos segundos procesar todos los assets. Después de eso, verás algo como esto:
 
-![](../.gitbook/assets/07-run-terminal.png)
+![](../images/3d-models-and-animations/glb-extractor/07-run-terminal.png)
 
-4 - Go to your models folder and there will be one new folder called "out" in which you will see your new assets with the textures extracted.
+4 - Ve a tu carpeta models y habrá una nueva carpeta llamada "out" en la cual verás tus nuevos assets con las texturas extraídas.
 
-![](../.gitbook/assets/08-out-folder.png)
+![](../images/3d-models-and-animations/glb-extractor/08-out-folder.png)
 
-5 - Replace all the assets for the new ones! Also once you finished erase the "texture-extractor.sh" and the empty folder "out".
+5 - ¡Reemplaza todos los assets por los nuevos! También una vez que termines borra el "texture-extractor.sh" y la carpeta vacía "out".
 
-![](../.gitbook/assets/09-replace-assets.png)
+![](../images/3d-models-and-animations/glb-extractor/09-replace-assets.png)
 
-**On Windows**
+**En Windows**
 
-Once you have exported all the assets to your models folder you can drag the script file into it.
+Una vez que hayas exportado todos los assets a tu carpeta models puedes arrastrar el archivo script a ella.
 
-![](../.gitbook/assets/10-windows-01.png)
+![](../images/3d-models-and-animations/glb-extractor/10-windows-01.png)
 
-1 - Double click on glb\_texture\_extract.bat to extract the files. If Windows warns you about unrecognized app, go to **More Info** and then **Run anyway**.
+1 - Haz doble clic en glb\_texture\_extract.bat para extraer los archivos. Si Windows te advierte sobre una app no reconocida, ve a **More Info** y luego **Run anyway**.
 
-![](../.gitbook/assets/11-windows-02.png) ![](../.gitbook/assets/12-windows-03.png)
+![](../images/3d-models-and-animations/glb-extractor/11-windows-02.png) ![](../images/3d-models-and-animations/glb-extractor/12-windows-03.png)
 
-2 - The script will generate a folder called out , there you will fid all new .glb files with its extracted textures.
+2 - El script generará una carpeta llamada out, allí encontrarás todos los nuevos archivos .glb con sus texturas extraídas.
 
-![](../.gitbook/assets/13-windows-03.png)
+![](../images/3d-models-and-animations/glb-extractor/13-windows-03.png)
 
-5 - Replace all assets with the new ones. Once finished, delete the "texture-extractor.bat" script and the empty "out" folder.
+5 - Reemplaza todos los assets con los nuevos. Una vez terminado, elimina el script "texture-extractor.bat" y la carpeta vacía "out".
 
-If you follow all the steps your scene will be much faster now and the assets will share the same texture! When we work with several assets and big scenes the improvement is quite noticeable! With this tool you can save quite a lot of megabytes of information!
+Si sigues todos los pasos tu escena será mucho más rápida ahora y los assets compartirán la misma textura! ¡Cuando trabajamos con varios assets y escenas grandes la mejora es bastante notable! ¡Con esta herramienta puedes ahorrar bastantes megabytes de información!
 
 {% hint style="warning" %}
-⚠️ After completing this step, it is crucial to check that every texture follows the guidelines. If the textures do not follow the guidelines or are too heavy, optimize them to be lighter before deploying. The recommended texture size for performant scenes is 512x512px. Also check resolution, images with more than 72 DPI would affect performance and won’t make the image look any better.
+⚠️ Después de completar este paso, es crucial verificar que cada textura siga las pautas. Si las texturas no siguen las pautas o son demasiado pesadas, optimízalas para que sean más ligeras antes de desplegar. El tamaño de textura recomendado para escenas performantes es 512x512px. También verifica la resolución, imágenes con más de 72 DPI afectarán el performance y no harán que la imagen se vea mejor.
 {% endhint %}
 
 ### Texture Atlas/ Trim Sheets
 
-A texture atlas is a single image file that contains data from several smaller images packed together. Rather than having one texture for each mesh, several meshes share a larger texture.
+Un texture atlas es un solo archivo de imagen que contiene datos de varias imágenes más pequeñas empaquetadas juntas. En lugar de tener una textura para cada mesh, varios meshes comparten una textura más grande.
 
-You can create a texture atlas before making the asset, which means that the asset is UV-unwrapped according to the texture atlas. This requires some early planning when creating the texture.
+Puedes crear un texture atlas antes de hacer el asset, lo que significa que el asset es UV-unwrapped según el texture atlas. Esto requiere algo de planificación temprana al crear la textura.
 
-Alternatively, you can create the texture atlas after the asset is finished by merging textures in painting software. However, this also means that the UV islands must be rearranged according to the texture.
+Alternativamente, puedes crear el texture atlas después de que el asset esté terminado fusionando texturas en software de pintura. Sin embargo, esto también significa que las UV islands deben reorganizarse según la textura.
 
-Below is an image showing several 3D objects that use one texture set:
+A continuación hay una imagen que muestra varios objetos 3D que usan un set de texturas:
 
-![](../.gitbook/assets/37-atlas-texture.png) ![](../.gitbook/assets/38-uv-atlas.png)
+![](../images/3d-models-and-animations/3d-essentials/37-atlas-texture.png) ![](../images/3d-models-and-animations/3d-essentials/38-uv-atlas.png)
 
-Another way to do Atlases is the use of Trim Sheets, a common technique in 3D modeling and game development that big studios and game industry use to ensure visual consistency and efficent art pipeline. Trim Sheets is the usage of a single image or texture that contains multiple small details or elements that can be applied to different parts of a model. This technique is very useful when creating large scenes and it needs to be considered in the first stage of the art pipeline.
+Otra forma de hacer Atlases es el uso de Trim Sheets, una técnica común en modelado 3D y desarrollo de juegos que grandes estudios e industria de juegos usan para asegurar consistencia visual y pipeline de arte eficiente. Trim Sheets es el uso de una sola imagen o textura que contiene múltiples pequeños detalles o elementos que se pueden aplicar a diferentes partes de un modelo. Esta técnica es muy útil al crear escenas grandes y necesita ser considerada en la primera etapa del pipeline de arte.
 
-![](../.gitbook/assets/39-trim-sheets.png)
+![](../images/3d-models-and-animations/3d-essentials/39-trim-sheets.png)
 
-_A collage example of a Trim Sheet that uses a diffuse texture, normal and emissive._
+_Un ejemplo de collage de un Trim Sheet que usa una diffuse texture, normal y emissive._
 
-There is a great [tutorial](https://www.artstation.com/blogs/jennifermcgarry/yd4Q/jenns-guide-to-trim-sheets) by [Jennifer McGarry](https://www.artstation.com/jennifermcgarry/blog) that explain the use of Trim Sheets using Blender!
+Hay un gran [tutorial](https://www.artstation.com/blogs/jennifermcgarry/yd4Q/jenns-guide-to-trim-sheets) por [Jennifer McGarry](https://www.artstation.com/jennifermcgarry/blog) que explica el uso de Trim Sheets usando Blender!
 
-### Texture Naming
+### Nomenclatura de Texture
 
-**It's crucial to name our textures correctly.** Having a correct naming for the texture will:
+**Es crucial nombrar nuestras texturas correctamente.** Tener una nomenclatura correcta para la textura:
 
-* Make your art pipeline more efficient, flexible, organized, easy to target and modify if it's necessary.
-* Avoid of to overlap textures with the same name using the texture extractor or others tools.
-* Avoid issues of overlapping textures when using Asset Bundles.
-* More efficient way to pain point issues when analasing the scene.
+* Hará que tu pipeline de arte sea más eficiente, flexible, organizado, fácil de apuntar y modificar si es necesario.
+* Evitará superponer texturas con el mismo nombre usando el texture extractor u otras herramientas.
+* Evitará problemas de superposición de texturas al usar Asset Bundles.
+* Forma más eficiente de señalar problemas al analizar la escena.
 
-**How to properly name your Textures:**
+**Cómo nombrar apropiadamente tus Texturas:**
 
-* **Asset name** should clearly represent what the texture is.
-* Textures name should start with the prefix `T_`.
-* Texture name should end with the suffix that defines the texture type:
+* El **nombre del Asset** debe representar claramente qué es la textura.
+* El nombre de texturas debe comenzar con el prefijo `T_`.
+* El nombre de textura debe terminar con el sufijo que define el tipo de textura:
   * `_D` - **Diffuse/ Color Map**
   * `_A` - **Alpha Texture**
   * `_MT` - **Metallic**
@@ -275,16 +272,16 @@ There is a great [tutorial](https://www.artstation.com/blogs/jennifermcgarry/yd4
   * `_N` **- Normal Map**
   * `_E` - **Emission**
 
-Example: If it's a diffuse map of brick texture for a wall, the name `T_BrickWall_D` could be appropriate. If it's a Normal Map of the same asset the name could be `T_BrickWall_N`
+Ejemplo: Si es un diffuse map de textura de ladrillo para una pared, el nombre `T_BrickWall_D` podría ser apropiado. Si es un Normal Map del mismo asset el nombre podría ser `T_BrickWall_N`
 
-**Examples:**
+**Ejemplos:**
 
-* 🟢 **Prefer** starting texture name with - `T_Parquet_D`, `T_Floor_R`, `T_Pipes_MT`,
-* 🔴 **Avoid** starting texture name with - `Image_`, `sprite_`,`Untitled`
+* 🟢 **Prefiere** comenzar el nombre de textura con - `T_Parquet_D`, `T_Floor_R`, `T_Pipes_MT`,
+* 🔴 **Evita** comenzar el nombre de textura con - `Image_`, `sprite_`,`Untitled`
 
-### Optional Tools
+### Herramientas Opcionales
 
-There are lots of addons and externals tools that facilitate the work when creating assets to make the pipeline faster and more efficient, some of they are free and some to purchase, to name a few:
+Hay muchos addons y herramientas externas que facilitan el trabajo al crear assets para hacer el pipeline más rápido y eficiente, algunos de ellos son gratuitos y algunos para comprar, por nombrar algunos:
 
 #### UVTools
 
@@ -294,7 +291,7 @@ There are lots of addons and externals tools that facilitate the work when creat
 
 #### Image Compressors
 
-There are several image compressors online that you can use in order to make your textures lighter. To name a few:
+Hay varios compresores de imagen en línea que puedes usar para hacer tus texturas más ligeras. Por nombrar algunos:
 
 * **CompressPNG:** https://compresspng.com/
 * **TinyPNG:** https://tinypng.com/

@@ -1,43 +1,41 @@
 ---
-description: Import your own 3D models, images, sound, etc to use in your scenes.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/build/import-items
+description: Importa tus propios modelos 3D, imágenes, sonido, etc para usar en tus escenas.
 ---
 
-# Import Items
+# Importar Ítems
 
-You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models. You can also import other assets like images, sound files, and videos.
+Puedes importar tus propios modelos 3D al Scene Editor. Elige modelos de una amplia selección de fuentes gratuitas o de pago en internet, o crea tus propios modelos personalizados. También puedes importar otros assets como imágenes, archivos de sonido y videos.
 
-### Import an asset
 
-To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 
-1. Drag files directly onto the bottom panel. You can also click the **+ Import Assets** button on the top-left of the bottom panel and select from your local drive.
+### Importar un asset
 
-![](../../.gitbook/assets/import-assets.png)
+Para importar un modelo 3D, una imagen, un archivo de sonido o un video a tu escena desde tu disco local:
 
-2. Check the model thumbnail and click **Import**. When importing multiple assets, use the arrow buttons to cycle over each asset.
+1. Arrastra archivos directamente al panel inferior. También puedes hacer clic en el botón **+ Import Assets** en la parte superior izquierda del panel inferior y seleccionar desde tu unidad local.
 
-![](../../.gitbook/assets/import-confirmation.png)
+![](../images/editor/import-assets.png)
 
-You can now find your asset in the **Local Assets** tab, under the **scene** folder. 3D models appear under the _scene/3D Model_ folder, images under _scene/Image_
+2. Verifica la miniatura del modelo y haz clic en **Import**. Al importar múltiples assets, usa los botones de flecha para recorrer cada asset.
 
-* For 3D models, drag the `.glb` or `.gltf` files onto the canvas to add them as items on your scene.
-* Other kinds of assets like images and sound files can be dragged onto the fields of an item. For example you can drag an `.mp3` file onto the _Path_ field of an _Audio Source_ component.
+![](../images/editor/import-confirmation.png)
+
+Ahora puedes encontrar tu asset en la pestaña **Local Assets**, bajo la carpeta **scene**. Los modelos 3D aparecen bajo la carpeta _scene/3D Model_, las imágenes bajo _scene/Image_
+
+* Para modelos 3D, arrastra los archivos `.glb` o `.gltf` al canvas para agregarlos como ítems en tu escena.
+* Otros tipos de assets como imágenes y archivos de sonido se pueden arrastrar a los campos de un ítem. Por ejemplo, puedes arrastrar un archivo `.mp3` al campo _Path_ de un componente _Audio Source_.
 
 {% hint style="info" %}
-**💡 Tip**: You can also paste files directly into the project folder. After doing this, press the **Refresh** button next to the **Import Assets** button to see the new files.
+**💡 Tip**: También puedes pegar archivos directamente en la carpeta del proyecto. Después de hacer esto, presiona el botón **Refresh** junto al botón **Import Assets** para ver los nuevos archivos.
 
-<img src="../../.gitbook/assets/refresh-assets.png" alt="" data-size="original">
+![](../images/editor/refresh-assets.png)
 {% endhint %}
 
-### Supported formats
+### Formatos soportados
 
 #### Audio
 
-The following Audio formats are supported:
+Los siguientes formatos de Audio son soportados:
 
 * _.mp3_
 * _.wav_
@@ -45,7 +43,7 @@ The following Audio formats are supported:
 
 #### Image
 
-The following image formats are supported:
+Los siguientes formatos de imagen son soportados:
 
 * _.png_
 * _.jpg_
@@ -53,66 +51,66 @@ The following image formats are supported:
 
 #### Video
 
-The following video formats are supported:
+Los siguientes formatos de video son soportados:
 
 * _.mp4_
 
-#### 3D Models
+#### Modelos 3D
 
-The following 3D model formats are supported:
+Los siguientes formatos de modelo 3D son soportados:
 
 * _.glTF_
 * _.glb_
 
-Both can include external texture image files, or external binary (_.bin_) files.
+Ambos pueden incluir archivos de imagen de textura externos, o archivos binarios externos (_.bin_).
 
-You can convert other formats into these formats with various different editors and tools. See [3D modeling](../../3d-modeling/3d-models.md) for recommendations and tips.
+Puedes convertir otros formatos a estos formatos con varios editores y herramientas diferentes. Consulta [3D modeling](../3d-modeling/3d-models.md) para recomendaciones y tips.
 
-All materials in the models need to be either _basic material_ or _PBR_, and all textures need to be in sizes that are powers of two (ex: 256, 512). See [Scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md) for details.
+Todos los materiales en los modelos deben ser _basic material_ o _PBR_, y todas las texturas deben tener tamaños que sean potencias de dos (ej: 256, 512). Consulta [Scene limitations](../sdk7/optimizing/scene-limitations.md) para detalles.
 
-All 3D model files must each occupy less than 50 MB to be usable in a scene. Larger files aren't supported.
+Todos los archivos de modelo 3D deben ocupar menos de 50 MB cada uno para ser utilizables en una escena. Los archivos más grandes no son soportados.
 
-**Free libraries for 3D models**
+**Bibliotecas gratuitas para modelos 3D**
 
-Instead of building your own 3D models, you can also download them from several free or paid libraries.
+En lugar de construir tus propios modelos 3D, también puedes descargarlos de varias bibliotecas gratuitas o de pago.
 
-To get you started, below is a list of libraries that have free or relatively inexpensive content:
+Para comenzar, a continuación hay una lista de bibliotecas que tienen contenido gratuito o relativamente económico:
 
 * [IWB Catalog](https://dcl-iwb.co/)
 * [SketchFab](https://sketchfab.com/)
 * [Clara.io](https://clara.io/)
 * [Archive3D](https://archive3d.net/)
 * [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/)
-* [Thingiverse](https://www.thingiverse.com/) (3D models made primarily for 3D printing, but adaptable to Virtual Worlds)
+* [Thingiverse](https://www.thingiverse.com/) (modelos 3D hechos principalmente para impresión 3D, pero adaptables a Mundos Virtuales)
 * [ShareCG](https://www.sharecg.com/)
 
 {% hint style="warning" %}
-**📔 Note**: Pay attention to the license restrictions that the content you download has.
+**📔 Nota**: Presta atención a las restricciones de licencia que tiene el contenido que descargas.
 {% endhint %}
 
-You can also use Generative AI tools to generate your own 3D models. Check out:
+También puedes usar herramientas de AI Generativa para generar tus propios modelos 3D. Consulta:
 
 * [Meshy](https://www.meshy.ai/)
 * [Luma AI](https://lumalabs.ai/genie)
 * [TRipo3D](https://www.tripo3d.ai/app)
 * [Rodin](https://hyper3d.ai/rodin)
 
-Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ or _.glb_ format if available. If not available, you must convert them to _.glTF_ or _.glb_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting them with one of the available _.glTF_ export add-ons.
+Ten en cuenta que en varios de estos sitios, puedes elegir en qué formato descargar el modelo. Siempre elige el formato _.glTF_ o _.glb_ si está disponible. Si no está disponible, debes convertirlos a _.glTF_ o _.glb_ antes de poder usarlos en una escena. Para eso, recomendamos importarlos a Blender y exportarlos con uno de los add-ons de exportación _.glTF_ disponibles.
 
 ### Colliders
 
-You might find that when running a preview the player can walk through your imported 3D models. This is likely because the models are missing a _collider mesh_ to define a collision geometry. See [colliders](../../3d-modeling/colliders.md) for more details and instructions.
+Puede que encuentres que al ejecutar un preview el jugador puede caminar a través de tus modelos 3D importados. Esto es probable porque los modelos están faltando un _collider mesh_ para definir una geometría de colisión. Consulta [colliders](../3d-modeling/colliders.md) para más detalles e instrucciones.
 
 {% hint style="info" %}
-**💡 Tip**: Instead of editing the model to add a _collider mesh_, a simpler alternative is to add an _Invisible wall_ smart item with approximately the same shape to stand in its place.
+**💡 Tip**: En lugar de editar el modelo para agregar un _collider mesh_, una alternativa más simple es agregar un smart item _Invisible wall_ con aproximadamente la misma forma para estar en su lugar.
 {% endhint %}
 
-### Animations
+### Animaciones
 
-If an imported model includes animations, the first animation that's packed into the model will be played in a loop.
+Si un modelo importado incluye animaciones, la primera animación que está empaquetada en el modelo se reproducirá en un bucle.
 
-Note that you don't have any control over when the animation starts or stops, or which one is played in case of several animations.
+Ten en cuenta que no tienes ningún control sobre cuándo comienza o se detiene la animación, o cuál se reproduce en caso de varias animaciones.
 
-If there are multiple players in the scene, they may be seeing the animation out of sync from each other.
+Si hay múltiples jugadores en la escena, pueden estar viendo la animación fuera de sincronización entre sí.
 
-To change this behavior, you can include an **Animator** component. See [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md) for no-code tools to make your item interactive.
+Para cambiar este comportamiento, puedes incluir un componente **Animator**. Consulta [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md) para herramientas sin código para hacer tu ítem interactivo.

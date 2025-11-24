@@ -1,20 +1,17 @@
 ---
-description: Get started with the Decentraland Scene Editor
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/get-started
+description: Comienza con el Decentraland Scene Editor
 ---
 
-# Get Started
+# Comenzando con Scene Editor
 
-The Scene Editor is a visual tool for creating Decentraland scenes without writing code. This section will help you install the editor, understand its interface, and start building your first scene.
+El Scene Editor es una herramienta visual para crear escenas de Decentraland sin escribir código. Esta sección te ayudará a instalar el editor, entender su interfaz y comenzar a construir tu primera escena.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* What the Scene Editor is and its capabilities
-* Installing the Creator Hub and Scene Editor
-* Creating and managing scenes
-* Essential Scene Editor skills
-* Migrating from the web-based editor
+* Qué es el Scene Editor y sus capacidades
+* Instalar el Creator Hub y Scene Editor
+* Crear y gestionar escenas
+* Habilidades esenciales del Scene Editor
+* Migrar desde el editor basado en web
 
-The Scene Editor provides an intuitive visual interface for placing objects, configuring properties, and creating interactive experiences in Decentraland.
+El Scene Editor proporciona una interfaz visual intuitiva para colocar objetos, configurar propiedades y crear experiencias interactivas en Decentraland.
