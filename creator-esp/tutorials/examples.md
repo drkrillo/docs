@@ -4,6 +4,6 @@ metaLinks:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/tutorials/examples
 ---
 
-# Examples
+# Ejemplos
 
-[SDK 7 example scenes](https://studios.decentraland.org/resources)
+[Escenas de ejemplo del SDK 7](https://studios.decentraland.org/resources)

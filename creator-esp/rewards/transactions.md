@@ -4,12 +4,12 @@ metaLinks:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/rewards/transactions
 ---
 
-# Transactions
+# Transacciones
 
-The "transactions" tab in the Rewards service allows creators to monitor the status of the transactions that are being processed by the Rewards service showing the status of each transaction, its hash, the moment it was created, and the amount of _Gwei_ spent.
+La pestaña "transacciones" en el servicio de Rewards permite a los creadores monitorear el estado de las transacciones que están siendo procesadas por el servicio de Rewards mostrando el estado de cada transacción, su hash, el momento en que se creó, y la cantidad de _Gwei_ gastada.
 
-![](../.gitbook/assets/transactions.png)
+![](../.gitbook/assets/transactions.png)
 
-For each transaction you can click on the **View claims** button to see the list of wearables/emotes minted on that transaction and what user received them.
+Para cada transacción puedes hacer clic en el botón **View claims** para ver la lista de wearables/emotes acuñados en esa transacción y qué usuario los recibió.
 
-![](../.gitbook/assets/transaction-rewards.png)
+![](../.gitbook/assets/transaction-rewards.png)

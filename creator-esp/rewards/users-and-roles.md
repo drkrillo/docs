@@ -4,37 +4,37 @@ metaLinks:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/rewards/users-and-roles
 ---
 
-# Users and Roles
+# Usuarios y Roles
 
-To perform any actions on a campaign within the Rewards service, you must be logged in with a wallet that has the necessary permissions.
+Para realizar cualquier acción en una campaña dentro del servicio de Rewards, debes iniciar sesión con una billetera que tenga los permisos necesarios.
 
-When you create a campaign, you are automatically assigned as its owner and granted all permissions. As the owner, you can add other users to the campaign and assign them roles with specific permissions. However, each campaign can have only one owner—the creator—who is the only user with the authority to manage the funds.
+Cuando creas una campaña, automáticamente se te asigna como su propietario y se te otorgan todos los permisos. Como propietario, puedes agregar otros usuarios a la campaña y asignarles roles con permisos específicos. Sin embargo, cada campaña puede tener solo un propietario—el creador—quien es el único usuario con la autoridad para gestionar los fondos.
 
-To add a user to the campaign.
+Para agregar un usuario a la campaña:
 
-1. Click on the **User Roles** tab to view the list of users who have access to the campaign.
-2. At the end of this list, you'll find a form to add a new user. Note: This form will only be visible if you have the necessary permissions to add users.
-3. Complete the form by entering the user's wallet address (or ENS name) and selecting their role.
-4. Click the **Add User** button to finalize the addition.
+1. Haz clic en la pestaña **User Roles** para ver la lista de usuarios que tienen acceso a la campaña.
+2. Al final de esta lista, encontrarás un formulario para agregar un nuevo usuario. Nota: Este formulario solo será visible si tienes los permisos necesarios para agregar usuarios.
+3. Completa el formulario ingresando la dirección de billetera del usuario (o nombre ENS) y seleccionando su rol.
+4. Haz clic en el botón **Add User** para finalizar la adición.
 
-![](../.gitbook/assets/users.png)
+![](../.gitbook/assets/users.png)
 
-### Permissions for roles
+### Permisos para roles
 
-These are the actions allowed for each role:
+Estas son las acciones permitidas para cada rol:
 
-| Permission                               | viewer | developer | collaborator | owner |
-| ---------------------------------------- | :----: | :-------: | :----------: | :---: |
-| View campaign name, network, and max gas |    ✅   |     ✅     |       ✅      |   ✅   |
-| Edit campaign name, and max gas          |    ❌   |     ❌     |       ✅      |   ✅   |
-| Activate and deactivate campaign         |    ❌   |     ❌     |       ✅      |   ✅   |
-| View supply                              |    ✅   |     ✅     |       ✅      |   ✅   |
-| Add/remove Supply                        |    ❌   |     ✅     |       ✅      |   ✅   |
-| View dispensers                          |    ✅   |     ✅     |       ✅      |   ✅   |
-| View dispenser key                       |    ❌   |     ✅     |       ✅      |   ✅   |
-| Add/remove dispenser                     |    ❌   |     ✅     |       ✅      |   ✅   |
-| View campaign transactions               |    ✅   |     ✅     |       ✅      |   ✅   |
-| View users                               |    ✅   |     ✅     |       ✅      |   ✅   |
-| Add/Remove users                         |    ❌   |     ❌     |       ✅      |   ✅   |
-| Remove owner users                       |    ❌   |     ❌     |       ❌      |   ✅   |
-| Manage funds                             |    ❌   |     ❌     |       ❌      |   ✅   |
+|| Permiso                                      | viewer | developer | collaborator | owner |
+|| -------------------------------------------- | :----: | :-------: | :----------: | :---: |
+|| Ver nombre de campaña, red y gas máximo      |    ✅   |     ✅     |       ✅      |   ✅   |
+|| Editar nombre de campaña y gas máximo        |    ❌   |     ❌     |       ✅      |   ✅   |
+|| Activar y desactivar campaña                 |    ❌   |     ❌     |       ✅      |   ✅   |
+|| Ver suministro                               |    ✅   |     ✅     |       ✅      |   ✅   |
+|| Agregar/eliminar Suministro                  |    ❌   |     ✅     |       ✅      |   ✅   |
+|| Ver dispensadores                            |    ✅   |     ✅     |       ✅      |   ✅   |
+|| Ver clave de dispensador                     |    ❌   |     ✅     |       ✅      |   ✅   |
+|| Agregar/eliminar dispensador                 |    ❌   |     ✅     |       ✅      |   ✅   |
+|| Ver transacciones de campaña                 |    ✅   |     ✅     |       ✅      |   ✅   |
+|| Ver usuarios                                 |    ✅   |     ✅     |       ✅      |   ✅   |
+|| Agregar/Eliminar usuarios                    |    ❌   |     ❌     |       ✅      |   ✅   |
+|| Eliminar usuarios propietarios               |    ❌   |     ❌     |       ❌      |   ✅   |
+|| Gestionar fondos                             |    ❌   |     ❌     |       ❌      |   ✅   |

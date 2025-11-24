@@ -1,43 +1,43 @@
 ---
-description: Get info from land parcels, estates or addresses using the CLI.
+description: Obtén información de parcelas land, estates o direcciones usando el CLI.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/marketplace/info-from-land
 ---
 
-# Info from LAND
+# Información de LAND
 
-You can use the Decentraland CLI to query info directly from LAND tokens in the blockchain and from the scene files uploaded to the content server.
+Puedes usar el CLI de Decentraland para consultar información directamente de tokens LAND en la blockchain y de los archivos de escena subidos al servidor de contenido.
 
-To run these commands, you must first [Install the CLI](../../creator/sdk7/getting-started/using-the-cli.md).
+Para ejecutar estos comandos, primero debes [Instalar el CLI](../../creator/sdk7/getting-started/using-the-cli.md).
 
-### Get info about a scene
+### Obtener información sobre una escena
 
-The `dcl info` command returns the contents of a scene's _scene.json_ file, including owner, contact info, and parcels in the scene.
+El comando `dcl info` devuelve el contenido del archivo _scene.json_ de una escena, incluyendo propietario, información de contacto y parcelas en la escena.
 
-* `dcl info` from the scene's folder returns info about that specific scene.
-*   `dcl info x,y`, where _x_ and _y_ are parcel coordinates, returns info about the scene in that location.
+* `dcl info` desde la carpeta de la escena devuelve información sobre esa escena específica.
+*   `dcl info x,y`, donde _x_ e _y_ son coordenadas de parcela, devuelve información sobre la escena en esa ubicación.
 
-    \{% hint style="warning" %\} **📔 Note**: Don't add a space between both coordinates. \{% endhint %\}
-* `dcl info id`, where _id_ is an estate id, returns info about the scene with that estate id.
+    \{% hint style="warning" %\} **📔 Nota**: No agregues un espacio entre ambas coordenadas. \{% endhint %\}
+* `dcl info id`, donde _id_ es un id de estate, devuelve información sobre la escena con ese id de estate.
 
-The `dcl status` command returns a list with the files deployed to a scene. This only includes file names and sizes. You can't access the contents of the files via the CLI.
+El comando `dcl status` devuelve una lista con los archivos desplegados en una escena. Esto solo incluye nombres de archivo y tamaños. No puedes acceder al contenido de los archivos a través del CLI.
 
-* `dcl status` from the scene's folder returns info about that specific scene.
-* `dcl status x,y`, where _x_ and _y_ are parcel coordinates (with no spaces between them), returns info about the scene in that location.
-
-{% hint style="warning" %}
-**📔 Note**: Don't add a space between both coordinates.
-{% endhint %}
-
-* `dcl status id`, where _id_ is an estate id, returns info about the scene with that estate id.
+* `dcl status` desde la carpeta de la escena devuelve información sobre esa escena específica.
+* `dcl status x,y`, donde _x_ e _y_ son coordenadas de parcela (sin espacios entre ellas), devuelve información sobre la escena en esa ubicación.
 
 {% hint style="warning" %}
-**📔 Note**: Everything that's uploaded to our content server is public and reachable through that network. When you deploy a scene, by default you're not uploading the original source code for the scene, instead you upload a version that's compiled to minified JavaScript, which is a lot less readable.
+**📔 Nota**: No agregues un espacio entre ambas coordenadas.
 {% endhint %}
 
-### Get info from a wallet address
+* `dcl status id`, donde _id_ es un id de estate, devuelve información sobre la escena con ese id de estate.
 
-The `dcl info` command also lets you see info about an Ethereum wallet and the LAND tokens that it owns.
+{% hint style="warning" %}
+**📔 Nota**: Todo lo que se sube a nuestro servidor de contenido es público y accesible a través de esa red. Cuando despliegas una escena, por defecto no estás subiendo el código fuente original de la escena, en su lugar subes una versión que está compilada a JavaScript minificado, que es mucho menos legible.
+{% endhint %}
 
-* `dcl info xxxx`, where _xxxx_ is the Ethereum address you're interested in, returns a list of all the LAND parcels and estates owned by that address and their details.
+### Obtener información de una dirección de billetera
+
+El comando `dcl info` también te permite ver información sobre una billetera de Ethereum y los tokens LAND que posee.
+
+* `dcl info xxxx`, donde _xxxx_ es la dirección de Ethereum que te interesa, devuelve una lista de todas las parcelas LAND y estates propiedad de esa dirección y sus detalles.

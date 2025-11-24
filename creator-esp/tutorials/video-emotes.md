@@ -1,5 +1,5 @@
 ---
-description: Video tutorials for creating emotes in Decentraland
+description: Tutoriales en video para crear emotes en Decentraland
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/tutorials/video-emotes
@@ -7,28 +7,28 @@ metaLinks:
 
 # Video Emotes
 
-Step-by-step video tutorials for creating custom emotes in Decentraland. Learn how to animate, rig, and publish emotes for avatars.
+Tutoriales en video paso a paso para crear emotes personalizados en Decentraland. Aprende cómo animar, crear el rig y publicar emotes para avatares.
 
-## Watch the Full Playlist
+## Ver la Lista de Reproducción Completa
 
 {% embed url="https://www.youtube.com/playlist?list=PLAcRraQmr_GN8LcnnQk2BByo9L2Orvp9c" %}
-Emote Creation Video Tutorials Playlist
+Lista de Reproducción de Tutoriales en Video de Creación de Emotes
 {% endembed %}
 
-## Topics Covered
+## Temas Cubiertos
 
-The video series includes tutorials on:
+La serie de videos incluye tutoriales sobre:
 
-* **Avatar Rigging** - Understanding the Decentraland avatar rig
-* **Animation Basics** - Creating emote animations
-* **Blender Workflow** - Using Blender to create emotes
-* **Particles & Effects** - Adding visual effects to emotes
-* **Props & Sounds** - Including props and audio in emotes
-* **Publishing** - Uploading emotes to the Builder
+* **Rigging de Avatar** - Entender el rig de avatar de Decentraland
+* **Fundamentos de Animación** - Crear animaciones de emotes
+* **Flujo de Trabajo en Blender** - Usar Blender para crear emotes
+* **Partículas y Efectos** - Agregar efectos visuales a emotes
+* **Props y Sonidos** - Incluir props y audio en emotes
+* **Publicación** - Subir emotes al Builder
 
-## Additional Resources
+## Recursos Adicionales
 
-* [Emotes Overview](../wearables-and-emotes/emotes/)
-* [Creating Emotes](../wearables-and-emotes/emotes/creating-emotes.md)
-* [Avatar Rig](../wearables-and-emotes/emotes/avatar-rig.md)
-* [Uploading Emotes](../wearables-and-emotes/manage-collections/uploading-emotes.md)
+* [Resumen de Emotes](../wearables-and-emotes/emotes/)
+* [Crear Emotes](../wearables-and-emotes/emotes/creating-emotes.md)
+* [Rig de Avatar](../wearables-and-emotes/emotes/avatar-rig.md)
+* [Subir Emotes](../wearables-and-emotes/manage-collections/uploading-emotes.md)

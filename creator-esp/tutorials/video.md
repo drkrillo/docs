@@ -1,33 +1,33 @@
 ---
-description: Video tutorials for Decentraland SDK and Scene Editor
+description: Tutoriales en video para el SDK de Decentraland y Scene Editor
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/tutorials/video
 ---
 
-# Video Tutorial
+# Tutorial en Video
 
-Comprehensive video tutorials covering Decentraland's SDK and Scene Editor. These videos will guide you through creating scenes, adding interactivity, and deploying your content.
+Tutoriales en video completos que cubren el SDK de Decentraland y el Scene Editor. Estos videos te guiarán a través de crear escenas, agregar interactividad y desplegar tu contenido.
 
-## Watch the Full Playlist
+## Ver la Lista de Reproducción Completa
 
 {% embed url="https://www.youtube.com/playlist?list=PLAcRraQmr_GP_K8WN7csnKnImK4R2TgMA" %}
-SDK & Editor Video Tutorials Playlist
+Lista de Reproducción de Tutoriales en Video del SDK & Editor
 {% endembed %}
 
-## Topics Covered
+## Temas Cubiertos
 
-The video series includes tutorials on:
+La serie de videos incluye tutoriales sobre:
 
-* **Getting Started** - Setting up your development environment
-* **Scene Editor Basics** - Using the Scene Editor interface
-* **SDK Development** - Building scenes with code
-* **3D Essentials** - Working with 3D models and animations
-* **Interactivity** - Adding button events and triggers
-* **Publishing** - Deploying your scenes to Decentraland
+* **Comenzando** - Configurar tu entorno de desarrollo
+* **Fundamentos del Scene Editor** - Usar la interfaz del Scene Editor
+* **Desarrollo con SDK** - Construir escenas con código
+* **Fundamentos 3D** - Trabajar con modelos 3D y animaciones
+* **Interactividad** - Agregar eventos de botones y activadores
+* **Publicación** - Desplegar tus escenas en Decentraland
 
-## Additional Resources
+## Recursos Adicionales
 
-* [SDK Quick Start](../sdk7/getting-started/sdk-101.md)
-* [Scene Editor Essentials](../scene-editor/get-started/scene-editor-essentials.md)
-* [Code Examples](examples.md)
+* [Inicio Rápido del SDK](../sdk7/getting-started/sdk-101.md)
+* [Fundamentos del Scene Editor](../scene-editor/get-started/scene-editor-essentials.md)
+* [Ejemplos de Código](examples.md)

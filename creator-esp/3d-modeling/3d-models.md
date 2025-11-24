@@ -1,144 +1,144 @@
 ---
 description: >-
-  Learn what assets and components are supported in external 3D models and how
-  to configure them before importing them to Decentraland.
+  Aprende qué activos y componentes son compatibles en modelos 3D externos y cómo
+  configurarlos antes de importarlos a Decentraland.
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/3d-modeling/3d-models
 ---
 
-# 3D Models
+# Modelos 3D
 
-![](../.gitbook/assets/01-3d-essentials-banner.png)
+![](../.gitbook/assets/01-3d-essentials-banner.png)
 
-When importing 3D models into Decentraland, it's important to make sure they're in either glTF format. These models can include a variety of supported features. This section is all about how to make them compatible with Decentraland and following best practices.
+Al importar modelos 3D a Decentraland, es importante asegurarse de que estén en formato glTF. Estos modelos pueden incluir una variedad de características compatibles. Esta sección trata sobre cómo hacerlos compatibles con Decentraland y seguir las mejores prácticas.
 
-Please note that all models, shaders, and textures must comply with the [**scene limitations**](https://docs.decentraland.org/creator/development-guide/scene-limitations/).
+Ten en cuenta que todos los modelos, shaders y texturas deben cumplir con las [**limitaciones de escena**](https://docs.decentraland.org/creator/development-guide/scene-limitations/).
 
-### **Supported 3D Model Formats**
+### **Formatos de Modelos 3D Compatibles**
 
-All 3D models in Decentraland must be in glTF format. [**glTF**](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common, extensible format for 3D assets that is both efficient and highly interoperable with modern web technologies.
+Todos los modelos 3D en Decentraland deben estar en formato glTF. [**glTF**](https://www.khronos.org/gltf) (GL Transmission Format) es un proyecto abierto de Khronos que proporciona un formato común y extensible para activos 3D que es eficiente y altamente interoperable con tecnologías web modernas.
 
-glTF models can have either a _.gltf_ or a _.glb_ extension. glTF files are human-readable, you can open one in a text editor and read it like a JSON file. This is useful, for example, to verify that animations are properly attached and to check for their names. glb files are binary, so they’re not readable but they are considerably smaller in size, which is good for the scene’s performance.
+Los modelos glTF pueden tener una extensión _.gltf_ o _.glb_. Los archivos glTF son legibles por humanos, puedes abrir uno en un editor de texto y leerlo como un archivo JSON. Esto es útil, por ejemplo, para verificar que las animaciones estén correctamente adjuntas y para verificar sus nombres. Los archivos glb son binarios, por lo que no son legibles pero son considerablemente más pequeños en tamaño, lo cual es bueno para el rendimiento de la escena.
 
-We recommend using _.gltf_ while you’re working on a scene, but then switching to _.glb_ when uploading it.
+Recomendamos usar _.gltf_ mientras trabajas en una escena, pero luego cambiar a _.glb_ al subirla.
 
-The following aspects of a 3D model can either be embedded in a _glTF_ file or referenced externally:
+Los siguientes aspectos de un modelo 3D pueden estar incrustados en un archivo _glTF_ o referenciados externamente:
 
-* Textures can either be embedded or referenced from an external image file.
-* Binary data about geometry, animations, and other buffer-related aspects of the model can either be embedded or referenced from an external _.bin_ file.
-
-{% hint style="warning" %}
-**📔 Note**: Animations _must_ be embedded inside the _glTF_ file to use in Decentraland. Also, each model is only allowed to have 1 UV map.
-{% endhint %}
-
-### **Why We Use glTF**
-
-We use glTF because it provides a powerful set of features that includes:
-
-* Hierarchical objects
-* Skeletal structure and animation
-* Robust pipeline for materials and shaders
-* Scene information such light sources and cameras (which can be used in future developments).
-
-Compared to _COLLADA_, the supported features are very similar. However, because glTF focuses on providing a “transmission format” rather than an editor format, it is more interoperable with web technologies.
-
-### **Export And Convert glTF**
-
-#### **Export To glTF From Blender**
-
-Blender has a native gltf exporter.
-
-To export select the models you want to be contained on the .glb file then go to File - Export - glTF 2.0
-
-![](../.gitbook/assets/02-export-glt-from-blender.png) ![](../.gitbook/assets/03-exporting-options.png)
-
-_On the side panel check “Selected Objects” in case you want to export only the selected objects in the scene. Also, on the Mesh Dropdown select Apply Modifiers (if they were), then Export._
-
-#### **Export To glTF From 3D Studio Max**
-
-3D Studio Max doesn't support exporting to glTF by default, but you can install a plugin to enable it.
-
-1. Download the plugin from [this link](https://github.com/BabylonJS/Exporters/tree/master/3ds%20Max).
-2. Install the plugin by following [these instructions](http://doc.babylonjs.com/resources/3dsmax#how-to-install-the-3ds-max-plugin).
-3. Export glTF files using the plugin by following [these instructions](http://doc.babylonjs.com/resources/3dsmax_to_gltf).
-
-#### **Export To glTF From Maya**
-
-Maya doesn't support exporting to glTF by default, but you can install a plugin to enable it.
-
-1. Install the plugin by following [these instructions](http://doc.babylonjs.com/resources/maya).
-2. Export glTF files using the plugin by following [these instructions](http://doc.babylonjs.com/resources/maya_to_gltf#pbr-materials).
+* Las texturas pueden estar incrustadas o referenciadas desde un archivo de imagen externo.
+* Los datos binarios sobre geometría, animaciones y otros aspectos relacionados con el buffer del modelo pueden estar incrustados o referenciados desde un archivo _.bin_ externo.
 
 {% hint style="warning" %}
-**📔 Note**: As an alternative, you can try [this other plugin](https://github.com/WonderMediaProductions/Maya2glTF) too.
+**📔 Nota**: Las animaciones _deben_ estar incrustadas dentro del archivo _glTF_ para usarse en Decentraland. Además, cada modelo solo puede tener 1 mapa UV.
 {% endhint %}
 
-#### **Export To glTF From Unity**
+### **Por Qué Usamos glTF**
 
-Unity doesn't support exporting to glTF by default, but you can install a plugin to enable it.
+Usamos glTF porque proporciona un conjunto potente de características que incluye:
 
-Download the plugin from [this link](https://github.com/sketchfab/Unity-glTF-Exporter).
+* Objetos jerárquicos
+* Estructura esquelética y animación
+* Pipeline robusto para materiales y shaders
+* Información de escena como fuentes de luz y cámaras (que pueden usarse en desarrollos futuros).
+
+Comparado con _COLLADA_, las características compatibles son muy similares. Sin embargo, debido a que glTF se enfoca en proporcionar un "formato de transmisión" en lugar de un formato de editor, es más interoperable con tecnologías web.
+
+### **Exportar y Convertir glTF**
+
+#### **Exportar a glTF desde Blender**
+
+Blender tiene un exportador glTF nativo.
+
+Para exportar selecciona los modelos que deseas que estén contenidos en el archivo .glb luego ve a File - Export - glTF 2.0
+
+![](../.gitbook/assets/02-export-glt-from-blender.png) ![](../.gitbook/assets/03-exporting-options.png)
+
+_En el panel lateral marca "Selected Objects" en caso de que desees exportar solo los objetos seleccionados en la escena. Además, en el menú desplegable Mesh selecciona Apply Modifiers (si fueron aplicados), luego Export._
+
+#### **Exportar a glTF desde 3D Studio Max**
+
+3D Studio Max no admite la exportación a glTF por defecto, pero puedes instalar un plugin para habilitarlo.
+
+1. Descarga el plugin desde [este enlace](https://github.com/BabylonJS/Exporters/tree/master/3ds%20Max).
+2. Instala el plugin siguiendo [estas instrucciones](http://doc.babylonjs.com/resources/3dsmax#how-to-install-the-3ds-max-plugin).
+3. Exporta archivos glTF usando el plugin siguiendo [estas instrucciones](http://doc.babylonjs.com/resources/3dsmax_to_gltf).
+
+#### **Exportar a glTF desde Maya**
+
+Maya no admite la exportación a glTF por defecto, pero puedes instalar un plugin para habilitarlo.
+
+1. Instala el plugin siguiendo [estas instrucciones](http://doc.babylonjs.com/resources/maya).
+2. Exporta archivos glTF usando el plugin siguiendo [estas instrucciones](http://doc.babylonjs.com/resources/maya_to_gltf#pbr-materials).
 
 {% hint style="warning" %}
-**📔 Note**: As an alternative, you can try [this other plugin](https://assetstore.unity.com/packages/tools/utilities/collada-exporter-for-unity2017-99793) too.
+**📔 Nota**: Como alternativa, también puedes probar [este otro plugin](https://github.com/WonderMediaProductions/Maya2glTF).
 {% endhint %}
 
-#### **Export To glTF From SketchUp**
+#### **Exportar a glTF desde Unity**
 
-SketchUp doesn't support exporting to glTF by default, but you can install a plugin to enable it.
+Unity no admite la exportación a glTF por defecto, pero puedes instalar un plugin para habilitarlo.
 
-Download the plugin from [this link](https://extensions.sketchup.com/en/content/gltf-exporter).
+Descarga el plugin desde [este enlace](https://github.com/sketchfab/Unity-glTF-Exporter).
 
-#### **Convert FBX Into glTF**
+{% hint style="warning" %}
+**📔 Nota**: Como alternativa, también puedes probar [este otro plugin](https://assetstore.unity.com/packages/tools/utilities/collada-exporter-for-unity2017-99793).
+{% endhint %}
 
-_.fbx_ is a very popular standard for 3D models. It’s not supported by our engine, but you can easily export an _.fbx_ model to _.gltf_ format.
+#### **Exportar a glTF desde SketchUp**
 
-We recommend using these tools:
+SketchUp no admite la exportación a glTF por defecto, pero puedes instalar un plugin para habilitarlo.
 
-* [**Blender**](https://www.blender.org/download/): An easy way to convert .fbx to glTF is by importing the .fbx to a scene using Blender and then export it from there.
-* [**Facebook’s CLI tool**](https://github.com/facebookincubator/FBX2glTF): this is the most robust alternative, but requires using the command line.
-* [**Blackthread**](https://blackthread.io/gltf-converter): This the most complete web based tool. Less robust than the CLI, but a lot easier to use.
-* [**Modelconverter**](https://modelconverter.com/convert.html): Another easy-to-use web based tool.
+Descarga el plugin desde [este enlace](https://extensions.sketchup.com/en/content/gltf-exporter).
 
-### **Preview a glTF Model**
+#### **Convertir FBX a glTF**
 
-A quick and easy way to preview the contents of a glTF model before importing it into a scene is to use the [**Babylon.js Sandbox**](https://sandbox.babylonjs.com/). Just drag and drop the glTF file (and its _.bin_ file if applicable) into the canvas to view the model.
+_.fbx_ es un estándar muy popular para modelos 3D. No es compatible con nuestro motor, pero puedes exportar fácilmente un modelo _.fbx_ a formato _.gltf_.
 
-In the sandbox you can also preview the animations that are embedded in the model, select which to display by picking it out of a dropdown menu.
+Recomendamos usar estas herramientas:
 
-![](../.gitbook/assets/04-preview-gltf.png)
+* [**Blender**](https://www.blender.org/download/): Una forma fácil de convertir .fbx a glTF es importando el .fbx a una escena usando Blender y luego exportarlo desde allí.
+* [**Herramienta CLI de Facebook**](https://github.com/facebookincubator/FBX2glTF): esta es la alternativa más robusta, pero requiere usar la línea de comandos.
+* [**Blackthread**](https://blackthread.io/gltf-converter): Esta es la herramienta basada en web más completa. Menos robusta que el CLI, pero mucho más fácil de usar.
+* [**Modelconverter**](https://modelconverter.com/convert.html): Otra herramienta basada en web fácil de usar.
 
-### **Analyse glTF**
+### **Previsualizar un Modelo glTF**
 
-One great tool to analyze your glTFs is using [**glTF Sample Viewer**](https://github.khronos.org/glTF-Sample-Viewer-Release/). This tool allows you to inspect channels, textures, reaction to different light environments, preview animations and so much more! Ideal for single models.
+Una forma rápida y fácil de previsualizar el contenido de un modelo glTF antes de importarlo a una escena es usar el [**Babylon.js Sandbox**](https://sandbox.babylonjs.com/). Simplemente arrastra y suelta el archivo glTF (y su archivo _.bin_ si aplica) en el lienzo para ver el modelo.
 
-![](../.gitbook/assets/05-gltf-sample-viewer.png)
+En el sandbox también puedes previsualizar las animaciones que están incrustadas en el modelo, selecciona cuál mostrar eligiéndola de un menú desplegable.
 
-Another helpful tool is [**gltf.report/**](https://gltf.report/). Simply drag and drop your models onto the website to view the contents of the glTF package and assess which parts of the model can be optimized.
+![](../.gitbook/assets/04-preview-gltf.png)
 
-This tool can be especially useful for large files containing multiple models, textures, and animations. For instance, by organizing textures by size, you can easily identify which textures are using up the most resources.
+### **Analizar glTF**
 
-![](../.gitbook/assets/05-gltf-report.png)
+Una gran herramienta para analizar tus glTFs es usar [**glTF Sample Viewer**](https://github.khronos.org/glTF-Sample-Viewer-Release/). Esta herramienta te permite inspeccionar canales, texturas, reacción a diferentes entornos de luz, previsualizar animaciones ¡y mucho más! Ideal para modelos individuales.
 
-### **Optimize a glTF**
+![](../.gitbook/assets/05-gltf-sample-viewer.png)
 
-The following tool offers some optimizations that will make 3D models lighter and faster to download for players in your scene.
+Otra herramienta útil es [**gltf.report/**](https://gltf.report/). Simplemente arrastra y suelta tus modelos en el sitio web para ver el contenido del paquete glTF y evaluar qué partes del modelo se pueden optimizar.
+
+Esta herramienta puede ser especialmente útil para archivos grandes que contienen múltiples modelos, texturas y animaciones. Por ejemplo, al organizar texturas por tamaño, puedes identificar fácilmente qué texturas están usando más recursos.
+
+![](../.gitbook/assets/05-gltf-report.png)
+
+### **Optimizar un glTF**
+
+La siguiente herramienta ofrece algunas optimizaciones que harán que los modelos 3D sean más ligeros y más rápidos de descargar para los jugadores en tu escena.
 
 [glTF pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline)
 
-Among other things, it converts _.gltf_ format into _.glb_, which is binary and so occupies a lot less. It also places texture files outside the 3D model, which allows you to use the same texture on multiple models.
+Entre otras cosas, convierte el formato _.gltf_ a _.glb_, que es binario y por lo tanto ocupa mucho menos. También coloca archivos de textura fuera del modelo 3D, lo que te permite usar la misma textura en múltiples modelos.
 
 {% hint style="warning" %}
-**📔 Note**: _.glb_ format by default always has textures embedded in the file. The engine can't recognize two embedded textures as the same, they need to be external files that share a same hash.
+**📔 Nota**: El formato _.glb_ por defecto siempre tiene texturas incrustadas en el archivo. El motor no puede reconocer dos texturas incrustadas como la misma, necesitan ser archivos externos que compartan un mismo hash.
 {% endhint %}
 
-### See also
+### Ver también
 
-The following pages also cover topics related to 3D models for Decentraland:
+Las siguientes páginas también cubren temas relacionados con modelos 3D para Decentraland:
 
-* [Meshes](meshes.md)
-* [Materials](materials.md)
-* [Textures](textures.md)
-* [Colliders](colliders.md)
-* [Animations](animations.md)
+* [Mallas](meshes.md)
+* [Materiales](materials.md)
+* [Texturas](textures.md)
+* [Colisionadores](colliders.md)
+* [Animaciones](animations.md)

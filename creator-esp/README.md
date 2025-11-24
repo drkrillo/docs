@@ -1,73 +1,73 @@
 ---
-description: Welcome to Decentraland Creator Documentation
+description: Bienvenido a la Documentación para Creadores de Decentraland
 icon: hand-wave
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/
 ---
 
-# Welcome Creator
+# Bienvenido Creador
 
-Welcome to the Decentraland Creator Documentation! This is your comprehensive guide to building amazing experiences in Decentraland.
+¡Bienvenido a la Documentación para Creadores de Decentraland! Esta es tu guía completa para construir experiencias increíbles en Decentraland.
 
-## What is Decentraland?
+## ¿Qué es Decentraland?
 
-Decentraland is the world's first fully decentralized virtual world where you can create, explore, and trade in a vibrant 3D metaverse. As a creator, you have the power to build interactive scenes, design wearables and emotes, and shape the virtual world.
+Decentraland es el primer mundo virtual completamente descentralizado del mundo donde puedes crear, explorar y comerciar en un vibrante metaverso 3D. Como creador, tienes el poder de construir escenas interactivas, diseñar wearables y emotes, y dar forma al mundo virtual.
 
-## Getting Started
+## Comenzando
 
-Whether you're new to Decentraland or an experienced creator, this documentation will help you:
+Ya seas nuevo en Decentraland o un creador experimentado, esta documentación te ayudará a:
 
-* **Build 3D Scenes**: Create interactive experiences using the Decentraland SDK
-* **Design Wearables & Emotes**: Make custom avatar items for the marketplace
-* **Use the Scene Editor**: Build without code using our visual editor
-* **Publish Your Work**: Share your creations with the world
+* **Construir Escenas 3D**: Crea experiencias interactivas usando el SDK de Decentraland
+* **Diseñar Wearables & Emotes**: Crea artículos personalizados de avatar para el marketplace
+* **Usar el Scene Editor**: Construye sin código usando nuestro editor visual
+* **Publicar tu Trabajo**: Comparte tus creaciones con el mundo
 
-## Documentation Structure
+## Estructura de la Documentación
 
 ### SDK7
 
-The latest Decentraland SDK for building interactive 3D scenes programmatically. Includes guides on entities, components, systems, 3D essentials, UI, interactivity, and more.
+El último SDK de Decentraland para construir escenas 3D interactivas programáticamente. Incluye guías sobre entidades, componentes, sistemas, fundamentos 3D, IU, interactividad y más.
 
 ### Scene Editor
 
-Visual editor for building scenes without code. Perfect for beginners and rapid prototyping.
+Editor visual para construir escenas sin código. Perfecto para principiantes y prototipado rápido.
 
 ### Wearables & Emotes
 
-Complete guide to creating custom avatar items, managing collections, and publishing to the marketplace.
+Guía completa para crear artículos personalizados de avatar, gestionar colecciones y publicar en el marketplace.
 
-### 3D Modeling
+### Modelado 3D
 
-Essential knowledge for creating 3D assets including models, animations, materials, textures, and more.
+Conocimiento esencial para crear activos 3D incluyendo modelos, animaciones, materiales, texturas y más.
 
 ### Marketplace
 
-Learn about the Decentraland marketplace, integrations, and managing your digital assets.
+Aprende sobre el marketplace de Decentraland, integraciones y gestión de tus activos digitales.
 
 ### Rewards
 
-Build engaging experiences with the rewards system to incentivize player interaction.
+Construye experiencias atractivas con el sistema de recompensas para incentivar la interacción de los jugadores.
 
 ### Worlds
 
-Create your own personal 3D space with Decentraland Worlds.
+Crea tu propio espacio 3D personal con Decentraland Worlds.
 
-## Resources
+## Recursos
 
-* [Decentraland Website](https://decentraland.org)
-* [SDK Documentation](https://docs.decentraland.org/creator/sdk7/)
+* [Sitio Web de Decentraland](https://decentraland.org)
+* [Documentación del SDK](https://docs.decentraland.org/creator/sdk7/)
 * [Builder](https://builder.decentraland.org/)
 * [Marketplace](https://market.decentraland.org/)
 * [Studios](https://studios.decentraland.org/)
 
-## Community
+## Comunidad
 
 * [Discord](https://dcl.gg/discord)
-* [Forum](https://forum.decentraland.org/)
+* [Foro](https://forum.decentraland.org/)
 * [Twitter](https://twitter.com/decentraland)
 * [GitHub](https://github.com/decentraland)
 
 ***
 
-**Start creating today!**
+**¡Empieza a crear hoy!**

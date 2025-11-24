@@ -4,27 +4,27 @@ metaLinks:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/rewards/integrations
 ---
 
-# Integrations
+# Integraciones
 
-After creating and configuring a campaign and ensuring it has sufficient stock to provide rewards, the next step is to connect the campaign to a rewards trigger. This trigger can be a Scene, a Quest, or an external server. This section explains how different integrations with Rewards can be done.
+Después de crear y configurar una campaña y asegurarte de que tenga suficiente inventario para proporcionar recompensas, el siguiente paso es conectar la campaña a un activador de recompensas. Este activador puede ser una Escena, un Quest o un servidor externo. Esta sección explica cómo se pueden realizar diferentes integraciones con Rewards.
 
-### Grant rewards from a scene
+### Otorgar recompensas desde una escena
 
-Rewards can be integrated directly into Decentraland scenes, but this approach comes with some risks. Since the logic is embedded in scene code that users can access, it’s not recommended for minting items with a rarity lower than \[EPIC]\([See documentation](../)#rarity).
+Las recompensas pueden integrarse directamente en escenas de Decentraland, pero este enfoque conlleva algunos riesgos. Como la lógica está incrustada en el código de escena al que los usuarios pueden acceder, no se recomienda para acuñar artículos con una rareza inferior a \[EPIC]\([Ver documentación](../)#rarity).
 
-Keep in mind that determined users with enough technical knowledge could potentially bypass security measures like captchas, change their IP addresses, and mint all available items, which they could then sell on the marketplace. The primary safeguard against this is ensuring a sufficient supply of items, so everyone has a fair chance to receive a reward.
+Ten en cuenta que usuarios determinados con suficiente conocimiento técnico podrían potencialmente eludir medidas de seguridad como captchas, cambiar sus direcciones IP y acuñar todos los artículos disponibles, que luego podrían vender en el marketplace. La salvaguarda principal contra esto es asegurar un suministro suficiente de artículos, para que todos tengan una oportunidad justa de recibir una recompensa.
 
-#### Recommended dispenser flags
+#### Flags de dispensador recomendados
 
-The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
+Las siguientes configuraciones de dispensador se recomiendan para reducir el riesgo de exploits en este escenario:
 
-* \[Limit Assignments]\([See documentation](../)#limit-assignments)
-* \[Beneficiary Signature]\([See documentation](../)#beneficiary-signature)
-* \[Captcha Protection]\([See documentation](../)#captcha-protection)
-* \[Connected to Decentraland]\([See documentation](../)#connected-to-decentraland)
-* \[Position inside Decentraland]\([See documentation](../)#position-inside-decentraland) (if it applies to your use case)
+* \[Límite de Asignaciones]\([Ver documentación](../)#limit-assignments)
+* \[Firma del Beneficiario]\([Ver documentación](../)#beneficiary-signature)
+* \[Protección de Captcha]\([Ver documentación](../)#captcha-protection)
+* \[Conectado a Decentraland]\([Ver documentación](../)#connected-to-decentraland)
+* \[Posición dentro de Decentraland]\([Ver documentación](../)#position-inside-decentraland) (si aplica a tu caso de uso)
 
-#### Example
+#### Ejemplo
 
 ```tsx
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -32,30 +32,30 @@ import { signedFetch } from '@decentraland/SignedFetch'
 import { getRealm } from '~system/Runtime'
 
 export function main() {
-  // 1. Get captcha challenge to show to the user
+  // 1. Obtener desafío de captcha para mostrar al usuario
   const request = await fetch(`https://rewards.decentraland.org/api/captcha`, {
     method: 'POST',
   })
   const captcha = await request.json()
 
-  // 2. Display captcha for player to complete - See example in studios.decentraland.org/resources
+  // 2. Mostrar captcha para que el jugador complete - Ver ejemplo en studios.decentraland.org/resources
 
-  // 3. Get user data
+  // 3. Obtener datos del usuario
   const user = getPlayer()
 
-  // 4. Get current realm
+  // 4. Obtener realm actual
   const realmInfo = await getRealm({})
 
-  // 5. Send request to assign a wearable/emote
+  // 5. Enviar solicitud para asignar un wearable/emote
   const assignRequest = await signedFetch('https://rewards.decentraland.org/api/rewards', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      campaign_key: '[DISPENSER_KEY]', // dispenser key
-      beneficiary: user.userId, // ethereum address
-      catalyst: realmInfo.baseUrl, // catalyst domain
+      campaign_key: '[DISPENSER_KEY]', // clave del dispensador
+      beneficiary: user.userId, // dirección ethereum
+      catalyst: realmInfo.baseUrl, // dominio catalyst
       captcha_id: captcha.data.id, // "9e6b2d07-b47b-4204-ae87-9c4dea48f9b7"
       captcha_value: '[CAPTCHA_VALUE]', // "123456"
     }),
@@ -64,25 +64,25 @@ export function main() {
   const reward = await assignRequest.json()
 ```
 
-### Grant rewards from a Decentraland Quests
+### Otorgar recompensas desde Decentraland Quests
 
-You can easily integrate Rewards with the [Decentraland Quests](../../creator/deprecated/quests/overview.md), this is ideal if you want to reward users for completing a quest.
+Puedes integrar fácilmente Rewards con las [Decentraland Quests](../../creator/deprecated/quests/overview.md), esto es ideal si deseas recompensar a los usuarios por completar un quest.
 
-#### Recommended dispenser flags
+#### Flags de dispensador recomendados
 
-The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
+Las siguientes configuraciones de dispensador se recomiendan para reducir el riesgo de exploits en este escenario:
 
-* \[Limit Assignments]\([See documentation](../)#limit-assignments) (if it applies to your use case)
+* \[Límite de Asignaciones]\([Ver documentación](../)#limit-assignments) (si aplica a tu caso de uso)
 
-Any other of the other flags will make your integration fail, avoid using them.
+Cualquier otro de los otros flags hará que tu integración falle, evita usarlos.
 
 {% hint style="warning" %}
-⚠️ The dispenser key should be kept secret, so you should never expose it to the user at anytime.
+⚠️ La clave del dispensador debe mantenerse en secreto, por lo que nunca debes exponerla al usuario en ningún momento.
 {% endhint %}
 
-#### Example
+#### Ejemplo
 
-To integrate your Quest with the Rewards service, you just need a dispenser key and to [configure a webhook](../../creator/deprecated/quests/rewards.md) to grant rewards.
+Para integrar tu Quest con el servicio de Rewards, solo necesitas una clave de dispensador y [configurar un webhook](../../creator/deprecated/quests/rewards.md) para otorgar recompensas.
 
 ```js
 {
@@ -100,23 +100,23 @@ To integrate your Quest with the Rewards service, you just need a dispenser key 
 }
 ```
 
-### Grant rewards from a custom server
+### Otorgar recompensas desde un servidor personalizado
 
-You can integrate Rewards directly from your server, which is ideal for performing extra checks before minting items. An additional advantage is that, unlike scene code, your server code might not be public, making it more challenging for users to discover and exploit vulnerabilities.
+Puedes integrar Rewards directamente desde tu servidor, lo cual es ideal para realizar verificaciones adicionales antes de acuñar artículos. Una ventaja adicional es que, a diferencia del código de escena, el código de tu servidor podría no ser público, lo que hace más desafiante para los usuarios descubrir y explotar vulnerabilidades.
 
-#### Recommended dispenser flags
+#### Flags de dispensador recomendados
 
-The following dispenser configurations are recommended to reduce the risk of exploits in this scenario:
+Las siguientes configuraciones de dispensador se recomiendan para reducir el riesgo de exploits en este escenario:
 
-* \[Limit Assignments]\([See documentation](../)#limit-assignments) (if it applies to your use case)
+* \[Límite de Asignaciones]\([Ver documentación](../)#limit-assignments) (si aplica a tu caso de uso)
 
-Enabling any of the other flags could complicate your integration or, depending on your use case, potentially cause it to fail. Therefore, it is not recommend using them unless there is a specific need. However, you may want to explore their potential benefits.
+Habilitar cualquiera de los otros flags podría complicar tu integración o, dependiendo de tu caso de uso, potencialmente causar que falle. Por lo tanto, no se recomienda usarlos a menos que haya una necesidad específica. Sin embargo, es posible que desees explorar sus beneficios potenciales.
 
 {% hint style="warning" %}
-⚠️ The dispenser key should be kept secret, so you should never expose it to the user at anytime.
+⚠️ La clave del dispensador debe mantenerse en secreto, por lo que nunca debes exponerla al usuario en ningún momento.
 {% endhint %}
 
-#### Example
+#### Ejemplo
 
 ```tsx
 const request = await fetch('https://rewards.decentraland.org/api/rewards', {
@@ -126,7 +126,7 @@ const request = await fetch('https://rewards.decentraland.org/api/rewards', {
 	},
 	body: JSON.stringify({
 		campaign_key: '[DISPENSER_KEY]',
-		beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // ethereum address
+		beneficiary: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942', // dirección ethereum
 	}),
 })
 

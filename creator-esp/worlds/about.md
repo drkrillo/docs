@@ -4,73 +4,73 @@ metaLinks:
     - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/worlds/about
 ---
 
-# Overview
+# Resumen
 
-Decentraland Worlds are your own personal 3D space in the Decentraland ecosystem, separate from Genesis City’s map of LAND parcels. A World can be kept private or shared with anyone with just a link. Able to host up to 100 concurrent users, you can use your World to host events, display your work, or as a blank canvas where you can unleash your creativity and experiment. A World is available to anyone who owns a Decentraland NAME or an ENS domain.
+Los Worlds de Decentraland son tu propio espacio 3D personal en el ecosistema de Decentraland, separado del mapa de parcelas LAND de Genesis City. Un World puede mantenerse privado o compartirse con cualquiera con solo un enlace. Capaz de alojar hasta 100 usuarios concurrentes, puedes usar tu World para organizar eventos, mostrar tu trabajo, o como un lienzo en blanco donde puedes liberar tu creatividad y experimentar. Un World está disponible para cualquiera que posea un NAME de Decentraland o un dominio ENS.
 
-## What are Worlds?
+## ¿Qué son los Worlds?
 
-Worlds are personal 3D spaces located beyond the boundaries of Genesis City. Worlds can serve various purposes, such as:
+Los Worlds son espacios 3D personales ubicados más allá de los límites de Genesis City. Los Worlds pueden servir para varios propósitos, tales como:
 
-* Hosting events
-* Unleashing your creativity
-* Building new experiences
-* Hosting a portfolio of scenes
-* Testing scenes before deploying them to Genesis City
+* Organizar eventos
+* Liberar tu creatividad
+* Construir nuevas experiencias
+* Alojar un portafolio de escenas
+* Probar escenas antes de desplegarlas en Genesis City
 
-You can get your own Decentraland World by getting a [Decentraland NAME](https://builder.decentraland.org/names), which are NAME NFTs within the DCL ecosystem, or you can get a World by having an [ENS domain](https://ens.domains), a decentralized name that can be used across both Web2 & 3.
+Puedes obtener tu propio World de Decentraland consiguiendo un [NAME de Decentraland](https://builder.decentraland.org/names), que son NFTs de NAME dentro del ecosistema DCL, o puedes obtener un World teniendo un [dominio ENS](https://ens.domains), un nombre descentralizado que puede usarse tanto en Web2 como en Web3.
 
-Acquiring a Decentraland NAME requires 100 MANA and can be assigned to your avatar, LAND, or Estate. Alternatively, you can purchase an already-minted NAME from a previous owner in the Marketplace. These NAMEs are then used by the Decentraland Explorer to load the associated World.
+Adquirir un NAME de Decentraland requiere 100 MANA y puede asignarse a tu avatar, LAND o Estate. Alternativamente, puedes comprar un NAME ya acuñado de un propietario anterior en el Marketplace. Estos NAMEs luego son usados por el Explorer de Decentraland para cargar el World asociado.
 
-Worlds serve as a gateway for aspiring content creators, providing an accessible entry point to creating in Decentraland and the freedom to experiment with scene creation.
+Los Worlds sirven como puerta de entrada para aspirantes a creadores de contenido, proporcionando un punto de entrada accesible para crear en Decentraland y la libertad de experimentar con la creación de escenas.
 
-### Worlds Size Limit
+### Límite de Tamaño de Worlds
 
-The maximum file size you can upload to your World is an essential consideration when deploying your scenes. It is important to note that the maximum scene file size you can upload to your World differs between Worlds granted by Decentraland NAMEs and those from ENS domains.
+El tamaño máximo de archivo que puedes subir a tu World es una consideración esencial al desplegar tus escenas. Es importante notar que el tamaño máximo de archivo de escena que puedes subir a tu World difiere entre Worlds otorgados por NAMEs de Decentraland y aquellos de dominios ENS.
 
-#### Worlds from Decentraland NAMEs
+#### Worlds de NAMEs de Decentraland
 
-Decentraland NAME holders enjoy dynamic storage capacity within the Foundation Worlds Content Server, which depends on their wallet holdings. The following rules govern this allocation:
+Los poseedores de NAME de Decentraland disfrutan de capacidad de almacenamiento dinámica dentro del Servidor de Contenido de Worlds de la Foundation, que depende de las tenencias de su billetera. Las siguientes reglas gobiernan esta asignación:
 
-* Each Decentraland NAME you own grants 100 Mb of storage capacity (as well as a World).
-* Each Decentraland LAND parcel you own grants an additional 100 Mb of storage capacity.
-* For every 2,000 MANA held in your wallet, an additional 100 Mb of storage capacity is granted.
+* Cada NAME de Decentraland que poseas otorga 100 Mb de capacidad de almacenamiento (así como un World).
+* Cada parcela LAND de Decentraland que poseas otorga 100 Mb adicionales de capacidad de almacenamiento.
+* Por cada 2,000 MANA mantenidos en tu billetera, se otorgan 100 Mb adicionales de capacidad de almacenamiento.
 
-The space in the Foundation Worlds Content Server can be used to host scenes as large as users want, utilizing the Decentraland NAMEs they own and the combined space granted by their collective Decentraland assets. For instance, a user with multiple Worlds (granted by owning multiple NAMES) and a combined storage capacity of 500 Mb can choose to deploy one World with a 200 MB scene file, another with a 200 MB scene file, and a third with a 100 MB scene file. Alternatively, they could opt to deploy one World with a 300 MB scene file and another with a 200 MB scene file.. This flexibility allows users to create and manage their virtual experiences efficiently within the allocated server storage space.
+El espacio en el Servidor de Contenido de Worlds de la Foundation puede usarse para alojar escenas tan grandes como los usuarios deseen, utilizando los NAMEs de Decentraland que poseen y el espacio combinado otorgado por sus activos colectivos de Decentraland. Por ejemplo, un usuario con múltiples Worlds (otorgados por poseer múltiples NAMES) y una capacidad de almacenamiento combinada de 500 Mb puede elegir desplegar un World con un archivo de escena de 200 MB, otro con un archivo de escena de 200 MB, y un tercero con un archivo de escena de 100 MB. Alternativamente, podrían optar por desplegar un World con un archivo de escena de 300 MB y otro con un archivo de escena de 200 MB. Esta flexibilidad permite a los usuarios crear y gestionar sus experiencias virtuales eficientemente dentro del espacio de almacenamiento del servidor asignado.
 
-The maximum server storage capacity for your Decentraland Worlds is calculated dynamically, adhering to the rules outlined above. If, by any chance, a user exceeds their allocated storage space—for instance, through asset sales or transfers to another wallet– they will be provided with a 24-hour window to address the situation. Failure to do so will result in their Worlds becoming inaccessible after this grace period.
+La capacidad máxima de almacenamiento del servidor para tus Worlds de Decentraland se calcula dinámicamente, adhiriéndose a las reglas descritas anteriormente. Si, por cualquier motivo, un usuario excede su espacio de almacenamiento asignado—por ejemplo, a través de ventas de activos o transferencias a otra billetera—se le proporcionará una ventana de 24 horas para abordar la situación. El no hacerlo resultará en que sus Worlds se vuelvan inaccesibles después de este período de gracia.
 
-To regain access to a blocked World, users can either acquire more MANA, Decentraland NAMEs, or LANDS, increasing their storage capacity or un-deploy existing scenes from the World Content Server to free up their storage space.
+Para recuperar el acceso a un World bloqueado, los usuarios pueden adquirir más MANA, NAMEs de Decentraland o LANDS, aumentando su capacidad de almacenamiento o des-desplegar escenas existentes del Servidor de Contenido de World para liberar su espacio de almacenamiento.
 
-#### Worlds from ENS Domains
+#### Worlds de Dominios ENS
 
-In contrast, Worlds granted from ENS domains have a fixed maximum scene file size of 36 Mb per World, regardless of the user’s other Decentraland holdings. Users with Worlds from ENS domains cannot increase their ENS World scene size limit by purchasing additional MANA or LAND.
+En contraste, los Worlds otorgados por dominios ENS tienen un tamaño máximo fijo de archivo de escena de 36 Mb por World, independientemente de las otras tenencias de Decentraland del usuario. Los usuarios con Worlds de dominios ENS no pueden aumentar el límite de tamaño de escena de su World ENS comprando MANA o LAND adicional.
 
-However, Worlds granted by ENS domain ownership serve as the perfect first step into realizing the creative freedom offered by Decentraland. At the same time, get your own little corner of the metaverse where you are free to begin transforming your ideas into reality.
+Sin embargo, los Worlds otorgados por propiedad de dominio ENS sirven como el primer paso perfecto para realizar la libertad creativa ofrecida por Decentraland. Al mismo tiempo, obtén tu propio pequeño rincón del metaverso donde eres libre de comenzar a transformar tus ideas en realidad.
 
-### Publish a World
+### Publicar un World
 
-Users have various options to publish content on their World. As a prerequisite for any of the options below, you must hold a Decentraland NAME or ENS Domain in your wallet, or have permissions granted by an owner.
+Los usuarios tienen varias opciones para publicar contenido en su World. Como prerequisito para cualquiera de las opciones a continuación, debes tener un NAME de Decentraland o Dominio ENS en tu billetera, o tener permisos otorgados por un propietario.
 
-#### 1. Use the Creator Hub (no-code / code)
+#### 1. Usar el Creator Hub (sin código / con código)
 
-The Creator Hub is the go-to option for creating Decentraland Scenes. It can be used to create no-code scenes via an easy drag-and-drop interface, or you can also combine it with Visual Studio Code to write code freely.
+El Creator Hub es la opción preferida para crear Escenas de Decentraland. Puede usarse para crear escenas sin código a través de una interfaz fácil de arrastrar y soltar, o también puedes combinarlo con Visual Studio Code para escribir código libremente.
 
-See [Publish Scene](../../creator/scene-editor/publish/publish-scene.md) for more details.
+Consulta [Publicar Escena](../../creator/scene-editor/publish/publish-scene.md) para más detalles.
 
-#### 2. Using the Web Editor (no-code)
+#### 2. Usar el Editor Web (sin código)
 
-The Builder is the ideal choice for non-developers. Scenes can be created from scratch using the Scene Builder by simply dragging and dropping items into the scene. [Smart items](../../creator/scene-editor/interactivity/smart-items.md) can also be used for player interaction once the scene is deployed.
+El Builder es la elección ideal para no desarrolladores. Las escenas pueden crearse desde cero usando el Scene Builder simplemente arrastrando y soltando artículos en la escena. Los [Smart items](../../creator/scene-editor/interactivity/smart-items.md) también pueden usarse para la interacción del jugador una vez que la escena está desplegada.
 
-The [Builder](https://builder.decentraland.org/worlds) also serves as the go-to place for visualizing your allocated space and monitoring how much is consumed by each Decentraland NAME or ENS Domain. Additionally, users can easily undeploy scenes to release storage space, view when their storage capacity is exceeded, and access comprehensive information about their Worlds, whether they are hosted on Decentraland NAMES or ENS Domains.
+El [Builder](https://builder.decentraland.org/worlds) también sirve como el lugar preferido para visualizar tu espacio asignado y monitorear cuánto es consumido por cada NAME de Decentraland o Dominio ENS. Además, los usuarios pueden fácilmente des-desplegar escenas para liberar espacio de almacenamiento, ver cuándo su capacidad de almacenamiento es excedida, y acceder a información completa sobre sus Worlds, ya sean alojados en NAMES de Decentraland o Dominios ENS.
 
-#### 3. Using the SDK and Editor
+#### 3. Usar el SDK y el Editor
 
-If you wish to know more about how to create a scene, check out the [Decentraland SDK](../../creator/sdk7/getting-started/sdk-101.md) documentation.
+Si deseas saber más sobre cómo crear una escena, consulta la documentación del [SDK de Decentraland](../../creator/sdk7/getting-started/sdk-101.md).
 
-If you are a Content Creator, you may be already familiar with how the [publishing of a scene](../../creator/sdk7/publishing/publishing.md) works, the experience is quite similar, but with a small caveat:
+Si eres un Creador de Contenido, es posible que ya estés familiarizado con cómo funciona la [publicación de una escena](../../creator/sdk7/publishing/publishing.md), la experiencia es bastante similar, pero con una pequeña salvedad:
 
-You need to specify under what **name** your deployment is to be made. Add the following section in your `scene.json`:
+Necesitas especificar bajo qué **nombre** se va a realizar tu despliegue. Agrega la siguiente sección en tu `scene.json`:
 
 ```json
 {
@@ -80,17 +80,17 @@ You need to specify under what **name** your deployment is to be made. Add the f
 }
 ```
 
-The **name** specified en the `scene.json` can be either a Decentraland NAME or an ENS Domain and must be owned by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained further down).
+El **nombre** especificado en el `scene.json` puede ser un NAME de Decentraland o un Dominio ENS y debe ser propiedad de la billetera que firma el despliegue (o por cualquier billetera que haya recibido permiso explícitamente a través de Listas de Control de Acceso (ACL), como se explica más adelante).
 
-Keep the following in mind:
+Ten en cuenta lo siguiente:
 
-* The wallet signing the deployment must own the NAME specified in the `scene.json` file
-* The scene has no parcel limitations (since January 2023)
-* All Worlds are automatically listed on the Places page unless you opt out as detailed below
+* La billetera que firma el despliegue debe poseer el NAME especificado en el archivo `scene.json`
+* La escena no tiene limitaciones de parcela (desde enero de 2023)
+* Todos los Worlds se listan automáticamente en la página de Places a menos que optes por no participar como se detalla a continuación
 
-Some of the Worlds deployed to the Foundation's Worlds Content Server may be eligible for being listed in Decentraland Places.
+Algunos de los Worlds desplegados en el Servidor de Contenido de Worlds de la Foundation pueden ser elegibles para ser listados en Decentraland Places.
 
-If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
+Si deseas optar por no participar en que tus Worlds sean indexados en Places, puedes agregar la siguiente sección en tu `scene.json`:
 
 ```json
 {
@@ -103,48 +103,48 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 }
 ```
 
-#### 5. Publish via the CLI
+#### 5. Publicar a través del CLI
 
-To deploy a scene to a world via the CLI, you need to specify the target server in the deployment command-line and use the Worlds Content Server URL.
+Para desplegar una escena a un world a través del CLI, necesitas especificar el servidor objetivo en la línea de comandos de despliegue y usar la URL del Servidor de Contenido de Worlds.
 
-For SDK6 scenes, use the following command:
+Para escenas SDK6, usa el siguiente comando:
 
 ```bash
 dcl deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
-For SDK7 scenes, use the following command:
+Para escenas SDK7, usa el siguiente comando:
 
 ```bash
 npm run deploy -- --target-content https://worlds-content-server.decentraland.org
 ```
 
-Once you run the command, you will be prompted to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene.
+Una vez que ejecutes el comando, se te pedirá que firmes el despliegue con tu billetera y se ejecutará un conjunto de validaciones para permitir o rechazar la escena.
 
-### Joining a World
+### Unirse a un World
 
-Once a scene is uploaded to the Worlds server you can access it by using the Decentraland Explorer with the following friendly URL `https://decentraland.org/jump/?realm=NAME.dcl.eth`, where `NAME` should be replaced by the Decentraland NAME or ENS Domain to which the deployment was done to.
+Una vez que una escena se sube al servidor de Worlds puedes acceder a ella usando el Explorer de Decentraland con la siguiente URL amigable `https://decentraland.org/jump/?realm=NAME.dcl.eth`, donde `NAME` debe reemplazarse por el NAME de Decentraland o Dominio ENS al que se hizo el despliegue.
 
-On the other hand, NAMEs also work as realms, so you can leverage the existing change realm mechanisms to access a world. One way would be by typing the `/goto NAME.dcl.eth` command in the chatbox and another possibility is by changing the query parameter in the Explorer URL: if your NAME is `my-name.dcl.eth` you can use the following URL to access the world: `decentraland://?realm=my-name.dcl.eth`
+Por otro lado, los NAMEs también funcionan como realms, por lo que puedes aprovechar los mecanismos existentes de cambio de realm para acceder a un world. Una forma sería escribiendo el comando `/goto NAME.dcl.eth` en el cuadro de chat y otra posibilidad es cambiando el parámetro de consulta en la URL del Explorer: si tu NAME es `my-name.dcl.eth` puedes usar la siguiente URL para acceder al world: `decentraland://?realm=my-name.dcl.eth`
 
-### Migrating a World to the Genesis City
+### Migrar un World a Genesis City
 
-If you are a LAND owner and you wish to deploy a World scene to the Genesis City, it is completely possible. You just need to re-deploy your scene to the decentralized Catalyst network, the targeted content server for Genesis City
+Si eres propietario de LAND y deseas desplegar una escena de World en Genesis City, es completamente posible. Solo necesitas re-desplegar tu escena en la red descentralizada de Catalyst, el servidor de contenido objetivo para Genesis City
 
-Things to remember:
+Cosas para recordar:
 
-* remove the `worldConfiguration` section from `scene.json`
-* the size limitation for Worlds (100 Mb total size) is different from that for LAND parcels (15MB per parcel), so make sure your scene is sized correctly for deployments to Genesis City!
+* elimina la sección `worldConfiguration` de `scene.json`
+* la limitación de tamaño para Worlds (100 Mb de tamaño total) es diferente a la de parcelas LAND (15MB por parcela), ¡así que asegúrate de que tu escena tenga el tamaño correcto para despliegues en Genesis City!
 
-### World defaults
+### Configuraciones predeterminadas de World
 
-A couple of optional custom settings can be specified in the `scene.json` when deploying a world scene:
+Un par de configuraciones personalizadas opcionales pueden especificarse en el `scene.json` al desplegar una escena de world:
 
-**skybox**: This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the seconds value is 36000, it corresponds to 10:00 am. If no value is set for this field, the world will follow the same day/night cycle as Genesis City.
+**skybox**: Esta propiedad indica cuántos segundos han pasado (en tiempo de Decentraland) desde el inicio del día, asumiendo que el ciclo completo dura 24 horas. Divide el valor de segundos por 60 para obtener minutos, y por 60 nuevamente para obtener las horas desde el inicio del día. Por ejemplo, si el valor de segundos es 36000, corresponde a 10:00 am. Si no se establece ningún valor para este campo, el world seguirá el mismo ciclo día/noche que Genesis City.
 
-**fixedAdapter**: indicates which Communication Service should be used by the scene. For the time being only the `offline:offline` value is allowed and when set, the scene will have no Communication Service at all and each user joining that world will always be alone. If not set, the Worlds content server will generate a proper value based on how it is configured.
+**fixedAdapter**: indica qué Servicio de Comunicación debe ser usado por la escena. Por el momento solo se permite el valor `offline:offline` y cuando se establece, la escena no tendrá Servicio de Comunicación en absoluto y cada usuario que se una a ese world siempre estará solo. Si no se establece, el servidor de contenido de Worlds generará un valor apropiado basado en cómo está configurado.
 
-**Example:**
+**Ejemplo:**
 
 ```json
 {
@@ -158,22 +158,22 @@ A couple of optional custom settings can be specified in the `scene.json` when d
 }
 ```
 
-### Access Control Lists (ACL)
+### Listas de Control de Acceso (ACL)
 
-When a team (more than one person) are contributing to the development of a scene, it may be beneficial to have each contributor have the ability to publish the scene under a single NAME. As stated above, the NAME owner is the only one allowed to run such deployment.
+Cuando un equipo (más de una persona) está contribuyendo al desarrollo de una escena, puede ser beneficioso que cada colaborador tenga la capacidad de publicar la escena bajo un solo NAME. Como se indicó anteriormente, el propietario del NAME es el único permitido para ejecutar tal despliegue.
 
-So the concept of Access Control List (or ACL for short) was introduced. The idea is that the owner of the NAME can grant other wallets permission to publish a scene under his NAME. This way the whole team (or a group of selected members) can be added to the world ACL and those will be able to publish the scene.
+Entonces se introdujo el concepto de Lista de Control de Acceso (o ACL para abreviar). La idea es que el propietario del NAME puede otorgar a otras billeteras permiso para publicar una escena bajo su NAME. De esta manera todo el equipo (o un grupo de miembros seleccionados) puede agregarse al ACL del world y esos podrán publicar la escena.
 
-This ACL is stored in the World Content Server where the world is deployed. It is not stored on the blockchain. This makes it much more flexible, giving more granular control. For e.g. if you want to deploy a scene under the same NAME in two different World Content Server hosting providers, then you can have different sets of permissions in each server. And also, there is no transaction fees involved in maintaining the ACL (granting or revoking permissions).
+Esta ACL se almacena en el Servidor de Contenido de World donde se despliega el world. No se almacena en la blockchain. Esto lo hace mucho más flexible, dando un control más granular. Por ejemplo, si deseas desplegar una escena bajo el mismo NAME en dos proveedores de alojamiento de Servidor de Contenido de World diferentes, entonces puedes tener diferentes conjuntos de permisos en cada servidor. Y también, no hay tarifas de transacción involucradas en mantener el ACL (otorgar o revocar permisos).
 
-A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it also allows granting access to more wallets or revoking access to wallets that are already in the ACL.
+Se ha agregado un nuevo comando al CLI de Decentraland que permite mostrar el ACL actual almacenado en el Servidor de Contenido de Worlds para un NAME dado, y también permite otorgar acceso a más billeteras o revocar acceso a billeteras que ya están en el ACL.
 
-![](../.gitbook/assets/world-acl-help.png)
+![](../.gitbook/assets/world-acl-help.png)
 
-In order to grant permission for publishing a scene to another wallet you have to:
+Para otorgar permiso para publicar una escena a otra billetera debes:
 
-* Make sure to have the latest version of Decentraland CLI (v3.20.0 or later).
-* Make sure you own the NAME for which you want to manage the ACL.
-* Use command `dcl world-acl NAME.dcl.eth grant 0x1..` where `0x1...` is the address of user receiving the permission.
+* Asegurarte de tener la última versión del CLI de Decentraland (v3.20.0 o posterior).
+* Asegurarte de poseer el NAME para el cual deseas gestionar el ACL.
+* Usar el comando `dcl world-acl NAME.dcl.eth grant 0x1..` donde `0x1...` es la dirección del usuario que recibe el permiso.
 
-By default, `world-acl` will act on `worlds-content-server.decentraland.org`. If you are using a different hosting provider, make sure to add `--target-content https://your-hosting.com` to each of the subcommands (`show`, `grant` and `revoke`).
+Por defecto, `world-acl` actuará en `worlds-content-server.decentraland.org`. Si estás usando un proveedor de alojamiento diferente, asegúrate de agregar `--target-content https://your-hosting.com` a cada uno de los subcomandos (`show`, `grant` y `revoke`).

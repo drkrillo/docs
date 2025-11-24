@@ -6,47 +6,47 @@ metaLinks:
 
 # Cast
 
-Decentraland Cast is a specialized tool tailored for world owners and other authorized individuals. It offers the capability to stream camera footage or share screens seamlessly within their world, all without the need to host a server. With low-latency streaming, the experience is smooth and immediate, enhancing the virtual connection.
+Decentraland Cast es una herramienta especializada diseñada para propietarios de worlds y otros individuos autorizados. Ofrece la capacidad de transmitir video de cámara o compartir pantallas sin problemas dentro de su world, todo sin la necesidad de alojar un servidor. Con transmisión de baja latencia, la experiencia es fluida e inmediata, mejorando la conexión virtual.
 
-### Streaming
+### Transmitir
 
-Streaming through Decentraland Cast is an exclusive feature available only to World owners or those with streaming rights for a World scene. For more details on these rights, refer to the [Access Contol Lists](../../creator/creator/worlds/about.md#access-control-lists-acl) section.
+La transmisión a través de Decentraland Cast es una característica exclusiva disponible solo para propietarios de World o aquellos con derechos de transmisión para una escena de World. Para más detalles sobre estos derechos, consulta la sección [Listas de Control de Acceso](../../creator/creator/worlds/about.md#access-control-lists-acl).
 
-1. Visit [Decentraland Cast](https://cast.decentraland.org/)
-2. Select Your World: Log in and select the world to stream to.\
+1. Visita [Decentraland Cast](https://cast.decentraland.org/)
+2. Selecciona tu World: Inicia sesión y selecciona el world al que transmitir.\
    \
-   ![](../.gitbook/assets/world-selector.png)\\
-3. Join the Session: Once the world is selected, a session will be joined.\
+   ![](../.gitbook/assets/world-selector.png)\\
+3. Únete a la Sesión: Una vez que se selecciona el world, se unirá a una sesión.\
    \
-   ![](../.gitbook/assets/cast-ui.png)\\
-4. Share Screen or Camera Footage: If authorized, users have the option to either activate their cameras or share their screens directly within the app.
+   ![](../.gitbook/assets/cast-ui.png)\\
+4. Compartir Pantalla o Video de Cámara: Si está autorizado, los usuarios tienen la opción de activar sus cámaras o compartir sus pantallas directamente dentro de la aplicación.
 
 {% hint style="warning" %}
-**📔 Note**: If you intend to stream a video along with its audio, it's advisable to utilize Google Chrome or a browser built on the Chrome engine. These browsers offer the functionality to easily share both video and audio directly from a browser tab.
+**📔 Nota**: Si tienes la intención de transmitir un video junto con su audio, es aconsejable utilizar Google Chrome o un navegador construido sobre el motor de Chrome. Estos navegadores ofrecen la funcionalidad para compartir fácilmente tanto video como audio directamente desde una pestaña del navegador.
 {% endhint %}
 
-![](../.gitbook/assets/screen-sharing-host.png)\
-5\. Flawless Integration: Decentraland Cast’s integration with the world ensures uninterrupted communication, allowing users to effortlessly send, receive, and listen to chat and voice messages.\
-![](../.gitbook/assets/screen-sharing-viewer.png)
+![](../.gitbook/assets/screen-sharing-host.png)\
+5\. Integración Perfecta: La integración de Decentraland Cast con el world garantiza comunicación ininterrumpida, permitiendo a los usuarios enviar, recibir y escuchar mensajes de chat y voz sin esfuerzo.\
+![](../.gitbook/assets/screen-sharing-viewer.png)
 
-### Showcasing the stream in a world
+### Mostrar la transmisión en un world
 
-1. You must first deploy a scene in the world with the ability to handle video streams. To delve deeper into the specifics of this integration, please consult the [Play Videos](../../creator/sdk7/media/video-playing.md#streaming-using-decentraland-cast) SDK documentation.
+1. Primero debes desplegar una escena en el world con la capacidad de manejar transmisiones de video. Para profundizar en los detalles de esta integración, consulta la documentación del SDK de [Reproducir Videos](../../creator/sdk7/media/video-playing.md#streaming-using-decentraland-cast).
 
 {% hint style="warning" %}
-**💡 Note**: To get started quickly, download the Decentraland Cast example scene and modify the world URL in the scene.json file to match your specific world.
+**💡 Nota**: Para comenzar rápidamente, descarga la escena de ejemplo de Decentraland Cast y modifica la URL del world en el archivo scene.json para que coincida con tu world específico.
 {% endhint %}
 
-3. Ensure that there is an open session in Decentraland Cast.
-4. Join the world and test the streaming being showcased.
+3. Asegúrate de que haya una sesión abierta en Decentraland Cast.
+4. Únete al world y prueba la transmisión que se está mostrando.
 
 {% hint style="danger" %}
-**❗Warning**\
-Since the session in Decentraland Cast is the same LiveKit session within the world, one address can be presented in either the World or the Decentraland Cast session, but not in both simultaneously. If this occurs, the whole casting session will be disconnected for all users. For testing purposes, it is recommended to enter the world as a guest so the Decentraland Cast session remains live.
+**❗Advertencia**\
+Como la sesión en Decentraland Cast es la misma sesión de LiveKit dentro del world, una dirección puede estar presente en el World o en la sesión de Decentraland Cast, pero no en ambos simultáneamente. Si esto ocurre, toda la sesión de casting será desconectada para todos los usuarios. Para propósitos de prueba, se recomienda entrar al world como invitado para que la sesión de Decentraland Cast permanezca activa.
 {% endhint %}
 
-### Spectating
+### Espectadores
 
-It’s recommended for spectators to join the world (not the Decentraland Cast application) unless accessing via mobile phones. In Decentraland Cast, all users will be able to watch what is being streamed, the chat, and other people in the session but those lacking authorization will find their capabilities restricted. Specifically, they will not have permissions to broadcast any data, whether it be video, voice chat, or text messaging.
+Se recomienda que los espectadores se unan al world (no a la aplicación de Decentraland Cast) a menos que accedan a través de teléfonos móviles. En Decentraland Cast, todos los usuarios podrán ver lo que se está transmitiendo, el chat y otras personas en la sesión, pero aquellos que carezcan de autorización encontrarán sus capacidades restringidas. Específicamente, no tendrán permisos para transmitir ningún dato, ya sea video, chat de voz o mensajería de texto.
 
-![](../.gitbook/assets/cast-mobile.png)
+![](../.gitbook/assets/cast-mobile.png)
