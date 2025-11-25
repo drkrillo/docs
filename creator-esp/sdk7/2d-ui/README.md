@@ -1,22 +1,19 @@
 ---
-description: Create 2D user interfaces for your scenes
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui
+description: Crea interfaces de usuario 2D para tus scenes
 ---
 
 # 2D UI
 
-Build user interfaces for your scenes using the SDK's 2D UI system. Create menus, HUDs, buttons, and interactive UI elements that players can interact with.
+Construye interfaces de usuario para tus scenes usando el sistema de 2D UI del SDK. Crea menús, HUDs, botones y elementos de UI interactivos con los que los jugadores pueden interactuar.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Creating onscreen UI elements
-* Handling UI button events
-* Dynamic UI updates
-* UI positioning and layout
-* Text rendering
-* Background styling
-* Special UI types
+* Crear elementos de UI en pantalla
+* Manejar eventos de botones de UI
+* Actualizaciones dinámicas de UI
+* Posicionamiento y diseño de UI
+* Renderizado de texto
+* Estilización de fondos
+* Tipos especiales de UI
 
-The 2D UI system provides everything you need to create professional, interactive interfaces for your Decentraland experiences.
+El sistema de 2D UI proporciona todo lo que necesitas para crear interfaces profesionales e interactivas para tus experiencias de Decentraland.

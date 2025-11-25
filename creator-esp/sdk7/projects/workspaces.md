@@ -1,54 +1,51 @@
 ---
-description: Run multiple DCL projects at a time
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/workspaces
+description: Ejecuta múltiples proyectos de DCL a la vez
 ---
 
 # Workspaces
 
-Run multiple Decentraland projects in preview by grouping these into a workspace. Run multiple adjacent scenes to see how they fit, or also run multiple [smart wearables](../../../creator/sdk7/projects/smart-wearables.md) together to see how they interact with each other and with different scenes.
+Ejecuta múltiples proyectos de Decentraland en vista previa agrupándolos en un workspace. Ejecuta múltiples escenas adyacentes para ver cómo encajan, o también ejecuta múltiples [smart wearables](../sdk7/projects/smart-wearables.md) juntos para ver cómo interactúan entre sí y con diferentes escenas.
 
-Running multiple projects in a workspace provides a much more complete testing alternative, to ensure different content works well together. A workspace is a debugging feature, it doesn't affect the experience in the published scene.
+Ejecutar múltiples proyectos en un workspace proporciona una alternativa de prueba mucho más completa, para asegurar que diferentes contenidos funcionen bien juntos. Un workspace es una funcionalidad de depuración, no afecta la experiencia en la escena publicada.
 
 {% hint style="warning" %}
-**📔 Note**: The **Creator Hub** doesn't currently support handling Workspaces.
+**📔 Nota**: El **Creator Hub** actualmente no soporta el manejo de Workspaces.
 {% endhint %}
 
-### Create a workspace
+### Crear un workspace
 
-1. Download the [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza) repo.
-2. Create a separate top-level folder to hold the workspace.
-3. From the Goerli Plaza repo, copy the following files over to your workspace:
+1. Descarga el repositorio [Goerli Plaza](https://github.com/decentraland/sdk7-goerli-plaza).
+2. Crea una carpeta de nivel superior separada para contener el workspace.
+3. Del repositorio Goerli Plaza, copia los siguientes archivos a tu workspace:
    * `dcl-workspace.json`
    * `package.json`
    * `.gitignore`
-4.  Inside this folder, add one folder at root level for each project you want to work with. You can drag in existing folders with scenes or smart wearables. For new folders, run `npx sdk-commands init` inside each, to create a Decentraland project.
+4.  Dentro de esta carpeta, agrega una carpeta a nivel raíz para cada proyecto con el que quieras trabajar. Puedes arrastrar carpetas existentes con escenas o smart wearables. Para carpetas nuevas, ejecuta `npx sdk-commands init` dentro de cada una, para crear un proyecto de Decentraland.
 
-    > Note: Make sure that the parcels on each of the scenes don't overlap.
-5.  Standing on the workspace folder, run the following, to create the necessary files:
+    > Nota: Asegúrate de que las parcelas en cada una de las escenas no se superpongan.
+5.  Estando en la carpeta del workspace, ejecuta lo siguiente, para crear los archivos necesarios:
 
     `npm run update-parcels && npm run sync && npm run test && npm run format`
 
-You can confirm that the projects are part of the workspace by running `dcl workspace ls`.
+Puedes confirmar que los proyectos son parte del workspace ejecutando `dcl workspace ls`.
 
-### Run a workspace
+### Ejecutar un workspace
 
-Run `npm run start` on the root folder of the workspace. This runs all of the projects at the same time, viewable in a single preview window. This preview behaves just like when previewing a single scene.
+Ejecuta `npm run start` en la carpeta raíz del workspace. Esto ejecuta todos los proyectos al mismo tiempo, visibles en una sola ventana de vista previa. Esta vista previa se comporta igual que al previsualizar una sola escena.
 
-Any smart wearables in the workspace are available to try on by looking for them in the backpack.
+Cualquier smart wearable en el workspace está disponible para probarse buscándolo en la mochila.
 
-### Add projects
+### Agregar proyectos
 
-Once a workspace is created, you can add additional projects `dcl workspace add`, including the relative address of the folder you want to add. For example `dcl workspace add my-other-example`.
+Una vez que se crea un workspace, puedes agregar proyectos adicionales `dcl workspace add`, incluyendo la dirección relativa de la carpeta que quieres agregar. Por ejemplo `dcl workspace add my-other-example`.
 
-You can also add a project that is not inside the workspace folder, by using the absolute path.
+También puedes agregar un proyecto que no esté dentro de la carpeta del workspace, usando la ruta absoluta.
 
 {% hint style="warning" %}
-**📔 Note**: The folder must already contain a decentraland project initatied with `npx sdk-commands init`. It can't be an empty folder.
+**📔 Nota**: La carpeta ya debe contener un proyecto de decentraland iniciado con `npx sdk-commands init`. No puede ser una carpeta vacía.
 {% endhint %}
 
-You can also edit the `dcl-workspace.json` file manually to add or remove projects. Modify the file to include the relative paths to each of the projects in the workspace in the `folders` array.
+También puedes editar el archivo `dcl-workspace.json` manualmente para agregar o eliminar proyectos. Modifica el archivo para incluir las rutas relativas a cada uno de los proyectos en el workspace en el array `folders`.
 
 ```json
 {

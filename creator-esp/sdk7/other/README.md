@@ -1,18 +1,15 @@
 ---
-description: Additional SDK features
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/other
+description: Características adicionales del SDK
 ---
 
-# Other
+# Other Features
 
-Explore additional SDK features that don't fit into other categories, including analytics and scene metrics.
+Explora características adicionales del SDK que no encajan en otras categorías, incluyendo analytics y métricas de scene.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Scene analytics and player tracking
-* Monitoring scene performance
-* Gathering usage data
+* Analytics de scene y seguimiento de jugadores
+* Monitorear rendimiento de scene
+* Recopilar datos de uso
 
-These additional features help you understand how players interact with your scenes.
+Estas características adicionales te ayudan a entender cómo los jugadores interactúan con tus scenes.

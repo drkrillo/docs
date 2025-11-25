@@ -1,19 +1,16 @@
 ---
-description: Add media content to your scenes
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/media
+description: Agrega contenido multimedia a tus scenes
 ---
 
 # Media
 
-Integrate various media types into your scenes, including audio streams, videos, and NFT displays. Create rich multimedia experiences for your visitors.
+Integra varios tipos de medios en tus scenes, incluyendo audio streams, videos y displays de NFT. Crea experiencias multimedia ricas para tus visitantes.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Audio streaming
-* Video playback
-* Displaying certified NFTs
-* Media optimization
+* Streaming de audio
+* Reproducción de video
+* Mostrar NFTs certificados
+* Optimización de medios
 
-Media integration lets you create immersive experiences with sound, video, and dynamic NFT galleries.
+La integración de medios te permite crear experiencias inmersivas con sonido, video y galerías dinámicas de NFT.

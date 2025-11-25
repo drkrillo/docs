@@ -1,20 +1,17 @@
 ---
-description: Integrate blockchain functionality into your scenes
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/blockchain
+description: Integra funcionalidad blockchain en tus scenes
 ---
 
-# Blockchain
+# Blockchain Integration
 
-Add blockchain functionality to your scenes, including transactions, NFT verification, and smart contract interactions. Create decentralized applications (dApps) within Decentraland.
+Agrega funcionalidad blockchain a tus scenes, incluyendo transacciones, verificación de NFT e interacciones con smart contracts. Crea aplicaciones descentralizadas (dApps) dentro de Decentraland.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Creating dApps in Decentraland
-* Scene blockchain operations
-* Using Layer 2 solutions (Polygon)
-* Deploying your own transactions server
-* Wallet integration
+* Crear dApps en Decentraland
+* Operaciones blockchain en scenes
+* Usar soluciones Layer 2 (Polygon)
+* Desplegar tu propio servidor de transacciones
+* Integración de wallet
 
-Blockchain integration enables truly decentralized experiences where players can trade, own, and interact with digital assets.
+La integración blockchain permite experiencias verdaderamente descentralizadas donde los jugadores pueden comerciar, poseer e interactuar con assets digitales.

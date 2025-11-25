@@ -1,22 +1,18 @@
 ---
-description: Help players discover your scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/publishing/make-discoverable
+description: Ayuda a los jugadores a descubrir tu escena
 ---
 
-# Make Discoverable
+# Hacer Descubrible
 
-Decentraland offers a vast array of content. You must ensure your scene stands out and connects with its audience. Here are some key strategies:
+Decentraland ofrece una amplia gama de contenido. Debes asegurarte de que tu escena se destaque y conecte con su audiencia. Aquí hay algunas estrategias clave:
 
-* **Social media:** Share your scene on social media platforms to increase its visibility. Include multimedia content to tempt more players, don't just add a link and text. Decentraland's Discord server is also an excellent platform to engage with the community.
-* **Categories and tags**: Utilize categories and tags to help players find your scene through the search feature on the Decentraland map. Learn more about this in [Categories](../../../creator/sdk7/projects/scene-metadata.md#categories).
-* **Visual Appeal**: Design your scene to be visually appealing from a distance to catch the eye of explorers. Consider how your scene appears on the map's satellite view.
-* **Points of Interest (POIs)**: Submit a [proposal on the DAO](https://decentraland.org/governance/proposals/?type=poi) to have your scene featured as a Point of Interest on the map.
-*   **Description and thumbnail**: Craft enticing descriptions and eye-catching thumbnails to attract players before they enter your scene. These elements are crucial for making a strong impression when selecting a scene on the map, teleporting from another scene, or encountering a shared link on social media.
+* **Redes sociales:** Comparte tu escena en plataformas de redes sociales para aumentar su visibilidad. Incluye contenido multimedia para tentar a más jugadores, no solo agregues un enlace y texto. El servidor de Discord de Decentraland también es una excelente plataforma para interactuar con la comunidad.
+* **Categorías y etiquetas**: Utiliza categorías y etiquetas para ayudar a los jugadores a encontrar tu escena a través de la función de búsqueda en el mapa de Decentraland. Aprende más sobre esto en [Categorías](../sdk7/projects/scene-metadata.md#categories).
+* **Atractivo Visual**: Diseña tu escena para que sea visualmente atractiva desde la distancia para captar la atención de los exploradores. Considera cómo aparece tu escena en la vista satélite del mapa.
+* **Puntos de Interés (POIs)**: Envía una [propuesta en el DAO](https://decentraland.org/governance/proposals/?type=poi) para que tu escena sea presentada como un Punto de Interés en el mapa.
+*   **Descripción y miniatura**: Crea descripciones tentadoras y miniaturas llamativas para atraer jugadores antes de que entren a tu escena. Estos elementos son cruciales para hacer una impresión fuerte al seleccionar una escena en el mapa, teletransportarse desde otra escena, o encontrar un enlace compartido en redes sociales.
 
-    ![](../../.gitbook/assets/thumbnail-image.png)
-* **Events**: Take advantage of the [events page](https://decentraland.org/events/) to promote gatherings, from scene inaugurations to themed seasonal events. Hosting events can draw large crowds, and offering rewards like wearables or emotes can enhance player engagement.
-* **Quests**: Incorporate your scene into [Quests](../../../creator/deprecated/quests/overview.md) to guide players through various experiences. Creating quests can encourage visits to your scene as part of an engaging journey.
-* **Build Traffic**: Attract players by creating a vibrant scene that draws in visitors. Once a critical mass of players is present, others may join in, attracted by the bustling activity.
+    ![](../images/thumbnail-image.png)
+* **Eventos**: Aprovecha la [página de eventos](https://decentraland.org/events/) para promover reuniones, desde inauguraciones de escenas hasta eventos temáticos de temporada. Hospedar eventos puede atraer grandes multitudes, y ofrecer recompensas como wearables o emotes puede mejorar la participación del jugador.
+* **Quests**: Incorpora tu escena en [Quests](../deprecated/quests/overview.md) para guiar a los jugadores a través de varias experiencias. Crear quests puede alentar visitas a tu escena como parte de un viaje interesante.
+* **Construir Tráfico**: Atrae jugadores creando una escena vibrante que atraiga visitantes. Una vez que una masa crítica de jugadores está presente, otros pueden unirse, atraídos por la actividad bulliciosa.

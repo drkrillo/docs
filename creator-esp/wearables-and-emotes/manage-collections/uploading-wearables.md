@@ -1,183 +1,179 @@
 ---
-description: Guidelines to Upload Wearables to the Editor
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/manage-collections/uploading-wearables
+description: Directrices para Subir Wearables al Editor
 ---
 
 # Uploading Wearables
 
-Once you export your wearable, you’ll have to upload it to the builder. This document will cover the process of uploading wearables.
+Una vez que exportes tu wearable, tendrás que subirlo al builder. Este documento cubrirá el proceso de subir wearables.
 
-### Uploading Your File
+### Subiendo Tu Archivo
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your wearable, just drag and drop the file on the _**New Item**_ window or browse your computer. It will automatically detect if the file is an emote or wearable. **Remember that the collection max file size is 3MB**.
+Recuerda que necesitas crear una colección antes de poder subir tu archivo. Si no sabes cómo hacer eso, consulta [Creating a Collection](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). Para subir tu wearable, simplemente arrastra y suelta el archivo en la ventana _**New Item**_ o busca en tu computadora. Detectará automáticamente si el archivo es un emote o wearable. **Recuerda que el tamaño máximo de archivo de la colección es 3MB**.
 
-![](broken-reference)
+![](../images/wearables-and-emotes/uploading-wearables/01_new_item.png)
 
-When you upload the file, you will be asked to select a body shape, enter a name and define the rarity and the category. You can also add the thumbnail for the wearable.
+Cuando subas el archivo, se te pedirá que selecciones un body shape, ingreses un nombre y definas la rarity y la categoría. También puedes agregar la miniatura para el wearable.
 
 #### **Body Shape**
 
-To ensure that your wearables can be worn by the intended avatars, you need to upload separate GLB files for each body shape. If you have two separate versions of the wearable, one for male and one for female, you can add one of the representations during the upload process and then add the other later using the editor. If your wearable is meant to be unisex, make sure to upload a single GLB file that is designed to fit both male and female versions.
+Para asegurar que tus wearables puedan ser usados por los avatares previstos, necesitas subir archivos GLB separados para cada body shape. Si tienes dos versiones separadas del wearable, una para masculino y una para femenino, puedes agregar una de las representations durante el proceso de carga y luego agregar la otra más tarde usando el editor. Si tu wearable está destinado a ser unisex, asegúrate de subir un solo archivo GLB que esté diseñado para ajustarse tanto a versiones masculinas como femeninas.
 
-![](../../.gitbook/assets/03_body_shape.png)
+![](../images/wearables-and-emotes/uploading-wearables/03_body_shape.png)
 
 #### **Rarity**
 
-Select the Rarity of your item.
+Selecciona la Rarity de tu ítem.
 
-![](../../.gitbook/assets/04_rarity.png)
+![](../images/wearables-and-emotes/uploading-wearables/04_rarity.png)
 
-| Rarity    | Number of Items |
-| --------- | --------------- |
-| Unique    | 1               |
-| Mythic    | 10              |
-| Exotic    | 50              |
-| Legendary | 100             |
-| Epic      | 1,000           |
-| Rare      | 5,000           |
-| Uncommon  | 10,000          |
-| Common    | 100,000         |
+|| Rarity    | Number of Items |
+|| --------- | --------------- |
+|| Unique    | 1               |
+|| Mythic    | 10              |
+|| Exotic    | 50              |
+|| Legendary | 100             |
+|| Epic      | 1,000           |
+|| Rare      | 5,000           |
+|| Uncommon  | 10,000          |
+|| Common    | 100,000         |
 
 #### **Category**
 
-Wearables are organized into different categories, depending on what part of an avatar they modify. Select the appropriate category for your item.
+Los wearables están organizados en diferentes categorías, dependiendo de qué parte de un avatar modifican. Selecciona la categoría apropiada para tu ítem.
 
-![](../../.gitbook/assets/05_category.png)
+![](../images/wearables-and-emotes/uploading-wearables/05_category.png)
 
 #### **Custom Thumbnails**
 
-You can add your own custom thumbnail by clicking on the camera icon and browsing your computer. **The thumbnail must be 256px square .png file with transparent background.** Collections containing thumbnails without transparent backgrounds will not be accepted by the Curation Committee.
+Puedes agregar tu propia miniatura personalizada haciendo clic en el ícono de cámara y buscando en tu computadora. **La miniatura debe ser un archivo .png cuadrado de 256px con fondo transparente.** Las colecciones que contengan miniaturas sin fondos transparentes no serán aceptadas por el Curation Committee.
 
-![](../../.gitbook/assets/06_thumbnail.png)
+![](../images/wearables-and-emotes/uploading-wearables/06_thumbnail.png)
 
 {% hint style="warning" %}
-⚠️ Having a good render of your wearable is crucial in making it more appealing to potential users in the marketplace. **It's important to avoid adding any graphics other than the wearable itself, because this may cause the curation committee to reject it.**
+⚠️ Tener un buen render de tu wearable es crucial para hacerlo más atractivo para los usuarios potenciales en el marketplace. **Es importante evitar agregar cualquier gráfico que no sea el wearable en sí, porque esto puede causar que el comité de curación lo rechace.**
 
-<img src="broken-reference" alt="" data-size="original">
+![](../images/wearables-and-emotes/uploading-wearables/07_thumbnail.png)
 {% endhint %}
 
 #### **Properties**
 
-Below the thumbnail you're going to find the properties of your wearable, number of triangles of your model, number of materials and textures.
+Debajo de la miniatura encontrarás las propiedades de tu wearable, número de triángulos de tu modelo, número de materiales y texturas.
 
-![](../../.gitbook/assets/08_properties.png)
+![](../images/wearables-and-emotes/uploading-wearables/08_properties.png)
 
-### **Uploading Mouth, Eyes and Eyebrows**
+### **Subiendo Mouth, Eyes and Eyebrows**
 
-The mouth, eyes and eyebrows category have a different behaviour in the editor because these are just .png files. To upload these just drag and drop the png file as a transparent image (256X256 pixels). Mouth is going to be automatically tinted by skin color, same for the eyebrows tinted by the hair color.
+Las categorías mouth, eyes y eyebrows tienen un comportamiento diferente en el editor porque estos son solo archivos .png. Para subirlos simplemente arrastra y suelta el archivo png como una imagen transparente (256X256 pixels). Mouth será automáticamente teñido por el color de piel, lo mismo para las eyebrows teñidas por el color del cabello.
 
 {% hint style="warning" %}
-If you want the asset to be masked, so a part of the mouth or eyebrows is not affected by the tinting, upload a zip file with both the png and the mask files. Remeber that the mask file should have a suffix "\\\_mask" in order to work.
+Si quieres que el asset esté enmascarado, para que una parte del mouth o eyebrows no se vea afectada por el teñido, sube un archivo zip con tanto el png como los archivos de máscara. Recuerda que el archivo de máscara debe tener un sufijo "\\\_mask" para funcionar.
 {% endhint %}
 
-![](broken-reference)
+![](../images/wearables-and-emotes/uploading-wearables/02_mouth_wearable.png)
 
-After that uploading your wearables you will end up with a screen like this, that shows the items in your collection.
+Después de subir tus wearables terminarás con una pantalla como esta, que muestra los ítems en tu colección.
 
-![](../../.gitbook/assets/11_list_wearables.png)
+![](../images/wearables-and-emotes/uploading-wearables/11_list_wearables.png)
 
-### **Setting the Price of Your Wearables**
+### **Estableciendo el Precio de Tus Wearables**
 
-Once you publish your collection and it gets approved, you can then enable the sales on your collection.
+Una vez que publiques tu colección y sea aprobada, puedes entonces habilitar las ventas en tu colección.
 
-![](../../.gitbook/assets/25_enable_sales.png)
+![](../images/wearables-and-emotes/uploading-wearables/25_enable_sales.png)
 
-You can set the price of your wearable by clicking on _**Put up for sale**_. This can all be edited anytime, so don’t worry if you want to change it later on. Prices are set in MANA. Remember that when you mint wearables, they are minted directly on Matic/Polygon. When a user purchases your item, the transaction will be conducted in Matic/Polygon MANA.
+Puedes establecer el precio de tu wearable haciendo clic en _**Put up for sale**_. Todo esto se puede editar en cualquier momento, así que no te preocupes si quieres cambiarlo más tarde. Los precios se establecen en MANA. Recuerda que cuando acuñas wearables, se acuñan directamente en Matic/Polygon. Cuando un usuario compre tu ítem, la transacción se realizará en MANA de Matic/Polygon.
 
-You could also _**Make it Free**_, which means that the price will be set as 0 MANA and the beneficiary address will be null. Know that making it free (primary sale) does not prevent it from being sold at any price as a secondary sale.
+También podrías _**Make it Free**_, lo que significa que el precio se establecerá como 0 MANA y la dirección de beneficiario será nula. Ten en cuenta que hacerlo gratis (venta primaria) no impide que se venda a cualquier precio como venta secundaria.
 
-Don’t forget to set the beneficiary address, which is the one that will receive the MANA from your sales. You can use any Ethereum address you like. To automatically fill in the address you are logged in with, click _**I’m the Beneficiary.**_
+No olvides establecer la dirección de beneficiario, que es la que recibirá el MANA de tus ventas. Puedes usar cualquier dirección de Ethereum que desees. Para completar automáticamente la dirección con la que iniciaste sesión, haz clic en _**I'm the Beneficiary.**_
 
-![](../../.gitbook/assets/12_set_price.png)
+![](../images/wearables-and-emotes/uploading-wearables/12_set_price.png)
 
-Put the item up for sale and you will be back to the list of wearables in your collection. When you click on the item, you will get its general info. Click on the button _**Preview**_ to see it on the editor.
+Pon el ítem a la venta y volverás a la lista de wearables en tu colección. Cuando hagas clic en el ítem, obtendrás su información general. Haz clic en el botón _**Preview**_ para verlo en el editor.
 
-![](../../.gitbook/assets/13_click_item.png)
+![](../images/wearables-and-emotes/uploading-wearables/13_click_item.png)
 
-## The Editor
+## El Editor
 
-Once you click on _**Preview**_, you will have the editor open. You can edit all the info of your wearable, as well as add new ones, such as description, tags and overrides. This also where you add other body shape representation to your wearable.
+Una vez que hagas clic en _**Preview**_, tendrás el editor abierto. Puedes editar toda la información de tu wearable, así como agregar nuevas, como descripción, tags y overrides. También es aquí donde agregas otra representation de body shape a tu wearable.
 
-![](../../.gitbook/assets/14_editor.png)
+![](../images/wearables-and-emotes/uploading-wearables/14_editor.png)
 
 ### **Description**
 
-This is a brief statement describing your item that will be displayed in the marketplace.
+Esta es una breve declaración describiendo tu ítem que se mostrará en el marketplace.
 
 ### **Overrides**
 
-Overrides determine which Wearable categories or avatar body parts your item will hide. For instance, a hat with attached hair might need to hide the _Hair_ category. A deep-sea diver helmet may require hiding head accessories like earrings, eyewear, tiaras, etc., which wouldn’t be visible. Multiple options can be selected for each override.
+Los overrides determinan qué categorías de Wearable o partes del cuerpo del avatar tu ítem ocultará. Por ejemplo, un sombrero con cabello adjunto podría necesitar ocultar la categoría _Hair_. Un casco de buzo de aguas profundas puede requerir ocultar accesorios de cabeza como aretes, eyewear, tiaras, etc., que no serían visibles. Se pueden seleccionar múltiples opciones para cada override.
 
-* **Base Body**: This refers to core avatar parts like the _head_ and _hands_. For example, if you’re creating a **Handwear** item such as a robot mechanic hand, you’ll likely need to hide _hands_ to prevent overlap and clipping.
-* **Wearables**: This includes other Wearable categories. You can hide multiple categories. For more details on each category and how items interact, refer to [**Creating Wearables**](https://docs.decentraland.org/creator/wearables/creating-wearables/).
+* **Base Body**: Esto se refiere a partes centrales del avatar como la _head_ y las _hands_. Por ejemplo, si estás creando un ítem de **Handwear** como una mano mecánica de robot, probablemente necesitarás ocultar _hands_ para prevenir superposición y clipping.
+* **Wearables**: Esto incluye otras categorías de Wearable. Puedes ocultar múltiples categorías. Para más detalles sobre cada categoría y cómo interactúan los ítems, consulta [**Creating Wearables**](https://docs.decentraland.org/creator/wearables/creating-wearables/).
 
 {% hint style="warning" %}
-Note: The overrides you select will be the suggested default settings for your Wearable. However, users can customize which Wearables are hidden or showing from the Backpack.
+Nota: Los overrides que selecciones serán la configuración predeterminada sugerida para tu Wearable. Sin embargo, los usuarios pueden personalizar qué Wearables están ocultos o mostrándose desde el Backpack.
 {% endhint %}
 
 ### **Tags**
 
-Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
+Los tags son simplemente palabras descriptivas que los usuarios pueden usar al buscar o filtrar ítems. ¡Estos son relevantes para competencias o eventos!
 
 ### **VRM Export Permission**
 
-When this property is enabled, it will allow owners of your item to include it in VRM Avatar Exports so they can show it off outside of Decentraland.
+Cuando esta propiedad está habilitada, permitirá a los propietarios de tu ítem incluirlo en VRM Avatar Exports para que puedan mostrarlo fuera de Decentraland.
 
 ### **Outline**
 
-The Outline toggle controls whether your wearable is compatible with Decentraland's outline rendering system (used in Medium/High quality settings). By default, this is enabled for all new wearables.
+El toggle Outline controla si tu wearable es compatible con el sistema de renderizado de contorno de Decentraland (usado en configuraciones de calidad Medium/High). Por defecto, esto está habilitado para todos los nuevos wearables.
 
-You should disable this option if your wearable:
+Deberías deshabilitar esta opción si tu wearable:
 
-* Has manually created outlines in the model
-* Uses inverted normals
-* Shows visual artifacts when the outline effect is applied
+* Tiene contornos creados manualmente en el modelo
+* Usa normales invertidas
+* Muestra artefactos visuales cuando se aplica el efecto de contorno
 
-Most wearables work fine with the default setting (enabled). Only disable this if you notice outline-related visual issues with your wearable. Once you disable the outline, you will need to save the changes by clicking on _**Save**_.
+La mayoría de los wearables funcionan bien con la configuración predeterminada (habilitado). Solo deshabilita esto si notas problemas visuales relacionados con el contorno en tu wearable. Una vez que deshabilites el contorno, necesitarás guardar los cambios haciendo clic en _**Save**_.
 
-![](../../.gitbook/assets/26_outline.png)
+![](../images/wearables-and-emotes/uploading-wearables/26_outline.png)
 
-### **Adding Another Representation**
+### **Agregando Otra Representation**
 
-If your wearable has a different representation for male and female you will need to upload another file. So far, you only have one uploaded. In the example, it was the female version of the Krampus Sweater. To add the other representation, click on the three dots (_…_) at the top right, next to _**Properties**_ and select _**Add male/female**_ representation. In the example below, we needed the male version.
+Si tu wearable tiene una representation diferente para masculino y femenino necesitarás subir otro archivo. Hasta ahora, solo tienes uno subido. En el ejemplo, era la versión femenina del Krampus Sweater. Para agregar la otra representation, haz clic en los tres puntos (_…_) en la parte superior derecha, junto a _**Properties**_ y selecciona _**Add male/female**_ representation. En el ejemplo a continuación, necesitábamos la versión masculina.
 
-![](../../.gitbook/assets/15_add_variation.png)
+![](../images/wearables-and-emotes/uploading-wearables/15_add_variation.png)
 
-Once you click on it, you will get the Add Male/Female representation window, drag and drop the other representation file to upload it. Once uploaded, another window will show up the wearable and if everything is ok, just click on Save.
+Una vez que hagas clic en eso, obtendrás la ventana Add Male/Female representation, arrastra y suelta el otro archivo de representation para subirlo. Una vez subido, aparecerá otra ventana mostrando el wearable y si todo está bien, simplemente haz clic en Save.
 
-![](../../.gitbook/assets/16_add_male_representation_01.png) ![](../../.gitbook/assets/17_add_male_representation_02.png)
+![](../images/wearables-and-emotes/uploading-wearables/16_add_male_representation_01.png) ![](../images/wearables-and-emotes/uploading-wearables/17_add_male_representation_02.png)
 
 ### **Preview**
 
-To preview your wearable, hover your mouse over the wearable icon on the top left and click on the eye symbol.
+Para previsualizar tu wearable, pasa tu mouse sobre el ícono de wearable en la parte superior izquierda y haz clic en el símbolo de ojo.
 
-![](../../.gitbook/assets/18_preview_wearables_03.gif)
+![](../images/wearables-and-emotes/uploading-wearables/18_preview_wearables_03.gif)
 
-By clicking on the icon at the lower left you will be able to edit the avatar. This is pretty useful if you have a male and female version of your wearable, so make sure to check how both versions look like in editor, testing different emotes to identify if there are any skinning issues and mixing other wearables to see how it matches with different clothes. When you’re done editing your wearable, click on _**Save**_.
+Haciendo clic en el ícono en la parte inferior izquierda podrás editar el avatar. Esto es muy útil si tienes una versión masculina y femenina de tu wearable, así que asegúrate de verificar cómo se ven ambas versiones en el editor, probando diferentes emotes para identificar si hay problemas de skinning y mezclando otros wearables para ver cómo combina con diferentes ropas. Cuando hayas terminado de editar tu wearable, haz clic en _**Save**_.
 
-![](../../.gitbook/assets/19_edit_avatar_wearable_03.gif)
+![](../images/wearables-and-emotes/uploading-wearables/19_edit_avatar_wearable_03.gif)
 
-### **Testing in World**
+### **Probando en el Mundo**
 
-Even after testing the wearable in the editor, it’s important to check how it’s actually going to look like and behave in Decentraland. To test it in world, go to the Collections tab. Select the desired collection and click the button _**See in World**_.
+Incluso después de probar el wearable en el editor, es importante verificar cómo realmente se verá y se comportará en Decentraland. Para probarlo en el mundo, ve a la pestaña Collections. Selecciona la colección deseada y haz clic en el botón _**See in World**_.
 
-![](../../.gitbook/assets/20_test_in_world_01.png)
+![](../images/wearables-and-emotes/uploading-wearables/20_test_in_world_01.png)
 
-After clicking the following pop up is going to appear. Selecting _**Empty Parcels**_ will teleport you to a place without too much content, which will load faster. Selecting _**Genesis Plaza**_ will take you to the main plaza.
+Después de hacer clic, aparecerá el siguiente pop-up. Seleccionar _**Empty Parcels**_ te teletransportará a un lugar sin demasiado contenido, que cargará más rápido. Seleccionar _**Genesis Plaza**_ te llevará a la plaza principal.
 
-![](broken-reference)
+![](../images/wearables-and-emotes/uploading-wearables/23_see_in_world.png)
 
-Once you select See in world, a new tab will open on your browser, and you will get this message.
+Una vez que selecciones See in world, se abrirá una nueva pestaña en tu navegador y obtendrás este mensaje.
 
-![](broken-reference)
+![](../images/wearables-and-emotes/uploading-wearables/27_wearable_preview.png)
 
-Click on _**TRUST PEER-TESTING.DECENTRALAND.ORG**_ and a pop-up will show up. Simply click on Open Decentraland. To test your wearable, go to the backpack and equip it.
+Haz clic en _**TRUST PEER-TESTING.DECENTRALAND.ORG**_ y aparecerá un pop-up. Simplemente haz clic en Open Decentraland. Para probar tu wearable, ve al backpack y equípalo.
 
-![](../../.gitbook/assets/28_wearable_world.gif)
+![](../images/wearables-and-emotes/uploading-wearables/28_wearable_world.gif)
 
-### **Before Publishing**
+### **Antes de Publicar**
 
-Make sure to set the price properly, add a nice description and double check if all the information and settings are right. If you’ve filled all the information necessary you will see _**Done**_ as the status of your item.
+Asegúrate de establecer el precio correctamente, agregar una buena descripción y verificar si toda la información y configuraciones son correctas. Si has completado toda la información necesaria verás _**Done**_ como el estado de tu ítem.

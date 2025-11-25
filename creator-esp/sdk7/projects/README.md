@@ -1,20 +1,17 @@
 ---
-description: Manage SDK7 projects
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects
+description: Gestiona proyectos de SDK7
 ---
 
 # Projects
 
-Understand different types of SDK7 projects and how to manage them effectively. This section covers project structure, configuration, and different project types.
+Entiende diferentes tipos de proyectos de SDK7 y cómo gestionarlos eficazmente. Esta sección cubre la estructura del proyecto, configuración y diferentes tipos de proyecto.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Different kinds of projects (scenes, wearables, portable experiences)
-* Scene files and structure
-* Scene metadata configuration
-* Smart wearables development
-* Workspaces and multi-scene projects
+* Diferentes tipos de proyectos (scenes, wearables, portable experiences)
+* Archivos y estructura de scenes
+* Configuración de metadatos de scene
+* Desarrollo de smart wearables
+* Workspaces y proyectos multi-scene
 
-Project management is essential for organizing complex Decentraland developments.
+La gestión de proyectos es esencial para organizar desarrollos complejos de Decentraland.

@@ -1,144 +1,140 @@
 ---
 description: >-
-  Recommended guidelines for producing your first MVP scene or experience using
-  the SDK
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/design-experience/mvp-guidelines
+  Pautas recomendadas para producir tu primera escena o experiencia MVP usando
+  el SDK
 ---
 
-# MVP Guidelines
+# Pautas MVP
 
-The purpose of this document is to help guide you through the process of building the first iterations of scenes in Decentraland. We’ll refer to these as a Minimum Viable Product (MVP).
+El propósito de este documento es ayudarte a guiarte a través del proceso de construcción de las primeras iteraciones de escenas en Decentraland. Nos referiremos a estas como un Producto Mínimo Viable (MVP).
 
-**When creating the Minimum Viable Product (MVP) for your scene, you need to think about two areas of focus:**
+**Al crear el Producto Mínimo Viable (MVP) para tu escena, necesitas pensar en dos áreas de enfoque:**
 
-1. The basic user experience and functionality of your project.
-2. The creation of a basic "pipeline", or team workflow and content management system for building your experience and iteratively improving it.
+1. La experiencia de usuario básica y funcionalidad de tu proyecto.
+2. La creación de un "pipeline" básico, o flujo de trabajo del equipo y sistema de gestión de contenido para construir tu experiencia y mejorarla iterativamente.
 
-An MVP should not try to demonstrate every possible outcome of every possible experience. Instead, an MVP should be the best first impression of your experience that you can make using Decentraland’s SDK.
+Un MVP no debe intentar demostrar todos los resultados posibles de cada experiencia posible. En su lugar, un MVP debe ser la mejor primera impresión de tu experiencia que puedes hacer usando el SDK de Decentraland.
 
-It is important to consider your own limitations, how you plan to provide content to your users, and the expectations of your users. Approaching your MVP in this way requires three different perspectives:
+Es importante considerar tus propias limitaciones, cómo planeas proporcionar contenido a tus usuarios y las expectativas de tus usuarios. Abordar tu MVP de esta manera requiere tres perspectivas diferentes:
 
-1. As a developer or producer, how do I deliver an experience to my user/player?
-2. As a user or player, what do I expect from this experience?
-3. As a contributor or stakeholder, how do I contribute to the pipeline or experience?
+1. Como desarrollador o productor, ¿cómo entrego una experiencia a mi usuario/jugador?
+2. Como usuario o jugador, ¿qué espero de esta experiencia?
+3. Como colaborador o stakeholder, ¿cómo contribuyo al pipeline o experiencia?
 
-It's important to distinguish this approach from traditional agile development, because you may have to use non-optimum methods to meet your design goals.
+Es importante distinguir este enfoque del desarrollo ágil tradicional, porque es posible que tengas que usar métodos no óptimos para cumplir con tus objetivos de diseño.
 
-You will have to examine your own goals in the context of your users’ expectations to decide if a certain release is focused more on the player, the pipeline and content contributors, or little of both.
+Tendrás que examinar tus propios objetivos en el contexto de las expectativas de tus usuarios para decidir si un cierto lanzamiento está más enfocado en el jugador, en el pipeline y los colaboradores de contenido, o un poco de ambos.
 
-When planning each release, it is critical that you conscientiously and deliberately set your priorities according to each of these three perspectives.
+Al planificar cada lanzamiento, es crítico que conscientemente y deliberadamente establezcas tus prioridades según cada una de estas tres perspectivas.
 
-You can expect your development backlog to follow two tracks:
+Puedes esperar que tu backlog de desarrollo siga dos vías:
 
-* The backlog of user experiences you want to create.
-* The development of the tools and interfaces needed to build your delivery pipeline. (Or to optimize your existing pipeline for contributors as well as your development team.)
+* El backlog de experiencias de usuario que quieres crear.
+* El desarrollo de las herramientas e interfaces necesarias para construir tu pipeline de entrega. (O para optimizar tu pipeline existente para colaboradores así como tu equipo de desarrollo.)
 
-These two tracks will also follow two different approaches to testing:
+Estas dos vías también seguirán dos enfoques diferentes para las pruebas:
 
-* Testing your user experiences is more akin to traditional user interface testing, and does not require the same scripting resources.
-* Testing your tools and pipeline interfaces will require more technical resources.
+* Probar tus experiencias de usuario es más similar a las pruebas tradicionales de interfaz de usuario, y no requiere los mismos recursos de scripting.
+* Probar tus herramientas e interfaces de pipeline requerirá más recursos técnicos.
 
-The sooner you can get a value proposition in front of your user or player, the sooner you can get feedback to either confirm or reject that proposition. Confirming value quickly is critical. Many experienced developers will share stories of how they were certain beyond a shadow of a doubt of how amazing a new mechanic would be until they used it and it felt awkward and glitchy, the players didn’t respond to it at all, or it didn’t solve a consumer want/need. You want to fail quickly with as little effort as possible, so that you can learn from your failure and plan the next iteration.
+Cuanto antes puedas poner una propuesta de valor frente a tu usuario o jugador, antes puedes obtener retroalimentación para confirmar o rechazar esa propuesta. Confirmar valor rápidamente es crítico. Muchos desarrolladores experimentados compartirán historias de cómo estaban seguros más allá de toda duda de lo increíble que sería una nueva mecánica hasta que la usaron y se sintió torpe y glitchy, los jugadores no respondieron en absoluto, o no resolvió una necesidad/deseo del consumidor. Quieres fallar rápidamente con el menor esfuerzo posible, para que puedas aprender de tu falla y planificar la siguiente iteración.
 
-How do you fail quickly? You do the minimum needed to get your player to touch your product.
+¿Cómo fallas rápidamente? Haces lo mínimo necesario para que tu jugador toque tu producto.
 
-### Factors for Minimum Viable Products
+### Factores para Productos Mínimos Viables
 
-Here is the list of factors to consider for your basic MVP. It is acceptable to state that you will use something as a placeholder and will then phase it out as you develop a more solid replacement.
+Aquí está la lista de factores a considerar para tu MVP básico. Es aceptable declarar que usarás algo como marcador de posición y luego lo eliminarás gradualmente a medida que desarrolles un reemplazo más sólido.
 
-1. Art Creation
-   * First, begin with basic still images
-   * Your first test should be for style: does the style you’ve chosen appeal to your users?
-   * This could be the start of a style guide to provide to an outsourced artist
-2. Scene Creation
-   * Develop a basic sense of your space
-   * Player should feel they are in a new, unique space
-   * Delineate your space from neighboring spaces
-   * Borders are evident and obvious – if only by a drawn line
-   * Cover entire area with static content/art
-3. Art Rendered in Scene
-   * Using billboards is ok or other signage (this could simply be actual billboards or more sophisticated camera facing sprites)
-   * Establish the tone and aesthetics of your space (i.e. style, bright, dark)
-   * Note your process: how was art created and deployed into the scene?
-   * How do you want to organize your art files for repeated deployment?
-4. Player experience
-   * Players are able to visit your space/scene
-   * Players can distinguish your space from neighboring spaces
-5. Pipeline Goals
-   * Deploy sample static scene: no interaction with player
-   * Deploy animated scene: elements like water fountains or waving flags loop their animations
-   * Deploy interactive scene: including player engagement
-   * Demonstrate deploy pipeline by re-deploying content: from art creation to in scene including scripting + QA]
-   * Expose pipeline gaps: identify the unknowns in specific content deployment areas
+1. Creación de Arte
+   * Primero, comienza con imágenes estáticas básicas
+   * Tu primera prueba debe ser de estilo: ¿el estilo que has elegido atrae a tus usuarios?
+   * Esto podría ser el comienzo de una guía de estilo para proporcionar a un artista externo
+2. Creación de Escena
+   * Desarrolla un sentido básico de tu espacio
+   * El jugador debe sentir que está en un espacio nuevo y único
+   * Delinea tu espacio de los espacios vecinos
+   * Los bordes son evidentes y obvios – aunque sea solo por una línea dibujada
+   * Cubre toda el área con contenido/arte estático
+3. Arte Renderizado en la Escena
+   * Está bien usar billboards u otra señalización (esto podría ser simplemente billboards reales o sprites más sofisticados que miran a la cámara)
+   * Establece el tono y la estética de tu espacio (es decir, estilo, brillante, oscuro)
+   * Nota tu proceso: ¿cómo se creó y desplegó el arte en la escena?
+   * ¿Cómo quieres organizar tus archivos de arte para despliegues repetidos?
+4. Experiencia del Jugador
+   * Los jugadores pueden visitar tu espacio/escena
+   * Los jugadores pueden distinguir tu espacio de los espacios vecinos
+5. Objetivos del Pipeline
+   * Desplegar escena estática de muestra: sin interacción con el jugador
+   * Desplegar escena animada: elementos como fuentes de agua o banderas ondeantes repiten sus animaciones en loop
+   * Desplegar escena interactiva: incluyendo interacción del jugador
+   * Demostrar pipeline de despliegue re-desplegando contenido: desde la creación de arte hasta la escena incluyendo scripting + QA]
+   * Exponer gaps del pipeline: identificar las incógnitas en áreas específicas de despliegue de contenido
 
-### Levels of prototypes
+### Niveles de prototipos
 
-Failing quickly allows you to develop your experience by creating successive prototypes, with each iteration building upon the last.
+Fallar rápidamente te permite desarrollar tu experiencia creando prototipos sucesivos, con cada iteración construyendo sobre la anterior.
 
-**Start with a single player prototype. Then you can plan for scripting multiplayer interactions. Finally, you can tackle your persistent core loop that demonstrates transactional layers.**
+**Comienza con un prototipo de un solo jugador. Luego puedes planificar para scripting de interacciones multijugador. Finalmente, puedes abordar tu core loop persistente que demuestra capas transaccionales.**
 
-**What’s a persistent core loop?**
+**¿Qué es un persistent core loop?**
 
-In game design, a persistent core loop is the fundamental “game loop” that drives player actions and the game’s response to those actions. These persistent loops extend to any form of virtual experience (like those provided by Districts).
+En diseño de juegos, un persistent core loop es el "game loop" fundamental que impulsa las acciones del jugador y la respuesta del juego a esas acciones. Estos loops persistentes se extienden a cualquier forma de experiencia virtual (como las proporcionadas por Districts).
 
 {% hint style="warning" %}
-**📔 Note**: The Decentraland client borrows some architectural ideas from [React.js](https://reactjs.org/) and only renders a scene when a change has taken place, not at a constant rate.
+**📔 Nota**: El cliente de Decentraland toma prestadas algunas ideas arquitectónicas de [React.js](https://reactjs.org/) y solo renderiza una escena cuando ha ocurrido un cambio, no a una tasa constante.
 {% endhint %}
 
-**What are transactional layers?**
+**¿Qué son las transactional layers?**
 
-The transactional layers are the interfaces between systems like an update to the blockchain or another application that has been interfaced with your experience to maintain a persistent record of player actions. Creating and maintaining this persistent record is what builds a more personal experience.
+Las transactional layers son las interfaces entre sistemas como una actualización al blockchain u otra aplicación que se ha interfaceado con tu experiencia para mantener un registro persistente de las acciones del jugador. Crear y mantener este registro persistente es lo que construye una experiencia más personal.
 
-We recommend creating your MVP as a single player experience.
+Recomendamos crear tu MVP como una experiencia de un solo jugador.
 
-For example, you could design a scene with the following successive experiences:
+Por ejemplo, podrías diseñar una escena con las siguientes experiencias sucesivas:
 
-* A single player can enter the world.
-* The player can interact with one or two simple entities within the scene.
-* Other players can join and interact with the world and the other player.
-* Finally, you can add the ability to remember that each player entered the scene, and to track the players’ events and activities.
+* Un solo jugador puede entrar al mundo.
+* El jugador puede interactuar con una o dos entidades simples dentro de la escena.
+* Otros jugadores pueden unirse e interactuar con el mundo y el otro jugador.
+* Finalmente, puedes agregar la capacidad de recordar que cada jugador entró a la escena, y rastrear los eventos y actividades de los jugadores.
 
-### How to share your MVP
+### Cómo compartir tu MVP
 
-Although the Decentraland world is not yet open to all, you can upload a scene preview to a server and easily share a link to it with people who can give you feedback.
+Aunque el mundo de Decentraland aún no está abierto a todos, puedes subir una vista previa de la escena a un servidor y compartir fácilmente un enlace con personas que puedan darte retroalimentación.
 
-Even once Decentraland is made available to all, we still recommend testing changes with test users in a separate preview server first, before uploading a new version of your scene to Decentraland.
+Incluso una vez que Decentraland esté disponible para todos, aún recomendamos probar cambios con usuarios de prueba en un servidor de vista previa separado primero, antes de subir una nueva versión de tu escena a Decentraland.
 
-Read [this blogpost](https://decentraland.org/blog/announcements/decentraland-on-now/) for details on how to upload your scene preview to a free server.
+Lee [este blogpost](https://decentraland.org/blog/announcements/decentraland-on-now/) para obtener detalles sobre cómo subir tu vista previa de escena a un servidor gratuito.
 
-### Additional considerations
+### Consideraciones adicionales
 
-Once basic use cases are covered, you can start to get more sophisticated with your release management strategy by focusing on mechanics. **Mechanics** are a broad term covering all of the actions a player can take and the responses the system will provide based on those player actions.
+Una vez que los casos de uso básicos estén cubiertos, puedes comenzar a ser más sofisticado con tu estrategia de gestión de lanzamientos enfocándote en las mecánicas. **Mecánicas** es un término amplio que cubre todas las acciones que un jugador puede tomar y las respuestas que el sistema proporcionará basándose en esas acciones del jugador.
 
-**Device interoperability** is an important thing to be aware of. Users of your scene may be accessing your scene using a desktop, a mobile device or a VR headset. Users should be able to interact with your scene reasonably well using either. For those using a VR headset try to avoid dizzying movements that could cause motion sickness.
+**La interoperabilidad de dispositivos** es algo importante de tener en cuenta. Los usuarios de tu escena pueden estar accediendo a tu escena usando un escritorio, un dispositivo móvil o un headset de VR. Los usuarios deben poder interactuar con tu escena razonablemente bien usando cualquiera de ellos. Para aquellos que usan un headset de VR, intenta evitar movimientos mareantes que puedan causar motion sickness.
 
-**Audio** is another critical aspect of a scene's atmosphere. Background sounds like wind, crickets, distant conversations, maybe even music can be a very powerful way to increase immersion and give context. You can also change how volume levels relate to distance from the sound source to put more or less emphasis on a sound's location.
+**El audio** es otro aspecto crítico de la atmósfera de una escena. Sonidos de fondo como viento, grillos, conversaciones distantes, tal vez incluso música pueden ser una forma muy poderosa de aumentar la inmersión y dar contexto. También puedes cambiar cómo los niveles de volumen se relacionan con la distancia de la fuente de sonido para poner más o menos énfasis en la ubicación de un sonido.
 
-Read [design constraints for games](../../../creator/sdk7/design-experience/design-games.md) for a detailed look at a number of other considerations.
+Lee [restricciones de diseño para juegos](../sdk7/design-experience/design-games.md) para ver en detalle una serie de otras consideraciones.
 
-Consider the MVP as one of many prototypes that you can use to establish your cadence for releases once you have established your pipeline. The focus of each release may vary, or it may be a hybrid of each aspect of the experience. However, you should aim to deliver successively more complicated experiences, each iteration building upon the last.
+Considera el MVP como uno de muchos prototipos que puedes usar para establecer tu cadencia de lanzamientos una vez que hayas establecido tu pipeline. El enfoque de cada lanzamiento puede variar, o puede ser un híbrido de cada aspecto de la experiencia. Sin embargo, debes apuntar a entregar experiencias sucesivamente más complicadas, cada iteración construyendo sobre la anterior.
 
-1. **MVP**: Single player
-2. **Release 2**: Add multiplayer and/or interaction support
-3. **Release 3**: Introduce your first mechanic
-4. **Release 4**: Add audio support
-5. **Release 5**: Finalize your art pipeline
+1. **MVP**: Un solo jugador
+2. **Lanzamiento 2**: Agregar soporte multijugador y/o de interacción
+3. **Lanzamiento 3**: Introduce tu primera mecánica
+4. **Lanzamiento 4**: Agregar soporte de audio
+5. **Lanzamiento 5**: Finalizar tu pipeline de arte
 
-For example, let’s say we are building an MVP for a Frisbee golf game. The MVP will include some still images of the course. The player may even be able to throw a disc, in a very rudimentary, block-style fashion. This allows us to work out our basic throwing mechanics. The next release may include a prototype for multiplayer support so we can demo and test two users logged in and playing on our LAND at the same time.
+Por ejemplo, digamos que estamos construyendo un MVP para un juego de frisbee golf. El MVP incluirá algunas imágenes estáticas del campo. El jugador incluso podría lanzar un disco, de una manera muy rudimentaria, de estilo de bloque. Esto nos permite trabajar nuestras mecánicas básicas de lanzamiento. El siguiente lanzamiento puede incluir un prototipo para soporte multijugador para que podamos demostrar y probar dos usuarios conectados y jugando en nuestro LAND al mismo tiempo.
 
-Remember, while the end goal is a truly immersive 3D world, that is not where your MVP will start. Getting a player into your world as quickly as possible should be your first goal. Taking weeks, not months, to test your releases is critical to learning and iterating without wasting effort.
+Recuerda, aunque el objetivo final es un mundo 3D verdaderamente inmersivo, ese no es donde comenzará tu MVP. Hacer que un jugador entre a tu mundo lo más rápido posible debe ser tu primer objetivo. Tomar semanas, no meses, para probar tus lanzamientos es crítico para aprender e iterar sin desperdiciar esfuerzo.
 
-We strongly recommend that you stay mindful of the first impression your experience presents. An empty experience will leave players disappointed. On the other hand, a scene with some initial content and basic experiences shows players the potential for what is to come and encourages them to engage with your community and return to the next few releases.
+Recomendamos enfáticamente que te mantengas consciente de la primera impresión que presenta tu experiencia. Una experiencia vacía dejará a los jugadores decepcionados. Por otro lado, una escena con algo de contenido inicial y experiencias básicas muestra a los jugadores el potencial de lo que vendrá y los alienta a comprometerse con tu comunidad y regresar a los próximos lanzamientos.
 
-### Persistence factors to consider
+### Factores de persistencia a considerar
 
-Ultimately, you want reach a level of persistence where you can demonstrate that the transactional layers of your architecture are operational. Transactional is not limited to the players actions, but also the system’s reactions to players.
+En última instancia, quieres alcanzar un nivel de persistencia donde puedas demostrar que las capas transaccionales de tu arquitectura están operativas. Transaccional no se limita a las acciones de los jugadores, sino también a las reacciones del sistema a los jugadores.
 
-1. **Account information**: login name, time zone, location for your specific experience/game
-2. **Leaderboard stats**: previous game play results, global/regional standings, competitions
-3. **Identity validation**: Ethereum wallet address, or any other backend identity management
-4. **Blockchain updates**: as required based on your experience/game to update the blockchain ledger for transactional transparency
-5. **Runtime persistence**: temporary data for persistence across a potentially distributed platform (i.e. health for just the single game experience)
+1. **Información de la cuenta**: nombre de inicio de sesión, zona horaria, ubicación para tu experiencia/juego específico
+2. **Estadísticas del leaderboard**: resultados de juegos anteriores, clasificaciones globales/regionales, competiciones
+3. **Validación de identidad**: dirección de wallet de Ethereum, o cualquier otra gestión de identidad de backend
+4. **Actualizaciones del blockchain**: según sea necesario basándose en tu experiencia/juego para actualizar el ledger del blockchain para transparencia transaccional
+5. **Persistencia en runtime**: datos temporales para persistencia en una plataforma potencialmente distribuida (es decir, salud solo para la experiencia de un solo juego)

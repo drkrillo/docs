@@ -1,72 +1,68 @@
 ---
-description: How to use the Decentraland CLI to run, deploy, etc
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/getting-started/using-the-cli
+description: Cómo usar el CLI de Decentraland para ejecutar, desplegar, etc
 ---
 
 # Using the CLI
 
-To build scenes for Decentraland you can either use:
+Para construir scenes para Decentraland puedes usar:
 
-* The [Creator Hub](../../scene-editor/get-started/editor-installation.md)
-* The Command Line Interface (CLI)
+* El [Creator Hub](../get-started/editor-installation.md)
+* La Command Line Interface (CLI)
 
-Both tools allow you to compile and preview your scene in an "off-chain" development environment. After testing your scene locally, you can upload your content to the content server, linking it with your LAND or WORLD.
+Ambas herramientas te permiten compilar y previsualizar tu scene en un entorno de desarrollo "off-chain". Después de probar tu scene localmente, puedes subir tu contenido al servidor de contenido, vinculándolo con tu LAND o WORLD.
 
-Although the Scene Editor in the Creator Hub is easier to use, the CLI allows you more flexibility, and can be easily used in automated processes.
+Aunque el Scene Editor en el Creator Hub es más fácil de usar, el CLI te permite más flexibilidad, y puede usarse fácilmente en procesos automatizados.
 
 {% hint style="warning" %}
-**📔 Note**: The Scene Editor runs the same command-line operations behind the curtains.
+**📔 Nota**: El Scene Editor ejecuta las mismas operaciones de línea de comandos detrás de escena.
 {% endhint %}
 
 {% hint style="info" %}
-**💡 Tip**: See [Installation guide](../../scene-editor/get-started/editor-installation.md) for instructions on how to install the Scene Editor.
+**💡 Tip**: Consulta la [Guía de instalación](../get-started/editor-installation.md) para instrucciones sobre cómo instalar el Scene Editor.
 {% endhint %}
 
-## Before you Begin
+## Antes de Comenzar
 
-To deal with the scene via the command line, please install the following dependencies before you run CLI commands with the scene:
+Para trabajar con la scene via la línea de comandos, por favor instala las siguientes dependencias antes de ejecutar comandos CLI con la scene:
 
-* [Node.js](https://nodejs.org) (version 8 or later)
+* [Node.js](https://nodejs.org) (versión 8 o posterior)
 
-## Initiate a new project
+## Iniciar un nuevo proyecto
 
-Run `npx @dcl/sdk-commands init` on an empty folder to populate it with the default files of a Decentraland project.
+Ejecuta `npx @dcl/sdk-commands init` en una carpeta vacía para poblarla con los archivos predeterminados de un proyecto de Decentraland.
 
-The CLI then prompts you to chose what kind of project, if you want to build a [scene](../projects/scene-metadata.md), a [workspace](../projects/workspaces.md) or a [smart wearable](../projects/smart-wearables.md). If selecting a scene, the CLI prompts you about what base project to use as a starting point.
+El CLI luego te pregunta qué tipo de proyecto quieres, si quieres construir una [scene](../projects/scene-metadata.md), un [workspace](../projects/workspaces.md) o un [smart wearable](../projects/smart-wearables.md). Si seleccionas una scene, el CLI te pregunta sobre qué proyecto base usar como punto de partida.
 
-## Update the SDK version of a scene
+## Actualizar la versión del SDK de una scene
 
-Run the following command on the scene folder:
+Ejecuta el siguiente comando en la carpeta de la scene:
 
 ```bash
 npm i @dcl/sdk@latest
 ```
 
-You can confirm that it worked by checking the `package.json` file for the scene, and looking for the `@dcl/sdk` version there.
+Puedes confirmar que funcionó verificando el archivo `package.json` de la scene, y buscando la versión de `@dcl/sdk` allí.
 
-## Run a preview
+## Ejecutar un preview
 
-Run `npm run start` on the root level of a scene, workspace, or smart wearable project to open a preview in a browser window.
+Ejecuta `npm run start` en el nivel raíz de una scene, workspace, o proyecto de smart wearable para abrir un preview en una ventana del navegador.
 
-See [preview scenes](preview-scene.md) for details and special options when running a preview.
+Consulta [preview scenes](preview-scene.md) para detalles y opciones especiales al ejecutar un preview.
 
 ## Build
 
-Run `npm run build` to build your project. Decentraland scenes are written in TypeScript, but they are built to minified JavaScript when published. See [coding scenes](https://github.com/decentraland/docs-creator/blob/main/sdk7/getting-started/coding-scenes.md) for more details.
+Ejecuta `npm run build` para construir tu proyecto. Las scenes de Decentraland están escritas en TypeScript, pero se construyen a JavaScript minificado cuando se publican. Consulta [coding scenes](https://github.com/decentraland/docs-creator/blob/main/sdk7/getting-started/coding-scenes.md) para más detalles.
 
-The build command is optional, as it also runs in the background before deploying (although you can add a flag to skip it).
+El comando build es opcional, ya que también se ejecuta en segundo plano antes de desplegar (aunque puedes agregar una bandera para saltarlo).
 
-The build command runs more rigurous type checks than those that run with `npm run start`, running it can sometimes be helpful to debug a scene.
+El comando build ejecuta verificaciones de tipo más rigurosas que las que se ejecutan con `npm run start`, ejecutarlo puede ser útil a veces para depurar una scene.
 
-## Deploy a scene
+## Desplegar una scene
 
-Run `npm run deploy` to publish your scene to Decentraland. This command opens a browser window where you can sign with your wallet to authorize the deployment.
+Ejecuta `npm run deploy` para publicar tu scene en Decentraland. Este comando abre una ventana del navegador donde puedes firmar con tu wallet para autorizar el despliegue.
 
-See [publishing](../publishing/publishing.md) for details and special options when publishing a scene.
+Consulta [publishing](../publishing/publishing.md) para detalles y opciones especiales al publicar una scene.
 
 ## Troubleshooting
 
-If you run into issues, see the [troubleshooting](../debugging/troubleshooting.md) section.
+Si encuentras problemas, consulta la sección [troubleshooting](../debugging/troubleshooting.md).

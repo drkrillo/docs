@@ -1,62 +1,58 @@
 ---
-description: Reference for creating your own Decentralized App
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/blockchain/create-a-dapp
+description: Referencia para crear tu propia Aplicación Descentralizada
 ---
 
-# Create a dApp
+# Crear una dApp
 
-You can create your own decentralized apps (dApps) to interface with Decentraland's smart contracts and expose their functionality in more elaborate and friendlier ways.
+Puedes crear tus propias aplicaciones descentralizadas (dApps) para interactuar con los smart contracts de Decentraland y exponer su funcionalidad de formas más elaboradas y amigables.
 
-### What is a dApp
+### Qué es una dApp
 
-A decentralized application, or dApp, is one that runs on a distributed peer to peer network rather than from a central server.
+Una aplicación descentralizada, o dApp, es una que se ejecuta en una red peer to peer distribuida en lugar de desde un servidor central.
 
-In the context of blockchain, a dApp uses smart contracts and possibly a P2P network, instead of a Web API service. A dApp may also expose a front end and cache information from the blockchain temporarily, but its output is ultimately reflected on-chain.
+En el contexto del blockchain, una dApp usa smart contracts y posiblemente una red P2P, en lugar de un servicio de API Web. Una dApp también puede exponer un front end y cachear información del blockchain temporalmente, pero su output se refleja en última instancia on-chain.
 
-See [this site](https://blockchainhub.net/decentralized-applications-dapps/) for a more complete overview about dApps.
+Consulta [este sitio](https://blockchainhub.net/decentralized-applications-dapps/) para obtener una descripción más completa sobre las dApps.
 
-### Decentraland smart contracts
+### Smart contracts de Decentraland
 
-Decentraland has written and maintains a number of smart contracts that interact with LAND and MANA tokens.
+Decentraland ha escrito y mantiene una serie de smart contracts que interactúan con los tokens de LAND y MANA.
 
-LAND and MANA tokens themselves are defined by the _LANDregistry_ and _MANAtoken_ contracts respectively. The list also includes more specific contracts like creating an estate out of several parcels or mortgaging parcels.
+Los tokens de LAND y MANA en sí están definidos por los contratos _LANDregistry_ y _MANAtoken_ respectivamente. La lista también incluye contratos más específicos como crear un estate de varias parcelas o hipotecar parcelas.
 
-* [Decentraland smart contracts](https://contracts.decentraland.org/addresses.json): You can find a full list of each of our contracts and their addresses.
+* [Smart contracts de Decentraland](https://contracts.decentraland.org/addresses.json): Puedes encontrar una lista completa de cada uno de nuestros contratos y sus direcciones.
 
-Note that each contract has a production version in _mainnet_ and a test version in _sepolia_ and that each has a different address.
+Ten en cuenta que cada contrato tiene una versión de producción en _mainnet_ y una versión de prueba en _sepolia_ y que cada una tiene una dirección diferente.
 
-You can read the full code of each contract, as it's public information on the blockchain. For example, you can find the contract by name on [Etherscan](https://etherscan.io/contractsVerified) to read its contents.
+Puedes leer el código completo de cada contrato, ya que es información pública en el blockchain. Por ejemplo, puedes encontrar el contrato por nombre en [Etherscan](https://etherscan.io/contractsVerified) para leer su contenido.
 
-### dApp boilerplate code
+### Código boilerplate para dApp
 
-* [Boilerplate code](https://github.com/decentraland/dapp-boilerplate): This Boilerplate code can be a great starting point for building your own dApp.
+* [Código boilerplate](https://github.com/decentraland/dapp-boilerplate): Este código boilerplate puede ser un gran punto de partida para construir tu propia dApp.
 
-### Helper libraries
+### Librerías de ayuda
 
-While building our own dApps internally, we put together some helper libraries that you might also find useful.
+Mientras construíamos nuestras propias dApps internamente, reunimos algunas librerías de ayuda que también podrías encontrar útiles.
 
-* [Decentraland-eth](https://github.com/decentraland/decentraland-eth): This is a low level library with utility functions to work with the Ethereum blockchain.
-* [Decentraland-dapps](https://github.com/decentraland/decentraland-dapps): This is a higher level library with common modules for dApps. The modules in this library are built using `Decentraland-eth`.
-* [Decentraland UI](https://ui.decentraland.org/): This library contains a selection of reusable UI elements that are included in Decentraland's projects.
+* [Decentraland-eth](https://github.com/decentraland/decentraland-eth): Esta es una librería de bajo nivel con funciones de utilidad para trabajar con el blockchain de Ethereum.
+* [Decentraland-dapps](https://github.com/decentraland/decentraland-dapps): Esta es una librería de nivel superior con módulos comunes para dApps. Los módulos en esta librería están construidos usando `Decentraland-eth`.
+* [Decentraland UI](https://ui.decentraland.org/): Esta librería contiene una selección de elementos de UI reutilizables que se incluyen en los proyectos de Decentraland.
 
-### Sample dApps
+### dApps de muestra
 
-Below are links to the full code of several dApps that we built around Decentraland, these might help you build your own:
+A continuación hay enlaces al código completo de varias dApps que construimos alrededor de Decentraland, estas podrían ayudarte a construir la tuya:
 
-* [Gate](https://github.com/decentraland/gate): This basic dApp creates an invitation NFT that was used when Decentraland was in a closed beta stage. In the early days, whitelisted players that held this NFT were the only ones able to enter the metaverse.
-* [Marketplace](https://github.com/decentraland/marketplace): This is the full application that runs the Decentraland [Marketplace](https://market.decentraland.org/). To make it run fast, it requires a database and a backend server connected to the Ethereum network to create indexes with information about LAND.
+* [Gate](https://github.com/decentraland/gate): Esta dApp básica crea un NFT de invitación que se usó cuando Decentraland estaba en una etapa de beta cerrada. En los primeros días, los jugadores en whitelist que tenían este NFT eran los únicos capaces de entrar al metaverso.
+* [Marketplace](https://github.com/decentraland/marketplace): Esta es la aplicación completa que ejecuta el [Marketplace](https://market.decentraland.org/) de Decentraland. Para que funcione rápido, requiere una base de datos y un servidor backend conectado a la red de Ethereum para crear índices con información sobre LAND.
 
-### dApp testing framework
+### Framework de pruebas para dApp
 
-Before launching your dApp into production, we recommend testing it first.
+Antes de lanzar tu dApp a producción, recomendamos probarla primero.
 
-* [dAppeteer](https://github.com/decentraland/dappeteer): We put this framework together to help you run tests on your dApp.
+* [dAppeteer](https://github.com/decentraland/dappeteer): Reunimos este framework para ayudarte a ejecutar pruebas en tu dApp.
 
-### Decentraland smart contracts
+### Smart contracts de Decentraland
 
-In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
+En el siguiente enlace puedes encontrar una lista de smart contracts de Ethereum relevantes para el ecosistema de Decentraland. La lista incluye los contratos en mainnet así como en otras redes de prueba de Ethereum.
 
 [contracts.decentraland.org](https://contracts.decentraland.org/links)

@@ -1,44 +1,40 @@
 ---
-description: Create wearables with interactive capabilities
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/smart-wearables
+description: Crea wearables con capacidades interactivas
 ---
 
 # Smart Wearables
 
-Smart wearables are a type of global scene. Like [portable experiences](../../../creator/sdk7/projects/portable-experiences.md), they are gameplay that players take with them as they move through the metaverse. For example, while running a global scene, a player could take a snowball from the ground in Genesis Plaza, walk away to another scene, and throw the snowball to another player who’s also playing the same game.
+Los smart wearables son un tipo de escena global. Como las [experiencias portables](../sdk7/projects/portable-experiences.md), son gameplay que los jugadores llevan consigo mientras se mueven por el metaverso. Por ejemplo, mientras ejecuta una escena global, un jugador podría tomar una bola de nieve del suelo en Genesis Plaza, alejarse a otra escena y lanzar la bola de nieve a otro jugador que también está jugando el mismo juego.
 
-Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
+Los smart wearables son experiencias portables que se activan cuando el jugador se pone un cierto artículo de ropa. Los smart wearables pueden otorgar a los jugadores nuevas habilidades, como un jetpack que les permite volar, o agregar una nueva capa de contenido sobre el resto del mundo, como colocar aleatoriamente monedas para recolectar en toda genesis city.
 
 {% hint style="warning" %}
-**📔 Note**: Smart Wearables can only be created using SDK 7.
+**📔 Nota**: Los Smart Wearables solo pueden crearse usando SDK 7.
 
-The **Creator Hub** doesn't currently support creating Smart Wearables projects.
+El **Creator Hub** actualmente no soporta la creación de proyectos de Smart Wearables.
 {% endhint %}
 
-### Getting started
+### Comenzando
 
-#### Using the CLI
+#### Usando el CLI
 
-1. Open a command line in a new folder and run
+1. Abre una línea de comandos en una carpeta nueva y ejecuta
 
 `npx @dcl/sdk-commands init --project smart-wearable`
 
-This command creates the basic files and structure for a new smart wearable.
+Este comando crea los archivos y estructura básicos para un nuevo smart wearable.
 
-### The files in the template
+### Los archivos en la plantilla
 
-The folder of a brand new Smart Wearable project is very similar to that of a [Decentraland scene](../../../creator/sdk7/projects/scene-files.md), but you will notice the following differences:
+La carpeta de un proyecto de Smart Wearable completamente nuevo es muy similar a la de una [escena de Decentraland](../sdk7/projects/scene-files.md), pero notarás las siguientes diferencias:
 
-* `wearable.json` includes all of the metadata for the portable experience
-* There’s a placeholder 3D model (glasses.glb) and thumbnail (glasses.png) for a pair of dark glasses. You should replace these with the actual wearable you are creating
-* `scene.json` is a lot shorter, it doesn’t include properties that are irrelevant to a wearable, like parcels or spawn points
+* `wearable.json` incluye todos los metadatos para la experiencia portable
+* Hay un modelo 3D de marcador de posición (glasses.glb) y miniatura (glasses.png) para un par de gafas oscuras. Debes reemplazarlos con el wearable real que estás creando
+* `scene.json` es mucho más corto, no incluye propiedades que son irrelevantes para un wearable, como parcelas o puntos de aparición
 
-### About wearable.json
+### Acerca de wearable.json
 
-The default `wearable.json` file looks like this:
+El archivo `wearable.json` predeterminado se ve así:
 
 ```json
 {
@@ -66,37 +62,37 @@ The default `wearable.json` file looks like this:
 }
 ```
 
-The following fields are required in `wearable.json`:
+Los siguientes campos son requeridos en `wearable.json`:
 
-* `id`: Unique id of the smart wearable.
-* `name`: The name for the wearable that users will see in the marketplace
-* `description`: The description of the wearable that users will see in the marketplace. Make sure you indicate what the smart wearable can do, as users of the marketplace will have no way to preview its functinality before buying it.
-* `rarity`: The rarity supply of the token. Possible values are:
-  * unique (1 copy)
-  * mythic (10 copies)
-  * exotic (50 copies)
-  * legendary (100 copies)
-  * epic (1000 copies)
-  * uncommon (10.000 copies)
-  * common (100.000 copies)
+* `id`: Id único del smart wearable.
+* `name`: El nombre para el wearable que los usuarios verán en el marketplace
+* `description`: La descripción del wearable que los usuarios verán en el marketplace. Asegúrate de indicar qué puede hacer el smart wearable, ya que los usuarios del marketplace no tendrán forma de previsualizar su funcionalidad antes de comprarlo.
+* `rarity`: La rareza de suministro del token. Los valores posibles son:
+  * unique (1 copia)
+  * mythic (10 copias)
+  * exotic (50 copias)
+  * legendary (100 copias)
+  * epic (1000 copias)
+  * uncommon (10.000 copias)
+  * common (100.000 copias)
 
 {% hint style="warning" %}
-**📔 Note**: If you forked your project from an existing one, make sure the `id` value is unique before publishing your wearable. Use [uuidgenerator.net](https://www.uuidgenerator.net/) to generate a new random UUID
+**📔 Nota**: Si bifurcaste tu proyecto de uno existente, asegúrate de que el valor `id` sea único antes de publicar tu wearable. Usa [uuidgenerator.net](https://www.uuidgenerator.net/) para generar un nuevo UUID aleatorio
 {% endhint %}
 
-The following fields can also optionally be included. These settings can also be configured from the Builder UI, once you upload the smart wearable.
+Los siguientes campos también pueden incluirse opcionalmente. Estas configuraciones también pueden configurarse desde la UI del Builder, una vez que subas el smart wearable.
 
-* `data`: Includes the following
-  * `replaces`: List of categories of other wearables that should be unequipped when equipping this wearable, in addition to the default of this category. Eg: When putting on a cape top-body, also hide feet.
-  * `hides`: List of categories of other wearables that should be hidden (but not unequipped) when equipping this wearable, in addition to the default of this category.
-  * `tags`: Tags used to make the wearable searchable in the marketplace.
+* `data`: Incluye lo siguiente
+  * `replaces`: Lista de categorías de otros wearables que deben desequiparse al equipar este wearable, además del predeterminado de esta categoría. Ej: Al ponerse una capa top-body, también ocultar los pies.
+  * `hides`: Lista de categorías de otros wearables que deben ocultarse (pero no desequiparse) al equipar este wearable, además del predeterminado de esta categoría.
+  * `tags`: Etiquetas usadas para hacer que el wearable sea buscable en el marketplace.
   * `representations`:
-    * `bodyShapes`: The list of avatar representations that can use this wearable. All smart wearables must be available for both male and female body shapes.
-    * `mainFile`: The main file with the 3D model of the wearable.
-    * `contents`: The full list of files used to render the 3D model of the wearable. For example, the 3D model could include textures as separate files.
-    * `overrideHides`: Any exceptions from the default _hide_ behavior of this wearable category.
-    * `overrideReplaces`: Any exceptions from the default _replace_ behavior of this wearable category.
-  * `category`: What wearable category to use. Possible values are:
+    * `bodyShapes`: La lista de representaciones de avatar que pueden usar este wearable. Todos los smart wearables deben estar disponibles para formas de cuerpo masculinas y femeninas.
+    * `mainFile`: El archivo principal con el modelo 3D del wearable.
+    * `contents`: La lista completa de archivos usados para renderizar el modelo 3D del wearable. Por ejemplo, el modelo 3D podría incluir texturas como archivos separados.
+    * `overrideHides`: Cualquier excepción del comportamiento predeterminado _hide_ de esta categoría de wearable.
+    * `overrideReplaces`: Cualquier excepción del comportamiento predeterminado _replace_ de esta categoría de wearable.
+  * `category`: Qué categoría de wearable usar. Los valores posibles son:
     * 'eyebrows'
     * 'eyes'
     * 'facial\_hair'
@@ -114,57 +110,57 @@ The following fields can also optionally be included. These settings can also be
     * 'top\_head'
     * 'skin'
     * 'hands\_wear'
-* `menuBarIcon`: Image to use on the “experiences” menu, to represent this portable experience, to represent the portable experience. This image should be at root level in your folder. The recommended image size is 256x256.
-* `model`: The 3D model to use for the wearable. This file should be at root level in your folder.
-* `bodyShape`: The avatar body type that this wearable is compatible with. Possible values:
+* `menuBarIcon`: Imagen para usar en el menú de "experiencias", para representar esta experiencia portable, para representar la experiencia portable. Esta imagen debe estar al nivel raíz en tu carpeta. El tamaño de imagen recomendado es 256x256.
+* `model`: El modelo 3D para usar para el wearable. Este archivo debe estar al nivel raíz en tu carpeta.
+* `bodyShape`: El tipo de cuerpo de avatar con el que este wearable es compatible. Valores posibles:
   * male
   * female
   * both
-* `collectionAddress`: The ethereum address of the published collection of wearables. This address is assigned once publishing, it can be left blank.
+* `collectionAddress`: La dirección ethereum de la colección publicada de wearables. Esta dirección se asigna una vez publicada, puede dejarse en blanco.
 
-### The thumbnail
+### La miniatura
 
-You must include an image named `thumbnail.png` at root level in your folder. This image will be shown both in the backpack and the marketplace, to represent your wearable in 2d. The recommended required image size is 256x256.
+Debes incluir una imagen llamada `thumbnail.png` al nivel raíz en tu carpeta. Esta imagen se mostrará tanto en la mochila como en el marketplace, para representar tu wearable en 2d. El tamaño de imagen requerido recomendado es 256x256.
 
-Chose an image that sets player expectations and properly represents your creation.
+Elige una imagen que establezca las expectativas del jugador y represente adecuadamente tu creación.
 
-### The Preview
+### La Vista Previa
 
-Running a preview of a portable experience is just like running that of a scene, simply click **Run Scene** on the Decentraland tab, or run `npm run start` on the command line. If the `wearable.json` file is properly configured and the project is recognized as a smart wearable, you’ll notice that all the visible around you are the default empty parcels. In this preview mode, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world.
+Ejecutar una vista previa de una experiencia portable es igual que ejecutar la de una escena, simplemente haz clic en **Run Scene** en la pestaña de Decentraland, o ejecuta `npm run start` en la línea de comandos. Si el archivo `wearable.json` está correctamente configurado y el proyecto se reconoce como un smart wearable, notarás que todo lo visible a tu alrededor son las parcelas vacías predeterminadas. En este modo de vista previa, no estás restringido a ningún conjunto de parcelas, puedes agregar modelos 3D o sonidos en cualquier lugar del mundo.
 
-To test how the smart wearable behaves in the context of a scene, you can also run a preview of your wearable at the same time as you run a preview of one or several scenes by using a [Workspace](../../../creator/sdk7/projects/workspaces.md). For example, you can run your smart wearable together with the [Genesis Plaza](https://github.com/decentraland-scenes/Genesis-Plaza) scene to test how it behaves on a busy scene, while on an elevator, etc.
+Para probar cómo se comporta el smart wearable en el contexto de una escena, también puedes ejecutar una vista previa de tu wearable al mismo tiempo que ejecutas una vista previa de una o varias escenas usando un [Workspace](../sdk7/projects/workspaces.md). Por ejemplo, puedes ejecutar tu smart wearable junto con la escena [Genesis Plaza](https://github.com/decentraland-scenes/Genesis-Plaza) para probar cómo se comporta en una escena concurrida, mientras está en un ascensor, etc.
 
-### Tips
+### Consejos
 
-* When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
-* To react to nearby players:
-  * See [Fetch all players](../../../creator/sdk7/interactivity/user-data.md#fetch-all-players) to know how to obtain data from other players in the surroundings.
-  * Be mindful that the loading of the smart wearable, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the smart wearable already on, it’s likely that your wearable's global scene will load before other players do. On the other hand, if the player first loads into a scene and then puts on the wearable, it’s likely that other players will already be loaded by the time the wearable's scene starts running.
-  * For multiplayer experiences, wait till the player is connected to an island inside their realm. Fetch the realm data and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
-* To interact with surrounding scenes:
-  * You can’t directly send any instructions to nearby scenes or other portable experiences, the `messageBus` is currently sandboxed for each portable experience/scene.
-  * You can use an intermediate server to send information between the portable experience and a scene.
-  * If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model. This only works when hitting entities on scenes written with SDK7.
-* Kill a portable experience: Run the `kill()` method to self-terminate a portable experience.
+* Al posicionar una entidad, ten en cuenta que las posiciones son globales, relativas a las coordenadas 0,0 de Genesis Plaza.
+* Para reaccionar a jugadores cercanos:
+  * Consulta [Obtener todos los jugadores](../sdk7/interactivity/user-data.md#fetch-all-players) para saber cómo obtener datos de otros jugadores en los alrededores.
+  * Ten en cuenta que la carga del smart wearable, escenas circundantes y otros jugadores puede ocurrir en diferentes órdenes dependiendo de la situación. Si el jugador ingresa a Decentraland con el smart wearable ya puesto, es probable que la escena global de tu wearable se cargue antes que otros jugadores. Por otro lado, si el jugador primero carga en una escena y luego se pone el wearable, es probable que otros jugadores ya estén cargados para cuando la escena del wearable comience a ejecutarse.
+  * Para experiencias multijugador, espera hasta que el jugador esté conectado a una isla dentro de su realm. Obtén los datos del realm y verifica el campo 'room'. Si el campo 'room' es null, el jugador aún no está conectado a una isla y otros jugadores no estarán cargados todavía. Puedes verificar esto periódicamente cada 1 segundo hasta que el campo 'room' esté presente, y solo entonces inicializar tu lógica.
+* Para interactuar con escenas circundantes:
+  * No puedes enviar instrucciones directamente a escenas cercanas u otras experiencias portables, el `messageBus` actualmente está en sandbox para cada experiencia portable/escena.
+  * Puedes usar un servidor intermediario para enviar información entre la experiencia portable y una escena.
+  * Si haces un raycast, puedes detectar hits contra los colliders de entidades de las escenas circundantes. Esto puede decirte la ubicación exacta del hit, dirección normal, e incluso el nombre de la entidad y nombre de mesh del modelo 3D. Esto solo funciona al golpear entidades en escenas escritas con SDK7.
+* Matar una experiencia portable: Ejecuta el método `kill()` para auto-terminar una experiencia portable.
 
-### Publish
+### Publicar
 
-To publish your smart wearable:
+Para publicar tu smart wearable:
 
-1. Make sure the information in `wearable.json` is accurate. If you used another project as a starting point, make sure the `id` is a unique identifier, not used by other wearables.
-2. Run `npm run pack` on your project folder. This generates a `smart-wearable.zip` file in your project folder.
+1. Asegúrate de que la información en `wearable.json` sea precisa. Si usaste otro proyecto como punto de partida, asegúrate de que el `id` sea un identificador único, no usado por otros wearables.
+2. Ejecuta `npm run pack` en tu carpeta de proyecto. Esto genera un archivo `smart-wearable.zip` en tu carpeta de proyecto.
 
 {% hint style="warning" %}
-**📔 Note**: The output of `npm run pack` will indicate the size of the uncompressed exported project, it must be under 3MB. If larger than that, it won’t be accepted by the builder.
+**📔 Nota**: La salida de `npm run pack` indicará el tamaño del proyecto exportado sin comprimir, debe ser menor a 3MB. Si es más grande que eso, no será aceptado por el builder.
 {% endhint %}
 
-3. Open the Builder, open the Collections tab, click + to upload a new wearable.
-4. Drag your compressed `smart-wearable.zip` file into the Builder, verify that all the information is accurate.
+3. Abre el Builder, abre la pestaña Collections, haz clic en + para subir un nuevo wearable.
+4. Arrastra tu archivo comprimido `smart-wearable.zip` al Builder, verifica que toda la información sea precisa.
 
-> Note: If your wearable contains different model representations, you need to do a workaround:
+> Nota: Si tu wearable contiene diferentes representaciones de modelo, necesitas hacer un workaround:
 >
-> 1. In your project, create a new folder for each representation(`male` and `female`), and put the 3D model for each representation in its corresponding folder.
-> 2. Update your `wearable.json` file to include the new representations.
+> 1. En tu proyecto, crea una nueva carpeta para cada representación (`male` y `female`), y pon el modelo 3D para cada representación en su carpeta correspondiente.
+> 2. Actualiza tu archivo `wearable.json` para incluir las nuevas representaciones.
 > 3. ```lang-json
 >    "representations": [{
 >      "bodyShapes": ["urn:decentraland:off-chain:base-avatars:BaseMale"],
@@ -181,30 +177,30 @@ To publish your smart wearable:
 >      "overrideReplaces": []
 >    }],
 >    ```
-> 4. Run `npm run pack` to generate a new smart-wearable.zip file.
-> 5. Drag the new smart-wearable.zip file into the Builder.
+> 4. Ejecuta `npm run pack` para generar un nuevo archivo smart-wearable.zip.
+> 5. Arrastra el nuevo archivo smart-wearable.zip al Builder.
 
-5. Open wearables editor and make sure the “hide” and “remove” categories are correctly set to disable other wearable categories when this wearable is on.
-6. Create a new collection with this and perhaps other wearables.
-7. Hit the 3 dots icon next to “Mint Items” and select “See in world”. This will open a tab with the explorer on Sepolia, where you can try out all the wearables of your collection in Decentraland, and see how they behave in a more real scenario, for example running around Genesis Plaza.
-8. At this point, your wearable is ready to be published.
+5. Abre el editor de wearables y asegúrate de que las categorías "hide" y "remove" estén correctamente configuradas para deshabilitar otras categorías de wearables cuando este wearable esté puesto.
+6. Crea una nueva colección con este y quizás otros wearables.
+7. Haz clic en el ícono de 3 puntos junto a "Mint Items" y selecciona "See in world". Esto abrirá una pestaña con el explorador en Sepolia, donde puedes probar todos los wearables de tu colección en Decentraland, y ver cómo se comportan en un escenario más real, por ejemplo corriendo por Genesis Plaza.
+8. En este punto, tu wearable está listo para ser publicado.
 
-### Restricted actions
+### Acciones restringidas
 
-To prevent abuse, certain features aren't permitted on portable experiences by default, and require adding a permission flag.
+Para prevenir abusos, ciertas funcionalidades no están permitidas en experiencias portables por defecto, y requieren agregar una bandera de permiso.
 
-See [Required permissions](../../../creator/sdk7/projects/scene-metadata.md#required-permissions) for more details.
+Consulta [Permisos requeridos](../sdk7/projects/scene-metadata.md#required-permissions) para más detalles.
 
-### Limitations
+### Limitaciones
 
-> IMPORTANT: The entire smart wearable needs to fit within 3MB. This includes the 3D model, thumbnail, code, libraries, sound files, additional 3D models, UI images, etc. This limit is for the uncompressed folder. The builder will not let you upload larger wearables than this. To check the size of your portable experience, run `npm run pack`, the project size is specified in the output text of the command. You can also verify this by uncompressing the generated `smart-wearable.zip` file and checking the size of the folder.
+> IMPORTANTE: El smart wearable completo necesita caber dentro de 3MB. Esto incluye el modelo 3D, miniatura, código, librerías, archivos de sonido, modelos 3D adicionales, imágenes de UI, etc. Este límite es para la carpeta sin comprimir. El builder no te permitirá subir wearables más grandes que esto. Para verificar el tamaño de tu experiencia portable, ejecuta `npm run pack`, el tamaño del proyecto se especifica en el texto de salida del comando. También puedes verificar esto descomprimiendo el archivo `smart-wearable.zip` generado y verificando el tamaño de la carpeta.
 
-Smart wearables only run the portable experience for the player wearing the wearable. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the wearable's scene, even [custom avatar animations](../../../creator/sdk7/interactivity/trigger-emotes.md#custom-animations) uploaded as part of the smart wearable's files.
+Los smart wearables solo ejecutan la experiencia portable para el jugador que usa el wearable. Otros jugadores no ven los efectos. Por ejemplo, si la experiencia portable renderiza una mascota que sigue al jugador, otros jugadores alrededor no verán esta mascota. Sin embargo, otros jugadores verán a los avatares realizar animaciones que se ejecutan como parte de la escena del wearable, incluso [animaciones de avatar personalizadas](../sdk7/interactivity/trigger-emotes.md#custom-animations) subidas como parte de los archivos del smart wearable.
 
-Smart wearables only work when players have them on. For this reason, players can only have a limited number of activated smart wearables, and depending on what part of the body they take up, some will be incompatible with others. For example, you can’t have two hats at the same time, or a helmet and hair at the same time.
+Los smart wearables solo funcionan cuando los jugadores los tienen puestos. Por esta razón, los jugadores solo pueden tener un número limitado de smart wearables activados, y dependiendo de qué parte del cuerpo ocupen, algunos serán incompatibles con otros. Por ejemplo, no puedes tener dos sombreros al mismo tiempo, o un casco y cabello al mismo tiempo.
 
-If a wearable is “hidden” but not “removed” by other wearables being worn, then the smart wearable can still be on, even if the corresponding wearable is not visible.
+Si un wearable está "oculto" pero no "eliminado" por otros wearables que se usan, entonces el smart wearable aún puede estar activado, incluso si el wearable correspondiente no es visible.
 
-### Examples
+### Ejemplos
 
-[Smart wearable sample](https://github.com/decentraland/smart-wearable-sample))
+[Muestra de smart wearable](https://github.com/decentraland/smart-wearable-sample))

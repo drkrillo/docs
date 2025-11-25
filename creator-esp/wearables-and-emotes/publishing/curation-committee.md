@@ -1,18 +1,14 @@
 ---
-description: A description and discussion of the Wearables Curation Committee
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/publishing/curation-committee
+description: Una descripción y discusión del Wearables Curation Committee
 ---
 
 # Curation Committee
 
-The Curation Committee is a group of individuals elected by the DAO who are responsible for reviewing and approving wearables and emotes submitted by the Decentraland community. The current Curation Committee includes three members, but it can be expanded to include more. Each member holds a key in a multisig wallet that is used to vote on the approval or rejection of each item submitted via the Wearables Editor.
+El Curation Committee es un grupo de individuos elegidos por el DAO que son responsables de revisar y aprobar wearables y emotes enviados por la comunidad de Decentraland. El actual Curation Committee incluye tres miembros, pero puede expandirse para incluir más. Cada miembro tiene una llave en una wallet multisig que se usa para votar sobre la aprobación o rechazo de cada ítem enviado a través del Wearables Editor.
 
-The approval criteria used by the committee when reviewing wearables is outlined in [Publishing Wearables](../../../creator/wearables-and-emotes/publishing/publishing-collections.md), the criteria for publishing emotes is outlined in [Emotes overview](../../../creator/wearables-and-emotes/emotes/emotes-overview.md)
+Los criterios de aprobación utilizados por el comité al revisar wearables se describen en [Publishing Wearables](../wearables-and-emotes/publishing/publishing-collections.md), los criterios para publicar emotes se describen en [Emotes overview](../wearables-and-emotes/emotes/emotes-overview.md)
 
-The current members of this committee are:
+Los miembros actuales de este comité son:
 
 * Shibu, Art Director, Decentraland Foundation
 * Juan Pablo Colasso, 3D Visual Artist
@@ -29,10 +25,10 @@ The current members of this committee are:
 * Fabeeo Breen, 3D Artist and Independent wearable creator
 * Yannakis, 3D Artist and Independent wearable creator
 
-### Why Does Decentraland Need a Curation Committee?
+### ¿Por Qué Decentraland Necesita un Curation Committee?
 
-Wearables, emotes and other assets are a critical aspect of the avatar creation and customization experience. With the addition of the Editor, any member of the community can create their own wearables and emotes to share with other users.
+Los wearables, emotes y otros assets son un aspecto crítico de la experiencia de creación y personalización de avatares. Con la adición del Editor, cualquier miembro de la comunidad puede crear sus propios wearables y emotes para compartir con otros usuarios.
 
-However, wearables and emotes in Decentraland still need to be moderated in order to prevent spam, abuse, duplicated content, and copyright infringements (as per Decentraland’s [Content Policy](https://decentraland.org/content), [Terms of Use](https://decentraland.org/terms), and [Code of Ethics](https://decentraland.org/ethics)).
+Sin embargo, los wearables y emotes en Decentraland aún necesitan ser moderados para prevenir spam, abuso, contenido duplicado e infracciones de derechos de autor (según la [Content Policy](https://decentraland.org/content) de Decentraland, [Terms of Use](https://decentraland.org/terms) y [Code of Ethics](https://decentraland.org/ethics)).
 
-Wearables within the Decentraland ecosystem must also meet several technical requirements, otherwise they may not render correctly or they may adversely affect other wearables equipped at the same time. Until this approval process can be more fully automated, it is necessary for several individuals to review each wearable manually. Emotes also have to be approved by the Committee.
+Los wearables dentro del ecosistema de Decentraland también deben cumplir con varios requisitos técnicos, de lo contrario pueden no renderizarse correctamente o pueden afectar adversamente a otros wearables equipados al mismo tiempo. Hasta que este proceso de aprobación pueda automatizarse más completamente, es necesario que varios individuos revisen cada wearable manualmente. Los emotes también tienen que ser aprobados por el Committee.

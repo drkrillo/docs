@@ -1,117 +1,113 @@
 ---
-description: Tips and guidelines for creating Decentraland Emotes.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/creating-emotes
+description: Tips y directrices para crear Emotes de Decentraland.
 ---
 
 # Creating Emotes
 
-This documentation will cover the file specifications, the basics of animation in Blender, the proper way to export an Emote, and how to import one into the Builder.
+Esta documentación cubrirá las especificaciones del archivo, los conceptos básicos de animación en Blender, la forma correcta de exportar un Emote y cómo importar uno al Builder.
 
 #### Animation Specs Chart
 
-| Frame Rate             | 30 fps                     |
-| ---------------------- | -------------------------- |
-| Max Length             | 10 seconds (300 frames)    |
-| Animations per File    | 1                          |
-| Export Format          | .glb                       |
-| Sampling Rate          | 2 or 3 (if needed)         |
-| Max File Size          | 1 MB                       |
-| Max Animation Distance | 1 meter (in any direction) |
-| Max Animation Height   | 1 meter                    |
-| Max Texture Size       | 1024 pixels                |
+|| Frame Rate             | 30 fps                     |
+|| ---------------------- | -------------------------- |
+|| Max Length             | 10 segundos (300 frames)    |
+|| Animations per File    | 1                          |
+|| Export Format          | .glb                       |
+|| Sampling Rate          | 2 o 3 (si es necesario)         |
+|| Max File Size          | 1 MB                       |
+|| Max Animation Distance | 1 metro (en cualquier dirección) |
+|| Max Animation Height   | 1 metro                    |
+|| Max Texture Size       | 1024 pixels                |
 
-You can find a more detailed explanation of the animation specifications [**below**](creating-emotes.md#the-animation-specifications).
+Puedes encontrar una explicación más detallada de las especificaciones de animación [**abajo**](creating-emotes.md#the-animation-specifications).
 
-### **Resources**
+### **Recursos**
 
-This documentation explains the set up for Rig 1.0, its controls, and features.
+Esta documentación explica la configuración para Rig 1.0, sus controles y características.
 
 [Decentraland Blender Rig](https://github.com/decentraland/docs-creator/blob/main/images/emotes/Avatar_File.blend)
 
 {% hint style="info" %}
-If you're using Maya you can download this [Maya Rig](https://github.com/decentraland/docs-creator/blob/main/images/emotes/DCL_Maya_Rig.ma) and [picker](https://github.com/decentraland/docs-creator/blob/main/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️.
+Si estás usando Maya puedes descargar este [Maya Rig](https://github.com/decentraland/docs-creator/blob/main/images/emotes/DCL_Maya_Rig.ma) y [picker](https://github.com/decentraland/docs-creator/blob/main/images/emotes/emoteAvatar.pkr) proporcionados por [SparkleStudios](https://www.sparkles.studio/) ❤️.
 {% endhint %}
 
-## **Before Starting**
+## **Antes de Comenzar**
 
 ### **Frame Rate**
 
-Before getting started, it’s important to check the frame rate. Decentraland’s animations must have a frame rate of 30 fps. The rig file provided probably has that set up, but since Blender’s default value is 24 fps, it is best to double check before starting (a wrong frame rate will affect the speed of the animation). That option can be found in Output Properties (the printer icon) under Format, as shown below:
+Antes de comenzar, es importante verificar el frame rate. Las animaciones de Decentraland deben tener un frame rate de 30 fps. El archivo de rig proporcionado probablemente tenga eso configurado, pero como el valor predeterminado de Blender es 24 fps, es mejor verificarlo antes de comenzar (un frame rate incorrecto afectará la velocidad de la animación). Esa opción se puede encontrar en Output Properties (el ícono de impresora) bajo Format, como se muestra a continuación:
 
 ![Make sure the framerate is set to 30 fps before starting.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/framerate.png)
 
-Make sure the framerate is set to 30 fps before starting.
+Asegúrate de que el framerate esté establecido en 30 fps antes de comenzar.
 
 ### **Pose Mode**
 
-In Blender, a rig can be viewed in three different modes: Object Mode, Edit Mode, and Pose Mode. Animations can only be done in Pose Mode (in that mode, controls have colors). With the rig selected, you’ll find that option in a dropdown menu, at the top right.
+En Blender, un rig puede verse en tres modos diferentes: Object Mode, Edit Mode y Pose Mode. Las animaciones solo pueden hacerse en Pose Mode (en ese modo, los controles tienen colores). Con el rig seleccionado, encontrarás esa opción en un menú desplegable, en la parte superior derecha.
 
 ![Changing to Pose Mode.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/changing_pose_mode.gif)
 
-Changing to Pose Mode.
+Cambiando a Pose Mode.
 
 ### **Interface for Animations**
 
-In the rig file, other than the two windows for the viewport (front and side view), there are three more at the bottom: a _**Graph Editor**_, _**a Dope Sheet**_, and a _**Timeline**_.
+En el archivo de rig, además de las dos ventanas para el viewport (vista frontal y lateral), hay tres más en la parte inferior: un _**Graph Editor**_, _**a Dope Sheet**_, y un _**Timeline**_.
 
-* _**Graph Editor**_: In this editor, it is possible to edit the animation curves of each transform property of the selected controls. Those curves show how the interpolation is being calculated and they can be edited to achieve the wanted effect in the animation. Both in here and in the dope sheet the _**Only Show Selected**_ tool is toggled, which means it’ll only include channels related to the selected control. This can be turned on and off by simply clicking on the arrow icon.
-* _**Dope Sheet**_: Here you can edit the keyframes. This is also where you can create new animations or go through the multiple ones created. Keep in mind that in order to have access to the animation, the _**Action Editor**_ must be selected. This option is right next to the _Dope Sheet_ icon, in a dropdown menu.
-* _**Timeline**_: This is where the timeline and playback controls are found. In here, the _**Auto Keying**_ is on, which means that every time a control is manipulated it automatically creates a keyframe. You can always disable that function by clicking on the dot next to the playback controls.
+* _**Graph Editor**_: En este editor, es posible editar las curvas de animación de cada propiedad de transformación de los controles seleccionados. Esas curvas muestran cómo se está calculando la interpolación y pueden editarse para lograr el efecto deseado en la animación. Tanto aquí como en el dope sheet la herramienta _**Only Show Selected**_ está activada, lo que significa que solo incluirá canales relacionados con el control seleccionado. Esto puede activarse y desactivarse simplemente haciendo clic en el ícono de flecha.
+* _**Dope Sheet**_: Aquí puedes editar los keyframes. También es donde puedes crear nuevas animaciones o revisar las múltiples creadas. Ten en cuenta que para tener acceso a la animación, el _**Action Editor**_ debe estar seleccionado. Esta opción está justo al lado del ícono _Dope Sheet_, en un menú desplegable.
+* _**Timeline**_: Aquí es donde se encuentran la línea de tiempo y los controles de reproducción. Aquí, el _**Auto Keying**_ está activado, lo que significa que cada vez que se manipula un control automáticamente crea un keyframe. Siempre puedes deshabilitar esa función haciendo clic en el punto junto a los controles de reproducción.
 
-With this workspace, you have everything needed to start animating!
+¡Con este espacio de trabajo, tienes todo lo necesario para comenzar a animar!
 
-![](../../.gitbook/assets/workspace.png)
+![](../images/emotes/workspace.png)
 
-These are the bottom windows. The top one is in the _**Graph Editor,**_ the middle one in the _**Dope Sheet,**_ and the bottom one is the _**Timeline.**_ The top red arrow shows the _**Only Show Selected**_ tool and the bottom one shows the _**Auto Keying**_.
+Estas son las ventanas inferiores. La superior está en el _**Graph Editor,**_ la del medio en el _**Dope Sheet,**_ y la inferior es el _**Timeline.**_ La flecha roja superior muestra la herramienta _**Only Show Selected**_ y la inferior muestra el _**Auto Keying**_.
 
 {% hint style="info" %}
-**💡 Hint!**
+**💡 ¡Hint!**
 
-Since Blender is highly customizable, this is also a good time to set up the layout that best suits you, adding, adjusting, or removing windows. Each animator has their own preferences, so feel free to edit the layout however you want!
+Como Blender es altamente personalizable, este también es un buen momento para configurar el diseño que mejor te convenga, agregando, ajustando o eliminando ventanas. Cada animador tiene sus propias preferencias, ¡así que siéntete libre de editar el diseño como quieras!
 {% endhint %}
 
-## Getting Started
+## Comenzando
 
 #### **Starting Pose**
 
-In the rig file provided, there’s already an action, the _**Starting\_Pose**_. Considering that all avatar actions start from the idle pose, **we really encourage starting your animation from that pose and also using it again in the last frame**. This will make for a better transition from Idle to Emote and a more fluid animation.
+En el archivo de rig proporcionado, ya hay una acción, el _**Starting\_Pose**_. Considerando que todas las acciones de avatar comienzan desde la pose idle, **realmente alentamos a comenzar tu animación desde esa pose y también a usarla nuevamente en el último frame**. Esto permitirá una mejor transición de Idle a Emote y una animación más fluida.
 
 {% hint style="info" %}
-**💡 Hint!**
+**💡 ¡Hint!**
 
-If you want to do a loop animation, you don’t have to start the animation from the Starting Pose. Feel free to use the pose that makes more sense in your animation!\*\*
+Si quieres hacer una animación en bucle, no tienes que comenzar la animación desde el Starting Pose. ¡Siéntete libre de usar la pose que tenga más sentido en tu animación!\*\*
 {% endhint %}
 
 ### **Ground Reference and Animation Area**
 
-In order to avoid ground penetration during animation, a plane has been added to the file as a ground reference. Along with the animation area reference, it also helps identify the area that can be used for the animation. For reference, the samller circle on the plane has a radius of 2 meters and the larger one, 4 meters.
+Para evitar la penetración del suelo durante la animación, se ha agregado un plano al archivo como referencia del suelo. Junto con la referencia del área de animación, también ayuda a identificar el área que se puede usar para la animación. Para referencia, el círculo más pequeño en el plano tiene un radio de 2 metros y el más grande, 4 metros.
 
 ![Ground and animation area reference.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_reference.png)
 
-Ground and animation area reference.
+Referencia de suelo y área de animación.
 
-The avatar center of gravity is the CTRL\_Avatar\_UpperBody. The limit to move it around is 1 meter (left, right, front, back), so try to keep it inside the smaller circle during animation. Arms and legs can exceed the small circle up to the larger one. As for the height, as long as the avatar body isn’t outside the box and the root is within the area provided on the file, it should be good to go.
+El centro de gravedad del avatar es el CTRL\_Avatar\_UpperBody. El límite para moverlo es 1 metro (izquierda, derecha, frente, atrás), así que intenta mantenerlo dentro del círculo más pequeño durante la animación. Los brazos y piernas pueden exceder el círculo pequeño hasta el más grande. En cuanto a la altura, siempre que el cuerpo del avatar no esté fuera de la caja y la raíz esté dentro del área proporcionada en el archivo, debería estar bien.
 
 ![Avatar centered.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_center.png)
 
-Avatar centered.
+Avatar centrado.
 
 ![Max distance right.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_ok_right.png)
 
-Max distance right.
+Distancia máxima derecha.
 
 ![Max distance left.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_ok_left.png)
 
-Max distance left.
+Distancia máxima izquierda.
 
 ![Max distance up.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/animation_area_ok_up.png)
 
-Max distance up.
+Distancia máxima arriba.
 
-Here are some examples of emotes that are within the boundaries.
+Aquí hay algunos ejemplos de emotes que están dentro de los límites.
 
 ![Spotlight](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/spotlight.gif)
 
@@ -122,44 +118,44 @@ Spotlight
 Thalia Dance
 
 {% hint style="info" %}
-**💡 Attention!**
+**💡 ¡Atención!**
 
-Watch out for these boundaries because crossing them might cause gameplay issues.
+Ten cuidado con estos límites porque cruzarlos podría causar problemas de gameplay.
 {% endhint %}
 
-## **Creating an Animation**
+## **Creando una Animación**
 
-The blend file has an animation clip ready to be edited: _StartingPose\_Avatar_. You can duplicate and rename that animation clip as you see fit. There’s no need to create one from scratch!
+El archivo blend tiene un clip de animación listo para ser editado: _StartingPose\_Avatar_. Puedes duplicar y renombrar ese clip de animación como mejor te parezca. ¡No hay necesidad de crear uno desde cero!
 
-On the _Browse Action_ section, simply click on _**Create A New Action**_ button to duplicate the current animation. To rename the clip, just click on the text and type something else.
+En la sección _Browse Action_, simplemente haz clic en el botón _**Create A New Action**_ para duplicar la animación actual. Para renombrar el clip, solo haz clic en el texto y escribe algo más.
 
-Belnder 4.4 introduced _Slotted Actions_, the icon to the right of the _Browse Action_ section from previous versions. There’s no need to mess with that if you’re creating an emote with no prop, so you can just leave it as it is. If you’re animating the avatar, make sure the slotted action is Avatar\_Animation.
+Blender 4.4 introdujo _Slotted Actions_, el ícono a la derecha de la sección _Browse Action_ de versiones anteriores. No hay necesidad de jugar con eso si estás creando un emote sin prop, así que puedes dejarlo como está. Si estás animando el avatar, asegúrate de que la slotted action sea Avatar\_Animation.
 
-![](../../.gitbook/assets/duplicating_animation.gif) Create a new animation by duplicating the existing one or by clicking on \_\*\*Unlink Action\*\*\_ and then \_\*\*New\*\*\_.
+![](../images/emotes/duplicating_animation.gif) Crea una nueva animación duplicando la existente o haciendo clic en \_\*\*Unlink Action\*\*\_ y luego \_\*\*New\*\*\_.
 
 ### **Browsing and Deleting Animations**
 
-In Blender, you can have multiple animation tracks in the same file. It is possible to browse them by clicking on the Browse Action dropdown menu. All animation with and F (Fake User) will be saved. To delete an animation, press Shift on the keyboard and click on the X. After doing that, the animation will show a 0 next to it, which means that it will be deleted the next time you close Blender or re-open the file.
+En Blender, puedes tener múltiples pistas de animación en el mismo archivo. Es posible navegar por ellas haciendo clic en el menú desplegable Browse Action. Toda animación con una F (Fake User) se guardará. Para eliminar una animación, presiona Shift en el teclado y haz clic en la X. Después de hacer eso, la animación mostrará un 0 junto a ella, lo que significa que se eliminará la próxima vez que cierres Blender o vuelvas a abrir el archivo.
 
-![](../../.gitbook/assets/deleting_animation.gif) Browsing animations: The ones with an F will be saved, and the ones with 0 will be deleted.
+![](../images/emotes/deleting_animation.gif) Navegando animaciones: Las que tienen una F se guardarán, y las que tienen 0 se eliminarán.
 
-Another way of deleting animations without having to reload Blender is by changing the Display Mode from View Layer to Blender File. Expand Actions and delete any unwanted animation by right clicking on them and selecting Delete.
+Otra forma de eliminar animaciones sin tener que recargar Blender es cambiando el Display Mode de View Layer a Blender File. Expande Actions y elimina cualquier animación no deseada haciendo clic derecho en ellas y seleccionando Delete.
 
-![](../../.gitbook/assets/deleting_animation2.gif)
+![](../images/emotes/deleting_animation2.gif)
 
-You can delete animations directly from Blender File under Display Mode in the outliner.
+Puedes eliminar animaciones directamente desde Blender File bajo Display Mode en el outliner.
 
 {% hint style="info" %}
-**💡 Hint!**
+**💡 ¡Hint!**
 
-Do not always edit the same animation track. Before making major changes, just duplicate the animation. That way you have a back up version in case you regret deleting or changing something. This is also a nice way to keep track of the progress made so far!
+No edites siempre la misma pista de animación. Antes de hacer cambios importantes, simplemente duplica la animación. De esa manera tienes una versión de respaldo en caso de que te arrepientas de eliminar o cambiar algo. ¡Esta también es una buena forma de hacer seguimiento del progreso realizado hasta ahora!
 {% endhint %}
 
-![](broken-reference) Duplicating animation clips.
+![](../images/emotes/duplicating_animation2.gif) Duplicando clips de animación.
 
 ### **Naming**
 
-**An animation’s name should start with a capital letter and if the name is more than one word long, the words should be separated by \_.** Do not use spaces or special characters. Here are some examples of naming:
+**El nombre de una animación debe comenzar con una letra mayúscula y si el nombre tiene más de una palabra, las palabras deben separarse con \_.** No uses espacios o caracteres especiales. Aquí hay algunos ejemplos de nomenclatura:
 
 * Snowfall
 * Rainbow\_Dance
@@ -168,87 +164,87 @@ Do not always edit the same animation track. Before making major changes, just d
 
 ### **Emote Overrides**
 
-Emote overrides happen when deform bones don’t have a keyframe set in one of the parameters. Without a keyframe, that bone won’t have the information of where it should be, how much it has been rotated and scaled, leaving that channel open. The consequence is that if you play an emote in world and then trigger yours while the previous one was still playing, the information of location, rotation and scale will be overridden by the previous emote, which will cause a combination of them both. Unless this is done in purpose, it will affect your animation, sometimes with a fun result, but others with completely messed up the emote. Below is an example of an emote override.
+Los emote overrides ocurren cuando los huesos de deformación no tienen un keyframe establecido en uno de los parámetros. Sin un keyframe, ese hueso no tendrá la información de dónde debe estar, cuánto ha sido rotado y escalado, dejando ese canal abierto. La consecuencia es que si reproduces un emote en el mundo y luego activas el tuyo mientras el anterior aún se estaba reproduciendo, la información de ubicación, rotación y escala será sobrescrita por el emote anterior, lo que causará una combinación de ambos. A menos que esto se haga a propósito, afectará tu animación, a veces con un resultado divertido, pero otras con el emote completamente desordenado. A continuación hay un ejemplo de un emote override.
 
-![](../../.gitbook/assets/01_emote_override.gif)
+![](../images/wearables-and-emotes/creating-emotes/01_emote_override.gif)
 
-To avoid that, select all layers with bones in them (which can be found in _**Object Data Properties**_ > _**Skeleton**_ > _**Layers**_). Then, in _**Pose Mode**_, leave the timeline cursor in the first frame of your animation and, with your mouse in _**Viewport Display**_, press _**A**_ to select everything. In the _**Graph Editor**_, click twice on the _**Eye**_ icon next to the armature channel to make all channels visible. With all bones selected, press _**I**_ to set a keyframe. Do the same for the last frame.
+Para evitar eso, selecciona todas las capas con huesos en ellas (que se pueden encontrar en _**Object Data Properties**_ > _**Skeleton**_ > _**Layers**_). Luego, en _**Pose Mode**_, deja el cursor de la línea de tiempo en el primer frame de tu animación y, con tu mouse en _**Viewport Display**_, presiona _**A**_ para seleccionar todo. En el _**Graph Editor**_, haz clic dos veces en el ícono _**Eye**_ junto al canal de armature para hacer visibles todos los canales. Con todos los huesos seleccionados, presiona _**I**_ para establecer un keyframe. Haz lo mismo para el último frame.
 
-**Make sure to select the deform bones, this is especially important!** The deform bones can be found in the last bottom layer and are shown as green bones in the _**Viewport**_.
+**¡Asegúrate de seleccionar los huesos de deformación, esto es especialmente importante!** Los huesos de deformación se pueden encontrar en la última capa inferior y se muestran como huesos verdes en el _**Viewport**_.
 
-![](../../.gitbook/assets/keyframe_bones.gif) Setting keyframes on all bones in the first and last frames prevents emote overrides.
+![](../images/emotes/keyframe_bones.gif) Establecer keyframes en todos los huesos en los primeros y últimos frames previene emote overrides.
 
-## **The Animation Specifications**
+## **Las Especificaciones de Animación**
 
-### **The Animation Length**
+### **La Longitud de la Animación**
 
-The max length of an animation is **10 seconds** or **300 frames**. Remember to keyframe every control’s properties on the first and last frames.
+La longitud máxima de una animación es **10 segundos** o **300 frames**. Recuerda hacer keyframe de las propiedades de cada control en el primer y último frames.
 
 {% hint style="warning" %}
-⚠️ Channels with visibility turned off in the Graph Editor won’t be keyframed, deleted, or even shown in the Action Editor. Unless it was intentionally done that way, pay extra attention to the visibility.
+⚠️ Los canales con visibilidad desactivada en el Graph Editor no tendrán keyframe, serán eliminados, ni siquiera se mostrarán en el Action Editor. A menos que se haya hecho intencionalmente de esa manera, presta especial atención a la visibilidad.
 {% endhint %}
 
-![](../../.gitbook/assets/channel_visibility.gif)
+![](../images/emotes/channel_visibility.gif)
 
-Make channels visible before keyframing!
+¡Haz los canales visibles antes de hacer keyframe!
 
-### **Number of Animations**
+### **Número de Animaciones**
 
-If it is a standard emote (with no prop), the exported file can only have one animation. For emotes 2.0 you can have one clip for the avatar and one clip for the prop. If animations were duplicated during the process, make sure you delete all of them before exporting. Keep only the final version. Sequence emotes that need many animations to work (action start, action loop, and action end) are not supported right now.
+Si es un emote estándar (sin prop), el archivo exportado solo puede tener una animación. Para emotes 2.0 puedes tener un clip para el avatar y un clip para el prop. Si se duplicaron animaciones durante el proceso, asegúrate de eliminar todas antes de exportar. Mantén solo la versión final. Los emotes de secuencia que necesitan muchas animaciones para funcionar (action start, action loop y action end) no están soportados ahora mismo.
 
 ### **Format**
 
-Animations should be exported as .**GLB**. The file can only contain the deforming skeleton and the animation. **Mesh, controls, and any other object should not be exported**. More details on how to export can be found [**below**](creating-emotes.md#exporting).
+Las animaciones deben exportarse como .**GLB**. El archivo solo puede contener el esqueleto que deforma y la animación. **Mesh, controles y cualquier otro objeto no deben exportarse**. Más detalles sobre cómo exportar se pueden encontrar [**abajo**](creating-emotes.md#exporting).
 
 ### **Sampling**
 
-Since constraints can’t be exported, the only way to export the animation clip is by baking it, which means that all the deforming bones’ positions, rotation, and scale will be keyframed in every single frame of the animation. If the clip is too long, like up to 300 frames, it’ll have 300 keyframes after exporting and the more keyframes it has, the heavier the file gets.
+Como las restricciones no pueden exportarse, la única forma de exportar el clip de animación es horneándolo, lo que significa que todas las posiciones, rotación y escala de los huesos que deforman tendrán keyframe en cada frame de la animación. Si el clip es demasiado largo, como hasta 300 frames, tendrá 300 keyframes después de exportar y cuantos más keyframes tenga, más pesado se vuelve el archivo.
 
-Sampling is a good way to optimize the animation. The sampling rate will define how often a keyframe will be baked in the animation. For example, if the sampling rate is set to 2, that means a keyframe will be created at every two frames. A sampling rate of 3 will bake a keyframe every three frames and so on. The higher the sampling rate, the lighter the file.
+El sampling es una buena forma de optimizar la animación. La tasa de sampling definirá qué tan seguido se horneará un keyframe en la animación. Por ejemplo, si la tasa de sampling está establecida en 2, eso significa que se creará un keyframe cada dos frames. Una tasa de sampling de 3 horneará un keyframe cada tres frames y así sucesivamente. Cuanto mayor sea la tasa de sampling, más ligero será el archivo.
 
-The drawback, however, is that the animation will start getting less and less fluid since it loses some important keyframes (they are distributed through the animation in an uneven way). It’s also important to notice that **sampling is NOT dividing the number of the animation’s frames by the sampling rate**.
+El inconveniente, sin embargo, es que la animación comenzará a ser cada vez menos fluida ya que pierde algunos keyframes importantes (se distribuyen a través de la animación de manera desigual). También es importante notar que **el sampling NO es dividir el número de frames de la animación por la tasa de sampling**.
 
-Usually, a **sampling rate of 2 or 3** will do the trick. Those numbers can optimize the animation without compromising the quality.
+Usualmente, una **tasa de sampling de 2 o 3** hará el truco. Esos números pueden optimizar la animación sin comprometer la calidad.
 
 {% hint style="info" %}
-**💡 Hint!**
+**💡 ¡Hint!**
 
-If the number of frames of the animation can be divided by the sampling rate, that’s a good thing! It means that the final frame will be baked, preserving the transition from end to start of the animation.
+Si el número de frames de la animación puede dividirse por la tasa de sampling, ¡eso es algo bueno! Significa que el frame final se horneará, preservando la transición del final al inicio de la animación.
 {% endhint %}
 
 ### **File Size**
 
-The max file size is **3 MB**. If the file is over that after exporting, try checking if the mesh wasn’t exported by accident or if the animation isn’t over 10 seconds. If it is still over 3 MB, try experimenting with the Sampling Rate, as higher values will improve the optimization.
+El tamaño máximo de archivo es **3 MB**. Si el archivo está por encima de eso después de exportar, intenta verificar si la malla no se exportó por accidente o si la animación no supera los 10 segundos. Si todavía está por encima de 3 MB, intenta experimentar con el Sampling Rate, ya que valores más altos mejorarán la optimización.
 
-If the emote contains any additional 3D models, the textures in these models can't exceed a size of 1024 pixels.
+Si el emote contiene cualquier modelo 3D adicional, las texturas en estos modelos no pueden exceder un tamaño de 1024 pixels.
 
 ## **Exporting**
 
-Since we only want the armature and the animation to be exported, turn off the mesh visibility and any object other than the armature before exporting, as shown below:
+Como solo queremos que la armature y la animación se exporten, desactiva la visibilidad de la malla y cualquier objeto que no sea la armature antes de exportar, como se muestra a continuación:
 
-![](../../.gitbook/assets/mesh_visibility.gif)
+![](../images/emotes/mesh_visibility.gif)
 
-Turn off the mesh visibility before exporting!
+¡Desactiva la visibilidad de la malla antes de exportar!
 
-To export, go to _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
+Para exportar, ve a _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
-![](../../.gitbook/assets/export_gltf.gif)
+![](../images/emotes/export_gltf.gif)
 
-For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
+Para la configuración de exportación, expande Include y en Limit to activa Visible Objects. Luego, expande la pestaña Data, expande Armature y habilita Export Deformation Bones Only.
 
-| ![](../../.gitbook/assets/export_settings.png) | ![](../../.gitbook/assets/export_settings_GIF.gif) |
-| ----------------------------------------------- | --------------------------------------------------- |
+|| ![](../images/emotes/export_settings.png) | ![](../images/emotes/export_settings_GIF.gif) |
+|| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 
-If you need to sample the animation, expand the Animation tab, expand Sampling Animations and choose the number of samples wanted.
+Si necesitas samplear la animación, expande la pestaña Animation, expande Sampling Animations y elige el número de samples deseado.
 
-| ![](../../.gitbook/assets/sampling_rate.png) | ![](../../.gitbook/assets/sampling_rate_GIF.gif) |
-| --------------------------------------------- | ------------------------------------------------- |
+|| ![](../images/emotes/sampling_rate.png) | ![](../images/emotes/sampling_rate_GIF.gif) |
+|| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 
-That’s it for exporting the animation!
+¡Eso es todo para exportar la animación!
 
-## References
+## Referencias
 
-If you’re still not sure where to start or need some reference or inspiration, here are some animation clips to help you with that. These can be some nice studying material!
+Si todavía no estás seguro de por dónde empezar o necesitas alguna referencia o inspiración, aquí hay algunos clips de animación para ayudarte con eso. ¡Estos pueden ser un buen material de estudio!
 
 [Idle.glb](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/idle.glb)
 

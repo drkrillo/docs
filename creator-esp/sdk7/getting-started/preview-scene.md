@@ -1,101 +1,97 @@
 ---
-description: What you can see in a scene's preview
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/getting-started/preview-scene
+description: Qué puedes ver en el preview de una scene
 ---
 
 # Preview Your Scene
 
-Once you have [built a new scene](preview-scene.md#create-your-first-scene) or downloaded a [scene example](https://studios.decentraland.org/resources?sdk_version=SDK7) you can preview it locally.
+Una vez que hayas [construido una nueva scene](preview-scene.md#create-your-first-scene) o descargado un [example de scene](https://studios.decentraland.org/resources?sdk_version=SDK7) puedes previsualizarla localmente.
 
-## Using the Scene Editor
+## Usando el Scene Editor
 
-Make sure you've [installed the Creator Hub](../../scene-editor/get-started/editor-installation.md).
+Asegúrate de haber [instalado el Creator Hub](../get-started/editor-installation.md).
 
-1. Open your scene project.
-2. Click the **Preview** button on the top-right corner. This will open a new window with the Decentraland Desktop Explorer, running just your scene. There you can move around the scene and interact with interactive items.
+1. Abre tu proyecto de scene.
+2. Haz clic en el botón **Preview** en la esquina superior derecha. Esto abrirá una nueva ventana con el Decentraland Desktop Explorer, ejecutando solo tu scene. Allí puedes moverte por la scene e interactuar con ítems interactivos.
 
-![](../../.gitbook/assets/preview-button.png)
+![](../images/editor/preview-button.png)
 
-Configure different preview options from the dropdown menu next to the **Preview** button:
+Configura diferentes opciones de preview desde el menú desplegable junto al botón **Preview**:
 
-* **Open Console Window During Preview**: Opens a new window with the console output of the scene. This is useful to debug errors in the scene.
-* **Skip Auth Screen**: Skips the account selection screen and automatically logs you in with your currently logged in account. This is disabled by default, enable it if you want to test multiple accounts.
-* **Landscape Terrain Enabled**: Toggles the landscape around the scene. This is enabled by default, disable it to lower the scene's memory footprint.
+* **Open Console Window During Preview**: Abre una nueva ventana con la salida de consola de la scene. Esto es útil para depurar errores en la scene.
+* **Skip Auth Screen**: Omite la pantalla de selección de cuenta y automáticamente te loguea con tu cuenta actualmente logueada. Esto está deshabilitado por defecto, habilítalo si quieres probar múltiples cuentas.
+* **Landscape Terrain Enabled**: Alterna el paisaje alrededor de la scene. Esto está habilitado por defecto, desactívalo para reducir la huella de memoria de la scene.
 
-## Using the CLI
+## Usando el CLI
 
-To preview a scene run the following command on the scene's main folder:
+Para previsualizar una scene ejecuta el siguiente comando en la carpeta principal de la scene:
 
 ```bash
 npm run start -- --explorer-alpha
 ```
 
-Any dependencies that are missing are installed and then the CLI opens the scene in a new browser tab automatically. It creates a local web server in your system and points the web browser tab to this local address.
+Cualquier dependencia que falte se instala y luego el CLI abre la scene en una nueva pestaña del navegador automáticamente. Crea un servidor web local en tu sistema y apunta la pestaña del navegador web a esta dirección local.
 
-Every time you make changes to the scene, the preview reloads and updates automatically, so there's no need to run the command again.
-
-{% hint style="warning" %}
-**📔 Note**: Some scenes depend on communicating with an external server to carry out custom logic or store and retrieve data. When previewing one of these scenes, you'll likely have to also run the server locally on another port. Check the scene's readme for instructions on how to launch the server as well as the scene.
-{% endhint %}
-
-### Parameters of the preview command
-
-You can add the following flags to the `npm run start` command to change its behavior:
-
-* `-- --web3` Connects preview to browser wallet to use the associated avatar and account.
-* `-- --no-debug` Disable the debug panel, that shows scene and performance stats.
-* `-- --explorer-alpha` Runs the preview in the new Decentraland Desktop client.
-* `-- --skip-version-checks` Avoids checking if the scene's SDK framework version matches your CLI version, and launches the preview anyway.
-* `-- --port` to assign a specific port to run the scene. Otherwise it will use whatever port is available.
-* `-- --no-browser` to prevent the preview from opening a new browser tab.
-* `-- --w` or `-- --no-watch` to not open watch for filesystem changes and avoid hot-reload whenever the scene's code changes.
-* `-- --c` or `-- --ci` To run the parcel previewer on a remote unix server
+Cada vez que hagas cambios en la scene, el preview se recarga y actualiza automáticamente, por lo que no hay necesidad de ejecutar el comando nuevamente.
 
 {% hint style="warning" %}
-**📔 Note**: Parameters need to be added with two series of dashes, for example `npm run start -- --web3`.
+**📔 Nota**: Algunas scenes dependen de comunicarse con un servidor externo para llevar a cabo lógica personalizada o almacenar y recuperar datos. Al previsualizar una de estas scenes, probablemente también tendrás que ejecutar el servidor localmente en otro puerto. Consulta el readme de la scene para instrucciones sobre cómo lanzar el servidor así como la scene.
 {% endhint %}
 
-## Upload a scene to decentraland
+### Parámetros del comando preview
 
-Once you're happy with your scene, you can upload it and publish it to Decentraland. For this you must own LAND, a Decentraland NAME, or an ETH ENS name, or have permissions given by someone that does. See [publishing](../publishing/publishing.md) for instructions on how to do that.
+Puedes agregar las siguientes banderas al comando `npm run start` para cambiar su comportamiento:
 
-## Preview scene size
+* `-- --web3` Conecta el preview a la wallet del navegador para usar el avatar y cuenta asociados.
+* `-- --no-debug` Deshabilita el panel de debug, que muestra estadísticas de scene y rendimiento.
+* `-- --explorer-alpha` Ejecuta el preview en el nuevo cliente Decentraland Desktop.
+* `-- --skip-version-checks` Evita verificar si la versión del framework SDK de la scene coincide con tu versión CLI, y lanza el preview de todos modos.
+* `-- --port` para asignar un puerto específico para ejecutar la scene. De lo contrario usará cualquier puerto que esté disponible.
+* `-- --no-browser` para prevenir que el preview abra una nueva pestaña del navegador.
+* `-- --w` o `-- --no-watch` para no abrir watch para cambios del sistema de archivos y evitar hot-reload cada vez que el código de la scene cambie.
+* `-- --c` o `-- --ci` Para ejecutar el previsualizador de parcela en un servidor unix remoto
 
-The scene size shown in the preview is based on the scene's configuration.
+{% hint style="warning" %}
+**📔 Nota**: Los parámetros necesitan ser agregados con dos series de guiones, por ejemplo `npm run start -- --web3`.
+{% endhint %}
 
-Edit this on the second tab of the scene menu in the Scene Editor.
+## Subir una scene a decentraland
 
-![](../../.gitbook/assets/scene-parcels-3x3.png)
+Una vez que estés satisfecho con tu scene, puedes subirla y publicarla en Decentraland. Para esto debes poseer LAND, un NAME de Decentraland, o un nombre ENS ETH, o tener permisos dados por alguien que sí los tiene. Consulta [publishing](../publishing/publishing.md) para instrucciones sobre cómo hacerlo.
 
-Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+## Tamaño del preview de scene
 
-![](../../.gitbook/assets/scene-parcels-toggled.png)
+El tamaño de scene mostrado en el preview se basa en la configuración de la scene.
 
-You can also edit the _scene.json_ file to list multiple parcels in the "parcels" field. See [set parcels via the command line](../projects/scene-metadata.md#scene-parcels) for more details.
+Edita esto en la segunda pestaña del menú de scene en el Scene Editor.
+
+![](../images/editor/scene-parcels-3x3.png)
+
+Usa los desplegables y haz clic en **Apply Layout** para cambiar las dimensiones de tu scene. También puedes hacer clic en cada parcela individual para desactivarla de tu diseño.
+
+![](../images/editor/scene-parcels-toggled.png)
+
+También puedes editar el archivo _scene.json_ para listar múltiples parcelas en el campo "parcels". Consulta [set parcels via the command line](../projects/scene-metadata.md#scene-parcels) para más detalles.
 
 {% hint style="info" %}
-**💡 Tip**: While running the preview, the parcel coordinates don't need to match those that your scene will really use, as long as they're adjacent and are arranged into the same shape. You will have to replace these with the actual coordinates later when you [deploy the scene](preview-scene.md#upload-a-scene-to-decentraland).
+**💡 Tip**: Mientras ejecutas el preview, las coordenadas de parcela no necesitan coincidir con las que tu scene realmente usará, siempre que sean adyacentes y estén organizadas en la misma forma. Tendrás que reemplazarlas con las coordenadas reales más tarde cuando [despliegues la scene](preview-scene.md#upload-a-scene-to-decentraland).
 {% endhint %}
 
-## View the scene console
+## Ver la consola de la scene
 
-Press the **\`** key on your keyboard to open the scene console. Here you can see any error messages, and also any text that your scene prints to the console via `console.log()`.
+Presiona la tecla **\`** en tu teclado para abrir la consola de la scene. Aquí puedes ver cualquier mensaje de error, y también cualquier texto que tu scene imprima a la consola via `console.log()`.
 
-You can also press Shift + **\`** to open the console even wider, in case you need to view more text.
+También puedes presionar Shift + **\`** para abrir la consola aún más ancha, en caso de que necesites ver más texto.
 
-## Test a multiplayer scene locally
+## Probar una scene multijugador localmente
 
-If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
+Si lanzas un preview de scene y lo abres en dos (o más) ventanas de explorer diferentes, cada ventana abierta será interpretada como un jugador separado, y un servidor de comunicaciones simulado mantendrá a estos jugadores sincronizados.
 
-Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
+Interactúa con la scene en una ventana, luego cambia a la otra para ver que los efectos de esa interacción también son visibles allí.
 
-Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
+Usando el Creator Hub, haz clic en el botón Preview una segunda vez, y eso abre una segunda ventana del Decentraland explorer. Debes conectarte en ambas ventanas con diferentes direcciones. Las mismas sesiones permanecerán abiertas mientras la scene se recargue.
 
-![](../../.gitbook/assets/preview-button.png)
+![](../images/editor/preview-button.png)
 
-As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
+Como alternativa, puedes abrir una segunda ventana del Decentraland explorer escribiendo lo siguiente en una URL del navegador:
 
 > `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`

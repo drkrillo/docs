@@ -1,151 +1,147 @@
 ---
-description: Tips and practices to build scenes where players will want to stay and return!
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/design-experience/ux-ui-guide
+description: ¡Consejos y prácticas para construir escenas donde los jugadores querrán quedarse y regresar!
 ---
 
-# UX & UI Guide
+# Guía de UX & UI
 
-It’s of vital importance to us that Decentraland content creators are free to make use of their creativity to its full extent. This is essential for Decentraland to become a rewarding place to explore. However, it’s also important to keep in mind that the scenes in Decentraland will be visited by a wide variety of users and we want to make the scenes accessible to all of them. Because of this, we can’t ignore the need to establish a unified design criteria, a guide that can guarantee that players will find themselves with a homogeneously intuitive and enjoyable experience, no matter what scene they’re on.
+Es de vital importancia para nosotros que los creadores de contenido de Decentraland sean libres de hacer uso de su creatividad en su máxima extensión. Esto es esencial para que Decentraland se convierta en un lugar gratificante para explorar. Sin embargo, también es importante tener en cuenta que las escenas en Decentraland serán visitadas por una amplia variedad de usuarios y queremos hacer que las escenas sean accesibles para todos ellos. Debido a esto, no podemos ignorar la necesidad de establecer criterios de diseño unificados, una guía que pueda garantizar que los jugadores se encontrarán con una experiencia homogéneamente intuitiva y agradable, sin importar en qué escena se encuentren.
 
-In this document we share Decentraland’s Design Values, with the objective of promoting what we consider are the best practices for designing the interface and experience for players. We hope that these criteria can serve as a starting point to build and/or improve the scenes that make up the Metaverse.
+En este documento compartimos los Valores de Diseño de Decentraland, con el objetivo de promover lo que consideramos son las mejores prácticas para diseñar la interfaz y experiencia para los jugadores. Esperamos que estos criterios puedan servir como punto de partida para construir y/o mejorar las escenas que conforman el Metaverso.
 
-### Design values
+### Valores de diseño
 
-All scenes in Decentraland should be designed with these values in mind:
+Todas las escenas en Decentraland deben diseñarse teniendo en cuenta estos valores:
 
-* **Welcoming**: The player feels warmly welcome.
-* **User-friendly**: The UI is easy and fun to use – you should avoid reinventing the wheel
-* **Easy to learn**: Players find the UI familiar and intuitive. Patterns should be consistently used throughout the scene.
-* **Providing guidance**: The scene provides a helping hand. Text, motion, sound and graphics will lead and hint players in the right direction.
-* **Reactive**: Clear action-reaction to players’ input.
-* **Minimalistic**: Less is more. Players can focus their attention on what matters.
-* **Interesting**: The scene takes advantage of the things that make Decentraland unique and worthy of visiting.
-* **Purposeful**: Players have a strong reason to come back.
-* **Enjoyable**: Players enjoy how things look, sound and feel
+* **Acogedora**: El jugador se siente calurosamente bienvenido.
+* **Amigable con el usuario**: La UI es fácil y divertida de usar – debes evitar reinventar la rueda
+* **Fácil de aprender**: Los jugadores encuentran la UI familiar e intuitiva. Los patrones deben usarse consistentemente en toda la escena.
+* **Proporciona orientación**: La escena proporciona una mano de ayuda. El texto, movimiento, sonido y gráficos guiarán e insinuarán a los jugadores en la dirección correcta.
+* **Reactiva**: Clara acción-reacción a la entrada de los jugadores.
+* **Minimalista**: Menos es más. Los jugadores pueden enfocar su atención en lo que importa.
+* **Interesante**: La escena aprovecha las cosas que hacen a Decentraland único y digno de visitar.
+* **Propositiva**: Los jugadores tienen una razón fuerte para volver.
+* **Agradable**: Los jugadores disfrutan cómo se ven, suenan y sienten las cosas
 
-### User experience
+### Experiencia de usuario
 
-#### Where to start?
+#### ¿Por dónde empezar?
 
-What is the objective of your scene? Is it to offer a beautiful landscape to contemplate and explore? Is it a museum? Is it a single player game? A competitive one? Or does it follow a linear storytelling flow?
+¿Cuál es el objetivo de tu escena? ¿Es ofrecer un paisaje hermoso para contemplar y explorar? ¿Es un museo? ¿Es un juego de un solo jugador? ¿Uno competitivo? ¿O sigue un flujo narrativo lineal?
 
-It’s important to be well aware of this objective through every step of the design process, it should guide all of your decisions, all of which can profoundly affect the visitor’s experience.
+Es importante estar bien consciente de este objetivo en cada paso del proceso de diseño, debe guiar todas tus decisiones, todas las cuales pueden afectar profundamente la experiencia del visitante.
 
-For scenes that follow a linear flow, where each step depends on the previous, we recommend walling the scene and establishing one or multiple fixed entry points, to avoid players stumbling onto things in the wrong order. By the way, entry points are an excellent place to display a message to welcome the player and explain what their objective in the scene should be.
+Para escenas que siguen un flujo lineal, donde cada paso depende del anterior, recomendamos cercar la escena y establecer uno o múltiples puntos de entrada fijos, para evitar que los jugadores tropiecen con cosas en el orden incorrecto. Por cierto, los puntos de entrada son un lugar excelente para mostrar un mensaje para dar la bienvenida al jugador y explicar cuál debe ser su objetivo en la escena.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-instructions.png" alt="In-world banner" width="300"><figcaption><p>In-world instructions</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-instructions.png" alt="Banner en el mundo" width="300"><figcaption><p>Instrucciones en el mundo</p></figcaption></figure>
 
-If the player’s experience in your scene isn’t meant to be linear, but you still need to provide some basic instructions to ensure they enjoy it fully, you can show instructions on a pop-up. It’s possible to display a popup on the player’s screen as soon as they enter, regardless of what direction they come from, and in that way make sure that players will always know the essentials.
+Si la experiencia del jugador en tu escena no está destinada a ser lineal, pero aún necesitas proporcionar algunas instrucciones básicas para asegurar que la disfruten completamente, puedes mostrar instrucciones en un pop-up. Es posible mostrar un popup en la pantalla del jugador tan pronto como entren, independientemente de la dirección de la que vengan, y de esa manera asegurarte de que los jugadores siempre sepan lo esencial.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-banner.png" alt="Pop-up banner" width="300"><figcaption><p>Pop-up instructions</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-banner.png" alt="Banner pop-up" width="300"><figcaption><p>Instrucciones pop-up</p></figcaption></figure>
 
 {% hint style="warning" %}
-**📔 Note**: Make sure the popup isn't too intrusive and that it's easy to close by clicking anywhere.
+**📔 Nota**: Asegúrate de que el popup no sea demasiado intrusivo y que sea fácil de cerrar haciendo clic en cualquier lugar.
 {% endhint %}
 
-A welcome message should communicate the following to the player:
+Un mensaje de bienvenida debe comunicar lo siguiente al jugador:
 
-* The scene title
-* Welcome the player
-* End goal & motivation for the player
-* Instructions/Next steps
-* _(Optional)_ Controls. Mostly useful if your scene uses global button events. Otherwise, items themselves indicate how to use them when hovering over them.
+* El título de la escena
+* Dar la bienvenida al jugador
+* Objetivo final y motivación para el jugador
+* Instrucciones/Próximos pasos
+* _(Opcional)_ Controles. Principalmente útil si tu escena usa eventos de botón globales. De lo contrario, los objetos mismos indican cómo usarlos al pasar el cursor sobre ellos.
 
-#### Motivation
+#### Motivación
 
-You’ll likely want your visitors to keep coming back to your scene, think of ways in which you can motivate them to do so! Ask yourself “What would make a player want to return to my scene, or want to recommend it to a friend?”
+¡Probablemente querrás que tus visitantes sigan regresando a tu escena, piensa en formas en las que puedes motivarlos a hacerlo! Pregúntate "¿Qué haría que un jugador quiera regresar a mi escena, o quiera recomendarla a un amigo?"
 
-For example, you can challenge them, giving them something to achieve that will be hard enough to take several attempts. You can also organize competitive multiplayer events, which are also an interesting opportunity to socialize. Make your scene a dynamic place where players feel that they enjoy spending time there!
+Por ejemplo, puedes desafiarlos, dándoles algo que lograr que será lo suficientemente difícil como para tomar varios intentos. También puedes organizar eventos multijugador competitivos, que también son una oportunidad interesante para socializar. ¡Haz que tu escena sea un lugar dinámico donde los jugadores sientan que disfrutan pasar tiempo allí!
 
-#### Feedback and Sound
+#### Retroalimentación y Sonido
 
-Sound plays a double key role, don’t miss out on using it! On one hand it’s vital for generating immersion, many things that won’t feel real if they aren’t accompanied by sound. The other crucial thing sound is for is providing feedback to a player’s actions. If you rely only on visual cues, you can’t be certain that a player will be looking in the right direction to see the effects of their actions. Through using sound, you can ensure that they are aware that something happened. If you use visual and sound cues in combination, hearing the sound invites the player to look around for the visual cue, in case they didn’t see it.
+¡El sonido juega un doble papel clave, no te pierdas de usarlo! Por un lado, es vital para generar inmersión, muchas cosas no se sentirán reales si no están acompañadas de sonido. La otra cosa crucial para la que sirve el sonido es proporcionar retroalimentación a las acciones de un jugador. Si confías solo en señales visuales, no puedes estar seguro de que un jugador estará mirando en la dirección correcta para ver los efectos de sus acciones. A través del uso de sonido, puedes asegurar que estén conscientes de que algo sucedió. Si usas señales visuales y de sonido en combinación, escuchar el sonido invita al jugador a buscar la señal visual, en caso de que no la hayan visto.
 
-Keep in mind that some players might be playing with their sound turned off. If you’re using sound as a way to provide scene instructions or a key piece in the game mechanics, try to also provide something visual to hint in the same direction. For example, you could display text at the bottom of the UI to accompany these sounds, like subtitles in a movie.
+Ten en cuenta que algunos jugadores podrían estar jugando con su sonido apagado. Si estás usando el sonido como una forma de proporcionar instrucciones de la escena o una pieza clave en las mecánicas del juego, intenta también proporcionar algo visual que indique en la misma dirección. Por ejemplo, podrías mostrar texto en la parte inferior de la UI para acompañar estos sonidos, como subtítulos en una película.
 
-### User Interface
+### Interfaz de Usuario
 
-This section is aimed at helping you construct a narrative through the design of your scene that drives the player’s focus onto the elements that matter the most. Making good use of the tools described here can make their experience a lot more immersive and successful.
+Esta sección está destinada a ayudarte a construir una narrativa a través del diseño de tu escena que dirija el enfoque del jugador a los elementos que más importan. Hacer un buen uso de las herramientas descritas aquí puede hacer que su experiencia sea mucho más inmersiva y exitosa.
 
-We can’t understate how valuable color, icons, motion and scale are for sending the right message across: everything in the scene conveys a meaning, remember that.
+No podemos subestimar lo valiosos que son el color, los íconos, el movimiento y la escala para enviar el mensaje correcto: todo en la escena transmite un significado, recuerda eso.
 
 #### Layout
 
-Be careful about placing your UI in screen regions that overlap with the default Decentraland UI elements. The default Decentraland UI, including minimap, chat, etc, is designed to only cover the left 25% of the screen. The rest of the screen real estate is a safe zone, free to use for content creators.
+Ten cuidado al colocar tu UI en regiones de la pantalla que se superponen con los elementos predeterminados de la UI de Decentraland. La UI predeterminada de Decentraland, incluyendo minimapa, chat, etc., está diseñada para cubrir solo el 25% izquierdo de la pantalla. El resto del espacio de la pantalla es una zona segura, libre para usar por los creadores de contenido.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/UI-Zones.png" alt="Screen regions used by UI" width="300"><figcaption></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/UI-Zones.png" alt="Regiones de pantalla usadas por la UI" width="300"><figcaption></figcaption></figure>
 
-There are no restrictions for placing UI elements in the left 25% of the screen, but keep in mind that the explorer is continually making changes and improvements to its design. Any space that is not occluded in that region today could be covered in future versions.
+No hay restricciones para colocar elementos de UI en el 25% izquierdo de la pantalla, pero ten en cuenta que el explorador está continuamente haciendo cambios y mejoras a su diseño. Cualquier espacio que no esté ocluido en esa región hoy podría estar cubierto en futuras versiones.
 
 {% hint style="warning" %}
-**📔 Note**: UI elements from scenes and smart wearables always appear on a layer behind the default Decentraland UI.
+**📔 Nota**: Los elementos de UI de escenas y smart wearables siempre aparecen en una capa detrás de la UI predeterminada de Decentraland.
 {% endhint %}
 
-Always keep a grid in mind and use it as your main criteria when spatially organizing your UI. If you are working on a scene where a HUD is needed, you can start by putting all the consumables together (e.g. currency, food, life), and on the other side stockables such as tools or weapons. Try to be consistent about the grid metrics and padding. Make the feedback for every player action clear.
+Siempre ten una cuadrícula en mente y úsala como tu criterio principal al organizar espacialmente tu UI. Si estás trabajando en una escena donde se necesita un HUD, puedes comenzar poniendo todos los consumibles juntos (por ejemplo, moneda, comida, vida), y en el otro lado los almacenables como herramientas o armas. Intenta ser consistente sobre las métricas de la cuadrícula y el padding. Haz que la retroalimentación para cada acción del jugador sea clara.
 
 #### Color
 
-It’s important to choose a color palette, as this gives your scene an identity and also signals relationships and hierarchy between elements.
+Es importante elegir una paleta de colores, ya que esto le da a tu escena una identidad y también señala relaciones y jerarquía entre elementos.
 
-When putting together a color palette, start out by selecting a main color, and optionally a secondary one. Then you should decide if you want the palette to be analogous, complementary, or triadic, etc, in relation to that main color.
+Al crear una paleta de colores, comienza seleccionando un color principal, y opcionalmente uno secundario. Luego debes decidir si quieres que la paleta sea análoga, complementaria o triádica, etc., en relación con ese color principal.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-color-wheel2.png" alt="Chromatic color palette" width="300"><figcaption><p>Chromatic color palette</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-color-wheel2.png" alt="Paleta de colores cromática" width="300"><figcaption><p>Paleta de colores cromática</p></figcaption></figure>
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-color-wheel.png" alt="Strategies for combining colors properly" width="300"><figcaption><p>Strategies for combining colors properly</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-color-wheel.png" alt="Estrategias para combinar colores adecuadamente" width="300"><figcaption><p>Estrategias para combinar colores adecuadamente</p></figcaption></figure>
 
 {% hint style="info" %}
-**💡 Tip**: Free color palette generators we recommend: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
+**💡 Tip**: Generadores de paletas de colores gratuitos que recomendamos: [Coolors](https://coolors.co), [Adobe Color CC](https://color.adobe.com/), [Colour Lovers](http://www.colourlovers.com), [Color Hunt](http://www.colorhunt.co), [Color by Hailpixel](http://color.hailpixel.com), [Colour Code](http://colourco.de), [Sip](https://sipapp.io/), [Color Scheme Designer by Paletton](http://paletton.com), [Cohesive Colors](http://javierbyte.github.io/cohesive-colors), [Colr](http://www.colr.org)
 {% endhint %}
 
-The main color should be the most frequently used across your UI components. If your palette doesn’t have a secondary color, you can accent elements by combining the main color with black or white. Having a secondary color is not mandatory, but it helps emphasize and distinguish your scene UI elements. Secondary colors work best for highlights, selection controls (sliders and switches), links and headlines.
+El color principal debe ser el más frecuentemente usado en tus componentes de UI. Si tu paleta no tiene un color secundario, puedes acentuar elementos combinando el color principal con negro o blanco. Tener un color secundario no es obligatorio, pero ayuda a enfatizar y distinguir tus elementos de UI de la escena. Los colores secundarios funcionan mejor para resaltados, controles de selección (sliders y switches), enlaces y titulares.
 
-Remember that each color has its own unique expressive qualities, take advantage of that to communicate messages through them. For example, red is often associated with negative connotations whilst green is associated with positive connotations.
+Recuerda que cada color tiene sus propias cualidades expresivas únicas, aprovecha eso para comunicar mensajes a través de ellos. Por ejemplo, el rojo a menudo se asocia con connotaciones negativas mientras que el verde se asocia con connotaciones positivas.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-switches.png" alt="Colored switches" width="300"><figcaption><p>Using color the wrong way can be confusing</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-switches.png" alt="Switches coloreados" width="300"><figcaption><p>Usar el color de manera incorrecta puede ser confuso</p></figcaption></figure>
 
-You can also use colors strategically to indicate state changes, for example changing the color of an element to indicate if it’s active or inactive.
+También puedes usar colores estratégicamente para indicar cambios de estado, por ejemplo cambiando el color de un elemento para indicar si está activo o inactivo.
 
 {% hint style="warning" %}
-**📔 Note**: States communicate the status of UI elements. The states of an element should maintain a certain continuity, but they must have clear affordances and be easily distinguishable from other states and the surrounding layout.
+**📔 Nota**: Los estados comunican el estatus de los elementos de UI. Los estados de un elemento deben mantener una cierta continuidad, pero deben tener affordances claras y ser fácilmente distinguibles de otros estados y del layout circundante.
 {% endhint %}
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-active-button.png" alt="Active inactive button" width="300"><figcaption><p>Using color for button states</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-active-button.png" alt="Botón activo inactivo" width="300"><figcaption><p>Usar color para estados de botones</p></figcaption></figure>
 
-Warning! When selecting colors that will be shown in superposition, take special care of making sure that they are legible when used together. Here’s a fundamental rule: the colors of elements that are shown together should always have plenty of contrast between them. Be mindful that some players might be looking at their screens under suboptimal lighting conditions, which makes reading harder.
+¡Advertencia! Al seleccionar colores que se mostrarán en superposición, ten especial cuidado de asegurarte de que sean legibles cuando se usan juntos. Aquí hay una regla fundamental: los colores de los elementos que se muestran juntos siempre deben tener mucho contraste entre ellos. Ten en cuenta que algunos jugadores podrían estar mirando sus pantallas bajo condiciones de iluminación subóptimas, lo que hace que la lectura sea más difícil.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-icons.png" alt="Icon contrast" width="300"><figcaption><p>Both icons can be distinguished, but the first one has better contrast. It becomes easier to read and requires less effort to understand.</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-icons.png" alt="Contraste de íconos" width="300"><figcaption><p>Ambos íconos se pueden distinguir, pero el primero tiene mejor contraste. Se vuelve más fácil de leer y requiere menos esfuerzo para entender.</p></figcaption></figure>
 
-#### Typographic hierarchy
+#### Jerarquía tipográfica
 
-Try to define at least a 3-type scale for Titles, Subtitles, and Body. Be careful with the use of color and font size. All font sizes should be 12 px or larger.
+Intenta definir al menos una escala de 3 tipos para Títulos, Subtítulos y Cuerpo. Ten cuidado con el uso del color y el tamaño de fuente. Todos los tamaños de fuente deben ser de 12 px o más grandes.
 
-If you are going to place text that is displayed over imagery (or over the world), you will surely need to experiment with its legibility. In those cases, we suggest that you add a colored solid region, in a layer between the text and images, that way you can ensure that the text remains legible.
+Si vas a colocar texto que se muestra sobre imágenes (o sobre el mundo), seguramente necesitarás experimentar con su legibilidad. En esos casos, sugerimos que agregues una región sólida coloreada, en una capa entre el texto y las imágenes, de esa manera puedes asegurar que el texto permanezca legible.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-text-over-images.png" alt="Text over images" width="300"><figcaption><p>Prioritize legibility</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-text-over-images.png" alt="Texto sobre imágenes" width="300"><figcaption><p>Prioriza la legibilidad</p></figcaption></figure>
 
-#### Icons
+#### Íconos
 
-Icons synthesise information, helping you identify actions through images. They are an amazingly powerful tool for providing input that can be interpreted fast, as opposed to using text to label things, which demands more of the player’s attention and time. It’s also useful to show icons in combination with text, as this helps disambiguate their meanings.
+Los íconos sintetizan información, ayudándote a identificar acciones a través de imágenes. Son una herramienta increíblemente poderosa para proporcionar entrada que puede interpretarse rápidamente, en oposición a usar texto para etiquetar cosas, lo que demanda más atención y tiempo del jugador. También es útil mostrar íconos en combinación con texto, ya que esto ayuda a desambiguar sus significados.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-icons2.png" alt="Icon examples" width="300"><figcaption><p>Use icons as a universal language</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-icons2.png" alt="Ejemplos de íconos" width="300"><figcaption><p>Usa íconos como un lenguaje universal</p></figcaption></figure>
 
-#### Motion
+#### Movimiento
 
-Use motion to provide feedback and lead the way when needed. Motion helps players focus their attention and helps maintain continuity as the UI changes.
+Usa el movimiento para proporcionar retroalimentación y liderar el camino cuando sea necesario. El movimiento ayuda a los jugadores a enfocar su atención y ayuda a mantener la continuidad a medida que la UI cambia.
 
-<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-glow.png" alt="Adding glow" width="300"><figcaption><p>Use particles, scale, or fading margins to make things stand out</p></figcaption></figure>
+<figure><img src="https://github.com/decentraland/docs-creator/blob/main/images/media/ux-glow.png" alt="Agregar brillo" width="300"><figcaption><p>Usa partículas, escala o márgenes que se desvanecen para hacer que las cosas destaquen</p></figcaption></figure>
 
-#### Writing and content structure
+#### Escritura y estructura de contenido
 
-UI text can make interfaces more usable and gives players more confidence in their actions. Always make UI text as concise as possible. Players are there to play, not to read. Any text that seems too long won’t be read by most players.
+El texto de la UI puede hacer que las interfaces sean más utilizables y da a los jugadores más confianza en sus acciones. Siempre haz que el texto de la UI sea lo más conciso posible. Los jugadores están allí para jugar, no para leer. Cualquier texto que parezca demasiado largo no será leído por la mayoría de los jugadores.
 
-Receive your players with a Welcome Message and tell them the objective of the scene. Start by clarifying their goal in the scene, then the actions needed to achieve it. Then you can reveal information progressively as it’s needed, this way players won’t feel overwhelmed on the very beginning of the experience. As with graphic resources, try to use consistent words across your UI features and storytelling.
+Recibe a tus jugadores con un Mensaje de Bienvenida y cuéntales el objetivo de la escena. Comienza aclarando su objetivo en la escena, luego las acciones necesarias para lograrlo. Luego puedes revelar información progresivamente a medida que se necesite, de esta manera los jugadores no se sentirán abrumados al principio de la experiencia. Al igual que con los recursos gráficos, intenta usar palabras consistentes en tus características de UI y narrativa.
 
-SDK New Features - Coming Soon!
+SDK Nuevas Funciones - ¡Próximamente!
 
-Objects interactions Now it’s not possible for players to tell which objects are interactive and which aren’t, until they actually click or press buttons on them. We have been working on a new feature for creators to be able to show custom toast messages when aiming at an interactive object. This message conveys which input to use and may have custom text to describe the effects of interacting with it. We highly recommend that you use it when released, your scene will feel more natural and easy to use.
+Interacciones con objetos Ahora no es posible que los jugadores sepan qué objetos son interactivos y cuáles no, hasta que realmente hacen clic o presionan botones en ellos. Hemos estado trabajando en una nueva función para que los creadores puedan mostrar mensajes toast personalizados al apuntar a un objeto interactivo. Este mensaje transmite qué entrada usar y puede tener texto personalizado para describir los efectos de interactuar con él. Recomendamos encarecidamente que lo uses cuando se lance, tu escena se sentirá más natural y fácil de usar.
 
-3rd person camera We’re currently experimenting with adding support for a 3rd person camera. You can try it out in the explorer by hitting the ‘V’ key. (Note, it’s not supported yet in a scene preview). You can start thinking of developing incredible new experiences or games that might be much more appealing thanks to a 3rd person camera!
+Cámara en tercera persona Actualmente estamos experimentando con agregar soporte para una cámara en tercera persona. Puedes probarlo en el explorador presionando la tecla 'V'. (Nota, aún no es compatible en una vista previa de escena). ¡Puedes comenzar a pensar en desarrollar nuevas experiencias o juegos increíbles que podrían ser mucho más atractivos gracias a una cámara en tercera persona!

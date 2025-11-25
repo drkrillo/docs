@@ -1,20 +1,17 @@
 ---
-description: Debug and troubleshoot your scenes
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/debugging
+description: Depura y soluciona problemas en tus scenes
 ---
 
 # Debugging
 
-Learn how to debug your scenes effectively, both in preview mode and in production. This section covers debugging tools, common issues, and troubleshooting strategies.
+Aprende cómo depurar tus scenes eficazmente, tanto en modo preview como en producción. Esta sección cubre herramientas de depuración, problemas comunes y estrategias de solución de problemas.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Debugging in preview mode
-* Debugging deployed scenes in production
-* Reading error logs and stack traces
-* Common issues and solutions
-* Reporting bugs effectively
+* Depurar en modo preview
+* Depurar scenes desplegadas en producción
+* Leer logs de error y stack traces
+* Problemas comunes y soluciones
+* Reportar bugs eficazmente
 
-Good debugging skills are essential for creating reliable, bug-free experiences.
+Buenas habilidades de depuración son esenciales para crear experiencias confiables y libres de bugs.

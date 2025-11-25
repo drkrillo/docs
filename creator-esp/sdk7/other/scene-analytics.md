@@ -1,22 +1,19 @@
 ---
-description: Track player analytics for your scene
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/other/scene-analytics
+description: Rastrea analíticas de jugadores para tu escena
 ---
 
-# Scene Analytics
+# Analíticas de Escena
 
-As a creator, it's very valuable to track player visits and the way in which players interact with your scene. Instead of assuming, you can obtain real data and make informed decisions while iterating on your designs.
+Como creador, es muy valioso rastrear las visitas de los jugadores y la forma en que los jugadores interactúan con tu escena. En lugar de asumir, puedes obtener datos reales y tomar decisiones informadas mientras iteras en tus diseños.
 
-*   The [Atlas Corp](https://analytics-app.atlascorp.io/home) produced a powerful analytics tool that is specially designed for using in Decentraland scenes. It was originally funded by [a grant in the Decentraland DAO](https://decentraland.org/governance/proposal?id=fe85ab06-618d-4181-960d-fc32d5f0a7e1).
+*   [Atlas Corp](https://analytics-app.atlascorp.io/home) produjo una poderosa herramienta de analíticas que está especialmente diseñada para usar en escenas de Decentraland. Fue originalmente fondeada por [una grant en el DAO de Decentraland](https://decentraland.org/governance/proposal?id=fe85ab06-618d-4181-960d-fc32d5f0a7e1).
 
-    Builders can customize their own data points they want to collect, and get more granular feedback that can be visualized.
-*   The [WeMeta team](https://www.wemetalabs.com/) produced another analytics tool designed for using in Decentraland scenes. It was originally funded by [a grant in the Decentraland DAO](https://forum.decentraland.org/t/dao-qmdxcqc-wemeta-builder-tag/8194).
+    Los constructores pueden personalizar sus propios puntos de datos que quieren recopilar, y obtener retroalimentación más granular que puede ser visualizada.
+*   El [equipo de WeMeta](https://www.wemetalabs.com/) produjo otra herramienta de analíticas diseñada para usar en escenas de Decentraland. Fue originalmente fondeada por [una grant en el DAO de Decentraland](https://forum.decentraland.org/t/dao-qmdxcqc-wemeta-builder-tag/8194).
 
-    Through a one-line code snippet (the 'Builder Tag'), you can expose/access (via API or dashboard) a myriad of interesting scene data including unique visitors, heat maps of visitor foot traffic, visitor activity, your scene rank and more.
+    A través de un fragmento de código de una línea (el 'Builder Tag'), puedes exponer/acceder (vía API o dashboard) una miríada de datos de escena interesantes incluyendo visitantes únicos, mapas de calor del tráfico peatonal de visitantes, actividad de visitantes, el rango de tu escena y más.
 
-    For additional help or suggestions you can reach out to the WeMeta team [here](https://github.com/decentraland/docs-creator/blob/main/sdk7/other/\[https:/docs.wemeta.world]\(https:/www.wemetalabs.com/\)/README.md) or [by mail](mailto:contact@wemeta.world)
-*   The [Decentraland Builder](https://builder.decentraland.org) exposes basic data about user weekly visits to your scenes. This data is only available to users with ownership or operator rights on these parcels, and there is no historical record for checking past periods. As a scene creator you don't need to do any prior actions, this data is available for all published scenes.
+    Para ayuda adicional o sugerencias puedes contactar al equipo de WeMeta [aquí](https://github.com/decentraland/docs-creator/blob/main/sdk7/other/\[https:/docs.wemeta.world]\(https:/www.wemetalabs.com/\)/README.md) o [por mail](mailto:contact@wemeta.world)
+*   El [Decentraland Builder](https://builder.decentraland.org) expone datos básicos sobre visitas semanales de usuarios a tus escenas. Estos datos solo están disponibles para usuarios con derechos de propiedad u operador en estas parcelas, y no hay un registro histórico para verificar períodos pasados. Como creador de escenas no necesitas hacer ninguna acción previa, estos datos están disponibles para todas las escenas publicadas.
 
-    To access this data, visit the [Decentraland Builder](https://builder.decentraland.org), select the **Land** tab, then select a parcel or estate that you own or have rights on. There you will find data for any scene in that location. The data includes total user visits, median session time and peak concurrent users during the last 7 days.
+    Para acceder a estos datos, visita el [Decentraland Builder](https://builder.decentraland.org), selecciona la pestaña **Land**, luego selecciona una parcela o estate que poseas o sobre la que tengas derechos. Allí encontrarás datos para cualquier escena en esa ubicación. Los datos incluyen visitas totales de usuarios, tiempo de sesión mediano y usuarios concurrentes pico durante los últimos 7 días.

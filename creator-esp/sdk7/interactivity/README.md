@@ -1,27 +1,24 @@
 ---
-description: Create interactive experiences
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity
+description: Crea experiencias interactivas
 ---
 
 # Interactivity
 
-Make your scenes interactive by responding to player actions, implementing game mechanics, and creating engaging experiences. This section covers all the tools for player interaction.
+Haz tus scenes interactivas respondiendo a acciones del jugador, implementando mecánicas de juego y creando experiencias atractivas. Esta sección cubre todas las herramientas para la interacción del jugador.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Button events and click interactions
-* Avatar modifiers and player control
+* Eventos de botones e interacciones de clic
+* Modificadores de avatar y control del jugador
 * Event listeners
-* External links and browser integration
-* Input modifiers and key bindings
-* Move player teleportation
-* NPC avatars
-* Raycasting for advanced interactions
-* Runtime data and scene state
-* Skybox control
-* Triggering emotes
-* User data and player information
+* Enlaces externos e integración con navegador
+* Modificadores de input y asignaciones de teclas
+* Teletransportación de jugador (Move player)
+* Avatares NPC
+* Raycasting para interacciones avanzadas
+* Runtime data y estado de la scene
+* Control de skybox
+* Activación de emotes
+* Datos de usuario e información del jugador
 
-Interactivity is what transforms static scenes into engaging experiences.
+La interactividad es lo que transforma scenes estáticas en experiencias atractivas.

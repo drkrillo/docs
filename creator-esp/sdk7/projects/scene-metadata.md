@@ -1,79 +1,75 @@
 ---
-description: Learn how to set up a scene and configure its metadata.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/scene-metadata
+description: Aprende cómo configurar una escena y configurar sus metadatos.
 ---
 
-# Scene Metadata
+# Metadatos de Escena
 
-A scene is a Decentraland project that is spatially delimited, and is mapped to one or several parcels. If a scene is deployed to the Decentraland Genesis City map, players can experience it by visiting the scene's coordinates. If a scene is deployed to a [World](../../worlds/about.md), players can visit it via URL.
+Una escena es un proyecto de Decentraland que está delimitado espacialmente, y está mapeado a una o varias parcelas. Si una escena se despliega al mapa de Genesis City de Decentraland, los jugadores pueden experimentarla visitando las coordenadas de la escena. Si una escena se despliega a un [World](../worlds/about.md), los jugadores pueden visitarla vía URL.
 
-See [Files in a scene](../../../creator/sdk7/projects/scene-files.md) for a list of what files are used in a scene project.
+Consulta [Archivos en una escena](../sdk7/projects/scene-files.md) para obtener una lista de qué archivos se usan en un proyecto de escena.
 
-### Metadata
+### Metadatos
 
-To edit a scene's metadata on the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), open a scene and click the **pencil icon**.
+Para editar los metadatos de una escena en el [Scene Editor](../scene-editor/get-started/about-editor.md), abre una escena y haz clic en el **ícono de lápiz**.
 
-![](../../.gitbook/assets/pencil-icon.png)
+![](../images/editor/pencil-icon.png)
 
-This opens up the scene menu, where you can configure multiple properties.
+Esto abre el menú de la escena, donde puedes configurar múltiples propiedades.
 
-![](../../.gitbook/assets/metadata-ui.png)
+![](../images/editor/metadata-ui.png)
 
-Alternatively, you can directly edit the `scene.json` file, where all of these values are stored.
-
-{% hint style="warning" %}
-**📔 Note**: Do not add custom fields to the `scene.json` file that are not mentioned in this page, as it could cause issues loading your scene.
-{% endhint %}
-
-### Scene title, description, and image
-
-It's very important to give your scene a title, a description and a thumbnail image to attract players to your scene and so they know what to expect.
-
-Players will see these displayed on a modal when they select the parcels of your scene on the map. They will also see these in a confirmation screen when being [teleported](../../../creator/sdk7/interactivity/external-links.md) there by another scene. Setting up compelling data here can significantly help drive traffic to your scene.
-
-When players navigate the world and enter your scene, they are able to read the scene title from under the minimap.
-
-![](../../.gitbook/assets/scene-name.png)
-
-Add this data via the scene menu in the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md).
-
-The thumbnail should be a _.png_ image of a recommended size of _228x160_ pixels. The minimum supported size is _196x143_ pixels. The image may be stretched if the width-to-height proportions don't match _228x160_.
-
-The image on `navmapThumbnail` should be a path to an image file in the project folder. It can also be a URL link to an image hosted elsewhere.
+Alternativamente, puedes editar directamente el archivo `scene.json`, donde se almacenan todos estos valores.
 
 {% hint style="warning" %}
-**📔 Note**: If you host an image elsewhere, make sure this is in a site that has permissive CORS policies for displaying content on other sites.
+**📔 Nota**: No agregues campos personalizados al archivo `scene.json` que no se mencionen en esta página, ya que podría causar problemas al cargar tu escena.
 {% endhint %}
 
-In case you want other developers to be able to reach out to you, you can also add contact information to your scene.
+### Título, descripción e imagen de la escena
 
-### Categories
+Es muy importante darle a tu escena un título, una descripción y una imagen miniatura para atraer jugadores a tu escena y que sepan qué esperar.
 
-You can add categories to your scene to help players and users explore Decentraland better. These are used in the [Decentraland Places dApp](https://places.decentraland.org) to categorize each place and make it easier for users to find what they're interested in.
+Los jugadores verán estos datos mostrados en un modal cuando seleccionen las parcelas de tu escena en el mapa. También los verán en una pantalla de confirmación cuando sean [teletransportados](../sdk7/interactivity/external-links.md) allí por otra escena. Configurar datos convincentes aquí puede ayudar significativamente a conducir tráfico a tu escena.
 
-**Categories** need to be chosen from a pre-defined list of options:
+Cuando los jugadores navegan por el mundo y entran a tu escena, pueden leer el título de la escena desde debajo del minimapa.
 
-* 🎨 Art
-* 🕹️ Game
+![](../images/media/scene-name.png)
+
+Agrega estos datos a través del menú de escena en el [Scene Editor](../scene-editor/get-started/about-editor.md).
+
+La miniatura debe ser una imagen _.png_ de un tamaño recomendado de _228x160_ píxeles. El tamaño mínimo soportado es _196x143_ píxeles. La imagen puede estirarse si las proporciones ancho-alto no coinciden con _228x160_.
+
+La imagen en `navmapThumbnail` debe ser una ruta a un archivo de imagen en la carpeta del proyecto. También puede ser un enlace URL a una imagen alojada en otro lugar.
+
+{% hint style="warning" %}
+**📔 Nota**: Si alojas una imagen en otro lugar, asegúrate de que esté en un sitio que tenga políticas CORS permisivas para mostrar contenido en otros sitios.
+{% endhint %}
+
+En caso de que quieras que otros desarrolladores puedan contactarte, también puedes agregar información de contacto a tu escena.
+
+### Categorías
+
+Puedes agregar categorías a tu escena para ayudar a los jugadores y usuarios a explorar Decentraland mejor. Estas se usan en la [dApp Places de Decentraland](https://places.decentraland.org) para categorizar cada lugar y facilitar que los usuarios encuentren lo que les interesa.
+
+Las **Categorías** deben elegirse de una lista predefinida de opciones:
+
+* 🎨 Arte
+* 🕹️ Juego
 * 🃏 Casino
 * 👥 Social
-* 🎶 Music
-* 👠 Fashion
+* 🎶 Música
+* 👠 Moda
 * 🪙 Crypto
-* 📚 Education
-* 🛍️ Shop
-* 🏢 Business
-* 🏅 Sports
+* 📚 Educación
+* 🛍️ Tienda
+* 🏢 Negocios
+* 🏅 Deportes
 * 🏃 Parkour
 
-A scene can belong to more than one category, it can have a maximum of 3 listed categories.
+Una escena puede pertenecer a más de una categoría, puede tener un máximo de 3 categorías listadas.
 
-In the `scene.json` categories are listed in the `tags` array.
+En el `scene.json` las categorías se listan en el array `tags`.
 
-These are the predefined categories:
+Estas son las categorías predefinidas:
 
 * `art`
 * `game`
@@ -88,7 +84,7 @@ These are the predefined categories:
 * `sports`
 * `parkour`
 
-For example, a Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+Por ejemplo, una Escena podría etiquetarse como `game` y `casino` agregando lo siguiente al `scene.json`
 
 ```json
   "tags": [
@@ -97,18 +93,18 @@ For example, a Scene could be tagged as `game` and `casino` by adding the follow
   ],
 ```
 
-After that, the scene is listed on the Places dApp under the `game` and `casino` categories.
+Después de eso, la escena se lista en la dApp Places bajo las categorías `game` y `casino`.
 
-### Age Rating
+### Clasificación por Edad
 
-The **Age Rating** field is used to classify the content of your scene based on its appropriateness for different age groups. It helps in filtering content for players. The following options are available:
+El campo **Age Rating** se usa para clasificar el contenido de tu escena según su idoneidad para diferentes grupos de edad. Ayuda a filtrar contenido para los jugadores. Las siguientes opciones están disponibles:
 
-* **🟢 `T` for Teens (13+)**: This is the minimum age requirement as specified in Decentraland's [Terms of Use](https://decentraland.org/terms/#8-children). Opt for this category if your scene is limited to moderate violence, suggestive or horror-themed content, simulated gambling, and mild language.
-* **🟡 `A` for Adults (18+)**: Choose this category if your scene features any of the following: intense offensive language, graphic violence, explicit sexual content and/or nudity, real money gambling, or substances like alcohol, tobacco, and drugs.
+* **🟢 `T` para Teens (13+)**: Este es el requisito de edad mínima según se especifica en los [Términos de Uso](https://decentraland.org/terms/#8-children) de Decentraland. Opta por esta categoría si tu escena se limita a violencia moderada, contenido sugestivo o de terror, apuestas simuladas y lenguaje moderado.
+* **🟡 `A` para Adults (18+)**: Elige esta categoría si tu escena presenta alguno de los siguientes: lenguaje ofensivo intenso, violencia gráfica, contenido sexual explícito y/o desnudez, apuestas con dinero real, o sustancias como alcohol, tabaco y drogas.
 
-When editing the Age Rating via the `scene.json`, rating is a **single-letter code**, write either **T** for teens, or **A** for adults.
+Al editar el Age Rating a través del `scene.json`, rating es un **código de una sola letra**, escribe ya sea **T** para teens, o **A** para adults.
 
-![](../../.gitbook/assets/content-moderation-flag-icon.png)
+![](../images/media/content-moderation-flag-icon.png)
 
 ```json
  "scene": {
@@ -116,32 +112,32 @@ When editing the Age Rating via the `scene.json`, rating is a **single-letter co
   }
 ```
 
-#### Restricted Content
+#### Contenido Restringido
 
-There is a third category for scenes: 🔴 `R` for Restricted. This rating is manually applied by Content Moderators to scenes that violate Decentraland's [Content Policy](https://decentraland.org/content). Violations may include, but are not limited to:
+Hay una tercera categoría para escenas: 🔴 `R` para Restringido. Esta clasificación es aplicada manualmente por Moderadores de Contenido a escenas que violan la [Política de Contenido](https://decentraland.org/content) de Decentraland. Las violaciones pueden incluir, pero no se limitan a:
 
-* Suspicious content or spam
-* Abusive or hateful content
-* Sexual or degrading content
-* Child abuse
-* Harassment or bullying
-* Promotion of terrorism/violence
-* IP/Copyright infringement
+* Contenido sospechoso o spam
+* Contenido abusivo u odioso
+* Contenido sexual o degradante
+* Abuso infantil
+* Acoso o bullying
+* Promoción de terrorismo/violencia
+* Infracción de IP/Copyright
 
-Scenes with this rating won't load and no one will be able to interact with them. If your scene falls into this category, you should review and update it to comply with the [Content Policy](https://decentraland.org/content).
+Las escenas con esta clasificación no se cargarán y nadie podrá interactuar con ellas. Si tu escena cae en esta categoría, debes revisarla y actualizarla para cumplir con la [Política de Contenido](https://decentraland.org/content).
 
 ### Feature Toggles
 
-There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
+Hay ciertas funcionalidades que pueden deshabilitarse en escenas específicas para que los jugadores no puedan usarlas de forma abusiva. Configura estas en la pestaña **Settings** de la configuración de escena.
 
-![](../../.gitbook/assets/scene-restrictions.png)
+![](../images/editor/scene-restrictions.png)
 
-Currently, only the following feature is handled like this:
+Actualmente, solo se maneja de esta manera la siguiente funcionalidad:
 
-* **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
-* **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences](../../../creator/sdk7/projects/portable-experiences.md) but also [smart wearables](../../../creator/sdk7/projects/smart-wearables.md). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+* **Voice Chat**: Se refiere a que los jugadores usen sus micrófonos para tener conversaciones por chat de voz con otros jugadores cercanos.
+* **Disable Portable Experiences**: Esta configuración establecerá el comportamiento para cualquier experiencia portable de un jugador mientras esté dentro de tu escena. Esto incluye no solo [experiencias portables](../sdk7/projects/portable-experiences.md) sino también [smart wearables](../sdk7/projects/smart-wearables.md). Con esta configuración, puedes elegir mantenerlos todos habilitados (predeterminado), deshabilitarlos u ocultar su UI. Esto es útil para escenas donde las experiencias portables podrían dar una ventaja injusta a algunos jugadores, por ejemplo usar un jetpack en un desafío de parkour. También se recomienda prevenirlos en escenas donde ocurren transacciones blockchain, y donde una experiencia portable maliciosa podría potencialmente suplantar la UI de la escena.
 
-On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
+En el archivo `scene.json`, estos toggles se gestionan bajo `featureToggles`. Las funcionalidades correspondientes están habilitadas por defecto, a menos que se especifiquen como _disabled_ en el archivo `scene.json`.
 
 ```json
 "featureToggles": {
@@ -150,31 +146,31 @@ On the `scene.json` file, these toggles are managed under `featureToggles`. The 
 },
 ```
 
-If a `featureToggles` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+Si una propiedad `featureToggles` no existe en tu archivo `scene.json`, créala al nivel raíz en el árbol json.
 
-### Spawn location
+### Ubicación de aparición
 
-The **Spawn Settings** in the **Settings** tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
+Los **Spawn Settings** en la pestaña **Settings** definen dónde aparecen los jugadores cuando acceden a tu escena directamente, ya sea escribiendo directamente las coordenadas en el navegador o teletransportándose.
 
-![](../../.gitbook/assets/spawn-point-ui.png)
+![](../images/editor/spawn-point-ui.png)
 
-Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
+Tu escena podría tener objetos que pueden bloquear a los jugadores de moverse si resulta que aparecen justo sobre ellos, como árboles o escaleras, o tu escena podría tener un terreno elevado. Sería una mala experiencia para los jugadores si aparecieran sobre algo que no les permite moverse. Por eso tienes la opción de establecer múltiples posiciones de aparición en ubicaciones ad-hoc.
 
-The position is comprised of coordinates inside the scene. These numbers refer to a position within the parcel, similar to what you'd use in the scene's code in a Transform component to [position an entity](../../../creator/sdk7/3d-essentials/entity-positioning.md).
+La posición está compuesta por coordenadas dentro de la escena. Estos números se refieren a una posición dentro de la parcela, similar a lo que usarías en el código de la escena en un componente Transform para [posicionar una entidad](../sdk7/3d-essentials/entity-positioning.md).
 
 {% hint style="warning" %}
-**📔 Note**: All spawn points must be within the parcels that make up the scene. You can't spawn a player outside the space of these parcels.
+**📔 Nota**: Todos los puntos de aparición deben estar dentro de las parcelas que componen la escena. No puedes hacer aparecer a un jugador fuera del espacio de estas parcelas.
 {% endhint %}
 
-Check the **Random Offset** box to randomly offset the spawning players around the spawn point, with a maximum value. This prevents all players from appearing overlapping each other when they spawn, which looks especially bad in crowded scenes. The **Max Offset** value is the maximum possible distance from the original spawn point, in both the X or Z axis.
+Marca la casilla **Random Offset** para desplazar aleatoriamente a los jugadores que aparecen alrededor del punto de aparición, con un valor máximo. Esto evita que todos los jugadores aparezcan superpuestos cuando aparecen, lo que se ve especialmente mal en escenas concurridas. El valor **Max Offset** es la distancia máxima posible desde el punto de aparición original, en el eje X o Z.
 
-Set the **Camera Target** to set the direction in which players start looking when they jump into your scene. This allows you to have better control over their first impression, and can be useful when wanting to help steer them towards a specific direction. By default this points at `{x: 8, y:1, z:8}`, which translates to the center of the scene for single-parcel scenes, or the center of the bottom-left parcel for larger scenes.
+Establece el **Camera Target** para establecer la dirección en la que los jugadores comienzan a mirar cuando saltan a tu escena. Esto te permite tener un mejor control sobre su primera impresión, y puede ser útil cuando quieres ayudar a dirigirlos hacia una dirección específica. Por defecto esto apunta a `{x: 8, y:1, z:8}`, que se traduce al centro de la escena para escenas de una sola parcela, o al centro de la parcela inferior izquierda para escenas más grandes.
 
-Click **Add Spawn Point** to list as many spawn points as you want. Players will randomly appear in one of those.
+Haz clic en **Add Spawn Point** para listar tantos puntos de aparición como quieras. Los jugadores aparecerán aleatoriamente en uno de esos.
 
-#### Spawn points in JSON
+#### Puntos de aparición en JSON
 
-Spawn points can also be configured via the `scene.json` file, on the `spawnPoints` field.
+Los puntos de aparición también pueden configurarse a través del archivo `scene.json`, en el campo `spawnPoints`.
 
 ```json
   "spawnPoints": [
@@ -189,7 +185,7 @@ Spawn points can also be configured via the `scene.json` file, on the `spawnPoin
   ],
 ```
 
-A single scene can have multiple spawn points. This is especially useful in large scenes. To have many spawn points, simply list them as an array.
+Una sola escena puede tener múltiples puntos de aparición. Esto es especialmente útil en escenas grandes. Para tener muchos puntos de aparición, simplemente lístalos como un array.
 
 ```json
   "spawnPoints": [
@@ -212,9 +208,9 @@ A single scene can have multiple spawn points. This is especially useful in larg
   ],
 ```
 
-When there are multiple spawn points, the one that's closest to the coordinates indicated by the player is picked.
+Cuando hay múltiples puntos de aparición, se elige el que está más cerca de las coordenadas indicadas por el jugador.
 
-If a coordinate is marked as `default`, it will always be used, regardless of if it's the closest. If multiple spawn points are marked as `default`, the closest one of these is picked.
+Si una coordenada está marcada como `default`, siempre se usará, independientemente de si es la más cercana. Si múltiples puntos de aparición están marcados como `default`, se elige el más cercano de estos.
 
 ```json
   "spawnPoints": [
@@ -238,9 +234,9 @@ If a coordinate is marked as `default`, it will always be used, regardless of if
   ],
 ```
 
-**Spawn regions**
+**Regiones de aparición**
 
-You can set a whole region in the scene to act as a spawn point. By specifying an array of two numbers on any of the dimensions of the position, players will appear in a random location within this range of numbers. This helps prevent the overlapping of entering players.
+Puedes establecer una región completa en la escena para que actúe como un punto de aparición. Al especificar un array de dos números en cualquiera de las dimensiones de la posición, los jugadores aparecerán en una ubicación aleatoria dentro de este rango de números. Esto ayuda a prevenir la superposición de jugadores que entran.
 
 ```json
   "spawnPoints": [
@@ -255,9 +251,9 @@ You can set a whole region in the scene to act as a spawn point. By specifying a
   ],
 ```
 
-In the example above, players may appear anywhere in the square who's corners are on _1,1,2_ and _5,1,4_.
+En el ejemplo anterior, los jugadores pueden aparecer en cualquier lugar del cuadrado cuyos esquinas están en _1,1,2_ y _5,1,4_.
 
-A scene can also have multiple spawn regions, just like it can have multiple spawn points.
+Una escena también puede tener múltiples regiones de aparición, al igual que puede tener múltiples puntos de aparición.
 
 ```json
   "spawnPoints": [
@@ -280,11 +276,11 @@ A scene can also have multiple spawn regions, just like it can have multiple spa
   ],
 ```
 
-**Rotation**
+**Rotación**
 
-You can also specify the rotation of players when they spawn, so that they're facing in a specific direction.
+También puedes especificar la rotación de los jugadores cuando aparecen, para que estén mirando en una dirección específica.
 
-Simply add a `cameraTarget` field to the spawn point data. The value of `cameraTarget` should reference a location in space, with _x_, _y_ and _z_ coordinates relative to the scene, just like the `position` field.
+Simplemente agrega un campo `cameraTarget` a los datos del punto de aparición. El valor de `cameraTarget` debe referenciar una ubicación en el espacio, con coordenadas _x_, _y_ y _z_ relativas a la escena, al igual que el campo `position`.
 
 ```json
   "spawnPoints": [
@@ -304,17 +300,17 @@ Simply add a `cameraTarget` field to the spawn point data. The value of `cameraT
   ],
 ```
 
-This example spawns a player on _5, 1, 4_ looking East at _10, 1, 4_. If the spawn position is a range, then the player's rotation will always match the indicated target. If there are multiple spawn points, each can have its own separate target.
+Este ejemplo hace aparecer a un jugador en _5, 1, 4_ mirando al Este hacia _10, 1, 4_. Si la posición de aparición es un rango, entonces la rotación del jugador siempre coincidirá con el objetivo indicado. Si hay múltiples puntos de aparición, cada uno puede tener su propio objetivo separado.
 
-### Required Permissions
+### Permisos Requeridos
 
-The `requiredPermissions` property manages various controlled features that could be used in an abusive way and damage a player's experience.
+La propiedad `requiredPermissions` gestiona varias funcionalidades controladas que podrían usarse de manera abusiva y dañar la experiencia de un jugador.
 
 {% hint style="warning" %}
-**📔 Note**: Permissions are only relevant in [portable experiences](../../../creator/sdk7/projects/portable-experiences.md) and [smart wearables](../../../creator/sdk7/projects/smart-wearables.md). Normal scenes (both in parcels or in Worlds) are not affected by these permissions, and are free to use the corresponding functionality.
+**📔 Nota**: Los permisos solo son relevantes en [experiencias portables](../sdk7/projects/portable-experiences.md) y [smart wearables](../sdk7/projects/smart-wearables.md). Las escenas normales (tanto en parcelas como en Worlds) no se ven afectadas por estos permisos, y son libres de usar la funcionalidad correspondiente.
 {% endhint %}
 
-The corresponding features are blocked from being used by the scene, unless the permission is requested in the `scene.json` file.
+Las funcionalidades correspondientes están bloqueadas de ser usadas por la escena, a menos que el permiso sea solicitado en el archivo `scene.json`.
 
 ```json
 "requiredPermissions": [
@@ -323,32 +319,32 @@ The corresponding features are blocked from being used by the scene, unless the 
   ],
 ```
 
-Currently, the following permissions are managed on smart wearables and portable experiences:
+Actualmente, los siguientes permisos se gestionan en smart wearables y experiencias portables:
 
-* `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Refers to [moving a Player](../../../creator/sdk7/interactivity/move-player.md)
-* `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Refers to [Playing emotes on the player avatar](../../../creator/sdk7/interactivity/trigger-emotes.md)
-* `USE_WEB3_API`: Refers to interacting with the player's browser wallets, to make transactions or sign messages.
-* `USE_FETCH`: Refers to sending http requests to 3rd party servers, using `fetch` or `signedFetch`
-* `USE_WEBSOCKET`: Refers to opening websocket connections with 3rd party servers
-* `OPEN_EXTERNAL_LINK`: Refers to prompting the player to open links to external sites
+* `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE`: Se refiere a [mover un Jugador](../sdk7/interactivity/move-player.md)
+* `ALLOW_TO_TRIGGER_AVATAR_EMOTE`: Se refiere a [Reproducir emotes en el avatar del jugador](../sdk7/interactivity/trigger-emotes.md)
+* `USE_WEB3_API`: Se refiere a interactuar con los wallets del navegador del jugador, para hacer transacciones o firmar mensajes.
+* `USE_FETCH`: Se refiere a enviar solicitudes http a servidores de terceros, usando `fetch` o `signedFetch`
+* `USE_WEBSOCKET`: Se refiere a abrir conexiones websocket con servidores de terceros
+* `OPEN_EXTERNAL_LINK`: Se refiere a solicitar al jugador que abra enlaces a sitios externos
 
-If a `requiredPermissions` property doesn't exist in your `scene.json` file, create it at root level in the json tree.
+Si una propiedad `requiredPermissions` no existe en tu archivo `scene.json`, créala al nivel raíz en el árbol json.
 
-### Scene parcels
+### Parcelas de la escena
 
-When [deploying](../../../creator/sdk7/publishing/publishing.md) a scene, the content is uploaded to the coordinates assigned in the scene configuration. A scene can include a single parcel, or a list of up to dozens of them.
+Al [desplegar](../sdk7/publishing/publishing.md) una escena, el contenido se sube a las coordenadas asignadas en la configuración de la escena. Una escena puede incluir una sola parcela, o una lista de hasta docenas de ellas.
 
-Edit this on the second tab of the scene menu in the Scene Editor.
+Edita esto en la segunda pestaña del menú de escena en el Scene Editor.
 
-![](../../.gitbook/assets/scene-parcels-3x3.png)
+![](../images/editor/scene-parcels-3x3.png)
 
-Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
+Usa los dropdowns y haz clic en **Apply Layout** para cambiar las dimensiones de tu escena. También puedes hacer clic en cada parcela individual para desactivarla de tu diseño.
 
-![](../../.gitbook/assets/scene-parcels-toggled.png)
+![](../images/editor/scene-parcels-toggled.png)
 
-The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
+La escena predeterminada tiene sus coordenadas establecidas en _0,0_, esta información no es necesario cambiarla mientras desarrollas una escena offline, a menos que necesites ocupar múltiples parcelas. Necesitarás cambiar esto antes de desplegar, a coordenadas donde tengas permisos de despliegue.
 
-You can also change the scene coordinates on the `scene.json` file:
+También puedes cambiar las coordenadas de la escena en el archivo `scene.json`:
 
 ```json
  "scene": {
@@ -359,9 +355,9 @@ You can also change the scene coordinates on the `scene.json` file:
   }
 ```
 
-The `base` field defines which parcel to consider the base parcel. If your scene has a single parcel, the base should be that parcel. If your scene has multiple parcels, the base should be the bottom-left (South-West) parcel. All entity positions will be measured in reference to the South-West corner of this parcel.
+El campo `base` define qué parcela considerar como parcela base. Si tu escena tiene una sola parcela, la base debe ser esa parcela. Si tu escena tiene múltiples parcelas, la base debe ser la parcela inferior izquierda (Sur-Oeste). Todas las posiciones de entidades se medirán en referencia a la esquina Sur-Oeste de esta parcela.
 
-To display multiple parcels in the scene preview, list as many parcels as you intend to use. They don't need to be the exact parcels you'll deploy to, but they should all be adjacent and arranged in the same way in relation to each other.
+Para mostrar múltiples parcelas en la vista previa de la escena, lista tantas parcelas como pretendas usar. No necesitan ser las parcelas exactas a las que desplegarás, pero todas deben ser adyacentes y estar dispuestas de la misma manera en relación entre sí.
 
 ```json
  "scene": {
@@ -373,66 +369,66 @@ To display multiple parcels in the scene preview, list as many parcels as you in
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The largest scene size you can set is of 45 x 45 parcels.
+**📔 Nota**: El tamaño de escena más grande que puedes establecer es de 45 x 45 parcelas.
 {% endhint %}
 
-#### Set parcels via the command line
+#### Establecer parcelas a través de la línea de comandos
 
-You can set the parcels in your scene by running the `npx update-parcels` command in your scene folder. This is especially useful for large scenes, as you don't need to list every parcel involved.
+Puedes establecer las parcelas en tu escena ejecutando el comando `npx update-parcels` en la carpeta de tu escena. Esto es especialmente útil para escenas grandes, ya que no necesitas listar cada parcela involucrada.
 
-**Single parcel**
+**Parcela única**
 
-Pass a single argument with the scene coords. This coordinate is also set as the base parcel.
+Pasa un solo argumento con las coords de la escena. Esta coordenada también se establece como la parcela base.
 
 `npx update-parcels <parcel>`
 
-For example:
+Por ejemplo:
 
 `npx update-parcels 15,-26`
 
-**Multiple parcels**
+**Múltiples parcelas**
 
-Pass two arguments: the South-West and the North-East parcels. The South-West parcel is also set as the base parcel.
+Pasa dos argumentos: las parcelas Sur-Oeste y Norte-Este. La parcela Sur-Oeste también se establece como la parcela base.
 
 `npx update-parcels <parcel> <parcel>`
 
 {% hint style="info" %}
-**💡 Tip**: The South-West parcel is always the one with the lowest numbers on both the _X_ and _Y_ coordinates.
+**💡 Tip**: La parcela Sur-Oeste siempre es la que tiene los números más bajos tanto en las coordenadas _X_ como _Y_.
 {% endhint %}
 
-For example:
+Por ejemplo:
 
 `npx update-parcels 15,-26 17,-24`
 
-This command generates a 3x3 scene, with its base parcel in `15,-26`.
+Este comando genera una escena 3x3, con su parcela base en `15,-26`.
 
-**Customize Base Parcel**
+**Personalizar Parcela Base**
 
-Pass three arguments: the South-West and the North-East parcels, and the parcel to use as a base parcel.
+Pasa tres argumentos: las parcelas Sur-Oeste y Norte-Este, y la parcela a usar como parcela base.
 
 `npx update-parcels <parcel> <parcel> <parcel>`
 
 {% hint style="warning" %}
-**📔 Note**: The base parcel must be one of the parcels in the scene.
+**📔 Nota**: La parcela base debe ser una de las parcelas en la escena.
 {% endhint %}
 
-**Non-square scenes**
+**Escenas no cuadradas**
 
-The above commands all generate rectangular-shaped scenes. Decentraland scenes can have L shapes or other configurations. You can generate a larger square with `npx update-parcels` and then manually remove excess parcels from the `scene.json` file.
+Los comandos anteriores generan escenas de forma rectangular. Las escenas de Decentraland pueden tener formas en L u otras configuraciones. Puedes generar un cuadrado más grande con `npx update-parcels` y luego eliminar manualmente las parcelas en exceso del archivo `scene.json`.
 
 {% hint style="warning" %}
-**📔 Note**: The base parcel must be one of the parcels in the scene.
+**📔 Nota**: La parcela base debe ser una de las parcelas en la escena.
 {% endhint %}
 
-### Skybox time of day
+### Hora del día del skybox
 
-You can set a fixed time of day for your scene. All players will see the scene with this time of day, and the skybox will not follow the day/night cycle.
+Puedes establecer una hora del día fija para tu escena. Todos los jugadores verán la escena con esta hora del día, y el skybox no seguirá el ciclo día/noche.
 
-Open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option and set the time of day you want.
+Abre la configuración de la escena y haz clic en la pestaña **Settings** para encontrar la sección **Skybox**. Desmarca la opción **Auto** y establece la hora del día que desees.
 
-![](../../../creator/images/editor/fixed-time-of-day.png)
+![](../images/editor/fixed-time-of-day.png)
 
-You can also set the skybox time of day in your scene code. To do this, add the following section to your `scene.json` at root level:
+También puedes establecer la hora del día del skybox en el código de tu escena. Para hacer esto, agrega la siguiente sección a tu `scene.json` al nivel raíz:
 
 ```json
  "skyboxConfig": {
@@ -440,29 +436,29 @@ You can also set the skybox time of day in your scene code. To do this, add the 
   }
 ```
 
-The number refers to the number of seconds since the start of the day, ranging from 0 (that refers to _00:00_) to 86400 (that refers to _24:00_). Any number higher than 86400 is interpreted also as midnight.
+El número se refiere al número de segundos desde el inicio del día, que van desde 0 (que se refiere a _00:00_) hasta 86400 (que se refiere a _24:00_). Cualquier número mayor que 86400 también se interpreta como medianoche.
 
-Here are some more examples of valid values:
+Aquí hay algunos ejemplos más de valores válidos:
 
-* 0 seconds => _00:00_
-* 21600 seconds => _06:00_
-* 43200 seconds => _12:00_
-* 64800 seconds => _18:00_
-* 86400 seconds => _24:00_
+* 0 segundos => _00:00_
+* 21600 segundos => _06:00_
+* 43200 segundos => _12:00_
+* 64800 segundos => _18:00_
+* 86400 segundos => _24:00_
 
-### Fetch metadata from scene code
+### Obtener metadatos desde el código de la escena
 
-[Scene API Reference](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)
+[Referencia de API de Escena](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)
 
-You may need a scene's code to access the fields from the scene metadata, like the parcels that the scene is deployed to, or the spawn point positions. This is especially useful for scenes that are meant to be replicated, or for code that is meant to be reused in other scenes. It's also very useful for libraries, where the library might for example need to know where the scene limits are.
+Puede que el código de una escena necesite acceder a los campos de los metadatos de la escena, como las parcelas a las que se despliega la escena, o las posiciones de los puntos de aparición. Esto es especialmente útil para escenas que están destinadas a ser replicadas, o para código que está destinado a ser reutilizado en otras escenas. También es muy útil para librerías, donde la librería podría, por ejemplo, necesitar saber dónde están los límites de la escena.
 
-To access this data, first import the `getSceneInformation` function:
+Para acceder a estos datos, primero importa la función `getSceneInformation`:
 
 ```ts
 import { getSceneInformation } from '~system/Runtime'
 ```
 
-Then you can call the `getSceneInformation()` function, which returns a json object that includes much of the contents of the scene.json file. The example below shows the path to obtain several of the more common fields you might need from this function's response:
+Luego puedes llamar a la función `getSceneInformation()`, que devuelve un objeto json que incluye gran parte del contenido del archivo scene.json. El ejemplo a continuación muestra la ruta para obtener varios de los campos más comunes que podrías necesitar de la respuesta de esta función:
 
 ```ts
 import { getSceneInformation } from '~system/Runtime'
@@ -476,17 +472,17 @@ executeTask(async () => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: `getSceneInformation()` needs to be run as an [async function](../../../creator/sdk7/programming-patterns/async-functions.md), since the response may delay a fraction of a second or more in returning data. Do not use the deprecated `getSceneInfo()` function.
+**📔 Nota**: `getSceneInformation()` necesita ejecutarse como una [función async](../sdk7/programming-patterns/async-functions.md), ya que la respuesta puede demorar una fracción de segundo o más en devolver datos. No uses la función deprecada `getSceneInfo()`.
 {% endhint %}
 
-The object returned by `getSceneInformation()` includes the following:
+El objeto devuelto por `getSceneInformation()` incluye lo siguiente:
 
-* `baseUrl`: The base URL where the scene's content is hosted
-* `content`: An array with all the files of the scene, including their hash, that can be used together with the baseUrl to retrieve them.
-* `metadataJson`: The full contents of the scene's scene.json, as a string. You must parse this to obtain specific values.
-* `urn`: The unique urn for the scene as a whole.
+* `baseUrl`: La URL base donde se aloja el contenido de la escena
+* `content`: Un array con todos los archivos de la escena, incluyendo su hash, que puede usarse junto con la baseUrl para recuperarlos.
+* `metadataJson`: El contenido completo del scene.json de la escena, como una cadena. Debes analizar esto para obtener valores específicos.
+* `urn`: El urn único para la escena en su totalidad.
 
-The example below parses the contents from `metadataJson` to obtain values from properties in the scene.json file
+El ejemplo a continuación analiza el contenido de `metadataJson` para obtener valores de propiedades en el archivo scene.json
 
 ```ts
 import { getSceneInformation } from '~system/Runtime'

@@ -1,120 +1,116 @@
 ---
-description: Provide users with costless transactions
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/blockchain/deploying-your-own-transactions-server
+description: Proporciona a los usuarios transacciones sin costo
 ---
 
-# Deploying Your Transactions Server
+# Desplegando Tu Servidor de Transacciones
 
-The [transactions-server](https://github.com/decentraland/transactions-server/tree/1.8.0) is a proxy server that relays transactions to [Gelato](https://www.gelato.network/relay). It receives a signed transaction from the client that it's in turn sent to the appropiate network behind the scenes. This allows the server's owner to facilitate it's users with costless transactions
+El [transactions-server](https://github.com/decentraland/transactions-server/tree/1.8.0) es un servidor proxy que retransmite transacciones a [Gelato](https://www.gelato.network/relay). Recibe una transacción firmada del cliente que a su vez se envía a la red apropiada detrás de escena. Esto permite al propietario del servidor facilitar a sus usuarios transacciones sin costo
 
-The transaction server is used to help with the UX of using multiple networks and to prevent them from switching network providers on the fly. The users can stay connected to [Ethereum](https://ethereum.org/en/) and interact with [Polygon](https://polygon.technology/) [by only signing transactions](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/)
+El servidor de transacciones se usa para ayudar con la UX de usar múltiples redes y para evitar que cambien de proveedores de red sobre la marcha. Los usuarios pueden permanecer conectados a [Ethereum](https://ethereum.org/en/) e interactuar con [Polygon](https://polygon.technology/) [solo firmando transacciones](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/)
 
-The Decentraland DAO has set up a server used by our dapps, covering the cost up to a certain limit with a few [restrictions](deploying-your-own-transactions-server.md#restrictions). This document explains how you can [deploy this server](deploying-your-own-transactions-server.md#running-the-server) to enable your users to relay transactions with the restrictions you need, if any.
+El DAO de Decentraland ha configurado un servidor usado por nuestras dapps, cubriendo el costo hasta un cierto límite con algunas [restricciones](deploying-your-own-transactions-server.md#restrictions). Este documento explica cómo puedes [desplegar este servidor](deploying-your-own-transactions-server.md#running-the-server) para permitir que tus usuarios retransmitan transacciones con las restricciones que necesites, si las hay.
 
-### Restrictions
+### Restricciones
 
-All restrictions are per-transaction the user tries to send. Which, in practice, translates into a POST request to the server.
+Todas las restricciones son por transacción que el usuario intenta enviar. Lo que, en la práctica, se traduce en una solicitud POST al servidor.
 
-The configurable restrictions the server has are:
+Las restricciones configurables que tiene el servidor son:
 
-* Checks for a quota of max transactions per day. See [the collections section](deploying-your-own-transactions-server.md#collections) for more info.
-* Checks for whitelisted contracts, so if a transaction is trying to interact with a contract that's not recognized it'll fail. To do this it uses
-  * The deployed contracts and collections. See [the contracts and collections section](deploying-your-own-transactions-server.md#contracts-and-collections) for more info
-* The price of sales, restricting it if it's below a threshold. See [min sale value section](deploying-your-own-transactions-server.md#min-sale-value) for more info
+* Verifica una cuota de transacciones máximas por día. Consulta [la sección de colecciones](deploying-your-own-transactions-server.md#collections) para más información.
+* Verifica contratos en whitelist, por lo que si una transacción está intentando interactuar con un contrato que no está reconocido fallará. Para hacer esto usa
+  * Los contratos y colecciones desplegadas. Consulta [la sección de contratos y colecciones](deploying-your-own-transactions-server.md#contracts-and-collections) para más información
+* El precio de las ventas, restringiéndolo si está por debajo de un umbral. Consulta [la sección de valor mínimo de venta](deploying-your-own-transactions-server.md#min-sale-value) para más información
 
-### Configuring Gelato
+### Configurando Gelato
 
-[Gelato](https://www.gelato.network/relay) is a Multichain Relayer Protocol. We use it's infrastructure to enable costless transactions. This effectively means that, when you go to send a transaction, you're instead signing a message and sending that to Gelato. The service will take care of sending the transaction for you and giving you a response (transaction hash) back.
+[Gelato](https://www.gelato.network/relay) es un Protocolo de Retransmisión Multicadena. Usamos su infraestructura para habilitar transacciones sin costo. Esto significa efectivamente que, cuando vas a enviar una transacción, en su lugar estás firmando un mensaje y enviándolo a Gelato. El servicio se encargará de enviar la transacción por ti y darte una respuesta (hash de transacción) de vuelta.
 
-It needs a contract to forward the transactions, but luckily we can reuse the one that's being used by Decentraland (see below)
+Necesita un contrato para reenviar las transacciones, pero afortunadamente podemos reutilizar el que está siendo usado por Decentraland (ver abajo)
 
-[Gelato](https://www.gelato.network/relay) works as an API to the server. [To configure](deploying-your-own-transactions-server.md#configuring-the-server) it you'll first need an API KEY which we [we'll use later](deploying-your-own-transactions-server.md#gelato). To get these:
+[Gelato](https://www.gelato.network/relay) funciona como una API al servidor. [Para configurar](deploying-your-own-transactions-server.md#configuring-the-server) necesitarás primero una API KEY que [usaremos más tarde](deploying-your-own-transactions-server.md#gelato). Para obtenerlas:
 
-* [Register](https://app.gelato.network/relay) in the service
-* Create new dapp for the network you intent to target. To mimic what Decentraland setup:
-  * Select the `Mainnets` options
-  * Set an appropiate `App name` for your dApp
-  * choose `Polygon` as the network for the `Smart Contract`
-  * Enable the `Any Contract` toggle option
-* Copy the API KEY from the `API Key` section
+* [Regístrate](https://app.gelato.network/relay) en el servicio
+* Crea una nueva dapp para la red que pretendes apuntar. Para imitar lo que Decentraland configuró:
+  * Selecciona las opciones de `Mainnets`
+  * Establece un `App name` apropiado para tu dApp
+  * elige `Polygon` como la red para el `Smart Contract`
+  * Habilita la opción toggle `Any Contract`
+* Copia la API KEY de la sección `API Key`
 
-Lastly, you'll need to fund your newly created dapp. You can do this by connecting your wallet in the [1Balance](https://app.gelato.network/1balance) section at the left sidebar. Once connected, it'll enable you to deposit your [USDC](https://polygonscan.com/token/0x3c499c542cef5e3811e1192ce70d8cc03d5c3359) to fund the transactions your users will send. If you need to get MATIC, check this [post](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/#where-can-i-get-matic-to-pay-for-transaction-fees).
+Por último, necesitarás fondear tu dapp recién creada. Puedes hacer esto conectando tu wallet en la sección [1Balance](https://app.gelato.network/1balance) en la barra lateral izquierda. Una vez conectado, te permitirá depositar tu [USDC](https://polygonscan.com/token/0x3c499c542cef5e3811e1192ce70d8cc03d5c3359) para fondear las transacciones que tus usuarios enviarán. Si necesitas obtener MATIC, consulta este [post](https://docs.decentraland.org/blockchain-integration/transactions-in-polygon/#where-can-i-get-matic-to-pay-for-transaction-fees).
 
 #### Testnet
 
-If you want to test your app before going live and you're using Polygon you can do so in `Polygon Amoy`, the Polygon testnet.
+Si quieres probar tu app antes de ir en vivo y estás usando Polygon puedes hacerlo en `Polygon Amoy`, el testnet de Polygon.
 
-To do this simply repeat [the process](deploying-your-own-transactions-server.md#configuring-gelato) but picking `Matic Testnet (Amoy)` on the network field.
+Para hacer esto simplemente repite [el proceso](deploying-your-own-transactions-server.md#configuring-gelato) pero seleccionando `Matic Testnet (Amoy)` en el campo de red.
 
-You'll need to fund your dapp, but you can do so easily by getting Sepolia ETH tokens from the [faucet](https://sepoliafaucet.com/).
+Necesitarás fondear tu dapp, pero puedes hacerlo fácilmente obteniendo tokens Sepolia ETH del [faucet](https://sepoliafaucet.com/).
 
-### Downloading the transactions server
+### Descargando el servidor de transacciones
 
-First off, you'll need a copy of the Decentraland's transactions-server code. You can find it [on github](https://github.com/decentraland/transactions-server/tree/v1). From there, you have two options:
+Primero, necesitarás una copia del código del transactions-server de Decentraland. Puedes encontrarlo [en github](https://github.com/decentraland/transactions-server/tree/v1). Desde allí, tienes dos opciones:
 
-1. **Downloading the code**: To download the code, you have to first click on the green `Code` button and then either
+1. **Descargar el código**: Para descargar el código, primero tienes que hacer clic en el botón verde `Code` y luego
 
-* Click on `Download ZIP`
-* Copy the URL under the `Clone` title and then run `$ git clone THE_URL_HERE`
+* Hacer clic en `Download ZIP`
+* Copiar la URL bajo el título `Clone` y luego ejecutar `$ git clone THE_URL_HERE`
 
-2. **Forking the code**: You can click the `fork` button on the top right of the page. Once the process is complete, you'll be able to download you code the same way you'd do it on the first option. You'll need a Github account for this, for more information on forking repositories see [here](https://docs.github.com/en/enterprise-server@3.5/get-started/quickstart/fork-a-repo)
+2. **Hacer fork del código**: Puedes hacer clic en el botón `fork` en la parte superior derecha de la página. Una vez que el proceso esté completo, podrás descargar tu código de la misma manera que lo harías en la primera opción. Necesitarás una cuenta de Github para esto, para más información sobre hacer fork de repositorios consulta [aquí](https://docs.github.com/en/enterprise-server@3.5/get-started/quickstart/fork-a-repo)
 
-### Configuring the server
+### Configurando el servidor
 
-The transactions server is written in [NodeJS](https://nodejs.org/en/) using [Typescript](https://www.typescriptlang.org/). Before running it you'll need to configure a few environment variables.
+El servidor de transacciones está escrito en [NodeJS](https://nodejs.org/en/) usando [Typescript](https://www.typescriptlang.org/). Antes de ejecutarlo necesitarás configurar algunas variables de entorno.
 
-To do this:
+Para hacer esto:
 
-* Copy the `.env.example` file and paste it renamed to `.env`
-* Open the `.env` file. You'll see some variables have a default value, like `HTTP_SERVER_PORT=5000` (in which port to run the server)
-* You can leave most values as they are, but there're a few important values to consider:
+* Copia el archivo `.env.example` y pégalo renombrado como `.env`
+* Abre el archivo `.env`. Verás que algunas variables tienen un valor predeterminado, como `HTTP_SERVER_PORT=5000` (en qué puerto ejecutar el servidor)
+* Puedes dejar la mayoría de los valores como están, pero hay algunos valores importantes a considerar:
   * [Gelato](deploying-your-own-transactions-server.md#gelato)
-  * [Transactions](deploying-your-own-transactions-server.md#transactions)
-  * [Contracts and collections](deploying-your-own-transactions-server.md#contracts-and-collections)
-  * [Min sale value](deploying-your-own-transactions-server.md#min-sale-value)
+  * [Transacciones](deploying-your-own-transactions-server.md#transactions)
+  * [Contratos y colecciones](deploying-your-own-transactions-server.md#contracts-and-collections)
+  * [Valor mínimo de venta](deploying-your-own-transactions-server.md#min-sale-value)
 
 #### Gelato
 
-Use the API KEY we got when [configuring gelato](deploying-your-own-transactions-server.md#configuring-gelato).
+Usa la API KEY que obtuvimos al [configurar gelato](deploying-your-own-transactions-server.md#configuring-gelato).
 
 ```
 GELATO_API_KEY=p_qXAlcVwWyU__Fjbn_qwr0rTy14asDf_Z2XCVBnmZX_
 ```
 
-#### Transactions
+#### Transacciones
 
-When a new transaction request arrives it'll check the amount **an address** has sent that day. If it's over the set value the transaction will fail.
+Cuando llega una nueva solicitud de transacción verificará la cantidad **de una dirección** que ha enviado ese día. Si supera el valor establecido, la transacción fallará.
 
 ```
 MAX_TRANSACTIONS_PER_DAY=10
 ```
 
-To completely remove this check, you can go into the code and remove the
+Para eliminar completamente esta verificación, puedes ir al código y eliminar el
 
 ```ts
 await checkQuota(components, transactionData)
 ```
 
-method from `async function checkData(transactionData: TransactionData): Promise<void> {` in `src/ports/transactions/component.ts`
+método de `async function checkData(transactionData: TransactionData): Promise<void> {` en `src/ports/transactions/component.ts`
 
-#### Contracts and collections
+#### Contratos y colecciones
 
-The server will fetch the Contract addresses URL and store them locally and query the subgraph. When a new transaction request arrives it'll then check if the contract the transaction is interacting with belongs to either the deployed contracts in the URL or the deployed collections in the subgraph.
+El servidor obtendrá la URL de direcciones de Contrato y las almacenará localmente y consultará el subgraph. Cuando llega una nueva solicitud de transacción, entonces verificará si el contrato con el que la transacción está interactuando pertenece a los contratos desplegados en la URL o a las colecciones desplegadas en el subgraph.
 
-If you want to supply your own contracts change the URL and keep the same structure the current [https://contracts.decentraland.org/addresses.json](https://contracts.decentraland.org/addresses.json) has. The network used is determined by COLLECTIONS\_CHAIN\_ID, and the interval with which the cache is re-fetched is COLLECTIONS\_CHAIN\_ID
+Si quieres proporcionar tus propios contratos cambia la URL y mantén la misma estructura que tiene el actual [https://contracts.decentraland.org/addresses.json](https://contracts.decentraland.org/addresses.json). La red usada está determinada por COLLECTIONS\_CHAIN\_ID, y el intervalo con el que se vuelve a obtener el caché es COLLECTIONS\_CHAIN\_ID
 
-If you have your own collections you can also change the subgraph URL.
+Si tienes tus propias colecciones también puedes cambiar la URL del subgraph.
 
-To completely remove this checks, you can go into the code and remove the
+Para eliminar completamente estas verificaciones, puedes ir al código y eliminar el
 
 ```ts
 await checkContractAddress(components, transactionData)
 ```
 
-method from `async function checkData(transactionData: TransactionData): Promise<void> {` in `src/ports/transactions/component.ts`
+método de `async function checkData(transactionData: TransactionData): Promise<void> {` en `src/ports/transactions/component.ts`
 
 ```
 CONTRACT_ADDRESSES_URL=https://contracts.decentraland.org/addresses.json
@@ -124,42 +120,42 @@ COLLECTIONS_CHAIN_ID=80002
 COLLECTIONS_SUBGRAPH_URL=https://subgraph.decentraland.org/decentraland/collections-matic-amoy
 ```
 
-#### Min sale value
+#### Valor mínimo de venta
 
-When a new transaction request arrives it'll first parse the data it's trying to relay. If it detects a sale (marketplace buy, bid, etc), it'll check the value against MIN\_SALE\_VALUE\_IN\_WEI. If it's lower, the transaction will fail.
+Cuando llega una nueva solicitud de transacción primero analizará los datos que está intentando retransmitir. Si detecta una venta (compra de marketplace, oferta, etc.), verificará el valor contra MIN\_SALE\_VALUE\_IN\_WEI. Si es menor, la transacción fallará.
 
 ```
 MIN_SALE_VALUE_IN_WEI=1000000000000000000
 ```
 
-To check the relevant sale methods, you can see `src/ports/transaction/validation/checkSalePrice.ts` and to completely remove this check, you can go into the code and remove the
+Para verificar los métodos de venta relevantes, puedes ver `src/ports/transaction/validation/checkSalePrice.ts` y para eliminar completamente esta verificación, puedes ir al código y eliminar el
 
 ```ts
 await checkSalePrice(components, transactionData)
 ```
 
-method from `async function checkData(transactionData: TransactionData): Promise<void> {` in `src/ports/transactions/component.ts`
+método de `async function checkData(transactionData: TransactionData): Promise<void> {` en `src/ports/transactions/component.ts`
 
-### Running the server
+### Ejecutando el servidor
 
-Now all configuration is set, what's left is actually running the server. You can follow [it's README](deploying-your-own-transactions-server.md) but in a nutshell, you'll have to:
+Ahora que toda la configuración está lista, lo que queda es ejecutar el servidor. Puedes seguir [su README](deploying-your-own-transactions-server.md) pero en resumen, tendrás que:
 
-* Have [NodeJS](https://nodejs.org/en/) installed
-* Open your terminal of choice
-* Run the following commands:
+* Tener [NodeJS](https://nodejs.org/en/) instalado
+* Abrir tu terminal de elección
+* Ejecutar los siguientes comandos:
 
 ```bash
 npm install
-npm run migrate # only the first run
+npm run migrate # solo la primera ejecución
 npm run start
 ```
 
-Of course, you'll probably want to deploy this to your service of choice, like [AWS](https://aws.amazon.com/) for example. You can use the Project's [Dockerfile](https://github.com/decentraland/transactions-server/tree/v1/blob/master/Dockerfile) to do so.
+Por supuesto, probablemente querrás desplegar esto en tu servicio de elección, como [AWS](https://aws.amazon.com/) por ejemplo. Puedes usar el [Dockerfile](https://github.com/decentraland/transactions-server/tree/v1/blob/master/Dockerfile) del Proyecto para hacerlo.
 
-### Using the server
+### Usando el servidor
 
-Now everthing's set up and running, it's time to actually use the server.
+Ahora que todo está configurado y en ejecución, es hora de usar el servidor.
 
-To actually send a transaction, you need to POST to `/transactions`. The schema required for the request is defined by `transactionSchema` on `src/ports/transaction/types.ts`.
+Para enviar una transacción, necesitas hacer POST a `/transactions`. El esquema requerido para la solicitud está definido por `transactionSchema` en `src/ports/transaction/types.ts`.
 
-If, instead, you want to use our pre-made libs to make your life easier you can try [decentraland-transactions](https://github.com/decentraland/decentraland-transactions). It's used via [decentraland-dapps](https://github.com/decentraland/decentraland-dapps) in our dapps like the [Marketplace](https://market.decentraland.org), with the utils [`sendTransaction`](https://github.com/decentraland/decentraland-dapps/blob/master/src/modules/wallet/utils.ts#L104). Check [this code](https://github.com/decentraland/marketplace/blob/a2191515c6ae7ede54a685cc2dd9f9fafa35366b/webapp/src/modules/vendor/decentraland/OrderService.ts#L33) for an example.
+Si, en cambio, quieres usar nuestras libs pre-hechas para hacer tu vida más fácil puedes probar [decentraland-transactions](https://github.com/decentraland/decentraland-transactions). Se usa a través de [decentraland-dapps](https://github.com/decentraland/decentraland-dapps) en nuestras dapps como el [Marketplace](https://market.decentraland.org), con las utilidades [`sendTransaction`](https://github.com/decentraland/decentraland-dapps/blob/master/src/modules/wallet/utils.ts#L104). Consulta [este código](https://github.com/decentraland/marketplace/blob/a2191515c6ae7ede54a685cc2dd9f9fafa35366b/webapp/src/modules/vendor/decentraland/OrderService.ts#L33) para un ejemplo.

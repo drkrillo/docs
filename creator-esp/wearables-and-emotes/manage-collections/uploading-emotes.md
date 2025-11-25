@@ -1,41 +1,37 @@
 ---
-description: Guidelines to upload Emotes to the Editor
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/manage-collections/uploading-emotes
+description: Directrices para subir Emotes al Editor
 ---
 
 # Uploading Emotes
 
-Once you export your emote, you’ll have to upload it to the builder. This document will cover the process of uploading emotes.
+Una vez que exportes tu emote, tendrás que subirlo al builder. Este documento cubrirá el proceso de subir emotes.
 
-### **Uploading Your File**
+### **Subiendo Tu Archivo**
 
-Remember that you need to create a collection before you can upload your file. If you don’t know how to do that, check [Creating a Collection](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). To upload your emote, just drag and drop the file on the _**New Item**_ window or browse your computer. It will automatically detect if the file has any animation, identifying it as an emote.
+Recuerda que necesitas crear una colección antes de poder subir tu archivo. Si no sabes cómo hacer eso, consulta [Creating a Collection](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md). Para subir tu emote, simplemente arrastra y suelta el archivo en la ventana _**New Item**_ o busca en tu computadora. Detectará automáticamente si el archivo tiene alguna animación, identificándolo como un emote.
 
-![](broken-reference)
+![](../images/wearables-and-emotes/uploading-emotes/01_new_item.png)
 
-Drag and drop your animation file to upload it.
+Arrastra y suelta tu archivo de animación para subirlo.
 
-You will be asked to enter a name for your emote, define its rarity, the category and the play mode. Below the thumbnail is shown the number of animation clips in your file, the length of the animation in seconds, the length in frames and the frame rate.
+Se te pedirá que ingreses un nombre para tu emote, definas su rarity, la categoría y el play mode. Debajo de la miniatura se muestra el número de clips de animación en tu archivo, la longitud de la animación en segundos, la longitud en frames y el frame rate.
 
-![](../../.gitbook/assets/upload_emote.png)
+![](../images/wearables-and-emotes/uploading-emotes/upload_emote.png)
 
-### **Uploading Emotes Using a .zip File**
+### **Subiendo Emotes Usando un Archivo .zip**
 
-If the emote has sound (_mp3_ or _ogg_) it must be zipped with the `.glb`. After that, just drag and drop the `.zip` to the builder. Also, it is possible to add a `.json` file along with the other assets in the same `.zip` to add name, description, rarity, category, play mode and/or tags. These are the definitions for each:
+Si el emote tiene sonido (_mp3_ o _ogg_) debe comprimirse con el `.glb`. Después de eso, simplemente arrastra y suelta el `.zip` al builder. También, es posible agregar un archivo `.json` junto con los otros assets en el mismo `.zip` para agregar nombre, descripción, rarity, categoría, play mode y/o tags. Estas son las definiciones para cada uno:
 
-* `name`: Name of the Emote
-* `description`: Description of your Emote (no more than 64 characters in total, counting spaces)
-* `category`: Category of the Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
-* `rarity`: Rarity of the Item ("unique", "mythic", "legendary", "epic", "rare", "exotic", "uncommon", "common")
-* `play_mode`: Simple or Loop Animation ("simple", "loop")
-* `tags`: Tags for easy finding in the marketplace.
+* `name`: Nombre del Emote
+* `description`: Descripción de tu Emote (no más de 64 caracteres en total, contando espacios)
+* `category`: Categoría del Emote ("dance", "stunt", "greetings", "fun", "poses", "reactions", "horror", "miscellaneous")
+* `rarity`: Rarity del Item ("unique", "mythic", "legendary", "epic", "rare", "exotic", "uncommon", "common")
+* `play_mode`: Animación Simple o Loop ("simple", "loop")
+* `tags`: Tags para fácil búsqueda en el marketplace.
 
-To add those definitions to the emote just create a text file, naming it **emote.json** and add the following lines as the example:
+Para agregar esas definiciones al emote simplemente crea un archivo de texto, nombrándolo **emote.json** y agrega las siguientes líneas como en el ejemplo:
 
-```
+```json
 {
   "name": "Tennis Shot",
   "description": "Show me you can do tennis",
@@ -43,20 +39,18 @@ To add those definitions to the emote just create a text file, naming it **emote
   "rarity":"epic",
   "play_mode": "simple",
   "tags":["tennis", "emote", "shot"]
-
 }
-
 ```
 
-This way the builder is going to take all the .json information and it automatically to the emote.
+De esta manera el builder tomará toda la información del .json y la agregará automáticamente al emote.
 
 **Rarity**
 
-Check the rarity chart in [here](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md#rarity).
+Consulta la tabla de rarity [aquí](https://github.com/decentraland/docs-creator/blob/main/creator/wearables-and-emotes/manage-collections/creating-a-collection.md#rarity).
 
 ### **Category**
 
-Choose the category that best describe your emote.
+Elige la categoría que mejor describa tu emote.
 
 * Dance
 * Stunt
@@ -69,109 +63,79 @@ Choose the category that best describe your emote.
 
 ### **Play Mode**
 
-There are currently two play modes:
+Actualmente hay dos play modes:
 
-* _**Play Once**_: means that your emote will only play once. After that the avatar will return to _Idle_ position.
-* _**Loop**_: the emote will keep playing in loop until the user input another action.
+* _**Play Once**_: significa que tu emote se reproducirá solo una vez. Después de eso el avatar volverá a la posición _Idle_.
+* _**Loop**_: el emote seguirá reproduciéndose en bucle hasta que el usuario ingrese otra acción.
 
 ### **Custom Thumbnails**
 
-For emotes, you don’t have to upload any images since the editor already has a built in tool to create a thumbnail. Just select the frame that best represents the action.
+Para emotes, no tienes que subir ninguna imagen ya que el editor ya tiene una herramienta integrada para crear una miniatura. Solo selecciona el frame que mejor represente la acción.
 
-People should be able to identify what the animation is about through the thumbnail. If a front shot isn’t good enough, try rotating the model, zoom in or out, pan up or down, pick any frame from your clip. It’s really important that you select the best shot!
+Las personas deberían poder identificar de qué se trata la animación a través de la miniatura. Si una toma frontal no es suficientemente buena, intenta rotar el modelo, hacer zoom in o out, pan up o down, elige cualquier frame de tu clip. ¡Es realmente importante que selecciones la mejor toma!
 
-![](../../.gitbook/assets/Edit_thumbnail.gif)
+![](../images/wearables-and-emotes/uploading-emotes/Edit_thumbnail.gif)
 
-Rotate, zoom in or out, pan up and down. Use the tools to get the best shot of your animation!
+Rota, haz zoom in o out, pan up y down. ¡Usa las herramientas para obtener la mejor toma de tu animación!
 
-### The Editor
+### El Editor
 
-Once you set the thumbnail, you will have the editor open. This is where you can check if the animation is playing well since a 3D avatar will be performing it.
+Una vez que establezcas la miniatura, tendrás el editor abierto. Aquí es donde puedes verificar si la animación se está reproduciendo bien ya que un avatar 3D la estará realizando.
 
-![](../../.gitbook/assets/editor.png)
+![](../images/wearables-and-emotes/uploading-emotes/editor.png)
 
-By clicking on the icon at the lower left you will be able to edit the avatar. Click on the cilinder icon on the lower right to check if you animation is staying within the boundaries of height and space.
+Haciendo clic en el ícono en la parte inferior izquierda podrás editar el avatar. Haz clic en el ícono de cilindro en la parte inferior derecha para verificar si tu animación se mantiene dentro de los límites de altura y espacio.
 
-![](../../.gitbook/assets/edit_avatar.gif)
+![](../images/wearables-and-emotes/uploading-emotes/edit_avatar.gif)
 
-The icon at the botton left allows you to edit the avatar.
+El ícono en la parte inferior izquierda te permite editar el avatar.
 
-![](../../.gitbook/assets/boundaries.gif)
+![](../images/wearables-and-emotes/uploading-emotes/boundaries.gif)
 
-Cylinder icon shows the boundaries for the animation.
+El ícono de cilindro muestra los límites para la animación.
 
-You can also edit the emote’s name, thumbnail, category, rarity and play mode, as well as add a description of the animation and add tags to it. Click on _**Save**_ when you are done.
+También puedes editar el nombre del emote, miniatura, categoría, rarity y play mode, así como agregar una descripción de la animación y agregar tags. Haz clic en _**Save**_ cuando hayas terminado.
 
-* **Description:** This is a brief statement describing your item that will be displayed in the marketplace.
-* **Utility** Describe the in-world utility of the Wearable or Emote.
-* **Tags:** Tags are simply descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
+* **Description:** Esta es una breve declaración describiendo tu ítem que se mostrará en el marketplace.
+* **Utility** Describe la utilidad en el mundo del Wearable o Emote.
+* **Tags:** Los tags son simplemente palabras descriptivas que los usuarios pueden usar al buscar o filtrar ítems. ¡Estas son relevantes para competencias o eventos!
 
-![](../../.gitbook/assets/editor2.png)
+![](../images/wearables-and-emotes/uploading-emotes/editor2.png)
 
-## Testing in World
+## Probando en el Mundo
 
-Even after testing the animation in the editor, it’s important to check how it’s actually going to look like and behave in Decentraland. To test it in world, go to the Collections tab, select the desired collection and it will show all the items you have in it. Click on See in Decentraland.
+Incluso después de probar la animación en el editor, es importante verificar cómo realmente se verá y se comportará en Decentraland. Para probarlo en el mundo, ve a la pestaña Collections, selecciona la colección deseada y mostrará todos los ítems que tienes en ella. Haz clic en See in Decentraland.
 
-\
-\\
-
-![](../../.gitbook/assets/getting_started.png)
-
-\
-\\
+![](../images/wearables-and-emotes/uploading-emotes/getting_started.png)
 
 {% hint style="info" %}
-You will be asked to choose if you want to test it in an Empty Parcel or in Genesis Plaza. Selecting Empty Parcels will teleport you to a place without too much content, which will load faster. Selecting Genesis Plaza will take you to the main plaza.
+Se te pedirá que elijas si quieres probarlo en un Empty Parcel o en Genesis Plaza. Seleccionar Empty Parcels te teletransportará a un lugar sin demasiado contenido, que cargará más rápido. Seleccionar Genesis Plaza te llevará a la plaza principal.
 {% endhint %}
 
-\
-\\
-
-![](../../.gitbook/assets/choice.png)
-
-\
-\\
+![](../images/wearables-and-emotes/uploading-emotes/choice.png)
 
 {% hint style="info" %}
-After choosing, a new tab will be open in your browser with a message informing you that you are about to use a custom Catalyst. Click on TRUST PEER-TESTING.DECENTRALAND.ORG to continue.
+Después de elegir, se abrirá una nueva pestaña en tu navegador con un mensaje informándote que estás por usar un Catalyst personalizado. Haz clic en TRUST PEER-TESTING.DECENTRALAND.ORG para continuar.
 {% endhint %}
 
-\
-\\
-
-![](../../.gitbook/assets/custom_catalyst.png)
-
-\
-\\
+![](../images/wearables-and-emotes/uploading-emotes/custom_catalyst.png)
 
 {% hint style="info" %}
-After that, you will get a pop-up asking to open the Decentraland Explorer. Once the explorer is running, click on Jump Into Decentraland.
+Después de eso, obtendrás un pop-up preguntando para abrir el Decentraland Explorer. Una vez que el explorer esté ejecutándose, haz clic en Jump Into Decentraland.
 {% endhint %}
 
-\
-\\
-
-![](../../.gitbook/assets/monoco.png)
-
-\
-\\
+![](../images/wearables-and-emotes/uploading-emotes/monoco.png)
 
 {% hint style="info" %}
-Once in world, press I to open the backpack and, in the emotes tab, select the emote to test.
+Una vez en el mundo, presiona I para abrir el backpack y, en la pestaña de emotes, selecciona el emote para probar.
 {% endhint %}
 
-\
-\\
+![](../images/wearables-and-emotes/uploading-emotes/testing.gif)
 
-![](../../.gitbook/assets/testing.gif)
+### **Antes de Publicar**
 
-\
-\\
+Asegúrate de agregar una buena descripción y verificar si toda la información y configuraciones son correctas. Revisa también la miniatura. Si has completado toda la información necesaria verás Ready to Submit como el estado de tu ítem. ¡Ahora tu emote está listo para ser publicado!
 
-### **Before Publishing**
+![](../images/wearables-and-emotes/uploading-emotes/last.png)
 
-Make sure to add a nice description and verify if all the information and settings are right. Double check the thumbnail too. If you’ve filled all the information necessary you will see Ready to Submit as the status of your item. Now your emote is ready to be published!
-
-![](../../.gitbook/assets/last.png)
-
-The Ready to Submit status means that your file is ready be published!
+¡El estado Ready to Submit significa que tu archivo está listo para ser publicado!

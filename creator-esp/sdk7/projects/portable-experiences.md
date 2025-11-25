@@ -1,42 +1,38 @@
 ---
-description: Portable experiences
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/portable-experiences
+description: Experiencias portables
 ---
 
-# Portable Experiences
+# Experiencias Portables
 
-Portable experiences are essentially scenes that are not constrained to parcels of land. Players can carry these with them anywhere they go in Decentraland, adding a new layer of content over their experience. Portable Experiences can be tied to a NAME and can be loaded by another scene using the SDK.
+Las experiencias portables son esencialmente escenas que no están restringidas a parcelas de terreno. Los jugadores pueden llevarlas consigo a donde quiera que vayan en Decentraland, agregando una nueva capa de contenido sobre su experiencia. Las Experiencias Portables pueden estar vinculadas a un NAME y pueden ser cargadas por otra escena usando el SDK.
 
 {% hint style="warning" %}
-**📔 Note**: Portable experiences can only be created using SDK 7. Also, only scenes built with SDK 7 are capable of loading a portable experience.
+**📔 Nota**: Las experiencias portables solo pueden crearse usando SDK 7. Además, solo las escenas construidas con SDK 7 son capaces de cargar una experiencia portable.
 
-The **Creator Hub** doesn't currently support creating Portable Experience projects.
+El **Creator Hub** actualmente no soporta la creación de proyectos de Experiencia Portable.
 {% endhint %}
 
-Smart Wearables are a kind of portable experience that is associated to a wearable, and activated based on if the player is using that wearable. This document doesn't cover those, see [smart wearables](../../../creator/sdk7/projects/smart-wearables.md) for more details.
+Los Smart Wearables son un tipo de experiencia portable que está asociada a un wearable, y se activa según si el jugador está usando ese wearable. Este documento no cubre esos, consulta [smart wearables](../sdk7/projects/smart-wearables.md) para más detalles.
 
-### Getting started
+### Comenzando
 
-#### Using the CLI
+#### Usando el CLI
 
-1. Open a command line in a new folder and run
+1. Abre una línea de comandos en una carpeta nueva y ejecuta
 
 `npx sdk-commands init --project px-template`
 
-### Preview
+### Vista Previa
 
-Running a preview of a portable experience is just like running that of a scene, simply click the **Run Scene** button on the Decentraland tab, or run `npm run start` in the command line.
+Ejecutar una vista previa de una experiencia portable es igual que ejecutar la de una escena, simplemente haz clic en el botón **Run Scene** en la pestaña de Decentraland, o ejecuta `npm run start` en la línea de comandos.
 
-You’ll notice that rather than seeing an empty grid, you are surrounded by the default empty parcels content. In a portable experience, you are not restricted to any set of parcels, you can add 3D models or sounds anywhere in the world. Since the portable experience is meant to be experienced anywhere in Decentraland, you're most likely going to focus on entities attached to the player or UI, but you can also place entities freely in the world.
+Notarás que en lugar de ver una cuadrícula vacía, estás rodeado por el contenido de parcelas vacías predeterminado. En una experiencia portable, no estás restringido a ningún conjunto de parcelas, puedes agregar modelos 3D o sonidos en cualquier lugar del mundo. Como la experiencia portable está destinada a ser experimentada en cualquier lugar de Decentraland, lo más probable es que te enfoques en entidades adjuntas al jugador o UI, pero también puedes colocar entidades libremente en el mundo.
 
-### Publish
+### Publicar
 
-To publish your portable experience, you need to own a [Decentraland NAME](https://builder.decentraland.org/names).
+Para publicar tu experiencia portable, necesitas poseer un [NAME de Decentraland](https://builder.decentraland.org/names).
 
-To specify under what **name** to make your deployment, add the following section in your `scene.json`:
+Para especificar bajo qué **nombre** hacer tu despliegue, agrega la siguiente sección en tu `scene.json`:
 
 ```json
 {
@@ -47,28 +43,28 @@ To specify under what **name** to make your deployment, add the following sectio
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Each NAME references a single portable experience or world. If your name already pointed to a world, deploying a portable experience will override that content.
+**📔 Nota**: Cada NAME referencia una sola experiencia portable o world. Si tu nombre ya apuntaba a un world, desplegar una experiencia portable sobrescribirá ese contenido.
 {% endhint %}
 
-Make sure you're either using the Ethereum account that owns this name, or an account that has been given permissions to deploy to this name.
+Asegúrate de estar usando la cuenta de Ethereum que posee este nombre, o una cuenta a la que se le hayan dado permisos para desplegar a este nombre.
 
-#### Using the CLI
+#### Usando el CLI
 
-Run:
+Ejecuta:
 
 ```
 npm run deploy --target-content https://worlds-content-server.decentraland.org
 ```
 
-### Lifecycle of a portable experience in a scene
+### Ciclo de vida de una experiencia portable en una escena
 
-Portable expereinces need to be activated by a scene, either in Genesis City or a world.
+Las experiencias portables necesitan ser activadas por una escena, ya sea en Genesis City o un world.
 
-1. The player visits the scene that activates the portable experience. The scene can spawn the portable experience right away or use custom logic to do it after the player does an action.
-2. The player is prompted about the portable experience, including details about the requested permissions. The portable experience is only activated if the player gives conscent.
-3. The player will now carry the portable experience with them wherever they go for the rest of the session, including teleporting or jumping to worlds. If the player reloads the browser window, it will be gone.
+1. El jugador visita la escena que activa la experiencia portable. La escena puede generar la experiencia portable de inmediato o usar lógica personalizada para hacerlo después de que el jugador realice una acción.
+2. El jugador es solicitado sobre la experiencia portable, incluyendo detalles sobre los permisos solicitados. La experiencia portable solo se activa si el jugador da su consentimiento.
+3. El jugador ahora llevará la experiencia portable consigo a donde quiera que vaya durante el resto de la sesión, incluyendo teletransportarse o saltar a worlds. Si el jugador recarga la ventana del navegador, desaparecerá.
 
-To spawn a portable experience from your scene, use the `spawn()` function. To terminate a portable experience, use `kill()`. In both cases, you just need yo know the DCL name where the Portable experience was deployed.
+Para generar una experiencia portable desde tu escena, usa la función `spawn()`. Para terminar una experiencia portable, usa `kill()`. En ambos casos, solo necesitas saber el nombre DCL donde se desplegó la Experiencia Portable.
 
 ```ts
 import {spawn} from "~system/PortableExperiences"
@@ -84,13 +80,13 @@ executeTask(async () => {
 })
 ```
 
-### Restricting portable experiences
+### Restringir experiencias portables
 
-You might be worried about preventing the use of portable experiences in your scene, since these could give players abilities that could be considered cheating in a competitive game. For example, in a platform game, a player that wears a jetpack has a very unfair advantage over others.
+Podrías estar preocupado por prevenir el uso de experiencias portables en tu escena, ya que estas podrían dar a los jugadores habilidades que podrían considerarse trampa en un juego competitivo. Por ejemplo, en un juego de plataformas, un jugador que usa un jetpack tiene una ventaja muy injusta sobre otros.
 
-The simplest approach is to add a flag to block all portable experiences entirely on your scene at any time, or prevent their UIs from showing. See [feature toggles](../../../creator/sdk7/projects/scene-metadata.md#feature-toggles). This also applies to portable experiences linked to smart wearables.
+El enfoque más simple es agregar una bandera para bloquear todas las experiencias portables completamente en tu escena en cualquier momento, o prevenir que sus UIs se muestren. Consulta [feature toggles](../sdk7/projects/scene-metadata.md#feature-toggles). Esto también aplica a experiencias portables vinculadas a smart wearables.
 
-Another approach is to query to view a player's portable experiences, and take action accordingly.
+Otro enfoque es consultar para ver las experiencias portables de un jugador, y tomar acción en consecuencia.
 
 ```ts
 import {
@@ -111,33 +107,33 @@ executeTask(async () => {
 })
 ```
 
-In the example above, the scene is using `kill()` to terminate portable experiences if they match a certain name. You could keep track of a denylist of non-allowed portable experience names, and chose to only terminate those. You could also chose to terminate all of them.
+En el ejemplo anterior, la escena está usando `kill()` para terminar experiencias portables si coinciden con un cierto nombre. Podrías llevar un registro de una lista de denegación de nombres de experiencias portables no permitidas, y elegir terminar solo esas. También podrías elegir terminarlas todas.
 
-An alternative to terminating portable experiences is to change the behavior of your scene when they are present. For example, the player might be able to keep their portable experience, but not be allowed to start a match, or to claim any rewards as long as they have any enabled.
+Una alternativa a terminar experiencias portables es cambiar el comportamiento de tu escena cuando están presentes. Por ejemplo, el jugador podría mantener su experiencia portable, pero no se le permitiría comenzar una partida, o reclamar recompensas mientras tenga alguna habilitada.
 
-### Restricted actions in portable experiences
+### Acciones restringidas en experiencias portables
 
-To prevent abuse, certain features aren't permitted on portable experiences by default, and require adding a permission flag.
+Para prevenir abusos, ciertas funcionalidades no están permitidas en experiencias portables por defecto, y requieren agregar una bandera de permiso.
 
-See [Required permissions](../../../creator/sdk7/projects/scene-metadata.md#required-permissions) for more details.
+Consulta [Permisos requeridos](../sdk7/projects/scene-metadata.md#required-permissions) para más detalles.
 
 {% hint style="warning" %}
-**📔 Note**: Players are notified about the required flags by the portable experience. Avoid adding permissions you don't need, since it can make players distrust your portable experience and reject it.
+**📔 Nota**: Los jugadores son notificados sobre las banderas requeridas por la experiencia portable. Evita agregar permisos que no necesites, ya que puede hacer que los jugadores desconfíen de tu experiencia portable y la rechacen.
 {% endhint %}
 
-### Limitations
+### Limitaciones
 
-Portable experiences only run for the player that activates it. Other players don't see the effects. For example, if the portable experience renders a pet that follows the player, other players around won't see this pet. However, other players will see avatars perform animations that run as part of the portable experience, even [custom avatar animations](../../../creator/sdk7/interactivity/trigger-emotes.md#custom-animations) uploaded as part of the portable experience's files.
+Las experiencias portables solo se ejecutan para el jugador que la activa. Otros jugadores no ven los efectos. Por ejemplo, si la experiencia portable renderiza una mascota que sigue al jugador, otros jugadores alrededor no verán esta mascota. Sin embargo, otros jugadores verán a los avatares realizar animaciones que se ejecutan como parte de la experiencia portable, incluso [animaciones de avatar personalizadas](../sdk7/interactivity/trigger-emotes.md#custom-animations) subidas como parte de los archivos de la experiencia portable.
 
-### Tips
+### Consejos
 
-* When positioning an entity, note that positions are global, relative to the 0,0 coordinates of Genesis Plaza.
-* To react to nearby players:
-  * See [Fetch all players](../../../creator/sdk7/interactivity/user-data.md#fetch-all-players) to know how to obtain data from other players in the surroundings.
-  * Be mindful that the loading of the portable experience, surrounding scenes and other players may occur in different orders depending on the situation. If the player enters Decentraland with the portable experience already on, it’s likely that your portable experience will load before other players do. On the other hand, tf the player first loads into a scene and then activates the portable experience, it’s likely that other players will already be loaded by the time the portable experience starts running.
-  * For multiplayer experiences, wait till the player is connected to an island inside their realm. Run `getRealm()` and check for the ‘room’ field. If the ‘room’ field is null, the player is not yet connected to an island and other players won’t be loaded yet. You can periodically check this every 1 second till the ‘room’ field is present, and only initialize your logic then.
-* To interact with surrounding scenes:
-  * You can’t directly send any instructions to nearby scenes or other portable experiences, the `messageBus` is sandboxed for each portable experience/scene.
-  * You can use an intermediate server to send information between the portable experience and a scene.
-  * If you do a raycast, you can detect hits against the colliders of entities from the surrounding scenes. This can tell you the exact hit location, normal direction, and even the entity name and mesh name of the 3D model. This only works when hitting entities on scenes written with SDK7.
-* Kill a portable experience: Run the `kill()` method to self-terminate a portable experience.
+* Al posicionar una entidad, ten en cuenta que las posiciones son globales, relativas a las coordenadas 0,0 de Genesis Plaza.
+* Para reaccionar a jugadores cercanos:
+  * Consulta [Obtener todos los jugadores](../sdk7/interactivity/user-data.md#fetch-all-players) para saber cómo obtener datos de otros jugadores en los alrededores.
+  * Ten en cuenta que la carga de la experiencia portable, escenas circundantes y otros jugadores puede ocurrir en diferentes órdenes dependiendo de la situación. Si el jugador ingresa a Decentraland con la experiencia portable ya activada, es probable que tu experiencia portable se cargue antes que otros jugadores. Por otro lado, si el jugador primero carga en una escena y luego activa la experiencia portable, es probable que otros jugadores ya estén cargados para cuando la experiencia portable comience a ejecutarse.
+  * Para experiencias multijugador, espera hasta que el jugador esté conectado a una isla dentro de su realm. Ejecuta `getRealm()` y verifica el campo 'room'. Si el campo 'room' es null, el jugador aún no está conectado a una isla y otros jugadores no estarán cargados todavía. Puedes verificar esto periódicamente cada 1 segundo hasta que el campo 'room' esté presente, y solo entonces inicializar tu lógica.
+* Para interactuar con escenas circundantes:
+  * No puedes enviar instrucciones directamente a escenas cercanas u otras experiencias portables, el `messageBus` está en sandbox para cada experiencia portable/escena.
+  * Puedes usar un servidor intermediario para enviar información entre la experiencia portable y una escena.
+  * Si haces un raycast, puedes detectar hits contra los colliders de entidades de las escenas circundantes. Esto puede decirte la ubicación exacta del hit, dirección normal, e incluso el nombre de la entidad y nombre de mesh del modelo 3D. Esto solo funciona al golpear entidades en escenas escritas con SDK7.
+* Matar una experiencia portable: Ejecuta el método `kill()` para auto-terminar una experiencia portable.

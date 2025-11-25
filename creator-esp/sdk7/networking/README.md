@@ -1,19 +1,16 @@
 ---
-description: Build multiplayer and networked experiences
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/networking
+description: Construye experiencias multijugador y en red
 ---
 
 # Networking
 
-Create multiplayer experiences by implementing networking and synchronization between players. This section covers both serverless and server-based multiplayer approaches.
+Crea experiencias multijugador implementando networking y sincronización entre jugadores. Esta sección cubre tanto enfoques serverless como basados en servidor para multijugador.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Serverless multiplayer (peer-to-peer)
-* Authoritative servers
-* Network connections and messaging
-* State synchronization
+* Multijugador serverless (peer-to-peer)
+* Servidores autoritativos
+* Conexiones de red y mensajería
+* Sincronización de estado
 
-Networking enables multiple players to interact with the same scene elements in real-time.
+El networking permite que múltiples jugadores interactúen con los mismos elementos de la scene en tiempo real.

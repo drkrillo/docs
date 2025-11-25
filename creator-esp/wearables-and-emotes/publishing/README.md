@@ -1,20 +1,15 @@
 ---
-description: Publish your wearables and emotes to the Decentraland Marketplace
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/publishing
+description: Publica tus colecciones en Decentraland
 ---
 
-# Publishing
+# Publishing Collections
 
-Once you've created and finalized your wearables or emotes collection, you're ready to publish it to the Decentraland Marketplace. This section guides you through the publication process and curation requirements.
+Una vez que tu colección esté completa y revisada, estás listo para publicarla en Decentraland. Esta sección te guía a través del proceso de publicación y curación.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Publishing collections to the marketplace
-* Understanding the curation process
-* Working with the Curation Committee
-* Managing published collections
+* Entender el proceso de publicación
+* Trabajar con el Curation Committee
+* Gestionar el ciclo de vida de publicación de tu colección
 
-Publishing your collections makes them available for purchase or trade on the Decentraland Marketplace, allowing other users to enjoy your creations.
+La publicación hace que tus wearables y emotes estén disponibles para que todos los jugadores de Decentraland los compren y usen.

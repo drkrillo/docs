@@ -1,106 +1,103 @@
 ---
-description: Default files created in a new scene.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/scene-files
+description: Archivos predeterminados creados en una nueva escena.
 ---
 
-# Scene Files
+# Archivos de Escena
 
-After [creating a new scene](../../../creator/sdk7/getting-started/sdk-101.md), the scene folder will have a series of files with default content.
+Después de [crear una nueva escena](../sdk7/getting-started/sdk-101.md), la carpeta de la escena tendrá una serie de archivos con contenido predeterminado.
 
-### Default files in a scene
+### Archivos predeterminados en una escena
 
-Scenes include the following files:
+Las escenas incluyen los siguientes archivos:
 
-* **src/index.ts**: The entry point of the scene.
-* **scene.json**: The manifest that contains metadata for the scene.
-* **package.json** and **package-lock.json**: Specify the versions of all dependencies of the scene.
-* **tsconfig.json**: Typescript configuration file.
-* **.dclignore**: Lists the files in your project that will not be uploaded when you publish your scene.
-* **main-composite**: Auto-generated file including everything you added and configured visually in the Scene Editor. It's not meant to be human-readable.
+* **src/index.ts**: El punto de entrada de la escena.
+* **scene.json**: El manifiesto que contiene metadatos para la escena.
+* **package.json** y **package-lock.json**: Especifican las versiones de todas las dependencias de la escena.
+* **tsconfig.json**: Archivo de configuración de Typescript.
+* **.dclignore**: Lista los archivos en tu proyecto que no se subirán cuando publiques tu escena.
+* **main-composite**: Archivo autogenerado que incluye todo lo que agregaste y configuraste visualmente en el Scene Editor. No está destinado a ser legible para humanos.
 
 #### index.ts
 
-This is the entry point to your scene's custom code. You could fit your entire scene's logic into this file, although for clarity in most cases we recommend spreading out your code over several other _.ts_ files.
+Este es el punto de entrada al código personalizado de tu escena. Podrías ajustar toda la lógica de tu escena en este archivo, aunque para mayor claridad en la mayoría de los casos recomendamos distribuir tu código en varios otros archivos _.ts_.
 
-If you rely only on the Scene Editor and [Smart Items](../../../creator/scene-editor/interactivity/smart-items.md), you won't need to modify this file.
+Si confías solo en el Scene Editor y [Smart Items](../scene-editor/interactivity/smart-items.md), no necesitarás modificar este archivo.
 
-If you intend to write custom code, you'll most likely only need to edit this and other .ts files to create your scene. It contains the code that generates the [entities, components](../../../creator/sdk7/architecture/entities-components.md) and [systems](../../../creator/sdk7/architecture/systems.md) of your scene.
+Si pretendes escribir código personalizado, lo más probable es que solo necesites editar este y otros archivos .ts para crear tu escena. Contiene el código que genera las [entidades, componentes](../sdk7/architecture/entities-components.md) y [sistemas](../sdk7/architecture/systems.md) de tu escena.
 
-When running the scene, the contents of your `.ts` files are compiled to a single minified `.js` file, `bin/scene.js`.
+Al ejecutar la escena, el contenido de tus archivos `.ts` se compila en un solo archivo `.js` minificado, `bin/scene.js`.
 
 {% hint style="warning" %}
-**📔 Note**: You can use another tool or language instead of TypeScript, as long as your scripts are contained within a single Javascript file (bin/scene.js). All provided type declarations are made in TypeScript, and other languages and transpilers are not officially supported.
+**📔 Nota**: Puedes usar otra herramienta o lenguaje en lugar de TypeScript, siempre y cuando tus scripts estén contenidos dentro de un solo archivo Javascript (bin/scene.js). Todas las declaraciones de tipos proporcionadas están hechas en TypeScript, y otros lenguajes y transpiladores no son oficialmente soportados.
 {% endhint %}
 
 #### scene.json
 
-The _scene.json_ file is a JSON formatted manifest for a scene in the world. A scene can span a single or multiple LAND parcels. The _scene.json_ manifest describes what objects exist in the scene, a list of any assets needed to render it, contact information for the parcel owner, and security settings.
+El archivo _scene.json_ es un manifiesto formateado en JSON para una escena en el mundo. Una escena puede abarcar una sola o múltiples parcelas de LAND. El manifiesto _scene.json_ describe qué objetos existen en la escena, una lista de cualquier asset necesario para renderizarla, información de contacto para el propietario de la parcela y configuraciones de seguridad.
 
-Most of the fields on the _scene.json_ file can be edited directly in the UI of the Scene Editor. See [Scene Settings](../../../creator/scene-editor/get-started/scene-editor-essentials.md#scene-settings).
+La mayoría de los campos del archivo _scene.json_ pueden editarse directamente en la UI del Scene Editor. Consulta [Configuración de Escena](../scene-editor/get-started/scene-editor-essentials.md#scene-settings).
 
-![](../../.gitbook/assets/thumbnail-image.png)
+![](../images/thumbnail-image.png)
 
-For more information see [scene metadata](../../../creator/sdk7/projects/scene-metadata.md#metadata).
+Para más información consulta [metadatos de escena](../sdk7/projects/scene-metadata.md#metadata).
 
-All of this metadata is optional for previewing the scene locally, but part of it is needed for deploying. You can change this information manually at any time.
+Todos estos metadatos son opcionales para previsualizar la escena localmente, pero parte de ellos son necesarios para desplegar. Puedes cambiar esta información manualmente en cualquier momento.
 
 #### package.json
 
-This file provides information to NPM that allows it to identify the project, as well as handle the project's dependencies. Decentraland scenes require one main package:
+Este archivo proporciona información a NPM que le permite identificar el proyecto, así como manejar las dependencias del proyecto. Las escenas de Decentraland requieren un paquete principal:
 
-* **@dcl/sdk**: The fundamental dependency of the Decentraland SDK, including definitions and types for the engine, components, systems, etc.
-* **@dcl/js-runtime**: A series of type declarations that makes the integration of @dcl/sdk smoother.
+* **@dcl/sdk**: La dependencia fundamental del SDK de Decentraland, incluyendo definiciones y tipos para el motor, componentes, sistemas, etc.
+* **@dcl/js-runtime**: Una serie de declaraciones de tipos que hace que la integración de @dcl/sdk sea más suave.
 
-Your scene may include any number of other packages, for example to include [libraries](https://studios.decentraland.org/resources?sdk_version=SDK7\&resource_type=Library) that can help make the writing of code easier, or enable special functionalities.
+Tu escena puede incluir cualquier número de otros paquetes, por ejemplo para incluir [librerías](https://studios.decentraland.org/resources?sdk_version=SDK7\&resource_type=Library) que pueden ayudar a hacer que la escritura de código sea más fácil, o habilitar funcionalidades especiales.
 
 #### package-lock.json
 
-This file lists the versions of all the other dependencies of the project. These versions are locked, meaning that the compiler will use literally the same minor release listed here.
+Este archivo lista las versiones de todas las demás dependencias del proyecto. Estas versiones están bloqueadas, lo que significa que el compilador usará literalmente la misma versión menor listada aquí.
 
-You can change any package version manually by editing this file.
+Puedes cambiar cualquier versión de paquete manualmente editando este archivo.
 
 #### tsconfig.json
 
-Directories containing a _tsconfig.json_ file are root directories for TypeScript Projects. The _tsconfig.json_ file specifies the root files and options required to compile your project from TypeScript into JavaScript.
+Los directorios que contienen un archivo _tsconfig.json_ son directorios raíz para Proyectos de TypeScript. El archivo _tsconfig.json_ especifica los archivos raíz y las opciones requeridas para compilar tu proyecto de TypeScript a JavaScript.
 
-When installing any additional libraries to your scene, an entry should be added automatically to this file. For installing Decentraland utils libraries, it shouldn't be necessary to manually do any changes to this file.
+Al instalar cualquier librería adicional a tu escena, debería agregarse automáticamente una entrada a este archivo. Para instalar librerías de utilidades de Decentraland, no debería ser necesario hacer cambios manualmente a este archivo.
 
-### Recommended file locations
+### Ubicaciones de archivos recomendadas
 
-Keep in mind that when you deploy your scene to Decentraland, any assets or external libraries that are needed to use your scene must be either packaged inside the scene folder or available via a remote server.
+Ten en cuenta que cuando despliegas tu escena a Decentraland, cualquier asset o librería externa que sea necesaria para usar tu escena debe estar empaquetada dentro de la carpeta de la escena o disponible a través de un servidor remoto.
 
-Anything that is meant to run in the player's client must located inside the scene folder. You shouldn't reference files or libraries that are installed elsewhere in your local machine, because they won't be available to the deployed scene.
+Cualquier cosa que esté destinada a ejecutarse en el cliente del jugador debe estar ubicada dentro de la carpeta de la escena. No debes referenciar archivos o librerías que estén instalados en otro lugar en tu máquina local, porque no estarán disponibles para la escena desplegada.
 
-We suggest using these folder names consistently for storing the different types of assets that your scene might need:
+Sugerimos usar estos nombres de carpeta de manera consistente para almacenar los diferentes tipos de assets que tu escena pueda necesitar:
 
-* 3D models: `assets/scene/models`
+* Modelos 3D: `assets/scene/models`
 * Videos: `assets/scene/videos`
-* Sound files: `assets/scene/sounds`
-* Image files for textures (except for glTF models): `assets/scene/materials`
-* _.ts_ definitions for components `/src/components`
-* _.ts_ definitions for systems `/src/systems`
+* Archivos de sonido: `assets/scene/sounds`
+* Archivos de imagen para texturas (excepto para modelos glTF): `assets/scene/materials`
+* Definiciones _.ts_ para componentes `/src/components`
+* Definiciones _.ts_ para sistemas `/src/systems`
 
 {% hint style="warning" %}
-**📔 Note**: Supporting files for glTF models, like their texture image files or _.bin_ files, should always be placed in the same folder as the model's _.gltf_ or _.glb_ file.
+**📔 Nota**: Los archivos de soporte para modelos glTF, como sus archivos de imagen de textura o archivos _.bin_, siempre deben colocarse en la misma carpeta que el archivo _.gltf_ o _.glb_ del modelo.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: We recommend using always lower case names for all folders and file names, to avoid possible issues.
+**📔 Nota**: Recomendamos usar siempre nombres en minúsculas para todas las carpetas y nombres de archivos, para evitar posibles problemas.
 {% endhint %}
 
-When importing any assets via the Scene Editor, they are added automatically inside the `assets/scene` folder. When using any of the default assets in the Asset Packs of the Scene Editor, their files are added to the `assets/builder` folder.
+Al importar cualquier asset a través del Scene Editor, se agregan automáticamente dentro de la carpeta `assets/scene`. Al usar cualquiera de los assets predeterminados en los Asset Packs del Scene Editor, sus archivos se agregan a la carpeta `assets/builder`.
 
-### The dclignore file
+### El archivo dclignore
 
-All scenes include a _.dclignore_ file, this file specifies what files in the scene folder to ignore when deploying a scene to Decentraland.
+Todas las escenas incluyen un archivo _.dclignore_, este archivo especifica qué archivos en la carpeta de la escena ignorar al desplegar una escena a Decentraland.
 
-For example, you might like to keep the Blender files for the 3D models in your scene inside the scene folder, but you want to prevent those files from being deployed to Decentraland. In that case, you could add `*.blend` to _.dclignore_ to ignore all files with that extension.
+Por ejemplo, podrías querer mantener los archivos de Blender para los modelos 3D en tu escena dentro de la carpeta de la escena, pero quieres evitar que esos archivos se desplieguen a Decentraland. En ese caso, podrías agregar `*.blend` a _.dclignore_ para ignorar todos los archivos con esa extensión.
 
-| What to ignore | Example     | Description                                                                             |
-| -------------- | ----------- | --------------------------------------------------------------------------------------- |
-| Specific files | `BACKUP.ts` | Ignores a specific file                                                                 |
-| Folders        | `drafts/`   | Ignores entire contents of a folder and its subfolders                                  |
-| Extensions     | `*.blend`   | Ignores all files with a given extension                                                |
-| Name sections  | `test*`     | Ignores all files with names that match the query. In this case, that start with _test_ |
+|| Qué ignorar | Ejemplo     | Descripción                                                                             |
+|| -------------- | ----------- | --------------------------------------------------------------------------------------- |
+|| Archivos específicos | `BACKUP.ts` | Ignora un archivo específico                                                                 |
+|| Carpetas        | `drafts/`   | Ignora todo el contenido de una carpeta y sus subcarpetas                                  |
+|| Extensiones     | `*.blend`   | Ignora todos los archivos con una extensión dada                                                |
+|| Secciones de nombre  | `test*`     | Ignora todos los archivos con nombres que coincidan con la consulta. En este caso, que comiencen con _test_ |

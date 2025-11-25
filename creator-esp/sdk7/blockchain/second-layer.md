@@ -1,49 +1,45 @@
 ---
 description: >-
-  Use Polygon's sidechain in your scene to enable much faster and cheaper
-  blockchain transactions.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/blockchain/second-layer
+  Usa la sidechain de Polygon en tu escena para habilitar transacciones blockchain
+  mucho más rápidas y baratas.
 ---
 
 # Second Layer
 
-### About second layer solutions
+### Acerca de las soluciones de second layer
 
-Any transaction that affects the blockchain takes time to complete, and costs gas. Both these things are obstacles to making blockchain gaming popular, because players usually don't have the patience to wait that long for their actions to take effect, and aren't willing to spend money on many transactions as they play.
+Cualquier transacción que afecte al blockchain toma tiempo en completarse, y cuesta gas. Ambas cosas son obstáculos para hacer que los juegos blockchain sean populares, porque los jugadores usualmente no tienen la paciencia para esperar tanto tiempo para que sus acciones tengan efecto, y no están dispuestos a gastar dinero en muchas transacciones mientras juegan.
 
-A common workaround is to keep most of the game-play off-chain, and only carry out blockchain transactions for key events, like earning a game item or registering a high score.
+Una solución común es mantener la mayor parte del gameplay off-chain, y solo llevar a cabo transacciones blockchain para eventos clave, como ganar un objeto del juego o registrar un puntaje alto.
 
-However, another way to overcome these limitations, as well as other scalability issues that are inherent to blockchains, is to rely on a _second layer_ blockchain, also called a _side-chain_.
+Sin embargo, otra forma de superar estas limitaciones, así como otros problemas de escalabilidad que son inherentes a los blockchains, es confiar en un blockchain de _second layer_, también llamado _side-chain_.
 
-A second layer is another blockchain that sits as an intermediary between a decentralized app and the main chain. This layer is more lightweight and can therefore provide faster responses and at a much lower gas cost.
+Un second layer es otro blockchain que se sitúa como intermediario entre una aplicación descentralizada y la cadena principal. Esta capa es más ligera y por lo tanto puede proporcionar respuestas más rápidas y a un costo de gas mucho menor.
 
-Instead of making transactions directly into the main chain, transactions are done on the side chain, and then it's the duty of the side-chain to eventually sync these changes with the main chain.
+En lugar de hacer transacciones directamente en la cadena principal, las transacciones se hacen en la side chain, y luego es el deber de la side-chain eventualmente sincronizar estos cambios con la cadena principal.
 
-The side-chain is able to provide faster responses because it's a smaller network with less nodes. The transactions that are carried out in the second layer are initially less secure, but they are eventually committed to the main chain in bulks, and all of the security checks of the main chain can be enforced there.
+La side-chain es capaz de proporcionar respuestas más rápidas porque es una red más pequeña con menos nodos. Las transacciones que se llevan a cabo en el second layer son inicialmente menos seguras, pero eventualmente se comprometen a la cadena principal en bloques, y todas las verificaciones de seguridad de la cadena principal se pueden hacer cumplir allí.
 
-The side-chain is also able to lower individual transaction costs significantly because it groups many transactions into a single one when syncing with the main chain. So the gas that would need to be paid for one transaction on the main chain can be divided over several thousand transactions.
+La side-chain también es capaz de reducir significativamente los costos de transacción individuales porque agrupa muchas transacciones en una sola al sincronizar con la cadena principal. Por lo que el gas que se necesitaría pagar por una transacción en la cadena principal se puede dividir entre varios miles de transacciones.
 
-Also, when syncing with the main chain, several redundant transactions can be avoided entirely, further reducing transaction costs. For example, if Alice transfers 1 ETH to Bob, and then Bob transfers 1 ETH to Carol, then those two transactions can be simplified into one, by registering that Alice transfers directly to Carol.
+Además, al sincronizar con la cadena principal, varias transacciones redundantes se pueden evitar por completo, reduciendo aún más los costos de transacción. Por ejemplo, si Alice transfiere 1 ETH a Bob, y luego Bob transfiere 1 ETH a Carol, entonces esas dos transacciones se pueden simplificar en una, registrando que Alice transfiere directamente a Carol.
 
-Decentraland has a partnership with [Polygon](https://polygon.technology/), who provide their own side-chain on Ethereum. Their side-chain can be used by scenes to support fast and very cheap transactions.
+Decentraland tiene una asociación con [Polygon](https://polygon.technology/), quienes proporcionan su propia side-chain en Ethereum. Su side-chain puede ser usada por escenas para soportar transacciones rápidas y muy baratas.
 
-### Try the Polygon Testnet
+### Prueba el Testnet de Polygon
 
-In order to use Polygon's Matic Testnet, you should first have:
+Para usar el Matic Testnet de Polygon, primero debes tener:
 
-* Ether in Sepolia network. You can obtain it for free from various external faucets like [this one](https://www.alchemy.com/faucets/ethereum-sepolia).
+* Ether en la red Sepolia. Puedes obtenerlo gratis de varios faucets externos como [este](https://www.alchemy.com/faucets/ethereum-sepolia).
 
-Then you must configure your Metamask account to include the Matic Testnet.
+Luego debes configurar tu cuenta de Metamask para incluir el Matic Testnet.
 
-To do this:
+Para hacer esto:
 
-1. Switch networks on Metamask by clicking on the name of the current network and selecting _Custom RPC_ at the bottom of the dropdown.
-2. Fill in 'Matic Testnet' as _Network name_ and [**https://rpc-amoy.polygon.technology**](https://rpc-amoy.polygon.technology) as _New RPC URL_ and the same value as _Block Explorer URL_. For _Symbol_ set **MATIC**
-3. Click 'Save' to add this new network to Metamask.
+1. Cambia de redes en Metamask haciendo clic en el nombre de la red actual y seleccionando _Custom RPC_ en la parte inferior del dropdown.
+2. Completa 'Matic Testnet' como _Network name_ y [**https://rpc-amoy.polygon.technology**](https://rpc-amoy.polygon.technology) como _New RPC URL_ y el mismo valor como _Block Explorer URL_. Para _Symbol_ establece **MATIC**
+3. Haz clic en 'Save' para agregar esta nueva red a Metamask.
 
 {% hint style="warning" %}
-**📔 Note**: Learn more about how to set up Matic on their [Documentation page](https://docs.matic.network/docs/develop/getting-started)
+**📔 Nota**: Aprende más sobre cómo configurar Matic en su [página de Documentación](https://docs.matic.network/docs/develop/getting-started)
 {% endhint %}

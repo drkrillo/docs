@@ -1,41 +1,37 @@
 ---
-description: Guidelines on how to provide feedback about SDK7
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/releases/alpha-testing-guidelines
+description: Pautas sobre cómo proporcionar retroalimentación sobre SDK7
 ---
 
-# Alpha Testing Guidelines
+# Pautas de Alpha Testing
 
-### Documentation
+### Documentación
 
-Find the full documentation for SDK7 in under the **SDK7** section of the documentation.
+Encuentra la documentación completa para SDK7 bajo la sección **SDK7** de la documentación.
 
-### Using the playground
+### Usando el playground
 
-To easily try out SDK7, visit [the playground](https://playground.decentraland.org/). Write SDK7 code on the left of the screen, and see the resulting scene on the right. As you change the code, the scene is updated automatically.
+Para probar fácilmente SDK7, visita [el playground](https://playground.decentraland.org/). Escribe código SDK7 a la izquierda de la pantalla, y ve la escena resultante a la derecha. A medida que cambias el código, la escena se actualiza automáticamente.
 
-If you run into any issues, please copy a URL to the current setup of your scene with the **Share** button, and [report an issue](alpha-testing-guidelines.md#reporting-issues) including that link to your code.
+Si encuentras algún problema, por favor copia una URL a la configuración actual de tu escena con el botón **Share**, y [reporta un problema](alpha-testing-guidelines.md#reporting-issues) incluyendo ese enlace a tu código.
 
-### Using SDK 7
+### Usando SDK 7
 
-Install the [Creator Hub](../../../creator/scene-editor/get-started/about-editor.md).
+Instala el [Creator Hub](../scene-editor/get-started/about-editor.md).
 
 {% hint style="warning" %}
-**📔 Note**: Notice that scenes that use SDK7 don't have the `decentraland-ecs` package installed. Instead, they have the `@dcl/sdk` package.
+**📔 Nota**: Ten en cuenta que las escenas que usan SDK7 no tienen el paquete `decentraland-ecs` instalado. En su lugar, tienen el paquete `@dcl/sdk`.
 {% endhint %}
 
-### In production
+### En producción
 
-You can deploy scenes with SDK7 via the **Publish** button on the Scene Editor.
+Puedes desplegar escenas con SDK7 a través del botón **Publish** en el Scene Editor.
 
-### Example scenes
+### Escenas de ejemplo
 
-You can find more example scenes written with SDK7 here:
+Puedes encontrar más escenas de ejemplo escritas con SDK7 aquí:
 
-* [Scene examples](https://studios.decentraland.org/resources)
+* [Ejemplos de escenas](https://studios.decentraland.org/resources)
 
-### Reporting issues
+### Reportando problemas
 
-If you encounter a problem, please see [Report a bug](../../../creator/sdk7/debugging/report-bug.md).
+Si encuentras un problema, por favor consulta [Reportar un bug](../sdk7/debugging/report-bug.md).

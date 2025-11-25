@@ -1,20 +1,16 @@
 ---
-description: Handle button clicks and pointer events
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/button-events
+description: Maneja clics de botones y eventos de puntero
 ---
 
 # Button Events
 
-Learn how to handle button clicks, pointer events, and player interactions with entities in your scene. This is one of the most fundamental aspects of creating interactive experiences.
+Aprende cómo manejar clics de botones, eventos de puntero e interacciones del jugador con entities en tu scene. Este es uno de los aspectos más fundamentales de crear experiencias interactivas.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Click events and pointer interactions
-* Advanced button event patterns
-* Registering callbacks
-* System-based event handling
+* Eventos de clic e interacciones de puntero
+* Patrones avanzados de eventos de botones
+* Registrar callbacks
+* Manejo de eventos basado en sistemas
 
-Button events are the foundation of most interactive experiences in Decentraland.
+Los eventos de botones son la base de la mayoría de las experiencias interactivas en Decentraland.

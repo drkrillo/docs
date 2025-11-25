@@ -1,120 +1,116 @@
 ---
-description: Fixes for common problems
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/debugging/troubleshooting
+description: Soluciones para problemas comunes
 ---
 
 # Troubleshooting
 
-## Issues when running preview
+## Problemas al ejecutar preview
 
-#### Issue: Can't run any scene preview, error message says mentions **Permissions denied** or **EACCES**
+#### Problema: No puedo ejecutar ningún preview de scene, el mensaje de error menciona **Permissions denied** o **EACCES**
 
-Your operating system doesn't allow you edit permissions on the folder where you want to run the project. When running the scene, some dependencies need to be installed, but it's forbidden. You need to configure the folder's permissions to allow your Windows/Mac/Linux user account to edit files in them.
+Tu sistema operativo no te permite editar permisos en la carpeta donde quieres ejecutar el proyecto. Al ejecutar la scene, algunas dependencias necesitan instalarse, pero está prohibido. Necesitas configurar los permisos de la carpeta para permitir que tu cuenta de usuario de Windows/Mac/Linux edite archivos en ellas.
 
-Useful resources:
+Recursos útiles:
 
 * [docs.npmjs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 * [letscodepare](https://letscodepare.com/blog/npm-resolving-eacces-permissions-denied)
 
-#### Issue: Can't run a particular scene preview, error says **Error: Error while building the project**
+#### Problema: No puedo ejecutar un preview de scene particular, el error dice **Error: Error while building the project**
 
-If you're running a scene that was shared with you, make sure that this scene wasn't shared containing a `node_modules` or `bin` folder, or a `package-lock.json` file. These files contain dependencies that use versions that are specific to your OS and machine, they should be generated when running the scene for the first time. Delete these folders & file manually, then run `npm run start` again.
+Si estás ejecutando una scene que fue compartida contigo, asegúrate de que esta scene no fue compartida conteniendo una carpeta `node_modules` o `bin`, o un archivo `package-lock.json`. Estos archivos contienen dependencias que usan versiones específicas para tu OS y máquina, deberían generarse al ejecutar la scene por primera vez. Elimina estas carpetas y archivo manualmente, luego ejecuta `npm run start` nuevamente.
 
-#### Issue: Running `npm run start` runs, no error message, but no browser window opens and no URL in the output to open the preview
+#### Problema: Ejecutar `npm run start` se ejecuta, sin mensaje de error, pero no se abre ventana del navegador y no hay URL en la salida para abrir el preview
 
-Make sure your Node version is up to date. It must be 16 or newer.
+Asegúrate de que tu versión de Node esté actualizada. Debe ser 16 o más nueva.
 
-#### Issue: Running `npm run start` opens a browser tab, but the loading screen never finishes loading, or I see a red error banner that says "critical error".
+#### Problema: Ejecutar `npm run start` abre una pestaña del navegador, pero la pantalla de carga nunca termina de cargar, o veo un banner de error rojo que dice "critical error".
 
-*   Make sure you have the latest version of the Decentraland SDK installed in your project. Run:
+*   Asegúrate de tener la última versión del SDK de Decentraland instalada en tu proyecto. Ejecuta:
 
-    `npm i @dcl/sdk"latest`
+    `npm i @dcl/sdk@latest`
 
-#### Issue: The scene runs, in the console I see `Cyclic dependencies` warnings.
+#### Problema: La scene se ejecuta, en la consola veo advertencias de `Cyclic dependencies`.
 
-These refer to files in your scene that reference each other mutually. This is not necessarily a problem, but is not a recommendable pattern for writing software, as it can lead to hard to debug race conditions and other issues. Your scene is likely to work well in spite of these warnings.
+Estas se refieren a archivos en tu scene que se referencian mutuamente. Esto no es necesariamente un problema, pero no es un patrón recomendable para escribir software, ya que puede llevar a condiciones de carrera difíciles de depurar y otros problemas. Tu scene probablemente funcionará bien a pesar de estas advertencias.
 
-Ideally, the loading of the code in your scene should follow a clear sequential order. Code that has cyclic dependencies might suffer a chicken & the egg problem, where the compiler doesn't know which to initiate first. Often this is resolved without issues, but it's a good practice to avoid.
+Idealmente, la carga del código en tu scene debería seguir un orden secuencial claro. El código que tiene dependencias cíclicas puede sufrir un problema de gallina y el huevo, donde el compilador no sabe cuál iniciar primero. A menudo esto se resuelve sin problemas, pero es una buena práctica evitar.
 
-To fix these dependencies, you often must resort to calling functions or object constructors passing references to already instanced entities/objects in the function arguments; Instead of hard-coding references to these entities/objects in the function, which may or may not already be instanced.
+Para corregir estas dependencias, a menudo debes recurrir a llamar funciones o constructores de objetos pasando referencias a entities/objetos ya instanciados en los argumentos de la función; En lugar de codificar referencias a estas entities/objetos en la función, que pueden o no estar ya instanciados.
 
-## Issues when deploying
+## Problemas al desplegar
 
-#### Issue: You don't have permissions to deploy to these parcels
+#### Problema: No tienes permisos para desplegar en estas parcelas
 
-* Make sure that the `scene.json` file of your scene correctly lists the coordinates where you want to deploy.
-* Make sure that Metamask is correctly set up to use the right wallet to sign the transaction. This may either be the wallet that owns the LAND tokens, or might have operator permissions granted by the owner.
+* Asegúrate de que el archivo `scene.json` de tu scene liste correctamente las coordenadas donde quieres desplegar.
+* Asegúrate de que Metamask esté correctamente configurado para usar la wallet correcta para firmar la transacción. Esta puede ser la wallet que posee los tokens LAND, o puede tener permisos de operador otorgados por el propietario.
 
-#### Issue: Running `npm run deploy` fails
+#### Problema: Ejecutar `npm run deploy` falla
 
-*   Check the spawn points of your scene, all three x,y,z coordinates of a spawn point must either be a number or a range. Either all three are numbers or all three are ranges. It's not supported to have ranges for some but numbers for others.
+*   Verifica los spawn points de tu scene, las tres coordenadas x,y,z de un spawn point deben ser un número o un rango. O las tres son números o las tres son rangos. No está soportado tener rangos para algunos pero números para otros.
 
-    For example this is not supported:
+    Por ejemplo esto no está soportado:
 
     `"position": {"x": [1,4], "y": 0, "z": [1,4]}`
 
-    This is supported:
+    Esto está soportado:
 
     `"position": {"x": [1,4], "y": [0,0], "z": [1,4]}`
-*   The default catalyst server that you're assigned to deploy to might be down or having issues. You can force the `npm run deploy` command to deploy to a specific catalyst server instead. To deploy to a specific server on the Decentraland Editor:
+*   El servidor catalyst predeterminado al que estás asignado para desplegar podría estar caído o teniendo problemas. Puedes forzar el comando `npm run deploy` para desplegar a un servidor catalyst específico en su lugar. Para desplegar a un servidor específico en el Decentraland Editor:
 
-    1. Open your scene and click **Publish**
-    2. Select the option **Publish to a different server** on the bottom.
-    3. On the dropdown, select **Custom Server**
-    4. Enter the address of the server, for example `peer-testing.decentraland.org`
-    5. Click **Publish to custom server**
-    6. Approve the transaction as with a normal deployment.
+    1. Abre tu scene y haz clic en **Publish**
+    2. Selecciona la opción **Publish to a different server** en la parte inferior.
+    3. En el desplegable, selecciona **Custom Server**
+    4. Ingresa la dirección del servidor, por ejemplo `peer-testing.decentraland.org`
+    5. Haz clic en **Publish to custom server**
+    6. Aprueba la transacción como con un despliegue normal.
 
-    To do this via the CLI:
+    Para hacer esto via el CLI:
 
     `npm run deploy -- --target-content <server-name>`
 
-    For example:
+    Por ejemplo:
 
     `npm run deploy -- --target-content peer-ec1.decentraland.org`
 
-    See [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) for a status check of all the servers in the catalyst network. You can also copy the addresses of each one, from the top of each card.
-* Check your scene's `package.json`. A common problem is that there's a `bundleDependencies` and also a `bundledDependencies` (extra d) section. This can sometimes result from running different Node versions on the same project at different times, or from sharing the project between people that ran it with different Node versions installed. Delete `bundleDependencies`, which relates to older Node versions.
+    Consulta [catalyst-monitor](https://decentraland.github.io/catalyst-monitor/) para una verificación de estado de todos los servidores en la red catalyst. También puedes copiar las direcciones de cada uno, desde la parte superior de cada tarjeta.
+* Verifica el `package.json` de tu scene. Un problema común es que hay una sección `bundleDependencies` y también una `bundledDependencies` (d extra). Esto a veces puede resultar de ejecutar diferentes versiones de Node en el mismo proyecto en diferentes momentos, o de compartir el proyecto entre personas que lo ejecutaron con diferentes versiones de Node instaladas. Elimina `bundleDependencies`, que se relaciona con versiones antiguas de Node.
 
-Also ensure you have your Node version up to date, at least version 16.
+También asegúrate de tener tu versión de Node actualizada, al menos versión 16.
 
-#### Issue: Running `npm run deploy` or `npm run build` reports type errors
+#### Problema: Ejecutar `npm run deploy` o `npm run build` reporta errores de tipo
 
-Your scene might have type errors reported by TypeScript, for example stating that a certain variable might be type `any` or that `undefined` or `null` are not allowed. When running `npm run deploy`, it also runs `npm run build`, which is a bit more strict with these checks than `npm run start`.
+Tu scene podría tener errores de tipo reportados por TypeScript, por ejemplo indicando que una cierta variable podría ser de tipo `any` o que `undefined` o `null` no están permitidos. Al ejecutar `npm run deploy`, también ejecuta `npm run build`, que es un poco más estricto con estas verificaciones que `npm run start`.
 
-Unlike JavaScript, TypeScript enforces strict typing of all variables. Even though your scene is written in such a way that for example a certain value will never be `undefined`, TypeScript needs to know what would happen in that scenario, or you need to explicitly clarify that the value can only be for example a string.
+A diferencia de JavaScript, TypeScript aplica tipado estricto de todas las variables. Aunque tu scene esté escrita de tal manera que por ejemplo cierto valor nunca será `undefined`, TypeScript necesita saber qué sucedería en ese escenario, o necesitas aclarar explícitamente que el valor solo puede ser por ejemplo un string.
 
-As an alternative, you can run `npm run deploy --skip-build` to skip the running of `npm run build`, and prevent these checks from running.
+Como alternativa, puedes ejecutar `npm run deploy --skip-build` para saltar la ejecución de `npm run build`, y prevenir que estas verificaciones se ejecuten.
 
-#### Issue: I deployed my scene but I don't see the changes when I enter Decentraland
+#### Problema: Desplegué mi scene pero no veo los cambios cuando entro a Decentraland
 
-* Keep in mind that it can take a few minutes for new content to be propagated throughout all of the servers in the catalyst network, give it a little time.
-* See [Verify Deployment Success](../../../creator/sdk7/getting-started/preview-scene.md#verify-deployment-success) for instructions on how you can ensure that the content was properly propagated to all servers.
+* Ten en cuenta que puede tomar algunos minutos para que el nuevo contenido se propague a través de todos los servidores en la red catalyst, dale un poco de tiempo.
+* Consulta [Verify Deployment Success](../sdk7/getting-started/preview-scene.md#verify-deployment-success) para instrucciones sobre cómo puedes asegurar que el contenido se propagó correctamente a todos los servidores.
 
-#### Issue: Once deployed, some 3D models are missing
+#### Problema: Una vez desplegado, algunos modelos 3D faltan
 
-* Make sure the 3D models are all within the scene boundaries, even their bounding boxes. If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered, both when running a preview and on the published scene.
+* Asegúrate de que los modelos 3D estén todos dentro de los límites de la scene, incluso sus bounding boxes. Si alguna parte de tus modelos se extiende más allá de estos límites al ejecutar un preview, estas partes que se extienden serán cortadas y no renderizadas, tanto al ejecutar un preview como en la scene publicada.
 
-#### Issue: Once deployed, my 3D models look different
+#### Problema: Una vez desplegado, mis modelos 3D se ven diferentes
 
-* If the textures look different, keep in mind that textures in 3D models are capped to a maximum size of 512x512 pixels. This conversion is carried out to ensure that Decentraland runs smoothly for everyone.
-*   If models look different, there could be an issue with the conversion of the models to asset bundles. Read more about asset bundle compression [here](../../../creator/sdk7/optimizing/performance-optimization.md#asset-bundle-conversion).
+* Si las texturas se ven diferentes, ten en cuenta que las texturas en modelos 3D están limitadas a un tamaño máximo de 512x512 píxeles. Esta conversión se lleva a cabo para asegurar que Decentraland se ejecute sin problemas para todos.
+*   Si los modelos se ven diferentes, podría haber un problema con la conversión de los modelos a asset bundles. Lee más sobre compresión de asset bundle [aquí](../sdk7/optimizing/performance-optimization.md#asset-bundle-conversion).
 
-    To validate this, try running the scene with the URL parameter `&DISABLE_ASSET_BUNDLES`. If the models look fine with this flag, the issue must be related to a bug in the conversion of the model.
+    Para validar esto, intenta ejecutar la scene con el parámetro URL `&DISABLE_ASSET_BUNDLES`. Si los modelos se ven bien con esta bandera, el problema debe estar relacionado con un bug en la conversión del modelo.
 
-    Note that the generation of compressed asset-bundle versions of your models is a process that takes the servers time (about an hour). You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.
+    Nota que la generación de versiones comprimidas de asset-bundle de tus modelos es un proceso que toma tiempo a los servidores (alrededor de una hora). Puedes verificar si los modelos están siendo cargados como asset bundles comprimidos o no escribiendo el siguiente comando en la ventana de chat `/detectabs`. Los modelos comprimidos están teñidos de verde, los no comprimidos están teñidos de rojo.
 
-#### Issue: My scene has poor FPS in production, even though it runs smoothly in preview.
+#### Problema: Mi scene tiene FPS bajos en producción, aunque se ejecuta sin problemas en preview.
 
-Your scene's performance could be affected by neighboring scenes that follow bad practices, as they also run in parallel. You can validate that this is the case by opening the settings and setting the line of sight to a minimum, so that only 1 parcel around your current scene is loaded.
+El rendimiento de tu scene podría estar afectado por scenes vecinas que siguen malas prácticas, ya que también se ejecutan en paralelo. Puedes validar que este es el caso abriendo la configuración y estableciendo la línea de visión al mínimo, para que solo se cargue 1 parcela alrededor de tu scene actual.
 
-You can reduce the line of sight even further by running your scene with the parameter `&LOS=0`, to not load any surrounding scenes at all.
+Puedes reducir la línea de visión aún más ejecutando tu scene con el parámetro `&LOS=0`, para no cargar ninguna scene circundante en absoluto.
 
-If you just deployed your scene, the burden when loading the scene might also be reduced once the servers convert the 3D models in the scene to compressed asset bundles. You can check if the models are being loaded as compressed asset bundles or not by writing the following command into the chat window `/detectabs`. Compressed models are tinted green, non-compressed are tinted red.
+Si acabas de desplegar tu scene, la carga al cargar la scene también podría reducirse una vez que los servidores conviertan los modelos 3D en la scene a asset bundles comprimidos. Puedes verificar si los modelos están siendo cargados como asset bundles comprimidos o no escribiendo el siguiente comando en la ventana de chat `/detectabs`. Los modelos comprimidos están teñidos de verde, los no comprimidos están teñidos de rojo.
 
-### Report a bug
+### Reportar un bug
 
-If you encounter a problem that is not with your scene, but instead with the Decentraland SDK in general, please see [Report a bug](../../../creator/sdk7/debugging/report-bug.md).
+Si encuentras un problema que no es con tu scene, sino con el SDK de Decentraland en general, por favor consulta [Report a bug](../sdk7/debugging/report-bug.md).

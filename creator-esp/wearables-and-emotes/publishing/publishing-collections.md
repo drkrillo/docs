@@ -1,186 +1,182 @@
 ---
 description: >-
-  A description of the publication and approval process for Decentraland
-  wearables
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/publishing/publishing-collections
+  Una descripción del proceso de publicación y aprobación para wearables de
+  Decentraland
 ---
 
 # Publishing Collections
 
-For detailed instructions on how to submit your collections for approval before publication, see [how to create a collection](../../../creator/wearables-and-emotes/manage-collections/creating-a-collection.md). This document explains how the approval process works when publishing wearables and emotes, and what criteria is used by the Curation Committee when reviewing wearables. For detailed information on the Curation Committee, [start here](../../../creator/wearables-and-emotes/publishing/curation-committee.md).
+Para instrucciones detalladas sobre cómo enviar tus colecciones para aprobación antes de la publicación, consulta [how to create a collection](../wearables-and-emotes/manage-collections/creating-a-collection.md). Este documento explica cómo funciona el proceso de aprobación al publicar wearables y emotes, y qué criterios usa el Curation Committee al revisar wearables. Para información detallada sobre el Curation Committee, [comienza aquí](../wearables-and-emotes/publishing/curation-committee.md).
 
-### **The Publication Process**
+### **El Proceso de Publicación**
 
-1. After clicking "Publish" on your completed proposal and pay the fees of the items, the collection will be submitted to the Curation Committee for approval. Collections pending approval will be flagged as "Under Review".
-2. Any collections pending approval from the Curation Committee may not be minted until the approval process is completed.
-3. Each time you publish a new collection, a post is automatically created on the [Decentraland Forum](https://forum.decentraland.org/), providing a list and overview of each item in the collection. This Forum post gives the community and the Curation Committee a space to share feedback or request any changes that you need to make before your collection can be approved.
-4. If there are changes you need to make, the Curation Committee will notify you in the Forum thread of your collection.
-5. You can make any necessary modifications and submit your collection for approval again. It is possible for collections to undergo multiple reviews and rejections before receiving final approval.
-6. Once your collection has final approval, you will be notified in the Forum. You will also see a green visual indicator in the Wearable Editor next to the approved collection.
-7. With a successful approval, you can begin minting items in your collection!
+1. Después de hacer clic en "Publish" en tu propuesta completada y pagar las tarifas de los ítems, la colección se enviará al Curation Committee para aprobación. Las colecciones pendientes de aprobación se marcarán como "Under Review".
+2. Cualquier colección pendiente de aprobación del Curation Committee no se puede acuñar hasta que el proceso de aprobación esté completo.
+3. Cada vez que publicas una nueva colección, se crea automáticamente un post en el [Decentraland Forum](https://forum.decentraland.org/), proporcionando una lista y descripción general de cada ítem en la colección. Este post del Forum da a la comunidad y al Curation Committee un espacio para compartir comentarios o solicitar cualquier cambio que necesites hacer antes de que tu colección pueda ser aprobada.
+4. Si hay cambios que necesitas hacer, el Curation Committee te notificará en el hilo del Forum de tu colección.
+5. Puedes hacer cualquier modificación necesaria y enviar tu colección para aprobación nuevamente. Es posible que las colecciones pasen por múltiples revisiones y rechazos antes de recibir la aprobación final.
+6. Una vez que tu colección tenga la aprobación final, se te notificará en el Forum. También verás un indicador visual verde en el Wearable Editor junto a la colección aprobada.
+7. ¡Con una aprobación exitosa, puedes comenzar a acuñar ítems en tu colección!
 
-### **Publication Fees**
+### **Tarifas de Publicación**
 
-There is a required fee for publishing items. This fee was originally [voted in place by the Decentraland DAO](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) to deter users from publishing an excessive number of wearables in an attempt to "spam" the wearables market.
+Hay una tarifa requerida para publicar ítems. Esta tarifa fue originalmente [votada por el DAO de Decentraland](https://governance.decentraland.org/proposal/?id=50092c00-c315-11eb-ac84-1705d1ae4a66) para disuadir a los usuarios de publicar un número excesivo de wearables en un intento de hacer "spam" en el mercado de wearables.
 
-On Sep 02, 2023 [a proposal](https://governance.decentraland.org/proposal/?id=98d74360-3eae-11ee-88e6-1fe6cb69ee51) set the publication fees to **100 USD per item, to be paid in Polygon MANA**.
-
-{% hint style="warning" %}
-**📔 Note**: You can move MANA between Ethereum and Polygon using the [Account dApp](https://account.decentraland.org).
-{% endhint %}
-
-For example, if you publish a collection with two items and the price of MANA at the time is 1.25 USD, you will have to pay a fee of 160 MANA (100 USD for each item divided by the price of MANA in USD) regardless of the rarity (or how many NFTs can be minted) of those items.
-
-These fees are transferred to the curators committee and the Decentraland DAO, where they are used to help fund the growth of the platform through grants and other initiatives voted on by the greater Decentraland community.
+El 2 de septiembre de 2023 [una propuesta](https://governance.decentraland.org/proposal/?id=98d74360-3eae-11ee-88e6-1fe6cb69ee51) estableció las tarifas de publicación en **100 USD por ítem, a pagar en MANA de Polygon**.
 
 {% hint style="warning" %}
-**📔 Note**: Currently, due to the time and resources required to review each collection submitted, **the publication fee is non-refundable**. If your collection is rejected, you will not receive your MANA back. If your collection is not immediately approved, the Curation Committee will provide you with suggestions and feedback on how to improve it, but the final acceptance of your collection cannot be guaranteed.
+**📔 Nota**: Puedes mover MANA entre Ethereum y Polygon usando la [Account dApp](https://account.decentraland.org).
 {% endhint %}
 
-### **Acceptance Criteria**
+Por ejemplo, si publicas una colección con dos ítems y el precio de MANA en ese momento es 1.25 USD, tendrás que pagar una tarifa de 160 MANA (100 USD por cada ítem dividido por el precio de MANA en USD) independientemente de la rarity (o cuántos NFTs se pueden acuñar) de esos ítems.
 
-Following is an overview of the criteria used by the Curation Committee when determining a collection’s eligibility. Much of this criteria is based on Section 2 of Decentraland’s [Content Policy](https://decentraland.org/content/).
-
-Specifically, wearables may not:
-
-* Involve illegality, such as piracy, criminal activity, terrorism, or child pornography
-* Infringe third party intellectual property rights
-* Contain cruel or hateful imagery that could harm, harass, promote or condone violence against, or that is primarily intended to incite hatred of, animals, or individuals or groups based on race or ethnic origin, religion, nationality, disability, gender, age, veteran status, or sexual orientation/gender identity
-* Contain content that is libelous, false, inaccurate, misleading, or invades another person's privacy
-* Breach the Privacy Policy
-* Contain any content that promotes or could be construed as primarily intending to evade the limitations described above
-
-Please refer to the full Content Policy [here](https://decentraland.org/content/) for additional details and definitions. Any submissions that violate the above criteria will be rejected.
-
-**In addition to the Content Policy, the committee may reject wearable submissions on the following technical conditions:**
-
-> * It is important that wearables be "skin weighted" correctly so that the avatar animations can be rendered as expected. Wearables without correct skin weighting will be rejected.
-> * Wearables must preserve avatar UV mapping to ensure that user-selected skin tones can be rendered as expected.
-> * The dimensions of eyebrow, eye, and mouth textures should not exceed 256 by 256px, and the image must have transparent background.
-> * In the case of hands category, the wearable cannot be an item attached to the hand (a sword, shield, etc). The category is meant by hand accesories like bracelets, watches, rings,etc. and in the case of replacing the hand completely it should follow a proper armature skinning for the hand bones.
-> * Wearables with a disproportionate number of triangles, textures and materials may be rejected because can cause poor performance and a bad experience for players. Creators should not exceeding the limitation [guidelines](../../../creator/wearables-and-emotes/wearables/creating-wearables.md) when creating wearables.
-> * Wearables may not contain duplicate items within a collection. (Each item within a collection must be unique.)
-> * Wearables may not mimic or copy other wearables that have already been published.
-> * For security reasons, any wearables that contain any kind of QR Code may be rejected.
-> * Wearables that exceed the space restrictions.
-> * Wearables with misleading categories may be rejected; for example, a hat that is categorized as a lower body item.
-> * Wearables must follow the armature humanoid structure to ensure a good quality gameplay. In this sense, currently vehicles or pets are not allowed because these are not wearables by definition.
-> * Emotes that exceed the time and space restrictions. For more info check the [emote guidelines](../../../creator/wearables-and-emotes/emotes/creating-emotes.md)
-> * Curators from the curators committee can submit collections but not approve their own. In this case, another curator from the committee would needs to review in order and approve or reject.
-
-### **Attributing Collaborators** [**#**](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#attributing-collaborators)
-
-If you collaborated with other artists when creating your items, you can add attributions within the Wearables Editor. This can only be done after publishing a collection.
-
-First, navigate to the [**Builder**](https://builder.decentraland.org/) and select the **Collections** tab. Select the collection containing the items you want to add attributions to, click the **…** icon next to the **Mint Items** button, and select **Collaborators**.
-
-To add collaborators, simply enter their Ethereum address, and click **Add**. You can add as many collaborators as you want. To remove a collaborator, simply click **Remove** next to the collaborator’s address.
-
-![](../../.gitbook/assets/add-collaborators.png)
-
-### **Selling Items**
-
-After your items are published in a collection and approved by the Curation Committee, they can be sold to other users in the metaverse.
-
-Items can be sold in **primary sales** and **secondary sales**.
-
-* **Primary sales** are performed by the Decentraland Store’s smart contract. During a primary sale, the **item is minted automatically**, and it is sold for the price set by you in the Wearable Editor.
-* **Secondary sales** are performed by the Decentraland Marketplace’s smart contract. These occur anytime a user sells an item in the Marketplace **after it has been minted** or **purchased in a primary sale**. Items can be sold for any price in a secondary sale.
-
-To view items available to purchase in a primary and secondary sales, head to the [**Decentraland Marketplace!**](https://market.decentraland.org/)
-
-### **Primary Sales**
-
-Primary sales occur when one of your items is purchased for the first time. These sales are only performed by the Decentraland Store’s smart contract.
-
-When a user makes a primary purchase of one of your items, the store **mints the item automatically**, transfers the item to the purchaser, and sends the MANA proceeds to the beneficiary address.
-
-> Remember! You do not need to mint your items in order to sell them in primary sales!
-
-To sell your items via primary sales, begin by navigating to the [**Builder**](https://builder.decentraland.org/) and follow the next steps:
-
-To enable Primary Sales, go to the **Collections** tab, select the one you want to enable and click the _**Enable sales**_ button, after that click **Enable Sales** in the confirmation window that appears.
-
-![](../../.gitbook/assets/25_enable_sales.png)
-
-Now you need to set the price and put each of your items for sale by clicking their **Put up for sale** button and set the price you want it to have. **When this is done, your item will be available to purchase within the Decentraland** [**Marketplace**](https://market.decentraland.org/)**.**
-
-![](../../.gitbook/assets/put_item_for_sale.png)
-
-If the collection sales are enabled and the items price set, the Decentraland [Marketplace](https://market.decentraland.org/) will automatically mint one of your items whenever a user makes a primary purchase. This allows you to mint and sell all of your available items until the maximum supply is reached. If you want to save one or more of your items before listing them for sale, you need to manually mint an item to one of your own wallet addresses.
-
-Any purchaser of one of your items is able to resell it at any time and at any price in Decentraland's [Marketplace](https://market.decentraland.org/).
-
-**All Primary Sales in the Decentraland in-world store are subject to a 2.5% fee, which is transferred to the Decentraland DAO.**
-
-If you sell an item through a primary sale, you will receive your MANA on Polygon. The proceeds of any items sold on Polygon will reside on the sidechain. If you want to transfer your MANA from the Polygon sidechain to the main Ethereum chain, you will have to pay a transaction fee. You can do so from the [Accounts](https://account.decentraland.org/) page. For more information on the Polygon sidechain, see [this blog post](https://decentraland.org/blog/announcements/polygon-mana/).
-
-#### **Disabling Primary Sales**
-
-To unlist your items, click the **Remove from sale** button from the items you want to remove. This will only apply to primary sales for your items.
-
-### **Secondary Sales**
-
-Items can be sold in secondary sales at any time, and for any price, in the Decentraland Marketplace only after:
-
-* They have been **minted**
-* They have been **purchased in a Primary Sale**
-
-In other words, anybody who owns an NFT for a wearable can sell it in the Decentraland Marketplace. There are royalties for wearables sold in secondary sales in Decentraland. Royalties goes to the item beneficiary.
-
-### **Minting Wearables**
-
-Minting is the process of creating the actual non-fungible tokens (NFTs) based on the items you’ve uploaded to the Wearables Editor.
-
-All wearables in Decentraland are minted on the Polygon sidechain. This allows users to mint and transfer items without paying any gas fees (so long as these transactions are conducted solely on the Polygon sidechain).
-
-As with selling items in primary sales, you will not be able to mint any items within a collection until the review process is complete. If your collection is still under review, you will see the tag **"Under Review"** appended to your collection. After it has been reviewed and approved, the tag will change to **"Published"**, and you can begin minting your items manually.
-
-#### **How To Manually Mint Items**
-
-To mint published items, open the collection containing the items you’d like to mint, and click **Mint Items**.
-
-![](broken-reference)
-
-You will be shown a modal window containing a list of the items available along with the supply available for each. Remember, the supply is the total number of items you can mint. For example, if your supply reads 0/10, then you have used 0 out of your total supply of 10.
-
-![](broken-reference)
-
-When minting, you must set the address that will receive the minted items and you must set the number of items you want to mint to that address. You cannot mint more items than are available in the supply available.
-
-If you enter your own address, then the items that are minted will be transferred to your account.
-
-You can “gift” items to anyone you like by entering their address instead of your own under Address.
-
-Remember, these items are minted and transferred to the address entered for free. The price you set for items is only collected in primary sales.
+Estas tarifas se transfieren al comité de curadores y al DAO de Decentraland, donde se usan para ayudar a financiar el crecimiento de la plataforma a través de grants y otras iniciativas votadas por la mayor comunidad de Decentraland.
 
 {% hint style="warning" %}
-⚠️ Note: You can currently only mint 50 items per transaction.
+**📔 Nota**: Actualmente, debido al tiempo y recursos requeridos para revisar cada colección enviada, **la tarifa de publicación no es reembolsable**. Si tu colección es rechazada, no recibirás tu MANA de vuelta. Si tu colección no es aprobada inmediatamente, el Curation Committee te proporcionará sugerencias y comentarios sobre cómo mejorarla, pero la aceptación final de tu colección no puede ser garantizada.
 {% endhint %}
 
-Are there any fees associated with minting items? No, items are minted on the Matic sidechain, thus removing any fees traditionally associated with minting NFTs on the main Ethereum blockchain.
+### **Criterios de Aceptación**
 
-#### **Adding Minters to the Collection**
+A continuación hay una descripción general de los criterios utilizados por el Curation Committee al determinar la elegibilidad de una colección. Gran parte de estos criterios se basa en la Sección 2 de la [Content Policy](https://decentraland.org/content/) de Decentraland.
 
-To add minters, simply enter their Ethereum address, and click **Add**. You can add as many minters as you want. To remove a minter, simply click **Remove** next to the minter’s address.
+Específicamente, los wearables no pueden:
 
-![](../../.gitbook/assets/add-minters.png)
+* Involucrar ilegalidad, como piratería, actividad criminal, terrorismo o pornografía infantil
+* Infringir derechos de propiedad intelectual de terceros
+* Contener imágenes crueles u odiosas que puedan dañar, acosar, promover o condonar violencia contra, o que estén principalmente destinadas a incitar al odio de, animales, o individuos o grupos basados en raza u origen étnico, religión, nacionalidad, discapacidad, género, edad, estatus de veterano, u orientación sexual/identidad de género
+* Contener contenido que sea difamatorio, falso, inexacto, engañoso, o invada la privacidad de otra persona
+* Violar la Privacy Policy
+* Contener cualquier contenido que promueva o pueda interpretarse como principalmente destinado a evadir las limitaciones descritas anteriormente
 
-#### **Collection Ownership Transfer**
+Por favor consulta la Content Policy completa [aquí](https://decentraland.org/content/) para detalles y definiciones adicionales. Cualquier envío que viole los criterios anteriores será rechazado.
 
-In order to transfer the ownership of a Collection, you will need:
+**Además de la Content Policy, el comité puede rechazar envíos de wearables bajo las siguientes condiciones técnicas:**
 
-* The wallet address used to create the Collection
-* The new wallet address you will transfer it to
-* The contract of the collection
+> * Es importante que los wearables estén correctamente "skin weighted" para que las animaciones del avatar puedan renderizarse como se espera. Los wearables sin skin weighting correcto serán rechazados.
+> * Los wearables deben preservar el mapeo UV del avatar para asegurar que los tonos de piel seleccionados por el usuario puedan renderizarse como se espera.
+> * Las dimensiones de las texturas de eyebrow, eye y mouth no deben exceder 256 por 256px, y la imagen debe tener fondo transparente.
+> * En el caso de la categoría hands, el wearable no puede ser un ítem adjunto a la mano (una espada, escudo, etc). La categoría está destinada a accesorios de mano como pulseras, relojes, anillos, etc. y en el caso de reemplazar la mano completamente debe seguir un skinning de armature apropiado para los huesos de la mano.
+> * Los wearables con un número desproporcionado de triángulos, texturas y materiales pueden ser rechazados porque pueden causar mal rendimiento y una mala experiencia para los jugadores. Los creadores no deben exceder las [directrices](../wearables-and-emotes/wearables/creating-wearables.md) de limitación al crear wearables.
+> * Los wearables no pueden contener ítems duplicados dentro de una colección. (Cada ítem dentro de una colección debe ser único.)
+> * Los wearables no pueden imitar o copiar otros wearables que ya han sido publicados.
+> * Por razones de seguridad, cualquier wearable que contenga cualquier tipo de Código QR puede ser rechazado.
+> * Wearables que excedan las restricciones de espacio.
+> * Los wearables con categorías engañosas pueden ser rechazados; por ejemplo, un sombrero que está categorizado como un ítem de lower body.
+> * Los wearables deben seguir la estructura humanoide de armature para asegurar un gameplay de buena calidad. En este sentido, actualmente vehículos o mascotas no están permitidos porque estos no son wearables por definición.
+> * Emotes que excedan las restricciones de tiempo y espacio. Para más información consulta las [directrices de emote](../wearables-and-emotes/emotes/creating-emotes.md)
+> * Los curadores del comité de curadores pueden enviar colecciones pero no aprobar las propias. En este caso, otro curador del comité necesitaría revisar para aprobar o rechazar.
+
+### **Atribuyendo Colaboradores** [**#**](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#attributing-collaborators)
+
+Si colaboraste con otros artistas al crear tus ítems, puedes agregar atribuciones dentro del Wearables Editor. Esto solo se puede hacer después de publicar una colección.
+
+Primero, navega al [**Builder**](https://builder.decentraland.org/) y selecciona la pestaña **Collections**. Selecciona la colección que contiene los ítems a los que quieres agregar atribuciones, haz clic en el ícono **…** junto al botón **Mint Items**, y selecciona **Collaborators**.
+
+Para agregar colaboradores, simplemente ingresa su dirección de Ethereum, y haz clic en **Add**. Puedes agregar tantos colaboradores como quieras. Para eliminar un colaborador, simplemente haz clic en **Remove** junto a la dirección del colaborador.
+
+![](../images/wearables-and-emotes/publishing-collections/add-collaborators.png)
+
+### **Vendiendo Ítems**
+
+Después de que tus ítems sean publicados en una colección y aprobados por el Curation Committee, pueden venderse a otros usuarios en el metaverso.
+
+Los ítems pueden venderse en **ventas primarias** y **ventas secundarias**.
+
+* **Las ventas primarias** son realizadas por el smart contract de la Tienda de Decentraland. Durante una venta primaria, el **ítem se acuña automáticamente**, y se vende por el precio establecido por ti en el Wearable Editor.
+* **Las ventas secundarias** son realizadas por el smart contract del Marketplace de Decentraland. Estas ocurren cada vez que un usuario vende un ítem en el Marketplace **después de que ha sido acuñado** o **comprado en una venta primaria**. Los ítems pueden venderse por cualquier precio en una venta secundaria.
+
+Para ver ítems disponibles para comprar en ventas primarias y secundarias, dirígete al [**Decentraland Marketplace!**](https://market.decentraland.org/)
+
+### **Ventas Primarias**
+
+Las ventas primarias ocurren cuando uno de tus ítems se compra por primera vez. Estas ventas solo son realizadas por el smart contract de la Tienda de Decentraland.
+
+Cuando un usuario hace una compra primaria de uno de tus ítems, la tienda **acuña el ítem automáticamente**, transfiere el ítem al comprador, y envía las ganancias de MANA a la dirección de beneficiario.
+
+> ¡Recuerda! ¡No necesitas acuñar tus ítems para venderlos en ventas primarias!
+
+Para vender tus ítems a través de ventas primarias, comienza navegando al [**Builder**](https://builder.decentraland.org/) y sigue los siguientes pasos:
+
+Para habilitar Primary Sales, ve a la pestaña **Collections**, selecciona la que quieres habilitar y haz clic en el botón _**Enable sales**_, después de eso haz clic en **Enable Sales** en la ventana de confirmación que aparece.
+
+![](../images/wearables-and-emotes/uploading-wearables/25_enable_sales.png)
+
+Ahora necesitas establecer el precio y poner cada uno de tus ítems a la venta haciendo clic en su botón **Put up for sale** y establecer el precio que quieres que tenga. **Cuando esto esté hecho, tu ítem estará disponible para comprar dentro del** [**Marketplace**](https://market.decentraland.org/) **de Decentraland.**
+
+![](../images/wearables-and-emotes/publishing-collections/put_item_for_sale.png)
+
+Si las ventas de la colección están habilitadas y el precio de los ítems establecido, el [Marketplace](https://market.decentraland.org/) de Decentraland acuñará automáticamente uno de tus ítems cada vez que un usuario haga una compra primaria. Esto te permite acuñar y vender todos tus ítems disponibles hasta que se alcance el suministro máximo. Si quieres guardar uno o más de tus ítems antes de listarlos para venta, necesitas acuñar manualmente un ítem a una de tus propias direcciones de wallet.
+
+Cualquier comprador de uno de tus ítems puede revenderlo en cualquier momento y a cualquier precio en el [Marketplace](https://market.decentraland.org/) de Decentraland.
+
+**Todas las Ventas Primarias en la tienda en el mundo de Decentraland están sujetas a una tarifa del 2.5%, que se transfiere al DAO de Decentraland.**
+
+Si vendes un ítem a través de una venta primaria, recibirás tu MANA en Polygon. Las ganancias de cualquier ítem vendido en Polygon residirán en la sidechain. Si quieres transferir tu MANA de la sidechain de Polygon a la cadena principal de Ethereum, tendrás que pagar una tarifa de transacción. Puedes hacerlo desde la página de [Accounts](https://account.decentraland.org/). Para más información sobre la sidechain de Polygon, consulta [esta publicación del blog](https://decentraland.org/blog/announcements/polygon-mana/).
+
+#### **Deshabilitando Primary Sales**
+
+Para quitar tus ítems de la lista, haz clic en el botón **Remove from sale** de los ítems que quieres eliminar. Esto solo se aplicará a las ventas primarias de tus ítems.
+
+### **Ventas Secundarias**
+
+Los ítems pueden venderse en ventas secundarias en cualquier momento, y por cualquier precio, en el Decentraland Marketplace solo después de:
+
+* Han sido **acuñados**
+* Han sido **comprados en una Venta Primaria**
+
+En otras palabras, cualquiera que posea un NFT de un wearable puede venderlo en el Decentraland Marketplace. Hay royalties para wearables vendidos en ventas secundarias en Decentraland. Los royalties van al beneficiario del ítem.
+
+### **Acuñando Wearables**
+
+Acuñar es el proceso de crear los tokens no fungibles (NFTs) reales basados en los ítems que has subido al Wearables Editor.
+
+Todos los wearables en Decentraland se acuñan en la sidechain de Polygon. Esto permite a los usuarios acuñar y transferir ítems sin pagar ninguna tarifa de gas (siempre que estas transacciones se realicen únicamente en la sidechain de Polygon).
+
+Al igual que vender ítems en ventas primarias, no podrás acuñar ningún ítem dentro de una colección hasta que el proceso de revisión esté completo. Si tu colección todavía está bajo revisión, verás la etiqueta **"Under Review"** agregada a tu colección. Después de que haya sido revisada y aprobada, la etiqueta cambiará a **"Published"**, y podrás comenzar a acuñar tus ítems manualmente.
+
+#### **Cómo Acuñar Ítems Manualmente**
+
+Para acuñar ítems publicados, abre la colección que contiene los ítems que te gustaría acuñar, y haz clic en **Mint Items**.
+
+![](../images/wearables-and-emotes/publishing-collections/minting-items-1.png)
+
+Se te mostrará una ventana modal que contiene una lista de los ítems disponibles junto con el suministro disponible para cada uno. Recuerda, el suministro es el número total de ítems que puedes acuñar. Por ejemplo, si tu suministro dice 0/10, entonces has usado 0 de tu suministro total de 10.
+
+![](../images/wearables-and-emotes/publishing-collections/minting-items-2.png)
+
+Al acuñar, debes establecer la dirección que recibirá los ítems acuñados y debes establecer el número de ítems que quieres acuñar a esa dirección. No puedes acuñar más ítems de los que están disponibles en el suministro disponible.
+
+Si ingresas tu propia dirección, entonces los ítems que se acuñan se transferirán a tu cuenta.
+
+Puedes "regalar" ítems a cualquiera que desees ingresando su dirección en lugar de la tuya bajo Address.
+
+Recuerda, estos ítems se acuñan y transfieren a la dirección ingresada gratis. El precio que estableces para los ítems solo se cobra en ventas primarias.
 
 {% hint style="warning" %}
-⚠️ Note: This applies only to Polygon Wearables.
+⚠️ Nota: Actualmente solo puedes acuñar 50 ítems por transacción.
 {% endhint %}
 
-Use this URL - `https://polygonscan.com/address/collection_address#writeContract` and replace `collection_address` with the your collection contract.
+¿Hay tarifas asociadas con acuñar ítems? No, los ítems se acuñan en la sidechain de Matic, eliminando así cualquier tarifa tradicionalmente asociada con acuñar NFTs en la blockchain principal de Ethereum.
 
-![](../../.gitbook/assets/ownership_transfer.png)
+#### **Agregando Minters a la Colección**
+
+Para agregar minters, simplemente ingresa su dirección de Ethereum, y haz clic en **Add**. Puedes agregar tantos minters como quieras. Para eliminar un minter, simplemente haz clic en **Remove** junto a la dirección del minter.
+
+![](../images/wearables-and-emotes/publishing-collections/add-minters.png)
+
+#### **Transferencia de Propiedad de Colección**
+
+Para transferir la propiedad de una Colección, necesitarás:
+
+* La dirección de wallet usada para crear la Colección
+* La nueva dirección de wallet a la que la transferirás
+* El contrato de la colección
+
+{% hint style="warning" %}
+⚠️ Nota: Esto aplica solo a Wearables de Polygon.
+{% endhint %}
+
+Usa esta URL - `https://polygonscan.com/address/collection_address#writeContract` y reemplaza `collection_address` con el contrato de tu colección.
+
+![](../images/wearables-and-emotes/publishing-collections/ownership_transfer.png)

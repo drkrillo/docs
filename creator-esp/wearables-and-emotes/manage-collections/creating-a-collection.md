@@ -1,76 +1,72 @@
 ---
-description: Guidelines to Create a Decentraland Collection
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/manage-collections/creating-a-collection
+description: Directrices para Crear una Colección de Decentraland
 ---
 
 # Creating a Collection
 
-![](../../.gitbook/assets/00_collections.png)
+![](../images/wearables-and-emotes/creating-a-collection/00_collections.png)
 
-## What is the Wearables Editor?
+## ¿Qué es el Wearables Editor?
 
-The Wearables Editor is a tool within Decentraland’s Builder that allows you to upload, add metadata to, and publish your own custom wearables.
+El Wearables Editor es una herramienta dentro del Builder de Decentraland que te permite subir, agregar metadatos y publicar tus propios wearables personalizados.
 
-> Remember: these docs don’t explain how to create the models, meshes, and textures that make up wearables, they just explain how to use the Wearables Editor to upload and publish your wearables. For an intro on the actual wearable creation process, start here.
+> Recuerda: estas docs no explican cómo crear los modelos, mallas y texturas que componen los wearables, solo explican cómo usar el Wearables Editor para subir y publicar tus wearables. Para una introducción al proceso real de creación de wearables, comienza aquí.
 
-### **Logging in**
+### **Iniciar Sesión**
 
-To start uploading and publishing your wearables, navigate to [**builder.decentraland.org**](https://builder.decentraland.org/).
+Para comenzar a subir y publicar tus wearables, navega a [**builder.decentraland.org**](https://builder.decentraland.org/).
 
-Click **Sign in**, and then **Connect** to log in with your Metamask or Fortmatic wallet. After signing in, click the **Collections** tab.
+Haz clic en **Sign in**, y luego **Connect** para iniciar sesión con tu wallet Metamask o Fortmatic. Después de iniciar sesión, haz clic en la pestaña **Collections**.
 
-## Creating a Collection
+## Creando una Colección
 
-Before you can upload a wearable or an emote, you must create a collection first. To do that, go to [https://builder.decentraland.org/](https://builder.decentraland.org/) and click on _**Collections**_. If you don’t have any collections yet, click on the _**New Collection**_ button, the one with an image of a folder. If you already have another collection, clikc on the _**+**_ button and select _**New Collection**_.
+Antes de que puedas subir un wearable o un emote, debes crear primero una colección. Para hacer eso, ve a [https://builder.decentraland.org/](https://builder.decentraland.org/) y haz clic en _**Collections**_. Si aún no tienes ninguna colección, haz clic en el botón _**New Collection**_, el que tiene una imagen de una carpeta. Si ya tienes otra colección, haz clic en el botón _**+**_ y selecciona _**New Collection**_.
 
-![](../../.gitbook/assets/01_create_collection.png) ![](../../.gitbook/assets/02_add_collection.png)
+![](../images/wearables-and-emotes/creating-a-collection/01_create_collection.png) ![](../images/wearables-and-emotes/creating-a-collection/02_add_collection.png)
 
-After clicking on the button, you will be asked to rename your collection, as shown bellow. In case you change your mind, you can edit the name of your collection at any point **before publishing**.
+Después de hacer clic en el botón, se te pedirá que renombres tu colección, como se muestra a continuación. En caso de que cambies de opinión, puedes editar el nombre de tu colección en cualquier momento **antes de publicar**.
 
-![](../../.gitbook/assets/03_rename_collection.png)
+![](../images/wearables-and-emotes/creating-a-collection/03_rename_collection.png)
 
-Now, you’re ready to add items to it. For that, just click on the button Add Item and just drag and drop the file with your wearable/emote or browse your computer.
+Ahora, estás listo para agregar ítems a ella. Para eso, simplemente haz clic en el botón Add Item y arrastra y suelta el archivo con tu wearable/emote o busca en tu computadora.
 
-![](../../.gitbook/assets/04_add_item.png)
+![](../images/wearables-and-emotes/creating-a-collection/04_add_item.png)
 
-Once you click on _**Add Item**_, you will get a window like the one shown below. Just drag and drop the file with your wearable/emote or browse your computer.
+Una vez que hagas clic en _**Add Item**_, obtendrás una ventana como la que se muestra a continuación. Simplemente arrastra y suelta el archivo con tu wearable/emote o busca en tu computadora.
 
-![](../../.gitbook/assets/05_new_item.png)
+![](../images/wearables-and-emotes/creating-a-collection/05_new_item.png)
 
-If you already have a collection and want to add more items to it, just click on Add Item and upload your file. You can add as many files as you want before publishing the collection.
+Si ya tienes una colección y quieres agregar más ítems a ella, simplemente haz clic en Add Item y sube tu archivo. Puedes agregar tantos archivos como quieras antes de publicar la colección.
 
-![](../../.gitbook/assets/06_adding_more_items.png)
+![](../images/wearables-and-emotes/creating-a-collection/06_adding_more_items.png)
 
-_Remember: you cannot add, remove, or change the rarity of items after the collection is pubilshed._
+_Recuerda: no puedes agregar, eliminar o cambiar la rarity de los ítems después de que la colección se publique._
 
-Each item of the collection have:
+Cada ítem de la colección tiene:
 
-* **Name of the item:** this name will be displayed when distributing your wearable or emote on the marketplace.
-* **Description:** _(optional)_ a brief statement describing your item, this is displayed when distributing your wearable or emote on the marketplace.
-* **Category:** - the category that your wearable belongs (upper-body, eyewear, skin, etc)
-* **Rarity:** - the rarity determines the maximum number of NFTs you will be able to mint of your wearable or emote after publication. This is the only property that cannot be modified after publishing a collection.
-* **Tags:** _(optional)_ descriptive words that users can use when searching or filtering for items. These are relevant to competitions or events!
+* **Name of the item:** este nombre se mostrará al distribuir tu wearable o emote en el marketplace.
+* **Description:** _(opcional)_ una breve declaración describiendo tu ítem, esto se muestra al distribuir tu wearable o emote en el marketplace.
+* **Category:** - la categoría a la que pertenece tu wearable (upper-body, eyewear, skin, etc)
+* **Rarity:** - la rarity determina el número máximo de NFTs que podrás acuñar de tu wearable o emote después de la publicación. Esta es la única propiedad que no puede modificarse después de publicar una colección.
+* **Tags:** _(opcional)_ palabras descriptivas que los usuarios pueden usar al buscar o filtrar ítems. ¡Estas son relevantes para competencias o eventos!
 
 ### **Rarity**
 
-The rarity of your item determines the total number of NFTs that can be minted. Rarity is the same for both emotes and wearables and you will be able to define it once you upload your file.
+La rarity de tu ítem determina el número total de NFTs que se pueden acuñar. La rarity es la misma tanto para emotes como para wearables y podrás definirla una vez que subas tu archivo.
 
-| Rarity    | Number of Items |
-| --------- | --------------- |
-| Unique    | 1               |
-| Mythic    | 10              |
-| Exotic    | 50              |
-| Legendary | 100             |
-| Epic      | 1,000           |
-| Rare      | 5,000           |
-| Uncommon  | 10,000          |
-| Common    | 100,000         |
+|| Rarity    | Number of Items |
+|| --------- | --------------- |
+|| Unique    | 1               |
+|| Mythic    | 10              |
+|| Exotic    | 50              |
+|| Legendary | 100             |
+|| Epic      | 1,000           |
+|| Rare      | 5,000           |
+|| Uncommon  | 10,000          |
+|| Common    | 100,000         |
 
-#### Attention!
+#### ¡Atención!
 
 {% hint style="warning" %}
-⚠️ **The name of your collection, as well as the number of items and their rarity can't be changed once it's published!**
+⚠️ **¡El nombre de tu colección, así como el número de ítems y su rarity no se pueden cambiar una vez que se publique!**
 {% endhint %}

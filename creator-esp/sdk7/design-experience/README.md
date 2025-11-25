@@ -1,19 +1,16 @@
 ---
-description: Design engaging experiences and games
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/design-experience
+description: Diseña experiencias y juegos atractivos
 ---
 
 # Design Experience
 
-Learn best practices for designing engaging experiences and games in Decentraland. This section covers game design principles, UX/UI guidelines, and strategies for creating compelling content.
+Aprende las mejores prácticas para diseñar experiencias y juegos atractivos en Decentraland. Esta sección cubre principios de diseño de juegos, directrices de UX/UI y estrategias para crear contenido convincente.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Game design principles for Decentraland
-* Minimum Viable Product (MVP) guidelines
-* UX and UI best practices
-* Performance considerations for gameplay
+* Principios de diseño de juegos para Decentraland
+* Directrices de Minimum Viable Product (MVP)
+* Mejores prácticas de UX y UI
+* Consideraciones de rendimiento para gameplay
 
-Good design makes the difference between a scene that players visit once and one they return to again and again.
+El buen diseño marca la diferencia entre una scene que los jugadores visitan una vez y una a la que regresan una y otra vez.

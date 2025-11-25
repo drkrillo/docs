@@ -1,19 +1,16 @@
 ---
-description: Publish your scenes to Decentraland
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/publishing
+description: Publica tus scenes en Decentraland
 ---
 
 # Publishing
 
-Deploy your scenes to Decentraland and make them discoverable to players. This section covers the entire publishing workflow.
+Despliega tus scenes en Decentraland y hazlas descubribles para los jugadores. Esta sección cubre todo el flujo de trabajo de publicación.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Publishing scenes to Decentraland
-* Publishing options (LAND, Worlds)
-* Making your scene discoverable
-* Managing scene updates
+* Publicar scenes en Decentraland
+* Opciones de publicación (LAND, Worlds)
+* Hacer tu scene descubrible
+* Gestionar actualizaciones de scene
 
-Publishing is the final step in bringing your creation to life in the Decentraland metaverse.
+La publicación es el paso final para dar vida a tu creación en el metaverso de Decentraland.

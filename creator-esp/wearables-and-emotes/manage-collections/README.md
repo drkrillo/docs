@@ -1,20 +1,17 @@
 ---
-description: Manage your wearables and emotes collections
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/manage-collections
+description: Gestiona tus colecciones de wearables y emotes
 ---
 
 # Manage Collections
 
-Learn how to create, organize, and manage your wearables and emotes collections in Decentraland. This section covers everything from creating new collections to uploading items and managing smart wearables.
+Esta sección cubre cómo crear y gestionar colecciones de wearables y emotes en Decentraland. Aprenderás a subir tus assets, organizarlos en colecciones y prepararlos para publicación.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Creating and naming collections
-* Uploading wearables to collections
-* Managing smart wearables
-* Uploading emotes
+* Crear una nueva colección
+* Subir wearables a tu colección
+* Subir emotes a tu colección
+* Subir smart wearables
+* Gestionar y editar ítems de colección
 
-Collections allow you to organize your wearables and emotes, making it easier to manage multiple items and prepare them for publication in the Decentraland Marketplace.
+Las colecciones son el contenedor para tus wearables y emotes, permitiéndote organizarlos antes de publicarlos en el Marketplace.

@@ -1,24 +1,20 @@
 ---
 description: >-
-  Learn what the SDK offers for performing operations with the Ethereum
-  blockchain
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/blockchain/scene-blockchain-operations
+  Aprende qué ofrece el SDK para realizar operaciones con el blockchain de
+  Ethereum
 ---
 
-# Scene Blockchain Operations
+# Operaciones Blockchain de la Escena
 
-A Decentraland scene can interface with the Ethereum blockchain. This can serve to obtain data about the user's wallet and the tokens in it, or to trigger transactions that could involve any Ethereum token, fungible or non-fungible. This can be used in many ways, for example to sell tokens, to reward tokens as part of a game-mechanic, to change how a player interacts with a scene if they own certain tokens, etc.
+Una escena de Decentraland puede interactuar con el blockchain de Ethereum. Esto puede servir para obtener datos sobre el wallet del usuario y los tokens en él, o para activar transacciones que podrían involucrar cualquier token de Ethereum, fungible o no fungible. Esto puede usarse de muchas maneras, por ejemplo para vender tokens, para recompensar tokens como parte de una mecánica de juego, para cambiar cómo un jugador interactúa con una escena si posee ciertos tokens, etc.
 
-Note that all transactions in the Ethereum mainnet that are triggered by a scene will require a player to approve and pay a gas fee.
+Ten en cuenta que todas las transacciones en la mainnet de Ethereum que son activadas por una escena requerirán que un jugador apruebe y pague una tarifa de gas.
 
-All blockchain operations also need to be carried out as [asynchronous functions](../../../creator/sdk7/programming-patterns/async-functions.md), since the timing depends on external events.
+Todas las operaciones blockchain también deben llevarse a cabo como [funciones asíncronas](../sdk7/programming-patterns/async-functions.md), ya que el timing depende de eventos externos.
 
-### Get a player's ethereum account
+### Obtener la cuenta ethereum de un jugador
 
-To get a player's Ethereum account, use the `getPlayer()` function.
+Para obtener la cuenta de Ethereum de un jugador, usa la función `getPlayer()`.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -33,45 +29,45 @@ export function main() {
 }
 ```
 
-Note that if a player has entered Decentraland as a guest, they will not have a connected ethereum wallet. If they are connected as guests, the `isGuest` field in the response from `getPlayer()` will be true. If `hasConnectedWeb3` is true, then you can obtain the player's address from the field `publicKey`. Learn more about the data you can obtain from a player in [get player data](../../../creator/sdk7/interactivity/user-data.md#get-player-data)
+Ten en cuenta que si un jugador ha ingresado a Decentraland como invitado, no tendrá un wallet de ethereum conectado. Si están conectados como invitados, el campo `isGuest` en la respuesta de `getPlayer()` será true. Si `hasConnectedWeb3` es true, entonces puedes obtener la dirección del jugador del campo `publicKey`. Aprende más sobre los datos que puedes obtener de un jugador en [obtener datos del jugador](../sdk7/interactivity/user-data.md#get-player-data)
 
-You should wrap the function in an `async()` function, learn more about this in [async functions](../../../creator/sdk7/programming-patterns/async-functions.md)
+Debes envolver la función en una función `async()`, aprende más sobre esto en [funciones async](../sdk7/programming-patterns/async-functions.md)
 
 {% hint style="warning" %}
-**📔 Note**: Even though the eth address may contain upper case characters, some browsers convert the returned string to lower case automatically. If you wish compare address values and have it work on all browsers, use the `.toLowerCase()` method to convert the value into lower case.
+**📔 Nota**: Aunque la dirección eth puede contener caracteres en mayúscula, algunos navegadores convierten la cadena devuelta a minúsculas automáticamente. Si deseas comparar valores de dirección y que funcione en todos los navegadores, usa el método `.toLowerCase()` para convertir el valor a minúsculas.
 {% endhint %}
 
-### Check gas price
+### Verificar precio del gas
 
-After importing the `eth-connect` library, you must instance a web3 provider and a request manager, which will will allow you to connect via web3 to Metamask in the player's browser.
+Después de importar la librería `eth-connect`, debes instanciar un web3 provider y un request manager, que te permitirán conectarte vía web3 a Metamask en el navegador del jugador.
 
-The function below fetches the current gas price in the Ethereum main network and prints it.
+La función a continuación obtiene el precio actual del gas en la red principal de Ethereum y lo imprime.
 
 ```ts
 import { RequestManager } from 'eth-connect'
 import { createEthereumProvider } from '@dcl/sdk/ethereum-provider'
 
 executeTask(async function () {
-	// create an instance of the web3 provider to interface with Metamask
+	// crear una instancia del web3 provider para interactuar con Metamask
 	const provider = createEthereumProvider()
-	// Create the object that will handle the sending and receiving of RPC messages
+	// Crear el objeto que manejará el envío y recepción de mensajes RPC
 	const requestManager = new RequestManager(provider)
-	// Check the current gas price on the Ethereum network
+	// Verificar el precio actual del gas en la red de Ethereum
 	const gasPrice = await requestManager.eth_gasPrice()
-	// log response
+	// registrar respuesta
 	console.log({ gasPrice })
 })
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Note that the functions handled by the `requestManager` must be called using `await`, since they rely on fetching external data and can take some time to be completed.
+**💡 Tip**: Ten en cuenta que las funciones manejadas por el `requestManager` deben llamarse usando `await`, ya que dependen de obtener datos externos y pueden tomar algo de tiempo en completarse.
 {% endhint %}
 
-### Import a contract ABI
+### Importar un ABI de contrato
 
-An ABI (Application Binary Interface) describes how to interact with an Ethereum contract, determining what functions are available, what inputs they take and what they output. Each Ethereum contract has its own ABI, you should import the ABIs of all the contracts you wish to use in your project.
+Un ABI (Application Binary Interface) describe cómo interactuar con un contrato de Ethereum, determinando qué funciones están disponibles, qué inputs toman y qué producen. Cada contrato de Ethereum tiene su propio ABI, debes importar los ABIs de todos los contratos que desees usar en tu proyecto.
 
-For example, here's an example of one function in the MANA ABI:
+Por ejemplo, aquí hay un ejemplo de una función en el ABI de MANA:
 
 ```ts
 {
@@ -93,13 +89,13 @@ For example, here's an example of one function in the MANA ABI:
 }
 ```
 
-ABI definitions can be quite lengthy, as they often include a lot of functions, so we recommend pasting the JSON contents of an ABI file into a separate `.ts` file and importing it into other scene files from there. We also recommend holding all ABI files in a separate folder of your scene, named `/contracts`.
+Las definiciones de ABI pueden ser bastante extensas, ya que a menudo incluyen muchas funciones, por lo que recomendamos pegar el contenido JSON de un archivo ABI en un archivo `.ts` separado e importarlo en otros archivos de escena desde allí. También recomendamos mantener todos los archivos ABI en una carpeta separada de tu escena, llamada `/contracts`.
 
 ```ts
 import { abi } from '../contracts/mana'
 ```
 
-Here are links to different Decentraland contracts. Obtain the ABI for each contract by clicking _Export ABI_ and choosing _JSON Format_.
+Aquí hay enlaces a diferentes contratos de Decentraland. Obtén el ABI para cada contrato haciendo clic en _Export ABI_ y eligiendo _JSON Format_.
 
 * [MANA Token ABI](https://etherscan.io/address/0x0f5d2fb29fb7d3cfee444a200298f468908cc942#code)
 * [Decentraland Marketplace](https://etherscan.io/address/0x19a8ed4860007a66805782ed7e0bed4e44fc6717#code)
@@ -108,7 +104,7 @@ Here are links to different Decentraland contracts. Obtain the ABI for each cont
 * [AvatarNameRegistry ABI](https://etherscan.io/address/0x894b883905bfEe2CC448880F1b59f4A762E67566)
 * [Catalyst ABI](https://etherscan.io/address/0xcc054fab08127c19f621ab83ade5962cd10584ec)
 
-These are the contracts for the various wearable collections: (each collection was emitted as a separate contract)
+Estos son los contratos para las diversas colecciones de wearables: (cada colección se emitió como un contrato separado)
 
 * [ExclusiveMasksCollection ABI](https://etherscan.io/address/0xc04528c14c8ffd84c7c1fb6719b4a89853035cdd)
 * [Halloween2019Collection ABI](https://etherscan.io/address/0xc1f4b0eea2bd6690930e6c66efd3e197d620b9c2)
@@ -120,18 +116,18 @@ These are the contracts for the various wearable collections: (each collection w
 * [DCGCollection ABI](https://etherscan.io/address/0x3163d2cfee3183f9874e2869942cc62649eeb004)
 
 {% hint style="info" %}
-**💡 Tip**: To clearly see the functions exposed by a contract, open it in [abitopic.io](https://abitopic.io). Just paste the contract address there and open the _functions_ tab to see the full list of supported functions and their arguments. You can even test calling the functions with different parameters via the webpage.
+**💡 Tip**: Para ver claramente las funciones expuestas por un contrato, ábrelo en [abitopic.io](https://abitopic.io). Solo pega la dirección del contrato allí y abre la pestaña _functions_ para ver la lista completa de funciones soportadas y sus argumentos. Incluso puedes probar llamar las funciones con diferentes parámetros a través de la página web.
 {% endhint %}
 
-Configuring TypeScript to be able to import from a JSON file has its difficulties. The recommended easier workaround is to change the `ABI.JSON` file's extension to `.ts` and modifying it slightly so that it its content starts with `export default`.
+Configurar TypeScript para poder importar desde un archivo JSON tiene sus dificultades. La solución más fácil recomendada es cambiar la extensión del archivo `ABI.JSON` a `.ts` y modificarlo ligeramente para que su contenido comience con `export default`.
 
-For example, if the ABI file's contents starts with `[{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`, modify it so that it starts with `export default [{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`.
+Por ejemplo, si el contenido del archivo ABI comienza con `[{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`, modifícalo para que comience con `export default [{"constant":true,"inputs":[{"internalType":"bytes4" ...etc`.
 
-#### Instance a contract
+#### Instanciar un contrato
 
-After importing the `eth-connect` library and a contract's _abi_, you must instance several objects that will allow you to use the functions in the contract and connect to Metamask in the player's browser.
+Después de importar la librería `eth-connect` y el _abi_ de un contrato, debes instanciar varios objetos que te permitirán usar las funciones en el contrato y conectarte a Metamask en el navegador del jugador.
 
-You must also import the web3 provider. This is because Metamask in the player's browser uses web3, so we need a way to interact with that.
+También debes importar el web3 provider. Esto es porque Metamask en el navegador del jugador usa web3, por lo que necesitamos una forma de interactuar con eso.
 
 ```ts
 import { RequestManager, ContractFactory } from 'eth-connect'
@@ -139,13 +135,13 @@ import { createEthereumProvider } from '@dcl/sdk/ethereum-provider'
 import { abi } from '../contracts/mana'
 
 executeTask(async () => {
-	// create an instance of the web3 provider to interface with Metamask
+	// crear una instancia del web3 provider para interactuar con Metamask
 	const provider = createEthereumProvider()
-	// Create the object that will handle the sending and receiving of RPC messages
+	// Crear el objeto que manejará el envío y recepción de mensajes RPC
 	const requestManager = new RequestManager(provider)
-	// Create a factory object based on the abi
+	// Crear un objeto factory basado en el abi
 	const factory = new ContractFactory(requestManager, abi)
-	// Use the factory object to instance a `contract` object, referencing a specific contract
+	// Usar el objeto factory para instanciar un objeto `contract`, referenciando un contrato específico
 	const contract = (await factory.at(
 		'0x2a8fd99c19271f4f04b1b7b9c4f7cf264b626edb'
 	)) as any
@@ -153,12 +149,12 @@ executeTask(async () => {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: For contracts that follow a same standard, such as ERC20 or ERC721, you can import a single generic ABI for all. You then generate a single `ContractFactory` object with that ABI and use that same factory to instance interfaces for each contract.
+**💡 Tip**: Para contratos que siguen un mismo estándar, como ERC20 o ERC721, puedes importar un solo ABI genérico para todos. Luego generas un solo objeto `ContractFactory` con ese ABI y usas esa misma factory para instanciar interfaces para cada contrato.
 {% endhint %}
 
-#### Call the methods in a contract
+#### Llamar a los métodos en un contrato
 
-Once you've created a `contract` object, you can easily call the functions that are defined in its ABI, passing it the specified input parameters.
+Una vez que hayas creado un objeto `contract`, puedes llamar fácilmente las funciones que están definidas en su ABI, pasándole los parámetros de entrada especificados.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -168,7 +164,7 @@ import { abi } from '../contracts/mana'
 
 executeTask(async () => {
 	try {
-		// Setup steps explained in the section above
+		// Pasos de configuración explicados en la sección anterior
 		const provider = createEthereumProvider()
 		const requestManager = new RequestManager(provider)
 		const factory = new ContractFactory(requestManager, abi)
@@ -180,7 +176,7 @@ executeTask(async () => {
 			return
 		}
 
-		// Perform a function from the contract
+		// Realizar una función del contrato
 		const res = await contract.setBalance(
 			'0xaFA48Fad27C7cAB28dC6E970E4BFda7F7c8D60Fb',
 			100,
@@ -188,7 +184,7 @@ executeTask(async () => {
 				from: userData.userId,
 			}
 		)
-		// Log response
+		// Registrar respuesta
 		console.log(res)
 	} catch (error: any) {
 		console.log(error.toString())
@@ -196,52 +192,52 @@ executeTask(async () => {
 })
 ```
 
-The example above uses the abi for the Ropsten MANA contract and transfers 100 _fake MANA_ to your account in the Ropsten test network.
+El ejemplo anterior usa el abi para el contrato de MANA de Ropsten y transfiere 100 _MANA falso_ a tu cuenta en la red de prueba de Ropsten.
 
-#### Other functions
+#### Otras funciones
 
-The eth-connect library includes a number of other helpers you can use. For example to:
+La librería eth-connect incluye una serie de otros helpers que puedes usar. Por ejemplo para:
 
-* Get an estimated gas price
-* Get the balance of a given address
-* Get a transaction receipt
-* Get the number of transactions sent from an address
-* Convert between various formats including hexadecimal, binary, utf8, etc.
+* Obtener un precio de gas estimado
+* Obtener el balance de una dirección dada
+* Obtener un recibo de transacción
+* Obtener el número de transacciones enviadas desde una dirección
+* Convertir entre varios formatos incluyendo hexadecimal, binario, utf8, etc.
 
-### Using the Ethereum test network
+### Usando la red de prueba de Ethereum
 
-While testing your scene, to avoid transferring real MANA or other currencies, you can use the _Ethereum Sepolia test network_ and transfer fake testnet MANA instead.
+Mientras pruebas tu escena, para evitar transferir MANA real u otras monedas, puedes usar la _red de prueba Ethereum Sepolia_ y transferir MANA de testnet falso en su lugar.
 
-To use the test network you must set your Metamask Chrome extension to use the _Sepolia test network_ instead of _Main network_.
+Para usar la red de prueba debes configurar tu extensión de Chrome Metamask para usar la _red de prueba Sepolia_ en lugar de _Main network_.
 
-You must acquire Sepolia Ether, which you can obtain for free from various external faucets like [this one](https://www.alchemy.com/faucets/ethereum-sepolia/).
+Debes adquirir Ether de Sepolia, que puedes obtener gratis de varios faucets externos como [este](https://www.alchemy.com/faucets/ethereum-sepolia/).
 
 {% hint style="info" %}
-**💡 Tip**: To run the transaction of transferring Sepolia MANA to your wallet, you will need to pay a gas fee in Sepolia Ether.
+**💡 Tip**: Para ejecutar la transacción de transferir MANA de Sepolia a tu wallet, necesitarás pagar una tarifa de gas en Ether de Sepolia.
 {% endhint %}
 
-To preview your scene using the test network, paste the following URL into a browser tab. This will open the scene on the Decentraland desktop client:
+Para previsualizar tu escena usando la red de prueba, pega la siguiente URL en una pestaña del navegador. Esto abrirá la escena en el cliente de escritorio de Decentraland:
 
 `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true&dclenv=zone&position=0,0`
 
 {% hint style="info" %}
-**💡 Tip**: Change the position parameter to the coordinates of your scene, to load directly into your scene..
+**💡 Tip**: Cambia el parámetro de posición a las coordenadas de tu escena, para cargar directamente en tu escena.
 {% endhint %}
 
-Any transactions that you accept while viewing the scene in this mode will only occur in the test network and not affect the MANA balance in your real wallet.
+Cualquier transacción que aceptes mientras ves la escena en este modo solo ocurrirá en la red de prueba y no afectará el balance de MANA en tu wallet real.
 
-If you need to test transactions in the Polygon Testnet and need to have MANA on that testnet, you'll need to swap MANA to that network after acquiring it in Sepolia. To bridge Sepolia MANA to the Polygon Testnet, visit your [Decentraland account page in Sepolia](https://account.decentraland.zone/) and click on ‘swap’ on the Ethereum MANA side.
+Si necesitas probar transacciones en el Testnet de Polygon y necesitas tener MANA en ese testnet, necesitarás intercambiar MANA a esa red después de adquirirlo en Sepolia. Para hacer bridge de MANA de Sepolia al Testnet de Polygon, visita tu [página de cuenta de Decentraland en Sepolia](https://account.decentraland.zone/) y haz clic en 'swap' en el lado de Ethereum MANA.
 
-When running a preview on the legacy web client, of a scene that uses one of the ethereum libraries, you must open the preview in a separate browser window, have Metamask open in your browser, and manually include the string `&ENABLE_WEB3`.
+Cuando ejecutas una vista previa en el cliente web heredado, de una escena que usa una de las librerías de ethereum, debes abrir la vista previa en una ventana de navegador separada, tener Metamask abierto en tu navegador, e incluir manualmente la cadena `&ENABLE_WEB3`.
 
-### Send custom RPC messages
+### Enviar mensajes RPC personalizados
 
-Use the function `sendAsync()` to send messages over [RPC protocol](https://en.wikipedia.org/wiki/Remote_procedure_call).
+Usa la función `sendAsync()` para enviar mensajes sobre [protocolo RPC](https://en.wikipedia.org/wiki/Remote_procedure_call).
 
 ```ts
 import { sendAsync } from '~system/EthereumController'
 
-// send a message
+// enviar un mensaje
 await sendAsync({
 	id: 1,
 	method: 'myMethod',
@@ -249,8 +245,8 @@ await sendAsync({
 })
 ```
 
-### Decentraland smart contracts
+### Smart contracts de Decentraland
 
-In the following link you can find a list of Etherum smart contracts relevant to the Decentraland ecosystem. The list includes the contracts in mainnet as well as in other Ethereum test networks.
+En el siguiente enlace puedes encontrar una lista de smart contracts de Ethereum relevantes para el ecosistema de Decentraland. La lista incluye los contratos en mainnet así como en otras redes de prueba de Ethereum.
 
 [contracts.decentraland.org](https://contracts.decentraland.org/links)

@@ -1,10 +1,7 @@
 ---
-description: Release notes for SDK
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/releases/releases
+description: Notas de lanzamiento para el SDK
 ---
 
-# Releases
+# Lanzamientos
 
-See [the SDK repository](https://github.com/decentraland/js-sdk-toolchain/releases) for release notes about each version of the SDK.
+Consulta [el repositorio del SDK](https://github.com/decentraland/js-sdk-toolchain/releases) para obtener notas de lanzamiento sobre cada versión del SDK.

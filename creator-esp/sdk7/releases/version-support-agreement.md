@@ -1,88 +1,84 @@
 ---
-description: Version support agreement
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/releases/version-support-agreement
+description: Acuerdo de soporte de versiones
 ---
 
-# Version Support Agreement
+# Acuerdo de Soporte de Versiones
 
-This document describes the versioning policy applied to both the Scene Editor (in the Creator Hub) and the scripting framework (the `@dcl/sdk` package).
+Este documento describe la política de versionado aplicada tanto al Scene Editor (en el Creator Hub) como al framework de scripting (el paquete `@dcl/sdk`).
 
-The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators, to establish clear expectations and allow content creators to plan their work accordingly.
+El objetivo de esta política de versionado es forjar un contrato entre el equipo del SDK de la Fundación Decentraland y los creadores de contenido, para establecer expectativas claras y permitir que los creadores de contenido planifiquen su trabajo en consecuencia.
 
-### Definitions
+### Definiciones
 
-* _Version number_ -- a unique identifier for a publicly available version of software. This identifier consists of a _major version_ number and a _minor version_ number, separated dots (for example, 7.2).
-* _Version family_ -- all versions that have identical major version form a family. We call version A a _successor_ of version B if A and B belong to same family and A minor number is higher than B's (for example, 7.11 is a successor of 7.10).
-* _Breaking change_ -- a change that forces a user to change their code or assets to keep them in functioning state. For example, a property changes name, and forces the user to change that property name every time it's used throughout their code.
-* _Non-breaking change_ -- a change that does not require any action by a user, the behavior and properties of the user's code and assets are unchanged if they migrate their scene.
-* _Stable version_ -- a version that forbids breaking changes in all its successors (which are all considered as stable too). Any breaking change must be introduced only through creation of a new version family by incrementing the major version number, however see caveat in the [breaking changes](version-support-agreement.md#breaking-changes) section. Non-breaking changes are reflected through incrementing the minor version number.
-* _Unstable version_ -- a version that allows breaking changes in its successors. Breaking changes may be introduced by incrementing the minor version number.
+* _Número de versión_ -- un identificador único para una versión disponible públicamente de software. Este identificador consiste en un número de _versión mayor_ y un número de _versión menor_, separados por puntos (por ejemplo, 7.2).
+* _Familia de versión_ -- todas las versiones que tienen un número de versión mayor idéntico forman una familia. Llamamos a la versión A un _sucesor_ de la versión B si A y B pertenecen a la misma familia y el número menor de A es mayor que el de B (por ejemplo, 7.11 es un sucesor de 7.10).
+* _Breaking change_ -- un cambio que obliga a un usuario a cambiar su código o assets para mantenerlos en estado funcional. Por ejemplo, una propiedad cambia de nombre, y obliga al usuario a cambiar ese nombre de propiedad cada vez que se usa en todo su código.
+* _Non-breaking change_ -- un cambio que no requiere ninguna acción por parte del usuario, el comportamiento y propiedades del código y assets del usuario no cambian si migran su escena.
+* _Versión estable_ -- una versión que prohíbe breaking changes en todos sus sucesores (que también se consideran estables). Cualquier breaking change debe introducirse solo a través de la creación de una nueva familia de versión al incrementar el número de versión mayor, sin embargo ver la salvedad en la sección [breaking changes](version-support-agreement.md#breaking-changes). Los non-breaking changes se reflejan al incrementar el número de versión menor.
+* _Versión inestable_ -- una versión que permite breaking changes en sus sucesores. Los breaking changes pueden introducirse al incrementar el número de versión menor.
 
-### Support policy
+### Política de soporte
 
-In every stable version family, the Decentraland Foundation supports only the latest minor version. At any given time there should be at most two supported families.
+En cada familia de versión estable, la Fundación Decentraland soporta solo la última versión menor. En cualquier momento dado debe haber como máximo dos familias soportadas.
 
-For example, if the latest minor version of the 6.x family is 6.11, and the latest minor version of the 7.x family is 7.3, content creators are expected to develop their scenes on either 6.11 or 7.3. Scenes that were developed and published with version 6.10 or older will most likely keep working and players will be able to enjoy them. However, if these older scenes experience any issue, they must first be updated to a supported version, and the issue will only be investigated if it still occurs in a supported version.
+Por ejemplo, si la última versión menor de la familia 6.x es 6.11, y la última versión menor de la familia 7.x es 7.3, se espera que los creadores de contenido desarrollen sus escenas en 6.11 o 7.3. Las escenas que fueron desarrolladas y publicadas con la versión 6.10 o anterior probablemente seguirán funcionando y los jugadores podrán disfrutarlas. Sin embargo, si estas escenas antiguas experimentan algún problema, primero deben actualizarse a una versión soportada, y el problema solo será investigado si aún ocurre en una versión soportada.
 
-The Scene Editor offers to automatically update the scripting package of all scenes within a same version family, so that all developers are using the latest supported version when they develop their scenes.
+El Scene Editor ofrece actualizar automáticamente el paquete de scripting de todas las escenas dentro de una misma familia de versión, para que todos los desarrolladores estén usando la última versión soportada cuando desarrollan sus escenas.
 
-### Feature development
+### Desarrollo de funcionalidades
 
-New features will only be released into the latest version in development. As soon as the development team starts work in a new version family, older version families that remain in support will only receive major bugs fixes, and no additional features will be implemented.
+Las nuevas funcionalidades solo se lanzarán en la última versión en desarrollo. Tan pronto como el equipo de desarrollo comience a trabajar en una nueva familia de versión, las familias de versión antiguas que permanezcan en soporte solo recibirán correcciones de bugs importantes, y no se implementarán funcionalidades adicionales.
 
 ### Breaking changes
 
-Breaking changes should only occur in major releases. There should be no breaking changes within the stable minor releases of a same version family, except in case of an emergency and absence of any other means to address it. Breaking changes within a minor release are a drastic measure that the developers will avoid at all costs. New minor releases will extend the capabilities of the existing syntax, but should never change what the established syntax produces, except when fixing bugs.
+Los breaking changes solo deberían ocurrir en lanzamientos mayores. No debería haber breaking changes dentro de los lanzamientos menores estables de una misma familia de versión, excepto en caso de emergencia y ausencia de cualquier otro medio para abordarlo. Los breaking changes dentro de un lanzamiento menor son una medida drástica que los desarrolladores evitarán a toda costa. Los nuevos lanzamientos menores extenderán las capacidades de la sintaxis existente, pero nunca deberían cambiar lo que produce la sintaxis establecida, excepto al corregir bugs.
 
-#### Isolated changes
+#### Cambios aislados
 
-On very rare occasions, it could be preferable to make a small, isolated breaking change, if this will only cause inconvenience to a small subset of users. (Creating a new major version is an inconvenience to all users.) In this case, the SDK might deprecate a feature, but must continue to support the feature for a reasonable amount of time.
+En ocasiones muy raras, podría ser preferible hacer un pequeño breaking change aislado, si esto solo causará inconvenientes a un pequeño subconjunto de usuarios. (Crear una nueva versión mayor es un inconveniente para todos los usuarios.) En este caso, el SDK podría deprecar una funcionalidad, pero debe continuar soportando la funcionalidad por un tiempo razonable.
 
-#### Emergency changes
+#### Cambios de emergencia
 
-In certain exceptional cases, such as security concerns or regulatory requirements, any feature may be changed in a breaking manner regardless of its stability level, and a deprecation is not promised in these situations.
+En ciertos casos excepcionales, como preocupaciones de seguridad o requisitos regulatorios, cualquier funcionalidad puede cambiarse de manera breaking independientemente de su nivel de estabilidad, y no se promete una depreciación en estas situaciones.
 
-### Stable and unstable releases
+### Lanzamientos estables e inestables
 
 #### Alpha
 
-Whenever a new major release is introduced, a few initial minor releases may be labeled as unstable **alpha** versions. Breaking changes must be allowed and expected in alpha releases, and users must have no expectation of stability.
+Cada vez que se introduce un nuevo lanzamiento mayor, algunos lanzamientos menores iniciales pueden etiquetarse como versiones **alpha** inestables. Se deben permitir y esperar breaking changes en los lanzamientos alpha, y los usuarios no deben tener expectativa de estabilidad.
 
-Developers are free to experiment with these alpha versions, but they're not encouraged to publish content built with unstable alpha versions, as there is no guarantee that the content will keep working after subsequent changes. It's also not recommended to begin large complicated migrations at this point, since more changes may be required before the next stable release.
+Los desarrolladores son libres de experimentar con estas versiones alpha, pero no se les anima a publicar contenido construido con versiones alpha inestables, ya que no hay garantía de que el contenido seguirá funcionando después de cambios subsecuentes. Tampoco se recomienda comenzar grandes migraciones complicadas en este punto, ya que pueden requerirse más cambios antes del próximo lanzamiento estable.
 
 #### Beta
 
-Once a version family reaches a certain level of maturity, a **beta** release is made available. A beta release is be considered complete and ready to be declared stable, subject to public testing.
+Una vez que una familia de versión alcanza un cierto nivel de madurez, se hace disponible un lanzamiento **beta**. Un lanzamiento beta se considera completo y listo para ser declarado estable, sujeto a pruebas públicas.
 
-Beta version families should be as stable as possible; however, they are permitted to change over time. These changes should be minimal but may include breaking changes. Breaking changes must be made only after a reasonable deprecation period to give content creators the opportunity to migrate their scenes. This deprecation period must be defined at the time of introducing a breaking change.
+Las familias de versión beta deben ser tan estables como sea posible; sin embargo, se les permite cambiar con el tiempo. Estos cambios deben ser mínimos pero pueden incluir breaking changes. Los breaking changes deben hacerse solo después de un período de depreciación razonable para dar a los creadores de contenido la oportunidad de migrar sus escenas. Este período de depreciación debe definirse en el momento de introducir un breaking change.
 
-Beta version families should only be in beta for a limited period of time, specified at the time of being marked beta. They should be promoted to stable if no issues are found in that period. The length of this time period may vary case by case, but a good rule of thumb is 90 days.
+Las familias de versión beta solo deben estar en beta por un período de tiempo limitado, especificado en el momento de ser marcadas como beta. Deben promoverse a estables si no se encuentran problemas en ese período. La duración de este período de tiempo puede variar caso por caso, pero una buena regla general es 90 días.
 
-Content written with the syntax of a beta version should be effortless to migrate to the next versions within that family tree. It's still not advisable to develop content for major events with a beta version, as testing is still in progress and bugs are still likely.
+El contenido escrito con la sintaxis de una versión beta debe ser sencillo de migrar a las próximas versiones dentro de ese árbol familiar. Aún no es aconsejable desarrollar contenido para eventos importantes con una versión beta, ya que las pruebas aún están en progreso y es probable que aún haya bugs.
 
-#### Stable
+#### Estable
 
-Once the beta time period is over without major issues, the version family is considered **stable** and there should be no further changes to the syntax, other than addition of new features. From this point onwards, the version is considered the recommended and encouraged option for all developers to use.
+Una vez que el período de tiempo beta termine sin problemas importantes, la familia de versión se considera **estable** y no debería haber más cambios en la sintaxis, aparte de la adición de nuevas funcionalidades. A partir de este punto, la versión se considera la opción recomendada y alentada para que todos los desarrolladores la usen.
 
-A stable version family must be fully-supported over its lifetime. There must be no breaking changes, subject to the caveats described below.
+Una familia de versión estable debe estar completamente soportada durante su vida útil. No debe haber breaking changes, sujeto a las salvedades descritas abajo.
 
-### Unstable features in stable releases
+### Funcionalidades inestables en lanzamientos estables
 
-Specific features in an release may have different stability levels from the release as a whole. This can be either because the feature has recently been introduced, and requires more testing, or because it's destined to be replaced soon.
+Funcionalidades específicas en un lanzamiento pueden tener niveles de estabilidad diferentes del lanzamiento en su conjunto. Esto puede ser porque la funcionalidad se introdujo recientemente y requiere más pruebas, o porque está destinada a ser reemplazada pronto.
 
-For example, a new type of component could be introduced as alpha in an already stable release of the SDK framework, as this particular component may still require its own testing cycle. It can then undergo the versioning flow described above, going from alpha, to beta, to stable.
+Por ejemplo, un nuevo tipo de componente podría introducirse como alpha en un lanzamiento ya estable del framework del SDK, ya que este componente particular puede requerir aún su propio ciclo de pruebas. Luego puede pasar por el flujo de versionado descrito arriba, yendo de alpha, a beta, a estable.
 
-Any feature from a stable release that is not considered stable should be clearly labeled as such in the documentation. Creators who make use of unstable features must be aware that the feature could potentially undergo breaking changes. Any breaking changes will be communicated clearly, including migration guides, and there will be a transition period for creators to adjust their scene's code.
+Cualquier funcionalidad de un lanzamiento estable que no se considere estable debe estar claramente etiquetada como tal en la documentación. Los creadores que hagan uso de funcionalidades inestables deben ser conscientes de que la funcionalidad potencialmente podría sufrir breaking changes. Cualquier breaking change se comunicará claramente, incluyendo guías de migración, y habrá un período de transición para que los creadores ajusten el código de su escena.
 
-### How long do we support a stable version family?
+### ¿Cuánto tiempo soportamos una familia de versión estable?
 
-Once a new version family becomes stable (7.x), the team commits to support (major bugfixes) on the previous version (6.x) for several months, to give creators plenty of time to migrate. The amount of months is determined in a case-by-case basis, depending on the migration effort required by creators to migrate.
+Una vez que una nueva familia de versión se vuelve estable (7.x), el equipo se compromete a dar soporte (correcciones de bugs importantes) en la versión anterior (6.x) durante varios meses, para dar a los creadores mucho tiempo para migrar. La cantidad de meses se determina caso por caso, dependiendo del esfuerzo de migración requerido por los creadores para migrar.
 
-### Pre-released versions
+### Versiones pre-lanzadas
 
-It's always possible to access the most recent additions to the scripting framework by installing the `@next` version of the `@dcl/sdk` package into a scene.
+Siempre es posible acceder a las adiciones más recientes al framework de scripting instalando la versión `@next` del paquete `@dcl/sdk` en una escena.
 
-The features in this branch may be unstable or undocumented, as they're not pushed as part as an officially supported version of the SDK.
+Las funcionalidades en esta rama pueden ser inestables o no estar documentadas, ya que no se empujan como parte de una versión oficialmente soportada del SDK.

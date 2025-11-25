@@ -1,21 +1,18 @@
 ---
-description: Understanding SDK7 architecture and ECS
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/architecture
+description: Entendiendo la arquitectura de SDK7 y ECS
 ---
 
-# Architecture
+# SDK7 Architecture
 
-Understand the Entity-Component-System (ECS) architecture that powers SDK7. This section explains the core concepts and patterns used throughout the SDK.
+Entiende la arquitectura Entity-Component-System (ECS) que impulsa SDK7. Esta sección explica los conceptos centrales y patrones usados en todo el SDK.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Entities and Components fundamentals
-* Systems and game loops
-* Creating custom components
-* Querying components efficiently
-* Data-oriented programming principles
-* Subscribing to component changes
+* Fundamentos de Entities y Components
+* Systems y game loops
+* Crear components personalizados
+* Consultar components eficientemente
+* Principios de programación orientada a datos
+* Suscribirse a cambios en components
 
-Understanding the architecture helps you write more efficient, maintainable code for your Decentraland scenes.
+Entender la arquitectura te ayuda a escribir código más eficiente y mantenible para tus scenes de Decentraland.

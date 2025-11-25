@@ -1,20 +1,17 @@
 ---
-description: Optimize your scenes for performance
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/optimizing
+description: Optimiza tus scenes para rendimiento
 ---
 
-# Optimizing
+# Optimization
 
-Optimize your scenes to ensure smooth performance for all players. This section covers performance best practices, limitations, and optimization techniques.
+Optimiza tus scenes para asegurar un rendimiento fluido para todos los jugadores. Esta sección cubre mejores prácticas de rendimiento, limitaciones y técnicas de optimización.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Performance optimization strategies
-* Scene limitations and constraints
-* Polygon counts and draw calls
-* Memory management
-* Asset optimization
+* Estrategias de optimización de rendimiento
+* Limitaciones y restricciones de scenes
+* Conteos de polígonos y draw calls
+* Gestión de memoria
+* Optimización de assets
 
-Well-optimized scenes provide a better experience for all players, regardless of their hardware.
+Las scenes bien optimizadas proporcionan una mejor experiencia para todos los jugadores, independientemente de su hardware.

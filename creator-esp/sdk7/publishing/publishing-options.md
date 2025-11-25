@@ -1,51 +1,47 @@
 ---
-description: How to obtain LAND or permissions to publish your scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/publishing/publishing-options
+description: Cómo obtener LAND o permisos para publicar tu escena
 ---
 
-# Publishing Options
+# Opciones de Publicación
 
-To invite others to visit a scene you built, you'll need to publish it in Decentraland. To do this, you'll need to have deploy permissions to Decentraland parcels or own a Decentraland name in order to deploy to a Decentraland World.
+Para invitar a otros a visitar una escena que construiste, necesitarás publicarla en Decentraland. Para hacer esto, necesitarás tener permisos de despliegue a parcelas de Decentraland o poseer un nombre de Decentraland para desplegar en un World de Decentraland.
 
-Decentraland is made up of _parcels_ of LAND, each 16 meters by 16 meters. A _scene_ is an experience that is built on one or several parcels.
+Decentraland está compuesto por _parcelas_ de LAND, cada una de 16 metros por 16 metros. Una _escena_ es una experiencia que está construida en una o varias parcelas.
 
-This document gives an overview on the different ways to obtain permissions. See [publishing](../../../creator/sdk7/publishing/publishing.md) for instructions on how to publish once you've obtained these.
+Este documento da una descripción general sobre las diferentes formas de obtener permisos. Consulta [publicación](../sdk7/publishing/publishing.md) para obtener instrucciones sobre cómo publicar una vez que hayas obtenido estos.
 
-### LAND permission options
+### Opciones de permiso de LAND
 
-In order to publish to LAND in Genesis City, you can do the following:
+Para publicar en LAND en Genesis City, puedes hacer lo siguiente:
 
-* **Rent LAND**: Purchase the right to deploy and keep your content on certain parcels for a fixed period of time. See [Rentals](../../../creator/marketplace/rentals.md).
-* **Buy land**: Buy land parcels, and publish your content for as long as you wish. See [marketplace](../../../creator/marketplace/marketplace.md).
-* **Get permissions from an owner**: Several land owners and districts manage large extensions of land and are willing to freely host content from others if it fits their theme and the kind of environment they want to create. Connect with them in the [Decentraland Discord server](https://dcl.gg/discord).
-* **Worlds**: You can also deploy a stand-alone scene as a Decentraland World. Worlds exist outside the grid of Genesis City, and can be accessed by name. See [worlds](../../worlds/about.md)
+* **Rentar LAND**: Compra el derecho a desplegar y mantener tu contenido en ciertas parcelas por un período de tiempo fijo. Consulta [Rentals](../marketplace/rentals.md).
+* **Comprar land**: Compra parcelas de land, y publica tu contenido durante el tiempo que desees. Consulta [marketplace](../marketplace/marketplace.md).
+* **Obtener permisos de un propietario**: Varios propietarios de land y distritos gestionan grandes extensiones de land y están dispuestos a alojar gratuitamente contenido de otros si se ajusta a su tema y al tipo de entorno que quieren crear. Conéctate con ellos en el [servidor de Discord de Decentraland](https://dcl.gg/discord).
+* **Worlds**: También puedes desplegar una escena independiente como un World de Decentraland. Los Worlds existen fuera de la cuadrícula de Genesis City, y pueden accederse por nombre. Consulta [worlds](../worlds/about.md)
 
 {% hint style="warning" %}
-**📔 Note**: You can also deploy scenes to a test server where players are not around. The same permissions per parcel apply when deploying to the test server, see [publishing](../../../creator/sdk7/publishing/publishing.md#the-test-server) for more details.
+**📔 Nota**: También puedes desplegar escenas en un servidor de prueba donde no hay jugadores alrededor. Los mismos permisos por parcela aplican al desplegar en el servidor de prueba, consulta [publicación](../sdk7/publishing/publishing.md#the-test-server) para más detalles.
 {% endhint %}
 
-### Decentraland Worlds
+### Worlds de Decentraland
 
-If you own a Decentraland NAME you can also publish your scene to a Decentraland World. This option costs considerably less than buying land, a NAME costs 100 MANA.
+Si posees un NAME de Decentraland también puedes publicar tu escena en un World de Decentraland. Esta opción cuesta considerablemente menos que comprar land, un NAME cuesta 100 MANA.
 
-Inside a World, you're allowed to use as many parcels as you want. The size limit of your scene in MegaBytes depends on how many NAMES, MANA, L1 Wearables and other tokens you own.
+Dentro de un World, se te permite usar tantas parcelas como desees. El límite de tamaño de tu escena en MegaBytes depende de cuántos NAMES, MANA, L1 Wearables y otros tokens poseas.
 
-See [Worlds](../../worlds/about.md) for more info.
+Consulta [Worlds](../worlds/about.md) para más información.
 
-### Get DAO funding
+### Obtener fondeo del DAO
 
-If you have a great idea and the means to achieve it, but need financing, you can request for a grant in the DAO. If the proposal convinces enough people from the community to vote on it, you can get a sum of money to achieve your vision, including funds for buying or renting LAND.
+Si tienes una gran idea y los medios para lograrla, pero necesitas financiamiento, puedes solicitar una grant en el DAO. Si la propuesta convence a suficientes personas de la comunidad para votar por ella, puedes obtener una suma de dinero para lograr tu visión, incluyendo fondos para comprar o rentar LAND.
 
-See [Community grants](../../../creator/archive/grants/community-grants.md).
+Consulta [Community grants](../archive/grants/community-grants.md).
 
-### How land permissions work
+### Cómo funcionan los permisos de land
 
-LAND tokens can manage permissions that allow the following different kinds of roles to deploy to a particular parcel or estate.
+Los tokens LAND pueden gestionar permisos que permiten los siguientes tipos diferentes de roles para desplegar en una parcela o estate en particular.
 
-* **LAND owner**: The person that owns the token in their Ethereum wallet. This user can always deploy, assign other roles, or transfer the token (unless the land is currently rented by someone else).
-* **LAND operator**: The operator is only able to deploy, as long as they hold this role. The operator's address is referenced by the token, without needing to own anything. The owner can assign and revoke operator permissions to any number of addresses. See [Give permissions](../../../creator/marketplace/land-manager.md#give-permissions).
+* **Propietario de LAND**: La persona que posee el token en su wallet de Ethereum. Este usuario siempre puede desplegar, asignar otros roles, o transferir el token (a menos que el land esté actualmente rentado por otra persona).
+* **Operador de LAND**: El operador solo puede desplegar, mientras mantenga este rol. La dirección del operador es referenciada por el token, sin necesidad de poseer nada. El propietario puede asignar y revocar permisos de operador a cualquier número de direcciones. Consulta [Dar permisos](../marketplace/land-manager.md#give-permissions).
 
-When renting a land, the tennant who pays for the rent gets to chose a single address that will hold a **LAND Operator** role for the duration of the rent (this can be their own address, or someone else's). While the rent is active, none of the original holders of roles can interfere with the content on that LAND or transfer the token.
+Al rentar un land, el inquilino que paga la renta puede elegir una sola dirección que tendrá un rol de **Operador de LAND** durante la duración de la renta (puede ser su propia dirección, o la de otra persona). Mientras la renta está activa, ninguno de los poseedores originales de roles puede interferir con el contenido en ese LAND o transferir el token.

@@ -1,141 +1,137 @@
 ---
-description: How to export particles in your Emotes using Armature
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/particles-in-emotes
+description: Cómo exportar partículas en tus Emotes usando Armature
 ---
 
 # Particles in Emotes
 
-Emotes 2.0 can have sounds and props, but did you know it’s also possible to use particles? They can be a lot of fun and add that extra visual spark to it! And they can speed up the animation process too.
+Los Emotes 2.0 pueden tener sonidos y props, ¿pero sabías que también es posible usar partículas? ¡Pueden ser muy divertidas y agregar esa chispa visual extra! Y también pueden acelerar el proceso de animación.
 
-But since object animation and particle systems are not supported in Emotes 2.0, we need to convert these particles into an armature (which is supported) in order to add them to emotes. We’ll be using a Blender add-on developed by the Foundation’s Content Team for this process, which can be downloaded from the link below.
+Pero como la animación de objetos y los sistemas de partículas no están soportados en Emotes 2.0, necesitamos convertir estas partículas en una armature (que sí está soportada) para poder agregarlas a los emotes. Estaremos usando un add-on de Blender desarrollado por el Content Team de la Foundation para este proceso, que se puede descargar desde el enlace a continuación.
 
-Use the [Particles to Bones Addon for Blender](https://github.com/decentraland/docs-creator/blob/main/images/emotes/particle_system_to_bone_animation.py) to start!
+¡Usa el [Particles to Bones Addon for Blender](https://github.com/decentraland/docs-creator/blob/main/images/emotes/particle_system_to_bone_animation.py) para comenzar!
 
-![](../../.gitbook/assets/01_love_grenade.png) ![](../../.gitbook/assets/02_guitar.png)
+![](../images/wearables-and-emotes/particles-emotes/01_love_grenade.png) ![](../images/wearables-and-emotes/particles-emotes/02_guitar.png)
 
-The process of adding particles to your emote will involve two steps, you can follow the guidelines along with these videos:
+El proceso de agregar partículas a tu emote involucrará dos pasos, puedes seguir las directrices junto con estos videos:
 
-* **Converting particles to armature**
+* **Convirtiendo partículas a armature**
 
 [![Video Preview](https://i.vimeocdn.com/video/1803452887-82f74713a8f16df8c3618654f539cfddf78cb1f9dfac951d99d340004ac26ad6-d_590x332)](https://vimeo.com/916038156)
 
-* **Merging particles armature to prop armature**
+* **Fusionando partículas armature a prop armature**
 
 [![Video Preview](https://i.vimeocdn.com/video/1803464351-0e8bf5158cb87707397a547948f99278b1af45d7669622887a43c3bd9340c064-d_590x332)](https://vimeo.com/916037817)
 
 {% hint style="info" %}
-**Attention!**
+**¡Atención!**
 
-⚠️ Creating a particles system won’t be covered in this documentation. The objective is to help implement it to your emote.
+⚠️ Crear un sistema de partículas no se cubrirá en esta documentación. El objetivo es ayudar a implementarlo en tu emote.
 {% endhint %}
 
-### Converting Particles Into Armature
+### Convirtiendo Partículas en Armature
 
-Like previously mentioned, Emotes 2.0 do not support object anmation or any form of particle system. This is why we need to convert the particles into an armature.
+Como se mencionó anteriormente, los Emotes 2.0 no soportan animación de objetos o ninguna forma de sistema de partículas. Es por esto que necesitamos convertir las partículas en una armature.
 
-To get started, you will need a working particle system and the add-on. The particle system shown below is a very simple one, it’s just an example to show how the add-on works. Make sure you particle system matches your emote animations for a better result.
+Para comenzar, necesitarás un sistema de partículas funcionando y el add-on. El sistema de partículas mostrado a continuación es uno muy simple, es solo un ejemplo para mostrar cómo funciona el add-on. Asegúrate de que tu sistema de partículas coincida con las animaciones de tu emote para un mejor resultado.
 
-![](../../.gitbook/assets/03_particles.gif)
+![](../images/wearables-and-emotes/particles-emotes/03_particles.gif)
 
-_Simple particle system._
+_Sistema de partículas simple._
 
-Next, you download and install the add-on. To do so, go to Edit > Preferences > Add-ons and click on Install to browse the file in your computer.
+A continuación, descargas e instalas el add-on. Para hacerlo, ve a Edit > Preferences > Add-ons y haz clic en Install para buscar el archivo en tu computadora.
 
-![](../../.gitbook/assets/04_add_on_01.png)
+![](../images/wearables-and-emotes/particles-emotes/04_add_on_01.png)
 
-_Click on Edit > Preferences._
+_Haz clic en Edit > Preferences._
 
-![](../../.gitbook/assets/05_add_on_02.png)
+![](../images/wearables-and-emotes/particles-emotes/05_add_on_02.png)
 
-_Select Add-ons on the right and click on Install._
+_Selecciona Add-ons a la derecha y haz clic en Install._
 
-Once that is done, click on the checkbox to enable it. A tab named Converter will show up on the right side of the Viewport.
+Una vez hecho eso, haz clic en la casilla para habilitarlo. Una pestaña llamada Converter aparecerá en el lado derecho del Viewport.
 
-![](../../.gitbook/assets/06_add_on_03.png)
+![](../images/wearables-and-emotes/particles-emotes/06_add_on_03.png)
 
-_Click on the checkbox to enable the add-on._
+_Haz clic en la casilla para habilitar el add-on._
 
-![](../../.gitbook/assets/07_add_on_04.png)
+![](../images/wearables-and-emotes/particles-emotes/07_add_on_04.png)
 
-_You will find the Converter tab to the right of the Viewport._
+_Encontrarás la pestaña Converter a la derecha del Viewport._
 
-Next, select the object, go to the Converter tab, rename de Output Collection however you see fit, define Start and End Frames and click on Particle System to Armature Converter, as shown below.
+A continuación, selecciona el objeto, ve a la pestaña Converter, renombra el Output Collection como mejor te parezca, define Start y End Frames y haz clic en Particle System to Armature Converter, como se muestra a continuación.
 
-![](../../.gitbook/assets/08_particles_converter.gif)
+![](../images/wearables-and-emotes/particles-emotes/08_particles_converter.gif)
 
-You will notice that a collection was created in the Outliner, with the particles armature. An animation clip was also created, by baking all the movement of each object.
+Notarás que se creó una colección en el Outliner, con la armature de partículas. También se creó un clip de animación, horneando todo el movimiento de cada objeto.
 
-![](../../.gitbook/assets/09_add_on_05.png)
+![](../images/wearables-and-emotes/particles-emotes/09_add_on_05.png)
 
-_Armature generated by the add-on._
+_Armature generada por el add-on._
 
-![](../../.gitbook/assets/10_add_on_06.png)
+![](../images/wearables-and-emotes/particles-emotes/10_add_on_06.png)
 
-_Animation lip generated by the add-on._
+_Clip de animación generado por el add-on._
 
-And that’s it for converting your particles into an armature! Remember to save your file with a different name (keep the original as a backup), we will be needing it for the next step.
+¡Y eso es todo para convertir tus partículas en una armature! Recuerda guardar tu archivo con un nombre diferente (mantén el original como respaldo), lo necesitaremos para el siguiente paso.
 
 {% hint style="info" %}
-**Attention!**
+**¡Atención!**
 
-⚠️ Particles should be the last element added to your emote. When the emote is ready, you will have the exact length of the animation, which will make it easier to sync the particles to the action performed.
+⚠️ Las partículas deben ser el último elemento agregado a tu emote. Cuando el emote esté listo, tendrás la longitud exacta de la animación, lo que facilitará sincronizar las partículas con la acción realizada.
 {% endhint %}
 
-### Merging Particles Armature to Prop Armature
+### Fusionando Partículas Armature a Prop Armature
 
-Emotes 2.0 can only have two armatures and two animation clips per file. If we just import the particles, we will end up with three armatures and three animation clips. The way to fix this is merging the particles armature into the prop armature. The reason to merge it to prop and not avatar armature is very simple: the avatar rig can’t be edited in any way by adding or deleting bones. This leaves prop armature as the only option.
+Los Emotes 2.0 solo pueden tener dos armatures y dos clips de animación por archivo. Si solo importamos las partículas, terminaremos con tres armatures y tres clips de animación. La forma de arreglar esto es fusionar la armature de partículas con la armature de prop. La razón para fusionarla con prop y no con la armature de avatar es muy simple: el rig del avatar no puede editarse de ninguna manera agregando o eliminando huesos. Esto deja la armature de prop como la única opción.
 
-### Merging Particles Armature to Prop Armature
+### Fusionando Partículas Armature a Prop Armature
 
-Emotes 2.0 can only have two armatures and two animation clips per file. If we just import the particles, we will end up with three armatures and three animation clips. The way to fix this is merging the particles armature into the prop armature. The reason to merge it to prop and not avatar armature is very simple: the avatar rig can’t be edited in any way by adding or deleting bones. This leaves prop armature as the only option.
+Los Emotes 2.0 solo pueden tener dos armatures y dos clips de animación por archivo. Si solo importamos las partículas, terminaremos con tres armatures y tres clips de animación. La forma de arreglar esto es fusionar la armature de partículas con la armature de prop. La razón para fusionarla con prop y no con la armature de avatar es muy simple: el rig del avatar no puede editarse de ninguna manera agregando o eliminando huesos. Esto deja la armature de prop como la única opción.
 
-First thing we have to do is import or append the collection generated by the add-on. You could always export the glb file for it and import it into your emote file. Or you could simply append the collection, which is much easier and faster, by going to _**File**_ > _**Append**_, browse the particles file in your computer, select the folder _**Collection**_ and choose the desired collection.
+Lo primero que tenemos que hacer es importar o adjuntar la colección generada por el add-on. Siempre podrías exportar el archivo glb para eso e importarlo a tu archivo de emote. O simplemente podrías adjuntar la colección, que es mucho más fácil y rápido, yendo a _**File**_ > _**Append**_, busca el archivo de partículas en tu computadora, selecciona la carpeta _**Collection**_ y elige la colección deseada.
 
-![](../../.gitbook/assets/11_merge_01.png)
+![](../images/wearables-and-emotes/particles-emotes/11_merge_01.png)
 
-_To append a collection, go to File > Append._
+_Para adjuntar una colección, ve a File > Append._
 
-![](../../.gitbook/assets/12_collection_01.png)
+![](../images/wearables-and-emotes/particles-emotes/12_collection_01.png)
 
-_Once you browse the particles file, select the Collection folder._
+_Una vez que busques el archivo de partículas, selecciona la carpeta Collection._
 
-![](../../.gitbook/assets/13_collection_02.png)
+![](../images/wearables-and-emotes/particles-emotes/13_collection_02.png)
 
-_Choose the collection generated by the add-on (that you had the chance to rename). Particles\_Out is just how it was renamed for this example._
+_Elige la colección generada por el add-on (que tuviste la oportunidad de renombrar). Particles\_Out es solo cómo se renombró para este ejemplo._
 
-Next, we are going to merge the armatures. In Object Mode, select first the particles armature, then hold Shift to select the prop armaure and press Ctrl+J to join/merge them, like shown below.
+A continuación, vamos a fusionar las armatures. En Object Mode, selecciona primero la armature de partículas, luego mantén presionado Shift para seleccionar la armature de prop y presiona Ctrl+J para unir/fusionarlas, como se muestra a continuación.
 
-![](../../.gitbook/assets/14_merge_armature.gif)
+![](../images/wearables-and-emotes/particles-emotes/14_merge_armature.gif)
 
-Once you do that, the particles might look messed up, but don’t worry, this is part of the process. To fix that, select each particle object on the Outliner one at a time, go into Object Properties (orange square icon) and under Relations, check if the parent is Armature\_Prop. Do this for all particle objects. This means that all objects are child of Armature\_Prop.
+Una vez que hagas eso, las partículas pueden verse desordenadas, pero no te preocupes, esto es parte del proceso. Para arreglar eso, selecciona cada objeto de partícula en el Outliner uno a la vez, ve a Object Properties (ícono de cuadrado naranja) y bajo Relations, verifica si el padre es Armature\_Prop. Haz esto para todos los objetos de partícula. Esto significa que todos los objetos son hijos de Armature\_Prop.
 
-![](../../.gitbook/assets/15_armature_parent_01.png)
+![](../images/wearables-and-emotes/particles-emotes/15_armature_parent_01.png)
 
-_Make sure Armature\_Pop is the parent for every particle object._
+_Asegúrate de que Armature\_Prop sea el padre para cada objeto de partícula._
 
-After doing that for all the particle objects, select the first particle object in the Outliner, go into Modifiers (the blue wrench icon) and the field Object will be empty. Since this is the Modifiers tab, that means that in here you will choose which armature will drive the object. So just click on Object and select Armature\_Prop and repeat this for all the particle objects. As you do it, you will notice that the particles objects are going back to their original sizes, fixing all that mess created when the armatures were merged.
+Después de hacer eso para todos los objetos de partícula, selecciona el primer objeto de partícula en el Outliner, ve a Modifiers (el ícono de llave inglesa azul) y el campo Object estará vacío. Como esta es la pestaña Modifiers, eso significa que aquí elegirás qué armature dirigirá el objeto. Así que solo haz clic en Object y selecciona Armature\_Prop y repite esto para todos los objetos de partícula. A medida que lo hagas, notarás que los objetos de partículas están volviendo a sus tamaños originales, arreglando todo ese desorden creado cuando se fusionaron las armatures.
 
-![](../../.gitbook/assets/16_armature_parent_02.png)
+![](../images/wearables-and-emotes/particles-emotes/16_armature_parent_02.png)
 
-_Select the proper armature to drive the objects._
+_Selecciona la armature apropiada para dirigir los objetos._
 
-Now that the armature is properly merged and set up, there’s one last step for this to work. If you try to play the animation, you will notice that the particles are not moving. And that is because now they are part of Armature\_Prop, and the animation being played by it is the prop one. Remember that particles had their own animation clip? What we need to do now is copy the keyframes from particles animation clip and paste them in the prop animation clip.
+Ahora que la armature está correctamente fusionada y configurada, hay un último paso para que esto funcione. Si intentas reproducir la animación, notarás que las partículas no se están moviendo. Y eso es porque ahora son parte de Armature\_Prop, y la animación que está siendo reproducida por ella es la del prop. ¿Recuerdas que las partículas tenían su propio clip de animación? Lo que necesitamos hacer ahora es copiar los keyframes del clip de animación de partículas y pegarlos en el clip de animación de prop.
 
-To do so, go into _**Pose Mode**_ and in the Outliner, expand _**Armature\_Prop**_ and then _**Pose**_. Select all the bones that belong to particles.
+Para hacerlo, ve a _**Pose Mode**_ y en el Outliner, expande _**Armature\_Prop**_ y luego _**Pose**_. Selecciona todos los huesos que pertenecen a partículas.
 
-![](../../.gitbook/assets/17_merge_armature_02.gif)
+![](../images/wearables-and-emotes/particles-emotes/17_merge_armature_02.gif)
 
-_Selecting all particle bones._
+_Seleccionando todos los huesos de partículas._
 
-With the bones selected, in the Action Editor, select the original animation clip for particles that has all the keyframes. Select all keyframes by pressing A, right click and copy the keyframes. Then, select the prop animation, set a keyframe on the first frame and paste the keyframes from particles animation clip.
+Con los huesos seleccionados, en el Action Editor, selecciona el clip de animación original para partículas que tiene todos los keyframes. Selecciona todos los keyframes presionando A, haz clic derecho y copia los keyframes. Luego, selecciona la animación de prop, establece un keyframe en el primer frame y pega los keyframes del clip de animación de partículas.
 
-![](../../.gitbook/assets/18_merge_armature_04.gif)
+![](../images/wearables-and-emotes/particles-emotes/18_merge_armature_04.gif)
 
-_Copying frames from particles animation to prop animation._
+_Copiando frames de animación de partículas a animación de prop._
 
-And you’re done! Save the file, make sure to delete the original particles animation clip and export as you usually would.
+¡Y has terminado! Guarda el archivo, asegúrate de eliminar el clip de animación original de partículas y exporta como lo harías usualmente.
 
-If you need more info on how to do it, check the _**Exporting**_ section in the [Adding Props and Sounds to your Emotes](https://docs.decentraland.org/creator/emotes/props-and-sounds/) documentation.
+Si necesitas más información sobre cómo hacerlo, consulta la sección _**Exporting**_ en la documentación de [Adding Props and Sounds to your Emotes](https://docs.decentraland.org/creator/emotes/props-and-sounds/).

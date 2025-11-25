@@ -1,19 +1,16 @@
 ---
-description: Common programming patterns and best practices
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/programming-patterns
+description: Patrones de programación comunes y mejores prácticas
 ---
 
 # Programming Patterns
 
-Learn common programming patterns and best practices for SDK7 development. These patterns will help you write cleaner, more maintainable code.
+Aprende patrones de programación comunes y mejores prácticas para el desarrollo con SDK7. Estos patrones te ayudarán a escribir código más limpio y mantenible.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Async functions and promises
-* Game object patterns
-* Managing mutable data
-* Code organization strategies
+* Funciones async y promesas
+* Patrones de objetos de juego
+* Gestionar datos mutables
+* Estrategias de organización de código
 
-Good programming patterns make your code easier to understand, maintain, and extend.
+Los buenos patrones de programación hacen que tu código sea más fácil de entender, mantener y extender.

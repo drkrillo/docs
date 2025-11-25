@@ -1,164 +1,160 @@
 ---
-description: Features about the avatar rig and downloadable file.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/rig-features
+description: Características sobre el rig del avatar y archivo descargable.
 ---
 
 # Rig Features
 
-This documentation explains the set up for Rig 1.0, its controls, and features.
+Esta documentación explica la configuración para Rig 1.0, sus controles y características.
 
 #### Armature Transforms
 
-These are the armature’s transforms in Object Mode with the controls’ setup. **Do not edit this in any way**. The rig should only be manipulated in Pose Mode. To avoid unwanted editing, the transforms have been locked in Object Mode.
+Estas son las transformaciones de la armature en Object Mode con la configuración de controles. **No edites esto de ninguna manera**. El rig solo debe manipularse en Pose Mode. Para evitar edición no deseada, las transformaciones han sido bloqueadas en Object Mode.
 
-![](broken-reference)
+![](../images/media/RigTransforms.png)
 
-_Rig 1.0 transforms._
+_Transformaciones de Rig 1.0._
 
-> **Warning**: **Never edit the rig in Object Mode.**
+> **Advertencia**: **Nunca edites el rig en Object Mode.**
 
-### Bone Orientation
+### Orientación de Huesos
 
-This is the bone orientation for Rig 1.0. As it is right now, it’s not possible to mirror behavior on the shoulders, arms, hands, or fingers.
+Esta es la orientación de huesos para Rig 1.0. Como está ahora mismo, no es posible reflejar el comportamiento en los hombros, brazos, manos o dedos.
 
-![](../../.gitbook/assets/AxesBoneOrientation.png)
+![](../images/media/AxesBoneOrientation.png)
 
-_Axes for bone orientation._
+_Ejes para orientación de huesos._
 
-![](../../../creator/images/media/MirrorPose.png)
+![](../images/media/MirrorPose.png)
 
-_Behavior when mirrorring poses._
+_Comportamiento al reflejar poses._
 
 #### Bone Collections
 
-To avoid any accidents and to make it easier to identify the controls, this rig is organized in bone collections that can be accessed in the _Data Properties_ tab in Blender. These collections’ visibility can be toggled on and off by clicking on the _Eye Icon._ By default, they are all visible, except for the DON'T TOUCH ones.
+Para evitar cualquier accidente y para facilitar la identificación de los controles, este rig está organizado en bone collections que se pueden acceder en la pestaña _Data Properties_ en Blender. La visibilidad de estas colecciones se puede activar y desactivar haciendo clic en el _Ícono de Ojo._ Por defecto, todas están visibles, excepto las de DON'T TOUCH.
 
-![](../../.gitbook/assets/BoneCollections.png)
+![](../images/media/BoneCollections.png)
 
-Armature Data Properties tab.
+Pestaña de Armature Data Properties.
 
-This is how the bones were separated into the collections:
+Así es como los huesos fueron separados en las colecciones:
 
-* Global/Switch: global controls, such as the root and spine ones, as well as shoulders. Controls with any custom attributes are also in this collection.
-* FK Upper: all upper body FK setup controls.
-* FK Lower: all lower body FK setup controls.
-* IK Upper: all upper body IK setup controls.
-* IK Lower: all lower body IK setup controls.
-* Fingers: controls for both hands’ fingers.
-* Deformation Bones: this is where the deformation bones are stored.
+* Global/Switch: controles globales, como la raíz y los de columna, así como los hombros. Los controles con cualquier atributo personalizado también están en esta colección.
+* FK Upper: todos los controles de configuración FK de la parte superior del cuerpo.
+* FK Lower: todos los controles de configuración FK de la parte inferior del cuerpo.
+* IK Upper: todos los controles de configuración IK de la parte superior del cuerpo.
+* IK Lower: todos los controles de configuración IK de la parte inferior del cuerpo.
+* Fingers: controles para los dedos de ambas manos.
+* Deformation Bones: aquí es donde se almacenan los huesos de deformación.
 
 {% hint style="info" %}
-**💡 Attention!**
+**💡 ¡Atención!**
 
-The DON'T TOUCH collections hold the set ups for IK and other rig constraints and should remain hidden. Editing these bone could brake the functionality of the rig
+Las colecciones DON'T TOUCH contienen las configuraciones para IK y otras restricciones del rig y deben permanecer ocultas. Editar estos huesos podría romper la funcionalidad del rig
 {% endhint %}
 
-### Controls and Grouping
+### Controles y Agrupación
 
-Controls are non-deforming bones that drive the base skeleton. They have different colors depending on their category:
+Los controles son huesos que no deforman que dirigen el esqueleto base. Tienen diferentes colores dependiendo de su categoría:
 
-* Yellow: global controls and controls with custom attributes
-* Green: hip (easier to identify in the spine hierarchy)
-* Blue: controls with FK behavior
-* Red: IK controls
-* Pink: left side controls
-* Orange: right side controls
+* Amarillo: controles globales y controles con atributos personalizados
+* Verde: cadera (más fácil de identificar en la jerarquía de la columna)
+* Azul: controles con comportamiento FK
+* Rojo: controles IK
+* Rosa: controles del lado izquierdo
+* Naranja: controles del lado derecho
 
-![](broken-reference)
+![](../images/media/RigControls.png)
 
-_All the controls and their colors._
+_Todos los controles y sus colores._
 
-### Custom Attributes and Setup
+### Atributos Personalizados y Configuración
 
 #### FK/IK Blend
 
-Even though arms are usually set as FK and legs as IK, there are certain situations that will require a different setup. If the hand has to maintain a certain position, like during push ups or while climbing, the IK will be the best choice. As for the legs, while in the air, swimming or rolling, FK works best. For more flexibility and freedom in animation, this rig has an FK/IK blend in the UpperBody control, being 0 completely FK and 1 completely IK. Any other value in-between will be a blend of the two.
+Aunque los brazos usualmente se configuran como FK y las piernas como IK, hay ciertas situaciones que requerirán una configuración diferente. Si la mano tiene que mantener una cierta posición, como durante flexiones o mientras escala, el IK será la mejor opción. En cuanto a las piernas, mientras está en el aire, nadando o rodando, FK funciona mejor. Para más flexibilidad y libertad en animación, este rig tiene un blend FK/IK en el control UpperBody, siendo 0 completamente FK y 1 completamente IK. Cualquier otro valor entre ellos será un blend de los dos.
 
 ![FK/IK blend for both arms and legs.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/ik_fk_rig_1.0.png)
 
-_FK/IK blend for both arms and legs._
+_Blend FK/IK para ambos brazos y piernas._
 
 ![How the FK > IK Switch works.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/IK_FK_rig_1.0.gif)
 
-_How the FK > IK Switch works._
+_Cómo funciona el Switch FK > IK._
 
 #### Isolate Rotation FK Blend
 
-Another custom attribute in the UpperBody control is the isolate rotation, that allows you to choose if the bone will inherit its parent’s rotation or not (while in FK). While at 0, the bone won’t inherit the rotation, while at 1 it will completely follow the parent’s behavior. Any other value in between will be a blend of the two. This is an interesting tool because it causes the FK bone to maintain its position, behaving a little like an IK.
+Otro atributo personalizado en el control UpperBody es la isolate rotation, que te permite elegir si el hueso heredará la rotación de su padre o no (mientras esté en FK). Mientras esté en 0, el hueso no heredará la rotación, mientras que en 1 seguirá completamente el comportamiento del padre. Cualquier otro valor entre ellos será un blend de los dos. Esta es una herramienta interesante porque hace que el hueso FK mantenga su posición, comportándose un poco como un IK.
 
 ![Isolate rotation attribute for arms.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/IsoRot_rig_1.0.png)
 
-_Isolate rotation attribute for arms._
+_Atributo de isolate rotation para brazos._
 
 ![How the IsoRot attribute for the arms works.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/IsoRot_Arms_rig_1.0.gif)
 
-_How the IsoRot attribute for the arms works._
+_Cómo funciona el atributo IsoRot para los brazos._
 
-The Head control also has this attribute. It’s really helpful for walk cycles, for example, since the head will keep its rotation even though the torso is twisting, making sure it’s always looking forward. Without this option, the animator would have to manually rotate the head every time the torso twists in order for it to be straight and look forward.
+El control Head también tiene este atributo. Es realmente útil para ciclos de caminata, por ejemplo, ya que la cabeza mantendrá su rotación aunque el torso esté girando, asegurándose de que siempre esté mirando hacia adelante. Sin esta opción, el animador tendría que rotar manualmente la cabeza cada vez que el torso gire para que esté recta y mire hacia adelante.
 
 ![Isolate rotation attribute for the head.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/IsoRot_Head_rig_1.0.png)
 
-_Isolate rotation attribute for the head._
+_Atributo de isolate rotation para la cabeza._
 
 ![How the IsoRot attribute for the head works.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/IsoRot_Head_rig_1.0.gif)
 
-_How the IsoRot attribute for the head works._
+_Cómo funciona el atributo IsoRot para la cabeza._
 
 {% hint style="warning" %}
-\*\*Warning\*\*: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties.
+\*\*Advertencia\*\*: En versiones antiguas de Blender, incluso si se han seleccionado y hecho keyframe de todos los controles, estos atributos personalizados no tendrán keyframe automáticamente. Asegúrate de insertar manualmente un keyframe en cada atributo para no perder la pose/movimiento que creaste. En Blender 4.4, presionando I, se establece un keyframe en todos los atributos y propiedades personalizadas.
 {% endhint %}
 
 ![In previous versions of Blender, make sure to keyframe all the controls and custom attributes!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_attributes.gif)
 
-_In previous versions of Blender, make sure to keyframe all the controls and custom attributes!_
+_¡En versiones anteriores de Blender, asegúrate de hacer keyframe de todos los controles y atributos personalizados!_
 
-![](../../.gitbook/assets/keyframes.gif)
+![](../images/media/keyframes.gif)
 
-_In Blender 4.4, press I to automatically set a keyframe on Location, Rotation, Scale & Custom Properties.._
+_En Blender 4.4, presiona I para establecer automáticamente un keyframe en Location, Rotation, Scale & Custom Properties.._
 
-Another solution for keyframing custom properties is selecting _**Keying**_ under on the Timeline tab and on _**Active Keying Set**_ select Location, Rotation, Scale & Custom Properties, like shown on the gif below. That way, everytime you press I, a keyframe will be created without the pop-up menu. Since some animators prefer the menu, by default, that option is not enabled. But feel free to choose the method that suits you best.
+Otra solución para hacer keyframe de propiedades personalizadas es seleccionar _**Keying**_ bajo la pestaña Timeline y en _**Active Keying Set**_ seleccionar Location, Rotation, Scale & Custom Properties, como se muestra en el gif a continuación. De esa manera, cada vez que presiones I, se creará un keyframe sin el menú emergente. Como algunos animadores prefieren el menú, por defecto, esa opción no está habilitada. Pero siéntete libre de elegir el método que mejor te convenga.
 
 ![Keyframing with the Keying option.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/keyframe_custom_properties.gif)
 
-_Keyframing with the Keying option._
+_Hacer keyframe con la opción Keying._
 
 #### Reverse IK Foot Setup
 
-Animating an FK foot is pretty straightforward: just grab any of the controls and rotate it. Since there’s a control for the foot and another for the toes, the animator has full control over the movements. However, for the IK it’s not so simple. The foot has to stick to the ground, while also being able to rotate on the ball and heels and side to side.
+Animar un pie FK es bastante directo: solo agarra cualquiera de los controles y rótalo. Como hay un control para el pie y otro para los dedos, el animador tiene control total sobre los movimientos. Sin embargo, para el IK no es tan simple. El pie tiene que adherirse al suelo, mientras también puede rotar en la bola y talones y de lado a lado.
 
-This rig was set up in a way to give the animator freedom of foot movement without losing the advantages of the IK system. It consists of four controls:
+Este rig fue configurado de una manera que da al animador libertad de movimiento del pie sin perder las ventajas del sistema IK. Consiste en cuatro controles:
 
-* Foot roll: this control rotates the foot back and forth and side to side. To avoid bending too much on the heel or too much on the ball, a limit was set so the foot rig doesn’t break. When it reaches this limit, the foot will stop rotating.
+* Foot roll: este control rota el pie hacia adelante y atrás y de lado a lado. Para evitar doblar demasiado en el talón o demasiado en la bola, se estableció un límite para que el rig del pie no se rompa. Cuando alcanza este límite, el pie dejará de rotar.
 
 ![Foot roll: rotate in X and it moves back and forth; rotate in Z it moves side to side.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/foot_roll.gif)
 
-_Foot roll: rotate in X and it moves back and forth; rotate in Z it moves side to side._
+_Foot roll: rota en X y se mueve adelante y atrás; rota en Z se mueve de lado a lado._
 
-* Toe tip roll: rotates the foot from the tip of the toes. It only rotates forward.
+* Toe tip roll: rota el pie desde la punta de los dedos. Solo rota hacia adelante.
 
 ![The toe tip roll only rotates in positive X.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/toe_tip.gif)
 
-_The toe tip roll only rotates in positive X._
+_El toe tip roll solo rota en X positivo._
 
-* Toes control: rotates the toes from the ball.
+* Toes control: rota los dedos desde la bola.
 
 ![Toes can be rotated in any direction.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/toes.gif)
 
-_Toes can be rotated in any direction._
+_Los dedos pueden rotarse en cualquier dirección._
 
-* Foot control: this is a global control that moves the foot as a whole. Since it’s the parent of all the other foot controls, it’ll keep any transforms while also being able to be grabbed and rotated.
+* Foot control: este es un control global que mueve el pie como un todo. Como es el padre de todos los otros controles del pie, mantendrá cualquier transformación mientras también puede ser agarrado y rotado.
 
 ![How the foot control works.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/foot.gif)
 
-_How the foot control works._
+_Cómo funciona el foot control._
 
 #### Locked Transforms
 
-Some controls may have a lock symbol next to the transforms parameters, which means that those values can’t be changed. This was done to controls that should only behave in a certain way and to avoid any unwanted transformation. For example, elbows and knees are meant to rotate on just one axis, which in this case is X, and so the other axes have been locked. Other examples of controls with locked attributes are IK elbows and knees, fingers, foot roll, and toe tip.
+Algunos controles pueden tener un símbolo de candado junto a los parámetros de transformación, lo que significa que esos valores no pueden cambiarse. Esto se hizo a controles que solo deberían comportarse de cierta manera y para evitar cualquier transformación no deseada. Por ejemplo, los codos y rodillas están destinados a rotar solo en un eje, que en este caso es X, y por lo tanto los otros ejes han sido bloqueados. Otros ejemplos de controles con atributos bloqueados son codos y rodillas IK, dedos, foot roll y toe tip.
 
-It is advised to keep these locked, but in case you want more freedom of movement, just click on the lock icon to unlock it.
+Se aconseja mantener estos bloqueados, pero en caso de que quieras más libertad de movimiento, simplemente haz clic en el ícono de candado para desbloquearlo.
 
 ![Locked transforms in a control.](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/locked_transform.png)

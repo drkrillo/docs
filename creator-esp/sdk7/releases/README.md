@@ -1,20 +1,17 @@
 ---
-description: SDK7 releases and version information
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/releases
+description: Lanzamientos de SDK7 e información de versiones
 ---
 
 # Releases
 
-Stay up to date with SDK7 releases, version history, and compatibility information. This section covers release notes, alpha testing, and version support policies.
+Mantente actualizado con los lanzamientos de SDK7, historial de versiones e información de compatibilidad. Esta sección cubre notas de lanzamiento, pruebas alpha y políticas de soporte de versiones.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Current and past SDK releases
-* V7 alpha information
-* Alpha testing guidelines
-* Version support agreements
-* Breaking changes and migration guides
+* Lanzamientos actuales y pasados del SDK
+* Información de V7 alpha
+* Directrices de pruebas alpha
+* Acuerdos de soporte de versiones
+* Cambios significativos y guías de migración
 
-Understanding releases helps you keep your scenes up to date and compatible with the latest features.
+Entender los lanzamientos te ayuda a mantener tus scenes actualizadas y compatibles con las últimas características.

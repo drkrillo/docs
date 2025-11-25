@@ -1,26 +1,23 @@
 ---
-description: Essential 3D concepts for scene development
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials
+description: Conceptos 3D esenciales para el desarrollo de scenes
 ---
 
 # 3D Essentials
 
-Master the fundamental 3D concepts needed for Decentraland scene development. This section covers everything from basic shapes to advanced 3D model manipulation.
+Domina los conceptos 3D fundamentales necesarios para el desarrollo de scenes de Decentraland. Esta sección cubre todo desde formas básicas hasta manipulación avanzada de modelos 3D.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Working with 3D model animations
-* Camera control
-* Colliders and physics
-* Color types and materials
-* Entity positioning and transforms
-* Lighting
-* Moving entities
-* Shape components
-* Sounds and audio
-* Text rendering
-* Trigger areas
+* Trabajar con animaciones de modelos 3D
+* Control de cámara
+* Colliders y física
+* Tipos de color y materiales
+* Posicionamiento y transforms de entities
+* Iluminación
+* Mover entities
+* Componentes de forma
+* Sonidos y audio
+* Renderizado de texto
+* Áreas de activación (trigger areas)
 
-These are the building blocks for creating immersive 3D experiences in Decentraland.
+Estos son los bloques de construcción para crear experiencias 3D inmersivas en Decentraland.

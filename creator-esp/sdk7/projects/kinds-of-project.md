@@ -1,66 +1,62 @@
 ---
-description: The available kinds of projects you can create in Decentraland.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/projects/kinds-of-project
+description: Los tipos disponibles de proyectos que puedes crear en Decentraland.
 ---
 
-# Kinds of Project
+# Tipos de Proyecto
 
-There are different types of content that you can make for Decentraland.
+Hay diferentes tipos de contenido que puedes hacer para Decentraland.
 
-![](../../.gitbook/assets/content-types.png)
+![](../images/content-types.png)
 
-### Scenes
+### Escenas
 
-Decentraland scenes can either be hosted in Parcels in Genesis City or in WORLDs.
+Las escenas de Decentraland pueden alojarse en Parcels en Genesis City o en WORLDs.
 
-#### Publish to LAND
+#### Publicar en LAND
 
-Scenes that are published to Parcels can be found at specific coordinates inside Decentraland's open world.
+Las escenas que se publican en Parcels pueden encontrarse en coordenadas específicas dentro del mundo abierto de Decentraland.
 
-These scenes are linked ot LAND ore Estate tokens. Each parcel takes up 16x16 meters. Multiple adjacent parcels can be used up by a single scene, these can be arranged into any shape, as long as the borders touch.
+Estas escenas están vinculadas a tokens LAND o Estate. Cada parcela ocupa 16x16 metros. Múltiples parcelas adyacentes pueden ser usadas por una sola escena, estas pueden disponerse en cualquier forma, siempre que los bordes se toquen.
 
-LAND tokens can be bought in the [Marketplace](https://decentraland.org/marketplace/lands). There's a limited supply of them, covering the map of Genesis City.
+Los tokens LAND pueden comprarse en el [Marketplace](https://decentraland.org/marketplace/lands). Hay un suministro limitado de ellos, cubriendo el mapa de Genesis City.
 
-Scenes published to LAND are easier to discover, as players may run into them while visiting nearby content or exploring.
+Las escenas publicadas en LAND son más fáciles de descubrir, ya que los jugadores pueden encontrárselas mientras visitan contenido cercano o exploran.
 
-Scenes published to LAND can use up to 15 MB of space per each parcel in the scene. The more parcels, the more room available. This is to prevent overloading the player's CPU, since players may be experiencing many nearby scenes at the same time. See [size limitations](../../../creator/sdk7/optimizing/scene-limitations.md).
+Las escenas publicadas en LAND pueden usar hasta 15 MB de espacio por cada parcela en la escena. Mientras más parcelas, más espacio disponible. Esto es para prevenir sobrecargar el CPU del jugador, ya que los jugadores pueden estar experimentando muchas escenas cercanas al mismo tiempo. Consulta [limitaciones de tamaño](../sdk7/optimizing/scene-limitations.md).
 
-#### Publish to WORLDs
+#### Publicar en WORLDs
 
-Scenes published to a World must be accessed via a link.
+Las escenas publicadas en un World deben accederse vía un enlace.
 
-These scenes are linked to NAME tokens. NAME tokens can be bought in the [Marketplace](https://decentraland.org/marketplace/names/claim). You can claim any name you want as long as it's not claimed yet.
+Estas escenas están vinculadas a tokens NAME. Los tokens NAME pueden comprarse en el [Marketplace](https://decentraland.org/marketplace/names/claim). Puedes reclamar cualquier nombre que desees siempre que no esté reclamado todavía.
 
-Scenes published to a World can use up to 100 MB, and have as many parcels of land as you wish. The same [size limitations](../../../creator/sdk7/optimizing/scene-limitations.md) per parcel apply as in scenes published to LAND parcels, but you can add more parcels to your scene without any cost.
+Las escenas publicadas en un World pueden usar hasta 100 MB, y tener tantas parcelas de terreno como desees. Las mismas [limitaciones de tamaño](../sdk7/optimizing/scene-limitations.md) por parcela aplican como en las escenas publicadas en parcelas LAND, pero puedes agregar más parcelas a tu escena sin ningún costo.
 
-See [Worlds](../../worlds/about.md) for more info.
+Consulta [Worlds](../worlds/about.md) para más información.
 
-Worlds offer a few options to customize the scene sky box, which aren't available in Genesis City (where a same sky is shared by all surrounding scenes). See [World defaults](../../worlds/about.md#world-defaults)
+Los Worlds ofrecen algunas opciones para personalizar el sky box de la escena, que no están disponibles en Genesis City (donde un mismo cielo es compartido por todas las escenas circundantes). Consulta [Valores predeterminados de World](../worlds/about.md#world-defaults)
 
-### Global Scenes
+### Escenas Globales
 
-Global scenes can transform the already existing landscape of Decentraland, adding layers of interactivity and gameplay. These are scenes that are not constrained to only run on certain parcels of LAND or certain Worlds. Players carry them with them wherever they go.
+Las escenas globales pueden transformar el paisaje ya existente de Decentraland, agregando capas de interactividad y gameplay. Estas son escenas que no están restringidas a ejecutarse solo en ciertas parcelas de LAND o ciertos Worlds. Los jugadores las llevan consigo a donde quiera que vayan.
 
-#### Portable Experiences
+#### Experiencias Portables
 
-A portable experience is linked to a NAME token. NAME tokens can be bought in the [Marketplace](https://decentraland.org/marketplace/names/claim). You can claim any name you want as long as it's not claimed yet.
+Una experiencia portable está vinculada a un token NAME. Los tokens NAME pueden comprarse en el [Marketplace](https://decentraland.org/marketplace/names/claim). Puedes reclamar cualquier nombre que desees siempre que no esté reclamado todavía.
 
 {% hint style="warning" %}
-**📔 Note**: If a NAME token is assigned to a World, it can't also be used for a Portable Experience. Prior content will be overwritten.
+**📔 Nota**: Si un token NAME está asignado a un World, no puede usarse también para una Experiencia Portable. El contenido anterior se sobrescribirá.
 {% endhint %}
 
-Portable experiences can be activated as part of the interactive code of a scene (either in LAND or a World).
+Las experiencias portables pueden activarse como parte del código interactivo de una escena (ya sea en LAND o un World).
 
-Players are prompted asking if they want to run this portable experience, and if they do they'll carry it with them wherever they go for the rest of their session. [Learn more](../../../creator/sdk7/projects/portable-experiences.md).
+Se solicita a los jugadores si quieren ejecutar esta experiencia portable, y si lo hacen la llevarán consigo a donde quiera que vayan durante el resto de su sesión. [Aprende más](../sdk7/projects/portable-experiences.md).
 
 #### Smart Wearables
 
-Smart wearables are linked to Wearable tokens. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables\&vendor=decentraland\&page=1\&sortBy=newest\&status=on_sale).
+Los smart wearables están vinculados a tokens Wearable. Estos se venden como NFTs y se compran en el [Marketplace](https://decentraland.org/marketplace/browse?section=wearables\&vendor=decentraland\&page=1\&sortBy=newest\&status=on_sale).
 
-Smart Wearables are activated whenever the player puts on the associated wearable item. They are turned off if the player takes off the item, or they can also turn off the global scene manually via the UI.
+Los Smart Wearables se activan cada vez que el jugador se pone el artículo wearable asociado. Se apagan si el jugador se quita el artículo, o también pueden apagar la escena global manualmente a través de la UI.
 
-* Learn everything about [Creating wearables](../../../creator/wearables-and-emotes/wearables/creating-wearables.md).
-* Learn about [smart wearables](../../../creator/sdk7/projects/smart-wearables.md)
+* Aprende todo sobre [Crear wearables](../wearables-and-emotes/wearables/creating-wearables.md).
+* Aprende sobre [smart wearables](../sdk7/projects/smart-wearables.md)
