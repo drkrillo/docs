@@ -8,16 +8,17 @@ Esta documentación cubrirá las especificaciones del archivo, los conceptos bá
 
 #### Animation Specs Chart
 
-|| Frame Rate             | 30 fps                     |
-|| ---------------------- | -------------------------- |
-|| Max Length             | 10 segundos (300 frames)    |
-|| Animations per File    | 1                          |
-|| Export Format          | .glb                       |
-|| Sampling Rate          | 2 o 3 (si es necesario)         |
-|| Max File Size          | 1 MB                       |
-|| Max Animation Distance | 1 metro (en cualquier dirección) |
-|| Max Animation Height   | 1 metro                    |
-|| Max Texture Size       | 1024 pixels                |
+| Propiedad              | Valor                      |
+| ---------------------- | -------------------------- |
+| Frame Rate             | 30 fps                     |
+| Max Length             | 10 segundos (300 frames)    |
+| Animations per File    | 1                          |
+| Export Format          | .glb                       |
+| Sampling Rate          | 2 o 3 (si es necesario)         |
+| Max File Size          | 1 MB                       |
+| Max Animation Distance | 1 metro (en cualquier dirección) |
+| Max Animation Height   | 1 metro                    |
+| Max Texture Size       | 1024 pixels                |
 
 Puedes encontrar una explicación más detallada de las especificaciones de animación [**abajo**](creating-emotes.md#the-animation-specifications).
 
@@ -232,13 +233,15 @@ Para exportar, ve a _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
 Para la configuración de exportación, expande Include y en Limit to activa Visible Objects. Luego, expande la pestaña Data, expande Armature y habilita Export Deformation Bones Only.
 
-|| ![](../images/emotes/export_settings.png) | ![](../images/emotes/export_settings_GIF.gif) |
-|| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Configuración de Exportación | Animación |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| ![](../images/emotes/export_settings.png) | ![](../images/emotes/export_settings_GIF.gif) |
 
 Si necesitas samplear la animación, expande la pestaña Animation, expande Sampling Animations y elige el número de samples deseado.
 
-|| ![](../images/emotes/sampling_rate.png) | ![](../images/emotes/sampling_rate_GIF.gif) |
-|| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Sampling Rate | Animación |
+| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ![](../images/emotes/sampling_rate.png) | ![](../images/emotes/sampling_rate_GIF.gif) |
 
 ¡Eso es todo para exportar la animación!
 

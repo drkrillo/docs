@@ -22,18 +22,18 @@ El módulo `EngineApi` está diseñado para sincronizar el estado del mundo entr
 
 ```
 .------------------------------------------------------.
-|| World Explorer                                       |
-||                                                      |
-||                   [Engine API]                       |
-||                        |                             |
-||  .--------.            |              .------------. |
-||  |        |<-----------+<-------------+  Runtime   | |
-||  |  Game  |            |   Commands   |  .------.  | |
-||  |        |   Events   |              |  | Scene | | |
-||  | Engine +----------->+------------->|  |       | | |
-||  |        |            |              |  '-------' | |
-||  '--------'            |              '------------' |
-||                                                      |
+| World Explorer                                       |
+|                                                      |
+|                   [Engine API]                       |
+|                        |                             |
+|  .--------.            |              .------------. |
+|  |        |<-----------+<-------------+  Runtime   | |
+|  |  Game  |            |   Commands   |  .------.  | |
+|  |        |   Events   |              |  | Scene | | |
+|  | Engine +----------->+------------->|  |       | | |
+|  |        |            |              |  '-------' | |
+|  '--------'            |              '------------' |
+|                                                      |
 '------------------------------------------------------'
 
 ```
@@ -85,17 +85,17 @@ Revisitemos el diagrama arquitectónico arriba, ahora enfocándonos en el CRDT:
 
 ```
 .-------------------------------------------------------.
-|| World Explorer                                        |
-||                                                       |
-|| .-------------.                       .------------.  |
-|| | Game Engine |                       |   Scene     | |
-|| |  .-------.  |                       |  .-------.  | |
-|| |  |       +--+-----------------------+->|       |  | |
-|| |  | CRDT  |  |     Sync Protocol     |  | CRDT  |  | |
-|| |  |       |<-+-----------------------+--+       |  | |
-|| |  '-------'  |                       |  '-------'  | |
-|| |             |                       |             | |
-|| '-------------'                       '-------------' |
+| World Explorer                                        |
+|                                                       |
+| .-------------.                       .------------.  |
+| | Game Engine |                       |   Scene     | |
+| |  .-------.  |                       |  .-------.  | |
+| |  |       +--+-----------------------+->|       |  | |
+| |  | CRDT  |  |     Sync Protocol     |  | CRDT  |  | |
+| |  |       |<-+-----------------------+--+       |  | |
+| |  '-------'  |                       |  '-------'  | |
+| |             |                       |             | |
+| '-------------'                       '-------------' |
 '-------------------------------------------------------'
 
 ```
@@ -241,7 +241,7 @@ Los mensajes entre el World Explorer y el runtime de escena son estructuras en u
 
 ```
 .----------------.--------------.---------------------------------.
-|| length: uint32 | type: uint32 |     payload: byte[length]       |
+| length: uint32 | type: uint32 |     payload: byte[length]       |
 '----------------'--------------'---------------------------------'
 ╵         common fields         ╵         type-dependent          ╵
 
@@ -261,7 +261,7 @@ Actualizar el `state` de un `component` para una `entity` particular, creando co
 
 ```
 .----------------.-------------------.-------------------------------------------.
-|| entity: uint32 | component: uint32 | timestamp: uint32 |     state: byte[]     |
+| entity: uint32 | component: uint32 | timestamp: uint32 |     state: byte[]     |
 '----------------'-------------------'-------------------------------------------'
 ╵                       common fields                    ╵  component-dependent  ╵
 
@@ -279,7 +279,7 @@ Remover el estado de `component` para una `entity`. [Resolver conflictos](#crdtC
 
 ```
 .----------------.-------------------.-------------------.
-|| entity: uint32 | component: uint32 | timestamp: uint32 |
+| entity: uint32 | component: uint32 | timestamp: uint32 |
 '----------------'-------------------'-------------------'
 
 ```
@@ -290,7 +290,7 @@ Eliminar `entity` (es decir, todo el estado de componente asociado), esperando q
 
 ```
 .----------------.
-|| entity: uint32 |
+| entity: uint32 |
 '----------------'
 
 ```

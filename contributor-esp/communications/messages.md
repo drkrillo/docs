@@ -10,9 +10,9 @@ Todas las definiciones de mensajes están disponibles en el [repositorio de prot
 
 La estructura `Packet` es el contenedor para todos los mensajes.
 
-|| Campo     | Tipo   | Valor                                                                                                                      |
-|| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
-|| `message` | `enum` | Uno de `Chat`, `Voice`, `Position`, `AnnounceProfileVersion`, <br>`ProfileRequest`, `ProfileResponse`, o `Scene`. |
+| Campo     | Tipo   | Valor                                                                                                                      |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `message` | `enum` | Uno de `Chat`, `Voice`, `Position`, `AnnounceProfileVersion`, <br>`ProfileRequest`, `ProfileResponse`, o `Scene`. |
 
 ## Chat de Texto y Voz
 
@@ -26,10 +26,10 @@ Solo dos tipos de `Packet` están involucrados, uno para cada caso de uso. En ci
 
 Envía un mensaje de chat de texto a otros clientes.
 
-|| Campo       | Tipo     | Valor                      |
-|| ----------- | -------- | -------------------------- |
-|| `message`   | `string` | Texto del mensaje          |
-|| `timestamp` | `double` | Marca de tiempo UTC del remitente |
+| Campo       | Tipo     | Valor                      |
+| ----------- | -------- | -------------------------- |
+| `message`   | `string` | Texto del mensaje          |
+| `timestamp` | `double` | Marca de tiempo UTC del remitente |
 
 ---
 
@@ -37,11 +37,11 @@ Envía un mensaje de chat de texto a otros clientes.
 
 Envía una muestra de voz codificada a otros clientes.
 
-|| Campo             | Tipo     | Valor                                                       |
-|| ----------------- | -------- | ----------------------------------------------------------- |
-|| `encoded_samples` | `bytes`  | Datos de audio codificados                                  |
-|| `codec`           | `enum`   | Solo `VC_OPUS` (ningún otro codec está soportado por ahora) |
-|| `index`           | `uint32` | Un contador incremental establecido por el remitente        |
+| Campo             | Tipo     | Valor                                                       |
+| ----------------- | -------- | ----------------------------------------------------------- |
+| `encoded_samples` | `bytes`  | Datos de audio codificados                                  |
+| `codec`           | `enum`   | Solo `VC_OPUS` (ningún otro codec está soportado por ahora) |
+| `index`           | `uint32` | Un contador incremental establecido por el remitente        |
 
 El campo `codec` es un valor `enum`. Los codecs personalizados no están soportados.
 
@@ -55,11 +55,11 @@ Los clientes que controlan avatares envían y reciben actualizaciones posicional
 
 Actualiza a otros clientes sobre la posición y orientación de un avatar.
 
-|| Campo                                                        | Tipo     | Valor                                   |
-|| ------------------------------------------------------------ | -------- | --------------------------------------- |
-|| `position_x`<br>`position_y`<br>`position_z`                 | `float`  | Posición del avatar en el mapa del mundo |
-|| `rotation_x`<br>`rotation_y`<br>`rotation_z`<br>`rotation_w` | `float`  | Cuaternión de rotación del avatar        |
-|| `index`                                                      | `uint32` | Un contador incremental establecido por el remitente |
+| Campo                                                        | Tipo     | Valor                                   |
+| ------------------------------------------------------------ | -------- | --------------------------------------- |
+| `position_x`<br>`position_y`<br>`position_z`                 | `float`  | Posición del avatar en el mapa del mundo |
+| `rotation_x`<br>`rotation_y`<br>`rotation_z`<br>`rotation_w` | `float`  | Cuaternión de rotación del avatar        |
+| `index`                                                      | `uint32` | Un contador incremental establecido por el remitente |
 
 Los clientes típicamente envían actualizaciones `Position` con baja frecuencia (como una vez cada 1 o 2 segundos), y cambian a alta frecuencia (varias veces por segundo) cuando se mueven o interactúan.
 
@@ -113,9 +113,9 @@ sequenceDiagram
 
 Señala a otros clientes que hay una [entidad de perfil](/contributor/content/entity-types/profiles) que pueden solicitar.
 
-|| Campo             | Tipo     | Valor                                                    |
-|| ----------------- | -------- | -------------------------------------------------------- |
-|| `profile_version` | `uint32` | Un número de versión incrementado con cada modificación. |
+| Campo             | Tipo     | Valor                                                    |
+| ----------------- | -------- | -------------------------------------------------------- |
+| `profile_version` | `uint32` | Un número de versión incrementado con cada modificación. |
 
 Los receptores que almacenan perfiles en caché pueden usar el número `profile_version` para decidir si su copia local está actualizada, o si necesitan enviar un [`ProfileRequest`](#ProfileRequest).
 
@@ -125,10 +125,10 @@ Los receptores que almacenan perfiles en caché pueden usar el número `profile_
 
 Solicita un perfil de una versión especificada de un peer particular.
 
-|| Campo             | Tipo     | Valor                                   |
-|| ----------------- | -------- | --------------------------------------- |
-|| `address`         | string   | La dirección identificadora del perfil. |
-|| `profile_version` | `uint32` | La versión de perfil deseada.           |
+| Campo             | Tipo     | Valor                                   |
+| ----------------- | -------- | --------------------------------------- |
+| `address`         | string   | La dirección identificadora del perfil. |
+| `profile_version` | `uint32` | La versión de perfil deseada.           |
 
 Los receptores pueden responder con mensajes [`ProfileResponse`](#ProfileResponse) para proporcionar el perfil solicitado.
 
@@ -138,10 +138,10 @@ Los receptores pueden responder con mensajes [`ProfileResponse`](#ProfileRespons
 
 Envía un perfil en respuesta a un [`ProfileRequest`](#ProfileRequest).
 
-|| Campo                | Tipo     | Valor                                                                 |
-|| -------------------- | -------- | --------------------------------------------------------------------- |
-|| `serialized_profile` | string   | Entidad de perfil serializada en JSON.                                |
-|| `base_url`           | `uint32` | URL base para un endpoint de filesystem, recomendado por el remitente. |
+| Campo                | Tipo     | Valor                                                                 |
+| -------------------- | -------- | --------------------------------------------------------------------- |
+| `serialized_profile` | string   | Entidad de perfil serializada en JSON.                                |
+| `base_url`           | `uint32` | URL base para un endpoint de filesystem, recomendado por el remitente. |
 
 El campo `serialized_profile` contiene la serialización JSON de una [entidad de perfil](/contributor/content/entity-types/profiles).
 

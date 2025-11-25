@@ -14,25 +14,25 @@ Los [punteros](../pointers) de perfil son la dirección de Ethereum del propieta
 
 ## Campos de Metadata
 
-|| Campo | Valor |
-|| ----- | --- |
-||`avatars`| Un array de descripciones para cada uno de los avatares del propietario (ver abajo).
+| Campo | Valor |
+| ----- | --- |
+|`avatars`| Un array de descripciones para cada uno de los avatares del propietario (ver abajo).
 
 ## Avatars
 
 Cada avatar en `metadata.avatars[]` representa una identidad con el mismo propietario, y tiene varias propiedades que permiten a clientes mostrar perfiles, renderizar avatares en el mundo y contactar al propietario.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `userId` | El [puntero](../pointers) que resuelve (o solía resolver) a este perfil.
-|| `name` | El nombre de visualización de este jugador.
-|| `email` | (Opcional) Una dirección de correo electrónico para este jugador.
-|| `description` | (Opcional) Texto elegido por el jugador para describirse.
-|| `ethAddress` | La dirección de ethereum de este jugador (actualmente igual a su `userId`).
-|| `hasClaimedName` | Si el campo `name` es un nombre ENS reclamado.
-|| `unclaimedName` | Un nombre temporal para usuarios sin un nombre ENS (ej. invitados).
-|| `tutorialStep` | El progreso del tutorial para este jugador.
-|| `avatar` | Propiedades del avatar en el mundo del jugador (ver abajo).
+| Campo | Valor |
+| ----- | --- |
+| `userId` | El [puntero](../pointers) que resuelve (o solía resolver) a este perfil.
+| `name` | El nombre de visualización de este jugador.
+| `email` | (Opcional) Una dirección de correo electrónico para este jugador.
+| `description` | (Opcional) Texto elegido por el jugador para describirse.
+| `ethAddress` | La dirección de ethereum de este jugador (actualmente igual a su `userId`).
+| `hasClaimedName` | Si el campo `name` es un nombre ENS reclamado.
+| `unclaimedName` | Un nombre temporal para usuarios sin un nombre ENS (ej. invitados).
+| `tutorialStep` | El progreso del tutorial para este jugador.
+| `avatar` | Propiedades del avatar en el mundo del jugador (ver abajo).
 
 Un ejemplo:
 
@@ -54,14 +54,14 @@ Un ejemplo:
 
 El campo `metadata.avatars[].avatar` tiene toda la información que un World Explorer (u otros clientes, como un editor de avatar independiente) requieren para renderizar un jugador.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `bodyShape` | El [puntero](../pointers) a la entidad de forma de cuerpo del avatar.
-|| `snapshots` | Un objeto con imágenes para este avatar (ver abajo).
-|| `eyes` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para los ojos del avatar.
-|| `hair` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para el cabello del avatar.
-|| `skin` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para la piel del avatar.
-|| `wearables` | Un array de [punteros de wearable](wearables#pointers) en uso por el avatar.
+| Campo | Valor |
+| ----- | --- |
+| `bodyShape` | El [puntero](../pointers) a la entidad de forma de cuerpo del avatar.
+| `snapshots` | Un objeto con imágenes para este avatar (ver abajo).
+| `eyes` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para los ojos del avatar.
+| `hair` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para el cabello del avatar.
+| `skin` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para la piel del avatar.
+| `wearables` | Un array de [punteros de wearable](wearables#pointers) en uso por el avatar.
 
 Para ilustrar:
 

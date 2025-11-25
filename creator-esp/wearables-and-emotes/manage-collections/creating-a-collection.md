@@ -54,16 +54,16 @@ Cada ítem de la colección tiene:
 
 La rarity de tu ítem determina el número total de NFTs que se pueden acuñar. La rarity es la misma tanto para emotes como para wearables y podrás definirla una vez que subas tu archivo.
 
-|| Rarity    | Number of Items |
-|| --------- | --------------- |
-|| Unique    | 1               |
-|| Mythic    | 10              |
-|| Exotic    | 50              |
-|| Legendary | 100             |
-|| Epic      | 1,000           |
-|| Rare      | 5,000           |
-|| Uncommon  | 10,000          |
-|| Common    | 100,000         |
+| Rarity    | Number of Items |
+| --------- | --------------- |
+| Unique    | 1               |
+| Mythic    | 10              |
+| Exotic    | 50              |
+| Legendary | 100             |
+| Epic      | 1,000           |
+| Rare      | 5,000           |
+| Uncommon  | 10,000          |
+| Common    | 100,000         |
 
 #### ¡Atención!
 

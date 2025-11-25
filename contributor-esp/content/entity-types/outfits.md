@@ -10,19 +10,19 @@ Los [punteros](../pointers) de outfits son la dirección de Ethereum del propiet
 
 ## Campos de Metadata
 
-|| Campo | Valor |
-|| ----- | --- |
-||`outfits`| Un array de descripciones para cada outfit (ver abajo).
-||`namesForExtraSlots`| Un array de nombres propiedad usados para validar ranuras extra. Por cada nombre propiedad, se otorga una ranura extra hasta 5.
+| Campo | Valor |
+| ----- | --- |
+|`outfits`| Un array de descripciones para cada outfit (ver abajo).
+|`namesForExtraSlots`| Un array de nombres propiedad usados para validar ranuras extra. Por cada nombre propiedad, se otorga una ranura extra hasta 5.
 
 ## Outfits
 
 Cada outfit en `metadata.outfits[]` representa un outfit del usuario, y tiene varias propiedades:
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `slot` | Número de ranura del outfit guardado.
-|| `outfit` | El outfit guardado (ver abajo).
+| Campo | Valor |
+| ----- | --- |
+| `slot` | Número de ranura del outfit guardado.
+| `outfit` | El outfit guardado (ver abajo).
 
 Un ejemplo:
 
@@ -39,13 +39,13 @@ Un ejemplo:
 
 El campo `metadata.outfits[].outfit` tiene toda la información para guardar el outfit de un jugador y renderizarlo.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `bodyShape` | El [puntero](../pointers) a la entidad de forma de cuerpo del avatar.
-|| `eyes` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para los ojos del avatar.
-|| `hair` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para el cabello del avatar.
-|| `skin` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para la piel del avatar.
-|| `wearables` | Un array de [punteros de wearable](wearables#pointers) en uso por el avatar.
+| Campo | Valor |
+| ----- | --- |
+| `bodyShape` | El [puntero](../pointers) a la entidad de forma de cuerpo del avatar.
+| `eyes` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para los ojos del avatar.
+| `hair` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para el cabello del avatar.
+| `skin` | Un objeto con un `color` en forma de objeto `{ r, g, b }` para la piel del avatar.
+| `wearables` | Un array de [punteros de wearable](wearables#pointers) en uso por el avatar.
 
 Para ilustrar:
 

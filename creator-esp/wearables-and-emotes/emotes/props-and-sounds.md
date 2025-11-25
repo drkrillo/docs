@@ -159,8 +159,9 @@ Para exportar, ve a File > Export > glTF2.0 (.glb, .gltf) ![](../images/wearable
 
 Para la configuración de exportación, expande Include y en Limit to activa Visible Objects. Luego, expande la pestaña Data, expande Armature y habilita Export Deformation Bones Only.
 
-|| ![](../images/wearables-and-emotes/props-and-sound/export_settings.png) | ![](../images/wearables-and-emotes/props-and-sound/export_settings_GIF.gif) |
-|| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Configuración de Exportación | Animación |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| ![](../images/wearables-and-emotes/props-and-sound/export_settings.png) | ![](../images/wearables-and-emotes/props-and-sound/export_settings_GIF.gif) |
 
 ¡Presiona Export y has terminado!
 

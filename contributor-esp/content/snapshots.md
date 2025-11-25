@@ -16,14 +16,14 @@ Puedes experimentar con instantáneas usando código funcional en la sección [p
 
 Para localizar el conjunto actual de instantáneas, usa el [endpoint `snapshots`](https://decentraland.github.io/catalyst-api-specs/#tag/Content-Server/operation/getSnapshots). La respuesta contiene un array de elementos con estos campos:
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `generationTimestamp` | La marca de tiempo Unix UTC cuando esta instantánea fue creada.
-|| `hash` | El [archivo](../filesystem.md) de la instantánea.
-|| `numberOfEntities` | El número de entradas en el archivo de instantánea.
-|| `replacedSnapshotHashes` | Un array con el `hash` de cualquier instantánea reemplazada por esta.
-|| `timeRange.initTimestamp` | La marca de tiempo Unix UTC (en milisegundos) para el inicio del rango de la instantánea.
-|| `timerange.endTimestamp` | La marca de tiempo Unix UTC (en milisegundos) para el final del rango de la instantánea.
+| Campo | Valor |
+| ----- | --- |
+| `generationTimestamp` | La marca de tiempo Unix UTC cuando esta instantánea fue creada.
+| `hash` | El [archivo](../filesystem.md) de la instantánea.
+| `numberOfEntities` | El número de entradas en el archivo de instantánea.
+| `replacedSnapshotHashes` | Un array con el `hash` de cualquier instantánea reemplazada por esta.
+| `timeRange.initTimestamp` | La marca de tiempo Unix UTC (en milisegundos) para el inicio del rango de la instantánea.
+| `timerange.endTimestamp` | La marca de tiempo Unix UTC (en milisegundos) para el final del rango de la instantánea.
 
 Por ejemplo:
 
@@ -52,13 +52,13 @@ Los archivos de instantánea comienzan con esta línea exacta:
 
 Después de eso, cada línea es un documento JSON describiendo una [entidad](../entities.md) con los siguientes campos:
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `entityId` | El identificador inmutable para esta [entidad](../entities.md).
-|| `entityType` | Uno de `scene`, `profile`, `wearable`, `emote`, `store` o `outfits`.
-|| `pointers` | Un array de [punteros](../pointers.md) que resuelven (o solían resolver) a esta entidad.
-|| `entityTimestamp` | La marca de tiempo Unix UTC (en milisegundos) cuando esta entidad fue subida.
-|| `authChain` | La [cadena de autenticación](../entities.md#ownership) para esta entidad.
+| Campo | Valor |
+| ----- | --- |
+| `entityId` | El identificador inmutable para esta [entidad](../entities.md).
+| `entityType` | Uno de `scene`, `profile`, `wearable`, `emote`, `store` o `outfits`.
+| `pointers` | Un array de [punteros](../pointers.md) que resuelven (o solían resolver) a esta entidad.
+| `entityTimestamp` | La marca de tiempo Unix UTC (en milisegundos) cuando esta entidad fue subida.
+| `authChain` | La [cadena de autenticación](../entities.md#ownership) para esta entidad.
 
 Una entrada típica se ve así:
 

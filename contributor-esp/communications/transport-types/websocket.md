@@ -22,9 +22,9 @@ Todos los mensajes del transporte websocket están serializados usando la estruc
 La estructura [`WsPacket`](#WsPacket) no debe confundirse con el mensaje [`Packet`][Packet]. Es una capa de envoltorio adicional específica del transporte websocket. Los mensajes comms reales están contenidos en el tipo [`WsPeerUpdate`](#WsPeerUpdate).
 {% endhint %}
 
-|| Campo     | Tipo   | Valor                                                                                                                                                  |
-|| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|| `message` | `enum` | Uno de `WsIdentification`, `WsChallengeRequired`, `WsSignedChallenge`, <br>`WsWelcome`, `WsPeerJoin`, `WsPeerLeave`, `WsKicked` o `WsPeerUpdate`. |
+| Campo     | Tipo   | Valor                                                                                                                                                  |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `message` | `enum` | Uno de `WsIdentification`, `WsChallengeRequired`, `WsSignedChallenge`, <br>`WsWelcome`, `WsPeerJoin`, `WsPeerLeave`, `WsKicked` o `WsPeerUpdate`. |
 
 ## Autenticación
 
@@ -61,35 +61,35 @@ Si el flujo se completa exitosamente, el cliente recibirá un [`WsWelcome`](#WsW
 
 ##### `WsIdentification` <small>[↗ fuente][WsIdentification]</small> {#WsIdentification}
 
-|| Campo     | Tipo     | Valor                                        |
-|| --------- | -------- | -------------------------------------------- |
-|| `address` | `string` | La dirección pública de Ethereum del cliente |
+| Campo     | Tipo     | Valor                                        |
+| --------- | -------- | -------------------------------------------- |
+| `address` | `string` | La dirección pública de Ethereum del cliente |
 
 ---
 
 ##### `WsChallengeRequired` <small>[↗ fuente][WsChallengeRequired]</small> {#WsChallengeRequired}
 
-|| Campo               | Tipo     | Valor                                                                           |
-|| ------------------- | -------- | ------------------------------------------------------------------------------- |
-|| `challenge_to_sign` | `string` | La cadena proporcionada por el servidor para ser firmada como prueba de identidad |
-|| `already_connected` | `string` | Una pista del servidor a clientes, indicando que conexiones previas pueden cerrarse. |
+| Campo               | Tipo     | Valor                                                                           |
+| ------------------- | -------- | ------------------------------------------------------------------------------- |
+| `challenge_to_sign` | `string` | La cadena proporcionada por el servidor para ser firmada como prueba de identidad |
+| `already_connected` | `string` | Una pista del servidor a clientes, indicando que conexiones previas pueden cerrarse. |
 
 ---
 
 ##### `WsSignedChallenge` <small>[↗ fuente][WsSignedChallenge]</small> {#WsSignedChallenge}
 
-|| Campo             | Tipo     | Valor                                                                                                                    |
-|| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-|| `auth_chain_json` | `string` | Una [cadena de autenticación](../../auth/authchain) serializada terminando con la firma del desafío. |
+| Campo             | Tipo     | Valor                                                                                                                    |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `auth_chain_json` | `string` | Una [cadena de autenticación](../../auth/authchain) serializada terminando con la firma del desafío. |
 
 ---
 
 ##### `WsWelcome` <small>[↗ fuente][WsWelcome]</small> {#WsWelcome}
 
-|| Campo             | Tipo                  | Valor                                                     |
-|| ----------------- | --------------------- | --------------------------------------------------------- |
-|| `alias`           | `uint32`              | Un ID generado por el servidor para la sesión del cliente |
-|| `peer_identities` | `map<uint32, string>` | Las direcciones de todos los peers actuales, indexadas por alias |
+| Campo             | Tipo                  | Valor                                                     |
+| ----------------- | --------------------- | --------------------------------------------------------- |
+| `alias`           | `uint32`              | Un ID generado por el servidor para la sesión del cliente |
+| `peer_identities` | `map<uint32, string>` | Las direcciones de todos los peers actuales, indexadas por alias |
 
 ## Conectividad
 
@@ -103,26 +103,26 @@ También está el mensaje [`WsKicked`](#WsKicked), que informa a clientes que su
 
 ##### `WsPeerJoin` <small>[↗ fuente][WsPeerJoin]</small> {#WsPeerJoin}
 
-|| Campo     | Tipo     | Valor                                                        |
-|| --------- | -------- | ------------------------------------------------------------ |
-|| `alias`   | `uint32` | El ID generado por el servidor enviado en [`WsWelcome`](#WsWelcome) |
-|| `address` | `string` | La dirección de Ethereum del nuevo peer                      |
+| Campo     | Tipo     | Valor                                                        |
+| --------- | -------- | ------------------------------------------------------------ |
+| `alias`   | `uint32` | El ID generado por el servidor enviado en [`WsWelcome`](#WsWelcome) |
+| `address` | `string` | La dirección de Ethereum del nuevo peer                      |
 
 ---
 
 ##### `WsPeerLeave` <small>[↗ fuente][WsPeerLeave]</small> {#WsPeerLeave}
 
-|| Campo   | Tipo     | Valor                                             |
-|| ------- | -------- | ------------------------------------------------- |
-|| `alias` | `uint32` | El ID generado por el servidor del peer desconectado |
+| Campo   | Tipo     | Valor                                             |
+| ------- | -------- | ------------------------------------------------- |
+| `alias` | `uint32` | El ID generado por el servidor del peer desconectado |
 
 ---
 
 ##### `WsKicked` <small>[↗ fuente][WsKicked]</small> {#WsKicked}
 
-|| Campo    | Tipo     | Valor                                                            |
-|| -------- | -------- | ---------------------------------------------------------------- |
-|| `reason` | `string` | La explicación del servidor de por qué la conexión se cerrará    |
+| Campo    | Tipo     | Valor                                                            |
+| -------- | -------- | ---------------------------------------------------------------- |
+| `reason` | `string` | La explicación del servidor de por qué la conexión se cerrará    |
 
 ## Mensajes de Cliente
 
@@ -145,11 +145,11 @@ Para enviar [mensajes](../messages) comms, los clientes los envuelven en la estr
 
 ##### `WsPeerUpdate` <small>[↗ fuente][WsPeerUpdate]</small> {#WsPeerUpdate}
 
-|| Campo        | Tipo     | Valor                                                                                        |
-|| ------------ | -------- | -------------------------------------------------------------------------------------------- |
-|| `from_alias` | `uint32` | El ID generado por el servidor del remitente                                                 |
-|| `body`       | `bytes`  | El [mensaje](../messages) serializado que está siendo envuelto                  |
-|| `unreliable` | `bool`   | Si el remitente priorizó velocidad o fiabilidad para entregar este mensaje                  |
+| Campo        | Tipo     | Valor                                                                                        |
+| ------------ | -------- | -------------------------------------------------------------------------------------------- |
+| `from_alias` | `uint32` | El ID generado por el servidor del remitente                                                 |
+| `body`       | `bytes`  | El [mensaje](../messages) serializado que está siendo envuelto                  |
+| `unreliable` | `bool`   | Si el remitente priorizó velocidad o fiabilidad para entregar este mensaje                  |
 
 Los clientes deben establecer el campo `from_alias` a `0` al enviar, y el servidor lo llenará con el identificador correcto antes de entregarlo a los peers.
 

@@ -18,9 +18,9 @@ Una solicitud Signed Login se construye usando el mecanismo [signed fetch](/cont
 La respuesta, si es exitosa, tendrá estado `200` y un cuerpo JSON con _al menos_ los siguientes campos:
 
 
-|| Campo | Tipo | Valor
-|| ----- | --- | --- |
-|| `fixedAdapter` | `string` | El URI de transporte asignado (ej. `livekit:` o `ws-room:`)
+| Campo | Tipo | Valor
+| ----- | --- | --- |
+| `fixedAdapter` | `string` | El URI de transporte asignado (ej. `livekit:` o `ws-room:`)
 
 
 Por ejemplo:
@@ -33,8 +33,8 @@ Por ejemplo:
 
 En caso de falla, la respuesta puede tener cualquier código de estado apropiado y un cuerpo JSON con _al menos_ los siguientes campos:
 
-|| Campo | Tipo | Valor
-|| ----- | --- | --- |
-|| `message` | `string` | (Opcional) una explicación o código de error para la falla.
+| Campo | Tipo | Valor
+| ----- | --- | --- |
+| `message` | `string` | (Opcional) una explicación o código de error para la falla.
 
 Las respuestas con campos adicionales en el cuerpo JSON son válidas, y el contenido del `message` de error se deja sin especificar. Las implementaciones pueden usar esta flexibilidad para integrar `signed-login:` en sus aplicaciones como deseen.

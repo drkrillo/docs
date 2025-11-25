@@ -28,12 +28,12 @@ Soportamos 4 mecanismos para vincular tus wearables a NFTs. Todos estos mecanism
 
 La siguiente tabla muestra los mecanismos mencionados:
 
-|| Match         |                                                                                                                                                                                                                                             |
-|| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|| All NFTs      | Un usuario que posea cualquiera de los NFTs de la colección poseerá el wearable                                                                                                                                                                       |
-|| Single NFT    | Un usuario que posea un NFT especificado por TOKEN ID poseerá el wearable. _ej. 123456. El usuario poseerá el wearable si posee el NFT con TOKEN ID: 123456_                                                                                   |
-|| Multiple NFTs | Un usuario que posea uno de muchos NFTs especificados por TOKEN IDs, descritos separados por una coma poseerá el wearable. _ej. 123456, 123457, 123458. El usuario poseerá el wearable si posee el NFT con TOKEN ID: 123456 o 123457 o 123458_ |
-|| Range of NFTs | Un usuario que posea uno de muchos NFTs especificados en el rango de TOKEN IDs poseerá el wearable. _ej. \[1, 1000]. El usuario poseerá el wearable si posee el NFT con TOKEN ID 1 o 2 o 3 o 4 o 5 ... o 100_                              |
+| Match         | Descripción                                                                                                                                                                                                                                             |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| All NFTs      | Un usuario que posea cualquiera de los NFTs de la colección poseerá el wearable                                                                                                                                                                       |
+| Single NFT    | Un usuario que posea un NFT especificado por TOKEN ID poseerá el wearable. _ej. 123456. El usuario poseerá el wearable si posee el NFT con TOKEN ID: 123456_                                                                                   |
+| Multiple NFTs | Un usuario que posea uno de muchos NFTs especificados por TOKEN IDs, descritos separados por una coma poseerá el wearable. _ej. 123456, 123457, 123458. El usuario poseerá el wearable si posee el NFT con TOKEN ID: 123456 o 123457 o 123458_ |
+| Range of NFTs | Un usuario que posea uno de muchos NFTs especificados en el rango de TOKEN IDs poseerá el wearable. _ej. \[1, 1000]. El usuario poseerá el wearable si posee el NFT con TOKEN ID 1 o 2 o 3 o 4 o 5 ... o 100_                              |
 
 ### Tipos de Linked Wearables Collections
 

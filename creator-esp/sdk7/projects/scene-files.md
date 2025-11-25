@@ -95,9 +95,9 @@ Todas las escenas incluyen un archivo _.dclignore_, este archivo especifica qué
 
 Por ejemplo, podrías querer mantener los archivos de Blender para los modelos 3D en tu escena dentro de la carpeta de la escena, pero quieres evitar que esos archivos se desplieguen a Decentraland. En ese caso, podrías agregar `*.blend` a _.dclignore_ para ignorar todos los archivos con esa extensión.
 
-|| Qué ignorar | Ejemplo     | Descripción                                                                             |
-|| -------------- | ----------- | --------------------------------------------------------------------------------------- |
-|| Archivos específicos | `BACKUP.ts` | Ignora un archivo específico                                                                 |
+| Qué ignorar | Ejemplo     | Descripción                                                                             |
+| -------------- | ----------- | --------------------------------------------------------------------------------------- |
+| Archivos específicos | `BACKUP.ts` | Ignora un archivo específico                                                                 |
 || Carpetas        | `drafts/`   | Ignora todo el contenido de una carpeta y sus subcarpetas                                  |
 || Extensiones     | `*.blend`   | Ignora todos los archivos con una extensión dada                                                |
 || Secciones de nombre  | `test*`     | Ignora todos los archivos con nombres que coincidan con la consulta. En este caso, que comiencen con _test_ |

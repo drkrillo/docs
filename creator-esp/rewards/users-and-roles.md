@@ -23,18 +23,18 @@ Para agregar un usuario a la campaña:
 
 Estas son las acciones permitidas para cada rol:
 
-|| Permiso                                      | viewer | developer | collaborator | owner |
-|| -------------------------------------------- | :----: | :-------: | :----------: | :---: |
-|| Ver nombre de campaña, red y gas máximo      |    ✅   |     ✅     |       ✅      |   ✅   |
-|| Editar nombre de campaña y gas máximo        |    ❌   |     ❌     |       ✅      |   ✅   |
-|| Activar y desactivar campaña                 |    ❌   |     ❌     |       ✅      |   ✅   |
-|| Ver suministro                               |    ✅   |     ✅     |       ✅      |   ✅   |
-|| Agregar/eliminar Suministro                  |    ❌   |     ✅     |       ✅      |   ✅   |
-|| Ver dispensadores                            |    ✅   |     ✅     |       ✅      |   ✅   |
-|| Ver clave de dispensador                     |    ❌   |     ✅     |       ✅      |   ✅   |
-|| Agregar/eliminar dispensador                 |    ❌   |     ✅     |       ✅      |   ✅   |
-|| Ver transacciones de campaña                 |    ✅   |     ✅     |       ✅      |   ✅   |
-|| Ver usuarios                                 |    ✅   |     ✅     |       ✅      |   ✅   |
-|| Agregar/Eliminar usuarios                    |    ❌   |     ❌     |       ✅      |   ✅   |
-|| Eliminar usuarios propietarios               |    ❌   |     ❌     |       ❌      |   ✅   |
-|| Gestionar fondos                             |    ❌   |     ❌     |       ❌      |   ✅   |
+| Permiso                                      | viewer | developer | collaborator | owner |
+| -------------------------------------------- | :----: | :-------: | :----------: | :---: |
+| Ver nombre de campaña, red y gas máximo      |    ✅   |     ✅     |       ✅      |   ✅   |
+| Editar nombre de campaña y gas máximo        |    ❌   |     ❌     |       ✅      |   ✅   |
+| Activar y desactivar campaña                 |    ❌   |     ❌     |       ✅      |   ✅   |
+| Ver suministro                               |    ✅   |     ✅     |       ✅      |   ✅   |
+| Agregar/eliminar Suministro                  |    ❌   |     ✅     |       ✅      |   ✅   |
+| Ver dispensadores                            |    ✅   |     ✅     |       ✅      |   ✅   |
+| Ver clave de dispensador                     |    ❌   |     ✅     |       ✅      |   ✅   |
+| Agregar/eliminar dispensador                 |    ❌   |     ✅     |       ✅      |   ✅   |
+| Ver transacciones de campaña                 |    ✅   |     ✅     |       ✅      |   ✅   |
+| Ver usuarios                                 |    ✅   |     ✅     |       ✅      |   ✅   |
+| Agregar/Eliminar usuarios                    |    ❌   |     ❌     |       ✅      |   ✅   |
+| Eliminar usuarios propietarios               |    ❌   |     ❌     |       ❌      |   ✅   |
+| Gestionar fondos                             |    ❌   |     ❌     |       ❌      |   ✅   |

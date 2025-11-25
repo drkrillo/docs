@@ -25,18 +25,18 @@ Para ilustrar, el array `pointers` para un emote se ve así:
 
 Los emotes comparten la mayoría de sus campos básicos con [wearables](wearables). La propiedad `emoteDataADR74` es donde se encuentra la información específica del emote.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `id` | El [puntero](../pointers) que resuelve (o solía resolver) a este emote.
-|| `name` | El título de visualización para este emote en una [colección](../collections).
-|| `description` | Una descripción extendida para este emote.
-|| `image` | El [nombre de archivo interno](../entities#files) con una imagen para este emote.
-|| `thumbnail` | El [nombre de archivo interno](../entities#files) para una versión 256x256 de la `image`.
-|| `rarity` | Uno de `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` o `unique`.
-|| `i18n` | Un array de traducciones para el campo `name`.
-|| `collectionAddress` | La dirección de Ethereum para la colección que contiene este emote.
-|| `metrics` | Algunas mediciones útiles sobre las animaciones (ver abajo).
-|| `emoteDataADR74` | Los metadatos extendidos para este emote, según lo definido en [ADR-74](https://adr.decentraland.org/adr/ADR-74) (ver abajo).
+| Campo | Valor |
+| ----- | --- |
+| `id` | El [puntero](../pointers) que resuelve (o solía resolver) a este emote.
+| `name` | El título de visualización para este emote en una [colección](../collections).
+| `description` | Una descripción extendida para este emote.
+| `image` | El [nombre de archivo interno](../entities#files) con una imagen para este emote.
+| `thumbnail` | El [nombre de archivo interno](../entities#files) para una versión 256x256 de la `image`.
+| `rarity` | Uno de `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` o `unique`.
+| `i18n` | Un array de traducciones para el campo `name`.
+| `collectionAddress` | La dirección de Ethereum para la colección que contiene este emote.
+| `metrics` | Algunas mediciones útiles sobre las animaciones (ver abajo).
+| `emoteDataADR74` | Los metadatos extendidos para este emote, según lo definido en [ADR-74](https://adr.decentraland.org/adr/ADR-74) (ver abajo).
 
 
 Así es como se ve un JSON típico:
@@ -81,12 +81,12 @@ En el objeto `metadata.metrics`, encontrarás algunas mediciones simples para la
 
 Este objeto contiene los campos que los World Explorers (u otras aplicaciones gráficas) necesitan para animar modelos con este emote.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `category` | Uno de `dance`, `stunt`, `greetings`, `fun`, `poses`, `reactions`, `horror` o `miscellaneous`.
-|| `representations` | Un array de archivos de animación asociados a diferentes formas de cuerpo.
-|| `tags` | Un array de etiquetas de cadena descriptivas de este emote.
-|| `loop` | `true` si la animación debe repetirse una vez que termina.
+| Campo | Valor |
+| ----- | --- |
+| `category` | Uno de `dance`, `stunt`, `greetings`, `fun`, `poses`, `reactions`, `horror` o `miscellaneous`.
+| `representations` | Un array de archivos de animación asociados a diferentes formas de cuerpo.
+| `tags` | Un array de etiquetas de cadena descriptivas de este emote.
+| `loop` | `true` si la animación debe repetirse una vez que termina.
 
 Algún JSON para claridad:
 
@@ -105,11 +105,11 @@ Algún JSON para claridad:
 
 Cada elemento en el campo `metadata.emoteDataADR74.representations` define los archivos de animación apropiados para cada forma de cuerpo.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `bodyShapes` | Un array de [punteros](../pointers) de forma de cuerpo aplicables.
-|| `mainFile` | El [nombre de archivo interno](../entities#files) para el archivo GLB principal.
-|| `contents` | Todos los archivos, incluyendo `mainFile` y cualquiera adicional que pueda referenciar.
+| Campo | Valor |
+| ----- | --- |
+| `bodyShapes` | Un array de [punteros](../pointers) de forma de cuerpo aplicables.
+| `mainFile` | El [nombre de archivo interno](../entities#files) para el archivo GLB principal.
+| `contents` | Todos los archivos, incluyendo `mainFile` y cualquiera adicional que pueda referenciar.
 
 Por ejemplo, un elemento `representation`:
 

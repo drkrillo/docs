@@ -96,11 +96,11 @@ Red [The Graph](https://thegraph.com/):
 
 **Usado Por**:
 
-|| Servicio       | Propósito                   |
-|| -------------- | --------------------------- |
-|| Archipelago    | Actualizaciones de posición |
-|| Social Service | Estado de amigos            |
-|| Worlds         | Eventos de world            |
+| Servicio       | Propósito                   |
+| -------------- | --------------------------- |
+| Archipelago    | Actualizaciones de posición |
+| Social Service | Estado de amigos            |
+| Worlds         | Eventos de world            |
 
 ***
 

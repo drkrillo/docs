@@ -42,11 +42,11 @@ Esta cadena de un solo delegado es la forma más común de autorización usada e
 
 Cada paso en la cadena de autenticación contiene tres piezas de información: un `type`, un `payload` y una `signature` correspondiente.
 
-|| Campo       | Valor                                                                  |
-|| ----------- | ---------------------------------------------------------------------- |
-|| `type`      | El nombre de un tipo ([ver abajo](authchain.md#types)).               |
-|| `payload`   | Una cadena dependiente del tipo.                                       |
-|| `signature` | La firma de Ethereum codificada en hex de `payload`, comenzando con `0x`. |
+| Campo       | Valor                                                                  |
+| ----------- | ---------------------------------------------------------------------- |
+| `type`      | El nombre de un tipo ([ver abajo](authchain.md#types)).               |
+| `payload`   | Una cadena dependiente del tipo.                                       |
+| `signature` | La firma de Ethereum codificada en hex de `payload`, comenzando con `0x`. |
 
 {% hint style="info" %}
 Como la serialización más común de una cadena de autenticación es un array JSON, los ejemplos a continuación se presentan en esa forma. Ver [Transmitir una Cadena](authchain.md#transmitting) para más detalles.

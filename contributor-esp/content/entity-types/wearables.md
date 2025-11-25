@@ -52,18 +52,18 @@ El array `pointers` para un wearable off-chain tiene este aspecto:
 
 Los wearables comparten la mayoría de sus campos básicos con [emotes](emotes). La propiedad `data` es donde se encuentra la información específica del wearable.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `id` | El [puntero](../pointers) que resuelve (o solía resolver) a este wearable.
-|| `name` | El título de visualización para este wearable en una [colección](../collections).
-|| `description` | Una descripción extendida para este wearable.
-|| `image` | El [nombre de archivo interno](../entities#files) de una imagen para este wearable.
-|| `thumbnail` | El [nombre de archivo interno](../entities#files) de una versión 256x256 de la `image`.
-|| `rarity` | Uno de `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` o `unique`.
-|| `i18n` | Un array de traducciones para el campo `name`.
-|| `collectionAddress` | La dirección de Ethereum para la colección que contiene este wearable.
-|| `metrics` | Algunas mediciones útiles sobre las animaciones (ver abajo).
-|| `data` | Los metadatos extendidos para este wearable (ver abajo).
+| Campo | Valor |
+| ----- | --- |
+| `id` | El [puntero](../pointers) que resuelve (o solía resolver) a este wearable.
+| `name` | El título de visualización para este wearable en una [colección](../collections).
+| `description` | Una descripción extendida para este wearable.
+| `image` | El [nombre de archivo interno](../entities#files) de una imagen para este wearable.
+| `thumbnail` | El [nombre de archivo interno](../entities#files) de una versión 256x256 de la `image`.
+| `rarity` | Uno de `common`, `uncommon`, `rare`, `epic`, `legendary`, `exotic`, `mythic` o `unique`.
+| `i18n` | Un array de traducciones para el campo `name`.
+| `collectionAddress` | La dirección de Ethereum para la colección que contiene este wearable.
+| `metrics` | Algunas mediciones útiles sobre las animaciones (ver abajo).
+| `data` | Los metadatos extendidos para este wearable (ver abajo).
 
 En forma JSON típica:
 
@@ -107,25 +107,25 @@ En el objeto `metadata.metrics`, encontrarás algunas mediciones simples para lo
 
 El objeto `metadata.data` es donde se encuentran las propiedades específicas del wearable.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `category` | Una de las categorías de wearable listadas arriba.
-|| `representations` | Un array de archivos asociados a diferentes formas de cuerpo (ver abajo).
-|| `hides` | Un array de categorías que este wearable oculta.
-|| `replaces` | Un array de categorías que este wearable reemplaza completamente.
-|| `tags` | Un array de etiquetas de cadena descriptivas de este wearable.
+| Campo | Valor |
+| ----- | --- |
+| `category` | Una de las categorías de wearable listadas arriba.
+| `representations` | Un array de archivos asociados a diferentes formas de cuerpo (ver abajo).
+| `hides` | Un array de categorías que este wearable oculta.
+| `replaces` | Un array de categorías que este wearable reemplaza completamente.
+| `tags` | Un array de etiquetas de cadena descriptivas de este wearable.
 
 ### Representations
 
 Cada elemento en el array representations asocia una forma de cuerpo con una colección de modelos, y puede agregar reglas respecto a qué wearables se muestran en cada categoría.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `bodyShapes` | Un array de [punteros](../pointers) a entidades de forma de cuerpo.
-|| `mainFile` | El archivo de modelo 3D para iniciar el renderizado.
-|| `contents` | Un array de nombres de archivo (presentes en el [campo `content` de nivel superior](../entities#properties)) usados por el `mainFile`.
-|| `overrideHides` | Sustituye la lista `hides` arriba para esta representación.
-|| `overrideReplaces` | Sustituye la lista `replaces` arriba para esta representación.
+| Campo | Valor |
+| ----- | --- |
+| `bodyShapes` | Un array de [punteros](../pointers) a entidades de forma de cuerpo.
+| `mainFile` | El archivo de modelo 3D para iniciar el renderizado.
+| `contents` | Un array de nombres de archivo (presentes en el [campo `content` de nivel superior](../entities#properties)) usados por el `mainFile`.
+| `overrideHides` | Sustituye la lista `hides` arriba para esta representación.
+| `overrideReplaces` | Sustituye la lista `replaces` arriba para esta representación.
 
 Este es un elemento `representations` típico:
 

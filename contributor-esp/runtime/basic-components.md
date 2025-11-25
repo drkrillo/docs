@@ -26,7 +26,7 @@ Este componente es, por amplio margen, el más comúnmente usado y frecuentement
 
 ```
 .-----------------------.-------------------------------.-----------------------.-----------------.
-||   x   |   y   |   z   |   x   |   y   |   z   |   w   |   x   |   y   |   z   | parent (uint32) |
+|   x   |   y   |   z   |   x   |   y   |   z   |   w   |   x   |   y   |   z   | parent (uint32) |
 '-----------------------'-------------------------------'-----------------------'-----------------'
 ╵  position (3x float)  ╵      rotation (4x float)      ╵   scale (3x float)    ╵
 

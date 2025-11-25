@@ -27,17 +27,17 @@ Estos datos también están disponibles en el campo `metadata.scene.parcels` det
 
 Hay varias propiedades especiales para [entidades](../entities) de tipo `scene` ubicadas en el campo de nivel superior `metadata`.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `owner` | Información sobre el mantenedor de la escena.
-|| `main` | El [nombre de archivo interno](../entities#files) al archivo JavaScript principal de esta escena.
-|| `tags` | Un array de etiquetas de cadena descriptivas de esta escena.
-|| `display` | Información sobre la escena para que Explorers muestren a jugadores (ver abajo).
-|| `scene` | Las parcelas en las que esta escena está activa, y su ubicación central (ver abajo).
-|| `contact` | Nombre y dirección de correo electrónico para contactar a los creadores o mantenedores de la escena (ver abajo).
-|| `spawnPoints` | Ubicaciones y ángulos de cámara para jugadores saltando a esta escena (ver abajo).
-|| `requiredPermissions` | Permisos recomendados para que Explorers soliciten a jugadores (ver abajo).
-|| `featureToggles` | Configuraciones para banderas de características
+| Campo | Valor |
+| ----- | --- |
+| `owner` | Información sobre el mantenedor de la escena.
+| `main` | El [nombre de archivo interno](../entities#files) al archivo JavaScript principal de esta escena.
+| `tags` | Un array de etiquetas de cadena descriptivas de esta escena.
+| `display` | Información sobre la escena para que Explorers muestren a jugadores (ver abajo).
+| `scene` | Las parcelas en las que esta escena está activa, y su ubicación central (ver abajo).
+| `contact` | Nombre y dirección de correo electrónico para contactar a los creadores o mantenedores de la escena (ver abajo).
+| `spawnPoints` | Ubicaciones y ángulos de cámara para jugadores saltando a esta escena (ver abajo).
+| `requiredPermissions` | Permisos recomendados para que Explorers soliciten a jugadores (ver abajo).
+| `featureToggles` | Configuraciones para banderas de características
 
 {% hint style="info" %}
 Recuerda que las entidades y sus metadatos pueden tener campos personalizados. Puedes encontrar algunas propiedades allá afuera que no están listadas aquí.
@@ -47,12 +47,12 @@ Recuerda que las entidades y sus metadatos pueden tener campos personalizados. P
 
 En `metadata.display`, encontrarás propiedades útiles para informar a jugadores sobre la escena antes de entrar.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `title` | El nombre de visualización de esta escena.
-|| `description` | Una descripción extendida de esta escena.
-|| `favicon` | _Obsoleto_ El [nombre de archivo interno](../entities#files) a un ícono, mostrado cuando esta escena está activa.
-|| `navmapThumbnail` | El [nombre de archivo interno](../entities#files) a la miniatura de esta escena para el mapa del mundo.
+| Campo | Valor |
+| ----- | --- |
+| `title` | El nombre de visualización de esta escena.
+| `description` | Una descripción extendida de esta escena.
+| `favicon` | _Obsoleto_ El [nombre de archivo interno](../entities#files) a un ícono, mostrado cuando esta escena está activa.
+| `navmapThumbnail` | El [nombre de archivo interno](../entities#files) a la miniatura de esta escena para el mapa del mundo.
 
 Un ejemplo:
 
@@ -68,10 +68,10 @@ Un ejemplo:
 
 La propiedad `metadata.scene` es un objeto describiendo la posición de esta escena en el mapa del mundo.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `parcels` | Un array de punteros de parcela que ejecutan esta escena.
-|| `base` | El puntero de parcela para el punto de origen de esta escena.
+| Campo | Valor |
+| ----- | --- |
+| `parcels` | Un array de punteros de parcela que ejecutan esta escena.
+| `base` | El puntero de parcela para el punto de origen de esta escena.
 
 En la práctica, se ve así:
 
@@ -91,10 +91,10 @@ El campo `base` siempre está incluido en el array `parcels`.
 
 El objeto `metadata.contact` contiene la información de contacto del propietario o mantenedor de la escena.
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `name` | Un nombre para este contacto.
-|| `email` | (Opcional) Una dirección de correo electrónico para contactar.
+| Campo | Valor |
+| ----- | --- |
+| `name` | Un nombre para este contacto.
+| `email` | (Opcional) Una dirección de correo electrónico para contactar.
 
 En JSON:
 
@@ -113,12 +113,12 @@ El campo `metadata.spawnPoints` define un array de puntos y direcciones de cáma
 
 Cada elemento en el array tiene varias propiedades:
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `name` | Una etiqueta para identificar este punto de spawn.
-|| `position` | La posición inicial en un objeto `{ x, y, z }` con coordenadas float.
-|| `cameraTarget` | La dirección inicial de la cámara en un objeto `{ x, y, z }` con coordenadas float.
-|| `default` | Si este punto de spawn se usa a menos que se especifique lo contrario.
+| Campo | Valor |
+| ----- | --- |
+| `name` | Una etiqueta para identificar este punto de spawn.
+| `position` | La posición inicial en un objeto `{ x, y, z }` con coordenadas float.
+| `cameraTarget` | La dirección inicial de la cámara en un objeto `{ x, y, z }` con coordenadas float.
+| `default` | Si este punto de spawn se usa a menos que se especifique lo contrario.
 
 Por ejemplo:
 
@@ -139,14 +139,14 @@ En `metadata.requiredPermissions` encontrarás un array de cadenas conocidas dec
 
 Este es el conjunto actual de permisos soportados:
 
-|| Permiso | Propósito |
-|| ----- | --- |
-|| `USE_FETCH` | Permitir que la escena realice solicitudes HTTP externas.
-|| `USE_WEBSOCKET` | Permitir que la escena use la API Websocket para establecer conexiones externas.
-|| `OPEN_EXTERNAL_LINK` | Permitir que la escena abra una URL (en una pestaña del navegador o vista web).
-|| `USE_WEB3_API` | Permitir que la escena se comunique con una wallet.
-|| `ALLOW_TO_TRIGGER_AVATAR_EMOTE` | Permitir que la escena anime el avatar del jugador con un emote.
-|| `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE` | Permitir que la escena cambie la posición del jugador.
+| Permiso | Propósito |
+| ----- | --- |
+| `USE_FETCH` | Permitir que la escena realice solicitudes HTTP externas.
+| `USE_WEBSOCKET` | Permitir que la escena use la API Websocket para establecer conexiones externas.
+| `OPEN_EXTERNAL_LINK` | Permitir que la escena abra una URL (en una pestaña del navegador o vista web).
+| `USE_WEB3_API` | Permitir que la escena se comunique con una wallet.
+| `ALLOW_TO_TRIGGER_AVATAR_EMOTE` | Permitir que la escena anime el avatar del jugador con un emote.
+| `ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE` | Permitir que la escena cambie la posición del jugador.
 
 ### Feature Toggles
 

@@ -12,7 +12,7 @@
 
 * [Wearables](wearables-and-emotes/wearables/README.md)
   * [Crear Wearables](wearables-and-emotes/wearables/creating-wearables.md)
-  * [Wearables Vinculados](wearables-and-emotes/wearables/linked-wearables.md)
+  * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
 * [Emotes](wearables-and-emotes/emotes/README.md)
   * [Rig de Avatar](wearables-and-emotes/emotes/avatar-rig.md)
   * [Crear Emotes](wearables-and-emotes/emotes/creating-emotes.md)

@@ -28,13 +28,13 @@ Todos los tipos siguen los mismos procedimientos para creación, identificación
 
 Cada entidad tiene ciertas propiedades comunes en su manifest, aplicables a todos los tipos. Estos campos de nivel superior siempre estarán presentes:
 
-|| Campo | Valor |
-|| ----- | --- |
-|| `type` | Uno de `scene`, `profile`, `wearable`, `emote`, `store` o `outfits`.
-|| `pointers` | Un array de [punteros](../pointers.md) asociados a esta entidad.
-|| `timestamp` | La marca de tiempo Unix UTC cuando esta entidad fue subida.
-|| `content` | Un array de referencias a [archivos](../filesystem.md) adicionales en el paquete de la entidad.
-|| `metadata` | Un objeto con información específica a este tipo de entidad.
+| Campo | Valor |
+| ----- | --- |
+| `type` | Uno de `scene`, `profile`, `wearable`, `emote`, `store` o `outfits`.
+| `pointers` | Un array de [punteros](../pointers.md) asociados a esta entidad.
+| `timestamp` | La marca de tiempo Unix UTC cuando esta entidad fue subida.
+| `content` | Un array de referencias a [archivos](../filesystem.md) adicionales en el paquete de la entidad.
+| `metadata` | Un objeto con información específica a este tipo de entidad.
 
 La estructura y valores del campo `metadata` para cada tipo se detallan en sus páginas específicas. El array `pointers` también tiene contenidos diferentes dependiendo del tipo.
 
@@ -73,10 +73,10 @@ El campo `content` dentro de cada manifest es un array de referencias a archivos
 
 Todos los archivos se almacenan en el [sistema de archivos distribuido](../filesystem.md) de Decentraland, y cada elemento en el array tiene dos propiedades:
 
-|| Campo | Valor |
-|| --- | --- |
-|| `file` | El nombre interno usado por archivos en esta entidad para referenciarse entre sí.
-|| `hash` | El [identificador global para este archivo](../filesystem.md#identifiers), único en todo el contenido.
+| Campo | Valor |
+| --- | --- |
+| `file` | El nombre interno usado por archivos en esta entidad para referenciarse entre sí.
+| `hash` | El [identificador global para este archivo](../filesystem.md#identifiers), único en todo el contenido.
 
 Así es como típicamente se ve dentro del campo `content`:
 

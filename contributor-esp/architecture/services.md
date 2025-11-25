@@ -490,19 +490,19 @@ flowchart TB
 
 ### Matriz de Dependencias de Servicios
 
-|| Servicio               | Dependencias Core                | Proporciona Datos A              |
-|| --------------------- | -------------------------------- | -------------------------------- |
-|| Catalyst              | Ninguna (descentralizado)        | Todos los servicios              |
-|| Realm Provider        | Catalyst, Archipelago Stats      | Todos los clientes               |
-|| Auth Server           | Ninguna                          | Todos los servicios protegidos   |
-|| Archipelago Workers   | NATS, LiveKit                    | Realm Provider, Places           |
-|| Comms Gatekeeper      | LiveKit, Worlds API              | Clientes (generación de tokens)  |
-|| Worlds                | Catalyst, NATS, Blockchain       | Gatekeeper, Clientes             |
-|| Social Service        | Catalyst, NATS, Archipelago      | Clientes                         |
-|| Places                | Catalyst, Archipelago, Comms     | Clientes                         |
-|| Events Notifier       | Ninguna                          | Notifications, Badges, Rewards   |
-|| Asset Bundle Registry | Catalyst, Deployment Queue       | Clientes (activos optimizados)   |
-|| Notifications Workers | Events Notifier, SendGrid        | Clientes                         |
+| Servicio               | Dependencias Core                | Proporciona Datos A              |
+| --------------------- | -------------------------------- | -------------------------------- |
+| Catalyst              | Ninguna (descentralizado)        | Todos los servicios              |
+| Realm Provider        | Catalyst, Archipelago Stats      | Todos los clientes               |
+| Auth Server           | Ninguna                          | Todos los servicios protegidos   |
+| Archipelago Workers   | NATS, LiveKit                    | Realm Provider, Places           |
+| Comms Gatekeeper      | LiveKit, Worlds API              | Clientes (generación de tokens)  |
+| Worlds                | Catalyst, NATS, Blockchain       | Gatekeeper, Clientes             |
+| Social Service        | Catalyst, NATS, Archipelago      | Clientes                         |
+| Places                | Catalyst, Archipelago, Comms     | Clientes                         |
+| Events Notifier       | Ninguna                          | Notifications, Badges, Rewards   |
+| Asset Bundle Registry | Catalyst, Deployment Queue       | Clientes (activos optimizados)   |
+| Notifications Workers | Events Notifier, SendGrid        | Clientes                         |
 
 ***
 

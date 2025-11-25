@@ -30,16 +30,16 @@ Selecciona la Rarity de tu ítem.
 
 ![](../images/wearables-and-emotes/uploading-smart-wearables/03_rarity.png)
 
-|| Rarity    | Number of Items |
-|| --------- | --------------- |
-|| Unique    | 1               |
-|| Mythic    | 10              |
-|| Exotic    | 50              |
-|| Legendary | 100             |
-|| Epic      | 1,000           |
-|| Rare      | 5,000           |
-|| Uncommon  | 10,000          |
-|| Common    | 100,000         |
+| Rarity    | Number of Items |
+| --------- | --------------- |
+| Unique    | 1               |
+| Mythic    | 10              |
+| Exotic    | 50              |
+| Legendary | 100             |
+| Epic      | 1,000           |
+| Rare      | 5,000           |
+| Uncommon  | 10,000          |
+| Common    | 100,000         |
 
 #### Category
 

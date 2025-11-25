@@ -78,9 +78,9 @@ Los clientes deben escuchar estas asignaciones, cerrando y abriendo conexiones d
 
 Enviado por el cliente como el primer mensaje de una sesión, para iniciar el flujo de autenticación.
 
-|| Campo     | Tipo     | Valor                    |
-|| --------- | -------- | ------------------------ |
-|| `address` | `string` | La dirección del usuario. |
+| Campo     | Tipo     | Valor                    |
+| --------- | -------- | ------------------------ |
+| `address` | `string` | La dirección del usuario. |
 
 El campo `address` debe derivarse de la primera clave privada de la [cadena de autenticación](../auth/authchain) que se presentará.
 
@@ -90,9 +90,9 @@ El campo `address` debe derivarse de la primera clave privada de la [cadena de a
 
 Enviado por el cliente después de recibir un [`ChallengeResponseMessage`](#ChallengeResponseMessage), para completar el flujo de autenticación.
 
-|| Campo             | Tipo     | Valor                                                                                                                    |
-|| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
-|| `auth_chain_json` | `string` | Una [cadena de autenticación](../auth/authchain) serializada en JSON terminando con la firma del desafío. |
+| Campo             | Tipo     | Valor                                                                                                                    |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `auth_chain_json` | `string` | Una [cadena de autenticación](../auth/authchain) serializada en JSON terminando con la firma del desafío. |
 
 La primera clave en la [cadena de autenticación](../auth/authchain) debe corresponder a la dirección enviada en el [`ChallengeRequestMessage`](#ChallengeRequestMessage) original.
 
@@ -102,10 +102,10 @@ La primera clave en la [cadena de autenticación](../auth/authchain) debe corres
 
 Enviado por el cliente a intervalos regulares (típicamente una vez por segundo), para actualizar a Archipelago sobre su posición y/o solicitar una asignación de isla.
 
-|| Campo          | Tipo       | Valor                                                              |
-|| -------------- | ---------- | ------------------------------------------------------------------ |
-|| `position`     | `Position` | La posición 3D del cliente en el mapa del mundo                    |
-|| `desired_room` | `string?`  | El ID de una isla a la que el cliente le gustaría ser asignado    |
+| Campo          | Tipo       | Valor                                                              |
+| -------------- | ---------- | ------------------------------------------------------------------ |
+| `position`     | `Position` | La posición 3D del cliente en el mapa del mundo                    |
+| `desired_room` | `string?`  | El ID de una isla a la que el cliente le gustaría ser asignado    |
 
 El primer mensaje `Heartbeat` que un cliente envía es seguido rápidamente por un [`IslandChangedMessage`](#IslandChangedMessage) de Archipelago. Las actualizaciones subsiguientes, sin embargo, son independientes de asignaciones de isla. Los clientes no deben esperar que un `Heartbeat` sea respondido.
 
@@ -117,10 +117,10 @@ Cuando el parámetro `desired_room` está incluido, el servicio intentará honra
 
 Enviado por Archipelago en respuesta a un [`ChallengeRequestMessage`](#ChallengeRequestMessage)
 
-|| Campo               | Tipo     | Valor                                                                                                      |
-|| ------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-|| `challenge_to_sign` | `string` | Una cadena generada para firmar y crear una [cadena de autenticación](../auth/authchain) |
-|| `already_connected` | `bool`   | Si existe una conexión existente para la clave de este usuario                                             |
+| Campo               | Tipo     | Valor                                                                                                      |
+| ------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `challenge_to_sign` | `string` | Una cadena generada para firmar y crear una [cadena de autenticación](../auth/authchain) |
+| `already_connected` | `bool`   | Si existe una conexión existente para la clave de este usuario                                             |
 
 ---
 
@@ -128,9 +128,9 @@ Enviado por Archipelago en respuesta a un [`ChallengeRequestMessage`](#Challenge
 
 Enviado por Archipelago después de autenticación exitosa.
 
-|| Campo     | Tipo     | Valor                                                                          |
-|| --------- | -------- | ------------------------------------------------------------------------------ |
-|| `peer_id` | `string` | Un identificador único para el cliente autenticado (típicamente su dirección) |
+| Campo     | Tipo     | Valor                                                                          |
+| --------- | -------- | ------------------------------------------------------------------------------ |
+| `peer_id` | `string` | Un identificador único para el cliente autenticado (típicamente su dirección) |
 
 ---
 
@@ -140,12 +140,12 @@ Enviado por Archipelago cuando el cliente es (re)asignado a una isla.
 
 Descripción.
 
-|| Campo            | Tipo                    | Valor                                                                             |
-|| ---------------- | ----------------------- | --------------------------------------------------------------------------------- |
-|| `island_id`      | `string`                | El ID de la nueva isla                                                            |
-|| `from_island_id` | `string?`               | El ID de la isla antigua, si esto es una reasignación                            |
-|| `conn_str`       | `string`                | La cadena de conexión para el [transporte](transports) de isla.     |
-|| `peers`          | `map<string, Position>` | Descripción.                                                                      |
+| Campo            | Tipo                    | Valor                                                                             |
+| ---------------- | ----------------------- | --------------------------------------------------------------------------------- |
+| `island_id`      | `string`                | El ID de la nueva isla                                                            |
+| `from_island_id` | `string?`               | El ID de la isla antigua, si esto es una reasignación                            |
+| `conn_str`       | `string`                | La cadena de conexión para el [transporte](transports) de isla.     |
+| `peers`          | `map<string, Position>` | Descripción.                                                                      |
 
 Los clientes que reciben un `IslandChangedMessage` deben terminar su conexión al backend de isla, y conectarse al dado en `conn_str`.
 
@@ -157,9 +157,9 @@ El campo `peers` contiene las identidades y posiciones actuales de todos los pee
 
 Enviado por Archipelago antes de cerrar una conexión.
 
-|| Campo    | Tipo           | Valor                                                 |
-|| -------- | -------------- | ----------------------------------------------------- |
-|| `reason` | `KickedReason` | La razón de Archipelago para cerrar la conexión       |
+| Campo    | Tipo           | Valor                                                 |
+| -------- | -------------- | ----------------------------------------------------- |
+| `reason` | `KickedReason` | La razón de Archipelago para cerrar la conexión       |
 
 Los valores estándar para el campo `reason` son:
 
@@ -171,10 +171,10 @@ Los valores estándar para el campo `reason` son:
 
 Enviado por Archipelago cuando un peer es asignado a la isla del cliente.
 
-|| Campo       | Tipo     | Valor                                                         |
-|| ----------- | -------- | ------------------------------------------------------------- |
-|| `island_id` | `string` | El identificador para la isla                                 |
-|| `peer_id`   | `string` | El identificador único para el peer (típicamente su dirección) |
+| Campo       | Tipo     | Valor                                                         |
+| ----------- | -------- | ------------------------------------------------------------- |
+| `island_id` | `string` | El identificador para la isla                                 |
+| `peer_id`   | `string` | El identificador único para el peer (típicamente su dirección) |
 
 El campo `island_id` coincidirá con la asignación actual del cliente.
 
@@ -184,10 +184,10 @@ El campo `island_id` coincidirá con la asignación actual del cliente.
 
 Enviado por Archipelago cuando un peer es removido de la isla del cliente.
 
-|| Campo       | Tipo     | Valor                                                         |
-|| ----------- | -------- | ------------------------------------------------------------- |
-|| `island_id` | `string` | El identificador para la isla                                 |
-|| `peer_id`   | `string` | El identificador único para el peer (típicamente su dirección) |
+| Campo       | Tipo     | Valor                                                         |
+| ----------- | -------- | ------------------------------------------------------------- |
+| `island_id` | `string` | El identificador para la isla                                 |
+| `peer_id`   | `string` | El identificador único para el peer (típicamente su dirección) |
 
 El campo `island_id` coincidirá con la asignación actual del cliente.
 
