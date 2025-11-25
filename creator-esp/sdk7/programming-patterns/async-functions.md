@@ -1,55 +1,51 @@
 ---
-description: Learn when and how to run asynchronous functions in your scene's code.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/programming-patterns/async-functions
+description: Aprende cuándo y cómo ejecutar funciones asíncronas en el código de tu escena.
 ---
 
-# Async Functions
+# Funciones Async
 
-### Overview
+### Descripción general
 
-Most of the code in your scene runs synchronously using a single thread. That means that commands are executed sequentially line by line. Each command must first wait for the previous command to finish executing before it can start.
+La mayor parte del código en tu escena se ejecuta sincrónicamente usando un solo hilo. Eso significa que los comandos se ejecutan secuencialmente línea por línea. Cada comando primero debe esperar a que el comando anterior termine de ejecutarse antes de que pueda comenzar.
 
-Even the functions in your scene's systems are executed one by one, following a [priority order](../../../creator/sdk7/architecture/systems.md#system-execution-order).
+Incluso las funciones en los sistemas de tu escena se ejecutan una por una, siguiendo un [orden de prioridad](../sdk7/architecture/systems.md#system-execution-order).
 
-Running code synchronously ensures consistency, as you can always be sure you'll know the order in which the commands in your code run.
+Ejecutar código sincrónicamente asegura consistencia, ya que siempre puedes estar seguro de conocer el orden en que se ejecutan los comandos en tu código.
 
-On the other hand, your scene needs to be updated many times per second, building the next frame. If a part of your code takes too long to respond, then the whole main thread is stuck and this results in lagging frame rates.
+Por otro lado, tu escena necesita actualizarse muchas veces por segundo, construyendo el siguiente fotograma. Si una parte de tu código tarda demasiado en responder, entonces todo el hilo principal se queda atascado y esto resulta en tasas de fotogramas con lag.
 
-That's why, in some cases you want some commands to run asynchronously. This means that you can start off a task in a new thread, and meanwhile the main thread can keep running over the the next lines of code.
+Es por eso que, en algunos casos quieres que algunos comandos se ejecuten asincrónicamente. Esto significa que puedes iniciar una tarea en un nuevo hilo, y mientras tanto el hilo principal puede seguir ejecutando las siguientes líneas de código.
 
-This is especially useful for tasks that rely on external services that could take time to respond, as you don't want that idle time waiting for that response to block other tasks.
+Esto es especialmente útil para tareas que dependen de servicios externos que podrían tardar en responder, ya que no quieres que ese tiempo de espera para esa respuesta bloquee otras tareas.
 
-For example:
+Por ejemplo:
 
-* When retrieving data from a REST API
-* When performing a transaction on the blockchain
+* Al recuperar datos de una API REST
+* Al realizar una transacción en blockchain
 
 {% hint style="warning" %}
-**📔 Note**: Keep in mind that several frames of your scene might be rendered before the task finishes executing. Make sure your scene's code is flexible enough to handle the in-between scenarios while the asynchronous task is being completed.
+**📔 Nota**: Ten en cuenta que varios fotogramas de tu escena podrían renderizarse antes de que la tarea termine de ejecutarse. Asegúrate de que el código de tu escena sea lo suficientemente flexible para manejar los escenarios intermedios mientras se completa la tarea asíncrona.
 {% endhint %}
 
-### Run an async function
+### Ejecutar una función async
 
-Mark any function as `async` so that it runs on a separate thread from the scene's main thread every time that it's called.
+Marca cualquier función como `async` para que se ejecute en un hilo separado del hilo principal de la escena cada vez que se la llama.
 
 ```ts
-// declare async function
+// declarar función async
 async function myAsyncTask() {
-	// run function's steps
+	// ejecutar pasos de la función
 }
 
-// call async function
+// llamar función async
 myAsyncTask()
 
-// rest of the code keeps being executed
+// el resto del código sigue siendo ejecutado
 ```
 
-### The executeTask function
+### La función executeTask
 
-The `executeTask()` function executes a lambda function asynchronously, in a separate thread from the scene's main thread. `executeTask()` allows us to declare and execute the function all in one same statement.
+La función `executeTask()` ejecuta una función lambda asincrónicamente, en un hilo separado del hilo principal de la escena. `executeTask()` nos permite declarar y ejecutar la función todo en una misma declaración.
 
 ```ts
 executeTask(async () => {
@@ -57,12 +53,12 @@ executeTask(async () => {
 	console.log(data)
 })
 
-// rest of the code keeps being executed
+// el resto del código sigue siendo ejecutado
 ```
 
-### The then function
+### La función then
 
-The `then` function takes in a lambda function as an argument, that only gets executed once the prior statement is finished. This lambda function can optionally have inputs that are mapped from whatever the prior statement returns.
+La función `then` toma una función lambda como argumento, que solo se ejecuta una vez que la declaración anterior ha terminado. Esta función lambda puede tener opcionalmente entradas que se mapean desde lo que la declaración anterior devuelve.
 
 ```ts
 myAsyncTask().then((data) => {
@@ -71,31 +67,31 @@ myAsyncTask().then((data) => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: It's generally better to use the `executeTask` approach rather than the `then` function. In this example, the scene won't be considered fully loaded by the explorer till the `myAsyncTask()` function is completed, which may affect load times. Also, if relying too much on the `then` function at multiple nested levels, you can end up with what's known as "callback hell", where the code can become very hard to read and maintain.
+**📔 Nota**: Generalmente es mejor usar el enfoque de `executeTask` en lugar de la función `then`. En este ejemplo, la escena no se considerará completamente cargada por el explorador hasta que la función `myAsyncTask()` se complete, lo que puede afectar los tiempos de carga. Además, si dependes demasiado de la función `then` en múltiples niveles anidados, puedes terminar con lo que se conoce como "callback hell", donde el código puede volverse muy difícil de leer y mantener.
 {% endhint %}
 
-### PointerEvents and RayCast functions
+### Funciones PointerEvents y RayCast
 
-When your scene uses a `PointerEvent` or a `RayCast` component, the calculations of collisions are carried out async in the engine. The engine then returns a results event to the scene, which can arrive one or several ticks of the game loop later than when the event was invoked.
+Cuando tu escena usa un componente `PointerEvent` o `RayCast`, los cálculos de colisiones se llevan a cabo async en el motor. El motor luego devuelve un evento de resultados a la escena, que puede llegar uno o varios ticks del bucle del juego más tarde que cuando se invocó el evento.
 
-You then need to create a system to process these results in the frame when they arrive.
+Luego necesitas crear un sistema para procesar estos resultados en el fotograma cuando lleguen.
 
 {% hint style="warning" %}
-**📔 Note**: If you handle clicks via the [**Register a callback**](../../../creator/sdk7/interactivity/button-events/register-callback.md) approach, you don't need to explicitly create a system to handle this, but the same occurs in the background.
+**📔 Nota**: Si manejas clics a través del enfoque [**Register a callback**](../sdk7/interactivity/button-events/register-callback.md), no necesitas crear explícitamente un sistema para manejar esto, pero lo mismo ocurre en segundo plano.
 {% endhint %}
 
-See [click events](../../../creator/sdk7/interactivity/button-events/click-events.md) and [raycasting](../../../creator/sdk7/interactivity/raycasting.md).
+Consulta [eventos de clic](../sdk7/interactivity/button-events/click-events.md) y [raycasting](../sdk7/interactivity/raycasting.md).
 
 {% hint style="info" %}
-**💡 Tip**: If the processing of the results of a raycast takes a lot of calculations (like running a path-finding algorithm) you might want to run that computation in an asynchronous function.
+**💡 Tip**: Si el procesamiento de los resultados de un raycast requiere muchos cálculos (como ejecutar un algoritmo de path-finding) puede que quieras ejecutar ese cómputo en una función asíncrona.
 {% endhint %}
 
-### The await statement
+### La declaración await
 
-An `await` statement forces the execution to wait for a response before moving over to the next line of code. `await` statements can only be used inside an async block of code.
+Una declaración `await` fuerza la ejecución a esperar una respuesta antes de pasar a la siguiente línea de código. Las declaraciones `await` solo pueden usarse dentro de un bloque de código async.
 
 ```ts
-// declare function
+// declarar función
 async function myAsyncTask() {
 	try {
 		let response = await fetch(callUrl)
@@ -106,10 +102,10 @@ async function myAsyncTask() {
 	}
 }
 
-// call function
+// llamar función
 myAsyncTask()
 
-// Rest of the code keeps being executed
+// El resto del código sigue siendo ejecutado
 ```
 
-The example above executes a function that includes a `fetch()` operation to retrieve data from an external API. The `fetch()` operation is asynchronous, as we can't predict how long the server will take to respond. However, the next line needs the output of this operation to be ready before we can parse it as a json. The `await` statement here ensures that the next line will only run once that operation has returned a value. Similarly, the `response.json()` function is also asynchronous, but the next line needs the json to be parsed before it can log it. The second `await` statement forces the next line to only be called once the parsing of the json is finished, however long it takes.
+El ejemplo anterior ejecuta una función que incluye una operación `fetch()` para recuperar datos de una API externa. La operación `fetch()` es asíncrona, ya que no podemos predecir cuánto tardará el servidor en responder. Sin embargo, la siguiente línea necesita que el output de esta operación esté listo antes de que podamos parsearlo como json. La declaración `await` aquí asegura que la siguiente línea solo se ejecutará una vez que esa operación haya devuelto un valor. De manera similar, la función `response.json()` también es asíncrona, pero la siguiente línea necesita que el json esté parseado antes de que pueda registrarlo. La segunda declaración `await` fuerza a la siguiente línea a que solo sea llamada una vez que el parseo del json haya terminado, sin importar cuánto tarde.

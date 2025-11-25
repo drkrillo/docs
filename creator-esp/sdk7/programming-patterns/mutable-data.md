@@ -1,66 +1,62 @@
 ---
-description: Learn how to handle ead-only and mutable data from components
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/programming-patterns/mutable-data
+description: Aprende cómo manejar datos de solo lectura y mutables de los componentes
 ---
 
-# Mutable Data
+# Datos Mutables
 
-When referencing data from a [component](../../../creator/sdk7/architecture/entities-components.md), you can either fetch the mutable or the read-only (immutable) version.
+Al referenciar datos de un [componente](../sdk7/architecture/entities-components.md), puedes obtener la versión mutable o de solo lectura (inmutable).
 
-You should always deal with the read-only versions of data when possible. This practice can bring a very significant improvement in the performance of your scene, when compared to always dealing with mutable versions of that same data.
+Siempre debes trabajar con las versiones de solo lectura de los datos cuando sea posible. Esta práctica puede traer una mejora muy significativa en el rendimiento de tu escena, cuando se compara con trabajar siempre con versiones mutables de esos mismos datos.
 
-The `.get()` function in a component returns a read-only (immutable) version of the component. You can only read its values, but can't change any of the properties on it.
+La función `.get()` en un componente devuelve una versión de solo lectura (inmutable) del componente. Solo puedes leer sus valores, pero no puedes cambiar ninguna de las propiedades en él.
 
-The `.getMutable()` function returns a version of the component that allows you to change its values. Use mutable versions only when you plan to make changes to a component, otherwise, always use `get()`.
+La función `.getMutable()` devuelve una versión del componente que te permite cambiar sus valores. Usa versiones mutables solo cuando planees hacer cambios a un componente, de lo contrario, siempre usa `get()`.
 
 ```ts
-// fetch a read-only (immutable) version
+// obtener una versión de solo lectura (inmutable)
 const immutableTransform = Transform.get(myEntity)
 
-// the following does NOT work:
+// lo siguiente NO funciona:
 // immutableTransform.position.y = 2
 
 const mutableTransform = Transform.getMutable(myEntity)
 
-// the following line DOES change the entity's position
+// la siguiente línea SÍ cambia la posición de la entidad
 mutableTransform.position.y = 2
 ```
 
-A good practice is to iterate over read-only components to check values, and then only fetch the mutable version of an individual component when a change is required.
+Una buena práctica es iterar sobre componentes de solo lectura para verificar valores, y luego solo obtener la versión mutable de un componente individual cuando se requiere un cambio.
 
 ```ts
-// hard-coded maximum height
+// altura máxima codificada
 const MAX_HEIGHT = 10
 
-// Define the system
+// Definir el sistema
 function HeightLimitSystem(dt: number) {
-	// iterate over all entities that have a Transform component
+	// iterar sobre todas las entidades que tienen un componente Transform
 	for (const [entity] of engine.getEntitiesWith(Transform)) {
-		// get read-only values
+		// obtener valores de solo lectura
 		const currentHeight = Transform.get(entity).position.y
 
-		// compare values
+		// comparar valores
 		if (currentHeight > MAX_HEIGHT) {
-			// fetch mutable version to make a change
+			// obtener versión mutable para hacer un cambio
 			const mutableTransform = Transform.getMutable(entity)
 
-			// change transform
+			// cambiar transform
 			mutableTransform.position.y = MAX_HEIGHT
 		}
 	}
 }
 
-// Add system to engine
+// Agregar sistema al motor
 engine.addSystem(HeightLimitSystem)
 ```
 
-In the example above, a system checks the read-only values of an entity's `Transform` component. On every tick it checks to see if the position's _y_ is higher than a hard-coded maximum height. If the height on the transform happens to be above this limit, then and only then we fetch the mutable version of the Transform. This may seem like extra work for the scene, but in a scene where we're checking values on every tick of the game loop, and only making changes occasionally, it results in huge performance gains.
+En el ejemplo anterior, un sistema verifica los valores de solo lectura del componente `Transform` de una entidad. En cada tick verifica si la posición _y_ es mayor que una altura máxima codificada. Si la altura en el transform resulta estar por encima de este límite, entonces y solo entonces obtenemos la versión mutable del Transform. Esto puede parecer trabajo extra para la escena, pero en una escena donde verificamos valores en cada tick del bucle del juego, y solo hacemos cambios ocasionalmente, resulta en enormes ganancias de rendimiento.
 
-This practice follows the principles of [data oriented programming](../../../creator/sdk7/architecture/data-oriented-programming.md). It's also gradually being adopted as an industry standard practice in the gaming, because of how much of an improvement it makes.
+Esta práctica sigue los principios de la [programación orientada a datos](../sdk7/architecture/data-oriented-programming.md). También está siendo adoptada gradualmente como una práctica estándar de la industria en los juegos, debido a cuánta mejora aporta.
 
 {% hint style="warning" %}
-**📔 Note**: In older versions of the SDK (6.x or older), components were always treated as mutable. That pattern may be a bit more straight forward to learn, but was a lot less efficient to run.
+**📔 Nota**: En versiones anteriores del SDK (6.x o anteriores), los componentes siempre se trataban como mutables. Ese patrón puede ser un poco más directo de aprender, pero era mucho menos eficiente de ejecutar.
 {% endhint %}

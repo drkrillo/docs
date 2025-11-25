@@ -1,35 +1,32 @@
 ---
-description: Write text in UI entities.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/ui_text
+description: Escribe texto en entidades UI.
 ---
 
-# UI Text
+# Texto UI
 
-Add text to your UI by creating a `Label` entity.
+Agrega texto a tu UI creando una entidad `Label`.
 
-A `Label` entity has the following fields that can be configured:
+Una entidad `Label` tiene los siguientes campos que pueden configurarse:
 
-* `value`: The string to display
-*   `fontSize`: The size of the text, as a number.
+* `value`: La cadena a mostrar
+*   `fontSize`: El tamaño del texto, como un número.
 
-    > NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
-* `color`: The color of the text, as a [Color4](../../../creator/sdk7/3d-essentials/color-types.md).
-* `font`: The font to use, taking a value from the `Font` enum. Supported values are:
+    > NOTA: El `fontSize` no se ve afectado por el tamaño de su entidad o entidades padre.
+* `color`: El color del texto, como un [Color4](../sdk7/3d-essentials/color-types.md).
+* `font`: La fuente a usar, tomando un valor del enum `Font`. Los valores soportados son:
   * `serif`
-  * `sans-serif` _(default)_
+  * `sans-serif` _(predeterminado)_
   * `monospace`
-* `textAlign`: How the text will align with its parent. It takes a value from the `TextAlingType` type. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-* `textWrap`: If the text uses line-breaks to ensure it all fits in the maximum width allowed. It can take the strings `'wrap'` (default) or `'nowrap'`.
+* `textAlign`: Cómo se alineará el texto con su padre. Toma un valor del tipo `TextAlingType`. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+* `textWrap`: Si el texto usa saltos de línea para asegurar que todo se ajuste en el ancho máximo permitido. Puede tomar las cadenas `'wrap'` (predeterminado) o `'nowrap'`.
 
 {% hint style="warning" %}
-**📔 Note**: The `fontSize` is not affected by the size of its entity or parent entities.
+**📔 Nota**: El `fontSize` no se ve afectado por el tamaño de su entidad o entidades padre.
 {% endhint %}
 
-A `Label` entity can also have other common components found on other types of UI entities, like `uiTransform` and `uiBackground`.
+Una entidad `Label` también puede tener otros componentes comunes encontrados en otros tipos de entidades UI, como `uiTransform` y `uiBackground`.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```ts
 import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -48,7 +45,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -60,12 +57,12 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+**📔 Nota**: Todos los siguientes fragmentos en esta página asumen que tienes un `.ts` similar al anterior, ejecutando la función `ReactEcsRenderer.setUiRenderer()`.
 {% endhint %}
 
-If a line of text is too long to fit in the assigned width, or the maximum width of its container, the text will continue on the next line. You can disable this by changing the value of the `textWrap` property to `'nowrap'`.
+Si una línea de texto es demasiado larga para ajustarse en el ancho asignado, o el ancho máximo de su contenedor, el texto continuará en la siguiente línea. Puedes desactivar esto cambiando el valor de la propiedad `textWrap` a `'nowrap'`.
 
-You can also force a line break by explicitly adding `\n` to the string.
+También puedes forzar un salto de línea agregando explícitamente `\n` a la cadena.
 
 ```ts
 import { TextWrap } from "@dcl/sdk/ecs";
@@ -74,14 +71,14 @@ import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
 export const uiMenu = () => (
 	<UiEntity uiTransform={{ width: 700, height: 400 }}>
 		<Label 
-			value="Hello World!\nThis other bit is quite long. It probably won't fit in a single line, so it will include a line break somewhere.\nFourth line"
+			value="Hello World!\nEsta otra parte es bastante larga. Probablemente no quepa en una sola línea, así que incluirá un salto de línea en alguna parte.\nCuarta línea"
 			textWrap= {`nowrap`} 
 		/>
 	</UiEntity>
 )
 ```
 
-If no explicit `height` or `width` is set on the `uiTransform` of the container, the container will use the value `auto`, which adjusts to fit all the text. You can set a `maxWidth` and a `maxHeight` to ensure it doesn't exceed certain limits. You can also use `minWidth` and `minHeight` to ensure the container does't grow too small, even if the text is shorter.
+Si no se establece explícitamente `height` o `width` en el `uiTransform` del contenedor, el contenedor usará el valor `auto`, que se ajusta para ajustarse a todo el texto. Puedes establecer un `maxWidth` y un `maxHeight` para asegurar que no exceda ciertos límites. También puedes usar `minWidth` y `minHeight` para asegurar que el contenedor no crezca demasiado pequeño, incluso si el texto es más corto.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -107,9 +104,9 @@ export const uiMenu = () => (
 )
 ```
 
-### Responsive text size
+### Tamaño de texto responsivo
 
-Use the `scaleFontSize()` function to provide font values that adjust to the player's screen size. When setting the `fontSize` property of a text UI entity, pass this function instead of a single number.
+Usa la función `scaleFontSize()` para proporcionar valores de fuente que se ajusten al tamaño de pantalla del jugador. Al establecer la propiedad `fontSize` de una entidad UI de texto, pasa esta función en lugar de un solo número.
 
 ```ts
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
@@ -132,27 +129,27 @@ export const uiMenu = () => (
 )
 ```
 
-The `scaleFontSize()` function requires two parameters:
+La función `scaleFontSize()` requiere dos parámetros:
 
-* `fontSize`: The base font size to use.
-* `scaleUnit` _(optional)_: The scaling factor. This determines if the text should be adjusted based on the screen width or the height, and a multiplier for how much to adapt. Default: `"0.39vh"`. Values can be:
-  * _Number_: A simple number, in this case it gets interpreted as relative to _width_
-  * _String ending in **vw**_: This makes the number relative to the view width. For example `"0.8vw"`
-  * _String ending in **vh**_: This makes the number relative to the view height. For example `"0.8vh"`
+* `fontSize`: El tamaño de fuente base a usar.
+* `scaleUnit` _(opcional)_: El factor de escalado. Esto determina si el texto debe ajustarse basándose en el ancho o alto de la pantalla, y un multiplicador de cuánto adaptarse. Predeterminado: `"0.39vh"`. Los valores pueden ser:
+  * _Number_: Un número simple, en este caso se interpreta como relativo al _width_
+  * _String terminando en **vw**_: Esto hace que el número sea relativo al ancho de la vista. Por ejemplo `"0.8vw"`
+  * _String terminando en **vh**_: Esto hace que el número sea relativo al alto de la vista. Por ejemplo `"0.8vh"`
 
 {% hint style="info" %}
-**💡 Tip**: This function works similar to the CSS `calc()` function.
+**💡 Tip**: Esta función funciona similar a la función CSS `calc()`.
 {% endhint %}
 
-The value of `scaleUnit` is a percentage of the window's width or height. So a `scaleUnit` of `"100vw"` is 100% of the width of the screen, a value of `"0.5vw"` is 0.5% of the width of the screen.
+El valor de `scaleUnit` es un porcentaje del ancho o alto de la ventana. Así que un `scaleUnit` de `"100vw"` es 100% del ancho de la pantalla, un valor de `"0.5vw"` es 0.5% del ancho de la pantalla.
 
-The formula that `scaleFontSize()` follows is it multiples the screen width or height by the `scaleUnit` and adds to that the `fontSize` passed in the first parameter.
+La fórmula que `scaleFontSize()` sigue es que multiplica el ancho o alto de la pantalla por el `scaleUnit` y agrega a eso el `fontSize` pasado en el primer parámetro.
 
 ```ts
-final font = fontSize + (screen width * scaleUnit / 100 )
+tamaño de fuente final = fontSize + (ancho de pantalla * scaleUnit / 100 )
 ```
 
-For example, in the snippet below uses a `scaleUnit` value of 0.8. If the screen width is _1280px_ that will result in text of size of **26.84**, having followed the equation `15 + (1280 * 0.8 / 100)`.
+Por ejemplo, en el fragmento a continuación usa un valor de `scaleUnit` de 0.8. Si el ancho de pantalla es _1280px_ eso resultará en texto de tamaño de **26.84**, habiendo seguido la ecuación `15 + (1280 * 0.8 / 100)`.
 
 ```ts
 import { scaleFontSize } from '@dcl/sdk/react-ecs'
@@ -175,7 +172,7 @@ export const uiMenu = () => (
 ```
 
 {% hint style="info" %}
-**💡 Tip**: If you don't have different screen sizes to test, you can try using the Web Explorer and resizing the window where you run the preview. The text will adjust instantly every time you change the window.
+**💡 Tip**: Si no tienes diferentes tamaños de pantalla para probar, puedes intentar usar el Web Explorer y redimensionar la ventana donde ejecutas la vista previa. El texto se ajustará instantáneamente cada vez que cambies la ventana.
 {% endhint %}
 
-As an alternative to using the `scaleFontSize()` function, you can also adjust font size to screen size using the methods described in [Responsive UI Size](../../../creator/sdk7/2d-ui/ui-positioning.md#responsive-ui-size).
+Como alternativa a usar la función `scaleFontSize()`, también puedes ajustar el tamaño de fuente al tamaño de pantalla usando los métodos descritos en [Tamaño UI Responsivo](../sdk7/2d-ui/ui-positioning.md#responsive-ui-size).

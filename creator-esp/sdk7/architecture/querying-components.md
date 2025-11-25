@@ -1,20 +1,16 @@
 ---
 description: >-
-  Learn about how to obtain lists of entities that have components in common, to
-  make checking or updating them easier.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/architecture/querying-components
+  Aprende sobre cómo obtener listas de entidades que tienen componentes en común, para
+  facilitar su verificación o actualización.
 ---
 
-# Querying Components
+# Consultar Componentes
 
-You can [query components](../../../creator/sdk7/architecture/querying-components.md) with the method `engine.getEntitiesWith(...components)` to keep track of all entities in the scene that have certain components.
+Puedes [consultar componentes](../sdk7/architecture/querying-components.md) con el método `engine.getEntitiesWith(...components)` para rastrear todas las entidades en la escena que tienen ciertos componentes.
 
-[Systems](../../../creator/sdk7/architecture/systems.md) typically iterate over the entities in these queries, performing the same operations on each. Having a predefined group of valid entities is a great way to save resources, specially for functions that run on every tick of the game loop. If on every tick your system would have to iterate over every single entity in the scene looking for the ones it needs, that would be very inefficient.
+Los [Sistemas](../sdk7/architecture/systems.md) típicamente iteran sobre las entidades en estas consultas, realizando las mismas operaciones en cada una. Tener un grupo predefinido de entidades válidas es una excelente manera de ahorrar recursos, especialmente para funciones que se ejecutan en cada tick del bucle del juego. Si en cada tick tu sistema tuviera que iterar sobre cada entidad individual en la escena buscando las que necesita, eso sería muy ineficiente.
 
-You can access the entities in a query in the following way.
+Puedes acceder a las entidades en una consulta de la siguiente manera.
 
 ```ts
 for (const [entity] of engine.getEntitiesWith(Transform)) {
@@ -22,9 +18,9 @@ for (const [entity] of engine.getEntitiesWith(Transform)) {
 }
 ```
 
-### Required components
+### Componentes requeridos
 
-When making a query, specify what components need to be present in every entity that's added to the group. You can list as many components as you want, the query will only return entities that have **all** of the listed components.
+Al hacer una consulta, especifica qué componentes deben estar presentes en cada entidad que se agrega al grupo. Puedes listar tantos componentes como quieras, la consulta solo devolverá entidades que tengan **todos** los componentes listados.
 
 ```ts
 for (const [entity] of engine.getEntitiesWith(
@@ -37,83 +33,83 @@ for (const [entity] of engine.getEntitiesWith(
 ```
 
 {% hint style="info" %}
-**💡 Tip**: If your query returns entities that you don't need to deal with, consider creating a custom component to act as a [flag](../../../creator/sdk7/architecture/entities-components.md#components-as-flags). This component doesn't need to have any properties in it, but can be used to mark a specific subgroup of entities that you might want to treat differently.
+**💡 Tip**: Si tu consulta devuelve entidades con las que no necesitas trabajar, considera crear un componente personalizado para actuar como una [bandera](../sdk7/architecture/entities-components.md#components-as-flags). Este componente no necesita tener ninguna propiedad, pero puede usarse para marcar un subgrupo específico de entidades que tal vez quieras tratar de manera diferente.
 {% endhint %}
 
-### Use queries in a system
+### Usar consultas en un sistema
 
 ```ts
-// Define a System
+// Definir un Sistema
 function PhysicsSystem(dt: number) {
 
-  // query for entities that include both a Transform and a Physics component
+  // consultar entidades que incluyen tanto un componente Transform como Physics
   for (const [entity] of engine.getEntitiesWith(Transform, Physics)) {
     const transform = Transform.getMutable(entity)
-	cons vel = Physics.get(entity).velocity
-	position.x += vel.x
-	position.y += vel.y
-	position.z += vel.z
+	const vel = Physics.get(entity).velocity
+	transform.position.x += vel.x
+	transform.position.y += vel.y
+	transform.position.z += vel.z
 
   }
 }
 
-// Add the system to the engine
-engine.addSystem(rotationSystem)
+// Agregar el sistema al motor
+engine.addSystem(PhysicsSystem)
 
 ```
 
-In the example above, the `PhysicsSystem` function iterates over the entities in the query, that is executed on every tick of the game loop.
+En el ejemplo anterior, la función `PhysicsSystem` itera sobre las entidades en la consulta, que se ejecuta en cada tick del bucle del juego.
 
-* If the scene has several _ball_ entities, each with a `Position` and a `Physics` component, then they will be handled, and their position will be updated on each tick.
-* If your scene also has other entities, for example a _hoop_ and a _scoreBoard_ that only have a `Transform` but not a `Physics` component, then they won't be affected by `PhysicsSystem`.
+* Si la escena tiene varias entidades _ball_, cada una con un componente `Transform` y `Physics`, entonces serán manejadas, y su posición será actualizada en cada tick.
+* Si tu escena también tiene otras entidades, por ejemplo un _hoop_ y un _scoreBoard_ que solo tienen un `Transform` pero no un componente `Physics`, entonces no serán afectadas por `PhysicsSystem`.
 
-### Dealing with the entities and components
+### Trabajar con las entidades y componentes
 
-The `getEntitiesWith` function returns a collection, that includes references to a set of entities and can also optionally include references to the listed components.
+La función `getEntitiesWith` devuelve una colección, que incluye referencias a un conjunto de entidades y también puede incluir opcionalmente referencias a los componentes listados.
 
-Using the simplest syntax, you fetch only a list of references to the corresponding entities.
+Usando la sintaxis más simple, obtienes solo una lista de referencias a las entidades correspondientes.
 
 ```ts
 const [entity] of engine.getEntitiesWith(myComponent, myOtherComponent)
 ```
 
-While iterating on this list of entities, you can then fetch read-only or mutable versions of their components, by using `.get` or `getMutable`.
+Mientras iteras sobre esta lista de entidades, luego puedes obtener versiones de solo lectura o mutables de sus componentes, usando `.get` o `getMutable`.
 
 ```ts
 for (const [entity] of engine.getEntitiesWith(Transform)) {
-	//get read-only version
+	//obtener versión de solo lectura
 	const transformReadOnly = Transform.get(entity)
 
-	// get mutable version
+	// obtener versión mutable
 	const transformMutable = Transform.getMutable(entity)
 }
 ```
 
-You can optionally also fetch references to each of the listed components directly on as part of the collection returned by the query. To do this, simply declare multiple references together, one for each component you want to fetch. Adding these references is optional, and you don't need to declare references to _all_ the components in the query either.
+Opcionalmente también puedes obtener referencias a cada uno de los componentes listados directamente como parte de la colección devuelta por la consulta. Para hacer esto, simplemente declara múltiples referencias juntas, una para cada componente que quieras obtener. Agregar estas referencias es opcional, y tampoco necesitas declarar referencias a _todos_ los componentes en la consulta.
 
 ```ts
-// returns references to the entity and the first listed component
+// devuelve referencias a la entidad y el primer componente listado
 for (const [entity, component1] of engine.getEntitiesWith(
 	MyCustomComponent1,
 	MyCustomComponent2
 )) {
-	// iterate over list of entities
+	// iterar sobre lista de entidades
 }
 
-// returns references to the entity and the first two listed components
+// devuelve referencias a la entidad y los dos primeros componentes listados
 for (const [entity, component1, component2] of engine.getEntitiesWith(
 	MyCustomComponent1,
 	MyCustomComponent2
 )) {
-	// iterate over list of entities
+	// iterar sobre lista de entidades
 }
 ```
 
 {% hint style="warning" %}
-**📔 Note**: These references are read-only. To fetch mutable versions of those components, you need to use the `.getMutable` function referencing the entity.
+**📔 Nota**: Estas referencias son de solo lectura. Para obtener versiones mutables de esos componentes, necesitas usar la función `.getMutable` referenciando la entidad.
 {% endhint %}
 
-You can then refer to these references as you iterate over the collection of results, in each entry you'll have access to the entity and its corresponding component references.
+Luego puedes referirte a estas referencias mientras iteras sobre la colección de resultados, en cada entrada tendrás acceso a la entidad y sus referencias de componentes correspondientes.
 
 ```ts
 for (const [entity, transformReadOnly] of engine.getEntitiesWith(Transform)) {
@@ -122,6 +118,6 @@ for (const [entity, transformReadOnly] of engine.getEntitiesWith(Transform)) {
 }
 ```
 
-### Subscribe to changes
+### Suscribirse a cambios
 
-A common use case is to only run a function in case the data in a certain component changes. Use the [OnChange](../../../creator/sdk7/architecture/subscribe-to-changes.md) function to avoid having to define a system and having to explicitly compare old values with new values.
+Un caso de uso común es solo ejecutar una función en caso de que los datos en un cierto componente cambien. Usa la función [OnChange](../sdk7/architecture/subscribe-to-changes.md) para evitar tener que definir un sistema y tener que comparar explícitamente valores antiguos con valores nuevos.

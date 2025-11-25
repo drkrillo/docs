@@ -1,21 +1,18 @@
 ---
-description: Handle button events on UI entities.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/ui_button_events
+description: Maneja eventos de botón en entidades UI.
 ---
 
-# UI Button Events
+# Eventos de Botón UI
 
-To make a button in your UI, create a `Button` UI element with the following properties:
+Para crear un botón en tu UI, crea un elemento UI `Button` con las siguientes propiedades:
 
-* `value`: A string with the text to display on the button.
-* `onMouseDown`: A callback function that runs every time the user pushes the pointer button on the entity.
-* `uiTransform`: Positioning properties of the UI element.
+* `value`: Una cadena con el texto a mostrar en el botón.
+* `onMouseDown`: Una función callback que se ejecuta cada vez que el usuario presiona el botón del puntero en la entidad.
+* `uiTransform`: Propiedades de posicionamiento del elemento UI.
 
-The following example shows how to create a clickable UI button.
+El siguiente ejemplo muestra cómo crear un botón UI clicable.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
@@ -31,7 +28,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -43,16 +40,16 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+**📔 Nota**: Todos los siguientes fragmentos en esta página asumen que tienes un `.ts` similar al anterior, ejecutando la función `ReactEcsRenderer.setUiRenderer()`.
 {% endhint %}
 
-You can also write the function that is executed by the click outside the UI definition, and reference it by name. This helps keep the UI code more readable, and is also useful if multiple clickable UI entities need to call the same function.
+También puedes escribir la función que es ejecutada por el clic fuera de la definición de la UI, y referenciarla por nombre. Esto ayuda a mantener el código de la UI más legible, y también es útil si múltiples entidades UI clicables necesitan llamar a la misma función.
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
 
 function handleClick() {
-	// Do something onClick
+	// Hacer algo onClick
 	console.log('Clicked on the UI')
 }
 export const uiMenu = () => (
@@ -64,23 +61,23 @@ export const uiMenu = () => (
 )
 ```
 
-The following fields can be added to a `Button` UI element:
+Los siguientes campos pueden agregarse a un elemento UI `Button`:
 
-* `onMouseDown`: A callback function that runs every time the user pushes the pointer button on the entity.
-* `onMouseUp`: A callback function that runs every the pointer button is raised while pointing at the entity.
-* `onMouseEnter`: A callback function that runs every time the pointer starts hovering over the button.
-* `onMouseLeave`: A callback function that runs every time the pointer stops hovering over the button.
-* `color`: Background color of the button.
-* `font`: Font of the text on the button.
-* `textAlign`: Alignment of the text inside the button
-* `uiTransform`: Positioning properties of the UI element.
-* `uiBackground`: Set the color or texture of the UI element.
-* `variant`: Use this property to set the style of the button as one of the defaults. `primary` and `secondary` are available.
-* `disabled`: Boolean to set a button disabled. When disabled is set to _true_, the `onMouseDown` and `onMouseUp` actions are no longer called. Also the `alpha` value of the color of both the text and the backgroun is halved, so the button is "grayed-out" and stands out less.
+* `onMouseDown`: Una función callback que se ejecuta cada vez que el usuario presiona el botón del puntero en la entidad.
+* `onMouseUp`: Una función callback que se ejecuta cada vez que el botón del puntero se levanta mientras apunta a la entidad.
+* `onMouseEnter`: Una función callback que se ejecuta cada vez que el puntero comienza a pasar sobre el botón.
+* `onMouseLeave`: Una función callback que se ejecuta cada vez que el puntero deja de pasar sobre el botón.
+* `color`: Color de fondo del botón.
+* `font`: Fuente del texto en el botón.
+* `textAlign`: Alineación del texto dentro del botón
+* `uiTransform`: Propiedades de posicionamiento del elemento UI.
+* `uiBackground`: Establece el color o textura del elemento UI.
+* `variant`: Usa esta propiedad para establecer el estilo del botón como uno de los predeterminados. `primary` y `secondary` están disponibles.
+* `disabled`: Booleano para establecer un botón deshabilitado. Cuando disabled está establecido en _true_, las acciones `onMouseDown` y `onMouseUp` ya no se llaman. También el valor `alpha` del color tanto del texto como del fondo se reduce a la mitad, por lo que el botón está "atenuado" y destaca menos.
 
-### Button styling
+### Estilo de botón
 
-Set the variant to `primary` or `secondary` to take advantage of the default styling options for buttons. `primary` makes your button red with white text, `secondary` makes your button white with red text.
+Establece el variant a `primary` o `secondary` para aprovechar las opciones de estilo predeterminadas para botones. `primary` hace que tu botón sea rojo con texto blanco, `secondary` hace que tu botón sea blanco con texto rojo.
 
 ```tsx
 import { UiEntity, Button, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -117,7 +114,7 @@ export const uiMenu = () => (
 )
 ```
 
-You're also free to use all of the properties on background freely. You can also set a variant and then override some of its properties. This example uses the `primary` variant, but overrides the color to be green:
+También eres libre de usar todas las propiedades de fondo libremente. También puedes establecer un variant y luego sobrescribir algunas de sus propiedades. Este ejemplo usa el variant `primary`, pero sobrescribe el color para que sea verde:
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
@@ -138,9 +135,9 @@ export const uiMenu = () => (
 )
 ```
 
-### Togglable buttons
+### Botones togglables
 
-A common use case is to make a button toggle between two states, like a switch. The example below switches between two colors each time the button is pressed:
+Un caso de uso común es hacer que un botón alterne entre dos estados, como un interruptor. El ejemplo a continuación cambia entre dos colores cada vez que se presiona el botón:
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
@@ -157,9 +154,9 @@ export const uiMenu = () => (
 			console.log('Clicked on My Button!')
 			buttonEnabled = !buttonEnabled
 			if (buttonEnabled) {
-				// do something
+				// hacer algo
 			} else {
-				// do something else
+				// hacer otra cosa
 			}
 		}}
 		uiBackground={{
@@ -169,11 +166,11 @@ export const uiMenu = () => (
 )
 ```
 
-Note that in the example above, the color depends on a `buttonEnabled` variable. Whenever this variable's value changes, it inmediately affects the background color.
+Ten en cuenta que en el ejemplo anterior, el color depende de una variable `buttonEnabled`. Siempre que el valor de esta variable cambia, afecta inmediatamente el color de fondo.
 
-### Hover Feedback
+### Retroalimentación de Hover
 
-Another common use case is to display some kind of visual hint when hovering over a button, to clarify that this is interactible, or even to display a hover hint explaining what this button does. Use the `onMouseEnter` and `onMouseLeave` callbacks to detect when the player's cursor is on the button, and react accordingly.
+Otro caso de uso común es mostrar algún tipo de pista visual al pasar el cursor sobre un botón, para aclarar que esto es interactivo, o incluso mostrar un hint de hover explicando qué hace este botón. Usa los callbacks `onMouseEnter` y `onMouseLeave` para detectar cuándo el cursor del jugador está en el botón, y reaccionar en consecuencia.
 
 ```tsx
 import { Button } from '@dcl/sdk/react-ecs'
@@ -185,21 +182,21 @@ export const uiMenu = () => (
 		value="My Button"
 		uiTransform={{ width: 100, height: 100 }}
 		onMouseDown={() => {
-			// button function
+			// función del botón
 		}}
 		onMouseEnter={() => {
-			// show hint
+			// mostrar hint
 		}}
 		onMouseLeave={() => {
-			// hide hint
+			// ocultar hint
 		}}
 	/>
 )
 ```
 
-### Making other elements clickable
+### Hacer otros elementos clicables
 
-Any element in the UI can be made clickable by adding an `onMouseDown` property to it, it works identically to a button. The following example adds `onMouseDown` properties to background images and text.
+Cualquier elemento en la UI puede hacerse clicable agregando una propiedad `onMouseDown`, funciona idénticamente a un botón. El siguiente ejemplo agrega propiedades `onMouseDown` a imágenes de fondo y texto.
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -228,24 +225,24 @@ export const uiMenu = () => (
 )
 ```
 
-### Pointer blocking
+### Bloqueo de puntero
 
-All UI entities are non-pointer blocking by default, meaning that players's clicks will go through them and interact with objects in the 3D world space behind them. If an entity has an `onMouseDown` callback, then it becomes pointer blocking, so player's clicks don't affect what's behind that UI entity.
+Todas las entidades UI son no bloqueantes de puntero por defecto, lo que significa que los clics de los jugadores pasarán a través de ellas e interactuarán con objetos en el espacio mundial 3D detrás de ellas. Si una entidad tiene un callback `onMouseDown`, entonces se vuelve bloqueante de puntero, por lo que los clics del jugador no afectan lo que está detrás de esa entidad UI.
 
-You can change this default behavior by changing the value of the `pointerFilter` property on the `uiTransform` component on any UI entity. For example to set an entity that has no `onMouseDown` to be pointer blocking.
+Puedes cambiar este comportamiento predeterminado cambiando el valor de la propiedad `pointerFilter` en el componente `uiTransform` en cualquier entidad UI. Por ejemplo, para establecer una entidad que no tiene `onMouseDown` para que sea bloqueante de puntero.
 
-The supported values for `pointerFilter` are:
+Los valores soportados para `pointerFilter` son:
 
-* `block`: The UI element is pointer blocking, players can't click on anything behind this UI element.
-* `none`: The UI element is non-pointer blocking. The element is not clickable and anything behind it can be clicked.
+* `block`: El elemento UI es bloqueante de puntero, los jugadores no pueden hacer clic en nada detrás de este elemento UI.
+* `none`: El elemento UI es no bloqueante de puntero. El elemento no es clicable y cualquier cosa detrás de él puede ser clicada.
 
-Below is a simple UI that doesn't have an `onMouseDown`, but that is overrides the default behavior of not being pointer-blocking by setting `pointerFilter` to `block`.
+A continuación una UI simple que no tiene `onMouseDown`, pero que sobrescribe el comportamiento predeterminado de no ser bloqueante de puntero estableciendo `pointerFilter` en `block`.
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
-// draw UI
+// dibujar UI
 export const uiMenu = () => (
 	<UiEntity
 		uiTransform={{
@@ -253,7 +250,7 @@ export const uiMenu = () => (
 			height: '100px',
 			pointerFilter: `block`,
 		}}
-		uiText={{ value: `This element is pointer blocking`, fontSize: 40 }}
+		uiText={{ value: `Este elemento es bloqueante de puntero`, fontSize: 40 }}
 		uiBackground={{ color: Color4.create(0.5, 0.8, 0.1, 0.6) }}
 	/>
 )

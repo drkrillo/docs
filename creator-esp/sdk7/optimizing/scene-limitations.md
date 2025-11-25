@@ -1,90 +1,86 @@
 ---
-description: How many things can I put on my scene?
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/optimizing/scene-limitations
+description: ¿Cuántas cosas puedo poner en mi escena?
 ---
 
-# Scene Limitations
+# Limitaciones de Escena
 
-In order to improve performance in the metaverse, we have established a set of limits that every scene must follow. These limits are per-parcel. So the larger the scene, the higher these limits are set.
+Para mejorar el rendimiento en el metaverso, hemos establecido un conjunto de límites que cada escena debe seguir. Estos límites son por parcela. Entonces, cuanto más grande es la escena, más altos se establecen estos límites.
 
-When working with the [Creator Hub](../../../creator/scene-editor/get-started/editor-installation.md), you can see stats about the resources used by 3D models in your scene, together with the limits for your scene.
+Al trabajar con el [Creator Hub](../scene-editor/get-started/editor-installation.md), puedes ver estadísticas sobre los recursos usados por modelos 3D en tu escena, junto con los límites para tu escena.
 
-![](../../.gitbook/assets/triangle-limit1.png)
+![](../images/editor/triangle-limit1.png)
 
-You can expand this menu to view details.
+Puedes expandir este menú para ver detalles.
 
-![](../../.gitbook/assets/triangle-limit2.png)
-
-{% hint style="info" %}
-**💡 Tip**: For a reference table of all specific numbers per parcel count, see:
-
-[Reference table](https://docs.google.com/spreadsheets/d/1BTm0C20PqdQDAN7vOQ6FpnkVncPecJt-EwTSNHzrsmg/edit#gid=0)
-{% endhint %}
-
-### Scene limitation rules
-
-Below are the maximum number of elements that a scene is allowed to render at the same time:
-
-> _n_ represents the number of parcels that a scene occupies.
-
-* **Triangles:** `n x 10000` Total amount of triangles for all the models in the scene.
-* **Entities:** `n x 200` Amount of entities in the scene.
-* **Bodies:** `n x 300` Amount of meshes in the scene.
-* **Materials:** `log2(n+1) x 20` Amount of materials in the scene. It includes materials imported as part of models.
-* **Textures:** `log2(n+1) x 10` Amount of textures in the scene. It includes textures imported as part of models.
-*   **Height:** `log2(n+1) x 20` Height in meters.
-
-    > Important: Only entities that are currently being rendered in the scene are counted for these limits. If your scene switches between 3D models, what matters is the rendered models at any point in time, not the total sum. Player avatars and any items brought by a player from outside the scene don't count for calculating these limits either.
-* **Total file size:** In Genesis City -`15 MB per parcel - 300 MB max`. For Worlds, see [World size](scene-limitations.md#world-size). Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
-* **File count:** `200 files per parcel` Total count of the files uploaded. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages.
-* **Max file size** `50 MB per file` No individual file of any type in the scene can exceed 50 MB. Small scenes are restricted further because the file mustn't exceed their Total File Size limit (For example, a single-parcel scene is limited to 15 MB total).
+![](../images/editor/triangle-limit2.png)
 
 {% hint style="info" %}
-**💡 Tip**: Not all files in your scene project folder count for the file size limit, only those that are uploaded to servers. All of the contents of the _node\_modules_ folder, which are very large, are dependencies that are not uploaded and therefore don't count. The same applies to any files in the `/src` folder, since the source code is not uploaded.
+**💡 Tip**: Para una tabla de referencia de todos los números específicos por conteo de parcelas, consulta:
 
-You can list any other files or folders you want to exclude from being uploaded in the `.dclignore` file in your project.
+[Tabla de referencia](https://docs.google.com/spreadsheets/d/1BTm0C20PqdQDAN7vOQ6FpnkVncPecJt-EwTSNHzrsmg/edit#gid=0)
 {% endhint %}
 
-### Optimizing
+### Reglas de limitación de escena
 
-See [Performance Optimization](../../../creator/sdk7/optimizing/performance-optimization.md) for tips about how you can keep your scene below these limits and make it run smoother for players.
+A continuación están el número máximo de elementos que una escena puede renderizar al mismo tiempo:
 
-### Scene boundaries
+> _n_ representa el número de parcelas que una escena ocupa.
 
-When running a preview, any content that is located outside the parcel boundaries is highlighted in red when rendered. If any content is outside these boundaries, that part of your content won't be rendered when players visit your scene.
+* **Triangles:** `n x 10000` Cantidad total de triángulos para todos los modelos en la escena.
+* **Entities:** `n x 200` Cantidad de entidades en la escena.
+* **Bodies:** `n x 300` Cantidad de meshes en la escena.
+* **Materials:** `log2(n+1) x 20` Cantidad de materiales en la escena. Incluye materiales importados como parte de modelos.
+* **Textures:** `log2(n+1) x 10` Cantidad de texturas en la escena. Incluye texturas importadas como parte de modelos.
+*   **Height:** `log2(n+1) x 20` Altura en metros.
 
-If the tip of a large object leaves the boundaries, this tip will be sliced off the object.
+    > Importante: Solo las entidades que se están renderizando actualmente en la escena se cuentan para estos límites. Si tu escena cambia entre modelos 3D, lo que importa son los modelos renderizados en cualquier momento, no la suma total. Los avatares de los jugadores y cualquier ítem traído por un jugador desde fuera de la escena no cuentan para calcular estos límites.
+* **Total file size:** En Genesis City -`15 MB por parcela - 300 MB max`. Para Worlds, consulta [World size](scene-limitations.md#world-size). Tamaño total de los archivos subidos al servidor de contenido. Incluye modelos 3D y audio. No incluye archivos que no se suben, como paquetes de node.js. Puedes ver la lista completa de archivos siendo publicados y sus tamaños antes de confirmar un despliegue.
+* **File count:** `200 archivos por parcela` Conteo total de los archivos subidos. Incluye modelos 3D y audio. No incluye archivos que no se suben, como paquetes de node.js.
+* **Max file size** `50 MB por archivo` Ningún archivo individual de cualquier tipo en la escena puede exceder 50 MB. Las escenas pequeñas están restringidas aún más porque el archivo no debe exceder su límite de Tamaño Total de Archivo (Por ejemplo, una escena de una sola parcela está limitada a 15 MB total).
 
-A single parcel scene measures 16 meters x 16 meters. If the scene has multiple parcels, the dimensions vary depending on the arrangement of the parcels.
+{% hint style="info" %}
+**💡 Tip**: No todos los archivos en la carpeta de tu proyecto de escena cuentan para el límite de tamaño de archivo, solo aquellos que se suben a servidores. Todo el contenido de la carpeta _node\_modules_, que es muy grande, son dependencias que no se suben y por lo tanto no cuentan. Lo mismo aplica a cualquier archivo en la carpeta `/src`, ya que el código fuente no se sube.
 
-It's possible to position entities underground, to either hide them or to have only a portion of them emerge. A scene can't have tunnels that go below the default ground height, players can't travel below the `y = 0` height.
+Puedes listar cualquier otro archivo o carpeta que quieras excluir de ser subidos en el archivo `.dclignore` en tu proyecto.
+{% endhint %}
 
-### Shader limitations
+### Optimización
 
-3D models used in decentraland must use supported shaders and materials. See [3D model materials](../../3d-modeling/materials.md) for a list of supported shaders.
+Consulta [Optimización de Rendimiento](../sdk7/optimizing/performance-optimization.md) para consejos sobre cómo puedes mantener tu escena por debajo de estos límites y hacer que funcione más suavemente para los jugadores.
 
-### Lighting
+### Límites de escena
 
-The scene's lighting conditions can't be changed for all players from the default setting, although each individual player is free to change their own skybox settings from the Explorer UI.
+Al ejecutar una vista previa, cualquier contenido que esté ubicado fuera de los límites de la parcela se resalta en rojo cuando se renderiza. Si algún contenido está fuera de estos límites, esa parte de tu contenido no se renderizará cuando los jugadores visiten tu escena.
 
-### Texture size constraints
+Si la punta de un objeto grande sale de los límites, esta punta será cortada del objeto.
 
-Texture sizes must use width and height numbers (in pixels) that match the following numbers:
+Una escena de una sola parcela mide 16 metros x 16 metros. Si la escena tiene múltiples parcelas, las dimensiones varían dependiendo del arreglo de las parcelas.
+
+Es posible posicionar entidades bajo tierra, para ocultarlas o para tener solo una porción de ellas emergiendo. Una escena no puede tener túneles que vayan por debajo de la altura del suelo predeterminado, los jugadores no pueden viajar por debajo de la altura `y = 0`.
+
+### Limitaciones de shader
+
+Los modelos 3D usados en decentraland deben usar shaders y materiales soportados. Consulta [materiales de modelos 3D](../3d-modeling/materials.md) para una lista de shaders soportados.
+
+### Iluminación
+
+Las condiciones de iluminación de la escena no pueden cambiarse para todos los jugadores desde la configuración predeterminada, aunque cada jugador individual es libre de cambiar su propia configuración de skybox desde la UI del Explorer.
+
+### Restricciones de tamaño de textura
+
+Los tamaños de textura deben usar números de ancho y alto (en píxeles) que coincidan con los siguientes números:
 
 ```
 1, 2, 4, 8, 16, 32, 64, 128, 256, 512 1024
 ```
 
-> This sequence is made up of powers of two: `f(x) = 2 ^ x` . 512 is the maximum number we allow for a texture size. This is a fairly common requirement among other rendering engines, it's there due internal optimizations of the graphics processors.
+> Esta secuencia está compuesta de potencias de dos: `f(x) = 2 ^ x` . 512 es el número máximo que permitimos para un tamaño de textura. Este es un requisito bastante común entre otros motores de renderizado, está ahí debido a optimizaciones internas de los procesadores gráficos.
 
-The width and height don't need to have the same number, but they both need to belong to this sequence.
+El ancho y el alto no necesitan tener el mismo número, pero ambos deben pertenecer a esta secuencia.
 
-**The recommended size for textures is 1024x1024**, we have found this to be the optimal size to be transported through domestic networks and to provide reasonable loading/quality experiences.
+**El tamaño recomendado para texturas es 1024x1024**, hemos encontrado que este es el tamaño óptimo para ser transportado a través de redes domésticas y para proporcionar experiencias de carga/calidad razonables.
 
-Examples of other valid sizes:
+Ejemplos de otros tamaños válidos:
 
 ```
 32x32
@@ -95,18 +91,18 @@ Examples of other valid sizes:
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Although textures of arbitrary sizes sometimes work, they are also often rendered with bugs and are more unstable. We strongly advise that all your textures match these sizes.
+**📔 Nota**: Aunque las texturas de tamaños arbitrarios a veces funcionan, también a menudo se renderizan con bugs y son más inestables. Aconsejamos fuertemente que todas tus texturas coincidan con estos tamaños.
 {% endhint %}
 
-### World Size
+### Tamaño de World
 
-Decentraland [Worlds](../../worlds/about.md) have different limitations, since they are loaded as single scenes.
+Los [Worlds](../worlds/about.md) de Decentraland tienen limitaciones diferentes, ya que se cargan como escenas individuales.
 
-* Worlds published to Decentraland NAMEs have at least `100 MB`. That number can be increased by owning additional NAMEs, LAND, and MANA on that same account.
-* Worlds published to ENS domains have a limit of `25MB` that cannot be expanded.
+* Los Worlds publicados a Decentraland NAMEs tienen al menos `100 MB`. Ese número puede aumentarse poseyendo NAMEs adicionales, LAND, y MANA en esa misma cuenta.
+* Los Worlds publicados a dominios ENS tienen un límite de `25MB` que no puede expandirse.
 
-See [Worlds Size Limit](../../worlds/about.md#worlds-size-limit) for more details.
+Consulta [Límite de Tamaño de Worlds](../worlds/about.md#worlds-size-limit) para más detalles.
 
-Total size of the files uploaded to the content server. Includes 3D models and audio. Doesn't include files that aren't uploaded, such as node.js packages. You can see the full list of files being published and their sizes before you confirm a deployment.
+Tamaño total de los archivos subidos al servidor de contenido. Incluye modelos 3D y audio. No incluye archivos que no se suben, como paquetes de node.js. Puedes ver la lista completa de archivos siendo publicados y sus tamaños antes de confirmar un despliegue.
 
-All other limits in worlds are per parcel, including triangles, materials, etc. Since adding more parcels to a world is free, you can add up to 45x45 parcels to your scene, and have the corresponding limits to that parcel count.
+Todos los demás límites en worlds son por parcela, incluyendo triángulos, materiales, etc. Ya que agregar más parcelas a un world es gratuito, puedes agregar hasta 45x45 parcelas a tu escena, y tener los límites correspondientes a ese conteo de parcelas.

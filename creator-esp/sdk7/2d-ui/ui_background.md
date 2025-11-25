@@ -1,43 +1,40 @@
 ---
-description: Set a background and border of a UI entity.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/ui_background
+description: Establece un fondo y borde de una entidad UI.
 ---
 
-# UI Background
+# Fondo UI
 
-The following properties are used to set a background and border on a UI entity.
+Las siguientes propiedades se usan para establecer un fondo y borde en una entidad UI.
 
-### Background
+### Fondo
 
-A `uiBackground` component gives color or a texture an entity's area. It uses the size and position defined by the entity's `uiTransform`.
+Un componente `uiBackground` da color o una textura al área de una entidad. Usa el tamaño y posición definidos por el `uiTransform` de la entidad.
 
-The following fields can be configured, all of them are optional:
+Los siguientes campos pueden configurarse, todos son opcionales:
 
-* `color`: The color to use on the entity, as a [Color4](../../../creator/sdk7/3d-essentials/color-types.md) value.
+* `color`: El color a usar en la entidad, como un valor [Color4](../sdk7/3d-essentials/color-types.md).
 
 {% hint style="info" %}
-**💡 Tip**: Make an entity semi-transparent by setting the 4th value of the `Color4` to less than 1.
+**💡 Tip**: Haz una entidad semi-transparente estableciendo el 4to valor del `Color4` a menos de 1.
 {% endhint %}
 
-*   `texture`: The texture to display on the entity, this takes an object with various parameters about the texture. The same properties are available as in textures in [materials on 3D entities](../../../creator/sdk7/3d-essentials/materials.md#using-textures).
+*   `texture`: La textura a mostrar en la entidad, esto toma un objeto con varios parámetros sobre la textura. Las mismas propiedades están disponibles que en texturas en [materiales en entidades 3D](../sdk7/3d-essentials/materials.md#using-textures).
 
-    * `src`: The path to the image file to use as a texture. (string)
-    * `filterMode`: _(optional)_ Determines how pixels in the texture are stretched or compressed when rendered. . See [Texture Scaling](../../../creator/sdk7/3d-essentials/materials.md#texture-scaling). (FilterMode = 'point' | 'bi-linear' | 'tri-linear')
-    * `wrapMode`: _(optional)_ Determines how a texture is tiled onto an entity. This takes a value from the `TextureWrapMode` enum. See \[Texture Wrapping]\(([See documentation](../../)). (WrapMode = 'repeat' | 'clamp' | 'mirror' | 'mirror-once')
+    * `src`: La ruta al archivo de imagen a usar como textura. (string)
+    * `filterMode`: _(opcional)_ Determina cómo se estiran o comprimen los píxeles en la textura cuando se renderizan. Consulta [Escalado de Textura](../sdk7/3d-essentials/materials.md#texture-scaling). (FilterMode = 'point' | 'bi-linear' | 'tri-linear')
+    * `wrapMode`: _(opcional)_ Determina cómo se coloca una textura en mosaico sobre una entidad. Esto toma un valor del enum `TextureWrapMode`. (WrapMode = 'repeat' | 'clamp' | 'mirror' | 'mirror-once')
 
-    > Tip: You can combine both `texture` and `color` properties on a single `uiBackground` component to produce a tinted texture.
-* `textureMode`: Selects how you want the texture to adapt to the size of the entity that it's applied to. (TextureMode = 'nine-slices' | 'center' | 'stretch')enum, which supports the following vales:
-  * `center`: The texture is not stretched, it's positioned centered on the entity and parts of it may be cropped depending on the entity's size.
-  * `stretch`: The texture is stretched to match the entire surface of the entity.
-  * `nine-slices`: Parts of the texture are stetched to match the entire surface of the entity, leaving margins unstretched. See [nine-slice textures](ui_background.md#nine-slice-textures).
-* `avatarTexture`: Display an avatar profile thumbnail, based on an avatar ID. See \[Avatar Portraits]\(([See documentation](../../)).
-* `textureSlices`: Determine the margins to use when using the nine-slice texture mode, see [nine-slice textures](ui_background.md#nine-slice-textures). Set a number smaller than 1, as a fraction of the total width or height of the image.
+    > Tip: Puedes combinar ambas propiedades `texture` y `color` en un solo componente `uiBackground` para producir una textura teñida.
+* `textureMode`: Selecciona cómo quieres que la textura se adapte al tamaño de la entidad a la que se aplica. (TextureMode = 'nine-slices' | 'center' | 'stretch') enum, que soporta los siguientes valores:
+  * `center`: La textura no se estira, se posiciona centrada en la entidad y partes de ella pueden recortarse dependiendo del tamaño de la entidad.
+  * `stretch`: La textura se estira para coincidir con toda la superficie de la entidad.
+  * `nine-slices`: Partes de la textura se estiran para coincidir con toda la superficie de la entidad, dejando márgenes sin estirar. Consulta [texturas nine-slice](ui_background.md#nine-slice-textures).
+* `avatarTexture`: Muestra una miniatura de perfil de avatar, basada en un ID de avatar. Consulta [Retratos de Avatar](ui_background.md).
+* `textureSlices`: Determina los márgenes a usar al usar el modo de textura nine-slice, consulta [texturas nine-slice](ui_background.md#nine-slice-textures). Establece un número menor que 1, como una fracción del ancho o alto total de la imagen.
 
-Simple color:
+Color simple:
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { ReactEcs, UiEntity } from '@dcl/sdk/react-ecs'
@@ -56,7 +53,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -68,10 +65,10 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+**📔 Nota**: Todos los siguientes fragmentos en esta página asumen que tienes un `.ts` similar al anterior, ejecutando la función `ReactEcsRenderer.setUiRenderer()`.
 {% endhint %}
 
-Repeated texture pattern:
+Patrón de textura repetida:
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -93,13 +90,13 @@ export const uiMenu = () => (
 )
 ```
 
-### Borders
+### Bordes
 
-A few properties are used to set a border around a UI entity. These properties exist on the `uiTransform` component. They each allow you to set either a single value for all sides of the border, or different values for each side.
+Algunas propiedades se usan para establecer un borde alrededor de una entidad UI. Estas propiedades existen en el componente `uiTransform`. Cada una te permite establecer ya sea un solo valor para todos los lados del borde, o diferentes valores para cada lado.
 
-* `borderColor`: The color to use on the entity, as a [Color4](../../../creator/sdk7/3d-essentials/color-types.md) value.
-* `borderWidth`: The width of the border, as a number in pixels. It also supports values in percentages, for example `borderWidth: '2%'` will set the border width to 2% of the entity's width.
-* `borderRadius`: Use this property to give the corners of the entity a rounded border. It sets the radius of the corners in pixels.
+* `borderColor`: El color a usar en la entidad, como un valor [Color4](../sdk7/3d-essentials/color-types.md).
+* `borderWidth`: El ancho del borde, como un número en píxeles. También soporta valores en porcentajes, por ejemplo `borderWidth: '2%'` establecerá el ancho del borde al 2% del ancho de la entidad.
+* `borderRadius`: Usa esta propiedad para darle a las esquinas de la entidad un borde redondeado. Establece el radio de las esquinas en píxeles.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -118,7 +115,7 @@ export const uiMenu = () => (
 )
 ```
 
-`borderWidth`, `borderColor` and `borderRadius` can also be set with different values for each side of the entity.
+`borderWidth`, `borderColor` y `borderRadius` también pueden establecerse con diferentes valores para cada lado de la entidad.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -137,9 +134,9 @@ export const uiMenu = () => (
 )
 ```
 
-### Opacity
+### Opacidad
 
-Use the `opacity` property in the `Transform` of a `UiEntity` to add transparency to the entity and all of its children. The opacity property is a value from 0 to 1, where 0 is fully transparent and 1 fully opaque.
+Usa la propiedad `opacity` en el `Transform` de una `UiEntity` para agregar transparencia a la entidad y todos sus hijos. La propiedad opacity es un valor de 0 a 1, donde 0 es completamente transparente y 1 completamente opaco.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -160,7 +157,7 @@ export const uiMenu = () => (
           height: 30,
         }}
         uiText={{
-          value: "This text is transparent too",
+          value: "Este texto también es transparente",
           fontSize: 40
         }}
       />
@@ -168,7 +165,7 @@ export const uiMenu = () => (
 )
 ```
 
-The opacity value affects all children of a UiEntity, applying transparency to background colors, text colors, and background images. When both the parent and a child have opacity values, the child's final opacity is the product of its own value and the parent's.
+El valor de opacity afecta todos los hijos de una UiEntity, aplicando transparencia a colores de fondo, colores de texto e imágenes de fondo. Cuando tanto el padre como un hijo tienen valores de opacity, la opacidad final del hijo es el producto de su propio valor y el del padre.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -190,7 +187,7 @@ export const uiMenu = () => (
         opacity: 0.7
       }}
       uiText={{
-        value: "This text is even more transparent",
+        value: "Este texto es aún más transparente",
         fontSize: 40
       }}
     />
@@ -198,24 +195,24 @@ export const uiMenu = () => (
 )
 ```
 
-### Nine-slice textures
+### Texturas Nine-slice
 
-You can use [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) with your textures, to ensure that corners and margins don't get stretched unevenly.
+Puedes usar [escalado 9-slice](https://en.wikipedia.org/wiki/9-slice_scaling) con tus texturas, para asegurar que las esquinas y márgenes no se estiren de manera desigual.
 
-With this popular technique, you slice an image into 9 segments, that will be stretched in different ways to preserve the proportions of the margins and corners. For example, use this to define rounded-corner backgrounds that easily adapt to any size. Consider the following image (borrowed from [Wikipedia](https://en.wikipedia.org/wiki/9-slice_scaling#/media/File:Traditional_scaling_vs_9-slice_scaling.svg)):
+Con esta técnica popular, divides una imagen en 9 segmentos, que se estirarán de diferentes maneras para preservar las proporciones de los márgenes y esquinas. Por ejemplo, usa esto para definir fondos de esquinas redondeadas que se adapten fácilmente a cualquier tamaño. Considera la siguiente imagen (tomada de [Wikipedia](https://en.wikipedia.org/wiki/9-slice_scaling#/media/File:Traditional_scaling_vs_9-slice_scaling.svg)):
 
-![](../../.gitbook/assets/9-slice.png)
+![](../images/media/9-slice.png)
 
-In this image we see the orginal texture (top-left), and the result of scaling it in a traditional way (top-right); notice how the corners get deformed. Below that, we see the texture segmented into 9 slices (bottom-left), and then the result of stretching the image according to the 9-slice method (bottom-right).
+En esta imagen vemos la textura original (arriba-izquierda), y el resultado de escalarla de manera tradicional (arriba-derecha); nota cómo las esquinas se deforman. Debajo de eso, vemos la textura segmentada en 9 rebanadas (abajo-izquierda), y luego el resultado de estirar la imagen según el método 9-slice (abajo-derecha).
 
-Here's how each segment is affected, using the above image as reference.
+Aquí está cómo se afecta cada segmento, usando la imagen anterior como referencia.
 
-* Segment 5 is the only part of the image that is fully stretched on both x and y axis.
-* Segments 1,3, 7, and 9 (the corneres) arent stetched at all.
-* Segments 2 and 8 are only stetched horizontally
-* Segments 4 and 6 are only stegched vertically.
+* El segmento 5 es la única parte de la imagen que se estira completamente en los ejes x e y.
+* Los segmentos 1,3, 7, y 9 (las esquinas) no se estiran en absoluto.
+* Los segmentos 2 y 8 solo se estiran horizontalmente
+* Los segmentos 4 y 6 solo se estiran verticalmente.
 
-To use nine-slice stretching on an entity, set the `textureMode` to `BackgroundTextureMode.NINE_SLICES`. You can optionally also set a width for the margin on each side in `textureSlices`.
+Para usar estiramiento nine-slice en una entidad, establece el `textureMode` a `BackgroundTextureMode.NINE_SLICES`. Opcionalmente también puedes establecer un ancho para el margen en cada lado en `textureSlices`.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'

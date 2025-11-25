@@ -1,39 +1,36 @@
 ---
 description: >-
-  Learn how to create a UI for players in your scene. This is useful, for
-  example, to display game-related information.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/onscreen-ui
+  Aprende cómo crear una UI para jugadores en tu escena. Esto es útil, por
+  ejemplo, para mostrar información relacionada con el juego.
 ---
 
-# Onscreen UI
+# UI en Pantalla
 
-You can build a UI for your scene, to be displayed in the screen's fixed 2D space, instead of in the 3D world space.
+Puedes construir una UI para tu escena, que se muestre en el espacio 2D fijo de la pantalla, en lugar de en el espacio 3D del mundo.
 
-UI elements are only visible when the player is standing inside the scene's LAND parcels, as neighboring scenes might have their own UI to display. Parts of the UI can also be triggered to open when certain events occur in the world-space, for example if the player clicks on a specific place.
+Los elementos UI solo son visibles cuando el jugador está de pie dentro de las parcelas LAND de la escena, ya que las escenas vecinas podrían tener su propia UI para mostrar. Partes de la UI también pueden activarse para abrirse cuando ocurren ciertos eventos en el espacio mundial, por ejemplo si el jugador hace clic en un lugar específico.
 
-Build a UI by defining a structure of nested `UIEntity` objects in JSX. The syntax used for UIs is very similar to that of [React](https://reactjs.org/) (a very popular javascript-based library for building web UIs).
+Construye una UI definiendo una estructura de objetos `UIEntity` anidados en JSX. La sintaxis usada para UIs es muy similar a la de [React](https://reactjs.org/) (una librería basada en javascript muy popular para construir UIs web).
 
 {% hint style="warning" %}
-**📔 Note**: You can only define UI syntax in files that have a `.tsx` extension. `.tsx` files support everything that `.ts` files support, plus UI syntax. We recommend creating a `ui.tsx` file and defining your UI there. Remember to call your UI render method from `index.ts` with `ReactEcsRenderer.setUiRenderer(yourUiMethodName)`, see example below.
+**📔 Nota**: Solo puedes definir sintaxis UI en archivos que tengan una extensión `.tsx`. Los archivos `.tsx` soportan todo lo que los archivos `.ts` soportan, más la sintaxis UI. Recomendamos crear un archivo `ui.tsx` y definir tu UI allí. Recuerda llamar tu método de renderizado UI desde `index.ts` con `ReactEcsRenderer.setUiRenderer(yourUiMethodName)`, consulta el ejemplo a continuación.
 {% endhint %}
 
-A simple UI with static elements can look a lot like HTML, but when you add dynamic elements that respond to a change in state, you can do things that are a lot more powerful.
+Una UI simple con elementos estáticos puede verse muy parecida a HTML, pero cuando agregas elementos dinámicos que responden a un cambio de estado, puedes hacer cosas que son mucho más poderosas.
 
-The default Decentraland explorer UI includes a chat widget, a map, and other elements. These UI elements are always displayed on the top layer, above any scene-specific UI. So if your scene has UI elements that occupy the same screen space as these, they will be occluded.
+La UI predeterminada del explorador de Decentraland incluye un widget de chat, un mapa y otros elementos. Estos elementos UI siempre se muestran en la capa superior, encima de cualquier UI específica de escena. Entonces, si tu escena tiene elementos UI que ocupan el mismo espacio de pantalla que estos, serán ocluidos.
 
-See [UX guidelines](../../../creator/sdk7/design-experience/ux-ui-guide.md) for tips on how to design the look and feel of your UI.
+Consulta [lineamientos UX](../sdk7/design-experience/ux-ui-guide.md) para consejos sobre cómo diseñar el aspecto de tu UI.
 
-When the player clicks the _close UI_ button, on the bottom-right corner of the screen, all UI elements are hidden.
+Cuando el jugador hace clic en el botón _cerrar UI_, en la esquina inferior derecha de la pantalla, todos los elementos UI se ocultan.
 
-### Render a UI
+### Renderizar una UI
 
-To display a UI in your scene, use the `ReactEcsRenderer.setUiRenderer()` function, passing it a valid structure of entities, described in a `.tsx` file.
+Para mostrar una UI en tu escena, usa la función `ReactEcsRenderer.setUiRenderer()`, pasándole una estructura válida de entidades, descrita en un archivo `.tsx`.
 
-Each entity is defined as an HTML-like node, with properties for each of its components.
+Cada entidad se define como un nodo similar a HTML, con propiedades para cada uno de sus componentes.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -51,7 +48,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -62,9 +59,9 @@ export function main() {
 }
 ```
 
-You can also define an entity structure and render it, all in one same command in a `.tsx` file.
+También puedes definir una estructura de entidades y renderizarla, todo en un mismo comando en un archivo `.tsx`.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
@@ -84,7 +81,7 @@ export function setupUI() {
 }
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -96,34 +93,34 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All of your UI elements need to be nested into the same structure, and have one single parent at the root of the structure. You can only call `ReactEcsRenderer.setUiRenderer()` once in the scene.
+**📔 Nota**: Todos tus elementos UI deben estar anidados en la misma estructura, y tener un solo padre en la raíz de la estructura. Solo puedes llamar `ReactEcsRenderer.setUiRenderer()` una vez en la escena.
 {% endhint %}
 
-### UI Entities
+### Entidades UI
 
-Each element in the UI must be defined as a separate `UiEntity`, wether it's an image, text, background, an invisible alignment box, etc. Just like in the scene's 3D space, each `UiEntity` has its own components to give it a position, color, etc.
+Cada elemento en la UI debe definirse como una `UiEntity` separada, ya sea una imagen, texto, fondo, una caja de alineación invisible, etc. Al igual que en el espacio 3D de la escena, cada `UiEntity` tiene sus propios componentes para darle una posición, color, etc.
 
-The React-like syntax allows you to specify each component as a property within the `UiEntity`, this makes the code shorter and more readable.
+La sintaxis similar a React te permite especificar cada componente como una propiedad dentro de la `UiEntity`, esto hace que el código sea más corto y legible.
 
-The components used in a `UiEntity` are different from those used in regular entities. You cannot apply a UI component to a regular entity, nor a regular component to a UI entity.
+Los componentes usados en una `UiEntity` son diferentes de aquellos usados en entidades regulares. No puedes aplicar un componente UI a una entidad regular, ni un componente regular a una entidad UI.
 
-The following components are available to use in a `UiEntity`:
+Los siguientes componentes están disponibles para usar en una `UiEntity`:
 
 * `uiTransform`
 * `uiBackground`
 * `uiText`
 * `onClick`
 
-Like with HTML tags, you can define components as self-closing or nest one within another.
+Como con las etiquetas HTML, puedes definir componentes como auto-cierre o anidar uno dentro de otro.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import ReactEcs, { ReactEcsRenderer, UiEntity } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
 export const uiMenu = () => (
-  // parent entity
+  // entidad padre
   <UiEntity
     uiTransform={{
       width: 200,
@@ -132,7 +129,7 @@ export const uiMenu = () => (
     }}
     uiBackground={{ color: Color4.Blue() }}
   >
-    // self-closing child entity
+    // entidad hija auto-cierre
     <UiEntity
       uiTransform={{
         width: 400,
@@ -141,12 +138,12 @@ export const uiMenu = () => (
       }}
       uiText={{ value: `Hello world!`, fontSize: 40 }}
     />
-    // closing statement for the parent entity
+    // declaración de cierre para la entidad padre
   </UiEntity>
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -157,25 +154,25 @@ export function main() {
 }
 ```
 
-A definition of a UI module can only have one parent-level entity. You can define as many other entities as you want, but they must all fit inside a structure with one single parent at the top.
+Una definición de un módulo UI solo puede tener una entidad de nivel padre. Puedes definir tantas otras entidades como quieras, pero todas deben caber dentro de una estructura con un solo padre en la parte superior.
 
-### Multiple UI modules
+### Múltiples módulos UI
 
-Your scene should have a single call to the `ReactEcsRenderer.setUiRenderer()` function. To define your UI via a series of separate modules in different files, you can pass an array to the renderer function listing each module. This is also useful when combining UI modules from a library (like the [DCL UI toolkit library](https://github.com/decentraland-scenes/dcl-ui-toolkit)) with custom UI.:
+Tu escena debe tener una sola llamada a la función `ReactEcsRenderer.setUiRenderer()`. Para definir tu UI a través de una serie de módulos separados en diferentes archivos, puedes pasar un arreglo a la función de renderizado listando cada módulo. Esto también es útil cuando combinas módulos UI de una librería (como la [librería DCL UI toolkit](https://github.com/decentraland-scenes/dcl-ui-toolkit)) con UI personalizada:
 
 ```ts
 const uiComponent = () => [
-  // Function returning a UI module,
-  // Function returning a UI module
+  // Función que devuelve un módulo UI,
+  // Función que devuelve un módulo UI
   // ...
 ]
 
 ReactEcsRenderer.setUiRenderer(uiComponent)
 ```
 
-Below is a more complete example:
+A continuación un ejemplo más completo:
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```ts
 export function UIModule1() {
@@ -215,7 +212,7 @@ export function UIModule2() {
 }
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -226,7 +223,7 @@ export function main() {
       UIModule1(),
       UIModule2(),
       // ...
-      // The line below is to use the DCL UI Toolkit library
+      // La línea a continuación es para usar la librería DCL UI Toolkit
       // https://github.com/decentraland-scenes/dcl-ui-toolkit
       ui.render(),
     ])

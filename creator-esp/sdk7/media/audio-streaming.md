@@ -1,25 +1,22 @@
 ---
-description: Play live audio streams in your scene.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/media/audio-streaming
+description: Reproduce transmisiones de audio en vivo en tu escena.
 ---
 
-# Audio Streaming
+# Transmisión de Audio
 
-You can stream audio from a URL. This is useful to play music directly from an internet radio, or stream a conference into your scene.
+Puedes transmitir audio desde una URL. Esto es útil para reproducir música directamente desde una radio por internet, o transmitir una conferencia a tu escena.
 
 {% hint style="info" %}
-**💡 Tip**: In the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), you can use an **Audio Stream** [Smart Item](../../../creator/scene-editor/interactivity/smart-items.md) for a no-code way to achieve this.
+**💡 Tip**: En el [Scene Editor](../scene-editor/get-started/about-editor.md), puedes usar un **Audio Stream** [Smart Item](../scene-editor/interactivity/smart-items.md) para lograr esto sin código.
 {% endhint %}
 
-The audio in the source must be in one of the following formats: `.mp3`, `ogg`, or `aac`. The source must also be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
+El audio en la fuente debe estar en uno de los siguientes formatos: `.mp3`, `ogg`, o `aac`. La fuente también debe ser una URL _https_ (las URLs _http_ no son soportadas), y la fuente debe tener [políticas CORS (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) que permitan acceder a ella externamente. Si este no es el caso, puede que necesites configurar un servidor para actuar como proxy y exponer la transmisión de una manera válida.
 
 {% hint style="warning" %}
-**📔 Note**: To instead play a pre-recorded sound in your scene, see [Sounds](../../../creator/sdk7/3d-essentials/sounds.md).
+**📔 Nota**: Para reproducir un sonido pregrabado en tu escena, consulta [Sonidos](../sdk7/3d-essentials/sounds.md).
 {% endhint %}
 
-To add an audio stream into your scene, simply add an `AudioStream` component to an entity:
+Para agregar una transmisión de audio a tu escena, simplemente agrega un componente `AudioStream` a una entidad:
 
 ```ts
 const streamEntity = engine.addEntity()
@@ -32,15 +29,15 @@ AudioStream.create(streamEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The streamed sound isn't positional, it will be heard at a consistent volume throughout your entire scene. If a player steps out of the scene, they will not hear the streaming at all.
+**📔 Nota**: El sonido transmitido no es posicional, se escuchará a un volumen consistente en toda tu escena. Si un jugador sale de la escena, no escuchará la transmisión en absoluto.
 {% endhint %}
 
-Set the volume of the `AudioStream` component by changing its `volume` property.
+Establece el volumen del componente `AudioStream` cambiando su propiedad `volume`.
 
-Switch the `AudioStream` component on or off by setting its `playing` property to _true_ or _false_.
+Activa o desactiva el componente `AudioStream` estableciendo su propiedad `playing` en _true_ o _false_.
 
 {% hint style="info" %}
-**📔 Note**: Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
+**📔 Nota**: No todos los servicios de streaming permiten reproducir su audio fuera de su sitio. Los siguientes son algunos ejemplos que funcionan en Decentraland:
 
 ```ts
 DELTA = "https://cdn.instream.audio/:9069/stream?_=171cd6c2b6e"
@@ -49,11 +46,11 @@ ISLA NEGRA = "https://radioislanegra.org/listen/up/basic.aac"
 ```
 {% endhint %}
 
-### Stream state
+### Estado de la transmisión
 
-Query the state of an audio stream using the function `AudioStream.getAudioState()`, passing the entity that owns the `AudioStream` component.
+Consulta el estado de una transmisión de audio usando la función `AudioStream.getAudioState()`, pasando la entidad que posee el componente `AudioStream`.
 
-The returned state is a value of the `MediaState` enum. This enum has the following possible values:
+El estado devuelto es un valor del enum `MediaState`. Este enum tiene los siguientes valores posibles:
 
 * `MS_BUFFERING`
 * `MS_ERROR`
@@ -64,7 +61,7 @@ The returned state is a value of the `MediaState` enum. This enum has the follow
 * `MS_READY`
 * `MS_SEEKING`
 
-The following example checks on the state of a stream, and logs when there's a change.
+El siguiente ejemplo verifica el estado de una transmisión, y registra cuando hay un cambio.
 
 ```ts
 export function main() {
@@ -83,7 +80,7 @@ export function main() {
 			console.log('Stream state: ', currentState)
 
 			if (currentState == MediaState.MS_ERROR) {
-				// Attempt reconnection
+				// Intentar reconexión
 			}
 		}
 	})

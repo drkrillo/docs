@@ -1,18 +1,14 @@
 ---
-description: Detect changes in a component and run functions on every change
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/architecture/subscribe-to-changes
+description: Detecta cambios en un componente y ejecuta funciones en cada cambio
 ---
 
-# Subscribe to Changes
+# Suscribirse a Cambios
 
-A neat way to write your code is to subscribe to events, and running a function any time that event happens.
+Una forma ordenada de escribir tu código es suscribirse a eventos, y ejecutar una función cada vez que ese evento ocurre.
 
-A number of [Event listeners](../../../creator/sdk7/interactivity/event-listeners.md) come predefined as part of the SDK, but you can also use the `onChange()` method on any component to achieve the same. This also works with any [Custom Component](../../../creator/sdk7/architecture/custom-components.md) that you defined, without needing any extra work.
+Varios [Event listeners](../sdk7/interactivity/event-listeners.md) vienen predefinidos como parte del SDK, pero también puedes usar el método `onChange()` en cualquier componente para lograr lo mismo. Esto también funciona con cualquier [Componente Personalizado](../sdk7/architecture/custom-components.md) que hayas definido, sin necesidad de trabajo extra.
 
-For example, the following function checks the `AvatarEquippedData` component on the player entity, and runs a function if the player change any of their equipped wearables or emotes. The new values of the component are passed on the function's arguments.
+Por ejemplo, la siguiente función verifica el componente `AvatarEquippedData` en la entidad del jugador, y ejecuta una función si el jugador cambia cualquiera de sus wearables o emotes equipados. Los nuevos valores del componente se pasan en los argumentos de la función.
 
 ```ts
 import { AvatarEquippedData } from '@dcl/sdk/ecs'
@@ -20,39 +16,39 @@ import { AvatarEquippedData } from '@dcl/sdk/ecs'
 export function main() {
 	AvatarEquippedData.onChange(engine.PlayerEntity, (equipped) => {
 		if (!equipped) return
-		console.log('New wearables list: ', equipped.wearableUrns)
-		console.log('New emotes list : ', equipped.emoteUrns)
+		console.log('Nueva lista de wearables: ', equipped.wearableUrns)
+		console.log('Nueva lista de emotes : ', equipped.emoteUrns)
 	})
 }
 ```
 
-Thanks to the `onChange()` method, it's not necessary to create a system and iteratively check for new values on every frame, it greatly simplifies this very common use case.
+Gracias al método `onChange()`, no es necesario crear un sistema y verificar iterativamente nuevos valores en cada fotograma, simplifica enormemente este caso de uso muy común.
 
 {% hint style="warning" %}
-**📔 Note**: Do not use `onChange()` inside a System, as that would subscribe a new copy of the function on every frame of the game loop, and could potentially lead to crashes.
+**📔 Nota**: No uses `onChange()` dentro de un Sistema, ya que eso suscribiría una nueva copia de la función en cada fotograma del bucle del juego, y podría potencialmente llevar a crashes.
 {% endhint %}
 
-The same method works out-of-the-box with [Custom Component](../../../creator/sdk7/architecture/custom-components.md). For example:
+El mismo método funciona de manera inmediata con [Componente Personalizado](../sdk7/architecture/custom-components.md). Por ejemplo:
 
 ```ts
-// define component
+// definir componente
 export const MyComponent = engine.defineComponent('myComponent', {
 	value1: Schemas.Boolean,
 	value2: Schemas.Float,
 })
 
-// Usage
+// Uso
 export function main() {
-	// Create entities
+	// Crear entidades
 	const myEntity = engine.addEntity()
 
-	// Create instances of the component
+	// Crear instancias del componente
 	MyComponent.create(myEntity, {
 		value1: true,
 		value2: 10,
 	})
 
-	// Subscribe to changes
+	// Suscribirse a cambios
 	MyComponent.onChange(myEntity, (componentData) => {
 		if (!componentData) return
 		console.log(componentData.value1)
@@ -61,7 +57,7 @@ export function main() {
 }
 ```
 
-You can also combine this approach with [Querying components](../../../creator/sdk7/architecture/querying-components.md), to bulk-subscribe every entity in the scene that has a certain component to their own function.
+También puedes combinar este enfoque con [Consultar componentes](../sdk7/architecture/querying-components.md), para suscribir masivamente cada entidad en la escena que tiene un cierto componente a su propia función.
 
 ```ts
 export function main() {
@@ -75,8 +71,8 @@ export function main() {
 }
 ```
 
-Note that this approach will only subscribe to `onChange()` for entities that exist at the start of the scene, for example entities created via the UI of the [Creator Hub](../../../creator/scene-editor/get-started/about-editor.md).
+Ten en cuenta que este enfoque solo suscribirá a `onChange()` para entidades que existen al inicio de la escena, por ejemplo entidades creadas a través de la UI del [Creator Hub](../scene-editor/get-started/about-editor.md).
 
 {% hint style="info" %}
-**💡 Tip**: If you prefer to instead handle events that are not necessarily related to a component changing, we recommend importing the TypeScript library [Mitt](https://www.npmjs.com/package/mitt) into your scene. This library offers simple functions to emit and listen to events.
+**💡 Tip**: Si prefieres en cambio manejar eventos que no están necesariamente relacionados con un componente cambiando, recomendamos importar la librería TypeScript [Mitt](https://www.npmjs.com/package/mitt) a tu escena. Esta librería ofrece funciones simples para emitir y escuchar eventos.
 {% endhint %}

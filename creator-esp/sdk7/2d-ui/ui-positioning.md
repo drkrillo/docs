@@ -1,17 +1,14 @@
 ---
-description: Set the position, scale, padding and other properties of UI entities.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/ui-positioning
+description: Establece la posición, escala, padding y otras propiedades de las entidades UI.
 ---
 
-# UI Positioning
+# Posicionamiento UI
 
-For all kinds of UI content, use the `uiTransform` component to set the size, position, and other properties related to the entity's alignment.
+Para todo tipo de contenido UI, usa el componente `uiTransform` para establecer el tamaño, posición y otras propiedades relacionadas con la alineación de la entidad.
 
-The `uiTransform` component works in the screen's 2d space very much like the `Transform` component works in the the scene's 3D space.
+El componente `uiTransform` funciona en el espacio 2d de la pantalla de manera muy similar a como el componente `Transform` funciona en el espacio 3D de la escena.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -30,7 +27,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -42,47 +39,47 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+**📔 Nota**: Todos los siguientes fragmentos en esta página asumen que tienes un `.ts` similar al anterior, ejecutando la función `ReactEcsRenderer.setUiRenderer()`.
 {% endhint %}
 
-### Positioning properties
+### Propiedades de posicionamiento
 
-The alignment of UI entities is based on the Flexbox alignment model. This is a very powerful model for dynamically organizing nested entities inside modals that may vary in size.
+La alineación de las entidades UI se basa en el modelo de alineación Flexbox. Este es un modelo muy poderoso para organizar dinámicamente entidades anidadas dentro de modales que pueden variar en tamaño.
 
 {% hint style="info" %}
-**💡 Tip**: Decentraland's UI implementation is based on that of [Yoga](https://yogalayout.com/docs/). Read [this article](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) for a very approachable and in-depth coverage of the properties available in Flexbox.
+**💡 Tip**: La implementación de UI de Decentraland está basada en la de [Yoga](https://yogalayout.com/docs/). Lee [este artículo](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/) para una cobertura muy accesible y profunda de las propiedades disponibles en Flexbox.
 {% endhint %}
 
-#### Entity size
+#### Tamaño de entidad
 
-Use `width` and `height` to set the size of the entity. The following kinds of values are supported:
+Usa `width` y `height` para establecer el tamaño de la entidad. Los siguientes tipos de valores son soportados:
 
-* `auto`: The size adapts to fit the content inside. This is very convenient for text that may vary in length. Write the value as "auto".
-* **Percentage**: As a percentage of the parent's measurements. Write the value as a string that ends in "%", for example `10 %`.
-* **Pixels**: Write the value as a number.
-* **Screen width or height**: Use vw (view width) and vh (view height) can be used to indicate a fraction of the full size of the window running Decentraland. For example `10vw` refers to 10% of the window's width, `25vh` to 25% of the window's height.
+* `auto`: El tamaño se adapta para ajustarse al contenido interior. Esto es muy conveniente para texto que puede variar en longitud. Escribe el valor como "auto".
+* **Porcentaje**: Como un porcentaje de las medidas del padre. Escribe el valor como una cadena que termina en "%", por ejemplo `10 %`.
+* **Píxeles**: Escribe el valor como un número.
+* **Ancho o alto de pantalla**: Usa vw (view width) y vh (view height) para indicar una fracción del tamaño completo de la ventana ejecutando Decentraland. Por ejemplo `10vw` se refiere al 10% del ancho de la ventana, `25vh` al 25% del alto de la ventana.
 
-Note that these properties affect the **default** size of that item, the size of the item before any flex grow and flex shrink calculations are performed. The final size may be interpreted differently based on the size of the parent entity, and the Flexbox properties that are set.
+Ten en cuenta que estas propiedades afectan el tamaño **predeterminado** de ese ítem, el tamaño del ítem antes de que se realicen cálculos de flex grow y flex shrink. El tamaño final puede interpretarse de manera diferente basándose en el tamaño de la entidad padre, y las propiedades de Flexbox que están establecidas.
 
 {% hint style="warning" %}
-**📔 Note**: In properties that support both numbers and strings, to set the value in pixels, write a number. To set these fields as a percentage of the parent's measurements, write the value as a string that ends in "%", for example `10 %`. You can also set a pixel value as a string by ending the string in `px`, for example `200px`.
+**📔 Nota**: En propiedades que soportan tanto números como cadenas, para establecer el valor en píxeles, escribe un número. Para establecer estos campos como un porcentaje de las medidas del padre, escribe el valor como una cadena que termina en "%", por ejemplo `10 %`. También puedes establecer un valor de píxel como una cadena terminando la cadena en `px`, por ejemplo `200px`.
 
-* When values are expressed as a percentage, they're always in relation to the parent's container. If the entity has no parents, then the value is a percentage of the whole screen.
-* If values are expressed in pixels, they are absolute, and not affected by the parent's scale.
-* If values are expressed in `vh` or `vw`, they are a percentage of the full window, not affected by the parent's scale.
+* Cuando los valores se expresan como porcentaje, siempre están en relación al contenedor del padre. Si la entidad no tiene padres, entonces el valor es un porcentaje de toda la pantalla.
+* Si los valores se expresan en píxeles, son absolutos, y no afectados por la escala del padre.
+* Si los valores se expresan en `vh` o `vw`, son un porcentaje de la ventana completa, no afectados por la escala del padre.
 
-For the `auto` width/height to work, the following rules apply:
+Para que el ancho/alto `auto` funcione, se aplican las siguientes reglas:
 
-* The UiTransform that uses width/height as “auto” should have `alignSelf`: `“center”`/`“flex-start”`/`“flex-end”` OR `positionType: “absolute”`
-* If the UiTransform of a child use `positionType: “absolute”`, the parent won’t adapt to its size/position
-* If the UiTransform of a child uses any position overwrite, the parent won’t adapt to its size/position
+* El UiTransform que usa width/height como "auto" debe tener `alignSelf`: `"center"`/`"flex-start"`/`"flex-end"` O `positionType: "absolute"`
+* Si el UiTransform de un hijo usa `positionType: "absolute"`, el padre no se adaptará a su tamaño/posición
+* Si el UiTransform de un hijo usa cualquier sobrescritura de posición, el padre no se adaptará a su tamaño/posición
 {% endhint %}
 
-These other properties are also available to adjust size in a more advanced way:
+Estas otras propiedades también están disponibles para ajustar el tamaño de una manera más avanzada:
 
-* `maxWidth` and `maxHeight`: _number_ or string (like height and width). The maximum size that the entity may have.
-* `minWidth` and `minHeight`: _number_ or string (like height and width). The minimum size that the entity may have. If the parent is too small to fit the minimum size of the entities, they will overflow from their parent.
-* `flexBasis`: This is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the width of that child if its parent is a container with flex direction: row or setting the height of a child if its parent is a container with flex direction: column.
+* `maxWidth` y `maxHeight`: _number_ o string (como height y width). El tamaño máximo que la entidad puede tener.
+* `minWidth` y `minHeight`: _number_ o string (como height y width). El tamaño mínimo que la entidad puede tener. Si el padre es demasiado pequeño para ajustarse al tamaño mínimo de las entidades, se desbordarán de su padre.
+* `flexBasis`: Esta es una forma independiente del eje de proporcionar el tamaño predeterminado de un ítem a lo largo del eje principal. Establecer la base flex de un hijo es similar a establecer el ancho de ese hijo si su padre es un contenedor con flex direction: row o establecer el alto de un hijo si su padre es un contenedor con flex direction: column.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -104,74 +101,74 @@ export const uiMenu = () => (
 )
 ```
 
-#### Arranging child entities
+#### Organizar entidades hijas
 
-By default, child entities are positioned in relation to the top-left corner of its parent. You can use properties like `justifyContent` and `alignItems` to change this behavior.
+Por defecto, las entidades hijas se posicionan en relación a la esquina superior izquierda de su padre. Puedes usar propiedades como `justifyContent` y `alignItems` para cambiar este comportamiento.
 
 {% hint style="info" %}
-**💡 Tip**: Any properties that refer to _content_ refer to entities along the main axis (determined by `flexDirection`). Any properties that refer
+**💡 Tip**: Cualquier propiedad que se refiera a _content_ se refiere a entidades a lo largo del eje principal (determinado por `flexDirection`). Cualquier propiedad que se refiera a _items_ se refiere al eje cruzado.
 {% endhint %}
 
-* `flexDirection`: Flex direction controls the direction in which children of a node are laid out. This is also referred to as the main axis. The main axis is the direction in which children are laid out. The cross axis is the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in. It takes its value from the `FlexDirectionType` type. The following options are available:
-  * `row` (DEFAULT)
+* `flexDirection`: Flex direction controla la dirección en la que se disponen los hijos de un nodo. Esto también se conoce como el eje principal. El eje principal es la dirección en la que se disponen los hijos. El eje cruzado es el eje perpendicular al eje principal, o el eje en el que se disponen las líneas de envoltura. Toma su valor del tipo `FlexDirectionType`. Las siguientes opciones están disponibles:
+  * `row` (PREDETERMINADO)
   * `row-reverse`
   * `column`
   * `column-reverse`
-* `justifyContent`: This property describes how to align children within the main axis of their container. For example, you can use this property to center a child horizontally within a container with `flexDirection` set to row or vertically within a container with `flexDirection` set to column. The value of this property must be from the `AlignType` type. Possible values are:
-  * `flex-start` (DEFAULT): Align children of a container to the start of the container's main axis.
-  * `flex-end`: Align children of a container to the end of the container's main axis.
-  * `center`: Align children of a container in the center of the container's main axis.
-  * `space-between`: Evenly space of children across the container's main axis, distributing remaining space between the children.
-  * `space-around`: Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to space between using space around will result in space being distributed to the beginning of the first child and end of the last child.
-* `alignItems`: Describes how to align children along the cross axis of their container. Align items is very similar to justify content but instead of applying to the main axis, align items applies to the cross axis. This property requires a value from the `AlignType` type. The following options are available:
-  * `stretch`: (DEFAULT) Stretch children of a container to match the height of the container's cross axis.
-  * `flex-start`: Align children of a container to the start of the container's cross axis.
-  * `flex-end`: Align children of a container to the end of the container's cross axis.
-  * `center`: Align children of a container in the center of the container's cross axis.
-  * `baseline`: Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
-* `alignSelf`: Align self has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. align self overrides any option set by the parent with align items. It takes its value from `AlignType`, see `alignItems` above for details on these options.
-* `alignContent`: Align content defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using `flexWrap`. It takes its value from the `AlignType` type. The following options are available:
-  * `flex-start`: (DEFAULT) Align wrapped lines to the start of the container's cross axis.
-  * `flex-end`: Align wrapped lines to the end of the container's cross axis.
-  * `stretch`: Stretch wrapped lines to match the height of the container's cross axis.
-  * `center`: Align wrapped lines in the center of the container's cross axis.
-  * `space-between`: Evenly space wrapped lines across the container's main axis, distributing remaining space between the lines.
-  * `space-around`: Evenly space wrapped lines across the container's main axis, distributing remaining space around the lines. Compared to space between using space around will result in space being distributed to the begining of the first lines and end of the last line.
-* `flexGrow`: This describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children. Flex grow accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the child’s flex grow value.
-* `flexShrink`: Describes how to shrink children along the main axis in the case that the total size of the children overflow the size of the container on the main axis. flex shrink is very similar to flex grow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed. Flex shrink accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the child’s flex shrink value.
-* `overflow`: Determines what happens if the size of the children of an entity overflow its parent. It uses values from the `OverflowType` type.
-  * `hidden`: Overflowing entities are made invisible.
-  * `visible`: Overflowing entities break out of the margins of the parent.
-* `flexWrap`: The flex wrap property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink entities). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed. wrap reverse behaves the same, but the order of the lines is reversed. This property takes its value from the `FlexWrapType` type.
+* `justifyContent`: Esta propiedad describe cómo alinear a los hijos dentro del eje principal de su contenedor. Por ejemplo, puedes usar esta propiedad para centrar un hijo horizontalmente dentro de un contenedor con `flexDirection` establecido en row o verticalmente dentro de un contenedor con `flexDirection` establecido en column. El valor de esta propiedad debe ser del tipo `AlignType`. Los valores posibles son:
+  * `flex-start` (PREDETERMINADO): Alinea a los hijos de un contenedor al inicio del eje principal del contenedor.
+  * `flex-end`: Alinea a los hijos de un contenedor al final del eje principal del contenedor.
+  * `center`: Alinea a los hijos de un contenedor en el centro del eje principal del contenedor.
+  * `space-between`: Espacia uniformemente a los hijos a través del eje principal del contenedor, distribuyendo el espacio restante entre los hijos.
+  * `space-around`: Espacia uniformemente a los hijos a través del eje principal del contenedor, distribuyendo el espacio restante alrededor de los hijos. Comparado con space between, usar space around resultará en espacio distribuido al principio del primer hijo y al final del último hijo.
+* `alignItems`: Describe cómo alinear a los hijos a lo largo del eje cruzado de su contenedor. Align items es muy similar a justify content pero en lugar de aplicarse al eje principal, align items se aplica al eje cruzado. Esta propiedad requiere un valor del tipo `AlignType`. Las siguientes opciones están disponibles:
+  * `stretch`: (PREDETERMINADO) Estira a los hijos de un contenedor para que coincidan con el alto del eje cruzado del contenedor.
+  * `flex-start`: Alinea a los hijos de un contenedor al inicio del eje cruzado del contenedor.
+  * `flex-end`: Alinea a los hijos de un contenedor al final del eje cruzado del contenedor.
+  * `center`: Alinea a los hijos de un contenedor en el centro del eje cruzado del contenedor.
+  * `baseline`: Alinea a los hijos de un contenedor a lo largo de una línea base común. Los hijos individuales pueden establecerse para ser la línea base de referencia para sus padres.
+* `alignSelf`: Align self tiene las mismas opciones y efecto que `alignItems` pero en lugar de afectar a los hijos dentro de un contenedor, puedes aplicar esta propiedad a un solo hijo para cambiar su alineación dentro de su padre. align self sobrescribe cualquier opción establecida por el padre con align items. Toma su valor de `AlignType`, consulta `alignItems` arriba para detalles sobre estas opciones.
+* `alignContent`: Align content define la distribución de líneas a lo largo del eje cruzado. Esto solo tiene efecto cuando los ítems están envueltos en múltiples líneas usando `flexWrap`. Toma su valor del tipo `AlignType`. Las siguientes opciones están disponibles:
+  * `flex-start`: (PREDETERMINADO) Alinea las líneas envueltas al inicio del eje cruzado del contenedor.
+  * `flex-end`: Alinea las líneas envueltas al final del eje cruzado del contenedor.
+  * `stretch`: Estira las líneas envueltas para que coincidan con el alto del eje cruzado del contenedor.
+  * `center`: Alinea las líneas envueltas en el centro del eje cruzado del contenedor.
+  * `space-between`: Espacia uniformemente las líneas envueltas a través del eje principal del contenedor, distribuyendo el espacio restante entre las líneas.
+  * `space-around`: Espacia uniformemente las líneas envueltas a través del eje principal del contenedor, distribuyendo el espacio restante alrededor de las líneas. Comparado con space between, usar space around resultará en espacio distribuido al principio de las primeras líneas y al final de la última línea.
+* `flexGrow`: Esto describe cómo cualquier espacio dentro de un contenedor debe distribuirse entre sus hijos a lo largo del eje principal. Después de disponer a sus hijos, un contenedor distribuirá cualquier espacio restante según los valores de flex grow especificados por sus hijos. Flex grow acepta cualquier valor de punto flotante >= 0, siendo 0 el valor predeterminado. Un contenedor distribuirá cualquier espacio restante entre sus hijos ponderado por el valor de flex grow del hijo.
+* `flexShrink`: Describe cómo encoger a los hijos a lo largo del eje principal en el caso de que el tamaño total de los hijos desborde el tamaño del contenedor en el eje principal. flex shrink es muy similar a flex grow y puede pensarse de la misma manera si cualquier tamaño desbordante se considera espacio restante negativo. Estas dos propiedades también funcionan bien juntas permitiendo que los hijos crezcan y encojan según sea necesario. Flex shrink acepta cualquier valor de punto flotante >= 0, siendo 1 el valor predeterminado. Un contenedor encogerá sus hijos ponderado por el valor de flex shrink del hijo.
+* `overflow`: Determina qué sucede si el tamaño de los hijos de una entidad desborda su padre. Usa valores del tipo `OverflowType`.
+  * `hidden`: Las entidades desbordantes se hacen invisibles.
+  * `visible`: Las entidades desbordantes rompen los márgenes del padre.
+* `flexWrap`: La propiedad flex wrap se establece en contenedores y controla qué sucede cuando los hijos desbordan el tamaño del contenedor a lo largo del eje principal. Por defecto, los hijos se fuerzan en una sola línea (lo que puede encoger entidades). Si se permite el envolvimiento, los ítems se envuelven en múltiples líneas a lo largo del eje principal si es necesario. wrap reverse se comporta igual, pero el orden de las líneas se invierte. Esta propiedad toma su valor del tipo `FlexWrapType`.
   * `wrap`
   * `no-wrap`
   * `wrap-reverse`
 
-#### Margins and padding
+#### Márgenes y padding
 
-* `margin`: This property affects the spacing around the outside of a node. A node with margin will offset itself from the bounds of its parent but also offset the location of any siblings. The margin of a node contributes to the total size of its parent if the parent is auto sized. Set space between the entity and its parent's margins. The expected value is an object that contains the properties `top`, `left`, `bottom`, and `right`.
-* `padding`: This property affects the size of the node it is applied to. Padding in Yoga acts as if box-sizing: border-box; was set. That is padding will not add to the total size of an entity if it has an explicit size set. For auto sized nodes padding will increase the size of the node as well as offset the location of any children. The expected value is an object that contains the properties `top`, `left`, `bottom`, and `right`.
+* `margin`: Esta propiedad afecta el espaciado alrededor del exterior de un nodo. Un nodo con margen se compensará de los límites de su padre pero también compensará la ubicación de cualquier hermano. El margen de un nodo contribuye al tamaño total de su padre si el padre está dimensionado automáticamente. Establece espacio entre la entidad y los márgenes de su padre. El valor esperado es un objeto que contiene las propiedades `top`, `left`, `bottom`, y `right`.
+* `padding`: Esta propiedad afecta el tamaño del nodo al que se aplica. El padding en Yoga actúa como si box-sizing: border-box; estuviera establecido. Es decir, el padding no agregará al tamaño total de una entidad si tiene un tamaño explícito establecido. Para nodos dimensionados automáticamente, el padding aumentará el tamaño del nodo así como compensará la ubicación de cualquier hijo. El valor esperado es un objeto que contiene las propiedades `top`, `left`, `bottom`, y `right`.
 
-#### Fine-tune position
+#### Ajuste fino de posición
 
-In Flexbox, entity positions are mostly determined by how they are parented, and what arrangement properties are set on the parent and child. You often don't have to set the `position` property at all. But if you do want to tweak that, or completely override the normal flow of Flexbox and set an absolute position, here are the relevant properties:
+En Flexbox, las posiciones de entidad están mayormente determinadas por cómo están parentadas, y qué propiedades de disposición están establecidas en el padre e hijo. A menudo no tienes que establecer la propiedad `position` en absoluto. Pero si quieres ajustarla, o sobrescribir completamente el flujo normal de Flexbox y establecer una posición absoluta, aquí están las propiedades relevantes:
 
-* `positionType`: Defines how entities are positioned. It uses a value from the `PositionType` enum.
-  * `relative`: (DEFAULT) By default an entity is positioned relatively. This means an entity is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent entities.
-  * `absolute`: When positioned absolutely, an entity doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
-* `position`: The position values `top`, `right`, `bottom`, and `left` behave differently depending on the `positionType`. For a relative entity they offset the position of the entity in the direction specified. For absolute entity though these properties specify the offset of the entity's side from the same side on the parent. The expected value is an object that contains the properties `top`, `left`, `bottom`, and `right`.
+* `positionType`: Define cómo se posicionan las entidades. Usa un valor del enum `PositionType`.
+  * `relative`: (PREDETERMINADO) Por defecto, una entidad se posiciona relativamente. Esto significa que una entidad se posiciona según el flujo normal del diseño, y luego se compensa en relación a esa posición basándose en los valores de `top`, `right`, `bottom`, y `left`. La compensación no afecta la posición de ningún hermano o entidad padre.
+  * `absolute`: Cuando se posiciona absolutamente, una entidad no participa en el flujo de diseño normal. En su lugar, se dispone independientemente de sus hermanos. La posición se determina basándose en los valores de `top`, `right`, `bottom`, y `left`.
+* `position`: Los valores de posición `top`, `right`, `bottom`, y `left` se comportan de manera diferente dependiendo del `positionType`. Para una entidad relativa, compensan la posición de la entidad en la dirección especificada. Para una entidad absoluta, estas propiedades especifican la compensación del lado de la entidad desde el mismo lado en el padre. El valor esperado es un objeto que contiene las propiedades `top`, `left`, `bottom`, y `right`.
 
 {% hint style="warning" %}
-**📔 Note** : When measuring from the top, the numbers for `position` should be negative. Example: to position a component leaving a margin of 20 pixels with respect to the parent on the top and left sides, set `position` to 20, -20.
+**📔 Nota**: Al medir desde arriba, los números para `position` deben ser negativos. Ejemplo: para posicionar un componente dejando un margen de 20 píxeles con respecto al padre en los lados superior e izquierdo, establece `position` en 20, -20.
 {% endhint %}
 
-#### Visibility
+#### Visibilidad
 
-* `display`: Determines is an entity is visible or not. To make an entity invisible, set `display` to `none`.
+* `display`: Determina si una entidad es visible o no. Para hacer una entidad invisible, establece `display` en `none`.
 
 #### Z Index
 
-The `zIndex` property of a `UiEntity` determines the order in which entities are rendered. Entities with a higher `zIndex` are rendered on top of entities with a lower `zIndex`. The default `zIndex` is 0.
+La propiedad `zIndex` de una `UiEntity` determina el orden en que se renderizan las entidades. Las entidades con un `zIndex` más alto se renderizan encima de entidades con un `zIndex` más bajo. El `zIndex` predeterminado es 0.
 
 ```ts
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -188,38 +185,38 @@ export const uiMenu = () => (
 ```
 
 {% hint style="warning" %}
-**📔 Note** : The `zIndex` property will only order elements relative to direct siblings, it cannot be used to render an entity on top of other parts of the layout tree. In html/CSS terms, every DCL UI element creates a new [stacking context](https://web.dev/learn/css/z-index#stacking_context).
+**📔 Nota**: La propiedad `zIndex` solo ordenará elementos en relación a hermanos directos, no puede usarse para renderizar una entidad encima de otras partes del árbol de diseño. En términos de html/CSS, cada elemento UI de DCL crea un nuevo [contexto de apilamiento](https://web.dev/learn/css/z-index#stacking_context).
 
-The default Decentraland UI, including the map, chat, etc is always rendered on top of all other UI elements.
+La UI predeterminada de Decentraland, incluyendo el mapa, chat, etc, siempre se renderiza encima de todos los demás elementos UI.
 {% endhint %}
 
-### Responsive UI size
+### Tamaño UI responsivo
 
-Players with different screen sizes may see your UI layout differently. If you set the size of any UI element to a fixed number of pixels, this UI may look too small to read on retina displays, that have a much higher pixel density.
+Los jugadores con diferentes tamaños de pantalla pueden ver tu diseño UI de manera diferente. Si estableces el tamaño de cualquier elemento UI a un número fijo de píxeles, esta UI puede verse demasiado pequeña para leer en pantallas retina, que tienen una densidad de píxeles mucho mayor.
 
-Instead of positioning and scaling UI elements in terms of screen percentages, you can also obtain the canvas dimensions and then calculate the absolute positions and sizes following your own custom logic. For example, you could chose different dialog arrangements depending on the screen size.
+En lugar de posicionar y escalar elementos UI en términos de porcentajes de pantalla, también puedes obtener las dimensiones del canvas y luego calcular las posiciones absolutas y tamaños siguiendo tu propia lógica personalizada. Por ejemplo, podrías elegir diferentes arreglos de diálogo dependiendo del tamaño de pantalla.
 
-To obtain information about the screen's dimension, you can check the `UiCanvasInformation`, that's added by default to the scenes's root entity.
+Para obtener información sobre las dimensiones de la pantalla, puedes verificar el `UiCanvasInformation`, que se agrega por defecto a la entidad raíz de la escena.
 
-The `UiCanvasInformation` component holds the following information:
+El componente `UiCanvasInformation` contiene la siguiente información:
 
-* `height`: Canvas height in pixels
-* `width`: Canvas width in pixels
-* `devicePixelRatio`: The ratio of the resolution in physical pixels in the device to the pixels on the canvas
-* `interactableArea`: A `BorderRect` object, detailing the area designated for scene UI elements. This object contains values for `top`, `bottom`, `left` and `right`, each of these is the number of pixels on that margin of the screen that are taken up by the explorer UI.
+* `height`: Alto del canvas en píxeles
+* `width`: Ancho del canvas en píxeles
+* `devicePixelRatio`: La relación de la resolución en píxeles físicos en el dispositivo a los píxeles en el canvas
+* `interactableArea`: Un objeto `BorderRect`, detallando el área designada para elementos UI de escena. Este objeto contiene valores para `top`, `bottom`, `left` y `right`, cada uno de estos es el número de píxeles en ese margen de la pantalla que están ocupados por la UI del explorador.
 
 {% hint style="warning" %}
-**📔 Note** : Different Decentraland explorers will have different values for these, as the global UIs of the platform may differ, and the values might change dynamically as the user expands or hides different global UI menus.
+**📔 Nota**: Diferentes exploradores de Decentraland tendrán diferentes valores para estos, ya que las UIs globales de la plataforma pueden diferir, y los valores podrían cambiar dinámicamente a medida que el usuario expande u oculta diferentes menús de UI globales.
 {% endhint %}
 
 ```ts
 export function Main(){
   let canvas = UiCanvasInformation.get(engine.RootEntity)
-	console.log("CANVAS DIMENSIONS: ", canvas.width, canvas.height)
+	console.log("DIMENSIONES DEL CANVAS: ", canvas.width, canvas.height)
 })
 ```
 
-The following snippet continually calculates a multiplier value based on the screen size:
+El siguiente fragmento calcula continuamente un valor multiplicador basado en el tamaño de pantalla:
 
 ```ts
 import { engine, UiCanvasInformation } from "@dcl/sdk/ecs"
@@ -244,13 +241,13 @@ export function UIScaleUpdate() {
 
     if (newScaleFactor !== scaleFactor) {
       scaleFactor = newScaleFactor
-      console.log('NEW UI scaleFactor: ', scaleFactor)
+      console.log('NUEVO scaleFactor UI: ', scaleFactor)
     }
   })
 }
 ```
 
-The value of the `scaleFactor` variable, that this function updates, can then be used as a multiplier on any UI element in the scene, including `heigh`, `width` and `fontSize` values.
+El valor de la variable `scaleFactor`, que esta función actualiza, puede entonces usarse como un multiplicador en cualquier elemento UI en la escena, incluyendo valores de `heigh`, `width` y `fontSize`.
 
 ```ts
 import { UiEntity, Label, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -283,7 +280,7 @@ export const uiMenu = () => (
 )
 ```
 
-Some other best practices regarding UI sizes:
+Algunas otras mejores prácticas respecto a tamaños UI:
 
-* If the width or height of any UI element is dynamic, it's good to also use the `maxWidth`, `minWidth`, `maxHeight`, and `minHeight` parameters to make sure they stay within reasonable values.
-* The font size of text is relative to a fixed number of pixels, you should make it dynamic so it remains readable on retina displays. See [Responsive text size](../../../creator/sdk7/2d-ui/ui_text.md#responsive-text-size)
+* Si el ancho o alto de cualquier elemento UI es dinámico, es bueno también usar los parámetros `maxWidth`, `minWidth`, `maxHeight`, y `minHeight` para asegurarse de que permanezcan dentro de valores razonables.
+* El tamaño de fuente del texto es relativo a un número fijo de píxeles, debes hacerlo dinámico para que permanezca legible en pantallas retina. Consulta [Tamaño de texto responsivo](../sdk7/2d-ui/ui\_text.md#responsive-text-size)

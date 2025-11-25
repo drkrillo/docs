@@ -1,182 +1,176 @@
 ---
-description: How to publish my project?
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/publishing/publishing
+description: ¿Cómo publicar mi proyecto?
 ---
 
-# Publishing
+# Publicación
 
-### Before you begin
+### Antes de comenzar
 
-Make sure of the following:
+Asegúrate de lo siguiente:
 
-* Your scene complies with all of the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md). Most of these are validated each time you run a preview of your scene.
-* You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
-*   You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
+* Tu escena cumple con todas las [limitaciones de escena](../sdk7/optimizing/scene-limitations.md). La mayoría de estas se validan cada vez que ejecutas una vista previa de tu escena.
+* Tienes una cuenta de [Metamask](https://metamask.io/), con tus parcelas de LAND asignadas a ella.
+*   Posees la cantidad necesaria de parcelas de LAND adyacentes o un NAME de Decentraland. De lo contrario, puedes comprar LAND en el [Market](https://market.decentraland.org) o un NAME en el [Builder](https://decentraland.org/builder/names).
 
-    \{% hint style="warning" %\} **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels. \{% endhint %\}
+    {% hint style="warning" %}
+    **📔 Nota**: Las escenas multi-parcela solo pueden desplegarse en parcelas adyacentes.
+    {% endhint %}
 
 {% hint style="danger" %}
-**❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
+**❗Advertencia**: Al planear eventos en vivo, asegúrate de no hacer cambios de último minuto a la escena justo antes del evento.
 
-After each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
+Después de cada publicación, un proceso interno optimiza todos los modelos 3D antes de que puedan renderizarse. Esto toma alrededor de 15 minutos. Si visitas la escena antes de que esto esté hecho, la escena puede aparecer rota. Este proceso se ejecuta incluso si los modelos 3D ya fueron publicados previamente.
 {% endhint %}
 
-### Check scene data
+### Verificar datos de la escena
 
-When deploying, the CLI reads information from the _scene.json_ to know where to deploy your scene to.
+Al desplegar, el CLI lee información del _scene.json_ para saber dónde desplegar tu escena.
 
-Open your scene's _scene.json_ file and complete the following data:
+Abre el archivo _scene.json_ de tu escena y completa los siguientes datos:
 
-* **title**: The title is displayed on the UI under the mini-map, whenever players enter your scene. It also shows on the teleport popup.
-* **description**: A description of what players will find in your scene. This is displayed on the teleport popup.
-* **navmapThumbnail**: An image that represents your scene. This is displayed on the teleport popup. The image should be a _.png_ or _.jpg_ image of a recommended size of _228x160_ pixels.
-* **Parcels**: The coordinates of the parcels that will be occupied by your scene
-* **Base**: The coordinates of the parcel that will be considered the \[0,0] coordinate of the scene. If your scene has multiple parcels, it should be the bottom-left (South-West) parcel.
-* **spawnPoints**: A set of coordinates inside the scene (relative to the scene's base parcel) where players spawn into. By default players spawn onto the _0,0,0_ location of the scene (bottom-left corner). Use this to start out in a specific location, set a region to prevent players from overlapping with each other when they first appear.
-* **tags**: A set of tags that describe your scene. These are used to help players and users explore Decentraland in a better way since they are able to find the content that they may be interested in. [See the list of available tags](../../../creator/sdk7/projects/scene-metadata.md#tags).
-* **rating**: This is used to classify the content of your scene based on its appropriateness for different age groups (`T` for Teens or `A` for Adults). It helps in filtering content for players.
+* **title**: El título se muestra en la UI debajo del mini-mapa, cuando los jugadores entran a tu escena. También se muestra en el popup de teletransporte.
+* **description**: Una descripción de lo que los jugadores encontrarán en tu escena. Esto se muestra en el popup de teletransporte.
+* **navmapThumbnail**: Una imagen que representa tu escena. Esto se muestra en el popup de teletransporte. La imagen debe ser una imagen _.png_ o _.jpg_ de un tamaño recomendado de _228x160_ píxeles.
+* **Parcels**: Las coordenadas de las parcelas que serán ocupadas por tu escena
+* **Base**: Las coordenadas de la parcela que se considerará la coordenada \[0,0] de la escena. Si tu escena tiene múltiples parcelas, debe ser la parcela inferior izquierda (Sur-Oeste).
+* **spawnPoints**: Un conjunto de coordenadas dentro de la escena (relativas a la parcela base de la escena) donde los jugadores aparecen. Por defecto, los jugadores aparecen en la ubicación _0,0,0_ de la escena (esquina inferior izquierda). Usa esto para comenzar en una ubicación específica, establece una región para evitar que los jugadores se superpongan cuando aparecen por primera vez.
+* **tags**: Un conjunto de etiquetas que describen tu escena. Estas se usan para ayudar a los jugadores y usuarios a explorar Decentraland de una mejor manera, ya que pueden encontrar el contenido que les interesa. [Consulta la lista de etiquetas disponibles](../sdk7/projects/scene-metadata.md#tags).
+* **rating**: Esto se usa para clasificar el contenido de tu escena según su idoneidad para diferentes grupos de edad (`T` para Teens o `A` para Adults). Ayuda a filtrar contenido para los jugadores.
 
 {% hint style="warning" %}
-**📔 Note**: See [scene metadata](../../../creator/sdk7/projects/scene-metadata.md) for more details on how to set these parameters.
+**📔 Nota**: Consulta [metadatos de escena](../sdk7/projects/scene-metadata.md) para más detalles sobre cómo establecer estos parámetros.
 {% endhint %}
 
-### To publish the scene
+### Para publicar la escena
 
-#### Using the Scene Editor
+#### Usando el Scene Editor
 
-Make sure you've [installed the Creator Hub](../../../creator/scene-editor/get-started/editor-installation.md).
+Asegúrate de haber [instalado el Creator Hub](../scene-editor/get-started/editor-installation.md).
 
-1. Open your scene project.
-2. Click the **Publish** button on the top-right corner.
-3. A prompt will ask if you want to publish to a **WORLD** or to **LAND**.
-   * Select **PUBLISH TO WORLD** to make your scene available in one of your [WORLDs](../../worlds/about.md). Then select which of your NAMEs or ENS Domains to publish to.
-   * Select **PUBLISH TO LAND** if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
-   * Select **Alternative servers** to publish to the [test server](publishing.md#the-test-server) or a [custom server](publishing.md#custom-servers).
+1. Abre tu proyecto de escena.
+2. Haz clic en el botón **Publish** en la esquina superior derecha.
+3. Un mensaje te preguntará si quieres publicar en un **WORLD** o en **LAND**.
+   * Selecciona **PUBLISH TO WORLD** para hacer que tu escena esté disponible en uno de tus [WORLDs](../worlds/about.md). Luego selecciona cuál de tus NAMEs o Dominios ENS publicar.
+   * Selecciona **PUBLISH TO LAND** si posees land, o te han dado permisos de despliegue por un propietario. Luego selecciona las parcelas donde quieres que se despliegue en el mapa. Las parcelas donde se te permite desplegar se muestran en rosa.
+   * Selecciona **Alternative servers** para publicar en el [servidor de prueba](publishing.md#the-test-server) o un [servidor personalizado](publishing.md#custom-servers).
 
-![](../../.gitbook/assets/publish-options.png)
+![](../images/editor/publish-options.png)
 
-4. This opens a new tab on your browser, showing details about the upload. Approve the transaction.
-   * For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
-   * For LAND linked to a wallet you can use via Wallet Connect, click **Connect wallet**, then scan the QR code with your mobile device and follow the steps on Wallet Connect.
+4. Esto abre una nueva pestaña en tu navegador, mostrando detalles sobre la carga. Aprueba la transacción.
+   * Para LAND en una cuenta de navegador Metamask, confirma el despliegue. Luego aprueba la transacción en la extensión del navegador Metamask.
+   * Para LAND vinculado a un wallet que puedes usar vía Wallet Connect, haz clic en **Connect wallet**, luego escanea el código QR con tu dispositivo móvil y sigue los pasos en Wallet Connect.
 
-#### Via the CLI
+#### Vía el CLI
 
-1. Log into your Metamask account with the same public address associated with your parcels in Decentraland.
-2. Run `npm run deploy` from the scene's folder.
-
-{% hint style="info" %}
-\*\*💡 Tip\*\*: If there are files in your project folder that you don't want to deploy, list them in the \_.dclignore\_ file before deploying.
-{% endhint %}
-
-3. A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
-4. Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
+1. Inicia sesión en tu cuenta de Metamask con la misma dirección pública asociada con tus parcelas en Decentraland.
+2. Ejecuta `npm run deploy` desde la carpeta de la escena. {% hint style="info" %} **💡 Tip**: Si hay archivos en tu carpeta de proyecto que no quieres desplegar, lístalos en el archivo _.dclignore_ antes de desplegar. {% endhint %}
+3. Se abrirá una pestaña del navegador, mostrando a qué parcelas estás desplegando. Haz clic en **Sign and Deploy**.
+4. Metamask se abre, notificándote que tu firma es solicitada. Haz clic en **Sign** para confirmar esta acción.
 
 {% hint style="info" %}
-**💡 Tip**: If you're implementing a continuous integration flow, where changes to your scene are deployed automatically, then you can set the `export DCL_PRIVATE_KEY` environment variable to the private key of an account that has deploy permissions.
+**💡 Tip**: Si estás implementando un flujo de integración continua, donde los cambios a tu escena se despliegan automáticamente, entonces puedes establecer la variable de entorno `export DCL_PRIVATE_KEY` a la clave privada de una cuenta que tiene permisos de despliegue.
 {% endhint %}
 
 {% hint style="info" %}
-**💡 Tip**: `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy --skip-build` to skip the `npm run build` step and deploy the scene as it is.
+**💡 Tip**: `npm run deploy` ejecuta un `npm run build`, que verifica la escena en busca de errores de tipo más estrictamente que ejecutar `npm run start`. Si estos errores no pueden evitarse (ej: ocurren en una librería externa) y no impactan la escena, puedes usar `npm run deploy --skip-build` para omitir el paso `npm run build` y desplegar la escena tal como está.
 {% endhint %}
 
-When publishing to a [Decentraland World](../../worlds/about.md) , use the following command instead:
+Al publicar a un [World de Decentraland](../worlds/about.md), usa el siguiente comando en su lugar:
 
 `npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
 
-### Publish from a hardware wallet
+### Publicar desde un hardware wallet
 
-Instead of storing your LAND tokens in a Metamask account, you may find it more secure to store them in a hardware wallet device, such as a [Ledger](https://www.ledger.com/) or a [Trezor](https://trezor.io/), that's physically plugged in to your computer.
+En lugar de almacenar tus tokens de LAND en una cuenta de Metamask, puede que encuentres más seguro almacenarlos en un dispositivo de hardware wallet, como un [Ledger](https://www.ledger.com/) o un [Trezor](https://trezor.io/), que está físicamente conectado a tu computadora.
 
-If you're using one of these devices, you can link the hardware wallet to Metamask to enable signing messages, while keeping the tokens more secure. See [this article from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) for instructions to connect your account.
+Si estás usando uno de estos dispositivos, puedes vincular el hardware wallet a Metamask para habilitar la firma de mensajes, mientras mantienes los tokens más seguros. Consulta [este artículo de Metamask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) para obtener instrucciones para conectar tu cuenta.
 
-Once your hardware wallet can be used via Metamask, you can deploy following the same steps as if your tokens were on a Metamask account.
+Una vez que tu hardware wallet pueda usarse vía Metamask, puedes desplegar siguiendo los mismos pasos como si tus tokens estuvieran en una cuenta de Metamask.
 
-### Scene overwriting
+### Sobrescritura de escena
 
-When a new scene is deployed, it overwrites older content that existed on the parcels it occupies.
+Cuando se despliega una nueva escena, sobrescribe el contenido anterior que existía en las parcelas que ocupa.
 
-If a scene that takes up multiple parcels is only partially overwritten by another, all of its parcels are either overwritten or erased.
+Si una escena que ocupa múltiples parcelas es solo parcialmente sobrescrita por otra, todas sus parcelas son sobrescritas o borradas.
 
-Suppose you deployed your scene _A_ over two parcels _\[100, 100]_ and _\[100, 101]_. Then you sell parcel _\[100, 101]_ to a user who owns adjacent land and that deploys a large scene (_B_) to several parcels, including _\[100, 101]_.
+Supón que desplegaste tu escena _A_ sobre dos parcelas _\[100, 100]_ y _\[100, 101]_. Luego vendes la parcela _\[100, 101]_ a un usuario que posee land adyacente y que despliega una escena grande (_B_) a varias parcelas, incluyendo _\[100, 101]_.
 
-Your scene _A_ can't be partially rendered in just one parcel, so _\[100, 100]_ won't display any content. You must build a new version of scene _A_ that only takes up one parcel and deploy it to only parcel _\[100, 100]_.
+Tu escena _A_ no puede renderizarse parcialmente en solo una parcela, por lo que _\[100, 100]_ no mostrará ningún contenido. Debes construir una nueva versión de la escena _A_ que solo ocupe una parcela y desplegarla solo en la parcela _\[100, 100]_.
 
-### What are the content servers
+### Qué son los servidores de contenido
 
-The content servers are a network of community-owned servers with a filesystem that's content-addressed, meaning that each file is identified by its contents, not by an arbitrary file name.
+Los servidores de contenido son una red de servidores propiedad de la comunidad con un sistema de archivos que es content-addressed, lo que significa que cada archivo se identifica por su contenido, no por un nombre de archivo arbitrario.
 
-We use the content servers to host and distribute all scene content in a similar way to BitTorrent, keeping the Decentraland network distributed.
+Usamos los servidores de contenido para alojar y distribuir todo el contenido de la escena de manera similar a BitTorrent, manteniendo la red de Decentraland distribuida.
 
-1. The content servers store and distribute all of the assets required to render your scenes.
-2. The `npm run deploy` command links these assets to the LAND parcel specified in your **scene.json** file. Whenever you redeploy your scene, the CLI will update your LAND smart contract, if needed, to point to the most recent content available on the content servers.
+1. Los servidores de contenido almacenan y distribuyen todos los assets requeridos para renderizar tus escenas.
+2. El comando `npm run deploy` vincula estos assets a la parcela de LAND especificada en tu archivo **scene.json**. Cada vez que redespliegues tu escena, el CLI actualizará tu smart contract de LAND, si es necesario, para apuntar al contenido más reciente disponible en los servidores de contenido.
 
-The information on each copy of the server is verifiable, as each scene is signed by the LAND owner's hash. This means that someone hosting a copy of the server won't be able to tamper with the content to display something illegitimate. The community can also vote to approve or remove any of these servers using the DAO.
+La información en cada copia del servidor es verificable, ya que cada escena está firmada por el hash del propietario de LAND. Esto significa que alguien que aloje una copia del servidor no podrá alterar el contenido para mostrar algo ilegítimo. La comunidad también puede votar para aprobar o eliminar cualquiera de estos servidores usando el DAO.
 
-### The test server
+### El servidor de prueba
 
-You can deploy content to the test catalyst server to run full tests with multiple users, the surrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+Puedes desplegar contenido al servidor catalyst de prueba para ejecutar pruebas completas con múltiples usuarios, las escenas circundantes y un entorno que es idéntico a producción. El servidor de prueba es idéntico a todos los demás servidores catalyst, la diferencia es que el contenido que se despliega a este servidor no se propaga a los demás. El contenido desplegado a otros servidores, por otro lado, sí se propaga a este servidor, por lo que las escenas circundantes deberían verse como se verán en producción.
 
 {% hint style="warning" %}
-**📔 Note**: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+**📔 Nota**: Para desplegar a parcelas en el servidor de prueba, debes tener los mismos permisos requeridos para desplegar a esas parcelas en la red principal.
 {% endhint %}
 
-Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it.
+Los jugadores nunca son dirigidos a este servidor, la única forma de acceder a él es proporcionar explícitamente un parámetro URL para conectarse a él.
 
-If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
+Si estás trabajando en un proyecto confidencial que no quieres revelar hasta el lanzamiento, ten en cuenta que el servidor de prueba está relativamente oculto de los jugadores, pero cualquiera que use explícitamente la URL del servidor de prueba podría potencialmente encontrarlo.
 
-#### Via the CLI
+#### Vía el CLI
 
-To deploy to the test server, run:
+Para desplegar al servidor de prueba, ejecuta:
 
 `npm run deploy -- --target peer-testing.decentraland.org`
 
-To enter the content server, add `&CATALYST=peer-testing.decentraland.org` to the Decentraland URL
+Para entrar al servidor de contenido, agrega `&CATALYST=peer-testing.decentraland.org` a la URL de Decentraland
 
 _https://play.decentraland.org/?CATALYST=peer-testing.decentraland.org_
 
-### Custom servers
+### Servidores personalizados
 
-You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where. Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+Puedes desplegar contenido a un servidor personalizado que no pertenece a la red oficial de servidores catalyst mantenida por el DAO. Para hacer esto, no necesitas poseer ningún token LAND o NAME, ya que puedes configurar el servidor para usar cualquier lógica de validación que prefieras para controlar quién puede desplegar dónde. Los servidores personalizados pueden elegir tener contenido de los servidores oficiales, que puedes sobrescribir, o comenzar desde cero y publicar contenido completamente nuevo.
 
-See [How to run your own Catalyst Node](../../../creator/tutorials/how-to-run-a-catalyst.md) for more info on what you can do with your own server and how to set it up.
+Consulta [Cómo ejecutar tu propio Nodo Catalyst](../tutorials/how-to-run-a-catalyst.md) para más información sobre qué puedes hacer con tu propio servidor y cómo configurarlo.
 
 {% hint style="warning" %}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../../rewards/gatting-started.md) or the [quests server](../../../creator/deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Nota**: Los jugadores necesitarán escribir manualmente una URL para acceder a tu servidor personalizado. Ciertas validaciones de servicios como el [servidor de recompensas](../rewards/gatting-started.md) o el [servidor de quests](../deprecated/quests/overview.md) podrían fallar en estos contextos, ya que a menudo estos servicios requieren que la solicitud provenga de un servidor oficial.
 {% endhint %}
 
-Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
+Los jugadores nunca son dirigidos a este servidor, la única forma de acceder a él es escribir explícitamente la URL para conectarse a él.
 
-#### Via the CLI
+#### Vía el CLI
 
-To deploy to a custom server, run:
+Para desplegar a un servidor personalizado, ejecuta:
 
 `npm run deploy -- --target <CUSTOM SERVER DOMAIN>`
 
-The URL to enter your deployed scene on your custom server will depend on the domain where it's being hosted.
+La URL para entrar a tu escena desplegada en tu servidor personalizado dependerá del dominio donde esté alojado.
 
-### Verify deployment success
+### Verificar éxito del despliegue
 
-Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, depending of what realm you enter.
+Una vez que hayas desplegado tu escena, estos cambios tomarán unos minutos en propagarse a través de los diversos servidores de contenido en la red. Si entras a Decentraland justo después de desplegar, podrías aún ver la versión anterior de tu contenido, dependiendo de a qué realm entres.
 
-After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network,
+Después de firmar para autorizar el despliegue de tu escena, la dapp de firma comenzará a mostrar confirmaciones de que la nueva versión de tu contenido se ha propagado a través de todos los servidores en la red.
 
-You'll see a list of each of the servers that make up Decentraland's content network. For each server, it specifies the timestamp of the last uploaded change on that parcel. Each one of these servers refers to a different realm, you can reference how these server names map to realm names in the [catalyst monitor screen](https://decentraland.github.io/catalyst-monitor/).
+Verás una lista de cada uno de los servidores que componen la red de contenido de Decentraland. Para cada servidor, especifica el timestamp del último cambio cargado en esa parcela. Cada uno de estos servidores se refiere a un realm diferente, puedes referenciar cómo estos nombres de servidor mapean a nombres de realm en la [pantalla del monitor de catalyst](https://decentraland.github.io/catalyst-monitor/).
 
-You can also obtain this information at any time by running the following command on the command line console:
+También puedes obtener esta información en cualquier momento ejecutando el siguiente comando en la consola de línea de comandos:
 
 `npx @dcl/opscli pointer-consistency --pointer 0,0`
 
 {% hint style="warning" %}
-**📔 Note**: Use the coordinates of your scene instead of `0,0`. If your scene has multiple parcels, any one of its parcels will produce the same output. If the coordinates start with a negative number, add a `\` at the start of the coordinates to prevent the `-` character from being misinterpreted by the command line.
+**📔 Nota**: Usa las coordenadas de tu escena en lugar de `0,0`. Si tu escena tiene múltiples parcelas, cualquiera de sus parcelas producirá el mismo output. Si las coordenadas comienzan con un número negativo, agrega un `\` al inicio de las coordenadas para evitar que el carácter `-` sea malinterpretado por la línea de comandos.
 {% endhint %}
 
-### Automatic deployments
+### Despliegues automáticos
 
-If you regularly make changes to your scene's content and want to implement a streamlined publication pipeline, you can automate the deployment of your scene via a GitHub action.
+Si regularmente haces cambios al contenido de tu escena y quieres implementar un pipeline de publicación optimizado, puedes automatizar el despliegue de tu escena vía una acción de GitHub.
 
-For this, you must first store your scene in a GitHub project. You can then set a [GitHub action](https://docs.github.com/en/actions) with the following script, which runs every time there's a merge to the `main` branch. The script installs any dependencies, builds the project and then deploys it to Decentraland.
+Para esto, primero debes almacenar tu escena en un proyecto de GitHub. Luego puedes establecer una [acción de GitHub](https://docs.github.com/en/actions) con el siguiente script, que se ejecuta cada vez que hay un merge a la rama `main`. El script instala cualquier dependencia, construye el proyecto y luego lo despliega a Decentraland.
 
 ```yaml
 name: Deploy to DCL PROD
@@ -206,4 +200,4 @@ jobs:
           npm run deploy:prod
 ```
 
-> Important: For this process to run, you must set a wallet's private key as an environment variable in GitHub, this is used to sign the deployment. As always, be very careful with keeping public keys secure. Do NOT use the public key of the account that actually owns the land tokens, as that would have very big risks. Instead, delegate operator rights to a disposable wallet that owns no valuable tokens. If this private key is ever leaked somehow, you can easily revoke those operator rights from the account and set up a new wallet.
+> Importante: Para que este proceso funcione, debes establecer la clave privada de un wallet como una variable de entorno en GitHub, esto se usa para firmar el despliegue. Como siempre, ten mucho cuidado al mantener las claves públicas seguras. NO uses la clave pública de la cuenta que realmente posee los tokens de land, ya que eso tendría riesgos muy grandes. En su lugar, delega derechos de operador a un wallet desechable que no posea tokens valiosos. Si esta clave privada se filtra de alguna manera, puedes revocar fácilmente esos derechos de operador de la cuenta y configurar un nuevo wallet.

@@ -1,24 +1,20 @@
 ---
-description: Create a custom component to handle specific data related to an entity
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/architecture/custom-components
+description: Crea un componente personalizado para manejar datos específicos relacionados con una entidad
 ---
 
-# Custom Components
+# Componentes Personalizados
 
-Data about an entity is stored in its [components](../../../creator/sdk7/architecture/entities-components.md). The Decentraland SDK provides a series of base components that manage different aspects about an entity, like its position, shape, material, etc. The engine knows how to interpret the information in these, and will change how the entity is rendered accordingly as soon as they change their values.
+Los datos sobre una entidad se almacenan en sus [componentes](../sdk7/architecture/entities-components.md). El SDK de Decentraland proporciona una serie de componentes base que gestionan diferentes aspectos sobre una entidad, como su posición, forma, material, etc. El motor sabe cómo interpretar la información en estos, y cambiará cómo se renderiza la entidad en consecuencia tan pronto como cambien sus valores.
 
-If your scene's logic requires storing information about an entity that isn't handled by the default components of the SDK, then you can create a custom type of component on your scene. You can then build [systems](../../../creator/sdk7/architecture/systems.md) that check for changes on these components and respond accordingly.
+Si la lógica de tu escena requiere almacenar información sobre una entidad que no es manejada por los componentes predeterminados del SDK, entonces puedes crear un tipo personalizado de componente en tu escena. Luego puedes construir [sistemas](../sdk7/architecture/systems.md) que verifiquen cambios en estos componentes y respondan en consecuencia.
 
-### About defining components
+### Acerca de definir componentes
 
-To define a new component, use `engine.defineComponent`. Each component needs the following:
+Para definir un nuevo componente, usa `engine.defineComponent`. Cada componente necesita lo siguiente:
 
-* An **componentName**: A unique string identifier that the SDK uses internally to identify this component type. This can be any string, as long as it's unique.
-* A **schema**: A class that defines the data structure held by the component.
-* **default values** _(optional)_: An object containing default values to use for initializing a copy of the component, when these are not provided.
+* Un **componentName**: Un identificador de cadena único que el SDK usa internamente para identificar este tipo de componente. Puede ser cualquier cadena, siempre que sea única.
+* Un **schema**: Una clase que define la estructura de datos contenida por el componente.
+* **valores predeterminados** _(opcional)_: Un objeto que contiene valores predeterminados para usar al inicializar una copia del componente, cuando estos no son proporcionados.
 
 ```ts
 export const WheelSpinComponent = engine.defineComponent('wheelSpinComponent', {
@@ -28,18 +24,18 @@ export const WheelSpinComponent = engine.defineComponent('wheelSpinComponent', {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Custom Components must always be written outside the `main()` function, in a separate file. They need to be interpreted before `main()` is executed. The recommended place for this is in a `/components` folder inside `/src`, each in its own file. That way it's easier to reuse these in future projects.
+**📔 Nota**: Los Componentes Personalizados siempre deben escribirse fuera de la función `main()`, en un archivo separado. Necesitan ser interpretados antes de que se ejecute `main()`. El lugar recomendado para esto es en una carpeta `/components` dentro de `/src`, cada uno en su propio archivo. De esa manera es más fácil reutilizarlos en proyectos futuros.
 {% endhint %}
 
-Once you defined a custom component, you can create instances of this component, that reference entities in the scene. When you create an instance of a component, you provide values to each of the fields in the component's schema. The values must comply with the declared types of each field.
+Una vez que definas un componente personalizado, puedes crear instancias de este componente, que referencian entidades en la escena. Cuando creas una instancia de un componente, proporcionas valores a cada uno de los campos en el esquema del componente. Los valores deben cumplir con los tipos declarados de cada campo.
 
 ```ts
-// Create entities
+// Crear entidades
 const wheel = engine.addEntity()
 const wheel2 = engine.addEntity()
 
-// Create instances of the component
-WheelSpinComponent.create(wheel1, {
+// Crear instancias del componente
+WheelSpinComponent.create(wheel, {
 	spinning: true,
 	speed: 10,
 })
@@ -50,55 +46,55 @@ WheelSpinComponent.create(wheel2, {
 })
 ```
 
-Each entity that has the component added to it instances a new copy of the component, holding specific data for that entity.
+Cada entidad que tiene el componente agregado instancia una nueva copia del componente, conteniendo datos específicos para esa entidad.
 
-Your custom component can also perform the other common functions that are available on other components:
+Tu componente personalizado también puede realizar las otras funciones comunes que están disponibles en otros componentes:
 
 ```ts
-// Fetch a read only instance of the component from an entity
-const readOnlyInstance MyCustomComponent.get(myEntity)
+// Obtener una instancia de solo lectura del componente de una entidad
+const readOnlyInstance = MyCustomComponent.get(myEntity)
 
-// Fetch a mutable instance of the component from an entity
-const readOnlyInstance MyCustomComponent.getMutable(myEntity)
+// Obtener una instancia mutable del componente de una entidad
+const mutableInstance = MyCustomComponent.getMutable(myEntity)
 
-// Delete an entity's instance of the component
-const readOnlyInstance MyCustomComponent.deleteFrom(myEntity)
+// Eliminar la instancia del componente de una entidad
+MyCustomComponent.deleteFrom(myEntity)
 
 ```
 
-### About the componentName
+### Acerca del componentName
 
-Each component must have a unique component name or identifier, that differentiates it internally. You won't need to use this internal identifier anywhere else in your code. A good practice is to use the same name you assign to the component, but starting with a lower case letter, but all that really matters is that this identifier is unique within the project.
+Cada componente debe tener un nombre de componente o identificador único, que lo diferencia internamente. No necesitarás usar este identificador interno en ningún otro lugar de tu código. Una buena práctica es usar el mismo nombre que asignas al componente, pero comenzando con una letra minúscula, pero todo lo que realmente importa es que este identificador sea único dentro del proyecto.
 
-When creating components that will be shared as part of a library, be mindful that the component names in your library must not overlap with any component names in the project where it's being used, or on other libraries that are also used by that project. To avoid the risk of any overlap, the recommended best practice is to include the name of the library as part of the `componentName` string. You can follow this formula: `${packageName}::${componentName}`. For example if you build a`MyUtilities` library that includes a `MoveEntity` component, set the `componentName` of that component to `MyUtilities::moveEntity`.
+Al crear componentes que se compartirán como parte de una librería, ten en cuenta que los nombres de componentes en tu librería no deben superponerse con ningún nombre de componente en el proyecto donde se está usando, o en otras librerías que también son usadas por ese proyecto. Para evitar el riesgo de cualquier superposición, la mejor práctica recomendada es incluir el nombre de la librería como parte de la cadena `componentName`. Puedes seguir esta fórmula: `${packageName}::${componentName}`. Por ejemplo, si construyes una librería `MyUtilities` que incluye un componente `MoveEntity`, establece el `componentName` de ese componente como `MyUtilities::moveEntity`.
 
-### Components as flags
+### Componentes como banderas
 
-You may want to add a component that simply flags an entity to differentiate it from others, without using it to store any data. To do this, leave the schema as an empty object.
+Puede que quieras agregar un componente que simplemente marque una entidad para diferenciarla de otras, sin usarlo para almacenar datos. Para hacer esto, deja el esquema como un objeto vacío.
 
-This is especially useful when using [querying components](../../../creator/sdk7/architecture/querying-components.md). A simple flag component can be used tell entities apart from others, and avoid having the system iterate over more entities than needed.
+Esto es especialmente útil cuando usas [consultas de componentes](../sdk7/architecture/querying-components.md). Un componente de bandera simple puede usarse para diferenciar entidades de otras, y evitar que el sistema itere sobre más entidades de las necesarias.
 
 ```ts
 export const IsEnemyFlag = engine.defineComponent('isEnemyFlag', {})
 ```
 
-You can then create a system that iterates over all entities with this component.
+Luego puedes crear un sistema que itere sobre todas las entidades con este componente.
 
 ```ts
 export function handleEnemies() {
 	for (const [entity] of engine.getEntitiesWith(IsEnemyFlag)) {
-		// do something on each entity
+		// hacer algo en cada entidad
 	}
 }
 
 engine.addSystem(handleEnemies)
 ```
 
-### Component Schemas
+### Esquemas de Componentes
 
-A schema describes the structure of the data inside a component. A component can store as many fields as you want, each one must be included in the schema's structure. The schema can include as many levels of nested items as you need.
+Un esquema describe la estructura de los datos dentro de un componente. Un componente puede almacenar tantos campos como quieras, cada uno debe incluirse en la estructura del esquema. El esquema puede incluir tantos niveles de ítems anidados como necesites.
 
-Every field in the schema must include a type declaration. You can only use the special schema types provided by the SDK. For example, use the type `Schemas.Boolean` instead of type `boolean`. Write `Schemas.` and your IDE will display all the available options.
+Cada campo en el esquema debe incluir una declaración de tipo. Solo puedes usar los tipos de esquema especiales proporcionados por el SDK. Por ejemplo, usa el tipo `Schemas.Boolean` en lugar del tipo `boolean`. Escribe `Schemas.` y tu IDE mostrará todas las opciones disponibles.
 
 ```ts
 export const WheelSpinComponent = engine.defineComponent('WheelSpinComponent', {
@@ -107,26 +103,26 @@ export const WheelSpinComponent = engine.defineComponent('WheelSpinComponent', {
 })
 ```
 
-The example above defines a component who's schema holds two values, a `spinning` boolean and a `speed` floating point number.
+El ejemplo anterior define un componente cuyo esquema contiene dos valores, un booleano `spinning` y un número de punto flotante `speed`.
 
-You can chose to create the schema inline while defining the component, or for more legibility you can create it and then reference it.
+Puedes elegir crear el esquema en línea mientras defines el componente, o para mayor legibilidad puedes crearlo y luego referenciarlo.
 
 ```ts
-// Option 1: Inline definition
+// Opción 1: Definición en línea
 export const WheelSpinComponent = engine.defineComponent('WheelSpinComponent', {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float,
 })
 
-// Option 2: define schema and component separately
+// Opción 2: definir esquema y componente por separado
 
-//// schema
+//// esquema
 const mySchema = {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float,
 }
 
-//// component
+//// componente
 export const WheelSpinComponent = engine.defineComponent(
 	'WheelSpinComponent',
 	mySchema
@@ -134,12 +130,12 @@ export const WheelSpinComponent = engine.defineComponent(
 ```
 
 {% hint style="info" %}
-**💡 Tip**: When creating an instance of a component, the VS Studio autocomplete options will suggest what fields you can add to the component by pressing _Ctrl + Space_.
+**💡 Tip**: Al crear una instancia de un componente, las opciones de autocompletado de VS Studio sugerirán qué campos puedes agregar al componente presionando _Ctrl + Espacio_.
 {% endhint %}
 
-#### Default Schema types
+#### Tipos de Schema predeterminados
 
-The following basic types are available for using within the fields of a schema:
+Los siguientes tipos básicos están disponibles para usar dentro de los campos de un esquema:
 
 * `Schemas.Boolean`
 * `Schemas.Byte`
@@ -152,7 +148,7 @@ The following basic types are available for using within the fields of a schema:
 * `Schemas.String`
 * `Schemas.Entity`
 
-The following complex types also exist. They each include a series of nested properties with numerical values.
+Los siguientes tipos complejos también existen. Cada uno incluye una serie de propiedades anidadas con valores numéricos.
 
 * `Schemas.Vector3`
 * `Schemas.Quaternion`
@@ -160,10 +156,10 @@ The following complex types also exist. They each include a series of nested pro
 * `Schemas.Color4`
 
 {% hint style="info" %}
-**💡 Tip**: See [Geometry types](../../../creator/sdk7/3d-essentials/special-types.md) and [Color types](../../../creator/sdk7/3d-essentials/color-types.md) for more details on how these types of data are useful.
+**💡 Tip**: Consulta [Tipos de geometría](../sdk7/3d-essentials/special-types.md) y [Tipos de color](../sdk7/3d-essentials/color-types.md) para más detalles sobre cómo estos tipos de datos son útiles.
 {% endhint %}
 
-For example, you can use these schema types in a component like this to track the gradual movement of an entity. This component stores an initial and a final position as Vector3 values, as well as a speed and fraction of the completed path as float numbers. See [Move entities](../../../creator/sdk7/3d-essentials/move-entities.md#move-between-two-points) for the full implementation of this example.
+Por ejemplo, puedes usar estos tipos de esquema en un componente como este para rastrear el movimiento gradual de una entidad. Este componente almacena una posición inicial y final como valores Vector3, así como una velocidad y fracción de la ruta completada como números flotantes. Consulta [Mover entidades](../sdk7/3d-essentials/move-entities.md#move-between-two-points) para la implementación completa de este ejemplo.
 
 ```ts
 const MoveTransportData = {
@@ -179,9 +175,9 @@ export const LerpTransformComponent = engine.defineComponent(
 )
 ```
 
-#### Array types
+#### Tipos de arreglo
 
-To set the type of a field as an array, use `Schemas.Array()`. Pass the type of the elements in the array as a property.
+Para establecer el tipo de un campo como un arreglo, usa `Schemas.Array()`. Pasa el tipo de los elementos en el arreglo como una propiedad.
 
 ```ts
 const MySchema = {
@@ -189,9 +185,9 @@ const MySchema = {
 }
 ```
 
-#### Nested schema types
+#### Tipos de esquema anidados
 
-To set the type of a field to be an object, use `Schemas.Map()`. Pass the contents of this object as a property. This nested object is essentially a schema itself, nested within the parent schema.
+Para establecer el tipo de un campo como un objeto, usa `Schemas.Map()`. Pasa el contenido de este objeto como una propiedad. Este objeto anidado es esencialmente un esquema en sí mismo, anidado dentro del esquema padre.
 
 ```ts
 const MySchema = {
@@ -203,7 +199,7 @@ const MySchema = {
 }
 ```
 
-Alternatively, to keep things more readable and reusable, you could achieve the same by defining the nested schema separately, then referencing it when defining the parent schema.
+Alternativamente, para mantener las cosas más legibles y reutilizables, podrías lograr lo mismo definiendo el esquema anidado por separado, luego referenciándolo al definir el esquema padre.
 
 ```ts
 const MyNestedSchema = Schemas.Map({
@@ -217,51 +213,51 @@ const MySchema = {
 }
 ```
 
-#### Enums types
+#### Tipos Enums
 
-You can set the type of a field in a schema to be an enum. Enums make it easy to select between a finite number of options, providing human-readable values for each.
+Puedes establecer el tipo de un campo en un esquema como un enum. Los enums facilitan la selección entre un número finito de opciones, proporcionando valores legibles para cada uno.
 
-To set the type of a field to an enum, you must first define the enum. Then you can refer to it using `Schemas.EnumNumber` or `Schemas.EnumString`, depending on the type of enum. You must pass the enum to reference between `<>`, as well as the type as a parameter (either `Schemas.Int` for number enums, or `Schemas.String` for string enums). You must also pass a default value to use for this field.
+Para establecer el tipo de un campo como un enum, primero debes definir el enum. Luego puedes referirte a él usando `Schemas.EnumNumber` o `Schemas.EnumString`, dependiendo del tipo de enum. Debes pasar el enum a referenciar entre `<>`, así como el tipo como parámetro (ya sea `Schemas.Int` para enums numéricos, o `Schemas.String` para enums de cadena). También debes pasar un valor predeterminado para usar en este campo.
 
 ```ts
 //// String enum
 
-// Define enum
+// Definir enum
 enum Color {
 	Red = 'red',
 	Green = 'green',
 	Pink = 'pink',
 }
 
-// Define a component that uses this enum in a field
+// Definir un componente que usa este enum en un campo
 const ColorComponent = engine.defineComponent('Color', {
 	color: Schemas.EnumString<Color>(Color, Color.Red),
 })
 
-// Use component on an entity
+// Usar componente en una entidad
 ColorComponent.create(engine.addEntity(), { color: Color.Green })
 
 //// Number enum
 
-// Define enum
+// Definir enum
 enum CurveType {
 	LINEAR,
 	EASEIN,
 	EASEOUT,
 }
 
-// Define a component that uses this enum in a field
+// Definir un componente que usa este enum en un campo
 const CurveComponent = engine.defineComponent('curveComponent', {
-	curve: Schemas.EnumString<CurveType>(CurveType, CurveType.LINEAR),
+	curve: Schemas.EnumNumber<CurveType>(CurveType, CurveType.LINEAR),
 })
 
-// Use component on an entity
+// Usar componente en una entidad
 CurveComponent.create(engine.addEntity(), { curve: CurveType.EASEIN })
 ```
 
-#### Interchangeable types
+#### Tipos intercambiables
 
-You can set the type of a field in a schema to follow a `oneOf` pattern, where different types can be accepted.
+Puedes establecer el tipo de un campo en un esquema para seguir un patrón `oneOf`, donde se pueden aceptar diferentes tipos.
 
 ```ts
 const MySchema = {
@@ -271,68 +267,68 @@ const MySchema = {
 export const MyComponent = engine.defineComponent('MyComponent', MySchema)
 ```
 
-When creating an instance of the component, you need to specify the selected type with a `$case`, for example:
+Al crear una instancia del componente, necesitas especificar el tipo seleccionado con un `$case`, por ejemplo:
 
 ```ts
 MyComponent.create(myEntity, {
 	myField: {
-		$case: type1
+		$case: 'type1',
 		value: Vector3.create(1, 1, 1)
 	}
 })
 ```
 
-### Default values
+### Valores predeterminados
 
-It's often good to have default values in your components, so that it's not necessary to explicitly set each value every time you create a new copy.
+A menudo es bueno tener valores predeterminados en tus componentes, para que no sea necesario establecer explícitamente cada valor cada vez que crees una nueva copia.
 
-The `engine.defineComponent()` function takes in a third argument, that lets you pass an object with values to use by default. This object can include some or all of the values in the schema. Values that are not provided in the defaults will need to always be provided when initializing a copy of the component.
+La función `engine.defineComponent()` toma un tercer argumento, que te permite pasar un objeto con valores para usar por defecto. Este objeto puede incluir algunos o todos los valores en el esquema. Los valores que no se proporcionan en los valores predeterminados necesitarán proporcionarse siempre al inicializar una copia del componente.
 
 ```ts
-// Definition
+// Definición
 
-//// schema
+//// esquema
 const mySchema = {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float,
 }
 
-//// defaults
+//// valores predeterminados
 const myDefaultValues = {
 	spinning: true,
 	speed: 1,
 }
 
-//// component
+//// componente
 export const WheelSpinComponent = engine.defineComponent(
 	'WheelSpinComponent',
 	mySchema,
 	myDefaultValues
 )
 
-// Usage
+// Uso
 export function main() {
-	//// Create entities
+	//// Crear entidades
 	const wheel = engine.addEntity()
 	const wheel2 = engine.addEntity()
 
-	//// initialize component using default values
+	//// inicializar componente usando valores predeterminados
 	WheelSpinComponent.create(wheel)
 
-	//// initialize component with one custom value, using default for any others
+	//// inicializar componente con un valor personalizado, usando el predeterminado para cualquier otro
 	WheelSpinComponent.create(wheel2, { speed: 5 })
 }
 ```
 
-The above example creates a `WheelSpinComponent` component that includes both a schema and a set of default values to use. If you then initialize a copy of this component without specifying any values, it will use those set in the default.
+El ejemplo anterior crea un componente `WheelSpinComponent` que incluye tanto un esquema como un conjunto de valores predeterminados para usar. Si luego inicializas una copia de este componente sin especificar valores, usará los establecidos en el predeterminado.
 
-### Subscribe to changes
+### Suscribirse a cambios
 
-A common use case is to only run a function in case the data in a certain component changes. Use the [OnChange](../../../creator/sdk7/architecture/subscribe-to-changes.md) function to avoid having to define a system and having to explicitly compare old values with new values.
+Un caso de uso común es solo ejecutar una función en caso de que los datos en un cierto componente cambien. Usa la función [OnChange](../sdk7/architecture/subscribe-to-changes.md) para evitar tener que definir un sistema y tener que comparar explícitamente valores antiguos con valores nuevos.
 
 ```ts
 export function main() {
-	//Create entity, etc
+	//Crear entidad, etc
 
 	WheelSpinComponent.onChange(myEntity, (componentData) => {
 		if (!componentData) return
@@ -342,24 +338,24 @@ export function main() {
 }
 ```
 
-### Building systems to use a component
+### Construir sistemas para usar un componente
 
-With your component defined and added to entities in your scene, you can create [Systems](../../../creator/deprecated/scenes/architecture/systems.md) to perform logic, making use of this data stored on the component.
+Con tu componente definido y agregado a entidades en tu escena, puedes crear [Sistemas](../sdk7/architecture/systems.md) para realizar lógica, haciendo uso de estos datos almacenados en el componente.
 
 ```ts
-// define component
+// definir componente
 export const WheelSpinComponent = engine.defineComponent('WheelSpinComponent', {
 	spinning: Schemas.Boolean,
 	speed: Schemas.Float,
 })
 
-// Usage
+// Uso
 export function main() {
-	// Create entities
+	// Crear entidades
 	const wheel1 = engine.addEntity()
 	const wheel2 = engine.addEntity()
 
-	// Create instances of the component
+	// Crear instancias del componente
 	WheelSpinComponent.create(wheel1, {
 		spinning: true,
 		speed: 10,
@@ -371,18 +367,18 @@ export function main() {
 	})
 }
 
-// Define a system to iterate over these entities
+// Definir un sistema para iterar sobre estas entidades
 export function spinSystem(dt: number) {
-	// iterate over all entiities with a WheelSpinComponent
+	// iterar sobre todas las entidades con un WheelSpinComponent
 	for (const [entity, wheelSpin] of engine.getEntitiesWith(
 		WheelSpinComponent
 	)) {
-		// only do something if spinning == true
+		// solo hacer algo si spinning == true
 		if (wheelSpin.spinning) {
-			// fetch a mutable Transform component
+			// obtener un componente Transform mutable
 			const transform = Transform.getMutable(entity)
 
-			// update the rotation value accordingly
+			// actualizar el valor de rotación en consecuencia
 			transform.rotation = Quaternion.multiply(
 				transform.rotation,
 				Quaternion.fromAngleAxis(dt * wheelSpin.speed, Vector3.Up())
@@ -391,8 +387,8 @@ export function spinSystem(dt: number) {
 	}
 }
 
-// Add system to engine
+// Agregar sistema al motor
 engine.addSystem(spinSystem)
 ```
 
-The example above defines a system that iterates over all entities that include the custom `wheelSpinComponent`, and rotates them slightly on every tick of the game loop. The amount of this rotation is proportional to the `speed` value stored on each entity's instance of the component. The example makes use of [component queries](../../../creator/sdk7/architecture/querying-components.md) to obtain only the relevant entities.
+El ejemplo anterior define un sistema que itera sobre todas las entidades que incluyen el `wheelSpinComponent` personalizado, y las rota ligeramente en cada tick del bucle del juego. La cantidad de esta rotación es proporcional al valor `speed` almacenado en la instancia del componente de cada entidad. El ejemplo hace uso de [consultas de componentes](../sdk7/architecture/querying-components.md) para obtener solo las entidades relevantes.

@@ -1,22 +1,18 @@
 ---
-description: How to communicate your scene with external servers and APIs.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/networking/network-connections
+description: Cómo comunicar tu escena con servidores externos y APIs.
 ---
 
-# Network Connections
+# Conexiones de Red
 
-Your scene can leverage external services that expose APIs, you can use this to obtain updated price data, weather data or any other kind of information exposed by an API.
+Tu escena puede aprovechar servicios externos que exponen APIs, puedes usar esto para obtener datos actualizados de precios, datos climáticos o cualquier otro tipo de información expuesta por una API.
 
-You can also set up your own external server to aid your scene and serve to synchronize data between your players. This can either be done with a server that exposes a REST API, or with a server that uses WebSockets.
+También puedes configurar tu propio servidor externo para ayudar a tu escena y servir para sincronizar datos entre tus jugadores. Esto puede hacerse con un servidor que exponga una API REST, o con un servidor que use WebSockets.
 
-### Call a REST API
+### Llamar a una API REST
 
-Your scene's code can send calls to a REST API to fetch data.
+El código de tu escena puede enviar llamadas a una API REST para obtener datos.
 
-Since the server might take time to send its response, you must execute this command as an [asynchronous function](../../../creator/sdk7/programming-patterns/async-functions.md), using `executeTask()`.
+Dado que el servidor podría tardar en enviar su respuesta, debes ejecutar este comando como una [función asíncrona](../sdk7/programming-patterns/async-functions.md), usando `executeTask()`.
 
 ```ts
 executeTask(async () => {
@@ -30,16 +26,16 @@ executeTask(async () => {
 })
 ```
 
-The fetch command can also include a second optional argument that bundles headers, HTTP method and HTTP body into a single object.
+El comando fetch también puede incluir un segundo argumento opcional que agrupa headers, método HTTP y body HTTP en un solo objeto.
 
-* **url**: Address to send the request
-* **init**: A `FlatFetchInit` object that may contain:
-  * **method** : HTTP method to use (GET, POST, DELETE, etc)
-  * **body**: Contents of the request body. It must be sent as a stringified JSON object.
-  * **headers**: Additional headers to include in the request. Headers related to the signature are added automatically.
-  * **redirect**: Redirect strategy ('follow' | 'error' | 'manual')
-  * **responseBodyType**: Specify if the body of the response is 'text' or 'json'
-  * **timeout**: How long to wait for a response before the request fails. By default 30000 milliseconds (30 seconds).
+* **url**: Dirección para enviar la solicitud
+* **init**: Un objeto `FlatFetchInit` que puede contener:
+  * **method** : Método HTTP a usar (GET, POST, DELETE, etc)
+  * **body**: Contenidos del body de la solicitud. Debe enviarse como un objeto JSON stringificado.
+  * **headers**: Headers adicionales para incluir en la solicitud. Los headers relacionados con la firma se agregan automáticamente.
+  * **redirect**: Estrategia de redirección ('follow' | 'error' | 'manual')
+  * **responseBodyType**: Especifica si el body de la respuesta es 'text' o 'json'
+  * **timeout**: Cuánto tiempo esperar una respuesta antes de que falle la solicitud. Por defecto 30000 milisegundos (30 segundos).
 
 ```ts
 executeTask(async () => {
@@ -57,33 +53,33 @@ executeTask(async () => {
 })
 ```
 
-The fetch command returns a `response` object with the following data:
+El comando fetch devuelve un objeto `response` con los siguientes datos:
 
-* `headers`: A `ReadOnlyHeaders` object. Call the `get()` method to obtain a specific header, or the `has()` method to check if a header is present.
+* `headers`: Un objeto `ReadOnlyHeaders`. Llama al método `get()` para obtener un header específico, o al método `has()` para verificar si un header está presente.
 * `ok`: Boolean
 * `redirected`: Boolean
-* `status`: Status code number
-* `statusText`: Text for the status code
-* `type`: Will have one of the following values: _basic_, _cors_, _default_, _error_, _opaque_, _opaqueredirect_
-* `url`: URL that was sent
-* `json()`: Obtain the body in JSON format.
-* `text()`: Obtain the body as text.
+* `status`: Número de código de estado
+* `statusText`: Texto para el código de estado
+* `type`: Tendrá uno de los siguientes valores: _basic_, _cors_, _default_, _error_, _opaque_, _opaqueredirect_
+* `url`: URL que fue enviada
+* `json()`: Obtener el body en formato JSON.
+* `text()`: Obtener el body como texto.
 
 {% hint style="warning" %}
-**📔 Note**: `json()` and `text()` are mutually exclusive. If you obtain the body of the response in one of the two formats, you can no longer obtain the other from the `response` object.
+**📔 Nota**: `json()` y `text()` son mutuamente excluyentes. Si obtienes el body de la respuesta en uno de los dos formatos, ya no puedes obtener el otro del objeto `response`.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: Each Decentraland scene is only permitted to perform one `fetch` command at a time. This has no effect on how the scene code must be structured, as requests are queued internally. If your scene requires sending multiple requests to different endpoints, keep in mind that each request is only sent when the previous one has been responded.
+**📔 Nota**: A cada escena de Decentraland solo se le permite realizar un comando `fetch` a la vez. Esto no tiene efecto en cómo debe estructurarse el código de la escena, ya que las solicitudes se ponen en cola internamente. Si tu escena requiere enviar múltiples solicitudes a diferentes endpoints, ten en cuenta que cada solicitud solo se envía cuando la anterior ha sido respondida.
 {% endhint %}
 
-### Signed requests
+### Solicitudes firmadas
 
-You can employ an extra security measure to certify that a request is originating from a player session inside Decentraland. You can send your requests with an additional signature, that is signed using an ephemeral key that the Decentraland session generates for each player based on the player's address. The server receiving the request can then verify that the signed message indeed matches an address that is currently active in-world.
+Puedes emplear una medida de seguridad adicional para certificar que una solicitud se está originando de una sesión de jugador dentro de Decentraland. Puedes enviar tus solicitudes con una firma adicional, que está firmada usando una clave efímera que la sesión de Decentraland genera para cada jugador basándose en la dirección del jugador. El servidor que recibe la solicitud puede entonces verificar que el mensaje firmado efectivamente coincida con una dirección que está actualmente activa en el mundo.
 
-These kinds of security measures are especially valuable when there may be an incentive for a player to abuse the system, to farm tokens or points in a game.
+Este tipo de medidas de seguridad son especialmente valiosas cuando puede haber un incentivo para que un jugador abuse del sistema, para farmear tokens o puntos en un juego.
 
-To send a signed request, all you need to do is use the `signedFetch()` function, in exactly the same way as you would use the `fetch()` function.
+Para enviar una solicitud firmada, todo lo que necesitas hacer es usar la función `signedFetch()`, exactamente de la misma manera en que usarías la función `fetch()`.
 
 ```ts
 executeTask(async () => {
@@ -102,72 +98,83 @@ executeTask(async () => {
 		}
 
 		let json = await JSON.parse(response.statusText)
-
-		console.log('Response received: ', json)
+		console.log(json)
 	} catch {
-		console.log('failed to reach URL')
+		console.log('error fetching from URL')
 	}
 })
 ```
 
-The request includes an additional series of headers, containing a signed message and a set of metadata to interpret that. The signed message consists of all the contents of the request encrypted using the player's ephemeral key.
+Consulta [Validar autenticidad de jugador](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/validate-player-authenticity) para una escena de ejemplo que usa solicitudes firmadas.
 
-The `signedFetch()` differs from the `fetch()` function in that the response is a promise of a full http message, expressed as a `FlatFetchResponse` object. This includes the following properties:
+### WebSockets
 
-* `body`
-* `headers`
-* `ok`
-* `status`
-* `statusText`
+Tu escena puede conectarse a un servidor externo usando WebSockets. Esto es útil para mantener una conexión constante con tu servidor y sincronizar cambios con tu escena.
 
-By default, **body** is considered a string, which you can parse like in the example above. If the response body is in json format, you can specify that in the `responseBodyType` and then access that from the `json` property in the response.
+Un socket web permite un canal de comunicación bidireccional entre el jugador y el servidor, y puede usarse para enviar actualizaciones en cualquier dirección. Alternativamente, puedes usar [conexiones REST](network-connections.md#call-a-rest-api), pero esto solo permite enviar solicitudes desde el jugador al servidor. Las conexiones WebSocket también resultan en significativamente menos overhead para escenas con tráfico de red frecuente.
 
-#### Validating a signed request
+Intenta configurar un servidor WebSocket usando el framework de tu elección, [socket.io](https://socket.io/) es una opción muy popular que a menudo se usa con Node.js. Consulta [esta escena de ejemplo](https://github.com/decentraland-scenes/ws-example) que incluye el código del servidor.
 
-To make make use of signed requests, the server receiving these should to validate that the signatures match the rest of the request, and that the timestamp that's encoded within the signed message is current.
+Para abrir una conexión con el servidor:
 
-You can find a simple example of a server performing this task in the following example scene:
+1. Importa el paquete WebSocket (`@dcl/sdk/WebSocket`) en tu archivo.
+2. Instancia una nueva conexión con `const socket = new WebSocket('url')`
+3. Maneja las aperturas de conexión con `socket.onopen`
+4. Maneja los mensajes recibidos con `socket.onmessage`
+5. Maneja los cierres de conexión con `socket.onclose`
+6. Maneja los errores con `socket.onerror`
 
-[Validate player authenticity](https://github.com/decentraland-scenes/validate-player-authenticity)
-
-### Request timeout
-
-If an HTTP request takes too long to be responded, it fails so that other requests can be sent. For both `fetch()` and `signedFetch()`, the default timeout threshold is of 30 seconds, but you can assign a different value on each request by configuring the `timeout` property in any of the two functions. The value of `timeout` is expressed in milliseconds.
+El siguiente ejemplo abre una conexión con un servidor y luego escucha mensajes desde él. También envía una actualización al servidor cada segundo.
 
 ```ts
-fetch('https://some-url.com', { timeout: 1000 })
-```
+import { WebSocket } from '~system/WebSockets'
 
-### Use WebSockets
+let socket: WebSocket | null = null
 
-You can also send and obtain data from a WebSocket server, as long as this server uses a secured connection with _wss_.
+async function initializeWebSocket() {
+	socket = await WebSocket.connect('ws://localhost:8080')
 
-```ts
-var socket = new WebSocket('url')
+	socket.onopen = () => {
+		console.log('WebSocket conectado')
+	}
 
-socket.onmessage = function (event) {
-	console.log('WebSocket message received:', event)
+	socket.onmessage = (event) => {
+		console.log('Mensaje recibido:', event.data)
+	}
+
+	socket.onclose = () => {
+		console.log('WebSocket desconectado')
+	}
+
+	socket.onerror = (error) => {
+		console.error('Error de WebSocket:', error)
+	}
+
+	// Enviar mensajes al servidor cada segundo
+	engine.addSystem(() => {
+		if (socket && socket.readyState === WebSocket.OPEN) {
+			socket.send('Hello Server')
+		}
+	}, 1) // ejecutar cada 1 segundo
+}
+
+export function main() {
+	initializeWebSocket()
 }
 ```
 
-The syntax to use WebSockets is no different from that implemented natively by JavaScript. See the documentation from [Mozilla Web API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) for details on how to catch and send messages over WebSockets.
+### Llamando a servicios API externos
 
-{% hint style="info" %}
-**💡 Tip**: One library that simplifies the use of websocket connections and has been proven to work very well with Decentraland is [Colyseus](https://colyseus.io/). Several other websocket libraries aren't compatible with the Decentraland SDK.
+Tu escena puede llamar a servicios API disponibles públicamente, obteniendo datos sobre distintas cosas del mundo exterior. Por ejemplo:
 
-It builds a layer of abstraction on top of the websocket connections that makes reacting to changes and storing a consistent game state remotely in the server super easy. You can see it in action in these examples:
+* Datos climáticos desde una ubicación física
+* Valores de acciones o valores de criptomonedas
+* Hora actual del día en un lugar del mundo
+* Información de blockchain
+* Generación de números aleatorios a partir de un servicio externo. Consulta [números aleatorios](../sdk7/programming-patterns/random-numbers.md)
 
-* [Cube Jumper](https://github.com/decentraland-scenes/cube-jumper-colyesus-sdk7)
-* [Space Traitor](https://github.com/decentraland-scenes/Space-Traitor)
-* [AI NPC](https://github.com/decentraland-scenes/inworld-ai-sdk7)
+Para llevar a cabo estas solicitudes, consulta [Call a REST API](network-connections.md#call-a-rest-api).
+
+{% hint style="warning" %}
+**📔 Nota**: Ten en cuenta que los datos que usas para tu escena debes asegurarte de que provengan de una API que esté pública y abierta. Tu escena se ejecuta en el navegador del jugador, sin intermediarios, por lo que solo tiene acceso a APIs donde todas las transacciones sean públicas.
 {% endhint %}
-
-### Debugging network requests
-
-You can debug network requests by opening Debug Panel.
-
-To open the Debug Panel, you can click the ![](../../.gitbook/assets/debug-icon.png) icon on the top-right corner. Then select the **Web Requests** tab and click **Open Chrome Devtools**.
-
-This will open a new Chrome window with the Network tab open.
-
-See [Debug in preview](../../../creator/sdk7/debugging/debug-in-preview.md#web-requests) for more details.

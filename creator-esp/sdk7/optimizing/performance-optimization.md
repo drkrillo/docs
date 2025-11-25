@@ -1,154 +1,83 @@
 ---
-description: Optimize your scene to load fast and run smoothly for all players.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/optimizing/performance-optimization
+description: Optimiza tu escena para que cargue rápido y funcione sin problemas para todos los jugadores.
 ---
 
-# Performance Optimization
+# Optimización de Rendimiento
 
-There are several aspects you can optimize in your scenes to ensure the best possible experience for players who visit them. This document covers some best practices that can make a big difference in how fast your scene loads and how smoothly it runs for players that are on it or on neighboring scenes.
+Hay varios aspectos que puedes optimizar en tus escenas para asegurar la mejor experiencia posible para los jugadores que las visitan. Este documento cubre algunas mejores prácticas que pueden hacer una gran diferencia en qué tan rápido carga tu escena y qué tan suavemente se ejecuta para los jugadores que están en ella o en escenas vecinas.
 
-Keep in mind that many players may be visiting Decentraland using hardware that is not built for gaming, and via the browser, which limits how much of the hardware's processing power is available to use. The experience of visiting your scene should be smooth for everyone.
+Ten en cuenta que muchos jugadores pueden estar visitando Decentraland usando hardware que no está construido para juegos, y a través del navegador, lo que limita cuánto del poder de procesamiento del hardware está disponible para usar. La experiencia de visitar tu escena debe ser fluida para todos.
 
-The Decentraland explorer enforces many optimizations at engine level. These optimizations make a big difference, but the challenge of rendering multiple user-generated experiences simultaneously in a browser is a big one. We need your help to make things run smoothly.
+El explorador de Decentraland impone muchas optimizaciones a nivel de motor. Estas optimizaciones hacen una gran diferencia, pero el desafío de renderizar múltiples experiencias generadas por usuarios simultáneamente en un navegador es grande. Necesitamos tu ayuda para que las cosas funcionen sin problemas.
 
-### Timing
+### Temporización
 
-#### Video playing
+#### Reproducción de video
 
-Playing videos is one of the most expensive things for the engine to handle. If your scene includes videos, make sure that only _ONE_ VideoTexture is in use at a time. You can have dozens of planes sharing the same VideoTexture without significant impact on performance, but as soon as you add a second VideoTexture, its effects on framerate become very noticeable.
+Reproducir videos es una de las cosas más costosas para que el motor las maneje. Si tu escena incluye videos, asegúrate de que solo _UNA_ VideoTexture esté en uso a la vez. Puedes tener docenas de planos compartiendo la misma VideoTexture sin impacto significativo en el rendimiento, pero tan pronto como agregues una segunda VideoTexture, sus efectos en el framerate se vuelven muy notables.
 
-You should also avoid having videos playing in regions where they can't be seen. For example, if you have a screen indoors, toggle the video using a trigger area based on when the player walks in and out.
+También debes evitar tener videos reproduciéndose en regiones donde no se pueden ver. Por ejemplo, si tienes una pantalla en interiores, activa/desactiva el video usando un área de activación basada en cuándo el jugador entra y sale.
 
 {% hint style="info" %}
-**💡 Tip**: A trick several scenes have used is to stream a single video with multiple regions that are mapped differently to different planes. Each video screen uses [UV mapping](../../../creator/sdk7/3d-essentials/materials.md#using-textures) to only show a distinct part of the VideoTexture. Thanks to this, it can appear that there are separate videos playing without the cost of multiple VideoTextures.
+**💡 Tip**: Un truco que varias escenas han usado es transmitir un solo video con múltiples regiones que se mapean de manera diferente a diferentes planos. Cada pantalla de video usa [mapeo UV](../sdk7/3d-essentials/materials.md#using-textures) para mostrar solo una parte distinta de la VideoTexture. Gracias a esto, puede parecer que hay videos separados reproduciéndose sin el costo de múltiples VideoTextures.
 {% endhint %}
 
 {% hint style="info" %}
-**💡 Tip**: When players are standing outside your scene, VideoTextures are not updated on every frame. This helps reduce the impact for surrounding scenes. It's nevertheless ideal only turn on the playing of any videos when players [step inside your scene](../../../creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene) .
+**💡 Tip**: Cuando los jugadores están parados fuera de tu escena, las VideoTextures no se actualizan en cada fotograma. Esto ayuda a reducir el impacto para las escenas circundantes. No obstante, es ideal solo activar la reproducción de cualquier video cuando los jugadores [entren a tu escena](../sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene).
 {% endhint %}
 
-#### Lazy loading
+#### Carga diferida
 
-If your scene is large, or has indoor areas that are not always visible, you can choose to not load the entire set of entities from the very start. Instead, load the content by region as the player visits different parts of the scene. This can significantly reduce the load time of the scene, and also the amount of textures and 3D content that the engine needs to handle on every frame.
+Si tu escena es grande, o tiene áreas interiores que no siempre son visibles, puedes elegir no cargar el conjunto completo de entidades desde el principio. En su lugar, carga el contenido por región a medida que el jugador visita diferentes partes de la escena. Esto puede reducir significativamente el tiempo de carga de la escena, y también la cantidad de texturas y contenido 3D que el motor necesita manejar en cada fotograma.
 
-For example, the main building of a museum could load from the start, but the paintings on each floor only load for each player as they visit each floor.
+Por ejemplo, el edificio principal de un museo podría cargarse desde el inicio, pero las pinturas en cada piso solo se cargan para cada jugador a medida que visitan cada piso.
 
-See [this example scene](https://github.com/decentraland-scenes/lazy-loading) for how that might work.
+Consulta [esta escena de ejemplo](https://github.com/decentraland-scenes/lazy-loading) para ver cómo podría funcionar eso.
 
-For the best result in terms of avoiding hiccups, hide entities by switching their shape's `visible` property to false. With this approach, you add them to the engine when creating them, but you simply don't make their models visible.
+Para el mejor resultado en términos de evitar interrupciones, oculta entidades cambiando la propiedad `visible` de su forma a false. Con este enfoque, las agregas al motor al crearlas, pero simplemente no haces visibles sus modelos.
 
-An alternative is to not add the entities to the engine until needed. This may result in some hiccups when the entities appear for the first time, and they might also take a couple of seconds to become visible. The advantage of this approach is that it's a valid way to get around the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md). Keep in mind that the scene limitations count is for the content that is being rendered in the scene at any given time, not for the total content that could be rendered. Loading and unloading parts of the scene should allow you to work around those limitations.
+Una alternativa es no agregar las entidades al motor hasta que sea necesario. Esto puede resultar en algunas interrupciones cuando las entidades aparecen por primera vez, y también pueden tardar un par de segundos en volverse visibles. La ventaja de este enfoque es que es una forma válida de evitar las [limitaciones de escena](../sdk7/optimizing/scene-limitations.md). Ten en cuenta que el conteo de limitaciones de escena es para el contenido que se está renderizando en la escena en un momento dado, no para el contenido total que podría renderizarse. Cargar y descargar partes de la escena debería permitirte evitar esas limitaciones.
 
 {% hint style="warning" %}
-**📔 Note**: Entities that are not visible but are added to the engine do count towards the scene limitations.
+**📔 Nota**: Las entidades que no son visibles pero están agregadas al motor sí cuentan para las limitaciones de escena.
 {% endhint %}
 
-You can also toggle animations on or off for entities that are far or occluded. For example, for an NPC that plays a very subtle idle animation, you could make it only play that animation when the player is at less than 20 meters away. Use a trigger area around the NPC and toggle its animations on or off accordingly.
+Tambié
+
+n puedes activar/desactivar animaciones para entidades que están lejos u ocultas. Por ejemplo, para un NPC que reproduce una animación idle muy sutil, podrías hacer que solo reproduzca esa animación cuando el jugador esté a menos de 20 metros. Usa un área de activación alrededor del NPC y activa/desactiva sus animaciones en consecuencia.
 
 {% hint style="info" %}
-**💡 Tip**: When an entity is far away and small enough, it's culled by the engine. This culling helps at a drawcall level, removing entities from the engine is always better. This culling also doesn't take occlusion by other entities into account, so entities that are not so small but hidden by a wall are still rendered.
+**💡 Tip**: Cuando una entidad está lejos y lo suficientemente pequeña, es descartada por el motor. Este descarte ayuda a nivel de drawcall, eliminar entidades del motor siempre es mejor. Este descarte tampoco toma en cuenta la oclusión por otras entidades, por lo que las entidades que no son tan pequeñas pero están ocultas por una pared aún se renderizan.
 {% endhint %}
 
-#### Async blocks
+#### Bloques Async
 
-Blocks of [async code](../../../creator/sdk7/programming-patterns/async-functions.md) are processed in a separate thread from the rest of the scene, to prevent blocking the progress of everything else.
+Los bloques de [código async](../sdk7/programming-patterns/async-functions.md) se procesan en un hilo separado del resto de la escena, para evitar bloquear el progreso de todo lo demás.
 
-Any processes that rely on responses from asynchronous services, such as `getPlayerData()` or `getRealm()` should always run in async blocks, as they otherwise block the rest of the scene's loading while waiting for a response. The same applies to any calls to third party servers.
+Cualquier proceso que dependa de respuestas de servicios asíncronos, como `getPlayerData()` o `getRealm()` siempre debe ejecutarse en bloques async, ya que de lo contrario bloquean el resto de la carga de la escena mientras esperan una respuesta. Lo mismo aplica a cualquier llamada a servidores de terceros.
 
-Note that the scene will be considered fully loaded when everything that isn't async is done. Async processes might still be running when the player enters the scene. Avoid situations where an async process results in the loading of an entity that could potentially get the player stuck inside of its geometry.
+Ten en cuenta que la escena se considerará completamente cargada cuando todo lo que no es async esté hecho. Los procesos async podrían aún estar ejecutándose cuando el jugador entre a la escena. Evita situaciones donde un proceso async resulte en la carga de una entidad que potencialmente podría dejar al jugador atrapado dentro de su geometría.
 
-#### Rely on Events
+#### Depender de Eventos
 
-Try to make the scene's logic rely on listening to [events](../../../creator/sdk7/interactivity/event-listeners.md) as much as possible, instead of running checks every frame.
+Intenta hacer que la lógica de la escena dependa de escuchar [eventos](../sdk7/interactivity/event-listeners.md) tanto como sea posible, en lugar de ejecutar verificaciones en cada fotograma.
 
-The `update()` function in a [system](../../../creator/sdk7/architecture/systems.md) runs on every frame, 30 times per second (ideally). Avoid doing recurring checks if you can instead subscribe to an event.
+La función `update()` en un [sistema](../sdk7/architecture/systems.md) se ejecuta en cada fotograma, 30 veces por segundo (idealmente). Evita hacer verificaciones recurrentes si en su lugar puedes suscribirte a un evento.
 
-For example, instead of constantly checking the player's wearables, you can subscribe to the `onProfileChanged` event, and check the player's wearables only when they've changed.
+Por ejemplo, en lugar de verificar constantemente los wearables del jugador, puedes suscribirte al evento `onProfileChanged`, y verificar los wearables del jugador solo cuando han cambiado.
 
-If you must use a system, avoid doing checks or adjustments on every single frame. You can include a timer as part of the update function and only run the check once per every full second, or whatever period makes sense.
+Si debes usar un sistema, evita hacer verificaciones o ajustes en cada fotograma individual. Puedes incluir un temporizador como parte de la función update y solo ejecutar la verificación una vez por cada segundo completo, o cualquier período que tenga sentido.
 
-### Optimize 3D models
+### Optimizar modelos 3D
 
-There are several ways in which your 3D models can be optimized to be lighter.
+Hay varias formas en las que tus modelos 3D pueden optimizarse para ser más ligeros.
 
-When working with the [Creator Hub](../../../creator/scene-editor/get-started/editor-installation.md), you can see stats about the resources used by 3D models in your scene, and if they pass any of the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md).
+Al trabajar con el [Creator Hub](../scene-editor/get-started/editor-installation.md), puedes ver estadísticas sobre los recursos usados por modelos 3D en tu escena, y si pasan alguna de las [limitaciones de escena](../sdk7/optimizing/scene-limitations.md).
 
-![](../../.gitbook/assets/triangle-limit1.png)
+![](../images/editor/triangle-limit1.png)
 
-You can expand this menu to view details.
+Puedes expandir este menú para ver detalles.
 
-![](../../.gitbook/assets/triangle-limit2.png)
+![](../images/editor/triangle-limit2.png)
 
-Here are some tips for improving on these metrics:
-
-*   When possible, share textures across 3D models. A good practice is to use a single texture as an atlas map, shared across all models in the scene. It's better to have 1 large shared texture of 1024x1024 pixels instead of several small ones.
-
-    > Note: Avoid using the same image file for both the albedo texture and the normal map or the emissive map of a material. Use separate files, even if identical. Assigning a same image file to different types of texture properties may introduce unwanted visual artifacts when compressed to asset bundles.
-* _.glb_ is a compressed format, it will always weigh less than a _.gltf_. On the other hand, with _.gltf_ it's easy to share texture images by exporting textures as a separate file. You can have the best of both worlds by using the [following pipeline](https://github.com/AnalyticalGraphicsInc/gltf-pipeline), that allows you to have _.glb_ models with external texture files.
-* Avoid using blended transparencies. Blended transparencies have to bypass quite a few of the rendering optimizations. If possible, favor opaque or alpha tested geometry.
-* Avoid skinned meshes. They can drag down the performance significantly.
-
-{% hint style="info" %}
-**💡 Tip**: Read more on 3D model best practices in the \[3D Modeling Section]\(/creator/3d-modeling/3d-models
-{% endhint %}
-
-#### Asset Bundle conversion
-
-About once a day, the Decentraland content servers run a process to compress every _.gltf_ and _.glb_ model in every newly deployed scene to asset bundle format. This format is _significantly_ lighter, making scenes a lot faster to load and smoother to run on the browser.
-
-{% hint style="info" %}
-**💡 Tip**: When planning an event in Decentraland, make sure you deploy your scene a day in advance, so that the models are all converted to asset bundles by then. If you don't want to spoil the surprize before the event, you can deploy a version of your scene that includes all the final 3D models in the project folder, but where these are not visible or where their size is set to 0.
-{% endhint %}
-
-{% hint style="warning" %}
-**📔 Note**: If you make _any_ change to a 3D model file, even if just a name change, it will be considered a new file, and must be converted to asset bundle format again.
-{% endhint %}
-
-### Connectivity
-
-If your scene connects to any 3rd party servers or uses the [messagebus](../../../creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages) to send messages between players, there are also some things you might want to keep in mind.
-
-* Your scene should only have one active WebSockets connection at a time.
-* HTTP calls are funneled by the engine so that only one is handled at a time. Any additional requests are queued internally and must wait till other requests are completed. This queuing process is handled automatically, you don't need to do anything.
-* When using the [messagebus](../../../creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages) to send messages between players, be mindful that all messages are sent to all other players in the server island. Avoid situations where an incoming message directly results in sending another message, as the number of messages can quickly grow exponentially when there's a crowd in the scene.
-
-### Scene UI
-
-Scene UIs can become costly to render when they are made up of many individual elements. Keep in mind that each UI element requires a separate drawcall on the engine.
-
-{% hint style="info" %}
-**💡 Tip**: Try to merge multiple elements into one single image. For example if you have a menu with multiple text elements, it's ideal to have the text from the tiles and any additional images baked into the background image. That saves the engine from doing one additional drawcall per frame for each text element.
-{% endhint %}
-
-Avoid making adjustments to the UI on every frame, those are especially costly and can end up getting queued. For example, if there's a health bar in your UI that should shrink over period of time, players would probably not notice a difference between if it updates at 10 FPS instead of at 30 FPS (on every frame). The system that updates this bar can use a brief timer that counts 100 milliseconds, and only affect the UI when this timer reaches 0.
-
-Avoid having many hidden UI elements, these also have an effect on performance even if not being rendered. When possible, try to create UI components on demand.
-
-### Monitor Performance
-
-The best metric to know how well a scene is performing is the FPS (Frames Per Second). In preview, you can see the current scene FPS in the debug panel. You should aim to always have 30 FPS or more.
-
-In the deployed scene, you can toggle the panel that shows these metrics by writing `/showfps` into the chat window.
-
-One of the main bottlenecks in a scene’s performance is usually the sending of messages between the scene’s code and the engine.
-
-When you run a scene in preview, note that on the top-right corner it says “Y = Toggle Panel”. Hit Y on the keyboard to open a panel with some useful information that gets updated in real time.
-
-As you interact with things that involve messages between the SDK and the engine, you’ll notice the ‘Processed Messages’ number grows. You should closely watch the ‘Pending on Queue’ number, it should always be 0 or close to 0. This tells you how many of these messages didn't get to be processed, and got pushed to a queue. If the ‘Pending on Queue’ count starts to grow, then you’ve entered the danger zone and should think about doing more optimizations to your scene.
-
-{% hint style="warning" %}
-**📔 Note**: Don’t keep the panel open while you’re not using it, since it has a negative impact on performance.
-{% endhint %}
-
-Keep in mind that the performance you experience in preview may differ from that in production:
-
-* Surrounding neighboring scenes might have a negative impact
-* The compression of the scenes' 3D models into asset bundles can have a positive impact
-* Some players visiting your scene may be running on less powerful hardware
-
-It's always a good practice to try deploying your scene first to the [test environment](../../../creator/sdk7/publishing/publishing.md#the-test-server) to do some more thorough testing.
-
-Always ask players for feedback. Never take for granted that how you experience the scene is the same for everyone else.
+Consulta [Optimización de modelos 3D](../3d-modeling/3d-models.md) para varios consejos sobre cómo mantener tus modelos ligeros.

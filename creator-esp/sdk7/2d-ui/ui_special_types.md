@@ -1,26 +1,23 @@
 ---
-description: Special entitiy types for the UI, including dropdowns and input boxes.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/ui_special_types
+description: Tipos de entidad especiales para la UI, incluyendo dropdowns y cajas de entrada.
 ---
 
-# UI Special Types
+# Tipos Especiales UI
 
-There are certain special entity types that allow for some special kinds of interactions.
+Hay ciertos tipos de entidad especiales que permiten algunos tipos especiales de interacciones.
 
 ### Dropdown
 
-Create a `Dropdown` entity to allow users to expand and select an item from a list.
+Crea una entidad `Dropdown` para permitir a los usuarios expandir y seleccionar un elemento de una lista.
 
-A `Dropdown` entity must have at least the following properties:
+Una entidad `Dropdown` debe tener al menos las siguientes propiedades:
 
-* `options`: What values to display when the dropdown is expanded. Provide an object containting an arraw with a string value for each option. The first value in the array is displayed as the default option.
-* `onChange`: A function that is executed every time that a value is selected in the dropdown, using
+* `options`: Qué valores mostrar cuando el dropdown está expandido. Proporciona un objeto conteniendo un arreglo con un valor de cadena para cada opción. El primer valor en el arreglo se muestra como la opción predeterminada.
+* `onChange`: Una función que se ejecuta cada vez que se selecciona un valor en el dropdown.
 
-You can also configure other comopnents of the `Dropdown` entity, like a `uiTransform`, as in other UI entities.
+También puedes configurar otros componentes de la entidad `Dropdown`, como un `uiTransform`, como en otras entidades UI.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { UiEntity, Label, Dropdown, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -74,7 +71,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -86,20 +83,20 @@ export function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All the following snippets in this page assume that you have a `.ts` similar to the above, running the `ReactEcsRenderer.setUiRenderer()` function.
+**📔 Nota**: Todos los siguientes fragmentos en esta página asumen que tienes un `.ts` similar al anterior, ejecutando la función `ReactEcsRenderer.setUiRenderer()`.
 {% endhint %}
 
-### Input text
+### Texto de entrada
 
-Create an `Input` entity to allow users to to type in text. Players must first click on this box before they can write into it.
+Crea una entidad `Input` para permitir a los usuarios escribir texto. Los jugadores primero deben hacer clic en esta caja antes de que puedan escribir en ella.
 
-The behavior of the `Input` entity is managed via the following properties:
+El comportamiento de la entidad `Input` se gestiona a través de las siguientes propiedades:
 
-* `onSubmit`: A function that is executed when the player hits Return/Enter, using the provided text as input. The text field is cleared when this happens.
-* `onChange`: A function that is executed every time that a value in the input text is changed. As the player types into the box, this function is executed once for each character that is added or removed. It also gets called when the player hits Return/Enter and the text is cleared.
-* `disable`: If _true_, the player won't be able to interact with the input entity.
+* `onSubmit`: Una función que se ejecuta cuando el jugador presiona Retorno/Enter, usando el texto proporcionado como entrada. El campo de texto se limpia cuando esto sucede.
+* `onChange`: Una función que se ejecuta cada vez que se cambia un valor en el texto de entrada. A medida que el jugador escribe en la caja, esta función se ejecuta una vez por cada carácter que se agrega o elimina. También se llama cuando el jugador presiona Retorno/Enter y el texto se limpia.
+* `disable`: Si es _true_, el jugador no podrá interactuar con la entidad de entrada.
 
-The following example uses `onSubmit` to log the provided text to the console.
+El siguiente ejemplo usa `onSubmit` para registrar el texto proporcionado en la consola.
 
 ```tsx
 import { UiEntity, Input, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -137,7 +134,7 @@ export const uiMenu = () => (
 )
 ```
 
-It's a good practice to provide both a button for submitting and handling the "onSubmit" event when the player presses the Enter/Return key. The following example shows how you can do this. Note that for consistency, the function carried out by the button is manually clearing the text in the input field.
+Es una buena práctica proporcionar tanto un botón para enviar como manejar el evento "onSubmit" cuando el jugador presiona la tecla Enter/Retorno. El siguiente ejemplo muestra cómo puedes hacer esto. Ten en cuenta que por consistencia, la función llevada a cabo por el botón está limpiando manualmente el texto en el campo de entrada.
 
 ```tsx
 import { UiEntity, Input, Button, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -190,35 +187,39 @@ export const uiMenu = () => (
 
 function handleSubmitText(value: string) {
   console.log('submitted value: ' + value)
-  // do something with text
+  // hacer algo con el texto
 }
 ```
 
 {% hint style="info" %}
-**💡 Tip**: The example above sets the `value` property of the input text to a variable. With this, you can change the displayed text by simply changing the variable. This allows you to do things like clearing the text, changing placeholder values, or even implementing autocorrect functionalities.
+**💡 Tip**: El ejemplo anterior establece la propiedad `value` del texto de entrada a una variable. Con esto, puedes cambiar el texto mostrado simplemente cambiando la variable. Esto te permite hacer cosas como limpiar el texto, cambiar valores de placeholder, o incluso implementar funcionalidades de autocorrección.
 {% endhint %}
 
-The following properties are also available to customize the look of the text field, most of them similar to those present in `Label` entities:
+Las siguientes propiedades también están disponibles para personalizar el aspecto del campo de texto, la mayoría de ellas similares a las presentes en entidades `Label`:
 
-* `placeHolder`: String to display before the player starts inputing anything. It's useful to make this text a hint about what they should write.
-* `placeHolderColor`: The color to use for the placeholder text, as a [Color4](../../../creator/sdk7/3d-essentials/color-types.md).
+* `placeHolder`: Cadena a mostrar antes de que el jugador comience a ingresar algo. Es útil hacer este texto una pista sobre qué deben escribir.
+* `placeHolderColor`: El color a usar para el texto de placeholder, como un [Color4](../sdk7/3d-essentials/color-types.md).
 
 {% hint style="info" %}
-**💡 Tip**: Use a paler shade of the color of text that the player writes.
+**💡 Tip**: Usa un tono más pálido del color del texto que el jugador escribe.
 {% endhint %}
 
-*   `fontSize`: The size of the text, as a number.
+*   `fontSize`: El tamaño del texto, como un número.
 
-    > NOTE: The `fontSize` is not affected by the size of its entity or parent entities.
-* `color`: The color of the text the player writes, as a [Color4](../../../creator/sdk7/3d-essentials/color-types.md).
+    > NOTA: El `fontSize` no se ve afectado por el tamaño de su entidad o entidades padre.
+* `color`: El color del texto que el jugador escribe, como un [Color4](../sdk7/3d-essentials/color-types.md).
 
 {% hint style="warning" %}
-**📔 Note**: Make sure you use a different color from the `placeHolderColor`.
+**📔 Nota**: Asegúrate de usar un color diferente del `placeHolderColor`.
 {% endhint %}
 
-\- \`font\`: The font to use, taking a value from the \`Font\` enum. Supported values are: - \`serif\` - \`sans-serif\` \_(default)\_ - \`monospace\` - \`textAlign\`: How the text will align with its parent. It takes a value from the \`TextAlignType\`. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+* `font`: La fuente a usar, tomando un valor del enum `Font`. Los valores soportados son: 
+  * `serif` 
+  * `sans-serif` _(predeterminado)_ 
+  * `monospace` 
+* `textAlign`: Cómo se alineará el texto con su padre. Toma un valor del tipo `TextAlignType`. TextAlignType = 'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center' | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 
-You can also configure other components of the `Input` entity, like a `uiTransform`, `OnMouseDown` as in other UI entities.
+También puedes configurar otros componentes de la entidad `Input`, como un `uiTransform`, `OnMouseDown` como en otras entidades UI.
 
 ```tsx
 import { UiEntity, Input, Label, ReactEcs } from '@dcl/sdk/react-ecs'

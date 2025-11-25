@@ -1,30 +1,27 @@
 ---
-description: Learn how to make UIs dynamic, responding to changes in data.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/2d-ui/dynamic-ui
+description: Aprende cómo hacer que las UIs sean dinámicas, respondiendo a cambios en los datos.
 ---
 
-# Dynamic UI
+# UI Dinámica
 
-You can define a UI that includes dynamic elements, that are updated on every tick. You only need to handle the updating the variable that represents this data, and the UI will adapt in response to the new values.
+Puedes definir una UI que incluya elementos dinámicos, que se actualizan en cada tick. Solo necesitas manejar la actualización de la variable que representa estos datos, y la UI se adaptará en respuesta a los nuevos valores.
 
-This is very useful for including elements like a timer, a player's score, etc. But you can even take this a step forward and define entire UI structures based on state.
+Esto es muy útil para incluir elementos como un temporizador, la puntuación de un jugador, etc. Pero incluso puedes llevar esto un paso más allá y definir estructuras UI completas basadas en el estado.
 
-### Reference variables
+### Referenciar variables
 
-You can simply reference a variable in any property of one of the components in a uiEntity. As the variable changes value, the UI will adapt accordingly.
+Puedes simplemente referenciar una variable en cualquier propiedad de uno de los componentes en una uiEntity. A medida que la variable cambia de valor, la UI se adaptará en consecuencia.
 
-The example below defines a variable `playerCurrentPosition` and references it as part of a string in a `uiText` component. A system then updates the value of this variable on every tick, using the player's current position. As the value of the variable changes, the UI updates accordingly, without ever needing to explicitly modify the UI.
+El ejemplo a continuación define una variable `playerCurrentPosition` y la referencia como parte de una cadena en un componente `uiText`. Un sistema luego actualiza el valor de esta variable en cada tick, usando la posición actual del jugador. A medida que el valor de la variable cambia, la UI se actualiza en consecuencia, sin necesidad de modificar explícitamente la UI.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { playerCurrentPosition } from '/index.ts'
 import { Color4 } from '@dcl/sdk/math'
 
-// draw UI
+// dibujar UI
 export const uiMenu = () => (
   <UiEntity
     uiTransform={{
@@ -39,7 +36,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -49,10 +46,10 @@ export function main() {
     ReactEcsRenderer.setUiRenderer(uiMenu)
 }
 
-// define variable
+// definir variable
 let playerCurrentPosition: string = ""
 
-// system to update variable
+// sistema para actualizar variable
 engine.addSystem(() => {
   const playerPosition = Transform.getOrNull(engine.PlayerEntity)
   if (!playerPosition) return
@@ -61,7 +58,7 @@ engine.addSystem(() => {
 })
 ```
 
-In the example above, you could also include the variable as part of the string, by signaling the variable with a `$`.
+En el ejemplo anterior, también podrías incluir la variable como parte de la cadena, señalando la variable con un `$`.
 
 ```ts
 uiText={{
@@ -70,15 +67,15 @@ uiText={{
 }}
 ```
 
-### Call functions from inside a UI
+### Llamar funciones desde dentro de una UI
 
-You can also call a function from inside a JSX definition, returning a value to use in a property of the UI. Functions that are called from inside this JSX definition are called recurrently, on every tick of the game loop.
+También puedes llamar una función desde dentro de una definición JSX, devolviendo un valor para usar en una propiedad de la UI. Las funciones que se llaman desde dentro de esta definición JSX se llaman recurrentemente, en cada tick del bucle del juego.
 
-In the example below, a `uiText` component calls the `getPlayerPosition()` function to define part of the string to display.
+En el ejemplo a continuación, un componente `uiText` llama a la función `getPlayerPosition()` para definir parte de la cadena a mostrar.
 
-This example is similar to the one in the previous section, but by calling a function from inside the UI definition we avoid declaring a separate variable and defining a system to alter that variable. Note that `getPlayerPosition()` gets called on every tick of the game loop, without needing to explicitly declare a system.
+Este ejemplo es similar al de la sección anterior, pero al llamar una función desde dentro de la definición de la UI evitamos declarar una variable separada y definir un sistema para alterar esa variable. Ten en cuenta que `getPlayerPosition()` se llama en cada tick del bucle del juego, sin necesidad de declarar explícitamente un sistema.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -106,7 +103,7 @@ function getPlayerPosition(){
 }
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -117,30 +114,30 @@ export function main() {
 }
 ```
 
-### Toggle a UI on and off
+### Activar y desactivar una UI
 
-The easiest way to toggle a UI on and off is to use a variable for the value of the `display` property in an entity's `uiTransform`. The `display` property makes a UI entity and all of its children invisible if set to `none`.
+La forma más fácil de activar y desactivar una UI es usar una variable para el valor de la propiedad `display` en el `uiTransform` de una entidad. La propiedad `display` hace que una entidad UI y todos sus hijos sean invisibles si se establece en `none`.
 
-The following example uses a variable to set the `display` field of a part of the UI. The value of this variable can be toggled by clicking on another UI element.
+El siguiente ejemplo usa una variable para establecer el campo `display` de una parte de la UI. El valor de esta variable puede activarse/desactivarse al hacer clic en otro elemento de la UI.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
 
-// Variable to reflect current state of menu visibility
+// Variable para reflejar el estado actual de visibilidad del menú
 var isMenuVisible: boolean = false
 
-// Function to toggle the state of the menu
+// Función para alternar el estado del menú
 function toggleMenuVisibility() {
   isMenuVisible = !isMenuVisible
 }
 
 export const uiMenu = () => (
-   // parent
+   // padre
    <UiEntity>
-      // Menu
+      // Menú
       <UiEntity
        uiTransform={{
           width: '80%',
@@ -155,7 +152,7 @@ export const uiMenu = () => (
         }}
         uiBackground={{ color: Color4.Green() }}
       />
-      // button
+      // botón
       <UiEntity
         uiTransform={{
           width: 100,
@@ -173,7 +170,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -184,13 +181,13 @@ export function main() {
 }
 ```
 
-### Dynamic UI entities
+### Entidades UI dinámicas
 
-The examples in the sections above show how to dynamically change a single property in an entity, but you can also define entire structures of entities that can scale based on dynamically changing data. This kind of pattern is common in web development when using libraries like React, and is extremely powerful. With this you can define extremely flexible and scalable UI applications.
+Los ejemplos en las secciones anteriores muestran cómo cambiar dinámicamente una sola propiedad en una entidad, pero también puedes definir estructuras completas de entidades que pueden escalar basándose en datos que cambian dinámicamente. Este tipo de patrón es común en desarrollo web al usar librerías como React, y es extremadamente poderoso. Con esto puedes definir aplicaciones UI extremadamente flexibles y escalables.
 
-The following example lists the ids of all entities in the scene that have a `MeshRenderer` and `Transform`. It creates a `uiText` for each. As the scene's content changes, the list of UI entities also adapts on every tick.
+El siguiente ejemplo lista los ids de todas las entidades en la escena que tienen un `MeshRenderer` y `Transform`. Crea un `uiText` para cada una. A medida que el contenido de la escena cambia, la lista de entidades UI también se adapta en cada tick.
 
-_**ui.tsx file:**_
+_**Archivo ui.tsx:**_
 
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
@@ -234,7 +231,7 @@ function TextComponent(props: { value: string; key: string | number }) {
 }
 ```
 
-_**index.ts file:**_
+_**Archivo index.ts:**_
 
 ```ts
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'

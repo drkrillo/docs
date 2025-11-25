@@ -1,23 +1,19 @@
 ---
 description: >-
-  Use the game object pattern to make your code more readable and easier to
-  scale.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/programming-patterns/game-objects
+  Usa el patrón de game object para hacer tu código más legible y más fácil de
+  escalar.
 ---
 
 # Game Objects
 
-As your scene becomes more complicated, it's useful to put some of the logic into separate game object files. By doing this, you can keep the main code for the scene clean and simple to read, while encapsulating reusable parts that control several entities in the scene.
+A medida que tu escena se vuelve más complicada, es útil poner parte de la lógica en archivos de game object separados. Al hacer esto, puedes mantener el código principal de la escena limpio y simple de leer, mientras encapsulas partes reutilizables que controlan varias entidades en la escena.
 
-A Game Object holds all the properties and methods for a type of entity you might find in your scene, for example a door or a button or a monster. Thanks to this abstraction, the files with your scene's main logic can instance full game objects through just one line of code. You can also call the methods on these objects with the same ease.
+Un Game Object contiene todas las propiedades y métodos para un tipo de entidad que podrías encontrar en tu escena, por ejemplo una puerta o un botón o un monstruo. Gracias a esta abstracción, los archivos con la lógica principal de tu escena pueden instanciar game objects completos a través de solo una línea de código. También puedes llamar a los métodos en estos objetos con la misma facilidad.
 
-We recommend keeping game object definitions each in a separate file.
+Recomendamos mantener las definiciones de game object cada una en un archivo separado.
 
-### The Type Object Pattern
+### El Patrón Type Object
 
-If your scene uses various types of game objects that have much in common, you might want to take this refactor even further, and define a _base_ game object type with all the things that these have in common. You can then create sub classes that inherit from this base class.
+Si tu escena usa varios tipos de game objects que tienen mucho en común, puede que quieras llevar este refactor incluso más lejos, y definir un game object _base_ con todas las cosas que estos tienen en común. Luego puedes crear subclases que hereden de esta clase base.
 
-You can read more about this pattern in [Game Programming Patterns](http://www.gameprogrammingpatterns.com/type-object.html).
+Puedes leer más sobre este patrón en [Game Programming Patterns](http://www.gameprogrammingpatterns.com/type-object.html).

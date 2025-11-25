@@ -1,34 +1,30 @@
 ---
-description: Using a server to sync changes in the scene for all players
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/networking/authoritative-servers
+description: Usar un servidor para sincronizar cambios en la escena para todos los jugadores
 ---
 
-# Authoritative Servers
+# Servidores Autoritativos
 
-Decentraland runs scenes locally in a player's browser. By default, players are able to see each other and interact directly, but each one interacts with the environment independently. Changes in the environment aren't shared between players by default. You need to implement this manually.
+Decentraland ejecuta escenas localmente en el navegador de un jugador. Por defecto, los jugadores pueden verse e interactuar directamente entre sí, pero cada uno interactúa con el entorno de manera independiente. Los cambios en el entorno no se comparten entre jugadores por defecto. Debes implementar esto manualmente.
 
-Allowing all players to see a scene as having the same content in the same state is extremely important to for players to interact in more meaningful ways. Without this, if a player opens a door and walks into a house, other players will see that door as still closed, and the first player will appear to walk directly through the closed door to other players.
+Permitir que todos los jugadores vean una escena teniendo el mismo contenido en el mismo estado es extremadamente importante para que los jugadores interactúen de maneras más significativas. Sin esto, si un jugador abre una puerta y entra a una casa, otros jugadores verán esa puerta como aún cerrada, y el primer jugador parecerá caminar directamente a través de la puerta cerrada para otros jugadores.
 
-* **Mark an entity as synced**: The easiest option. See [Marked an entity as synced](../../../creator/sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced)
-* **Send Explicit MessageBus Messages**: Manually send and listen for specific messages. See [Send explicit MessageBus messages](../../../creator/sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages)
-* **Use a Server**: This document deals with this option. This option is more work to set up, but is recommendable if there are incentives to exploit your scene.
+* **Marcar una entidad como sincronizada**: La opción más fácil. Consulta [Marcar una entidad como sincronizada](../sdk7/networking/serverless-multiplayer.md#mark-an-entity-as-synced)
+* **Enviar Mensajes MessageBus Explícitos**: Enviar y escuchar manualmente mensajes específicos. Consulta [Enviar mensajes MessageBus explícitos](../sdk7/networking/serverless-multiplayer.md#send-explicit-messagebus-messages)
+* **Usar un Servidor**: Este documento trata sobre esta opción. Esta opción requiere más trabajo para configurar, pero es recomendable si hay incentivos para explotar tu escena.
 
-### Types of servers
+### Tipos de servidores
 
-A server may have different levels of involvement with the scene:
+Un servidor puede tener diferentes niveles de participación con la escena:
 
-* API + DB: This is useful for scenes where changes don't happen constantly and where it's acceptable to have minor delays in syncing. When a player changes something, it sends an HTTP request to a REST API that stores the new scene state in a data base. Changes remained stored for any new player that visits the scene at a later date. The main limitation is that new changes from other players aren't notified to players who are already there, messages can't be pushed from the server to players. Players must regularly send requests the server to get the latest state.
+* API + DB: Esto es útil para escenas donde los cambios no ocurren constantemente y donde es aceptable tener retrasos menores en la sincronización. Cuando un jugador cambia algo, envía una solicitud HTTP a una API REST que almacena el nuevo estado de la escena en una base de datos. Los cambios se mantienen almacenados para cualquier jugador nuevo que visite la escena en una fecha posterior. La principal limitación es que los nuevos cambios de otros jugadores no se notifican a los jugadores que ya están allí, los mensajes no pueden enviarse desde el servidor a los jugadores. Los jugadores deben enviar regularmente solicitudes al servidor para obtener el último estado.
 
 {% hint style="info" %}
-**💡 Tip**: It's also possible to opt for a hybrid approach where changes are notified between players via Messagebus messages, but the final state is also stored via an API for future visitors.
+**💡 Tip**: También es posible optar por un enfoque híbrido donde los cambios se notifican entre jugadores a través de mensajes Messagebus, pero el estado final también se almacena a través de una API para futuros visitantes.
 {% endhint %}
 
-* Websockets: This alternative is more robust, as it establishes a two-way communications channel between player and server. Updates can be sent from the server, you could even have game logic run on or validated on the server. This enables real time interaction and makes more fast paced games possible. It's also more secure, as each message between player and server is part of a session that is opened, no need to validate each message.
+* Websockets: Esta alternativa es más robusta, ya que establece un canal de comunicación bidireccional entre jugador y servidor. Las actualizaciones pueden enviarse desde el servidor, incluso podrías tener lógica de juego ejecutándose o validándose en el servidor. Esto habilita interacción en tiempo real y hace posibles juegos de ritmo más rápido. También es más seguro, ya que cada mensaje entre jugador y servidor es parte de una sesión que se abre, no hay necesidad de validar cada mensaje.
 
-### Example scenes with dedicated server
+### Escenas de ejemplo con servidor dedicado
 
 API + DB:
 
@@ -36,46 +32,46 @@ API + DB:
 * [Guestbook](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/guest-book-api)
 * [Validate authenticity](https://github.com/decentraland/sdk7-goerli-plaza/tree/main/validate-player-authenticity)
 
-### Preview scenes with dedicated servers
+### Vista previa de escenas con servidores dedicados
 
-To preview a scene that uses a 3rd party server, you must run both the scene and the server it relies on. The server can be run locally in the same machine as the preview, as an easier way to test it. When running locally, the server can use unsafe `http` or `ws` connections, for easier setup.
+Para previsualizar una escena que usa un servidor de terceros, debes ejecutar tanto la escena como el servidor del que depende. El servidor puede ejecutarse localmente en la misma máquina que la vista previa, como una forma más fácil de probarlo. Al ejecutarse localmente, el servidor puede usar conexiones `http` o `ws` no seguras, para una configuración más fácil.
 
-To start the server, go to the `/server` folder and run `npm run start`.
+Para iniciar el servidor, ve a la carpeta `/server` y ejecuta `npm run start`.
 
-Once the server is running, either remotely or locally, you can run your scene as you normally do.
+Una vez que el servidor esté ejecutándose, ya sea remotamente o localmente, puedes ejecutar tu escena como normalmente lo haces.
 
-#### Test a multiplayer scene locally
+#### Probar una escena multijugador localmente
 
-If you launch a scene preview and open it in two (or more) different explorer windows, each open window will be interpreted as a separate player, and a mock communications server will keep these players in sync.
+Si lanzas una vista previa de escena y la abres en dos (o más) ventanas diferentes del explorador, cada ventana abierta será interpretada como un jugador separado, y un servidor de comunicaciones simulado mantendrá a estos jugadores sincronizados.
 
-Interact with the scene on one window, then switch to the other to see that the effects of that interaction are also visible there.
+Interactúa con la escena en una ventana, luego cambia a la otra para ver que los efectos de esa interacción también son visibles allí.
 
-Using the Creator Hub, click the Preview button a second time, and that opens a second Decentraland explorer window. You must connect on both windows with different addresses. The same sessions will remain open as the scene reloads.
+Usando el Creator Hub, haz clic en el botón Preview una segunda vez, y eso abre una segunda ventana del explorador de Decentraland. Debes conectarte en ambas ventanas con direcciones diferentes. Las mismas sesiones permanecerán abiertas mientras la escena se recarga.
 
-![](../../.gitbook/assets/preview-button.png)
+![](../images/editor/preview-button.png)
 
-As an alternative, you can open a second Decentraland explorer window by writing the following into a browser URL:
+Como alternativa, puedes abrir una segunda ventana del explorador de Decentraland escribiendo lo siguiente en una URL del navegador:
 
 > `decentraland://realm=http://127.0.0.1:8000&local-scene=true&debug=true`
 
-### Separate realms
+### Realms separados
 
-Players in decentraland exist in many separate _realms_. Players in different realms cant see each other, interact or chat with each other, even if they're standing on the same parcels. Dividing players like this allows Decentraland to handle an unlimited amount of players without running into any limitations. It also pairs players that are in close regions, to ensure that ping times between players that interact are acceptable.
+Los jugadores en decentraland existen en muchos _realms_ separados. Los jugadores en diferentes realms no pueden verse, interactuar o chatear entre sí, incluso si están parados en las mismas parcelas. Dividir a los jugadores de esta manera permite a Decentraland manejar una cantidad ilimitada de jugadores sin encontrarse con limitaciones. También empareja jugadores que están en regiones cercanas, para asegurar que los tiempos de ping entre jugadores que interactúan sean aceptables.
 
-If your scene sends data to a 3rd party server to sync changes between players in real time, then it's important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
+Si tu escena envía datos a un servidor de terceros para sincronizar cambios entre jugadores en tiempo real, entonces es importante que los cambios solo se sincronicen entre jugadores que estén en el mismo realm. Debes manejar todos los cambios que pertenecen a un realm como separados de aquellos en un realm diferente. De lo contrario, los jugadores verán cosas cambiar de una manera espeluznante, sin nadie haciendo el cambio.
 
-See how to obtain the realm for each player in [get player data](../../../creator/sdk7/interactivity/user-data.md)
+Consulta cómo obtener el realm para cada jugador en [obtener datos del jugador](../sdk7/interactivity/user-data.md)
 
-### Multiplayer persistance
+### Persistencia multijugador
 
-Unlike local scenes that are newly mounted each time a player walks into them, scenes that use 3rd party servers have a life span that extends well beyond when the player enters and leaves the scene.
+A diferencia de las escenas locales que se montan nuevamente cada vez que un jugador entra a ellas, las escenas que usan servidores de terceros tienen un lapso de vida que se extiende mucho más allá de cuando el jugador entra y sale de la escena.
 
-You must therefore design the experience taking into account that player won't always find the scene in the same initial state. Any changes made to the scene will linger on for other players to find, you must make sure that these don't interfere with future player's experiences in an undesired way.
+Por lo tanto, debes diseñar la experiencia teniendo en cuenta que los jugadores no siempre encontrarán la escena en el mismo estado inicial. Cualquier cambio hecho a la escena persistirá para que otros jugadores lo encuentren, debes asegurarte de que estos no interfieran con las experiencias de futuros jugadores de una manera no deseada.
 
-#### Reset the state
+#### Restablecer el estado
 
-When loading the scene, make sure its built based on the shared information stored in the server, and not in a default state.
+Al cargar la escena, asegúrate de que esté construida basándose en la información compartida almacenada en el servidor, y no en un estado predeterminado.
 
-In some cases, it makes sense to include some kind of reset button in the scene. Pressing the reset button would reset the scene gracefully.
+En algunos casos, tiene sentido incluir algún tipo de botón de reinicio en la escena. Presionar el botón de reinicio reiniciaría la escena con gracia.
 
-Sometimes, this just implies setting the variables in the scene state back to default values. But resetting the scene might also involve unsubscribing listeners and stopping loops in the server side. If empty loops remain each time the scene is reset, these would keep piling up and will have an ill effect on the scene's performance.
+A veces, esto solo implica establecer las variables en el estado de la escena de vuelta a valores predeterminados. Pero reiniciar la escena también puede implicar desuscribirse de listeners y detener loops en el lado del servidor. Si loops vacíos permanecen cada vez que se reinicia la escena, estos se seguirían acumulando y tendrían un efecto negativo en el rendimiento de la escena.
