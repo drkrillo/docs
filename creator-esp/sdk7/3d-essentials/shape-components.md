@@ -1,47 +1,44 @@
 ---
-description: >-
-  Learn about the different components that give entities their 3D shape and
-  collision.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/shape-components
+description: Aprende sobre los diferentes componentes que dan a las entidades su forma 3D y colisión
 ---
 
-# Shape Components
+# Componentes de forma
 
-Three dimensional scenes in Decentraland are based on the [Entity-Component](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system) model, where everything in a scene is an _entity_, and each entity can include _components_ that shape its characteristics and functionality.
+Las escenas tridimensionales en Decentraland se basan en el modelo [Entity-Component](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system), donde todo en una escena es una _entity_, y cada entidad puede incluir _components_ que dan forma a sus características y funcionalidad.
 
-The rendered shape of an entity is determined by what component it uses.
+La forma renderizada de una entidad está determinada por el componente que usa.
 
-![](../../.gitbook/assets/ecs-simple-components-new.png)
+<img src="../../../images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-The easiest way to give an entity a shape is to use the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md). You can add a **Mesh Renderer** component to provide a primitive shape, or a **GLTF** component to reference a 3D model from a file. See [Add Components](../../../creator/scene-editor/build/components.md#add-components).
+La forma más fácil de darle una forma a una entidad es usar el [Scene Editor](../../scene-editor/about-editor.md). Puedes agregar un componente **Mesh Renderer** para proporcionar una forma primitiva, o un componente **GLTF** para hacer referencia a un modelo 3D desde un archivo. Consulta [Agregar Componentes](../../scene-editor/components.md#add-components).
 
-### Primitive shapes
+## Formas primitivas
 
-Several basic shapes, often called _primitives_, can be added to an entity by giving the entity a `MeshRenderer` component.
+Varias formas básicas, a menudo llamadas _primitivas_, pueden agregarse a una entidad dándole a la entidad un componente `MeshRenderer`.
 
-The following shapes are available. Several shapes include optional additional fields, specific to that shape.
+Las siguientes formas están disponibles. Varias formas incluyen campos adicionales opcionales, específicos para esa forma.
 
-*   **box**:
+- **box**:
 
-    Use `MeshRenderer.setBox()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials](../../../creator/sdk7/3d-essentials/materials.md) for more details.
-*   **plane**:
+  Usa `MeshRenderer.setBox()`, pasando la entidad. Pasa `uvs` como un campo adicional opcional, para mapear la alineación de texturas. Consulta [materiales](materials.md) para más detalles.
 
-    Use `MeshRenderer.setPlane()`, passing the entity. Pass `uvs` as an additional optional field, to map texture alignment. See [materials](../../../creator/sdk7/3d-essentials/materials.md) for more details.
-*   **sphere**:
+- **plane**:
 
-    Use `MeshRenderer.setSphere()`, passing the entity.
-*   **cylinder**:
+  Usa `MeshRenderer.setPlane()`, pasando la entidad. Pasa `uvs` como un campo adicional opcional, para mapear la alineación de texturas. Consulta [materiales](materials.md) para más detalles.
 
-    Use `MeshRenderer.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+- **sphere**:
 
-    TIP: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
+  Usa `MeshRenderer.setSphere()`, pasando la entidad.
 
-The following example creates a cube:
+- **cylinder**:
+
+  Usa `MeshRenderer.setCylinder()`, pasando la entidad. Pasa `radiusTop` y `radiusBottom` como campos adicionales opcionales, para modificar el cilindro.
+
+  CONSEJO: Establece `radiusTop` o `radiusBottom` en 0 para hacer un cono.
+
+El siguiente ejemplo crea un cubo:
 
 ```ts
 const myCube = engine.addEntity()
@@ -53,7 +50,7 @@ Transform.create(myCube, {
 MeshRenderer.setBox(myCube)
 ```
 
-The following example creates a cylinder with a `radiusTop` of 0, which produces a cone:
+El siguiente ejemplo crea un cilindro con un `radiusTop` de 0, lo que produce un cono:
 
 ```ts
 const myCone = engine.addEntity()
@@ -65,11 +62,11 @@ Transform.create(myCone, {
 MeshRenderer.setCylinder(myCone, 0, 1)
 ```
 
-Primitive shapes don't include materials. To give it a color or a texture, you must assign a [material component](../../../creator/sdk7/3d-essentials/materials.md) to the same entity.
+Las formas primitivas no incluyen materiales. Para darle un color o una textura, debes asignar un [componente de material](materials.md) a la misma entidad.
 
-To make a primitive clickable, or to prevent players from walking through it, you must give the entity a _collider_ via a [MeshCollider](../../../creator/sdk7/3d-essentials/colliders.md) component.
+Para hacer una primitiva clickeable, o para evitar que los jugadores caminen a través de ella, debes darle a la entidad un _collider_ a través de un componente [MeshCollider](colliders.md).
 
-To change the shape of an entity that already has a `MeshRenderer` component, run `MeshRenderer.setBox()` or any of the other helper functions and it will overwrite the original shape. There's no need to remove the original `MeshRenderer` or to use the advanced syntax.
+Para cambiar la forma de una entidad que ya tiene un componente `MeshRenderer`, ejecuta `MeshRenderer.setBox()` o cualquiera de las otras funciones auxiliares y sobrescribirá la forma original. No hay necesidad de eliminar el `MeshRenderer` original o de usar la sintaxis avanzada.
 
 ```ts
 const myCube = engine.addEntity()
@@ -80,23 +77,23 @@ Transform.create(myCube, {
 
 MeshRenderer.setBox(myCube)
 
-// overwrite shape
+// sobrescribir forma
 MeshRenderer.setSphere(myCube)
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `MeshRenderer` component must be imported via
+**📔 Nota**: El componente `MeshRenderer` debe importarse mediante
 
 > `import { MeshRenderer } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### 3D models
+## Modelos 3D
 
-For more complex shapes, you can build a 3D model in an external tool like Blender and then import them in _.glTF_ or _.glb_ (binary _.glTF_). [glTF](https://www.khronos.org/gltf) (GL Transmission Format) is an open project by Khronos providing a common, extensible format for 3D assets that is both efficient and highly interoperable with modern web technologies.
+Para formas más complejas, puedes construir un modelo 3D en una herramienta externa como Blender y luego importarlos en _.glTF_ o _.glb_ (_.glTF_ binario). [glTF](https://www.khronos.org/gltf) (GL Transmission Format) es un proyecto abierto de Khronos que proporciona un formato común y extensible para activos 3D que es eficiente y altamente interoperable con las tecnologías web modernas.
 
-To add an external model into a scene, add a `GltfContainer` component to an entity and set its `src` to the path of the glTF file containing the model.
+Para agregar un modelo externo a una escena, agrega un componente `GltfContainer` a una entidad y establece su `src` a la ruta del archivo glTF que contiene el modelo.
 
 ```ts
 const houseEntity = engine.addEntity()
@@ -106,60 +103,60 @@ GltfContainer.create(houseEntity, {
 })
 ```
 
-The `src` field is required, you must give it a value when constructing the component. In the example above, the model is located in a `models` folder at root level of the scene project folder.
+El campo `src` es obligatorio, debes darle un valor al construir el componente. En el ejemplo anterior, el modelo se encuentra en una carpeta `models` a nivel raíz de la carpeta del proyecto de la escena.
 
 {% hint style="info" %}
-**💡 Tip**: We recommend keeping your models separate in the `assets/scene/models` folder inside your scene.
+**💡 Consejo**: Recomendamos mantener tus modelos separados en la carpeta `assets/scene/models` dentro de tu escena.
 {% endhint %}
 
-glTF models can include their own embedded textures, materials, colliders and animations. See [3D models](https://github.com/decentraland/docs-creator/blob/main/creator/3d-modeling/3d-models/README.md) for more information on this. To override the materials of a model, use the [GltfNodeModifiers](../../../creator/sdk7/3d-essentials/materials.md#modify-gltf-materials) component. See [Modify glTF materials](../../../creator/sdk7/3d-essentials/materials.md#modify-gltf-materials) for more details.
+Los modelos glTF pueden incluir sus propias texturas, materiales, colisionadores y animaciones incrustadas. Consulta [modelos 3D](/creator/3d-modeling/3d-models) para más información al respecto. Para anular los materiales de un modelo, usa el componente [GltfNodeModifiers](materials.md#modify-gltf-materials). Consulta [Modificar materiales glTF](materials.md#modify-gltf-materials) para más detalles.
 
-To prevent players from walking through a 3D model, or to make a model clickable, you must have a [collider](../../../creator/sdk7/3d-essentials/colliders.md), which may be embedded in the model or provided via a `MeshCollider` component.
+Para evitar que los jugadores caminen a través de un modelo 3D, o para hacer un modelo clickeable, debes tener un [collider](colliders.md), que puede estar incrustado en el modelo o proporcionado a través de un componente `MeshCollider`.
 
-Keep in mind that all models, their shaders and their textures must be within the parameters of the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md).
+Ten en cuenta que todos los modelos, sus shaders y sus texturas deben estar dentro de los parámetros de las [limitaciones de escena](../optimizing/scene-limitations.md).
 
 {% hint style="warning" %}
-**📔 Note**: The `GltfContainer` component must be imported via
+**📔 Nota**: El componente `GltfContainer` debe importarse mediante
 
 `import { GltfContainer } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-#### Free libraries for 3D models
+### Bibliotecas gratuitas para modelos 3D
 
-Instead of building your own 3D models, you can also download them from several free or paid libraries.
+En lugar de construir tus propios modelos 3D, también puedes descargarlos de varias bibliotecas gratuitas o de pago.
 
-To get you started, below is a list of libraries that have free or relatively inexpensive content:
+Para empezar, a continuación se muestra una lista de bibliotecas que tienen contenido gratuito o relativamente económico:
 
-* [IWB Catalog](https://dcl-iwb.co/)
-* [Asset Ovi](https://assetovi.com/)
-* [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
-* [SketchFab](https://sketchfab.com/)
-* [Clara.io](https://clara.io/)
-* [Archive3D](https://archive3d.net/)
-* [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/)
-* [Thingiverse](https://www.thingiverse.com/) (3D models made primarily for 3D printing, but adaptable to Virtual Worlds)
-* [ShareCG](https://www.sharecg.com/)
-* [CGTrader](https://www.cgtrader.com/)
+- [IWB Catalog](https://dcl-iwb.co/)
+- [Asset Ovi](https://assetovi.com/)
+- [Assets from the Builder](https://github.com/decentraland/builder-assets/tree/master/assets)
+- [SketchFab](https://sketchfab.com/)
+- [Clara.io](https://clara.io/)
+- [Archive3D](https://archive3d.net/)
+- [SketchUp 3D Warehouse](https://3dwarehouse.sketchup.com/)
+- [Thingiverse](https://www.thingiverse.com/) (modelos 3D hechos principalmente para impresión 3D, pero adaptables a Mundos Virtuales)
+- [ShareCG](https://www.sharecg.com/)
+- [CGTrader](https://www.cgtrader.com/)
 
 {% hint style="warning" %}
-**📔 Note**: Pay attention to the license restrictions that the content you download has.
+**📔 Nota**: Presta atención a las restricciones de licencia que tiene el contenido que descargas.
 {% endhint %}
 
-Note that in several of these sites, you can choose what format to download the model in. Always choose _.glTF_ format if available. If not available, you must convert them to _glTF_ before you can use them in a scene. For that, we recommend importing them into Blender and exporting as _.glTF_ from there.
+Ten en cuenta que en varios de estos sitios, puedes elegir en qué formato descargar el modelo. Siempre elige el formato _.glTF_ si está disponible. Si no está disponible, debes convertirlos a _glTF_ antes de poder usarlos en una escena. Para eso, recomendamos importarlos a Blender y exportarlos como _.glTF_ desde allí.
 
-#### Optimize 3D models
+### Optimizar modelos 3D
 
-To ensure that 3D models in your scene load faster and take up less memory, follow these best practices:
+Para asegurarte de que los modelos 3D en tu escena se carguen más rápido y ocupen menos memoria, sigue estas mejores prácticas:
 
-* Save your models in _.glb_ format, which is a lighter version of _.gltf_.
-* If you have multiple models that share the same textures, export your models with textures in a separate file. That way multiple models can refer to a single texture file that only needs to be loaded once.
-* If your scene has entities that appear and disappear, it might be a good idea to pool these entities and keep them underground, or at a scale of 0. This will help them appear faster, the trade-off is that they will occupy memory when not in use. See [entities and components](../../../creator/sdk7/architecture/entities-components.md#pooling-entities-and-components)
+- Guarda tus modelos en formato _.glb_, que es una versión más ligera de _.gltf_.
+- Si tienes múltiples modelos que comparten las mismas texturas, exporta tus modelos con texturas en un archivo separado. De esa manera, múltiples modelos pueden referirse a un único archivo de textura que solo necesita cargarse una vez.
+- Si tu escena tiene entidades que aparecen y desaparecen, puede ser una buena idea agrupar estas entidades y mantenerlas bajo tierra, o a una escala de 0. Esto ayudará a que aparezcan más rápido, el trade-off es que ocuparán memoria cuando no estén en uso. Consulta [entidades y componentes](../architecture/entities-components.md#pooling-entities-and-components)
 
-### Stretching a shape
+## Estirar una forma
 
-Primitive shapes and 3D models have default dimensions that you can alter by changing the scale in the entity's `Transform` component.
+Las formas primitivas y los modelos 3D tienen dimensiones predeterminadas que puedes alterar cambiando la escala en el componente `Transform` de la entidad.
 
 ```ts
 const primitiveEntity = engine.addEntity()
@@ -172,9 +169,9 @@ Transform.create(primitiveEntity, {
 })
 ```
 
-### Make invisible
+## Hacer invisible
 
-You can make an entity invisible by giving an entity a `VisibilityComponent`, with its `visible` property set to _false_.
+Puedes hacer una entidad invisible dándole un `VisibilityComponent`, con su propiedad `visible` establecida en _false_.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -186,19 +183,19 @@ MeshRenderer.setBox(myEntity)
 VisibilityComponent.create(myEntity, { visible: false })
 ```
 
-The `VisibilityComponent` works the same for entities with primitive shapes and with `GLTFContainer` components.
+El `VisibilityComponent` funciona igual para entidades con formas primitivas y con componentes `GLTFContainer`.
 
-If an entity is invisible, its collider can block a player's path and/or prevent clicking entities that are behind it, depending on the collision layers assigned to the collider.
+Si una entidad es invisible, su colisionador puede bloquear el camino de un jugador y/o prevenir hacer clic en entidades que están detrás de ella, dependiendo de las capas de colisión asignadas al colisionador.
 
-### Loading state
+## Estado de carga
 
-If a 3D model is fairly large, it might take some noticeable time to be rendered, this time may vary depending on the player's hardware and many other factors. Sometimes you need to make sure that a model finished loading before you perform another action. For example, if you want to teleport the player to a platform up in the sky, you need to first make sure the platform is fully rendered before moving the player there, or else the player might fall right through the platform.
+Si un modelo 3D es bastante grande, puede tomar algo de tiempo notable para ser renderizado, este tiempo puede variar dependiendo del hardware del jugador y muchos otros factores. A veces necesitas asegurarte de que un modelo terminó de cargarse antes de realizar otra acción. Por ejemplo, si quieres teletransportar al jugador a una plataforma en el cielo, necesitas asegurarte primero de que la plataforma esté completamente renderizada antes de mover al jugador allí, o de lo contrario el jugador podría caer a través de la plataforma.
 
-To check if a 3D model is finished being rendered, check the entity's `GltfContainerLoadingState` component. This component is meant to be read only, and exists on any entity that also has a `GltfContainer`component.
+Para verificar si un modelo 3D terminó de renderizarse, verifica el componente `GltfContainerLoadingState` de la entidad. Este componente está destinado a ser de solo lectura, y existe en cualquier entidad que también tenga un componente `GltfContainer`.
 
-This component has a single property named `currentState`, holding a value from the `LoadingState` enum.
+Este componente tiene una sola propiedad llamada `currentState`, que contiene un valor del enum `LoadingState`.
 
-The following example uses a system to periodically check the loading state of an entity's 3D model. If the state is `LoadingState.FINISHED`, you might want to perform custom logic there and end the execution of the system.
+El siguiente ejemplo usa un sistema para verificar periódicamente el estado de carga del modelo 3D de una entidad. Si el estado es `LoadingState.FINISHED`, es posible que desees realizar lógica personalizada allí y finalizar la ejecución del sistema.
 
 ```ts
 export function main() {
@@ -213,7 +210,7 @@ export function main() {
 				break
 			case LoadingState.FINISHED:
 				console.log('mesh is FINISHED')
-				// Perform custom logic
+				// Realizar lógica personalizada
 				break
 			case LoadingState.FINISHED_WITH_ERROR:
 				console.log('mesh is FINISHED BUT MAY HAVE PROBLEMS')
@@ -226,9 +223,9 @@ export function main() {
 }
 ```
 
-### Advanced syntax
+## Sintaxis avanzada
 
-The complete syntax for creating a `MeshRenderer` component, without any helpers to simplify it, looks like this:
+La sintaxis completa para crear un componente `MeshRenderer`, sin ningún ayudante para simplificarlo, se ve así:
 
 ```ts
 MeshRenderer.setBox(myBox, {
@@ -260,17 +257,17 @@ MeshRenderer.create(myCylinder, {
 })
 ```
 
-This is how the base protocol interprets MeshRenderer components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+Así es como el protocolo base interpreta los componentes MeshRenderer. Las funciones auxiliares abstraen esto y exponen una sintaxis más amigable, pero detrás de escena generan esta sintaxis.
 
-The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
+El campo `$case` te permite especificar uno de los tipos permitidos. Cada tipo admite un conjunto diferente de parámetros. En el ejemplo anterior, el tipo `box` admite un campo `uvs`.
 
-The supported values for `$case` are the following:
+Los valores compatibles para `$case` son los siguientes:
 
-* `box`
-* `plane`
-* `sphere`
-* `cylinder`
+- `box`
+- `plane`
+- `sphere`
+- `cylinder`
 
-Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
+Dependiendo del valor de `$case`, es válido definir el objeto para la forma correspondiente, pasando las propiedades relevantes.
 
-To add a `MeshRenderer` component to an entity that potentially already has an instance of this component, use `MeshRenderer.createOrReplace()`. The helper functions like `MeshRenderer.setBox()` handle overwriting existing instances of the component, but running `MeshRenderer.create()` on an entity that already has this component returns an error.
+Para agregar un componente `MeshRenderer` a una entidad que potencialmente ya tiene una instancia de este componente, usa `MeshRenderer.createOrReplace()`. Las funciones auxiliares como `MeshRenderer.setBox()` manejan la sobrescritura de instancias existentes del componente, pero ejecutar `MeshRenderer.create()` en una entidad que ya tiene este componente devuelve un error.

@@ -1,28 +1,24 @@
 ---
-description: How to define color values
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/color-types
+description: Cómo definir valores de color
 ---
 
-# Color Types
+# Tipos de color
 
-Color values can passed as properties of different components, like [Materials](../../../creator/sdk7/3d-essentials/materials.md), [Text](../../../creator/sdk7/3d-essentials/text.md) or different properties of [UI entities](../../../creator/sdk7/2d-ui/onscreen-ui.md). Color values can either be of type `Color3` or `Color4`.
+Los valores de color pueden pasarse como propiedades de diferentes componentes, como [Materiales](materials.md), [Texto](text.md) o diferentes propiedades de [entidades UI](../2d-ui/onscreen-ui.md). Los valores de color pueden ser de tipo `Color3` o `Color4`.
 
-`Color3` contains three properties, _red_, _green_, and _blue_. `Color4` has those same three plus `alpha`, for transparency values.
+`Color3` contiene tres propiedades, _red_, _green_ y _blue_. `Color4` tiene esas mismas tres más `alpha`, para valores de transparencia.
 
-### Set a color
+## Establecer un color
 
-You can make a color by using the `Color3.create()` or the `Color4.create()` functions.
+Puedes crear un color usando las funciones `Color3.create()` o `Color4.create()`.
 
 ```ts
-// Red color
+// Color rojo
 const red3 = Color3.create(1, 0, 0)
 const red4 = Color4.create(1, 0, 0, 1)
 ```
 
-You can also create certain predetermined colors that are part of the `Color3` and `Color4` namespaces.
+También puedes crear ciertos colores predeterminados que forman parte de los namespaces `Color3` y `Color4`.
 
 ```ts
 const red = Color3.Red()
@@ -31,31 +27,31 @@ const black = Color3.Black()
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Write `Color3.` or `Color4.` and Visual Studio should suggest all the possible values in an intelligent dropdown.
+**💡 Consejo**: Escribe `Color3.` o `Color4.` y Visual Studio debería sugerir todos los valores posibles en un menú desplegable inteligente.
 {% endhint %}
 
-You can otherwise pick a random color using the following function:
+De lo contrario, puedes elegir un color aleatorio usando la siguiente función:
 
 ```ts
 const randomColor = Color3.Random()
 ```
 
-If you prefer to describe a color in hexadecimal, use `Color3.fromHexString()`.
+Si prefieres describir un color en hexadecimal, usa `Color3.fromHexString()`.
 
 ```ts
 const red = Color3.fromHexString('FD350A')
 const blue = Color3.fromHexString('0A0CFD')
 ```
 
-Any object value that includes numeric values for `r`, `g`, and `b` can be interpreted as a `Color3` value. Likewise, any object that includes those properties plus an `a` value can be interpreted as a `Color4` value. This allows you to also use the following syntax:
+Cualquier valor de objeto que incluya valores numéricos para `r`, `g` y `b` puede interpretarse como un valor `Color3`. Del mismo modo, cualquier objeto que incluya esas propiedades más un valor `a` puede interpretarse como un valor `Color4`. Esto te permite usar también la siguiente sintaxis:
 
 ```ts
-// Red color
+// Color rojo
 const red3 = { r: 1, g: 0, b: 0 }
 const red4 = { r: 1, g: 0, b: 0, a: 1 }
 ```
 
-The following example uses a color property as part of a `TextShape` component, to set the text color.
+El siguiente ejemplo usa una propiedad de color como parte de un componente `TextShape`, para establecer el color del texto.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -65,54 +61,54 @@ Transform.create(myEntity, {
 })
 
 TextShape.create(myEntity, {
-  text: 'this text is RED',
+  text: 'este texto es ROJO',
   textColor: Color4.create(1, 0, 0, 1),
 })
 ```
 
 {% hint style="warning" %}
-**📔 Note**: `Color3` and `Color4` must be imported via
+**📔 Nota**: `Color3` y `Color4` deben importarse mediante
 
 > `import { Color3, Color4 } from "@dcl/sdk/math"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Transparency
+## Transparencia
 
-Use the _alpha_ property of `Color4` to make a color translucid.
+Usa la propiedad _alpha_ de `Color4` para hacer un color translúcido.
 
-If alpha is 1, the color will be completely opaque, if it's 0 it will be completely invisible. Anything in between results in a partially transparent tone.
+Si alpha es 1, el color será completamente opaco, si es 0 será completamente invisible. Cualquier valor intermedio resulta en un tono parcialmente transparente.
 
 ```ts
-// Completely opaque
+// Completamente opaco
 const opaque = Color4.create(1, 1, 1, 1)
 
-// Half way
+// A mitad de camino
 const half = Color4.create(1, 1, 1, 0.5)
 
-// Almost invisible
+// Casi invisible
 const half = Color4.create(1, 1, 1, 0.1)
 ```
 
-### Lerp
+## Lerp
 
-Use the `Color3.lerp()` or the `Color4.lerp()` function to define a color that's somewhere between two other colors. These functions work similar to the `Vector3.lerp()` function.
+Usa la función `Color3.lerp()` o `Color4.lerp()` para definir un color que esté en algún punto entre otros dos colores. Estas funciones funcionan de manera similar a la función `Vector3.lerp()`.
 
-Both `Color3.lerp()` or the `Color4.lerp()` take the following arguments:
+Tanto `Color3.lerp()` como `Color4.lerp()` toman los siguientes argumentos:
 
-* `left`: The first color to use as reference
-* `right`: The second color to use as reference
-* `amount`: A number from 0 to 1 to define how much of the _left_ color to use in the mix. The closer to 0, the closer to the _left_ color.
+- `left`: El primer color a usar como referencia
+- `right`: El segundo color a usar como referencia
+- `amount`: Un número de 0 a 1 para definir cuánto del color _left_ usar en la mezcla. Cuanto más cerca de 0, más cerca del color _left_.
 
 ```ts
 const orange = Color3.lerp(Color3.Red(), Color3.Yellow(), 0.3)
 ```
 
-You can use a system to gradually change the `amount` parameter, to create a smooth transition.
+Puedes usar un sistema para cambiar gradualmente el parámetro `amount`, para crear una transición suave.
 
 ```ts
-// Systems
+// Sistemas
 var pulseState: number = 0
 const color1 = Color4.Red()
 const color2 = Color4.Yellow()
@@ -121,7 +117,7 @@ export function PulseSystem(dt: number) {
   pulseState += dt
   const entitiesWithMaterial = engine.getEntitiesWith(Material)
 
-  // iterate over the entities of the group
+  // iterar sobre las entidades del grupo
   for (const [entity] of entitiesWithMaterial) {
     const material = Material.getMutable(entity)
     material.albedoColor = Color4.lerp(color1, color2, Math.sin(pulseState))

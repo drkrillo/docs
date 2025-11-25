@@ -1,30 +1,27 @@
 ---
-description: Learn how to control the player's camera
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/camera
+description: Aprende cómo controlar la cámara del jugador
 ---
 
-# Camera
+# Cámara
 
-As a creator, you can have full control over the player's camera. By default, players are free to chose between a 1st or 3rd person camera mode while exploring your scene, but you can impose a different camera modality.
+Como creador, puedes tener control total sobre la cámara del jugador. Por defecto, los jugadores son libres de elegir entre un modo de cámara de primera o tercera persona mientras exploran tu escena, pero puedes imponer una modalidad de cámara diferente.
 
-Virtual cameras can be static, they can rotate to always look at the player or some other entity, or they can be attached to the player or some other entity so that they're always accompanying.
+Las cámaras virtuales pueden ser estáticas, pueden rotar para mirar siempre al jugador o a alguna otra entidad, o pueden estar adjuntas al jugador o a alguna otra entidad para que siempre las acompañen.
 
 {% hint style="warning" %}
-**📔 Note**: Virtual cameras are a feature that's only supported in the DCL 2.0 desktop client.
+**📔 Nota**: Las cámaras virtuales son una característica que solo es compatible con el cliente de escritorio DCL 2.0.
 
-To switch between the default 1st and 3rd person cameras, see [Camera modifier areas](../../../creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers).
+Para cambiar entre las cámaras predeterminadas de primera y tercera persona, consulta [Áreas modificadoras de cámara](../interactivity/avatar-modifiers.md#camera-modifiers).
 {% endhint %}
 
-### Using virtual cameras
+## Usar cámaras virtuales
 
-To use a custom camera behavior in your scene, you need two things:
+Para usar un comportamiento de cámara personalizado en tu escena, necesitas dos cosas:
 
-* Create a Virtual Camera: Create an entity in your scene and give it a `VirtualCamera`.
-* Assign that virtual camera: Add a `MainCamera` component to the [reserved entity](../../../creator/sdk7/architecture/entities-components.md#reserved-entities) `engine.CameraEntity`, with a reference to the entity with the `VirtualCamera` component.
+- Crear una Cámara Virtual: Crea una entidad en tu escena y dale un `VirtualCamera`.
+- Asignar esa cámara virtual: Agrega un componente `MainCamera` a la [entidad reservada](../architecture/entities-components.md#reserved-entities) `engine.CameraEntity`, con una referencia a la entidad con el componente `VirtualCamera`.
 
-The camera will then be attached to the entity with the `VirtualCamera` component. If the entity moves or rotates, the camera moves with it.
+La cámara entonces estará adjunta a la entidad con el componente `VirtualCamera`. Si la entidad se mueve o rota, la cámara se mueve con ella.
 
 ```ts
 function main() {
@@ -40,21 +37,21 @@ function main() {
 }
 ```
 
-In this example, the camera will always be on a fixed position in the scene, as long as the player stays inside the scene bounds. As soon as the player steps outside the scene bounds, the default camera behavior will be restored.
+En este ejemplo, la cámara siempre estará en una posición fija en la escena, siempre que el jugador permanezca dentro de los límites de la escena. Tan pronto como el jugador salga de los límites de la escena, se restaurará el comportamiento predeterminado de la cámara.
 
-Your scene can include as many entities with a `VirtualCamera`component as you want, and dynamically switch between multiple virtual cameras as the player moves, or as they perform certain actions. Only one virtual camera is active at any given time, this is assigned by the `MainCamera` component on `engine.CameraEntity`.
+Tu escena puede incluir tantas entidades con un componente `VirtualCamera` como desees, y cambiar dinámicamente entre múltiples cámaras virtuales a medida que el jugador se mueve, o cuando realizan ciertas acciones. Solo una cámara virtual está activa en un momento dado, esta se asigna mediante el componente `MainCamera` en `engine.CameraEntity`.
 
-To revert back to default camera behavior, set the value to `undefined` on `MainCamera.virtualCameraEntity`. The player is then free to switch between 1st and 3rd person cameras. If you want the player to only use one of these two modes, you can use a [Camera modifier areas](../../../creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers) to force one of the two.
+Para volver al comportamiento predeterminado de la cámara, establece el valor en `undefined` en `MainCamera.virtualCameraEntity`. El jugador entonces es libre de cambiar entre cámaras de primera y tercera persona. Si quieres que el jugador solo use uno de estos dos modos, puedes usar [Áreas modificadoras de cámara](../interactivity/avatar-modifiers.md#camera-modifiers) para forzar uno de los dos.
 
 {% hint style="warning" %}
-**📔 Note**: Camera modifier areas only have an effect on the player if no virtual cameras are active. If the scene is currently using a virtual camera and the player steps into a camera modifier area, nothing happens.
+**📔 Nota**: Las áreas modificadoras de cámara solo tienen efecto en el jugador si no hay cámaras virtuales activas. Si la escena está usando actualmente una cámara virtual y el jugador entra en un área modificadora de cámara, no pasa nada.
 
-If a 3D model includes a `camera` node as part of its contents, this can't be used by the SDK. You must create all cameras as entities with the SDK.
+Si un modelo 3D incluye un nodo `camera` como parte de sus contenidos, este no puede ser usado por el SDK. Debes crear todas las cámaras como entidades con el SDK.
 {% endhint %}
 
 ```ts
 function main() {
-	// custom virtual camera
+	// cámara virtual personalizada
 	const myCustomCamera = engine.addEntity()
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(1, 2, 1),
@@ -65,7 +62,7 @@ function main() {
 		virtualCameraEntity: myCustomCamera,
 	})
 
-	// clickable cube
+	// cubo clickeable
 	const clickCube = engine.addEntity()
 	Transform.create(clickCube, { position: Vector3.create(8, 0, 8) })
 	MeshRenderer.setBox(clickCube)
@@ -76,7 +73,7 @@ function main() {
 			opts: { button: InputAction.IA_POINTER, hoverText: 'Reset camera' },
 		},
 		() => {
-			// reset camera to default behavior
+			// restablecer cámara a comportamiento predeterminado
 			const mainCamera = MainCamera.getMutable(engine.CameraEntity)
 			mainCamera.virtualCameraEntity = undefined
 		}
@@ -85,23 +82,23 @@ function main() {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: When the camera turns away from the avatar, it's often a good practice to also freeze the avatar's movements. That way the player doesn't move blindly into obstacles. See [Input Modifiers](../../../creator/sdk7/interactivity/input-modifiers.md)
+**💡 Consejo**: Cuando la cámara se aleja del avatar, a menudo es una buena práctica también congelar los movimientos del avatar. De esa manera el jugador no se mueve a ciegas hacia obstáculos. Consulta [Modificadores de entrada](../interactivity/input-modifiers.md)
 {% endhint %}
 
-### Birds eye view
+## Vista de pájaro
 
-You can use a virtual camera to look at the scene from a top-down view, this can be a fun variation on the normal perspective of your avatar and enable different game mechanics.
+Puedes usar una cámara virtual para mirar la escena desde una vista superior, esto puede ser una variación divertida en la perspectiva normal de tu avatar y habilitar diferentes mecánicas de juego.
 
-You should avoid placing a camera looking in a perfect straight down direction. Instead, always tilt the camera slightly, even 1 degree is enough. This is because the player direction controls are based on the perspective of the camera, not on the avatar's orientation. If the camera is looking from a perfect birds-eye view, there is no clear definition of which way is which. An imperceptible tilt of 1 degree is enough to establish a forward direction.
+Debes evitar colocar una cámara mirando en una dirección perfectamente recta hacia abajo. En cambio, inclina siempre la cámara ligeramente, incluso 1 grado es suficiente. Esto se debe a que los controles de dirección del jugador se basan en la perspectiva de la cámara, no en la orientación del avatar. Si la cámara está mirando desde una vista perfecta de pájaro, no hay una definición clara de qué dirección es cuál. Una inclinación imperceptible de 1 grado es suficiente para establecer una dirección hacia adelante.
 
 ```ts
 function main() {
-	// birds eye view camera
+	// cámara de vista de pájaro
 	const myCustomCamera = engine.addEntity()
 	Transform.create(myCustomCamera, {
 		position: Vector3.create(8, 5, 8),
 		rotation: Quaternion.Euler(0, 0, 91) 
-		// Note that the rotation is 91º, not 90º
+		// Nota que la rotación es 91º, no 90º
 	})
 	VirtualCamera.create(myCustomCamera, {})
 
@@ -111,11 +108,11 @@ function main() {
 }
 ```
 
-### Camera Transitions
+## Transiciones de cámara
 
-Whenever the scene switches between virtual cameras, or between the default camera behavior and virtual cameras, players see a transition. The position, rotation and any other parameters of the virtual camera change smoothly over a period time.
+Siempre que la escena cambia entre cámaras virtuales, o entre el comportamiento predeterminado de la cámara y las cámaras virtuales, los jugadores ven una transición. La posición, rotación y cualquier otro parámetro de la cámara virtual cambian suavemente durante un período de tiempo.
 
-The transition settings on a virtual camera determine how you transition _into_ that camera, from any other camera in the scene, including the default. They don't affect how you transition _out_ of that camera.
+Los ajustes de transición en una cámara virtual determinan cómo haces la transición _hacia_ esa cámara, desde cualquier otra cámara en la escena, incluida la predeterminada. No afectan cómo haces la transición _desde_ esa cámara.
 
 ```ts
 VirtualCamera.create(myCustomCamera1, {
@@ -124,33 +121,33 @@ VirtualCamera.create(myCustomCamera1, {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: To avoid having a transition, and switch instantly to a camera, set the transition time or speed to 0.
+**💡 Consejo**: Para evitar tener una transición y cambiar instantáneamente a una cámara, establece el tiempo o la velocidad de transición en 0.
 {% endhint %}
 
-Depending on your use case, you may prefer to set the speed of the transition instead of the duration:
+Dependiendo de tu caso de uso, puedes preferir establecer la velocidad de la transición en lugar de la duración:
 
-* **Fixed Time**: You set the duration of the transition, the camera will move as fast as it needs to complete the path in that period of time.
-* **Fixed Speed**: You set how fast you want the virtual camera to move during the transition, the duration will depend on the distance. The value used for speed is interpreted as **meters per second**.
+- **Tiempo Fijo**: Estableces la duración de la transición, la cámara se moverá tan rápido como necesite para completar el camino en ese período de tiempo.
+- **Velocidad Fija**: Estableces qué tan rápido quieres que se mueva la cámara virtual durante la transición, la duración dependerá de la distancia. El valor usado para la velocidad se interpreta como **metros por segundo**.
 
-Below are examples for both these transition modes:
+A continuación se muestran ejemplos para ambos modos de transición:
 
 ```ts
-// fixed duration
+// duración fija
 VirtualCamera.create(myCustomCamera1, {
 	defaultTransition: { transitionMode: VirtualCamera.Transition.Time(6) },
 })
 
-// fixed speed
+// velocidad fija
 VirtualCamera.create(myCustomCamera1, {
 	defaultTransition: { transitionMode: VirtualCamera.Transition.Speed(3) },
 })
 ```
 
-Below is a full example with two virtual cameras, and transitions between them:
+A continuación se muestra un ejemplo completo con dos cámaras virtuales y transiciones entre ellas:
 
 ```ts
 function main() {
-	// custom virtual camera 1
+	// cámara virtual personalizada 1
 	const myCustomCamera1 = engine.addEntity()
 	Transform.create(myCustomCamera1, {
 		position: Vector3.create(1, 2, 1),
@@ -159,7 +156,7 @@ function main() {
 		defaultTransition: { transitionMode: VirtualCamera.Transition.Time(1) },
 	})
 
-	// custom virtual camera 2
+	// cámara virtual personalizada 2
 	const myCustomCamera2 = engine.addEntity()
 	Transform.create(myCustomCamera2, {
 		position: Vector3.create(1, 2, 1),
@@ -172,7 +169,7 @@ function main() {
 		virtualCameraEntity: myCustomCamera,
 	})
 
-	// clickable cube
+	// cubo clickeable
 	const clickCube = engine.addEntity()
 	Transform.create(clickCube, { position: Vector3.create(8, 0, 8) })
 	MeshRenderer.setBox(clickCube)
@@ -183,7 +180,7 @@ function main() {
 			opts: { button: InputAction.IA_POINTER, hoverText: 'Reset camera' },
 		},
 		() => {
-			// reset camera to default behavior
+			// restablecer cámara a comportamiento predeterminado
 			const mainCamera = MainCamera.getMutable(engine.CameraEntity)
 			mainCamera.virtualCameraEntity =
 				mainCamera.virtualCameraEntity == myCustomCamera1
@@ -194,13 +191,13 @@ function main() {
 }
 ```
 
-Transitions always move in a straight line, without considering any obstacles in the path. You could instead create a transition manually by using another virtual camera as an intermediary, that way you'd have full control over its movements. This intermediary virtual camera could perform a [Tween](../../../creator/sdk7/3d-essentials/move-entities.md#move-between-two-points) from the position of the first camera to the position of the second camera, or follow a more custom path that avoids obstacles or takes a cinematic detour.
+Las transiciones siempre se mueven en línea recta, sin considerar ningún obstáculo en el camino. En su lugar, podrías crear una transición manualmente usando otra cámara virtual como intermediaria, de esa manera tendrías control total sobre sus movimientos. Esta cámara virtual intermediaria podría realizar un [Tween](move-entities.md#move-between-two-points) desde la posición de la primera cámara hasta la posición de la segunda cámara, o seguir un camino más personalizado que evite obstáculos o tome un desvío cinematográfico.
 
-### Camera following
+## Seguimiento de cámara
 
-You can configure a virtual camera so that it always faces the direction of the player, or some specific entity in the scene. The camera's position will remain static, but its rotation will change to always keep this entity centered.
+Puedes configurar una cámara virtual para que siempre mire en la dirección del jugador, o alguna entidad específica en la escena. La posición de la cámara permanecerá estática, pero su rotación cambiará para mantener siempre esta entidad centrada.
 
-This can be achieved with the `lookAtEntity` property in the `VirtualCamera` component. To follow the player, use the [reserved entity](../../../creator/sdk7/architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`.
+Esto se puede lograr con la propiedad `lookAtEntity` en el componente `VirtualCamera`. Para seguir al jugador, usa la [entidad reservada](../architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`.
 
 ```ts
 const myCustomCamera1 = engine.addEntity()
@@ -212,17 +209,17 @@ VirtualCamera.create(myCustomCamera1, {
 })
 ```
 
-If an entity is being followed by the camera, this will only change the rotation, not the position of the camera.
+Si una entidad está siendo seguida por la cámara, esto solo cambiará la rotación, no la posición de la cámara.
 
-As the camera rotates, the Transform of the entity with the `VirtualCamera` component does not change. However, you can read the camera's rotation from the Transform on `engine.CameraEntity`. The rotation and position of this entity will be absolute, it won't be conditioned by that of the entity with the `VirtualCamera` component. The rotation of this transform is affected as by the `lookAtEntity` behavior.
+A medida que la cámara rota, el Transform de la entidad con el componente `VirtualCamera` no cambia. Sin embargo, puedes leer la rotación de la cámara desde el Transform en `engine.CameraEntity`. La rotación y posición de esta entidad serán absolutas, no estarán condicionadas por las de la entidad con el componente `VirtualCamera`. La rotación de este transform se ve afectada por el comportamiento `lookAtEntity`.
 
 {% hint style="warning" %}
-**📔 Note**: If you configure the virtual camera with a `lookAtEntity` that references the same entity that holds the virtual camera, or the `engine.MainCamera` entity, the resulting behavior will be the same as not assigning any entity at all.
+**📔 Nota**: Si configuras la cámara virtual con un `lookAtEntity` que hace referencia a la misma entidad que contiene la cámara virtual, o la entidad `engine.MainCamera`, el comportamiento resultante será el mismo que no asignar ninguna entidad en absoluto.
 {% endhint %}
 
-### Attach to the player
+## Adjuntar al jugador
 
-Another use of the virtual camera is to follow the player from a custom distance or angle, by attaching a virtual camera to the player entity. Note that the player can't change the camera's rotation freely, so in this case the camera's rotation will be fixed to that of the virtual camera. This could be useful for example for race games, where the player is expected to always look forward.
+Otro uso de la cámara virtual es seguir al jugador desde una distancia o ángulo personalizado, adjuntando una cámara virtual a la entidad del jugador. Ten en cuenta que el jugador no puede cambiar la rotación de la cámara libremente, por lo que en este caso la rotación de la cámara se fijará a la de la cámara virtual. Esto podría ser útil, por ejemplo, para juegos de carreras, donde se espera que el jugador siempre mire hacia adelante.
 
 ```ts
 function main() {
@@ -241,8 +238,8 @@ function main() {
 }
 ```
 
-### Cameras and colliders
+## Cámaras y colisionadores
 
-When a player's camera moves in 3rd person mode, the camera might be blocked by colliders or not, depending on the collision layers assigned to the entities. Be mindful of this when designing your scene, you may want to prevent the camera from going through walls or other entities.
+Cuando la cámara de un jugador se mueve en modo de tercera persona, la cámara puede ser bloqueada por colisionadores o no, dependiendo de las capas de colisión asignadas a las entidades. Ten esto en cuenta al diseñar tu escena, es posible que desees evitar que la cámara atraviese paredes u otras entidades.
 
-See [Colliders](../../../creator/sdk7/3d-essentials/colliders.md#cameras-and-colliders) for more details on how to configure colliders for your scene.
+Consulta [Colisionadores](colliders.md#cameras-and-colliders) para más detalles sobre cómo configurar colisionadores para tu escena.

@@ -1,34 +1,28 @@
 ---
-description: >-
-  How to move, rotate and scale an entity gradually over time, with incremental
-  changes.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/move-entities
+description: Cómo mover, rotar y escalar una entidad gradualmente a lo largo del tiempo, con cambios incrementales
 ---
 
-# Move Entities
+# Mover entidades
 
-To move, rotate or resize an entity in your scene over a period of time, use the `Tween` component. The engine carries out the desired transformation smoothly, showing updates on every frame until the specified duration is over. Also the `Transform` component values of the affected entity gets updated in real time in case it's needed to make proximity checks in the scene code.
+Para mover, rotar o cambiar el tamaño de una entidad en tu escena durante un período de tiempo, usa el componente `Tween`. El motor realiza la transformación deseada suavemente, mostrando actualizaciones en cada fotograma hasta que se complete la duración especificada. Además, los valores del componente `Transform` de la entidad afectada se actualizan en tiempo real en caso de que sea necesario realizar verificaciones de proximidad en el código de la escena.
 
 {% hint style="info" %}
-**💡 Tip**: In the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), you can move entities in a no-code way via **Actions**, see [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md).
+**💡 Consejo**:
+En el [Scene Editor](../../scene-editor/about-editor.md), puedes mover entidades de forma sin código a través de **Actions**, consulta [Hacer cualquier elemento inteligente](../../scene-editor/smart-items.md).
 {% endhint %}
 
-The Tween component has the following functions:
+El componente Tween tiene las siguientes funciones:
+- `setMove`: Mover entre dos puntos
+- `setRotate`: Rotar entre dos direcciones
+- `setScale`: Escalar entre dos tamaños
+- `setMoveContinuous`: Mover constantemente en la misma dirección
+- `setRotateContinuous`: Rotar constantemente en la misma dirección
+- `setTextureMove`: Desplazar la textura de un material entre dos posiciones
+- `setTextureMoveContinuous`: Desplazar la textura de un material constantemente en la misma dirección
 
-* `setMove`: Move between two points
-* `setRotate`: Rotate between two directions
-* `setScale`: Scale between two sizes
-* `setMoveContinuous`: Move constantly in the same direction
-* `setRotateContinuous`: Rotate constantly in the same direction
-* `setTextureMove`: Offset the texture of a material between two positions
-* `setTextureMoveContinuous`: Offset the texture of a material constantly in the same direction
+## Mover entre dos puntos
 
-### Move between two points
-
-To move an entity between two points, create a `Tween` component with the `setMove` function.
+Para mover una entidad entre dos puntos, crea un componente `Tween` con la función `setMove`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -44,21 +38,21 @@ Tween.setMove(myEntity,
 )
 ```
 
-The movement tween takes the following information:
+El tween de movimiento toma la siguiente información:
 
-* `entity`: The entity to move
-* `start`: A Vector3 for the starting position
-* `end`: A Vector3 for the ending position
-* `duration`: How many milliseconds it takes to move between the two positions
+- `entity`: La entidad a mover
+- `start`: Un Vector3 para la posición inicial
+- `end`: Un Vector3 para la posición final
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
 
-These other optonal parameters are also available:
+Estos otros parámetros opcionales también están disponibles:
 
-* `faceDirection`: If true, the entity is rotated to face in the direction of the movement.
-* `easingFunction`: What easing function to use. See [Non-linear tweens](move-entities.md#non-linear-tweens)
+- `faceDirection`: Si es true, la entidad se rota para mirar en la dirección del movimiento.
+- `easingFunction`: Qué función de easing usar. Consulta [Tweens no lineales](#non-linear-tweens)
 
-### Rotate between two directions
+## Rotar entre dos direcciones
 
-To rotate an entity between two points, create a `Tween` component with the `setRotate` function.
+Para rotar una entidad entre dos puntos, crea un componente `Tween` con la función `setRotate`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -74,21 +68,21 @@ Tween.setRotate(myEntity,
 )
 ```
 
-The rotate tween takes the following information:
+El tween de rotación toma la siguiente información:
 
-* `start`: A Quaternion for the starting rotation
-* `end`: A Quaternion for the ending rotation
-* `duration`: How many milliseconds it takes to move between the two positions
+- `start`: Un Quaternion para la rotación inicial
+- `end`: Un Quaternion para la rotación final
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `easingFunction`: What easing function to use. See [Non-linear tweens](move-entities.md#non-linear-tweens)
+- `easingFunction`: Qué función de easing usar. Consulta [Tweens no lineales](#non-linear-tweens)
 
-#### Rotate with a pivot point
+### Rotar con un punto de pivote
 
-When rotating an entity, the rotation is always in reference to the entity's center coordinate. To rotate an entity using another set of coordinates as a pivot point, create a second (invisible) entity with the pivot point as its position and make it a parent of the entity you want to rotate.
+Al rotar una entidad, la rotación siempre está en referencia a la coordenada central de la entidad. Para rotar una entidad usando otro conjunto de coordenadas como punto de pivote, crea una segunda entidad (invisible) con el punto de pivote como su posición y hazla padre de la entidad que deseas rotar.
 
-When rotating the parent entity, its children will be all rotated using the parent's position as a pivot point. Note that the `position` of the child entity is in reference to that of the parent entity.
+Al rotar la entidad padre, sus hijos serán todos rotados usando la posición del padre como punto de pivote. Ten en cuenta que la `position` de la entidad hija está en referencia a la de la entidad padre.
 
 ```ts
 const pivotEntity = engine.addEntity()
@@ -110,11 +104,11 @@ Tween.setRotate(pivotEntity,
 )
 ```
 
-Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
+Ten en cuenta que en este ejemplo, el sistema está rotando la entidad `pivotEntity`, que es padre de la entidad `childEntity`.
 
-### Scale between two sizes
+## Escalar entre dos tamaños
 
-To change the scale of an entity between two sizes, create a `Tween` component with its mode set to `Tween.Mode.Scale`.
+Para cambiar la escala de una entidad entre dos tamaños, crea un componente `Tween` con su modo establecido en `Tween.Mode.Scale`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -131,24 +125,24 @@ Tween.setScale(myEntity,
 
 ```
 
-The scale tween takes the following information:
+El tween de escala toma la siguiente información:
 
-* `start`: A Vector3 for the starting size
-* `end`: A Vector3 for the ending size
-* `duration`: How many milliseconds it takes to move between the two positions
+- `start`: Un Vector3 para el tamaño inicial
+- `end`: Un Vector3 para el tamaño final
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `easingFunction`: What easing function to use. See [Non-linear tweens](move-entities.md#non-linear-tweens)
+- `easingFunction`: Qué función de easing usar. Consulta [Tweens no lineales](#non-linear-tweens)
 
-### Non-linear tweens
+## Tweens no lineales
 
-Tweens can follow different **Easing Functions** that affect the rate of change over time. A **linear** function, means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
+Los tweens pueden seguir diferentes **Funciones de Easing** que afectan la tasa de cambio a lo largo del tiempo. Una función **lineal**, significa que la velocidad del cambio es constante de principio a fin. Hay muchas opciones para elegir, que dibujan curvas de diferentes formas dependiendo de si el comienzo y/o el final comienzan lento, y cuánto. Una curva **easeinexpo** comienza lenta y termina rápida, aumentando la velocidad exponencialmente, por el contrario, una curva **easeoutexpo** comienza rápida y termina lenta.
 
-![](../../../creator/images/editor/easing-functions.png)
+<img src="../../../images/editor/easing-functions.png" width="600"/>
 
 {% hint style="info" %}
-**💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
+**💡 Consejo**: Experimenta con diferentes curvas de movimiento. Las diferencias a menudo son sutiles, pero subconscientemente interpretamos información de cómo se mueven las cosas, como peso, fricción o incluso personalidad.
 {% endhint %}
 
 ```ts
@@ -161,43 +155,43 @@ Tween.setScale(myEntity,
 
 ```
 
-The optional `easingFunction` parameter takes its value from the `EasingFunction` enum, that offers the following options:
+El parámetro opcional `easingFunction` toma su valor del enum `EasingFunction`, que ofrece las siguientes opciones:
 
-* `EF_EASEBACK`
-* `EF_EASEBOUNCE`
-* `EF_EASECIRC`
-* `EF_EASECUBIC`
-* `EF_EASEELASTIC`
-* `EF_EASEEXPO`
-* `EF_EASEINBACK`
-* `EF_EASEINBOUNCE`
-* `EF_EASEINCIRC`
-* `EF_EASEINCUBIC`
-* `EF_EASEINELASTIC`
-* `EF_EASEINEXPO`
-* `EF_EASEINQUAD`
-* `EF_EASEINQUART`
-* `EF_EASEINQUINT`
-* `EF_EASEINSINE`
-* `EF_EASEOUTBACK`
-* `EF_EASEOUTBOUNCE`
-* `EF_EASEOUTCIRC`
-* `EF_EASEOUTCUBIC`
-* `EF_EASEOUTELASTIC`
-* `EF_EASEOUTEXPO`
-* `EF_EASEOUTQUAD`
-* `EF_EASEOUTQUART`
-* `EF_EASEOUTQUINT`
-* `EF_EASEOUTSINE`
-* `EF_EASEQUAD`
-* `EF_EASEQUART`
-* `EF_EASEQUINT`
-* `EF_EASESINE`
-* `EF_LINEAR`
+- `EF_EASEBACK`
+- `EF_EASEBOUNCE`
+- `EF_EASECIRC`
+- `EF_EASECUBIC`
+- `EF_EASEELASTIC`
+- `EF_EASEEXPO`
+- `EF_EASEINBACK`
+- `EF_EASEINBOUNCE`
+- `EF_EASEINCIRC`
+- `EF_EASEINCUBIC`
+- `EF_EASEINELASTIC`
+- `EF_EASEINEXPO`
+- `EF_EASEINQUAD`
+- `EF_EASEINQUART`
+- `EF_EASEINQUINT`
+- `EF_EASEINSINE`
+- `EF_EASEOUTBACK`
+- `EF_EASEOUTBOUNCE`
+- `EF_EASEOUTCIRC`
+- `EF_EASEOUTCUBIC`
+- `EF_EASEOUTELASTIC`
+- `EF_EASEOUTEXPO`
+- `EF_EASEOUTQUAD`
+- `EF_EASEOUTQUART`
+- `EF_EASEOUTQUINT`
+- `EF_EASEOUTSINE`
+- `EF_EASEQUAD`
+- `EF_EASEQUART`
+- `EF_EASEQUINT`
+- `EF_EASESINE`
+- `EF_LINEAR`
 
-### Constant rotation
+## Rotación constante
 
-To make an entity rotate constantly, use the `Tween` component with the `setRotateContinuous` function.
+Para hacer que una entidad rote constantemente, usa el componente `Tween` con la función `setRotateContinuous`.
 
 ```ts
 Tween.setRotateContinuous(myEntity, 
@@ -206,19 +200,19 @@ Tween.setRotateContinuous(myEntity,
 )
 ```
 
-The rotate continuous tween takes the following information:
+El tween de rotación continua toma la siguiente información:
 
-* `entity`: The entity to rotate
-* `direction`: A Quaternion for the rotation
-* `speed`: How many degrees per second the entity will rotate
+- `entity`: La entidad a rotar
+- `direction`: Un Quaternion para la rotación
+- `speed`: Cuántos grados por segundo rotará la entidad
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `duration`: How many milliseconds to sustain the rotation. After this time, the rotation will stop.
+- `duration`: Cuántos milisegundos sostener la rotación. Después de este tiempo, la rotación se detendrá.
 
-### Constant movement
+## Movimiento constante
 
-To make an entity move constantly in the same direction, use the `Tween` component with the `setMoveContinuous` function.
+Para hacer que una entidad se mueva constantemente en la misma dirección, usa el componente `Tween` con la función `setMoveContinuous`.
 
 ```ts
 Tween.setMoveContinuous(myEntity, 
@@ -227,30 +221,30 @@ Tween.setMoveContinuous(myEntity,
 )
 ```
 
-The move continuous tween takes the following information:
+El tween de movimiento continuo toma la siguiente información:
 
-* `entity`: The entity to move
-* `direction`: A Vector3 for the movement
-* `speed`: How many meters per second the entity will move
+- `entity`: La entidad a mover
+- `direction`: Un Vector3 para el movimiento
+- `speed`: Cuántos metros por segundo se moverá la entidad
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
+- `duration`: Cuántos milisegundos sostener el movimiento. Después de este tiempo, el movimiento se detendrá.
 
-The move continuous tween takes the following information:
+El tween de movimiento continuo toma la siguiente información:
 
-### Tween sequences
+## Secuencias de tweens
 
-To make an entity play a series of tweens in sequence, use the `TweenSequence` component. This component requires two fields:
+Para hacer que una entidad reproduzca una serie de tweens en secuencia, usa el componente `TweenSequence`. Este componente requiere dos campos:
 
-* `sequence`: An array with multiple tween definitions, that will be carried out sequentially. The array can be empty, in which case it only plays the current tween.
-* `loop` _(optional)_: If not provided, the sequence is only played once. If the field is present, the value must be a value of the `TweenLoop` enum. Accepted values are:
-  * `TL_RESTART`: When the sequence ends, it restarts. If the last state doesn't match the first state, the entity instantly jumps from one to the other.
-  * `TL_YOYO`: When the sequence ends, the it goes backwards, doing all tweens in reverse until it reaches the start again. Then it begins once more.
+- `sequence`: Un array con múltiples definiciones de tween, que se llevarán a cabo secuencialmente. El array puede estar vacío, en cuyo caso solo reproduce el tween actual.
+- `loop` _(opcional)_: Si no se proporciona, la secuencia solo se reproduce una vez. Si el campo está presente, el valor debe ser un valor del enum `TweenLoop`. Los valores aceptados son:
+  - `TL_RESTART`: Cuando la secuencia termina, se reinicia. Si el último estado no coincide con el primer estado, la entidad salta instantáneamente de uno a otro.
+  - `TL_YOYO`: Cuando la secuencia termina, va hacia atrás, haciendo todos los tweens en reversa hasta que alcanza el inicio nuevamente. Luego comienza una vez más.
 
-#### Move back and forth
+### Mover de ida y vuelta
 
-To make a platform move constantly back and forth between two positions, leave the `sequence` array empty, and set `loop` to `TweenLoop.TL_YOYO`
+Para hacer que una plataforma se mueva constantemente de ida y vuelta entre dos posiciones, deja el array `sequence` vacío, y establece `loop` en `TweenLoop.TL_YOYO`
 
 ```ts
 const myEntity = engine.addEntity()
@@ -268,11 +262,11 @@ Tween.setMove(myEntity,
 TweenSequence.create(myEntity, { sequence: [], loop: TweenLoop.TL_YOYO })
 ```
 
-The entity will move back and forth between the start point and the end point, with the same duration and the same easing function in both directions.
+La entidad se moverá de ida y vuelta entre el punto de inicio y el punto final, con la misma duración y la misma función de easing en ambas direcciones.
 
-#### Follow a path
+### Seguir un camino
 
-To make an entity follow a more complex path with multiple points, provide a list of tween definitions in the `sequence` of a `TweenSequence` component.
+Para hacer que una entidad siga un camino más complejo con múltiples puntos, proporciona una lista de definiciones de tween en la `sequence` de un componente `TweenSequence`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -318,35 +312,36 @@ TweenSequence.create(myEntity, {
 })
 ```
 
-Note that when defining a tween within a TweenSequence, you need to use the more verbose format of `Tween.Mode.Move`, or `Tween.Mode.Rotate`, or `Tween.Mode.Scale` to define the tween. In this more verbose format, you need to specify:
+Ten en cuenta que al definir un tween dentro de un TweenSequence, necesitas usar el formato más verboso de `Tween.Mode.Move`, o `Tween.Mode.Rotate`, o `Tween.Mode.Scale` para definir el tween. En este formato más verboso, necesitas especificar:
 
-* `duration`: How many milliseconds it takes to move between the two positions
-* `easingFunction`: What easing function to use. See [Non-linear tweens](move-entities.md#non-linear-tweens). In this format the value is required.
-* `mode`: The mode of the tween, which can be `Tween.Mode.Move`, `Tween.Mode.Rotate`, or `Tween.Mode.Scale`.
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
+- `easingFunction`: Qué función de easing usar. Consulta [Tweens no lineales](#non-linear-tweens). En este formato el valor es obligatorio.
+- `mode`: El modo del tween, que puede ser `Tween.Mode.Move`, `Tween.Mode.Rotate`, o `Tween.Mode.Scale`.
 
-And within the `mode` field, you need to specify:
+Y dentro del campo `mode`, necesitas especificar:
 
-* `start`: The starting value of the tween
-* `end`: The ending value of the tween
+- `start`: El valor inicial del tween
+- `end`: El valor final del tween
 
-### On tween finished
 
-Use `tweenSystem.tweenCompleted` to detect when a tween has finished. This can be useful to perform actions when a tween ends, for example to open an elevator door.
+## Al finalizar un tween
+
+Usa `tweenSystem.tweenCompleted` para detectar cuándo un tween ha terminado. Esto puede ser útil para realizar acciones cuando un tween termina, por ejemplo para abrir una puerta de elevador.
 
 ```ts
 engine.addSystem(() => {
 	const tweenCompleted = tweenSystem.tweenCompleted(myEntity)
 	if (tweenCompleted) {
-		//play sound
+		//reproducir sonido
 	}
 })
 ```
 
-### Simultaneous tweens
+## Tweens simultáneos
 
-An entity can only have one `Tween` component, and each tween component can only perform one transformation at a time. For example, you can´t make an entity move sideways and also rotate at the same time. As a workaround, you can use parented entities. For example, you can have an invisible parent entity that moves sideways, with a visible child that rotates.
+Una entidad solo puede tener un componente `Tween`, y cada componente tween solo puede realizar una transformación a la vez. Por ejemplo, no puedes hacer que una entidad se mueva lateralmente y también rote al mismo tiempo. Como solución, puedes usar entidades con padres. Por ejemplo, puedes tener una entidad padre invisible que se mueve lateralmente, con un hijo visible que rota.
 
-In the following snippet, a parent entity rotates while a child scales up.
+En el siguiente fragmento, una entidad padre rota mientras un hijo escala.
 
 ```ts
 const parentEntity = engine.addEntity()
@@ -373,9 +368,9 @@ Tween.setScale(childEntity,
 )
 ```
 
-### Pause a tween
+## Pausar un tween
 
-To pause a tween, change the `playing` property to false. To resume it, change it back to true.
+Para pausar un tween, cambia la propiedad `playing` a false. Para reanudarlo, cámbialo de vuelta a true.
 
 ```ts
 pointerEventsSystem.onPointerDown(
@@ -390,7 +385,7 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-To end a tween that doesn't need to be continued, delete the `Tween` component from the entity. If the entitiy was also using a `TweenSequence` component, delete that too.
+Para terminar un tween que no necesita ser continuado, elimina el componente `Tween` de la entidad. Si la entidad también estaba usando un componente `TweenSequence`, elimina ese también.
 
 ```ts
 pointerEventsSystem.onPointerDown(
@@ -409,15 +404,15 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-### Tweens based on a system
+## Tweens basados en un sistema
 
-Instead of using the Tween component and letting the engine handle the transformation, you may prefer to do this transition incrementally, frame by frame, via a [system](../../../creator/sdk7/architecture/systems.md) in your scene. By moving the entity a small amount each time the function runs.
+En lugar de usar el componente Tween y dejar que el motor maneje la transformación, puedes preferir hacer esta transición incrementalmente, fotograma por fotograma, a través de un [sistema](../architecture/systems.md) en tu escena. Moviendo la entidad una pequeña cantidad cada vez que se ejecuta la función.
 
-On one hand, this gives you more control for re-calculating movements on every frame. On the other hand, the code is more complicated, and players with less performant machines might experience the tween as laggy, noticing each increment.
+Por un lado, esto te da más control para recalcular movimientos en cada fotograma. Por otro lado, el código es más complicado, y los jugadores con máquinas menos performantes podrían experimentar el tween como laggy, notando cada incremento.
 
-#### Move via system
+### Mover mediante sistema
 
-The easiest way to move an entity is to gradually modify the _position_ value stored in the `Transform` component.
+La forma más fácil de mover una entidad es modificar gradualmente el valor de _position_ almacenado en el componente `Transform`.
 
 ```ts
 function SimpleMove() {
@@ -437,15 +432,15 @@ Transform.create(myEntity, {
 MeshRenderer.setBox(myEntity)
 ```
 
-In this example we're moving an entity by 0.1 meters per tick of the game loop.
+En este ejemplo estamos moviendo una entidad 0.1 metros por tick del bucle del juego.
 
-`Vector3.Forward()` returns a vector that faces forward and measures 1 meter in length. In this example we're then scaling this vector down to 1/10 of its length with `Vector3.scale()`. If our scene has 30 frames per second, the entity is moving at 3 meters per second in speed.
+`Vector3.Forward()` devuelve un vector que mira hacia adelante y mide 1 metro de longitud. En este ejemplo luego estamos escalando este vector a 1/10 de su longitud con `Vector3.scale()`. Si nuestra escena tiene 30 fotogramas por segundo, la entidad se está moviendo a 3 metros por segundo en velocidad.
 
-![](../../.gitbook/assets/move.gif)
+ <img src="../../../images/media/gifs/move.gif" alt="Move entity" width="300"/>
 
-#### Rotate via system
+### Rotar mediante sistema
 
-The easiest way to rotate an entity is to gradually change the values in the Transform component incrementally, and run this as part of a system's function of a system.
+La forma más fácil de rotar una entidad es cambiar gradualmente los valores en el componente Transform incrementalmente, y ejecutar esto como parte de la función de un sistema.
 
 ```ts
 function SimpleRotate() {
@@ -465,21 +460,21 @@ Transform.create(myEntity, {
 MeshRenderer.setBox(myEntity)
 ```
 
-Note that in order to combine the current rotation with each increment, we're using `Quaternion.multiply`. In quaternion math, you combine two rotations by multiplying them, NOT by adding them. The resulting rotation of multiplying one quaternion by another will be the equivalent final rotation after first performing one rotation and then the other.
+Ten en cuenta que para combinar la rotación actual con cada incremento, estamos usando `Quaternion.multiply`. En matemáticas de quaternion, combinas dos rotaciones multiplicándolas, NO sumándolas. La rotación resultante de multiplicar un quaternion por otro será la rotación final equivalente después de realizar primero una rotación y luego la otra.
 
-In this example, we're rotating the entity by 1 degree in an upwards direction in each tick of the game loop.
+En este ejemplo, estamos rotando la entidad 1 grado en dirección hacia arriba en cada tick del bucle del juego.
 
 {% hint style="info" %}
-**💡 Tip**: To make an entity always rotate to face the player, you can add a [`Billboard` component](../../../creator/sdk7/3d-essentials/entity-positioning.md#face-the-user).
+**💡 Consejo**: Para hacer que una entidad siempre rote para mirar al jugador, puedes agregar un [componente `Billboard`](entity-positioning.md#face-the-user).
 {% endhint %}
 
-![](../../.gitbook/assets/rotate.gif)
+ <img src="../../../images/media/gifs/rotate.gif" alt="Move entity" width="300"/>
 
-#### Rotate via system over a pivot point
+### Rotar mediante sistema sobre un punto de pivote
 
-When rotating an entity, the rotation is always in reference to the entity's center coordinate. To rotate an entity using another set of coordinates as a pivot point, create a second (invisible) entity with the pivot point as its position and make it a parent of the entity you want to rotate.
+Al rotar una entidad, la rotación siempre está en referencia a la coordenada central de la entidad. Para rotar una entidad usando otro conjunto de coordenadas como punto de pivote, crea una segunda entidad (invisible) con el punto de pivote como su posición y hazla padre de la entidad que deseas rotar.
 
-When rotating the parent entity, its children will be all rotated using the parent's position as a pivot point. Note that the `position` of the child entity is in reference to that of the parent entity.
+Al rotar la entidad padre, sus hijos serán todos rotados usando la posición del padre como punto de pivote. Ten en cuenta que la `position` de la entidad hija está en referencia a la de la entidad padre.
 
 ```ts
 function SimpleRotate() {
@@ -505,15 +500,15 @@ Transform.create(childEntity, {
 MeshRenderer.setBox(myEntity)
 ```
 
-Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
+Ten en cuenta que en este ejemplo, el sistema está rotando la entidad `pivotEntity`, que es padre de la entidad `childEntity`.
 
-![](../../.gitbook/assets/pivot-rotate.gif)
+ <img src="../../../images/media/gifs/pivot-rotate.gif" alt="Move entity" width="300"/>
 
-#### Adjust movement to delay time
+### Ajustar movimiento al tiempo de retardo
 
-Suppose that the player visiting your scene is struggling to keep up with the pace of the frame rate. That could result in the movement appearing jumpy, as not all frames are evenly timed but each moves the entity in the same amount.
+Supón que el jugador que visita tu escena está luchando para mantener el ritmo de la tasa de fotogramas. Eso podría resultar en que el movimiento parezca entrecortado, ya que no todos los fotogramas están espaciados uniformemente en el tiempo pero cada uno mueve la entidad en la misma cantidad.
 
-You can compensate for this uneven timing by using the `dt` parameter to adjust the scale the movement.
+Puedes compensar este tiempo desigual usando el parámetro `dt` para ajustar la escala del movimiento.
 
 ```ts
 function SimpleMove(dt: number) {
@@ -533,19 +528,19 @@ Transform.create(myEntity, {
 MeshRenderer.setBox(myEntity)
 ```
 
-The example above keeps movement at approximately the same speed as the movement example above, even if the frame rate drops. When running at 30 frames per second, the value of `dt` is 1/30.
+El ejemplo anterior mantiene el movimiento aproximadamente a la misma velocidad que el ejemplo de movimiento anterior, incluso si la tasa de fotogramas cae. Al ejecutarse a 30 fotogramas por segundo, el valor de `dt` es 1/30.
 
-You can also smoothen rotations in the same way by multiplying the rotation amount by `dt`.
+También puedes suavizar rotaciones de la misma manera multiplicando la cantidad de rotación por `dt`.
 
-#### Move between two points via system
+### Mover entre dos puntos mediante sistema
 
-If you want an entity to move smoothly between two points, use the _lerp_ (linear interpolation) algorithm. This algorithm is very well known in game development, as it's really useful.
+Si deseas que una entidad se mueva suavemente entre dos puntos, usa el algoritmo _lerp_ (interpolación lineal). Este algoritmo es muy conocido en el desarrollo de juegos, ya que es realmente útil.
 
-The `lerp()` function takes three parameters:
+La función `lerp()` toma tres parámetros:
 
-* The vector for the origin position
-* The vector for the target position
-* The amount, a value from 0 to 1 that represents what fraction of the translation to do.
+- El vector para la posición de origen
+- El vector para la posición objetivo
+- La cantidad, un valor de 0 a 1 que representa qué fracción de la traducción hacer.
 
 ```ts
 const originVector = Vector3.Zero()
@@ -554,18 +549,18 @@ const targetVector = Vector3.Forward()
 let newPos = Vector3.lerp(originVector, targetVector, 0.6)
 ```
 
-The linear interpolation algorithm finds an intermediate point in the path between both vectors that matches the provided amount.
+El algoritmo de interpolación lineal encuentra un punto intermedio en el camino entre ambos vectores que coincide con la cantidad proporcionada.
 
-For example, if the origin vector is _(0, 0, 0)_ and the target vector is _(10, 0, 10)_:
+Por ejemplo, si el vector de origen es _(0, 0, 0)_ y el vector objetivo es _(10, 0, 10)_:
 
-* Using an amount of 0 would return _(0, 0, 0)_
-* Using an amount of 0.3 would return _(3, 0, 3)_
-* Using an amount of 1 would return _(10, 0, 10)_
+- Usando una cantidad de 0 devolvería _(0, 0, 0)_
+- Usando una cantidad de 0.3 devolvería _(3, 0, 3)_
+- Usando una cantidad de 1 devolvería _(10, 0, 10)_
 
-To implement this `lerp()` in your scene, we recommend creating a [custom component](../../../creator/sdk7/architecture/custom-components.md) to store the necessary information. You also need to define a system that implements the gradual movement in each frame.
+Para implementar este `lerp()` en tu escena, recomendamos crear un [componente personalizado](../architecture/custom-components.md) para almacenar la información necesaria. También necesitas definir un sistema que implemente el movimiento gradual en cada fotograma.
 
 ```ts
-// define custom component
+// definir componente personalizado
 const MoveTransportData = {
 	start: Schemas.Vector3,
 	end: Schemas.Vector3,
@@ -578,7 +573,7 @@ export const LerpTransformComponent = engine.defineComponent(
 	MoveTransportData
 )
 
-// define system
+// definir sistema
 function LerpMove(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	let lerp = LerpTransformComponent.getMutable(myEntity)
@@ -590,7 +585,7 @@ function LerpMove(dt: number) {
 
 engine.addSystem(LerpMove)
 
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
@@ -607,20 +602,20 @@ LerpTransformComponent.create(myEntity, {
 })
 ```
 
-![](../../.gitbook/assets/lerp-move.gif)
+<img src="../../../images/media/gifs/lerp-move.gif" alt="Move entity" width="300"/>
 
-#### Rotate between two angles via system
+### Rotar entre dos ángulos mediante sistema
 
-To rotate smoothly between two angles, use the _slerp_ (_spherical_ linear interpolation) algorithm. This algorithm is very similar to a _lerp_, but it handles quaternion rotations.
+Para rotar suavemente entre dos ángulos, usa el algoritmo _slerp_ (interpolación lineal _esférica_). Este algoritmo es muy similar a un _lerp_, pero maneja rotaciones de quaternion.
 
-The `slerp()` function takes three parameters:
+La función `slerp()` toma tres parámetros:
 
-* The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the origin rotation
-* The [quaternion](https://en.wikipedia.org/wiki/Quaternion) angle for the target rotation
-* The amount, a value from 0 to 1 that represents what fraction of the translation to do.
+- El ángulo [quaternion](https://en.wikipedia.org/wiki/Quaternion) para la rotación de origen
+- El ángulo [quaternion](https://en.wikipedia.org/wiki/Quaternion) para la rotación objetivo
+- La cantidad, un valor de 0 a 1 que representa qué fracción de la traducción hacer.
 
 {% hint style="info" %}
-**💡 Tip**: You can pass rotation values in [euler](https://en.wikipedia.org/wiki/Euler_angles) degrees (from 0 to 360) by using `Quaternion.fromEulerDegrees()`.
+**💡 Consejo**: Puedes pasar valores de rotación en grados [euler](https://en.wikipedia.org/wiki/Euler_angles) (de 0 a 360) usando `Quaternion.fromEulerDegrees()`.
 {% endhint %}
 
 ```ts
@@ -630,10 +625,10 @@ const targetRotation = Quaternion.fromEulerDegrees(0, 0, 0)
 let newRotation = Quaternion.slerp(originRotation, targetRotation, 0.6)
 ```
 
-To implement this in your scene, we recommend storing the data that goes into the `Slerp()` function in a [custom component](../../../creator/sdk7/architecture/custom-components.md). You also need to define a system that implements the gradual rotation in each frame.
+Para implementar esto en tu escena, recomendamos almacenar los datos que van en la función `Slerp()` en un [componente personalizado](../architecture/custom-components.md). También necesitas definir un sistema que implemente la rotación gradual en cada fotograma.
 
 ```ts
-// define custom component
+// definir componente personalizado
 const RotateSlerpData = {
 	start: Schemas.Quaternion,
 	end: Schemas.Quaternion,
@@ -643,7 +638,7 @@ const RotateSlerpData = {
 
 export const SlerpData = engine.defineComponent('SlerpData', RotateSlerpData)
 
-// define system
+// definir sistema
 function SlerpRotate(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	let slerpData = SlerpData.getMutable(myEntity)
@@ -659,7 +654,7 @@ function SlerpRotate(dt: number) {
 
 engine.addSystem(SlerpRotate)
 
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
@@ -677,12 +672,12 @@ SlerpData.create(myEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: You could instead represent the rotation with euler angles as `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient for the scene to work with quaternions.
+**📔 Nota**: En su lugar, podrías representar la rotación con ángulos euler como valores `Vector3` y usar una función `Lerp()`, pero eso implicaría una conversión de `Vector3` a `Quaternion` en cada fotograma. Los valores de rotación se almacenan internamente como quaternions en el componente `Transform`, por lo que es más eficiente para la escena trabajar con quaternions.
 {% endhint %}
 
-![](../../.gitbook/assets/lerp-rotate.gif)
+ <img src="../../../images/media/gifs/lerp-rotate.gif" alt="Move entity" width="300"/>
 
-A simpler but less efficient approach to this takes advantage of the `Quaternion.rotateTowards` function, and avoids using any custom components.
+Un enfoque más simple pero menos eficiente para esto aprovecha la función `Quaternion.rotateTowards`, y evita usar componentes personalizados.
 
 ```ts
 function SimpleRotate(dt: number) {
@@ -709,21 +704,21 @@ Transform.create(myEntity, {
 MeshRenderer.setBox(myEntity)
 ```
 
-In the example above `Quaternion.rotateTowards` takes three arguments: the initial rotation, the final rotation that's desired, and the maximum increment per frame. In this case, since the maximum increment is of `dt * 10` degrees, the rotation will be carried out over a period of a couple of 9 seconds.
+En el ejemplo anterior `Quaternion.rotateTowards` toma tres argumentos: la rotación inicial, la rotación final que se desea, y el incremento máximo por fotograma. En este caso, dado que el incremento máximo es de `dt * 10` grados, la rotación se llevará a cabo durante un período de un par de 9 segundos.
 
-Note that the system also checks to see if the rotation is complete and if so it removes the system from the engine. Otherwise, the system would keep making calculations on every frame, even once the rotation is complete.
+Ten en cuenta que el sistema también verifica si la rotación está completa y si es así elimina el sistema del motor. De lo contrario, el sistema seguiría haciendo cálculos en cada fotograma, incluso una vez que la rotación esté completa.
 
-#### Change scale between two sizes via system
+### Cambiar escala entre dos tamaños mediante sistema
 
-If you want an entity to change size smoothly and without changing its proportions, use the _lerp_ (linear interpolation) algorithm of the `Scalar` object.
+Si deseas que una entidad cambie de tamaño suavemente y sin cambiar sus proporciones, usa el algoritmo _lerp_ (interpolación lineal) del objeto `Scalar`.
 
-Otherwise, if you want to change the axis in different proportions, use `Vector3` to represent the origin scale and the target scale, and then use the _lerp_ function of the `Vector3`.
+De lo contrario, si deseas cambiar los ejes en diferentes proporciones, usa `Vector3` para representar la escala de origen y la escala objetivo, y luego usa la función _lerp_ del `Vector3`.
 
-The `lerp()` function of the `Scalar` object takes three parameters:
+La función `lerp()` del objeto `Scalar` toma tres parámetros:
 
-* A number for the origin scale
-* A number for the target scale
-* The amount, a value from 0 to 1 that represents what fraction of the scaling to do.
+- Un número para la escala de origen
+- Un número para la escala objetivo
+- La cantidad, un valor de 0 a 1 que representa qué fracción del escalado hacer.
 
 ```ts
 const originScale = 1
@@ -732,10 +727,10 @@ const targetScale = 10
 let newScale = Scalar.Lerp(originScale, targetScale, 0.6)
 ```
 
-To implement this lerp in your scene, we recommend creating a custom component to store the necessary information. You also need to define a system that implements the gradual scaling in each frame.
+Para implementar este lerp en tu escena, recomendamos crear un componente personalizado para almacenar la información necesaria. También necesitas definir un sistema que implemente el escalado gradual en cada fotograma.
 
 ```ts
-// define custom component
+// definir componente personalizado
 const ScaleTransportData = {
 	start: Schemas.Number,
 	end: Schemas.Number,
@@ -748,7 +743,7 @@ export const ScaleTransformComponent = engine.defineComponent(
 	ScaleTransportData
 )
 
-// define system
+// definir sistema
 function LerpMove(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	let lerp = ScaleTransformComponent.getMutable(myEntity)
@@ -761,7 +756,7 @@ function LerpMove(dt: number) {
 
 engine.addSystem(LerpMove)
 
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
@@ -780,18 +775,18 @@ ScaleTransformComponent.create(myEntity, {
 Vector3.create(1, 1, 1)
 ```
 
-![](../../.gitbook/assets/lerp-scale.gif)
+ <img src="../../../images/media/gifs/lerp-scale.gif" alt="Move entity" width="300"/>
 
-#### Move at irregular speeds between two points via system
+### Mover a velocidades irregulares entre dos puntos mediante sistema
 
-While using the lerp method, you can make the movement speed non-linear. In the previous example we increment the lerp amount by a given amount each frame, but we could also use a mathematical function to increase the number exponentially or in other measures that give you a different movement pace.
+Mientras usas el método lerp, puedes hacer que la velocidad de movimiento sea no lineal. En el ejemplo anterior incrementamos la cantidad de lerp en una cantidad dada cada fotograma, pero también podríamos usar una función matemática para aumentar el número exponencialmente o en otras medidas que te den un ritmo de movimiento diferente.
 
-You could also use a function that gives recurring results, like a sine function, to describe a movement that comes and goes.
+También podrías usar una función que dé resultados recurrentes, como una función seno, para describir un movimiento que va y viene.
 
-Often these non-linear transitions can breathe a lot of life into a scene. A movement that speeds up over a curve or slows down gradually can say a lot about the nature of an object or character. You could even take advantage of mathematical functions that add bouncy effects.
+A menudo estas transiciones no lineales pueden darle mucha vida a una escena. Un movimiento que acelera sobre una curva o desacelera gradualmente puede decir mucho sobre la naturaleza de un objeto o personaje. Incluso podrías aprovechar funciones matemáticas que agreguen efectos de rebote.
 
 ```ts
-// define custom component
+// definir componente personalizado
 const MoveTransportData = {
 	start: Schemas.Vector3,
 	end: Schemas.Vector3,
@@ -804,7 +799,7 @@ export const LerpTransformComponent = engine.defineComponent(
 	MoveTransportData
 )
 
-// define system
+// definir sistema
 function LerpMove(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	let lerp = LerpTransformComponent.getMutable(myEntity)
@@ -815,14 +810,14 @@ function LerpMove(dt: number) {
 	}
 }
 
-// map the lerp fraction to an exponential curve
+// mapear la fracción de lerp a una curva exponencial
 function interpolate(t: number) {
 	return t * t
 }
 
 engine.addSystem(LerpMove)
 
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
@@ -839,18 +834,18 @@ LerpTransformComponent.create(myEntity, {
 })
 ```
 
-The example above is just like the linear lerp example we've shown before, but the `fraction` field mapped to a non-linear value on every tick. This non-linear value is used to calculate the `lerp` function, resulting in a movement that follows an exponential curve.
+El ejemplo anterior es igual al ejemplo de lerp lineal que hemos mostrado antes, pero el campo `fraction` se mapea a un valor no lineal en cada tick. Este valor no lineal se usa para calcular la función `lerp`, resultando en un movimiento que sigue una curva exponencial.
 
-You can also map a transition in rotation or in scale in the same way as shown above, by mapping a linear transition to a curve.
+También puedes mapear una transición en rotación o en escala de la misma manera que se muestra arriba, mapeando una transición lineal a una curva.
 
-![](../../.gitbook/assets/lerp-speed-up.gif)
+ <img src="../../../images/media/gifs/lerp-speed-up.gif" alt="Move entity" width="300"/>
 
-#### Follow a path via system
+### Seguir un camino mediante sistema
 
-You can have an entity loop over an array of vectors, performing a lerp movement between each to follow a more complex path.
+Puedes hacer que una entidad itere sobre un array de vectores, realizando un movimiento lerp entre cada uno para seguir un camino más complejo.
 
 ```ts
-// define custom component
+// definir componente personalizado
 const PathTransportData = {
 	path: Schemas.Array(Schemas.Vector3),
 	start: Schemas.Vector3,
@@ -865,7 +860,7 @@ export const LerpTransformComponent = engine.defineComponent(
 	PathTransportData
 )
 
-// define system
+// definir sistema
 function PathMove(dt: number) {
 	let transform = Transform.getMutable(myEntity)
 	let lerp = LerpTransformComponent.getMutable(myEntity)
@@ -885,7 +880,7 @@ function PathMove(dt: number) {
 
 engine.addSystem(PathMove)
 
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
 Transform.create(myEntity, {
@@ -911,15 +906,15 @@ LerpTransformComponent.create(myEntity, {
 })
 ```
 
-The example above defines a 3D path that's made up of four 3D vectors. The `PathTransportData` custom component holds the same data used by the custom component in the _lerp_ example above, but adds a `path` array, with all of the points in our path, and a `pathTargetIndex` field to keep track of what segment of the path is currently in use.
+El ejemplo anterior define un camino 3D que está compuesto por cuatro vectores 3D. El componente personalizado `PathTransportData` contiene los mismos datos utilizados por el componente personalizado en el ejemplo _lerp_ anterior, pero agrega un array `path`, con todos los puntos en nuestro camino, y un campo `pathTargetIndex` para hacer un seguimiento de qué segmento del camino se está usando actualmente.
 
-The system is very similar to the system in the _lerp_ example, but when a lerp action is completed, it sets the `target` and `origin` fields to new values. If we reach the end of the path, we return to the first value in the path.
+El sistema es muy similar al sistema en el ejemplo _lerp_, pero cuando se completa una acción lerp, establece los campos `target` y `origin` a nuevos valores. Si llegamos al final del camino, volvemos al primer valor en el camino.
 
-![](../../.gitbook/assets/lerp-path.gif)
+ <img src="../../../images/media/gifs/lerp-path.gif" alt="Move entity" width="300"/>
 
-### Texture tweens
+## Tweens de textura
 
-To make a texture slide smoothly, use the `Tween` component with the `setTextureMove` function.
+Para hacer que una textura se deslice suavemente, usa el componente `Tween` con la función `setTextureMove`.
 
 ```ts
 Tween.setTextureMove(myEntity, 
@@ -929,21 +924,21 @@ Tween.setTextureMove(myEntity,
 )
 ```
 
-The texture tween takes the following information:
+El tween de textura toma la siguiente información:
 
-* `entity`: The entity to move the texture of
-* `start`: A Vector2 for the starting position
-* `end`: A Vector2 for the ending position
-* `duration`: How many milliseconds it takes to move between the two positions
+- `entity`: La entidad para mover la textura
+- `start`: Un Vector2 para la posición inicial
+- `end`: Un Vector2 para la posición final
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `movementType`: (optional), defines if the movement will be on the offset or the tiling field. By default it uses offset.
-* `easingFunction`: What easing function to use. See [Non-linear tweens](move-entities.md#non-linear-tweens). Note: This parameter is only used if a duration is provided.
+- `movementType`: (opcional), define si el movimiento será en el campo offset o tiling. Por defecto usa offset.
+- `easingFunction`: Qué función de easing usar. Consulta [Tweens no lineales](#non-linear-tweens). Nota: Este parámetro solo se usa si se proporciona una duración.
 
-### Constant texture movement
+## Movimiento constante de textura
 
-To make a texture slide constantly, use the `Tween` component with the `setTextureMoveContinuous` function.
+Para hacer que una textura se deslice constantemente, usa el componente `Tween` con la función `setTextureMoveContinuous`.
 
 ```ts
 Tween.setTextureMoveContinuous(myEntity, 
@@ -952,15 +947,15 @@ Tween.setTextureMoveContinuous(myEntity,
 )
 ```
 
-The texture continuous tween takes the following information:
+El tween continuo de textura toma la siguiente información:
 
-* `entity`: The entity to move the texture of
-* `direction`: A Vector2 for the movement
-* `speed`: How many units per second the entity will move
+- `entity`: La entidad para mover la textura
+- `direction`: Un Vector2 para el movimiento
+- `speed`: Cuántas unidades por segundo se moverá la entidad
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
-* `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
+- `movementType`: define si el movimiento será en el campo offset o tiling. Por defecto usa offset.
+- `duration`: Cuántos milisegundos sostener el movimiento. Después de este tiempo, el movimiento se detendrá.
 
-Read more about texture tweens in the [Texture Tweens](../../../creator/sdk7/3d-essentials/materials.md#texture-tweens) section.
+Lee más sobre tweens de textura en la sección [Tweens de textura](materials.md#texture-tweens).

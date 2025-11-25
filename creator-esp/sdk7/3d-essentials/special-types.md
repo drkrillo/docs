@@ -1,37 +1,33 @@
 ---
-description: Learn what special types exist, including Vector, Quaternions, and more.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/special-types
+description: Aprende qué tipos especiales existen, incluyendo Vector, Quaternions y más
 ---
 
-# Special Types
+# Tipos de geometría
 
-### Vector3
+## Vector3
 
-Decentraland uses _vector3_ data to represent paths, points in space, and directions. Vectors can also be used to define rotation orientations, as a friendlier alternative to _quaternions_. A Vector3 object contains numerical values for each of the _x_, _y_, and _z_ axis.
+Decentraland usa datos de _vector3_ para representar rutas, puntos en el espacio y direcciones. Los vectores también pueden usarse para definir orientaciones de rotación, como una alternativa más amigable a los _quaternions_. Un objeto Vector3 contiene valores numéricos para cada uno de los ejes _x_, _y_ y _z_.
 
 ```ts
 const myVector: Vector3 = { x: 8, y: 1, z: 8 }
 ```
 
-The `Vector3` namespace contains a series of handy methods that you can call to avoid having to deal with most vector math operations. Write `Vector3.`, and VS Studio will display a dropdown with all of the available functions.
+El namespace `Vector3` contiene una serie de métodos útiles que puedes llamar para evitar tener que lidiar con la mayoría de las operaciones matemáticas de vectores. Escribe `Vector3.`, y VS Studio mostrará un menú desplegable con todas las funciones disponibles.
 
-Below are a few lines showing the syntax for some basic operations with vectors.
+A continuación se muestran algunas líneas que muestran la sintaxis para algunas operaciones básicas con vectores.
 
 ```ts
-// Create a vector object
+// Crear un objeto vector
 let myVector = Vector3.create(3, 1, 5)
 
-// Alternative syntax to create a vector object
+// Sintaxis alternativa para crear un objeto vector
 let myOtherVector: Vector3 = { x: 8, y: 1, z: 8 }
 
-// Edit one of its values
+// Editar uno de sus valores
 myVector.x = 5
 
-// Call functions from the Vector3 namespace,
-// All these functions require passing Vector3 objects in their parameters
+// Llamar funciones del namespace Vector3,
+// Todas estas funciones requieren pasar objetos Vector3 en sus parámetros
 
 let normalizedVector = Vector3.normalize(myVector)
 
@@ -40,52 +36,52 @@ let distance = Vector3.distance(myVector, myOtherVector)
 let midPoint = Vector3.lerp(myVector, myOtherVector, 0.5)
 ```
 
-Vector3 objects are often required in the fields of several components. For example, the `Transform` component contains `Vector3` values for the _position_ and _scale_ of the entity.
+Los objetos Vector3 a menudo se requieren en los campos de varios componentes. Por ejemplo, el componente `Transform` contiene valores `Vector3` para la _posición_ y _escala_ de la entidad.
 
-To create a [custom component](../../../creator/sdk7/architecture/custom-components.md) with parameters that require Vector3 values, set the type of these parameters as `Schema.Vector3`.
+Para crear un [componente personalizado](../architecture/custom-components.md) con parámetros que requieren valores Vector3, establece el tipo de estos parámetros como `Schema.Vector3`.
 
 {% hint style="warning" %}
-**📔 Note**: `Vector3` must be imported via
+**📔 Nota**: `Vector3` debe importarse mediante
 
 > `import { Vector3 } from "@dcl/sdk/math"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-#### Shortcuts for writing direction vectors
+### Atajos para escribir vectores de dirección
 
-The following shortcuts exist for defining generic vectors:
+Existen los siguientes atajos para definir vectores genéricos:
 
-* `Vector3.Zero()` returns _(0, 0, 0)_
-* `Vector3.Up()` returns _(0, 1, 0)_
-* `Vector3.Down()` returns _(0, -1, 0)_
-* `Vector3.Left()` returns _(-1, 0, 0)_
-* `Vector3.Right()` returns _(1, 0, 0)_
-* `Vector3.Forward()` returns _(0, 0, 1)_
-* `Vector3.Backward()` returns _(0, 0, -1)_
+- `Vector3.Zero()` devuelve _(0, 0, 0)_
+- `Vector3.Up()` devuelve _(0, 1, 0)_
+- `Vector3.Down()` devuelve _(0, -1, 0)_
+- `Vector3.Left()` devuelve _(-1, 0, 0)_
+- `Vector3.Right()` devuelve _(1, 0, 0)_
+- `Vector3.Forward()` devuelve _(0, 0, 1)_
+- `Vector3.Backward()` devuelve _(0, 0, -1)_
 
-### Quaternions
+## Quaternions
 
-Quaternions are used to store rotation information for the Transform component. A Quaternion is composed of four numerical values between -1 and 1: _x_, _y_, _z_, _w_.
+Los Quaternions se usan para almacenar información de rotación para el componente Transform. Un Quaternion está compuesto por cuatro valores numéricos entre -1 y 1: _x_, _y_, _z_, _w_.
 
 ```ts
 const myQuaternion: Vector3 = { x: 0, y: 0, z: 0, w: 1 }
 ```
 
-Quaternions are different from [_Euler_ angles](https://en.wikipedia.org/wiki/Euler_angles), the more common _x_, _y_ and _z_ notation with numbers that go from 0 to 360 that most people are familiar with. The engine expresses all rotations as Quaternions, so it makes sense to avoid computations to convert to and from euler whenever possible.
+Los Quaternions son diferentes de los ángulos [_Euler_](https://en.wikipedia.org/wiki/Euler_angles), la notación más común de _x_, _y_ y _z_ con números que van de 0 a 360 con la que la mayoría de la gente está familiarizada. El motor expresa todas las rotaciones como Quaternions, por lo que tiene sentido evitar cálculos para convertir desde y hacia euler siempre que sea posible.
 
-The `Quaternion` namespace contains a series of handy methods that you can call to avoid having to deal with many math operations. Write `Quaternion.`, and VS Studio will display a dropdown with all of the available functions.
+El namespace `Quaternion` contiene una serie de métodos útiles que puedes llamar para evitar tener que lidiar con muchas operaciones matemáticas. Escribe `Quaternion.`, y VS Studio mostrará un menú desplegable con todas las funciones disponibles.
 
-Below are a few lines showing the syntax for some basic operations with Quaternions.
+A continuación se muestran algunas líneas que muestran la sintaxis para algunas operaciones básicas con Quaternions.
 
 ```ts
-// Create a quaternion object
+// Crear un objeto quaternion
 let myQuaternion = Quaternion.crate(0, 0, 0, 1)
 
-// Edit one of its values
+// Editar uno de sus valores
 myQuaternion.x = 1
 
-// Call functions from the quaternion namespace
+// Llamar funciones del namespace quaternion
 let midPoint = Quaternion.slerp(myQuaternion1, myQuaternion2, 0.5)
 
 let rotationDifference = Quaternion.fromToRotation(
@@ -95,38 +91,38 @@ let rotationDifference = Quaternion.fromToRotation(
 )
 ```
 
-Since it's a lot easier to think in terms of Euler degrees, the SDK includes a couple of functions to convert to and from Quaternions and Euler.
+Dado que es mucho más fácil pensar en términos de grados Euler, el SDK incluye un par de funciones para convertir desde y hacia Quaternions y Euler.
 
 {% hint style="info" %}
-**💡 Tip**: Avoid running these conversions as part of recurrent logic inside a system, that run on every tick, as that can get expensive. These conversions are mostly useful for one-time operations, like setting the rotation of a new entity.
+**💡 Consejo**: Evita ejecutar estas conversiones como parte de lógica recurrente dentro de un sistema, que se ejecuta en cada tick, ya que eso puede volverse costoso. Estas conversiones son principalmente útiles para operaciones puntuales, como establecer la rotación de una nueva entidad.
 {% endhint %}
 
 ```ts
-// From euler to Quaternion
+// De euler a Quaternion
 let myQuaternion = Quaternion.fromEulerDegrees(90, 0, 0)
 
-// From quaternion to Euler
+// De quaternion a Euler
 let myEuler = Quaternion.toEulerAngles(myQuaternion)
 ```
 
-Quaternion objects are often required in the fields of components. For example, the `Transform` component contains `Quaternion` values for rotation of the entity.
+Los objetos Quaternion a menudo se requieren en los campos de los componentes. Por ejemplo, el componente `Transform` contiene valores `Quaternion` para la rotación de la entidad.
 
-To create a [custom component](../../../creator/sdk7/architecture/custom-components.md) with parameters that require Quaternion values, set the type of these parameters as `Schema.Quaternion`.
+Para crear un [componente personalizado](../architecture/custom-components.md) con parámetros que requieren valores Quaternion, establece el tipo de estos parámetros como `Schema.Quaternion`.
 
 {% hint style="warning" %}
-**📔 Note**: `Quaternion` must be imported via
+**📔 Nota**: `Quaternion` debe importarse mediante
 
 > `import { Quaternion } from "@dcl/sdk/math"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Scalars
+## Scalars
 
-A scalar is nothing more than a number. For that reason, it doesn't make much sense to instantiate a `Scalar` object to store data, as you can do the same with a number. The functions in the `Scalar` namespace however expose several handy functions (similar to those in the _Vector3_ namespace), that can be used on numbers.
+Un scalar no es más que un número. Por esa razón, no tiene mucho sentido instanciar un objeto `Scalar` para almacenar datos, ya que puedes hacer lo mismo con un número. Sin embargo, las funciones en el namespace `Scalar` exponen varias funciones útiles (similares a las del namespace _Vector3_), que pueden usarse en números.
 
 ```ts
-// Call functions from the Scalar class
+// Llamar funciones de la clase Scalar
 let random = Scalar.randomRange(1, 100)
 
 let midPoint = Scalar.lerp(number1, number2, 0.5)
@@ -135,9 +131,9 @@ let clampedValue = Scalar.clamp(myInput, 0, 100)
 ```
 
 {% hint style="warning" %}
-**📔 Note**: `Scalar` must be imported via
+**📔 Nota**: `Scalar` debe importarse mediante
 
 > `import { Scalar } from "@dcl/sdk/math"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}

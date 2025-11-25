@@ -1,31 +1,27 @@
 ---
-description: How to set the position, rotation and scale of an entity in a scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/entity-positioning
+description: Cómo establecer la posición, rotación y escala de una entidad en una escena
 ---
 
-# Entity Positioning
+# Establecer posiciones de entidades
 
-You can set the _position_, _rotation_ and _scale_ of any entity by using the `Transform` component. This can be used on any entity in the 3D space, affecting where the entitiy is rendered. This includes primitive shapes (cube, sphere, plane, etc), 3D text shapes, NFT shapes, and 3D models (`GltfContainer`).
+Puedes establecer la _posición_, _rotación_ y _escala_ de cualquier entidad usando el componente `Transform`. Esto se puede usar en cualquier entidad en el espacio 3D, afectando dónde se renderiza la entidad. Esto incluye formas primitivas (cubo, esfera, plano, etc), formas de texto 3D, formas NFT y modelos 3D (`GltfContainer`).
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-When adding an item to your scene via the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), it implicitly includes a **Transform** component. You then change the values in the entity's Transform component implicitly by changing the position, rotation or scale of an entity. You can also use the Scene Editor's UI to provide values numerically for more precision.
+Al agregar un elemento a tu escena a través del [Scene Editor](../../scene-editor/about-editor.md), incluye implícitamente un componente **Transform**. Luego cambias los valores en el componente Transform de la entidad implícitamente al cambiar la posición, rotación o escala de una entidad. También puedes usar la UI del Scene Editor para proporcionar valores numéricamente para mayor precisión.
 
-### Code essentials
+## Fundamentos de código
 
-![](../../.gitbook/assets/ecs-simple-components-new.png)
+<img src="../../../images/media/ecs-simple-components-new.png" alt="nested entities" width="400"/>
 
 ```ts
-// Create a new entity
+// Crear una nueva entidad
 const ball = engine.addEntity()
 
-// Give this entity a shape, to make it visible
+// Darle a esta entidad una forma, para hacerla visible
 MeshRenderer.setSphere(ball)
 
-// Give this entity a Transform component
+// Darle a esta entidad un componente Transform
 Transform.create(ball, {
 	position: Vector3.create(5, 1, 5),
 	scale: Vector3.create(1, 1, 1),
@@ -33,152 +29,159 @@ Transform.create(ball, {
 })
 ```
 
-To move, rotate or resize an entity in your scene over a period of time, change the values on this component incrementally, frame by frame. See [Move entities](../../../creator/sdk7/3d-essentials/move-entities.md) for more details and best practices.
+Para mover, rotar o cambiar el tamaño de una entidad en tu escena durante un período de tiempo, cambia los valores en este componente incrementalmente, fotograma por fotograma. Consulta [Mover entidades](move-entities.md) para más detalles y mejores prácticas.
 
 {% hint style="warning" %}
-**📔 Note**: `Vector3` and `Quaternion` must be imported via
+**📔 Nota**: `Vector3` y `Quaternion` deben importarse mediante
 
 > `import { Vector3, Quaternion } from "@dcl/sdk/math"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Position
+## Posición
 
-`position` is a _3D vector_, it sets the position of the entity's center on all three axes, _x_, _y_, and _z_. See [Geometry types](../../../creator/sdk7/3d-essentials/special-types.md) for more details.
+`position` es un _vector 3D_, establece la posición del centro de la entidad en los tres ejes, _x_, _y_, y _z_. Consulta [Tipos de geometría](special-types.md) para más detalles.
 
 ```ts
-// Create a new entity
+// Crear una nueva entidad
 const ball = engine.addEntity()
 
-// Create transform with a predefined position
+// Crear transform con una posición predefinida
 Transform.create(ball, {
 	  position: Vector3.create(5, 1, 5)
 }
 
-// Fetch a mutable version of the transform
+// Obtener una versión mutable del transform
 const mutableTransform = Transform.getMutable(ball)
 
-// Set the position with an object
+// Establecer la posición con un objeto
 mutableTransform.position = { x: 5, y: 1, z: 5 }
 
-// Set the position with an object (alternative syntax)
+// Establecer la posición con un objeto (sintaxis alternativa)
 mutableTransform.position = Vector3.create(2, 1, 4)
 
-// Set each axis individually
+// Establecer cada eje individualmente
 mutableTransform.position.x = 3
 mutableTransform.position.y = 1
 mutableTransform.position.z = 3
 ```
 
-When setting a position, keep the following considerations in mind:
+Al establecer una posición, ten en cuenta las siguientes consideraciones:
 
-* The numbers in a position vector represent _meters_ (unless the entity is a child of a scaled entity).
-* A scene that is made up of a single parcel measures 16m x 16m. The center of the scene (at ground level) is at `x:8, y:0, z:8`. If the scene is made up of multiple parcels, then the center will vary depending on their arrangement.
-*   `x:0, y:0, z:0` refers to the _South-West_ corner of the scene's base parcel, at ground level.
+- Los números en un vector de posición representan _metros_ (a menos que la entidad sea hija de una entidad escalada).
 
-    > Tip: When viewing a scene preview, a compass appears in the (0,0,0) point of the scene with labels for each axis as reference.
+- Una escena que está compuesta por una sola parcela mide 16m x 16m. El centro de la escena (a nivel del suelo) está en `x:8, y:0, z:8`. Si la escena está compuesta por múltiples parcelas, entonces el centro variará dependiendo de su disposición.
 
-    > Note: You can change the base parcel of a scene by editing the `base` attribute of _scene.json_.
-* To better orient yourself, use your _left_ hand:
-  * your index finger (pointing forward) is the _z_ axis
-  * your middle finger (pointing sideways) is the _x_ axis
-  * your thumb (pointing up) is the _y_ axis.
-* If an entity is a child of another, then `x:0, y:0, z:0` refers to the center of its parent entity, wherever it is in the scene.
-*   Every entity in your scene must be positioned within the bounds of the parcels it occupies at all times. If an entity leaves these boundaries, it will raise an error.
+- `x:0, y:0, z:0` se refiere a la esquina _Suroeste_ de la parcela base de la escena, a nivel del suelo.
 
-    > Tip: When viewing a scene in preview mode, entities that are out of bounds are highlighted in _red_.
-* Your scene is also limited in height. The more parcels that make up the scene, the higher you're allowed to build. See [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md) for more details.
+  > Consejo: Al ver una vista previa de la escena, aparece una brújula en el punto (0,0,0) de la escena con etiquetas para cada eje como referencia.
 
-### Rotation
+  > Nota: Puedes cambiar la parcela base de una escena editando el atributo `base` de _scene.json_.
 
-`rotation` is stored as a [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), a system of four numbers, _x_, _y_, _z_ and _w_. Each of these numbers goes from 0 to 1. See [Geometry types](../../../creator/sdk7/3d-essentials/special-types.md) for more details.
+- Para orientarte mejor, usa tu mano _izquierda_:
+
+  - tu dedo índice (apuntando hacia adelante) es el eje _z_
+  - tu dedo medio (apuntando hacia el lado) es el eje _x_
+  - tu pulgar (apuntando hacia arriba) es el eje _y_.
+
+- Si una entidad es hija de otra, entonces `x:0, y:0, z:0` se refiere al centro de su entidad padre, dondequiera que esté en la escena.
+
+- Cada entidad en tu escena debe estar posicionada dentro de los límites de las parcelas que ocupa en todo momento. Si una entidad sale de estos límites, generará un error.
+
+  > Consejo: Al ver una escena en modo de vista previa, las entidades que están fuera de límites se resaltan en _rojo_.
+
+- Tu escena también está limitada en altura. Cuantas más parcelas componen la escena, más alto puedes construir. Consulta [limitaciones de escena](../optimizing/scene-limitations.md) para más detalles.
+
+## Rotación
+
+`rotation` se almacena como un [_quaternion_](https://en.wikipedia.org/wiki/Quaternion), un sistema de cuatro números, _x_, _y_, _z_ y _w_. Cada uno de estos números va de 0 a 1. Consulta [Tipos de geometría](special-types.md) para más detalles.
 
 ```ts
-// Create a new entity
+// Crear una nueva entidad
 const cube = engine.addEntity()
 
-// Create transform with a predefined rotation of 0
+// Crear transform con una rotación predefinida de 0
 Transform.create(cube, {
 	  rotation: Quaternion.Zero()
 }
 
-// Fetch a mutable version of the transform
+// Obtener una versión mutable del transform
 const mutableTransform = Transform.getMutable(cube)
 
-// Set the rotation with an object, from euler angles
+// Establecer la rotación con un objeto, desde ángulos euler
 mutableTransform.rotation = Quaternion.fromEulerDegrees(0, 90, 0)
 
-// Set the rotation with an object
+// Establecer la rotación con un objeto
 mutableTransform.rotation = { x: 0.1, y: 0.5, z: 0.5, w: 0 }
 
-// Set each axis individually
+// Establecer cada eje individualmente
 mutableTransform.rotation.x = 0
 mutableTransform.rotation.y = 1
 mutableTransform.rotation.z = 0.3
 mutableTransform.rotation.w = 0
 ```
 
-You can also set the rotation field with [_Euler_ angles](https://en.wikipedia.org/wiki/Euler_angles), the more common _x_, _y_ and _z_ notation with numbers that go from 0 to 360 that most people are familiar with. To use Euler angles, use one of the following notations:
+También puedes establecer el campo de rotación con ángulos [_Euler_](https://en.wikipedia.org/wiki/Euler_angles), la notación más común de _x_, _y_ y _z_ con números que van de 0 a 360 con la que la mayoría de la gente está familiarizada. Para usar ángulos Euler, usa una de las siguientes notaciones:
 
 ```ts
-// Create transform with a predefined rotation in Euler angles
+// Crear transform con una rotación predefinida en ángulos Euler
 Transform.create(cube, {
 	  rotation: Quaternion.fromEulerDegrees(0, 90, 0)
 }
 
-// Fetch a mutable version of the transform
+// Obtener una versión mutable del transform
 const mutableTransform = Transform.getMutable(cube)
 
-// Set the rotation with an object, from euler angles
+// Establecer la rotación con un objeto, desde ángulos euler
 mutableTransform.rotation = Quaternion.fromEulerDegrees(0, 90, 0)
 ```
 
-When using a _3D vector_ to represent Euler angles, _x_, _y_ and _z_ represent the rotation in that axis, measured in degrees. A full turn requires 360 degrees.
+Cuando usas un _vector 3D_ para representar ángulos Euler, _x_, _y_ y _z_ representan la rotación en ese eje, medida en grados. Un giro completo requiere 360 grados.
 
-When you retrieve the rotation of an entity, it returns a quaternion by default. To obtain the rotation expressed as in Euler angles, use `.toEuler()`:
+Cuando obtienes la rotación de una entidad, devuelve un quaternion por defecto. Para obtener la rotación expresada en ángulos Euler, usa `.toEuler()`:
 
 ```ts
-// Fetch a read-only version of the transform
+// Obtener una versión de solo lectura del transform
 const transform = Transform.getMutable(cube)
 
-// Set the rotation with an object, from euler angles
+// Establecer la rotación con un objeto, desde ángulos euler
 const eulerAngle = Quaternion.toEuler(transform.rotation)
 ```
 
-### Face the player
+## Mirar al jugador
 
-Add a _Billboard_ component to an entity so that it always rotates to face the player.
+Agrega un componente _Billboard_ a una entidad para que siempre rote para mirar al jugador.
 
-Billboards were a common technique used in 3D games of the 90s, where most entities were 2D planes that always faced the player. The same idea can also be used to rotate a 3D model.
+Los billboards eran una técnica común utilizada en juegos 3D de los 90, donde la mayoría de las entidades eran planos 2D que siempre miraban al jugador. La misma idea también se puede usar para rotar un modelo 3D.
 
 ```ts
-// Create a new entity
+// Crear una nueva entidad
 const cube = engine.addEntity()
 
-// Give the entity a visible shape
+// Darle a la entidad una forma visible
 MeshRenderer.setBox(cube)
 
-// Create transform with a predefined position
+// Crear transform con una posición predefinida
 Transform.create(cube, {
 	  position: Vector3.create(5, 1, 5)
 }
 
-// Give the entity a Billboard component
+// Darle a la entidad un componente Billboard
 Billboard.create(cube, {})
 ```
 
-You can configure how the billboard behaves with the following parameters:
+Puedes configurar cómo se comporta el billboard con los siguientes parámetros:
 
-* `billboardMode`: Uses a value of the `BillboardMode` to set its behavior:
-  * `BillboardMode.BM_ALL`: The entity rotates to face the player on all of its rotation axis. If the player is high above the entity, the entity will face up.
-  * `BillboardMode.BM_NONE`: The entity won't rotate at all.
-  * `BillboardMode.BM_X`: The entity has its _x_ rotation axis fixed.
-  * `BillboardMode.BM_Y`: The entity has its _y_ rotation axis fixed. It only rotates left and right, not up and down. It stays perpendicular to the ground if the player is above or below the entity.
-  * `BillboardMode.BM_Z`: The entity has its _z_ rotation axis fixed.
+- `billboardMode`: Usa un valor del `BillboardMode` para establecer su comportamiento:
+  - `BillboardMode.BM_ALL`: La entidad rota para mirar al jugador en todos sus ejes de rotación. Si el jugador está muy por encima de la entidad, la entidad mirará hacia arriba.
+  - `BillboardMode.BM_NONE`: La entidad no rotará en absoluto.
+  - `BillboardMode.BM_X`: La entidad tiene su eje de rotación _x_ fijo.
+  - `BillboardMode.BM_Y`: La entidad tiene su eje de rotación _y_ fijo. Solo rota hacia la izquierda y derecha, no arriba y abajo. Permanece perpendicular al suelo si el jugador está encima o debajo de la entidad.
+  - `BillboardMode.BM_Z`: La entidad tiene su eje de rotación _z_ fijo.
 
 ```ts
-// flat billboard
+// billboard plano
 const perpendicularPlane = engine.addEntity()
 
 Transform.create(perpendicularPlane, {
@@ -191,7 +194,7 @@ Billboard.create(perpendicularPlane, {
 	billboardMode: BillboardMode.BM_Y,
 })
 
-// text label
+// etiqueta de texto
 const textLabel = engine.addEntity()
 
 Transform.create(textLabel, {
@@ -199,34 +202,32 @@ Transform.create(textLabel, {
 })
 
 TextShape.create(textLabel, {
-	text: 'This text is always readable',
+	text: 'Este texto siempre es legible',
 })
 
 Billboard.create(textLabel)
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Billboards are very handy to add to _text_ entities, since it makes them always legible.
+**💡 Consejo**: Los billboards son muy útiles para agregar a entidades de _texto_, ya que las hace siempre legibles.
 {% endhint %}
 
-The `rotation` value of the entity's `Transform` component doesn't change as the billboard follows players around.
+El valor de `rotation` del componente `Transform` de la entidad no cambia a medida que el billboard sigue a los jugadores.
 
-If an entity has both a `Billboard` component and `Transform` component with `rotation` values, players will see the entity rotating as a billboard. If the billboard doesn't affect all axis, the remaining axis will be rotated according to the `Transform` component.
+Si una entidad tiene tanto un componente `Billboard` como un componente `Transform` con valores de `rotation`, los jugadores verán la entidad rotando como un billboard. Si el billboard no afecta todos los ejes, el eje restante se rotará de acuerdo con el componente `Transform`.
 
 {% hint style="warning" %}
-**📔 Note**: If there are multiple players present at the same time, each will see the entities with billboard mode facing them. Billboard rotations are calculated locally for each player, and don't affect what others see.
+**📔 Nota**: Si hay varios jugadores presentes al mismo tiempo, cada uno verá las entidades con modo billboard mirándolos. Las rotaciones de billboard se calculan localmente para cada jugador y no afectan lo que ven los demás.
 {% endhint %}
 
-### Face a set of coordinates
+## Mirar un conjunto de coordenadas
 
-For entity A to look at entity B:
+Para que la entidad A mire a la entidad B:
 
-```
-1) Subtract the position of entity A from entity B to get a vector that describes the distance between them.
-2) Normalize that vector, so it has a length of 1, maintaining its direction.
-3) Use `Quaternion.lookRotation` to get a Quaternion rotation that describes rotating in that direction.
-4) Set that Quaternion as the rotation of entity A
-```
+    1) Resta la posición de la entidad A de la entidad B para obtener un vector que describa la distancia entre ellas.
+    2) Normaliza ese vector, para que tenga una longitud de 1, manteniendo su dirección.
+    3) Usa `Quaternion.lookRotation` para obtener una rotación Quaternion que describa rotar en esa dirección.
+    4) Establece ese Quaternion como la rotación de la entidad A
 
 ```ts
 export function turn(entity: Entity, target: ReadOnlyVector3) {
@@ -237,78 +238,78 @@ export function turn(entity: Entity, target: ReadOnlyVector3) {
 }
 ```
 
-### Scale
+## Escala
 
-`scale` is also a _3D vector_, stored as a `Vector3` object, including the scale factor on the _x_, _y_ and _z_ axis. The shape of the entity scaled accordingly, whether it's a primitive or a 3D model.
+`scale` también es un _vector 3D_, almacenado como un objeto `Vector3`, incluyendo el factor de escala en los ejes _x_, _y_ y _z_. La forma de la entidad se escala en consecuencia, ya sea una primitiva o un modelo 3D.
 
-The default scale is 1, so assign a value larger to 1 to stretch an entity or smaller than 1 to shrink it.
+La escala predeterminada es 1, así que asigna un valor mayor a 1 para estirar una entidad o menor que 1 para encogerla.
 
 ```ts
-// Create a new entity
+// Crear una nueva entidad
 const ball = engine.addEntity()
 
-// Create transform with a predefined position
+// Crear transform con una posición predefinida
 Transform.create(ball, {
 	  scale: Vector3.create(5, 5, 5)
 }
 
-// Fetch a mutable version of the transform
+// Obtener una versión mutable del transform
 const mutableTransform = Transform.getMutable(ball)
 
-// Set the scale with a Vector3
+// Establecer la escala con un Vector3
 
 mutableTransform.scale = Vector3.create(2, 2, 2)
 
-// Set the position with an object
+// Establecer la posición con un objeto
 mutableTransform.scale = { x: 5, y: 1, z: 5 }
 
-// Set each axis individually
+// Establecer cada eje individualmente
 mutableTransform.scale.x = 3
 mutableTransform.scale.y = 3
 mutableTransform.scale.z = 2
 ```
 
-### Inherit transformations from parent
+## Heredar transformaciones del padre
 
-When an entity is nested inside another, the child entities inherit components from the parents. This means that if a parent entity is positioned, scaled or rotated, its children are also affected. The position, rotation and scale values of children entities don't override those of the parents, instead these are compounded.
+Cuando una entidad está anidada dentro de otra, las entidades hijas heredan componentes de los padres. Esto significa que si una entidad padre está posicionada, escalada o rotada, sus hijos también se ven afectados. Los valores de posición, rotación y escala de las entidades hijas no anulan los de los padres, en cambio se combinan.
 
-You assign an entity to be parent of another by setting the `parent` field on the child entity's `Transform` component.
+Asignas una entidad para que sea padre de otra estableciendo el campo `parent` en el componente `Transform` de la entidad hija.
 
-If a parent entity is scaled, all position values of its children are also scaled.
+Si una entidad padre está escalada, todos los valores de posición de sus hijos también se escalan.
 
 ```ts
-// Create entities
+// Crear entidades
 const parentEntity = engine.addEntity()
 const childEntity = engine.addEntity()
 
-// Create a transform for the parent
+// Crear un transform para el padre
 Transform.create(parentEntity, {
 	position: Vector3.create(3, 1, 1),
 	scale: Vector3.create(0.5, 0.5, 0.5),
 })
 
-// Create a transform for the child, and assign it as a child
+// Crear un transform para el hijo y asignarlo como hijo
 Transform.create(childEntity, {
 	position: Vector3.create(0, 1, 0),
 	parent: parentEntity,
 })
 ```
 
-In this example, the child entity will be scaled down to 0.5, since its parent has that scale. The child entity's position will also be relative to its parent. We have to add the parent's position plus that of the child. In this case, since the parent is scaled to half its size, the transformation of the child is also scaled down proportionally. In absolute terms, the child is positioned at `{ x: 3, y: 1.5, z: 1 }`. If the parent had a `rotation`, this would also affect the child's final position, as it changes the axis in which the child is shifted.
+En este ejemplo, la entidad hija se reducirá a 0.5, ya que su padre tiene esa escala. La posición de la entidad hija también será relativa a su padre. Tenemos que sumar la posición del padre más la del hijo. En este caso, dado que el padre está escalado a la mitad de su tamaño, la transformación del hijo también se escala proporcionalmente. En términos absolutos, el hijo está posicionado en `{ x: 3, y: 1.5, z: 1 }`. Si el padre tuviera una `rotation`, esto también afectaría la posición final del hijo, ya que cambia el eje en el que se desplaza el hijo.
 
-If a child entity has no `position` on its Transform, the default is `0,0,0`, which will leave it positioned at the same position as its parent.
+Si una entidad hija no tiene `position` en su Transform, el valor predeterminado es `0,0,0`, lo que la dejará posicionada en la misma posición que su padre.
 
-You can use an invisible entity with no shape component as a parent, to wrap a set of other entities. This entity won't be visible in the rendered scene, but can be used to group its children and apply a transform to all of them.
+Puedes usar una entidad invisible sin componente de forma como padre, para envolver un conjunto de otras entidades. Esta entidad no será visible en la escena renderizada, pero puede usarse para agrupar a sus hijos y aplicar una transformación a todos ellos.
 
-### Attach an entity to an avatar
+## Adjuntar una entidad a un avatar
 
-There are three methods to attach an entity to the player:
+Hay tres métodos para adjuntar una entidad al jugador:
 
-* Make it a child of the to the **Avatar Entity**
-* Make it a child of the to the **Camera Entity**
-* Use the **AvatarAttach component**
+- Hacerla hija de la **Avatar Entity**
+- Hacerla hija de la **Camera Entity**
+- Usar el **componente AvatarAttach**
 
-The simplest way to attach an entity to the avatar is to set the parent as the [reserved entity](../../../creator/sdk7/architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`. The entity will then move together with the player's position.
+La forma más simple de adjuntar una entidad al avatar es establecer el padre como la [entidad reservada](../architecture/entities-components.md#reserved-entities) `engine.PlayerEntity`. La entidad se moverá junto con la posición del jugador.
 
 ```ts
 let childEntity = engine.addEntity()
@@ -322,7 +323,7 @@ Transform.create(childEntity, {
 })
 ```
 
-You can also set an entity to the [reserved entity](../../../creator/sdk7/architecture/entities-components.md#reserved-entities) `engine.CameraEntity`. When using the camera entity in first person, the attached entity will follow the camera's movements. This is ideal to keep something always in view, for example for keeping the 3D model of the gun always in view, even when the camera points up.
+También puedes establecer una entidad a la [entidad reservada](../architecture/entities-components.md#reserved-entities) `engine.CameraEntity`. Al usar la entidad de cámara en primera persona, la entidad adjunta seguirá los movimientos de la cámara. Esto es ideal para mantener algo siempre a la vista, por ejemplo para mantener el modelo 3D del arma siempre a la vista, incluso cuando la cámara apunta hacia arriba.
 
 ```ts
 let childEntity = engine.addEntity()
@@ -336,33 +337,33 @@ Transform.create(childEntity, {
 })
 ```
 
-To attach an object to one of the avatar´s bones, and have it move together with the avatar's animations, add an `AvatarAttach` component to the entity.
+Para adjuntar un objeto a uno de los huesos del avatar y hacer que se mueva junto con las animaciones del avatar, agrega un componente `AvatarAttach` a la entidad.
 
-You can pick different anchor points on the avatar, most of these points are linked to the player's armature and follow the player's animations. For example, when using the right hand anchor point the attached entity will move when the avatar waves or swings their arms while running, just as if the player was holding the entity in their hand.
+Puedes elegir diferentes puntos de anclaje en el avatar, la mayoría de estos puntos están vinculados a la armadura del jugador y siguen las animaciones del jugador. Por ejemplo, al usar el punto de anclaje de la mano derecha, la entidad adjunta se moverá cuando el avatar salude o balancee sus brazos mientras corre, como si el jugador estuviera sosteniendo la entidad en su mano.
 
 ```ts
-// Attach to main player, if avatarId is not set, engine.PlayerEntity is used by default
+// Adjuntar al jugador principal, si avatarId no está configurado, se usa engine.PlayerEntity por defecto
 AvatarAttach.create(myEntity, {
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
-// Attach to a player by ID
+// Adjuntar a un jugador por ID
 AvatarAttach.create(myEntity, {
 	avatarId: '0xAAAAAAAAAAAAAAAAA',
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 ```
 
-When creating an `AvatarAttach` component, pass an object with the following data:
+Al crear un componente `AvatarAttach`, pasa un objeto con los siguientes datos:
 
-* `avatarId`: _Optional_ The ID of the player to attach to. This is the same as the player's Ethereum address, for those players connected with an Ethereum wallet. If not speccified, it attaches the entity to the local player's avatar.
-* `anchorPointId`: What anchor point on the avatar skeleton to attach the entity, using a value from the enum `AvatarAnchorPointType`.
+- `avatarId`: _Opcional_ El ID del jugador al que adjuntar. Esto es lo mismo que la dirección Ethereum del jugador, para aquellos jugadores conectados con una wallet Ethereum. Si no se especifica, adjunta la entidad al avatar del jugador local.
+- `anchorPointId`: Qué punto de anclaje en el esqueleto del avatar adjuntar la entidad, usando un valor del enum `AvatarAnchorPointType`.
 
 {% hint style="warning" %}
-**📔 Note**: If you want all players in the scene to see an object attached to the same player, for example for all to see that Player A picked up an object and holds it on their left hand, then you must provide a value to `avatarId`. If not specified then all players will see the object attached to their own avatars.
+**📔 Nota**: Si quieres que todos los jugadores en la escena vean un objeto adjunto al mismo jugador, por ejemplo para que todos vean que el Jugador A recogió un objeto y lo sostiene en su mano izquierda, entonces debes proporcionar un valor a `avatarId`. Si no se especifica, todos los jugadores verán el objeto adjunto a sus propios avatares.
 {% endhint %}
 
-The following example places an enitiy attached to a particular avatar, for all other players to see it attached to that same avatar.
+El siguiente ejemplo coloca una entidad adjunta a un avatar en particular, para que todos los demás jugadores la vean adjunta a ese mismo avatar.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -383,76 +384,74 @@ async function attachToPlayer(){
     anchorPointId: AvatarAnchorPointType.AAPT_RIGHT_HAND,
   })
 
-  // Other components
+  // Otros componentes
 
   syncEntity(entity, [AvatarAttach.componentId])
 
 }
 ```
 
-The following anchor points are available on the `AvatarAnchorPointType` enum:
+Los siguientes puntos de anclaje están disponibles en el enum `AvatarAnchorPointType`:
 
-* `AAPT_RIGHT_HAND`: Fixed on the player's right hand
-* `AAPT_LEFT_HAND`: Fixed on the player's left hand
-* `AAPT_HEAD`: Fixed to center of the player's head.
-* `AAPT_NECK`: Fixed to the player's base of the neck.
-* `AAPT_SPINE`: Fixed to the top section of the backbone.
-* `AAPT_SPINE1`: Fixed to the mid section of the backbone.
-* `AAPT_SPINE2`: Fixed to the lower section of the backbone.
-* `AAPT_HIP`: Fixed to the hip bone.
-* `AAPT_LEFT_SHOULDER`: Fixed to the left shoulder.
-* `AAPT_LEFT_ARM`: Fixed to the left first arm bone, at the height of the shoulder.
-* `AAPT_LEFT_FOREARM`: Fixed to the left forearm bone.
-* `AAPT_LEFT_HAND_INDEX`: Fixed to the tip of the left index finger.
-* `AAPT_RIGHT_SHOULDER`: Fixed to the right shoulder.
-* `AAPT_RIGHT_ARM`: Fixed to the right first arm bone, at the height of the shoulder.
-* `AAPT_RIGHT_FOREARM`: Fixed to the right forearm bone.
-* `AAPT_RIGHT_HAND_INDEX`: Fixed to the tip of the right index finger.
-* `AAPT_LEFT_UP_LEG`: Fixed to the top leg bone on the left leg.
-* `AAPT_LEFT_LEG`: Fixed to the bottom leg bone on the left leg.
-* `AAPT_LEFT_FOOT`: Fixed to the ankle on the left leg.
-* `AAPT_LEFT_TOE_BASE`: Fixed to the tip of the toe on the left leg.
-* `AAPT_RIGHT_UP_LEG`: Fixed to the top leg bone on the right leg.
-* `AAPT_RIGHT_LEG`: Fixed to the bottom leg bone on the right leg.
-* `AAPT_RIGHT_FOOT`: Fixed to the ankle on the right leg.
-* `AAPT_RIGHT_TOE_BASE`: Fixed to the tip of the toe on the right leg.
-*   `.AAPT_NAME_TAG`: Floats right above the player's name tag, isn't affected by the player's animations.
+- `AAPT_RIGHT_HAND`: Fijo en la mano derecha del jugador
+- `AAPT_LEFT_HAND`: Fijo en la mano izquierda del jugador
+- `AAPT_HEAD`: Fijo en el centro de la cabeza del jugador.
+- `AAPT_NECK`: Fijo en la base del cuello del jugador.
+- `AAPT_SPINE`: Fijo en la sección superior de la columna vertebral.
+- `AAPT_SPINE1`: Fijo en la sección media de la columna vertebral.
+- `AAPT_SPINE2`: Fijo en la sección inferior de la columna vertebral.
+- `AAPT_HIP`: Fijo en el hueso de la cadera.
+- `AAPT_LEFT_SHOULDER`: Fijo en el hombro izquierdo.
+- `AAPT_LEFT_ARM`: Fijo en el primer hueso del brazo izquierdo, a la altura del hombro.
+- `AAPT_LEFT_FOREARM`: Fijo en el hueso del antebrazo izquierdo.
+- `AAPT_LEFT_HAND_INDEX`: Fijo en la punta del dedo índice izquierdo.
+- `AAPT_RIGHT_SHOULDER`: Fijo en el hombro derecho.
+- `AAPT_RIGHT_ARM`: Fijo en el primer hueso del brazo derecho, a la altura del hombro.
+- `AAPT_RIGHT_FOREARM`: Fijo en el hueso del antebrazo derecho.
+- `AAPT_RIGHT_HAND_INDEX`: Fijo en la punta del dedo índice derecho.
+- `AAPT_LEFT_UP_LEG`: Fijo en el hueso superior de la pierna izquierda.
+- `AAPT_LEFT_LEG`: Fijo en el hueso inferior de la pierna izquierda.
+- `AAPT_LEFT_FOOT`: Fijo en el tobillo de la pierna izquierda.
+- `AAPT_LEFT_TOE_BASE`: Fijo en la punta del dedo del pie de la pierna izquierda.
+- `AAPT_RIGHT_UP_LEG`: Fijo en el hueso superior de la pierna derecha.
+- `AAPT_RIGHT_LEG`: Fijo en el hueso inferior de la pierna derecha.
+- `AAPT_RIGHT_FOOT`: Fijo en el tobillo de la pierna derecha.
+- `AAPT_RIGHT_TOE_BASE`: Fijo en la punta del dedo del pie de la pierna derecha.
+- `.AAPT_NAME_TAG`: Flota justo encima del nombre del jugador, no se ve afectado por las animaciones del jugador.
 
-    > Note: The name tag height is dynamically adjusted based on the height of the wearables a player has on. So a player wearing a tall hat will have their name tag a little bit higher than others.
-*   `AAPT_POSITION` _DEPRECATED_: The player's overall position. This appears at a height of 0.8 above the player's feet.
+  > Nota: La altura del nombre se ajusta dinámicamente según la altura de los wearables que lleva un jugador. Por lo tanto, un jugador que usa un sombrero alto tendrá su nombre un poco más alto que otros.
 
-    >
+- `AAPT_POSITION` _OBSOLETO_: La posición general del jugador. Esto aparece a una altura de 0.8 por encima de los pies del jugador.
 
-{% hint style="warning" %}
-\> \*\*📔 Note\*\*: The \`AAPT\_POSITION\` is deprecated. To follow the player's overall position, it's best to make the entity a child of the to the Avatar Entity. See start of this section for an example. >
-{% endhint %}
+  > {% hint style="warning" %} > **📔 Nota**: El `AAPT_POSITION` está obsoleto. Para seguir la posición general del jugador, es mejor hacer que la entidad sea hija de la Avatar Entity. Consulta el inicio de esta sección para un ejemplo.
+  > {% endhint %}
 
 {% hint style="info" %}
-**💡 Tip**: To use these values, write `AvatarAnchorPointType.` and VS Code will display the full list of options on a dropdown.
+**💡 Consejo**: Para usar estos valores, escribe `AvatarAnchorPointType.` y VS Code mostrará la lista completa de opciones en un menú desplegable.
 {% endhint %}
 
-![](../../.gitbook/assets/avatar-attach-points.png)
+<img src="../../../images/avatar-attach-points.png" width="300"/>
 
-Entity rendering is locally determined on each instance of the scene. Attaching an entity on one player doesn't make it visible to other players who are seeing that player. If an entity is attached to the default local player, each player will experience the entity as attached to their own avatar.
+La renderización de entidades se determina localmente en cada instancia de la escena. Adjuntar una entidad en un jugador no la hace visible para otros jugadores que están viendo a ese jugador. Si una entidad está adjunta al jugador local predeterminado, cada jugador experimentará la entidad como adjunta a su propio avatar.
 
 {% hint style="warning" %}
-**📔 Note**: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
+**📔 Nota**: Las entidades adjuntas a un avatar deben permanecer dentro de los límites de la escena para ser renderizadas. Si un jugador sale de tu escena, cualquier entidad adjunta dejará de renderizarse hasta que el jugador vuelva a entrar. Los wearables inteligentes no tienen esta limitación.
 {% endhint %}
 
-The `AvatarAttach` component overwrites the `Transform` component. A single entity can have both an `AvatarAttach` and a `Transform` component at the same time but the values on the `Transform` component are ignored.
+El componente `AvatarAttach` sobrescribe el componente `Transform`. Una sola entidad puede tener tanto un componente `AvatarAttach` como un componente `Transform` al mismo tiempo, pero los valores en el componente `Transform` se ignoran.
 
-If you need to position an entity with an offset from the anchor point on the avatar, or a different rotation or scale, attach a parent entity to the anchor point. You can then set the visible model on a child entity to that parent, and give this child its own Transform component to describe its shifts from the anchor point.
+Si necesitas posicionar una entidad con un desplazamiento desde el punto de anclaje en el avatar, o una rotación o escala diferente, adjunta una entidad padre al punto de anclaje. Luego puedes establecer el modelo visible en una entidad hija de ese padre, y darle a este hijo su propio componente Transform para describir sus cambios desde el punto de anclaje.
 
 ```ts
-// Create parent entity
+// Crear entidad padre
 const parentEntity = engine.addEntity()
 
-// Attach parent entity to player
+// Adjuntar entidad padre al jugador
 AvatarAttach.create(parentEntity, {
 	anchorPointId: AvatarAnchorPointType.AAPT_NAME_TAG,
 })
 
-// Create child entity
+// Crear entidad hija
 let childEntity = engine.addEntity()
 
 MeshRenderer.setCylinder(childEntity)
@@ -465,20 +464,20 @@ Transform.create(childEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See [Collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers)
+**📔 Nota**: Si la entidad adjunta tiene colisionadores, estos colisionadores podrían bloquear el movimiento del jugador. Considera deshabilitar la capa de física de los colisionadores de la entidad. Consulta [Capas de colisión](colliders.md#collision-layers)
 {% endhint %}
 
-#### Attach to other players
+### Adjuntar a otros jugadores
 
-You can use the `AvatarAttach` component to attach an entity to another player. To do this, you must know the player's id.
+Puedes usar el componente `AvatarAttach` para adjuntar una entidad al avatar de otro jugador. Para hacer esto, debes conocer el id del jugador.
 
-To attach an entity to the avatar of another player, you must provide the user's ID in the field `avatarId`. There are [various ways](../../../creator/sdk7/interactivity/user-data.md#get-player-data) to obtain this data.
+Para adjuntar una entidad al avatar de otro jugador, debes proporcionar el ID del usuario en el campo `avatarId`. Hay [varias formas](../interactivity/user-data.md#get-player-data) de obtener estos datos.
 
 {% hint style="warning" %}
-**📔 Note**: For those players connected with an Ethereum wallet, their `userId` is the same as their Ethereum address.
+**📔 Nota**: Para aquellos jugadores conectados con una wallet Ethereum, su `userId` es lo mismo que su dirección Ethereum.
 {% endhint %}
 
-Fetch the `userId` for all other nearby players via `getPlayer()`
+Obtén el `userId` para todos los demás jugadores cercanos a través de `getPlayer()`
 
 ```ts
 executeTask(async () => {
@@ -488,7 +487,7 @@ executeTask(async () => {
 })
 ```
 
-Using it together with `AvatarAttach`, you could use the following code to add a cube floating over the head of every other player in the scene:
+Usándolo junto con `AvatarAttach`, podrías usar el siguiente código para agregar un cubo flotando sobre la cabeza de cada otro jugador en la escena:
 
 ```ts
 executeTask(async () => {
@@ -503,18 +502,18 @@ executeTask(async () => {
     })
 ```
 
-See other ways to fetch other user's IDs in [Get Player Data](../../../creator/sdk7/interactivity/user-data.md#get-player-data).
+Consulta otras formas de obtener los IDs de otros usuarios en [Obtener datos del jugador](../interactivity/user-data.md#get-player-data).
 
-### Scene boundaries
+## Límites de la escena
 
-All entities in your scene must fit within the scene boundaries, as what's outside those boundaries is parcels of land that are owned by other players.
+Todas las entidades en tu escena deben caber dentro de los límites de la escena, ya que lo que está fuera de esos límites son parcelas de tierra que son propiedad de otros jugadores.
 
-If any part of your models extend beyond these limits when running a preview, these parts that extend will be cut off and not rendered, both when running a preview and on the published scene.
+Si alguna parte de tus modelos se extiende más allá de estos límites al ejecutar una vista previa, estas partes que se extienden se cortarán y no se renderizarán, tanto al ejecutar una vista previa como en la escena publicada.
 
-The position of entities in your scene is constantly being checked as they move, if an entity leaves the scene and then returns it will be removed and then rendered normally again.
+La posición de las entidades en tu escena se verifica constantemente a medida que se mueven, si una entidad sale de la escena y luego regresa, se eliminará y luego se renderizará normalmente nuevamente.
 
-A grid on the scene's ground shows the limits of the scene, which by default rage from 0 to 16 on the _x_ and _z_ axis, and up to 20 on the _y_ axis. You're free to place entities underground, below 0 on the _y_ axis.
+Una cuadrícula en el suelo de la escena muestra los límites de la escena, que por defecto van de 0 a 16 en el eje _x_ y _z_, y hasta 20 en el eje _y_. Eres libre de colocar entidades bajo tierra, debajo de 0 en el eje _y_.
 
 {% hint style="info" %}
-**💡 Tip**: If your scene needs more parcels, you can add them in the project's `scene.json` file. See [Scene metadata](../../../creator/sdk7/projects/scene-metadata.md) for instructions. Once added, you should see the grid extend to cover the additional parcels.
+**💡 Consejo**: Si tu escena necesita más parcelas, puedes agregarlas en el archivo `scene.json` del proyecto. Consulta [Metadatos de escena](../projects/scene-metadata.md) para instrucciones. Una vez agregadas, deberías ver que la cuadrícula se extiende para cubrir las parcelas adicionales.
 {% endhint %}

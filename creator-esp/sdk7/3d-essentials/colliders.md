@@ -1,117 +1,112 @@
 ---
-description: >-
-  Learn about the different components that give entities their 3D shape and
-  collision.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/colliders
+description: Aprende sobre los diferentes componentes que dan a las entidades su forma 3D y colisión
 ---
 
-# Colliders
+# Colisionadores
 
-Entities that have colliders occupy space and block a player's path, entities without colliders can be walked through by a player's avatar.
+Las entidades que tienen colisionadores ocupan espacio y bloquean el camino de un jugador, las entidades sin colisionadores pueden ser atravesadas por el avatar de un jugador.
 
-Colliders are also needed to make an entity clickable. Button events are based on the collider shape of an entity, not on its visible shape.
+Los colisionadores también son necesarios para hacer una entidad clickeable. Los eventos de botón se basan en la forma del colisionador de una entidad, no en su forma visible.
 
-There are separate collision layers for interacting with either the player's physics, or with pointer events, colliders can be configured to only interact with one or the other. They can also be configured to interact with custom layers, that can be used with [raycasts](colliders.md) to handle whatever makes sense to the scene.
+Hay capas de colisión separadas para interactuar con la física del jugador o con eventos de puntero, los colisionadores se pueden configurar para interactuar solo con uno o el otro. También se pueden configurar para interactuar con capas personalizadas, que se pueden usar con [raycasts](../interactivity/raycasting.md#) para manejar lo que tenga sentido para la escena.
 
 {% hint style="warning" %}
-**📔 Note**: Colliders don't affect how other entities interact with each other, entities can always overlap. Collision settings only affect how the entity interacts with the player's avatar and button events. Decentraland doesn't have a native physics engine, so if you want entities to fall, crash or bounce, you must code this behavior into the scene, or import a library to handle that.
+**📔 Nota**: Los colisionadores no afectan cómo otras entidades interactúan entre sí, las entidades siempre pueden superponerse. La configuración de colisión solo afecta cómo la entidad interactúa con el avatar del jugador y eventos de botón. Decentraland no tiene un motor de física nativo, por lo que si deseas que las entidades caigan, choquen o reboten, debes codificar este comportamiento en la escena, o importar una biblioteca para manejar eso.
 {% endhint %}
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-The easiest way to manage an entity's colliders is to use the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md).
+La forma más fácil de administrar los colisionadores de una entidad es usar el [Scene Editor](../../scene-editor/about-editor.md).
 
-You can add a **Mesh Collider** component to your entity to assign a primitive shape (cube, plain, sphere, cylinder, or cone) to your entity. You can then pick [Collision layers](colliders.md#collision-layers) from a dropdown.
+Puedes agregar un componente **Mesh Collider** a tu entidad para asignar una forma primitiva (cubo, plano, esfera, cilindro o cono) a tu entidad. Luego puedes elegir [Capas de colisión](#collision-layers) de un menú desplegable.
 
-You can also configure the collision layers on a **GLTF** component to change the default [Collision layers](colliders.md#collision-layers) used on either the collider geometry or the visible geometry of the model. See [Add Components](../../../creator/scene-editor/build/components.md#add-components).
+También puedes configurar las capas de colisión en un componente **GLTF** para cambiar las [Capas de colisión](#collision-layers) predeterminadas utilizadas en la geometría del colisionador o la geometría visible del modelo. Consulta [Agregar Componentes](../../scene-editor/components.md#add-components).
 
-![](../../.gitbook/assets/gltf-component.png)
+<img src="../../../images/editor/gltf-component.png" alt="Scene name" width="200"/>
 
-### Colliders on primitive shapes
+## Colisionadores en formas primitivas
 
-The `MeshCollider` component gives an entity a simple collider based on a primitive shape (boxes, spheres, planes, cylinders, or cones).
+El componente `MeshCollider` le da a una entidad un colisionador simple basado en una forma primitiva (cajas, esferas, planos, cilindros o conos).
 
-Entities that have a `MeshRenderer` component to give them a [primitive shape](../../../creator/sdk7/3d-essentials/shape-components.md#primitive-shapes) don't have colliders by default. You must also give the entity a `MeshCollider` component.
+Las entidades que tienen un componente `MeshRenderer` para darles una [forma primitiva](shape-components.md#primitive-shapes) no tienen colisionadores por defecto. También debes darle a la entidad un componente `MeshCollider`.
 
-The following collider shapes are available on `MeshCollider`. Several shapes include optional additional fields, specific to that shape.
+Las siguientes formas de colisionador están disponibles en `MeshCollider`. Varias formas incluyen campos adicionales opcionales, específicos para esa forma.
 
-*   **box**:
+- **box**:
 
-    Use `MeshCollider.setBox()`, passing the entity.
-*   **plane**:
+  Usa `MeshCollider.setBox()`, pasando la entidad.
 
-    Use `MeshCollider.setPlane()`, passing the entity.
-*   **sphere**:
+- **plane**:
 
-    Use `MeshCollider.setSphere()`, passing the entity.
-*   **cylinder**:
+  Usa `MeshCollider.setPlane()`, pasando la entidad.
 
-    Use `MeshCollider.setCylinder()`, passing the entity. Pass `radiusTop` and `radiusBottom` as additional optional fields, to modify the cylinder.
+- **sphere**:
 
-{% hint style="info" %}
-**💡 Tip**: Set either `radiusTop` or `radiusBottom` to 0 to make a cone.
-{% endhint %}
+  Usa `MeshCollider.setSphere()`, pasando la entidad.
 
-This example defines a box entity that can't be walked through.
+- **cylinder**:
+
+  Usa `MeshCollider.setCylinder()`, pasando la entidad. Pasa `radiusTop` y `radiusBottom` como campos adicionales opcionales, para modificar el cilindro.
+
+  {% hint style="info" %}
+  **💡 Consejo**: Establece `radiusTop` o `radiusBottom` en 0 para hacer un cono.
+  {% endhint %}
+
+Este ejemplo define una entidad de caja que no se puede atravesar.
 
 ```ts
-// create entity
+// crear entidad
 const myCollider = engine.addEntity()
 
-// visible shape
+// forma visible
 MeshRenderer.setBox(myCollider)
 
-// collider
+// colisionador
 MeshCollider.setBox(myCollider)
 ```
 
-The shape used by the `MeshCollider` doesn't need to necessarily match the one used by the `MeshRenderer`. You can also add a `MeshCollider` to an entity that has a 3D model from a `GLTFContainer` component, or to an entity that has no visible shape at all.
+La forma utilizada por el `MeshCollider` no necesita coincidir necesariamente con la utilizada por el `MeshRenderer`. También puedes agregar un `MeshCollider` a una entidad que tiene un modelo 3D de un componente `GLTFContainer`, o a una entidad que no tiene forma visible en absoluto.
 
 {% hint style="warning" %}
-**📔 Note**: The `MeshCollider` component and `ColliderLayer` must be imported via
+**📔 Nota**: El componente `MeshCollider` y `ColliderLayer` deben importarse mediante
 
-`import { MeshCollider, ColliderLayer } from "@dcl/sdk/ecs"`
+> `import { MeshCollider, ColliderLayer } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-## Colliders on 3D models
+## Colisionadores en modelos 3D
 
-3D models can be assigned colliders on two different geometry levels:
+Los modelos 3D pueden tener colisionadores asignados en dos niveles de geometría diferentes:
 
-* `visibleMeshesCollisionMask`: Refers to the visible geometry of the model. By default this geometry has no colliders.
-* `invisibleMeshesCollisionMask`: refers to the collider meshes, whose name end in `_collider`. By default, this geometry is treated as a collider for both physics and pointer events.
+- `visibleMeshesCollisionMask`: Se refiere a la geometría visible del modelo. Por defecto, esta geometría no tiene colisionadores.
+- `invisibleMeshesCollisionMask`: se refiere a los meshes de colisionador, cuyo nombre termina en `_collider`. Por defecto, esta geometría se trata como un colisionador tanto para física como para eventos de puntero.
 
-Any mesh embedded as part of a 3D model who's name ends in `_collider` is treated as part of the `invisibleMeshesCollisionMask` layer, and interpreted as a collider by default.
+Cualquier mesh incrustado como parte de un modelo 3D cuyo nombre termina en `_collider` se trata como parte de la capa `invisibleMeshesCollisionMask`, y se interpreta como un colisionador por defecto.
 
-Defining collider geometry as a separate invisible layer allows for much greater control and is a lot less demanding on the system than using the visible geometry, as the collision object is usually a lot simpler (with less vertices) than the original model.
+Definir la geometría del colisionador como una capa invisible separada permite un control mucho mayor y es mucho menos exigente en el sistema que usar la geometría visible, ya que el objeto de colisión suele ser mucho más simple (con menos vértices) que el modelo original.
 
-If a model doesn't have any collider geometry, and you want to make it affect the physics or the pointer events systems, you can either:
+Si un modelo no tiene ninguna geometría de colisionador, y deseas que afecte a la física o a los sistemas de eventos de puntero, puedes:
 
-* Assign collision layers directly to the visible geometry, via the `visibleMeshesCollisionMask`.
+- Asignar capas de colisión directamente a la geometría visible, a través del `visibleMeshesCollisionMask`.
+  {% hint style="warning" %}
+  **📔 Nota**: Si la geometría visible del objeto tiene muchos vértices, ten en cuenta que esto puede tener más costo de rendimiento.
+  {% endhint %}
+- Darle a la entidad un componente `MeshCollider`, para darle un colisionador de forma primitiva.
+- Superponer una entidad invisible que tenga un componente `MeshCollider`.
+- Editar el modelo en una herramienta externa como Blender para incluir un _mesh de colisionador_. El colisionador debe llamarse _x_collider_, donde _x_ es el nombre del modelo. Entonces, para un modelo llamado _house_, el colisionador debe llamarse _house_collider_.
 
-{% hint style="warning" %}
-**📔 Note**: If the visible geometry of the object has many vertices, note that this may have more of a performance cost.
-{% endhint %}
-
-* Give the entity a `MeshCollider` component, to give it a primitive shape collider.
-* Overlay an invisible entity that has a `MeshCollider` component.
-* Edit the model in an external tool like Blender to include a _collider mesh_. The collider must be named _x\_collider_, where _x_ is the name of the model. So for a model named _house_, the collider must be named _house\_collider_.
-
-You might also want to assign the pointer events collision layer to the `visibleMeshesCollisionMask` in case you want the hover hints and pointer events to respond more accurately to the contour of the entity. Note that this is more demanding on performance.
+Es posible que también desees asignar la capa de colisión de eventos de puntero al `visibleMeshesCollisionMask` en caso de que desees que las hints de hover y eventos de puntero respondan con más precisión al contorno de la entidad. Ten en cuenta que esto es más exigente en términos de rendimiento.
 
 {% hint style="warning" %}
-**📔 Note**: Make sure you don't have the same layer (physics, pointer events or custom layers) assigned to both `visibleMeshesCollisionMask` and `invisibleMeshesCollisionMask`, as that would be a very inefficient use of resources. You can have different layers on each, such as physics on the invisible layer and pointer events on the visible layer.
+**📔 Nota**: Asegúrate de no tener la misma capa (física, eventos de puntero o capas personalizadas) asignada tanto a `visibleMeshesCollisionMask` como a `invisibleMeshesCollisionMask`, ya que eso sería un uso muy ineficiente de recursos. Puedes tener diferentes capas en cada una, como física en la capa invisible y eventos de puntero en la capa visible.
 {% endhint %}
 
 ```ts
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
 
-// assign GLTF shape
+// asignar forma GLTF
 GltfContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
@@ -119,48 +114,48 @@ GltfContainer.create(myEntity, {
 })
 ```
 
-See [3D models](https://github.com/decentraland/docs-creator/blob/main/creator/3d-modeling/3d-models/README.md) for more details on how to add collider invisible geometry to a 3D model.
+Consulta [modelos 3D](/creator/3d-modeling/3d-models) para más detalles sobre cómo agregar geometría de colisionador invisible a un modelo 3D.
 
 {% hint style="warning" %}
-**📔 Note**: The `GltfContainer` component and `ColliderLayer` must be imported via
+**📔 Nota**: El componente `GltfContainer` y `ColliderLayer` deben importarse mediante
 
 > `import { GltfContainer, ColliderLayer } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-#### Animated models
+### Modelos animados
 
-When setting colliders to use the visible geometry on a model that includes [armature-based animations](../../3d-modeling/animations.md), the animations aren't followed by colliders. The collider meshes keep their original shape. If an animation involves deforming a meshe's geometry, the collider meshes retain the un-animated shape while the animation plays.
+Al configurar colisionadores para usar la geometría visible en un modelo que incluye [animaciones basadas en armature](../../3d-modeling/animations.md), las animaciones no son seguidas por colisionadores. Los meshes de colisionador mantienen su forma original. Si una animación implica deformar la geometría de un mesh, los meshes de colisionador conservan la forma no animada mientras se reproduce la animación.
 
-When playing animations that involve moving full meshes without changing their shape, these changes are accurately reflected by colliders. For example if a platform moves as part of an animation, the platform´s collider does move with the animation.
+Al reproducir animaciones que implican mover meshes completos sin cambiar su forma, estos cambios se reflejan con precisión en los colisionadores. Por ejemplo, si una plataforma se mueve como parte de una animación, el colisionador de la plataforma sí se mueve con la animación.
 
-### Collision layers
+## Capas de colisión
 
-The scene can handle separate collision layers, that have different behaviors.
+La escena puede manejar capas de colisión separadas, que tienen diferentes comportamientos.
 
-You can configure a `MeshCollider` component or the `GltfContainer` component to only respond to one kind of interaction, or to several of them, or none. To do this, on the `MeshCollider` set the `collisionMask` property, and on `GltfContainer` set the `visibleMeshesCollisionMask` or `invisibleMeshesCollisionMask` properties to one or several of the following values:
+Puedes configurar un componente `MeshCollider` o el componente `GltfContainer` para responder solo a un tipo de interacción, o a varias de ellas, o ninguna. Para hacer esto, en el `MeshCollider` establece la propiedad `collisionMask`, y en `GltfContainer` establece las propiedades `visibleMeshesCollisionMask` o `invisibleMeshesCollisionMask` a uno o varios de los siguientes valores:
 
-* `ColliderLayer.CL_PHYSICS`: Only blocks player movement (and doesn't affect pointer events)
-* `ColliderLayer.CL_POINTER`: Responds only to pointer events (and doesn't block the player movement)
-* `ColliderLayer.CL_CUSTOM1` through to `CL_CUSTOM8`: Can be used together with raycasts, so that a ray only detects collisions with one specific layer.
-* `ColliderLayer.CL_NONE`: Doesn't respond to collisions of any kind.
+- `ColliderLayer.CL_PHYSICS`: Solo bloquea el movimiento del jugador (y no afecta eventos de puntero)
+- `ColliderLayer.CL_POINTER`: Responde solo a eventos de puntero (y no bloquea el movimiento del jugador)
+- `ColliderLayer.CL_CUSTOM1` hasta `CL_CUSTOM8`: Se pueden usar junto con raycasts, para que un rayo solo detecte colisiones con una capa específica.
+- `ColliderLayer.CL_NONE`: No responde a colisiones de ningún tipo.
 
 {% hint style="warning" %}
-**📔 Note**: To disable collisions form a `MeshCollider` component, delete the component. Do not set the collision layer to `ColliderLayer.CL_NONE`. There's a known issue with the `MeshCollider` component. Instead of disabling all collisions, it makes this value equivalent to the default (`ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`).
+**📔 Nota**: Para deshabilitar colisiones de un componente `MeshCollider`, elimina el componente. No establezcas la capa de colisión en `ColliderLayer.CL_NONE`. Hay un problema conocido con el componente `MeshCollider`. En lugar de deshabilitar todas las colisiones, hace que este valor sea equivalente al predeterminado (`ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`).
 {% endhint %}
 
 ```ts
-// create entity
+// crear entidad
 const myEntity = engine.addEntity()
-// visible shape
+// forma visible
 MeshRenderer.setBox(myEntity)
 
-// create a MeshCollider component that only responds to player physics
+// crear un componente MeshCollider que solo responde a física del jugador
 MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 ```
 
-A single collision mask can respond to multiple collision layers. Use the `|` character as an _or_, to include as many layers as you need. The default value on a MeshCollider is `ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`.
+Una sola máscara de colisión puede responder a múltiples capas de colisión. Usa el carácter `|` como un _or_, para incluir tantas capas como necesites. El valor predeterminado en un MeshCollider es `ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER`.
 
 ```ts
 MeshCollider.setBox(
@@ -172,57 +167,57 @@ MeshCollider.setBox(
 )
 ```
 
-You can use the 8 different custom layers for whatever suits your scene best, for example one could be used for NPC line-of-sight calculations, whilst another for estimating trajectories of falling objects. Using different layers for different systems allows you to use less resources, as in each case you'll only be checking collisions with the relevant entities.
+Puedes usar las 8 capas personalizadas diferentes para lo que mejor se adapte a tu escena, por ejemplo una podría usarse para cálculos de línea de visión de NPC, mientras que otra para estimar trayectorias de objetos que caen. Usar diferentes capas para diferentes sistemas te permite usar menos recursos, ya que en cada caso solo estarás verificando colisiones con las entidades relevantes.
 
-See [Raycasting](../../../creator/sdk7/interactivity/raycasting.md) for more on how to use custom collision layers.
+Consulta [Raycasting](../interactivity/raycasting.md) para más información sobre cómo usar capas de colisión personalizadas.
 
-#### Cameras and colliders
+### Cámaras y colisionadores
 
-When a player's camera moves in 3rd person mode, the camera might be blocked by colliders or not, depending on the collision layers assigned to the entities. Be mindful of this when designing your scene, you may want to prevent the camera from going through walls or other entities.
+Cuando la cámara de un jugador se mueve en modo de tercera persona, la cámara puede ser bloqueada por colisionadores o no, dependiendo de las capas de colisión asignadas a las entidades. Ten esto en cuenta al diseñar tu escena, es posible que desees evitar que la cámara atraviese paredes u otras entidades.
 
-To avoid the camera from going through walls, you must assign both the `ColliderLayer.CL_PHYSICS` and the `ColliderLayer.CL_POINTER` layers to the entities that you want to block the camera. It's important that both layers are assigned to the same geometry on the entity. So if you assign the `ColliderLayer.CL_PHYSICS` layer to the visible layer of the entity, you must also assign the `ColliderLayer.CL_POINTER` layer to the same geometry.
+Para evitar que la cámara atraviese paredes, debes asignar tanto la capa `ColliderLayer.CL_PHYSICS` como la capa `ColliderLayer.CL_POINTER` a las entidades que deseas que bloqueen la cámara. Es importante que ambas capas estén asignadas a la misma geometría en la entidad. Entonces, si asignas la capa `ColliderLayer.CL_PHYSICS` a la capa visible de la entidad, también debes asignar la capa `ColliderLayer.CL_POINTER` a la misma geometría.
 
-For example, on the Creator Hub, the following combination of settings will prevent the camera from going through walls:
+Por ejemplo, en el Creator Hub, la siguiente combinación de configuraciones evitará que la cámara atraviese paredes:
 
-![](../../.gitbook/assets/colliders-camera.png)
+<img src="../../../images/colliders-camera.png" width="300" />
 
-Both the `ColliderLayer.CL_PHYSICS` and the `ColliderLayer.CL_POINTER` layers are assigned to the same invisible layer of the geometry of the entity. If they were both assigned to the visible layer, the result would be the same. This is the default behavior, both when adding an entity via the Creator Hub or via code.
+Tanto la capa `ColliderLayer.CL_PHYSICS` como la capa `ColliderLayer.CL_POINTER` están asignadas a la misma capa invisible de la geometría de la entidad. Si ambas estuvieran asignadas a la capa visible, el resultado sería el mismo. Este es el comportamiento predeterminado, tanto al agregar una entidad a través del Creator Hub como a través de código.
 
-![](../../.gitbook/assets/colliders-no-camera.png)
+<img src="../../../images/colliders-no-camera.png" width="300" />
 
-In this second example, the camera can go through the wall, because the `ColliderLayer.CL_PHYSICS` layer is assigned to the invisible layer of the entity, and the `ColliderLayer.CL_POINTER` layer is assigned to the visible layer of the entity, even if both geometries have the same overall shape.
+En este segundo ejemplo, la cámara puede atravesar la pared, porque la capa `ColliderLayer.CL_PHYSICS` está asignada a la capa invisible de la entidad, y la capa `ColliderLayer.CL_POINTER` está asignada a la capa visible de la entidad, incluso si ambas geometrías tienen la misma forma general.
 
 ```ts
-// NO CAMERA GOING THROUGH THE WALL
-// default (both pointer and physics use the invisible geometry)
+// NO CÁMARA ATRAVESANDO LA PARED
+// predeterminado (ambos puntero y física usan la geometría invisible)
 GLTFContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 })
 
-// NO CAMERA GOING THROUGH THE WALL
-// Both use the same invisible geometry
+// NO CÁMARA ATRAVESANDO LA PARED
+// Ambos usan la misma geometría invisible
 GltfContainer.create(myEntity2, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER,
 })
 
-// NO CAMERA GOING THROUGH THE WALL
-// Both use the same visible geometry
+// NO CÁMARA ATRAVESANDO LA PARED
+// Ambos usan la misma geometría visible
 GltfContainer.create(myEntity2, {
 	src: '/models/myModel.gltf',
 	visibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS | ColliderLayer.CL_POINTER,
 })
 
-// YES CAMERA GOES THROUGH THE WALL
-// physics and pointer are on diferent layers
+// SÍ CÁMARA ATRAVIESA LA PARED
+// física y puntero están en capas diferentes
 GltfContainer.create(myEntity2, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
 	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER
 })
 
-// YES CAMERA GOES THROUGH THE WALL
-// physics and pointer are on diferent layers
+// SÍ CÁMARA ATRAVIESA LA PARED
+// física y puntero están en capas diferentes
 GltfContainer.create(myEntity2, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
@@ -230,44 +225,44 @@ GltfContainer.create(myEntity2, {
 })
 ```
 
-#### Pointer blocking
+### Bloqueo de puntero
 
-Only shapes that have colliders can be activated with [pointer events](../../../creator/sdk7/interactivity/button-events/click-events.md). An entity also needs to have a collider to block pointer events from going through it and prevent hitting entities behind it. So for example, a player can't pick something up that is locked inside a chest, if the chest has colliders around it. The player's pointer events are only affected by meshes that are active in the `ColliderLayer.CL_POINTER` layer.
+Solo las formas que tienen colisionadores pueden activarse con [eventos de puntero](../interactivity/click-events.md). Una entidad también necesita tener un colisionador para bloquear eventos de puntero que pasen a través de ella y evitar hacer clic en entidades detrás de ella. Entonces, por ejemplo, un jugador no puede recoger algo que está encerrado dentro de un cofre, si el cofre tiene colisionadores a su alrededor. Los eventos de puntero del jugador solo se ven afectados por meshes que están activos en la capa `ColliderLayer.CL_POINTER`.
 
-By default, a MeshCollider affects both the Physics and the Pointer layers, but you can change this value to only affect one, or neither, and to affect custom layers instead.
+Por defecto, un MeshCollider afecta tanto a las capas de Física como de Puntero, pero puedes cambiar este valor para afectar solo a una, o ninguna, y para afectar capas personalizadas en su lugar.
 
 {% hint style="warning" %}
-**📔 Note**: Besides colliders, an entity also needs to have a `PointerEvents` component to respond to pointer events. The `pointerEventsSystem` helpers also take care of this requirment.
+**📔 Nota**: Además de colisionadores, una entidad también necesita tener un componente `PointerEvents` para responder a eventos de puntero. Los helpers `pointerEventsSystem` también se encargan de este requisito.
 {% endhint %}
 
 ```ts
-// only responds to player physics
-// for example for an invisible wall that you can't walk through but you can click through
+// solo responde a física del jugador
+// por ejemplo para una pared invisible que no puedes atravesar pero puedes hacer clic a través de ella
 MeshCollider.setBox(myEntity, ColliderLayer.CL_PHYSICS)
 
-// only responds to the player's pointer
-// for example for an item you can click to pick up, but can walk right through
+// solo responde al puntero del jugador
+// por ejemplo para un objeto que puedes hacer clic para recoger, pero puedes atravesar caminando
 MeshCollider.setBox(myEntity2, ColliderLayer.CL_POINTER)
 ```
 
-By default, the visible geometry of a `GLTFContainer` isn't mapped to any collision layers, but the invisible geometry affects both the Physics and the Pointer layers. You can change this value to only affect one, or neither, and to affect custom layers instead. You can also configure the visible geometry layer in the same way.
+Por defecto, la geometría visible de un `GLTFContainer` no está mapeada a ninguna capa de colisión, pero la geometría invisible afecta tanto a las capas de Física como de Puntero. Puedes cambiar este valor para afectar solo a una, o ninguna, y para afectar capas personalizadas en su lugar. También puedes configurar la capa de geometría visible de la misma manera.
 
 ```ts
-// default (both pointer and physics use the invisible geometry)
+// predeterminado (ambos puntero y física usan la geometría invisible)
 GLTFContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 })
 
-// player physics uses the simpler invisible geometry
-// pointer events use the full detailed contour of the visible geometry
+// física del jugador usa la geometría invisible más simple
+// eventos de puntero usan el contorno detallado completo de la geometría visible
 GltfContainer.create(myEntity2, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_PHYSICS,
 	visibleMeshesCollisionMask: ColliderLayer.CL_POINTER,
 })
 
-// both player physics and pointer events use the full detailed contour of the visible geometry
-// the simpler invisible geometry is mapped to ColliderLayer.CL_NONE to avoid calculating both
+// tanto física del jugador como eventos de puntero usan el contorno detallado completo de la geometría visible
+// la geometría invisible más simple está mapeada a ColliderLayer.CL_NONE para evitar calcular ambas
 GltfContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
@@ -275,16 +270,16 @@ GltfContainer.create(myEntity, {
 		ColliderLayer.CL_POINTER | ColliderLayer.CL_PHYSICS,
 })
 
-// don't respond to collisions of any kind, with either the visible or the invisible geometry:
+// no responder a colisiones de ningún tipo, con la geometría visible o invisible:
 GltfContainer.create(myEntity, {
 	src: '/models/myModel.gltf',
 	invisibleMeshesCollisionMask: ColliderLayer.CL_NONE,
 })
 ```
 
-### Advanced MeshCollider Syntax
+## Sintaxis avanzada de MeshCollider
 
-The complete syntax for creating a `MeshCollider` component, without any helpers to simplify it, looks like this:
+La sintaxis completa para crear un componente `MeshCollider`, sin ningún helper para simplificarlo, se ve así:
 
 ```ts
 MeshCollider.create(myBox, {
@@ -316,15 +311,15 @@ MeshCollider.create(myCylinder, {
 })
 ```
 
-This is how the base protocol interprets MeshCollider components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+Así es como el protocolo base interpreta los componentes MeshCollider. Las funciones auxiliares abstraen esto y exponen una sintaxis más amigable, pero detrás de escena generan esta sintaxis.
 
-The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters.
+El campo `$case` te permite especificar uno de los tipos permitidos. Cada tipo admite un conjunto diferente de parámetros.
 
-The supported values for `$case` are the following:
+Los valores compatibles para `$case` son los siguientes:
 
-* `box`
-* `plane`
-* `sphere`
-* `cylinder`
+- `box`
+- `plane`
+- `sphere`
+- `cylinder`
 
-Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
+Dependiendo del valor de `$case`, es válido definir el objeto para la forma correspondiente, pasando las propiedades relevantes.

@@ -1,68 +1,63 @@
 ---
-description: Learn how to add sounds to your scene.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/sounds
+description: Aprende cómo agregar sonidos a tu escena
 ---
 
-# Sounds
+# Sonidos
 
-Sound is a great way to provide feedback to player actions and events, background sounds can also give your scene more context and improve the player's immersion into it.
+El sonido es una excelente manera de proporcionar retroalimentación a las acciones y eventos del jugador, los sonidos de fondo también pueden darle más contexto a tu escena y mejorar la inmersión del jugador en ella.
 
 {% hint style="warning" %}
-**📔 Note**: Keep in mind that sounds are only heard by players who are standing within the parcels that make up the scene where the sound was generated, even if they would otherwise be in hearing range. Players can also chose to turn off all sounds on their settings.
+**📔 Nota**: Ten en cuenta que los sonidos solo son escuchados por jugadores que están parados dentro de las parcelas que componen la escena donde se generó el sonido, incluso si de otro modo estarían dentro del rango auditivo. Los jugadores también pueden optar por desactivar todos los sonidos en su configuración.
 {% endhint %}
 
-Supported sound formats vary depending on the browser, but it's recommended to use _.mp3_.
+Los formatos de sonido compatibles varían según el navegador, pero se recomienda usar _.mp3_.
 
-_.wav_ files are also supported but not generally recommended as they are significantly heavier.
+Los archivos _.wav_ también son compatibles pero generalmente no se recomiendan ya que son significativamente más pesados.
 
-### Play sounds
+## Reproducir sonidos
 
-The easiest way to play a sound is to add an **Audio Source** component visually on the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md) and set it to **Start Playing** and **Loop**. See [Add Components](../../../creator/scene-editor/build/components.md#add-components).
+La forma más fácil de reproducir un sonido es agregar un componente **Audio Source** visualmente en el [Scene Editor](../../scene-editor/about-editor.md) y configurarlo para **Start Playing** y **Loop**. Consulta [Agregar Componentes](../../scene-editor/components.md#add-components).
 
-![](../../.gitbook/assets/AudioSource-component.png)
+<img src="../../../images/editor/AudioSource-component.png" alt="Scene name" width="200"/>
 
-You can also trigger the playing of a sound in a no-code way via **Actions**, see [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md).
+También puedes activar la reproducción de un sonido de forma sin código a través de **Actions**, consulta [Hacer cualquier elemento inteligente](../../scene-editor/smart-items.md).
 
-To play a sound via code, use the `AudioSource.playSound` function.
+Para reproducir un sonido mediante código, usa la función `AudioSource.playSound`.
 
 ```ts
-// Create entity
+// Crear entidad
 const sourceEntity = engine.addEntity()
 
-// Play sound
+// Reproducir sonido
 AudioSource.playSound(sourceEntity, 'assets/sounds/sound-effect.mp3')
 ```
 
-The sound file must be inside the project folder. In the example above, the audio file is located in an `assets/sounds` folder, which is located at root level of the scene project folder.
+El archivo de sonido debe estar dentro de la carpeta del proyecto. En el ejemplo anterior, el archivo de audio se encuentra en una carpeta `assets/sounds`, que está ubicada en el nivel raíz de la carpeta del proyecto de la escena.
 
 {% hint style="warning" %}
-**📔 Note**: The `AudioSource` component must be imported via
+**📔 Nota**: El componente `AudioSource` debe importarse mediante
 
 > `import { AudioSource } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-The `AudioSource.playSound()` function takes the following arguments:
+La función `AudioSource.playSound()` toma los siguientes argumentos:
 
-* `entity`: On what entity to apply the sound. The sound will be heard from this entity's position, meaning it gets louder as the player approaches it.
-* `src`: The location of the sound file within your project.
+- `entity`: En qué entidad aplicar el sonido. El sonido se escuchará desde la posición de esta entidad, lo que significa que se vuelve más fuerte a medida que el jugador se acerca a ella.
+- `src`: La ubicación del archivo de sonido dentro de tu proyecto.
+  {% hint style="info" %}
+  **💡 Consejo**: Para mayor claridad, recomendamos mantener tus archivos de sonido separados en una carpeta `assets/sounds` dentro de tu escena.
+  {% endhint %}
+- `resetCursor`: _(opcional)_ Si es true, el sonido siempre comienza desde el principio. De lo contrario, continúa desde la posición actual del cursor. Útil para pausar y reanudar.
 
-{% hint style="info" %}
-**💡 Tip**: For more clarity, we recommend keeping your sound files separate in a `assets/sounds` folder inside your scene.
-{% endhint %}
-
-* `resetCursor`: _(optional)_ If true, the sound always starts from the beginning. Otherwise it continues from the current cursor position. Useful for pausing and resuming.
-
-Another way to play sounds is to manually create an `AudioSource` component on an entity. Use this approach to have more control over the sound, for example to make it loop or set the volume.
+Otra forma de reproducir sonidos es crear manualmente un componente `AudioSource` en una entidad. Usa este enfoque para tener más control sobre el sonido, por ejemplo para hacerlo loop o establecer el volumen.
 
 ```ts
-// Create entity
+// Crear entidad
 const sourceEntity = engine.addEntity()
 
-// Create AudioSource component
+// Crear componente AudioSource
 AudioSource.create(sourceEntity, {
 	audioClipUrl: 'sounds/sound-effect.mp3',
 	loop: true,
@@ -70,67 +65,65 @@ AudioSource.create(sourceEntity, {
 })
 ```
 
-The following properties can be set:
+Se pueden establecer las siguientes propiedades:
 
-* `audioClipUrl`: The location of the sound file within your project.
-* `playing`: If true, the sound starts playing. You can create a sound with `playing` set to false, and then set it to true at a later time.
-* `volume`: _(optional)_ The volume of the sound file. 1 by default, which is full volume.
-* `pitch`: _(optional)_ Modify the pitch of a sound. 1 is the default, make it lower for a deeper sound and higher for a higher pitch sound.
+- `audioClipUrl`: La ubicación del archivo de sonido dentro de tu proyecto.
+- `playing`: Si es true, el sonido comienza a reproducirse. Puedes crear un sonido con `playing` establecido en false, y luego establecerlo en true en un momento posterior.
+- `volume`: _(opcional)_ El volumen del archivo de sonido. 1 por defecto, que es el volumen completo.
+- `pitch`: _(opcional)_ Modificar el tono de un sonido. 1 es el predeterminado, hazlo más bajo para un sonido más grave y más alto para un tono más agudo.
+  {% hint style="info" %}
+  **💡 Consejo**: Para evitar que un efecto de sonido se vuelva demasiado repetitivo durante un juego, es útil aleatorizar algunas ligeras variaciones en el tono del sonido cada vez que se reproduce.
+  {% endhint %}
+- `currentTime`: _(opcional)_ 0 por defecto. Establece este valor para evitar comenzar desde el principio del archivo de sonido.
 
-{% hint style="info" %}
-**💡 Tip**: To prevent a sound effect from becoming too repetitive during a game, it's useful to randomize some slight variations to the sound's pitch every time it plays.
-{% endhint %}
-
-* `currentTime`: _(optional)_ 0 by default. Set this value to avoid starting from the beginning of the sound file.
-
-Each entity can only have a single `AudioSource` component, that can only play a single clip at a time. This limitation can be easily overcome by modifying the audio source at the time of playing a new sound, or by including multiple invisible child entities, each with their own sound.
+Cada entidad solo puede tener un solo componente `AudioSource`, que solo puede reproducir un clip a la vez. Esta limitación se puede superar fácilmente modificando el audio source en el momento de reproducir un nuevo sonido, o incluyendo múltiples entidades hijas invisibles, cada una con su propio sonido.
 
 {% hint style="warning" %}
-**📔 Note**: Sounds are played on each player's local instance. Other nearby players won't hear the same sounds unless their local scene explicitly plays them too.
+**📔 Nota**: Los sonidos se reproducen en la instancia local de cada jugador. Otros jugadores cercanos no escucharán los mismos sonidos a menos que su escena local los reproduzca explícitamente también.
 {% endhint %}
 
-### Stopping sounds
+## Detener sonidos
 
-To stop an entity from playing its sound, use the `AudioSource.stopSound()` function. You only need to specify the entity, since each entity has a single `AudioSource` component, and each `AudioSource` component plays a single file at a time.
+Para detener una entidad de reproducir su sonido, usa la función `AudioSource.stopSound()`. Solo necesitas especificar la entidad, ya que cada entidad tiene un solo componente `AudioSource`, y cada componente `AudioSource` reproduce un solo archivo a la vez.
 
 ```ts
 AudioSource.stopSound(sourceEntity)
 ```
 
-Another way to stop a sound is to set the `playing` property to false.
+Otra forma de detener un sonido es establecer la propiedad `playing` en false.
 
 ```ts
-// Create entity
+// Crear entidad
 const sourceEntity = engine.addEntity()
 
-// Create AudioSource component
+// Crear componente AudioSource
 AudioSource.create(sourceEntity, {
 	audioClipUrl: 'sounds/explosion.mp3',
 	playing: true,
 })
 
-// Define a simple function
+// Definir una función simple
 function stopSound(entity: Entity) {
-	// fetch mutable version of audio source component
+	// obtener versión mutable del componente audio source
 	const audioSource = AudioSource.getMutable(entity)
 
-	// modify its playing value
+	// modificar su valor playing
 	audioSource.playing = false
 }
 
-// call function
+// llamar función
 stopSound(sourceEntity)
 ```
 
-### Looping
+## Loop
 
-To keep a sound playing in a continuous loop, set the `loop` field of the `AudioSource` component to _true_ before you start playing it.
+Para mantener un sonido reproduciéndose en un loop continuo, establece el campo `loop` del componente `AudioSource` en _true_ antes de comenzar a reproducirlo.
 
 ```ts
-// Create entity
+// Crear entidad
 const sourceEntity = engine.addEntity()
 
-// Create AudioSource component
+// Crear componente AudioSource
 AudioSource.create(sourceEntity, {
 	audioClipUrl: 'sounds/sound-effect.mp3',
 	playing: true,
@@ -138,19 +131,19 @@ AudioSource.create(sourceEntity, {
 })
 ```
 
-Looping sounds is especially useful for adding background music or other background sounds.
+Los sonidos en loop son especialmente útiles para agregar música de fondo u otros sonidos ambientales.
 
-### Set volume
+## Establecer volumen
 
-You can set the `volume` property of the `AudioSource` component to change the volume of a sound.
+Puedes establecer la propiedad `volume` del componente `AudioSource` para cambiar el volumen de un sonido.
 
-The volume is expressed as a number from _0_ to _1_.
+El volumen se expresa como un número de _0_ a _1_.
 
 ```ts
-// Create entity
+// Crear entidad
 const sourceEntity = engine.addEntity()
 
-// Create AudioSource component
+// Crear componente AudioSource
 AudioSource.create(sourceEntity, {
 	audioClipUrl: 'sounds/sound-effect.mp3',
 	playing: true,
@@ -159,18 +152,18 @@ AudioSource.create(sourceEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Of course, the volume of a sound is also affected by the distance of the player from the audio source. As the player walks away, the volume will be lower.
+**📔 Nota**: Por supuesto, el volumen de un sonido también se ve afectado por la distancia del jugador desde el audio source. A medida que el jugador se aleja, el volumen será más bajo.
 {% endhint %}
 
-### Global sounds
+## Sonidos globales
 
-By default, all sounds from an `AudioSource` are positional. This means they appear to generate from the position of the `Transform` component, and will sound louder as the player walks closer. But you can also configure a sound to be global, so that the volume is constant, no matter where the player is standing. This is ideal for using on background music, notification sounds, and other non-positional sound.
+Por defecto, todos los sonidos de un `AudioSource` son posicionales. Esto significa que parecen generarse desde la posición del componente `Transform`, y sonarán más fuertes a medida que el jugador se acerque. Pero también puedes configurar un sonido para que sea global, de modo que el volumen sea constante, sin importar dónde esté parado el jugador. Esto es ideal para usar en música de fondo, sonidos de notificación y otros sonidos no posicionales.
 
 {% hint style="warning" %}
-**📔 Note**: Global Sounds are a feature that's only supported in the DCL 2.0 desktop client.
+**📔 Nota**: Los Sonidos Globales son una característica que solo es compatible con el cliente de escritorio DCL 2.0.
 {% endhint %}
 
-To make a sound global, set the `global` property to _true_.
+Para hacer un sonido global, establece la propiedad `global` en _true_.
 
 ```ts
 AudioSource.create(sourceEntity, {
@@ -180,12 +173,12 @@ AudioSource.create(sourceEntity, {
 })
 ```
 
-### Play a segment of a sound
+## Reproducir un segmento de un sonido
 
-To play a segment of a longer sound file, use the `playSoundSegment()` in the SDK Utils library. See [SDK7 Utils](https://github.com/decentraland/sdk7-utils).
+Para reproducir un segmento de un archivo de sonido más largo, usa `playSoundSegment()` en la biblioteca SDK Utils. Consulta [SDK7 Utils](https://github.com/decentraland/sdk7-utils).
 
-You can also achieve this by explicitly set the `currentTime` property on an `AudioSource` component, and then stopping it after waiting for a period of time.
+También puedes lograr esto estableciendo explícitamente la propiedad `currentTime` en un componente `AudioSource`, y luego deteniéndolo después de esperar un período de tiempo.
 
-### Audio streaming
+## Streaming de audio
 
-See [Audio streaming](../../../creator/sdk7/media/audio-streaming.md) to learn how you can play a live audio stream from an external source.
+Consulta [Streaming de audio](../media/audio-streaming.md) para aprender cómo puedes reproducir un stream de audio en vivo desde una fuente externa.

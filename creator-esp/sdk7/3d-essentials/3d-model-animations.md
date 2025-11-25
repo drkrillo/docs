@@ -1,56 +1,52 @@
 ---
-description: How to animate 3D models in your scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/3d-model-animations
+description: Cómo animar modelos 3D en tu escena
 ---
 
-# 3D Model Animations
+# Animaciones
 
-3D models in _.glTF_ and _.glb_ format can include as many animations as you want in them. Animations tell the mesh how to move, by specifying a series of _keyframes_ that are laid out over time, the mesh then blends from one pose to the other to simulate continuous movement.
+Los modelos 3D en formato _.glTF_ y _.glb_ pueden incluir tantas animaciones como desees. Las animaciones le dicen al mesh cómo moverse, especificando una serie de _keyframes_ que se colocan a lo largo del tiempo, el mesh luego se mezcla de una pose a la otra para simular movimiento continuo.
 
-Most 3D model animations are [_skeletal animations_](https://en.wikipedia.org/wiki/Skeletal_animation). These animations simplify the complex geometry of the model into a "stick figure", linking every vertex in the mesh to the closest _bone_ in the _skeleton_. Modelers adjust the skeleton into different poses, and the mesh stretches and bends to follow these movements.
+La mayoría de las animaciones de modelos 3D son [_animaciones esqueléticas_](https://en.wikipedia.org/wiki/Skeletal_animation). Estas animaciones simplifican la geometría compleja del modelo en una "figura de palo", vinculando cada vértice en el mesh al _bone_ (hueso) más cercano en el _skeleton_ (esqueleto). Los modeladores ajustan el esqueleto en diferentes poses, y el mesh se estira y dobla para seguir estos movimientos.
 
-As an alternative, _vertex animations_ animate a model without the need of a skeleton. These animations specify the position of each vertex in the model directly. Decentraland supports these animations as well.
+Como alternativa, las _animaciones de vértices_ animan un modelo sin la necesidad de un esqueleto. Estas animaciones especifican la posición de cada vértice en el modelo directamente. Decentraland también admite estas animaciones.
 
-See [Animations](https://github.com/decentraland/docs-creator/blob/main/creator/3d-modeling/animations/README.md) for details on how to create animations for a 3D model. Read [Shape components](../../../creator/sdk7/3d-essentials/shape-components.md) for instructions on how to import a 3D model to a scene.
-
-{% hint style="info" %}
-**💡 Tip**: Animations are usually better for moving something in place, not for changing the position of an entity. For example, you can set an animation to move a character's feet in place, but to change the location of the entity it's best to use the Transform component. See [Positioning entities](../../../creator/sdk7/3d-essentials/move-entities.md) for more details.
-{% endhint %}
-
-### Check a 3D model for animations
-
-Not all _glTF_ files include animations. To see if there are any available, you can do the following:
-
-* If using [VS Code](https://code.visualstudio.com/)(recommended), install the _GLTF Tools_ extension and view the contents of a glTF file there.
-* Open the [Babylon Sandbox](https://sandbox.babylonjs.com/) site and drag the glTF file (and any _.jpg_ or _.bin_ dependencies) to the browser.
-* Open the _.glTF_ file with a text editor and scroll down till you find _"animations":_.
+Consulta [Animaciones](/creator/3d-modeling/animations) para detalles sobre cómo crear animaciones para un modelo 3D. Lee [Componentes de forma](shape-components.md) para instrucciones sobre cómo importar un modelo 3D a una escena.
 
 {% hint style="info" %}
-**💡 Tip**: In _skeletal_ animations, an animation name is often comprised of its armature name, an underscore and its animation name. For example `myArmature_animation1`.
+**💡 Consejo**: Las animaciones usualmente son mejores para mover algo en su lugar, no para cambiar la posición de una entidad. Por ejemplo, puedes establecer una animación para mover los pies de un personaje en su lugar, pero para cambiar la ubicación de la entidad es mejor usar el componente Transform. Consulta [Posicionar entidades](move-entities.md) para más detalles.
 {% endhint %}
 
-### Automatic playing
+## Verificar un modelo 3D para animaciones
 
-If a 3D model includes any animations, the default behavior is that the first of these is always played on a loop.
+No todos los archivos _glTF_ incluyen animaciones. Para ver si hay alguna disponible, puedes hacer lo siguiente:
 
-To avoid this behavior, add an `Animator` component to the entity that has the model, and then handle the playing of animations explicitly. If an `Animator` component is present in the entity, all animations default to a `playing: false` state, and need to be manually played.
+- Si usas [VS Code](https://code.visualstudio.com/)(recomendado), instala la extensión _GLTF Tools_ y visualiza el contenido de un archivo glTF allí.
+- Abre el sitio [Babylon Sandbox](https://sandbox.babylonjs.com/) y arrastra el archivo glTF (y cualquier dependencia _.jpg_ o _.bin_) al navegador.
+- Abre el archivo _.glTF_ con un editor de texto y desplázate hacia abajo hasta encontrar _"animations":_.
 
 {% hint style="info" %}
-**💡 Tip**: In the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), you can add an **Animator** component visually. See [Add Components](../../../creator/scene-editor/build/components.md#add-components). You can also control animations in a no-code way via **Actions**, see [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md).
+**💡 Consejo**: En animaciones _esqueléticas_, el nombre de una animación a menudo está compuesto por el nombre de su armature, un guión bajo y el nombre de su animación. Por ejemplo `myArmature_animation1`.
 {% endhint %}
 
-### Handle animations explicitly
+## Reproducción automática
 
-An `Animator` component is used to access all the animations of the entity and can be used to explicitly tell the entity to play or stop an animation. The `Animator` component includes an array of `states`, this list must include one object for each one of the animations that the 3D model can perform. A single `Animator` can include as many states as needed.
+Si un modelo 3D incluye cualquier animación, el comportamiento predeterminado es que la primera de estas siempre se reproduce en loop.
+
+Para evitar este comportamiento, agrega un componente `Animator` a la entidad que tiene el modelo, y luego maneja la reproducción de animaciones explícitamente. Si un componente `Animator` está presente en la entidad, todas las animaciones por defecto tienen un estado `playing: false`, y necesitan ser reproducidas manualmente.
+
+{% hint style="info" %}
+**💡 Consejo**: En el [Scene Editor](../../scene-editor/about-editor.md), puedes agregar un componente **Animator** visualmente. Consulta [Agregar Componentes](../../scene-editor/components.md#add-components). También puedes controlar animaciones de forma sin código a través de **Actions**, consulta [Hacer cualquier elemento inteligente](../../scene-editor/smart-items.md).
+{% endhint %}
+
+## Manejar animaciones explícitamente
+
+Un componente `Animator` se usa para acceder a todas las animaciones de la entidad y puede usarse para decirle explícitamente a la entidad que reproduzca o detenga una animación. El componente `Animator` incluye un array de `states`, esta lista debe incluir un objeto para cada una de las animaciones que el modelo 3D puede realizar. Un solo `Animator` puede incluir tantos estados como sean necesarios.
 
 ```ts
-// Create entity
+// Crear entidad
 const shark = engine.addEntity()
 
-// Add a 3D model to it
+// Agregar un modelo 3D a ella
 GltfContainer.create(shark, {
 	src: 'models/shark.glb',
 })
@@ -66,30 +62,30 @@ Animator.create(shark, {
 })
 ```
 
-Each `state` object keeps track of if an animation is currently playing.
+Cada objeto `state` hace un seguimiento de si una animación se está reproduciendo actualmente.
 
 {% hint style="warning" %}
-**📔 Note**: The `Animator` component must be imported via
+**📔 Nota**: El componente `Animator` debe importarse mediante
 
 > `import { Animator } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Fetch an animation
+## Obtener una animación
 
-Fetch a clip from the `Animator` by name using the `.Animator.getClip()` function. This function returns a mutable version of the animation state object.
+Obtén un clip del `Animator` por nombre usando la función `.Animator.getClip()`. Esta función devuelve una versión mutable del objeto de estado de animación.
 
 ```ts
 const swimAnim = Animator.getClip(sharkEntity, 'swim')
 ```
 
-`Animator.getClip` requires the following parameters:
+`Animator.getClip` requiere los siguientes parámetros:
 
-* `entity`: The entity of the `Animator` component that you want to query.
-* `clipName`: String for the name of the clip you want to fetch.
+- `entity`: La entidad del componente `Animator` que deseas consultar.
+- `clipName`: String para el nombre del clip que deseas obtener.
 
-`Animator.getClip` fetches a mutable version of the animation state, so you can modify values freely on what this function returns.
+`Animator.getClip` obtiene una versión mutable del estado de animación, por lo que puedes modificar valores libremente en lo que esta función devuelve.
 
 ```ts
 const swimAnim = Animator.getClip(sharkEntity, 'swim')
@@ -97,44 +93,44 @@ swimAnim.looping = false
 ```
 
 {% hint style="warning" %}
-**📔 Note**: If you attempt to use `Animator.getClip()` to fetch a clip that exists in the 3D model, but is not listed in the `Animator` component, it returns `null`.
+**📔 Nota**: Si intentas usar `Animator.getClip()` para obtener un clip que existe en el modelo 3D, pero no está listado en el componente `Animator`, devuelve `null`.
 {% endhint %}
 
-### Play an animation
+## Reproducir una animación
 
-The `.playing` field in an animation state determines if the animation is currently playing. Note that multiple animations may be playing in a single 3D model at the same time.
+El campo `.playing` en un estado de animación determina si la animación se está reproduciendo actualmente. Ten en cuenta que múltiples animaciones pueden estar reproduciéndose en un solo modelo 3D al mismo tiempo.
 
-Use the `Animator.playSingleAnimation()` function on an `AnimationState` object.
+Usa la función `Animator.playSingleAnimation()` en un objeto `AnimationState`.
 
 ```ts
 Animator.playSingleAnimation(sharkEntity, 'swim')
 ```
 
-If the entity was playing any other animations, `Animator.playSingleAnimation` stops them.
+Si la entidad estaba reproduciendo cualquier otra animación, `Animator.playSingleAnimation` las detiene.
 
-`Animator.playSingleAnimation` requires the following parameters:
+`Animator.playSingleAnimation` requiere los siguientes parámetros:
 
-* `entity`: The entity of the `Animator` component that you want to affect.
-* `clipName`: String for the name of the clip you want to play.
-* `resetCursor`: _(optional)_ If _true_, it plays the animation from the start, even if the animation was previously paused. If _false_, it will keep playing the animation from where it was paused. Default: _true_.
+- `entity`: La entidad del componente `Animator` que deseas afectar.
+- `clipName`: String para el nombre del clip que deseas reproducir.
+- `resetCursor`: _(opcional)_ Si _true_, reproduce la animación desde el inicio, incluso si la animación fue previamente pausada. Si _false_, continuará reproduciendo la animación desde donde fue pausada. Por defecto: _true_.
 
 ```ts
 Animator.playSingleAnimation(sharkEntity, 'swim', false)
 ```
 
-The following table summarizes how `Animator.playSingleAnimation()` behaves, using different values for the `resetCursor` property:
+La siguiente tabla resume cómo se comporta `Animator.playSingleAnimation()`, usando diferentes valores para la propiedad `resetCursor`:
 
-|                            | `reset` = _false_ (default)     | `reset` = _true_      |
-| -------------------------- | ------------------------------- | --------------------- |
-| **Currently playing**      | Has no effect.                  | Plays from the start. |
-| **Paused**                 | Resumes from last frame played. | Plays from the start. |
-| **Finished (Non-looping)** | Plays from the start.           | Plays from the start. |
+|                            | `reset` = _false_ (por defecto) | `reset` = _true_            |
+| -------------------------- | ------------------------------- | --------------------------- |
+| **Reproduciendo actualmente**      | No tiene efecto.                  | Reproduce desde el inicio. |
+| **Pausado**                 | Se reanuda desde el último fotograma reproducido. | Reproduce desde el inicio. |
+| **Terminado (sin loop)** | Reproduce desde el inicio.           | Reproduce desde el inicio. |
 
-### Looping animations
+## Animaciones en loop
 
-By default, animations are played in a loop that keeps repeating the animation forever.
+Por defecto, las animaciones se reproducen en un loop que mantiene repitiendo la animación para siempre.
 
-Change this setting by setting the `loop` property in the `state` object.
+Cambia esta configuración estableciendo la propiedad `loop` en el objeto `state`.
 
 ```ts
 Animator.create(shark, {
@@ -148,26 +144,26 @@ Animator.create(shark, {
 })
 ```
 
-If `looping` is set to _false_, the animation plays just once and then stops, staying on the posture of the last frame.
+Si `looping` está establecido en _false_, la animación se reproduce solo una vez y luego se detiene, quedando en la postura del último fotograma.
 
-### Stop an animation
+## Detener una animación
 
-To stop all animations that an entity is playing, use `Animator.stopAllAnimations()`.
+Para detener todas las animaciones que una entidad está reproduciendo, usa `Animator.stopAllAnimations()`.
 
 ```ts
 Animator.stopAllAnimations(shark)
 ```
 
-`Animator.stopAllAnimations` requires the following parameters:
+`Animator.stopAllAnimations` requiere los siguientes parámetros:
 
-* `entity`: The entity of the `Animator` component that you want to affect.
-* `resetCursor`: _(optional)_ If _true_, it returns to the posture in the first frame of the animation. If _false_, stays paused in its current posture. Default: _true_.
+- `entity`: La entidad del componente `Animator` que deseas afectar.
+- `resetCursor`: _(opcional)_ Si _true_, vuelve a la postura en el primer fotograma de la animación. Si _false_, se queda pausada en su postura actual. Por defecto: _true_.
 
 {% hint style="warning" %}
-**📔 Note**: When playing an animation with `Animator.playSingleAnimation`, this function handles stopping all other animations behind the scenes. You don't need to explicitly stop other animations in that case.
+**📔 Nota**: Al reproducir una animación con `Animator.playSingleAnimation`, esta función maneja detener todas las demás animaciones detrás de escena. No necesitas detener explícitamente otras animaciones en ese caso.
 {% endhint %}
 
-When an animation finishes playing a non-looping animation, by default the 3D model remains in the last posture it had. To change this default behavior so that when the animation ends it goes back to the first posture, set the `shouldReset` property to _true_.
+Cuando una animación termina de reproducir una animación sin loop, por defecto el modelo 3D permanece en la última postura que tenía. Para cambiar este comportamiento predeterminado para que cuando la animación termine vuelva a la primera postura, establece la propiedad `shouldReset` en _true_.
 
 ```ts
 Animator.create(shark, {
@@ -183,26 +179,24 @@ Animator.create(shark, {
 })
 ```
 
-You can also use `Animator.stopAllAnimations()` at any time to explicitly set the posture back to the first frame in the animation.
+También puedes usar `Animator.stopAllAnimations()` en cualquier momento para establecer explícitamente la postura de vuelta al primer fotograma en la animación.
 
 {% hint style="warning" %}
-**📔 Note**: Resetting the posture is an abrupt change. If you want to make the model transition smoothly tinto another posture, you can either:
+**📔 Nota**: Restablecer la postura es un cambio abrupto. Si deseas hacer que el modelo haga la transición suavemente a otra postura, puedes:
 {% endhint %}
 
-```
-- apply an animation with a `weight` property of 0 and gradually increase the `weight`
-- create an animation clip that describes a movement from the posture you want to transition from to the default posture you want.
-```
+    - aplicar una animación con una propiedad `weight` de 0 y aumentar gradualmente el `weight`
+    - crear un clip de animación que describa un movimiento desde la postura desde la que deseas hacer la transición hasta la postura predeterminada que deseas.
 
-### Handle multiple animations
+## Manejar múltiples animaciones
 
-If a 3D model has multiple animations packed into it, a single `Animator` component can deal with all of them.
+Si un modelo 3D tiene múltiples animaciones empaquetadas en él, un solo componente `Animator` puede lidiar con todas ellas.
 
 ```ts
-// Create entity
+// Crear entidad
 const shark = engine.addEntity()
 
-// Add a 3D model to it
+// Agregar un modelo 3D a ella
 GltfContainer.create(shark, {
 	src: 'models/shark.glb'
 })
@@ -221,21 +215,21 @@ Animator.create(shark, {
 })
 ```
 
-In the example above, two animations are handled by separate `state` objects, and they are then both assigned to the same `Animator` component.
+En el ejemplo anterior, dos animaciones son manejadas por objetos `state` separados, y luego ambos se asignan al mismo componente `Animator`.
 
-Each bone in an animation can only be affected by one animation at a time, unless these animations have a `weight` that adds up to a value of 1 or less.
+Cada hueso en una animación solo puede ser afectado por una animación a la vez, a menos que estas animaciones tengan un `weight` que sume un valor de 1 o menos.
 
-If one animation only affects a character's legs, and another only affects a character's head, then they can be played at the same time without any issue. But if they both affect the character's legs, then you must either only play one at a time, or play them with lower `weight` values.
+Si una animación solo afecta las piernas de un personaje, y otra solo afecta la cabeza de un personaje, entonces pueden reproducirse al mismo tiempo sin ningún problema. Pero si ambas afectan las piernas del personaje, entonces debes reproducir solo una a la vez, o reproducirlas con valores de `weight` más bajos.
 
-If in the above example, the `bite` animation only affects the shark's mouth, and the `swim` animation only affects the bones of the shark's spine, then they can both be played at the same time if they're on separate layers.
+Si en el ejemplo anterior, la animación `bite` solo afecta la boca del tiburón, y la animación `swim` solo afecta los huesos de la columna vertebral del tiburón, entonces ambas pueden reproducirse al mismo tiempo si están en capas separadas.
 
 {% hint style="warning" %}
-**📔 Note**: `Animator.playSingleAnim()` stops all other animations that the entity is currently playing. To play multiple animations at the same time, modify the `playing` property in the animation states manually.
+**📔 Nota**: `Animator.playSingleAnim()` detiene todas las demás animaciones que la entidad está reproduciendo actualmente. Para reproducir múltiples animaciones al mismo tiempo, modifica la propiedad `playing` en los estados de animación manualmente.  
 {% endhint %}
 
-### Animation speed
+## Velocidad de animación
 
-Change the speed at which an animation is played by changing the `speed` property. The value of the speed is 1 by default.
+Cambia la velocidad a la que se reproduce una animación cambiando la propiedad `speed`. El valor de la velocidad es 1 por defecto.
 
 ```ts
 Animator.create(shark, {
@@ -250,7 +244,7 @@ Animator.create(shark, {
 })
 ```
 
-Set the speed lower than 1 to play it slower, for example to 0.5 to play it at half the speed. Set it higher than 1 to play it faster, for example to 2 to play it at double the speed.
+Establece la velocidad menor que 1 para reproducirla más lenta, por ejemplo a 0.5 para reproducirla a la mitad de la velocidad. Establécela mayor que 1 para reproducirla más rápido, por ejemplo a 2 para reproducirla al doble de la velocidad.
 
 ```ts
 const swimAnim = Animator.getClip(sharkEntity, 'swim')
@@ -258,11 +252,11 @@ const swimAnim = Animator.getClip(sharkEntity, 'swim')
 swimAnim.speed = 0.5
 ```
 
-### Animation weight
+## Peso de animación
 
-The `weight` property allows a single model to carry out multiple animations on different layers at once, calculating a weighted average of all the movements involved in the animation. The value of `weight` determines how much importance that animation will be given in the average.
+La propiedad `weight` permite a un solo modelo realizar múltiples animaciones en diferentes capas a la vez, calculando un promedio ponderado de todos los movimientos involucrados en la animación. El valor de `weight` determina cuánta importancia se le dará a esa animación en el promedio.
 
-By default, `weight` is equal to _1_. The value of `weight` can't be any higher than _1_.
+Por defecto, `weight` es igual a _1_. El valor de `weight` no puede ser mayor que _1_.
 
 ```ts
 Animator.create(shark, {
@@ -277,16 +271,16 @@ Animator.create(shark, {
 })
 ```
 
-The `weight` value of all active animations in an entity should add up to 1 at all times. If it adds up to less than 1, the weighted average will be using the default position of the armature for the remaining part of the calculation.
+El valor de `weight` de todas las animaciones activas en una entidad debe sumar 1 en todo momento. Si suma menos de 1, el promedio ponderado usará la posición predeterminada de la armature para la parte restante del cálculo.
 
-For example, in the code example above, we're playing the _swim_ animation, that only has a `weight` of _0.2_. This swimming movement will be quite subtle: only 20% of the intensity that the animation defines. The remaining 80% of the calculation takes values from the default posture of the armature.
+Por ejemplo, en el ejemplo de código anterior, estamos reproduciendo la animación _swim_, que solo tiene un `weight` de _0.2_. Este movimiento de natación será bastante sutil: solo el 20% de la intensidad que define la animación. El 80% restante del cálculo toma valores de la postura predeterminada de la armature.
 
-The `weight` property can be used in interesting ways, for example the `weight` property of _swim_ could be set in proportion to how fast the shark is swimming, so you don't need to create multiple animations for fast and slow swimming.
+La propiedad `weight` puede usarse de maneras interesantes, por ejemplo la propiedad `weight` de _swim_ podría establecerse en proporción a qué tan rápido está nadando el tiburón, por lo que no necesitas crear múltiples animaciones para natación rápida y lenta.
 
-You could also change the `weight` value gradually when starting and stopping an animation to give it a more natural transition and to avoid jumps from the default pose to the first pose in the animation.
+También podrías cambiar el valor de `weight` gradualmente al iniciar y detener una animación para darle una transición más natural y evitar saltos desde la pose predeterminada a la primera pose en la animación.
 
 {% hint style="warning" %}
-**📔 Note**: The added `weight` value of all animations that are acting on a 3D model's bone can't be more than 1. If more than one animation is affecting the same bones at the same time, they need to have their weight set to values that add to less than 1.
+**📔 Nota**: El valor de `weight` agregado de todas las animaciones que están actuando en el hueso de un modelo 3D no puede ser más de 1. Si más de una animación está afectando los mismos huesos al mismo tiempo, necesitan tener su weight establecido en valores que sumen menos de 1.
 {% endhint %}
 
 ```ts

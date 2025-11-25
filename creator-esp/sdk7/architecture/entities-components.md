@@ -1,96 +1,92 @@
 ---
-description: Learn the essentials about entities and components in a Decentraland scene
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/architecture/entities-components
+description: Aprende los fundamentos sobre entidades y componentes en una escena de Decentraland
 ---
 
-# Entities & Components
+# Entidades & Componentes
 
-Decentraland scenes are built around [_entities_, _components_ and _systems_](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system). This is a common pattern used in the architecture of several game engines, that allows for easy composability and scalability.
+Las escenas de Decentraland están construidas alrededor de [_entidades_, _componentes_ y _sistemas_](https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system). Este es un patrón común usado en la arquitectura de varios motores de juegos, que permite fácil composabilidad y escalabilidad.
 
-![](../../.gitbook/assets/ecs-big-picture.png)
+![](../images/media/ecs-big-picture.png)
 
-### Overview
+### Descripción general
 
-_Entities_ are the basic unit for building everything in Decentraland scenes. All visible and invisible 3D objects and audio players in your scene will each be an entity. An entity is nothing more than an id, that can be referenced by components. The entity itself has no properties or methods of its own, it simply serves to group several components together.
+Las _Entidades_ son la unidad básica para construir todo en las escenas de Decentraland. Todos los objetos 3D visibles e invisibles y reproductores de audio en tu escena serán cada uno una entidad. Una entidad no es más que un id, que puede ser referenciado por componentes. La entidad en sí no tiene propiedades o métodos propios, simplemente sirve para agrupar varios componentes juntos.
 
-_Components_ define the traits of an entity. For example, a `Transform` component stores the entity's coordinates, rotation and scale. A `MeshRenderer` component gives the entity a visible shape (like a cube or a sphere) when rendered in the scene, a `Material` component gives the entity a color or texture. You can also create custom components to serve your scene's required data, for example a custom `health` could store an entity's remaining health value, and add it to entities that represent non-player enemies in a game.
+Los _Componentes_ definen las características de una entidad. Por ejemplo, un componente `Transform` almacena las coordenadas, rotación y escala de la entidad. Un componente `MeshRenderer` le da a la entidad una forma visible (como un cubo o una esfera) cuando se renderiza en la escena, un componente `Material` le da a la entidad un color o textura. También puedes crear componentes personalizados para servir los datos requeridos por tu escena, por ejemplo un `health` personalizado podría almacenar el valor de salud restante de una entidad, y agregarlo a entidades que representan enemigos no jugadores en un juego.
 
-If you're familiar with web development, think of entities as the equivalent of _Elements_ in a _DOM_ tree, and of components as _attributes_ of those elements.
+Si estás familiarizado con el desarrollo web, piensa en las entidades como el equivalente de _Elementos_ en un árbol _DOM_, y en los componentes como _atributos_ de esos elementos.
 
-In the [Scene editor](../../../creator/scene-editor/get-started/about-editor.md), you can view the components that belong to an entity by selecting it.
+En el [Editor de Escenas](../scene-editor/get-started/about-editor.md), puedes ver los componentes que pertenecen a una entidad seleccionándola.
 
-![](../../.gitbook/assets/components-example.png)
+![](../images/editor/components-example.png)
 
 {% hint style="warning" %}
-**📔 Note**: In previous versions of the SDK, Entities were _objects_ that were instanced, and could be extended to add functions. As of version 7.0 of the SDK, entities are only an ID. This structure better fits the principles of [data oriented programming](../../../creator/sdk7/architecture/data-oriented-programming.md) and can help in the scene's performance.
+**📔 Nota**: En versiones anteriores del SDK, las Entidades eran _objetos_ que se instanciaban, y podían extenderse para agregar funciones. A partir de la versión 7.0 del SDK, las entidades son solo un ID. Esta estructura se ajusta mejor a los principios de la [programación orientada a datos](../sdk7/architecture/data-oriented-programming.md) y puede ayudar en el rendimiento de la escena.
 {% endhint %}
 
-![](../../.gitbook/assets/ecs-components-new.png)
+![](../images/media/ecs-components-new.png)
 
-Components like `Transform`, `Material` or any of the _shape_ components are closely tied in with the rendering of the scene. If the values in these components change, that alone is enough for the engine to change how the scene is rendered in the next frame.
+Los componentes como `Transform`, `Material` o cualquiera de los componentes de _forma_ están estrechamente vinculados con el renderizado de la escena. Si los valores en estos componentes cambian, eso solo es suficiente para que el motor cambie cómo se renderiza la escena en el siguiente fotograma.
 
-The engine is the part of the scene that sits in the middle and manages all of the other parts. It determines what entities are rendered and how players interact with them. It also coordinates what functions from [systems](../../../creator/sdk7/architecture/systems.md) are executed and when.
+El motor es la parte de la escena que se sitúa en el medio y gestiona todas las demás partes. Determina qué entidades se renderizan y cómo los jugadores interactúan con ellas. También coordina qué funciones de [sistemas](../sdk7/architecture/systems.md) se ejecutan y cuándo.
 
-Components are meant to store data about their referenced entity. They can only store this data, they can't modify this data themselves. All changes to the values in the components are carried out by [Systems](../../../creator/sdk7/architecture/systems.md). Systems are completely decoupled from the components and entities themselves. Entities and components are agnostic to what _systems_ are acting upon them.
+Los componentes están destinados a almacenar datos sobre su entidad referenciada. Solo pueden almacenar estos datos, no pueden modificar estos datos por sí mismos. Todos los cambios a los valores en los componentes son llevados a cabo por [Sistemas](../sdk7/architecture/systems.md). Los sistemas están completamente desacoplados de los componentes y entidades en sí. Las entidades y componentes son agnósticos a qué _sistemas_ están actuando sobre ellos.
 
-### Syntax for entities and components
+### Sintaxis para entidades y componentes
 
-The example below shows some basic operations for declaring, and configuring basic entities and components.
+El ejemplo a continuación muestra algunas operaciones básicas para declarar y configurar entidades y componentes básicos.
 
 ```ts
 export function main() {
-	// Create an entity
+	// Crear una entidad
 	const door = engine.addEntity()
 
-	// Give the entity a position via a transform component
+	// Dar a la entidad una posición a través de un componente transform
 	Transform.create(door, {
 		position: Vector3.create(5, 1, 5),
 	})
 
-	// Give the entity a visible shape via a GltfContainer component
+	// Dar a la entidad una forma visible a través de un componente GltfContainer
 	GltfContainer.create(door)
 }
 ```
 
 {% hint style="warning" %}
-**📔 Note**: In previous versions of the SDK, it was necessary to manually add an entity to the engine to start rendering it. As of version 7 of the SDK, entities are implicitly added to the engine as soon as they are assigned a component.
+**📔 Nota**: En versiones anteriores del SDK, era necesario agregar manualmente una entidad al motor para comenzar a renderizarla. A partir de la versión 7 del SDK, las entidades se agregan implícitamente al motor tan pronto como se les asigna un componente.
 {% endhint %}
 
-When a component is created, it's always assigned to a parent entity. The component's values then affect the entity.
+Cuando se crea un componente, siempre se asigna a una entidad padre. Los valores del componente luego afectan a la entidad.
 
-### Remove entities
+### Eliminar entidades
 
-To remove an entity from the engine, use `engine.removeEntity()`
+Para eliminar una entidad del motor, usa `engine.removeEntity()`
 
 ```ts
 export function main() {
-	// Create an entity
+	// Crear una entidad
 	const door = engine.addEntity()
 
-	// Give the entity a visible shape via a GltfContainer component
+	// Dar a la entidad una forma visible a través de un componente GltfContainer
 	GltfContainer.create(door)
 
-	// Remove entity
+	// Eliminar entidad
 	engine.removeEntity(door)
 }
 ```
 
-If a removed entity has any child entities, these change their parent back to the default `engine.RootEntity` entity, which is positioned at the scene base position, with a scale of _1_.
+Si una entidad eliminada tiene entidades hijas, estas cambian su padre de vuelta a la entidad predeterminada `engine.RootEntity`, que está posicionada en la posición base de la escena, con una escala de _1_.
 
-To remove an entity and also all of its children (and any children of its children, recurrently), use the `removeEntityWithChildren()` helper.
+Para eliminar una entidad y también todas sus hijas (y cualquier hija de sus hijas, recurrentemente), usa el helper `removeEntityWithChildren()`.
 
 ```ts
 export function main() {
-	// Create parent entity
+	// Crear entidad padre
 	const door = engine.addEntity()
 
-	// Create child entity
+	// Crear entidad hija
 	const doorKnob = engine.addEntity()
 
-	// Give the entities a visible shape
+	// Dar a las entidades una forma visible
 	GltfContainer.create(door, {
 		src: 'models/door.glb',
 	})
@@ -98,66 +94,66 @@ export function main() {
 		src: 'models/doorKnob.glb',
 	})
 
-	// Parent
+	// Parentar
 	Transform.create(doorKnob, {
 		parent: door,
 	})
 
-	// Remove both parent and children
+	// Eliminar tanto padre como hijas
 	removeEntityWithChildren(engine, door)
 }
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Instead of removing an entity from the engine, in some cases it might be better to make it invisible, in case you want to be able to load it again without any delay. See [Make invisible](../../../creator/sdk7/3d-essentials/shape-components.md#make-invisible)
+**💡 Tip**: En lugar de eliminar una entidad del motor, en algunos casos podría ser mejor hacerla invisible, en caso de que quieras poder cargarla nuevamente sin demora. Consulta [Hacer invisible](../sdk7/3d-essentials/shape-components.md#make-invisible)
 {% endhint %}
 
-#### Removing entities behind the scenes
+#### Eliminar entidades detrás de escena
 
-An entity is just an id that is referenced by its components. So when removing an entity you're really removing each of the components that reference this entity. This means that if you manually remove all of the components of an entity, it will have the same effect as doing `engine.removeEntity()`.
+Una entidad es solo un id que es referenciado por sus componentes. Entonces, al eliminar una entidad realmente estás eliminando cada uno de los componentes que referencian esta entidad. Esto significa que si eliminas manualmente todos los componentes de una entidad, tendrá el mismo efecto que hacer `engine.removeEntity()`.
 
-Once the entity's components are removed, that entity's id is free to be referenced by new components as a fresh new entity.
+Una vez que los componentes de la entidad son eliminados, ese id de entidad está libre para ser referenciado por nuevos componentes como una entidad fresca nueva.
 
-### Nested entities
+### Entidades anidadas
 
-An entity can have other entities as children. Thanks to this, we can arrange entities into trees, just like the HTML of a webpage.
+Una entidad puede tener otras entidades como hijas. Gracias a esto, podemos organizar entidades en árboles, igual que el HTML de una página web.
 
-![](../../.gitbook/assets/ecs-nested-entities-new.png)
+![](../images/media/ecs-nested-entities-new.png)
 
-To set an entity as the parent of another, the child entity must have a `Transform` component. You can then set the `parent` field with a reference to the parent entity.
+Para establecer una entidad como padre de otra, la entidad hija debe tener un componente `Transform`. Luego puedes establecer el campo `parent` con una referencia a la entidad padre.
 
 ```ts
 export function main() {
-	// Create entities
+	// Crear entidades
 	const parentEntity = engine.addEntity()
 
 	const childEntity = engine.addEntity()
 
-	// Set parent
+	// Establecer padre
 	Transform.create(childEntity, {
 		parent: parentEntity,
 	})
 }
 ```
 
-Once a parent is assigned, it can be read off the child entity from the `parent` field on its `Transform` component.
+Una vez que se asigna un padre, puede leerse de la entidad hija desde el campo `parent` en su componente `Transform`.
 
 ```ts
-// Get parent from an entity
+// Obtener padre de una entidad
 const parent = Transform.get(childEntity).parent
 ```
 
-If a parent entity has a `Transform` component that affects its position, scale or rotation, its children entities are also affected. Any position or rotation values are added, any scale values are multiplied.
+Si una entidad padre tiene un componente `Transform` que afecta su posición, escala o rotación, sus entidades hijas también son afectadas. Cualquier valor de posición o rotación se suma, cualquier valor de escala se multiplica.
 
-If either the parent or child entity doesn't have a `Transform` component, the following default values are used.
+Si la entidad padre o hija no tiene un componente `Transform`, se usan los siguientes valores predeterminados.
 
-* For **position**, the parent's center is _0, 0, 0_
-* For **rotation** the parent's rotation is the quaternion _0, 0, 0, 1_ (equivalent to the Euler angles _0, 0, 0_)
-* For **scale**, the parent is considered to have a size of _1_. Any resizing of the parent affects scale and position in proportion.
+* Para **posición**, el centro del padre es _0, 0, 0_
+* Para **rotación** la rotación del padre es el quaternion _0, 0, 0, 1_ (equivalente a los ángulos de Euler _0, 0, 0_)
+* Para **escala**, el padre se considera que tiene un tamaño de _1_. Cualquier redimensionamiento del padre afecta la escala y posición en proporción.
 
-Entities with no shape component are invisible in the scene. These can be used as wrappers to handle and position multiple entities as a group.
+Las entidades sin componente de forma son invisibles en la escena. Estas pueden usarse como envoltorios para manejar y posicionar múltiples entidades como un grupo.
 
-To separate a child entity from its parent, you can assign the entity's parent to `engine.RootEntity`.
+Para separar una entidad hija de su padre, puedes asignar el padre de la entidad a `engine.RootEntity`.
 
 ```ts
 const mutableChildTransform = Transform.getMutable(childEntity)
@@ -165,31 +161,31 @@ mutableChildTransform.parent = engine.RootEntity
 ```
 
 {% hint style="warning" %}
-**📔 Note**: When dealing with nested entities that are synced with other players, use the `parentEntity()` function instead of the `parent` entity in the Transform. See [Parented entities](../../../creator/sdk7/networking/serverless-multiplayer.md#parented-entities)
+**📔 Nota**: Al trabajar con entidades anidadas que están sincronizadas con otros jugadores, usa la función `parentEntity()` en lugar de la entidad `parent` en el Transform. Consulta [Entidades parentadas](../sdk7/networking/serverless-multiplayer.md#parented-entities)
 {% endhint %}
 
-In the [Scene editor](../../../creator/scene-editor/get-started/about-editor.md), you can see the entire hierarchy of nested entities in your scene on the left-side panel.
+En el [Editor de escenas](../scene-editor/get-started/about-editor.md), puedes ver toda la jerarquía de entidades anidadas en tu escena en el panel del lado izquierdo.
 
-![](../../.gitbook/assets/entity-tree-example.png)
+![](../images/editor/entity-tree-example.png)
 
-### Get an entity by ID
+### Obtener una entidad por ID
 
-Every entity in your scene has a unique number _id_. You can retrieve a component that refers to a specific entity from the engine based on this ID.
+Cada entidad en tu escena tiene un número _id_ único. Puedes recuperar un componente que se refiere a una entidad específica del motor basándote en este ID.
 
 ```typescript
-// fetch a Transform component
+// obtener un componente Transform
 Transform.get(1000 as Entity)
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The entity ids between _0_ and _511_ are reserved by the engine for fixed entities, like the player avatar, the base scene, etc.
+**📔 Nota**: Los ids de entidad entre _0_ y _511_ están reservados por el motor para entidades fijas, como el avatar del jugador, la escena base, etc.
 {% endhint %}
 
-For example, if a player's click or a [raycast](../../../creator/sdk7/interactivity/raycasting.md) hits an entity, this will return the id of the hit entity, and you can use the command above to fetch the Transform component of the entity that matches that id. You can also fetch any other component of that entity in the same way.
+Por ejemplo, si el clic de un jugador o un [raycast](../sdk7/interactivity/raycasting.md) golpea una entidad, esto devolverá el id de la entidad golpeada, y puedes usar el comando anterior para obtener el componente Transform de la entidad que coincide con ese id. También puedes obtener cualquier otro componente de esa entidad de la misma manera.
 
-### Get an entity by name
+### Obtener una entidad por nombre
 
-When adding entities via drag-and-drop in the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md), each entity has a unique name. Use the `engine.getEntityOrNullByName()` function to reference one of these entities from your code. Pass the entity's name as a string, as written on the Scene Editor's UI, in the tree view on the left.
+Al agregar entidades a través de arrastrar y soltar en el [Editor de Escenas](../scene-editor/get-started/about-editor.md), cada entidad tiene un nombre único. Usa la función `engine.getEntityOrNullByName()` para referenciar una de estas entidades desde tu código. Pasa el nombre de la entidad como una cadena, como está escrito en la UI del Editor de Escenas, en la vista de árbol a la izquierda.
 
 ```ts
 function main() {
@@ -198,32 +194,32 @@ function main() {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Make sure you only use `engine.getEntityOrNullByName()` inside the `main()` function, in functions that run after `main()`, or in a system. If used outside one of those contexts, the entities created in the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md) UI may not yet be instanced.
+**📔 Nota**: Asegúrate de usar `engine.getEntityOrNullByName()` solo dentro de la función `main()`, en funciones que se ejecutan después de `main()`, o en un sistema. Si se usa fuera de uno de esos contextos, las entidades creadas en la UI del [Editor de Escenas](../scene-editor/get-started/about-editor.md) pueden no estar instanciadas todavía.
 {% endhint %}
 
-You're free to perform any action on an entity fetched via this method, like add or remove components, modify values of existing components, or remove the entity from the engine.
+Eres libre de realizar cualquier acción en una entidad obtenida a través de este método, como agregar o eliminar componentes, modificar valores de componentes existentes, o eliminar la entidad del motor.
 
 ```ts
 function main() {
-	// fetch entity
+	// obtener entidad
 	const door = engine.getEntityOrNullByName('door-3')
-	// verify that the entity exists
+	// verificar que la entidad existe
 	if (door) {
-		// add a pointer events callback
+		// agregar un callback de eventos de puntero
 		pointerEventsSystem.onPointerDown(
 			{
 				entity: door,
 				opts: { button: InputAction.IA_PRIMARY, hoverText: 'Open' },
 			},
 			function () {
-				// open door
+				// abrir puerta
 			}
 		)
 	}
 }
 ```
 
-All the entities added via the Scene Editor UI have a `Name` component, you can iterate over all of them like this:
+Todas las entidades agregadas a través de la UI del Editor de Escenas tienen un componente `Name`, puedes iterar sobre todas ellas así:
 
 ```ts
 function main() {
@@ -233,11 +229,11 @@ function main() {
 }
 ```
 
-### Add or replace a component
+### Agregar o reemplazar un componente
 
-Each entity can only have one component of a given kind. For example, if you attempt to assign a Transform to an entity that already has one, this will cause an error.
+Cada entidad solo puede tener un componente de un tipo dado. Por ejemplo, si intentas asignar un Transform a una entidad que ya tiene uno, esto causará un error.
 
-To prevent this error, you can use `.createOrReplace` instead of `.create`. This command overwrites any existing components of the same kind if they exists, otherwise it creates a new component just like `.create`.
+Para prevenir este error, puedes usar `.createOrReplace` en lugar de `.create`. Este comando sobrescribe cualquier componente existente del mismo tipo si existen, de lo contrario crea un nuevo componente como `.create`.
 
 ```ts
 Transform.createOrReplace(door, {
@@ -246,53 +242,53 @@ Transform.createOrReplace(door, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Since `.createOrReplace` runs an additional check before creating the component, it's always more performant to use `.create`. If you're sure that the entity doesn't already have a component like the one you're adding, use `.create`.
+**📔 Nota**: Como `.createOrReplace` ejecuta una verificación adicional antes de crear el componente, siempre es más eficiente usar `.create`. Si estás seguro de que la entidad no tiene ya un componente como el que estás agregando, usa `.create`.
 {% endhint %}
 
-### Access a component from an entity
+### Acceder a un componente de una entidad
 
-You can access components of an entity by using the entity's `.get()` or the `getMutable()` functions.
+Puedes acceder a componentes de una entidad usando las funciones `.get()` o `getMutable()` de la entidad.
 
 ```ts
 export function main() {
-	// Create entity
+	// Crear entidad
 	const box = engine.addEntity()
 
-	// Create and add component to that entity
+	// Crear y agregar componente a esa entidad
 	Transform.create(box)
 
-	// Get read-only version of component
+	// Obtener versión de solo lectura del componente
 	let transform = Transform.get(box)
 
-	// Get mutable version of component
+	// Obtener versión mutable del componente
 	let transform = Transform.getMutable(box)
 }
 ```
 
-The `get()` function fetches a read-only reference to the component. You cannot change any values from this reference of the component.
+La función `get()` obtiene una referencia de solo lectura al componente. No puedes cambiar valores desde esta referencia del componente.
 
-If you wish to change the values of the component, use the `getMutable()` function instead. If you change the values in the mutable version of the component, you're directly affecting the entity that component belongs to.
+Si deseas cambiar los valores del componente, usa la función `getMutable()` en su lugar. Si cambias los valores en la versión mutable del componente, estás afectando directamente a la entidad a la que pertenece ese componente.
 
-See [mutable data](../../../creator/sdk7/programming-patterns/mutable-data.md) for more details.
+Consulta [datos mutables](../sdk7/programming-patterns/mutable-data.md) para más detalles.
 
 {% hint style="warning" %}
-**📔 Note**: Only use `getMutable()` if you're actually going to make changes to the component's values. Otherwise, always use `get()`. This practice follows the principles of [data oriented programming](../../../creator/sdk7/architecture/data-oriented-programming.md), and can significantly help in the scene's performance.
+**📔 Nota**: Solo usa `getMutable()` si realmente vas a hacer cambios a los valores del componente. De lo contrario, siempre usa `get()`. Esta práctica sigue los principios de la [programación orientada a datos](../sdk7/architecture/data-oriented-programming.md), y puede ayudar significativamente en el rendimiento de la escena.
 {% endhint %}
 
 ```ts
-// Get mutable version of component
+// Obtener versión mutable del componente
 let transform = Transform.getMutable(box)
 
-// change a value of the component
+// cambiar un valor del componente
 transform.scale.x = 5
 ```
 
-The example above directly modifies the value of the _x_ scale on the Transform component.
+El ejemplo anterior modifica directamente el valor de la escala _x_ en el componente Transform.
 
-If you're not entirely sure if the entity does have the component you're trying to retrieve, use `getOrNull()` or `getMutableOrNull()`.
+Si no estás completamente seguro de si la entidad tiene el componente que estás intentando recuperar, usa `getOrNull()` o `getMutableOrNull()`.
 
 {% hint style="warning" %}
-**📔 Note**: Avoid using `getOrNull()` or `getMutableOrNull()` when possible, as these functions involve additional checks that and are therefore less efficient than `.get()` and `getMutable()`.
+**📔 Nota**: Evita usar `getOrNull()` o `getMutableOrNull()` cuando sea posible, ya que estas funciones involucran verificaciones adicionales y por lo tanto son menos eficientes que `.get()` y `getMutable()`.
 {% endhint %}
 
 ```ts
@@ -303,48 +299,48 @@ const transformOrNull = Transform.getOrNull(myEntity)
 const mutableTransformOrNull = Transform.getMutableOrNull(myEntity)
 ```
 
-If the component you're trying to retrieve doesn't exist in the entity:
+Si el componente que estás intentando recuperar no existe en la entidad:
 
-* `get()` and `getMutable()` returns an error.
-* `getOrNull()` and `getMutableOrNull()` returns `Null`.
+* `get()` y `getMutable()` devuelven un error.
+* `getOrNull()` y `getMutableOrNull()` devuelven `Null`.
 
-### Remove a component from an entity
+### Eliminar un componente de una entidad
 
-To remove a component from an entity, use the entity's `deleteFrom()` method of the component type.
+Para eliminar un componente de una entidad, usa el método `deleteFrom()` del tipo de componente de la entidad.
 
 ```ts
 Transform.deleteFrom(myEntity)
 ```
 
-If you attempt to remove a component that doesn't exist in the entity, this action won't raise any errors.
+Si intentas eliminar un componente que no existe en la entidad, esta acción no generará errores.
 
 {% hint style="warning" %}
-**📔 Note**: To remove all the components of an entity at once, see [this section](entities-components.md#remove-entities)
+**📔 Nota**: Para eliminar todos los componentes de una entidad a la vez, consulta [esta sección](entities-components.md#remove-entities)
 {% endhint %}
 
-### Check for a component
+### Verificar un componente
 
-You can check if an entity owns an instance of a certain component by using the `has()` function. This function returns _true_ if the component is present, and _false_ if it's not. This can be very handy for using in conditional logic in your scene.
+Puedes verificar si una entidad posee una instancia de un cierto componente usando la función `has()`. Esta función devuelve _true_ si el componente está presente, y _false_ si no lo está. Esto puede ser muy útil para usar en lógica condicional en tu escena.
 
 ```ts
 const hasTransform = Transform.has(myEntity)
 ```
 
 {% hint style="info" %}
-**💡 Tip**: You can also [query components](../../../creator/sdk7/architecture/querying-components.md) to fetch a full list of components that hold a specific component, or a specific set of components. Do not iterate over all entities in the scene manually to check each with a `has()`, that approach is a lot less efficient.
+**💡 Tip**: También puedes [consultar componentes](../sdk7/architecture/querying-components.md) para obtener una lista completa de componentes que tienen un componente específico, o un conjunto específico de componentes. No iteres sobre todas las entidades en la escena manualmente para verificar cada una con un `has()`, ese enfoque es mucho menos eficiente.
 {% endhint %}
 
-### Check for changes on a component
+### Verificar cambios en un componente
 
-Use the `onChange` function to run a callback function any time that the values of the component change for a given entity. This works on any component, and is a great shortcut for helping keep your code readable.
+Usa la función `onChange` para ejecutar una función callback cada vez que los valores del componente cambien para una entidad dada. Esto funciona en cualquier componente, y es un gran atajo para ayudar a mantener tu código legible.
 
-The callback function can include an input parameter that contains the new state of the component.
+La función callback puede incluir un parámetro de entrada que contiene el nuevo estado del componente.
 
 ```ts
 Transform.onChange(cubeEntity, (newTransform) => {
 	if (!newTransform) return
 	console.log(
-		'Cube position changed: ',
+		'Posición del cubo cambió: ',
 		newTransform.position,
 		newTransform.rotation
 	)
@@ -352,36 +348,36 @@ Transform.onChange(cubeEntity, (newTransform) => {
 
 VisibilityComponent.onChange(cubeEntity, (newVisibilityComponent) => {
 	if (!newVisibilityComponent) return
-	console.log('Cube visibility changed: ', newVisibilityComponent.visible)
+	console.log('Visibilidad del cubo cambió: ', newVisibilityComponent.visible)
 })
 ```
 
-If the component is removed from the entity, then the function is called with an input of `undefined`.
+Si el componente es eliminado de la entidad, entonces la función es llamada con una entrada de `undefined`.
 
 {% hint style="warning" %}
-**📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with [custom comopnents](../../../creator/sdk7/architecture/custom-components.md) defined by the creator.
+**📔 Nota**: La función `.onChange()` actualmente solo funciona con componentes nativos del SDK, no funciona con [componentes personalizados](../sdk7/architecture/custom-components.md) definidos por el creador.
 {% endhint %}
 
-### Reserved entities
+### Entidades reservadas
 
-Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
+Ciertos ids de entidad están reservados para entidades especiales que existen en cada escena. Pueden accederse a través de los siguientes alias:
 
 * `engine.RootEntity`
 * `engine.PlayerEntity`
 * `engine.CameraEntity`
 
 {% hint style="warning" %}
-**📔 Note**: Avoid referring to these entities before they are initialized. To avoid this problem, refer to these entities in the `main()` function, or in a system.
+**📔 Nota**: Evita referirte a estas entidades antes de que se inicialicen. Para evitar este problema, refiérete a estas entidades en la función `main()`, o en un sistema.
 {% endhint %}
 
-### The root entity
+### La entidad raíz
 
-All entities in the scene are children of the `engine.RootEntity`, directly or indirectly.
+Todas las entidades en la escena son hijas de `engine.RootEntity`, directa o indirectamente.
 
-### The player entity
+### La entidad jugador
 
-The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data](../../../creator/sdk7/interactivity/user-data.md). You can also modify this Transform to move the player, see [move player](../../../creator/sdk7/interactivity/move-player.md).
+La entidad `engine.PlayerEntity` representa el avatar del jugador. Obtén el componente `Transform` del jugador para obtener la posición y rotación actual del jugador, consulta [datos del usuario](../sdk7/interactivity/user-data.md). También puedes modificar este Transform para mover al jugador, consulta [mover jugador](../sdk7/interactivity/move-player.md).
 
-### The camera entity
+### La entidad cámara
 
-The `engine.CameraEntity` entity represents the player's camera. Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode](../../../creator/sdk7/interactivity/user-data.md#check-the-players-camera-mode).
+La entidad `engine.CameraEntity` representa la cámara del jugador. Obtén el componente `Transform` de la cámara para obtener la posición y rotación de la cámara. También puedes obtener el componente `CameraMode` de la cámara para saber si el jugador está usando el modo de cámara en primera o tercera persona, consulta [modo de cámara](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).
