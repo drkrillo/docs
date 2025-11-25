@@ -1,79 +1,75 @@
 ---
-description: Stream live video into your scene using the Video Screen and Admin Tools.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/live-ops/live-streaming
+description: Transmite video en vivo a tu escena usando el Video Screen y Admin Tools.
 ---
 
 # Live Streaming
 
-Use the **Video Screen** smart item together with the **Scene Admin** smart item to stream live video into your scene.
+Usa el smart item **Video Screen** junto con el smart item **Scene Admin** para transmitir video en vivo a tu escena.
 
-### Requirements
+### Requisitos
 
-* A scene with at least one [Video Screen](../../../creator/scene-editor/interactivity/video-screen.md) smart item.
-* The [Scene Admin](../../../creator/scene-editor/live-ops/scene-admin.md) smart item linked to your video screens.
-* Streaming software that can output to an RTMP endpoint (e.g. [OBS](https://obsproject.com/), [XSplit](https://www.xsplit.com/), [StreamYard](https://streamyard.com/)).
+* Una escena con al menos un smart item [Video Screen](../scene-editor/interactivity/video-screen.md).
+* El smart item [Scene Admin](../scene-editor/live-ops/scene-admin.md) vinculado a tus video screens.
+* Software de streaming que pueda enviar a un endpoint RTMP (ej. [OBS](https://obsproject.com/), [XSplit](https://www.xsplit.com/), [StreamYard](https://streamyard.com/)).
 
-### Configure the scene
+### Configurar la escena
 
-1.  Add a **Video Screen** smart item to your scene.
+1.  Agrega un smart item **Video Screen** a tu escena.
 
-    ![](../../.gitbook/assets/video-player-item.png)
-2.  Add a **Scene Admin** smart item and enable the **Video Screens** section. Select each screen from the dropdown and give it a friendly name for the admin UI.
+    ![](../images/editor/admin/video-player-item.png)
+2.  Agrega un smart item **Scene Admin** y habilita la sección **Video Screens**. Selecciona cada pantalla del desplegable y dale un nombre amigable para la UI de admin.
 
-    ![](../../.gitbook/assets/multi-video-setup.png)
-3.  Publish your scene (World or Genesis City) and enter as a user with admin permissions.
+    ![](../images/editor/admin/multi-video-setup.png)
+3.  Publica tu escena (World o Genesis City) y entra como un usuario con permisos de admin.
 
-    ![](../../.gitbook/assets/publish-button.png)
+    ![](../images/editor/publish-button.png)
 
-### Get stream credentials
+### Obtener credenciales de stream
 
-1.  Open the Admin UI in the scene (top‑right icon).
+1.  Abre la UI de Admin en la escena (ícono superior derecho).
 
-    ![](../../.gitbook/assets/admin-icon.png)
-2.  In the **Video** tab, switch to **Live** and click **Get Stream Key**.
+    ![](../images/editor/admin/admin-icon.png)
+2.  En la pestaña **Video**, cambia a **Live** y haz clic en **Get Stream Key**.
 
-    ![](../../.gitbook/assets/get-key.png)
-3.  Copy the **RTMP Server** and **Stream Key** into your streaming software.
+    ![](../images/editor/admin/get-key.png)
+3.  Copia el **RTMP Server** y **Stream Key** en tu software de streaming.
 
-    ![](../../.gitbook/assets/OBS-configuration.png)
+    ![](../images/editor/admin/OBS-configuration.png)
 
 {% hint style="danger" %}
-**❗Warning**: Only one person can stream to a scene at a time. When finished streaming, click **Stop Streaming** in your software to free the channel.
+**❗Advertencia**: Solo una persona puede transmitir a una escena a la vez. Cuando termines de transmitir, haz clic en **Stop Streaming** en tu software para liberar el canal.
 {% endhint %}
 
-### Start and control the stream
+### Iniciar y controlar el stream
 
-1. Start streaming from your software.
-2.  In the Admin UI, click **Activate** to show the stream in the scene.
+1. Inicia streaming desde tu software.
+2.  En la UI de Admin, haz clic en **Activate** para mostrar el stream en la escena.
 
-    ![](../../.gitbook/assets/activate.png)
+    ![](../images/editor/admin/activate.png)
 
-Notes:
+Notas:
 
-* Streaming works in Worlds and Genesis City, with no audience limits on the scene side.
-* If you add multiple Video Screens, mute all but one to avoid audio artifacts.
+* El streaming funciona en Worlds y Genesis City, sin límites de audiencia del lado de la escena.
+* Si agregas múltiples Video Screens, silencia todas menos una para evitar artefactos de audio.
 
 ### Stream keys
 
-Stream keys are generated per scene and are valid for 4 days (96 hours). A single live session can run up to 4 hours continuously.
+Las stream keys se generan por escena y son válidas por 4 días (96 horas). Una sola sesión en vivo puede ejecutarse hasta 4 horas continuamente.
 
-![](../../.gitbook/assets/live-stream-settings.png)
+![](../images/editor/admin/live-stream-settings.png)
 
-* Click **Reset Stream Key** to revoke the current key and issue a new one. Ongoing streams will stop.
-* Each scene has its own streaming address and key. Admins can share the key with external streamers.
-* Only one stream can be active per scene at a time; starting a new one will overwrite the current stream.
+* Haz clic en **Reset Stream Key** para revocar la clave actual y emitir una nueva. Los streams en curso se detendrán.
+* Cada escena tiene su propia dirección de streaming y clave. Los admins pueden compartir la clave con streamers externos.
+* Solo un stream puede estar activo por escena a la vez; iniciar uno nuevo sobrescribirá el stream actual.
 
 {% hint style="danger" %}
-**❗Warning**: Treat stream keys as secrets. Reset the key between presenters if needed.
+**❗Advertencia**: Trata las stream keys como secretos. Restablece la clave entre presentadores si es necesario.
 {% endhint %}
 
-### Streaming from other providers
+### Streaming desde otros proveedores
 
-You can also stream using third‑party infrastructure by configuring the Video Screen to **Video URL** and pasting a stream URL.
+También puedes transmitir usando infraestructura de terceros configurando el Video Screen a **Video URL** y pegando una URL de stream.
 
-* The URL must be `https` and CORS‑enabled by the provider (YouTube and similar sites won’t allow direct playback). See [About External Streaming](../../../creator/sdk7/media/video-playing.md#about-external-streaming).
-* Managed providers include [Vimeo](https://vimeo.com/), [Livepeer Studio](https://livepeer.studio/) and [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback).
-* Tips for encoder setup: [Setting up OBS for successful streaming](../../../creator/sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming).
+* La URL debe ser `https` y habilitada para CORS por el proveedor (YouTube y sitios similares no permitirán reproducción directa). Consulta [About External Streaming](../sdk7/media/video-playing.md#about-external-streaming).
+* Los proveedores administrados incluyen [Vimeo](https://vimeo.com/), [Livepeer Studio](https://livepeer.studio/) y [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback).
+* Tips para configuración de encoder: [Setting up OBS for successful streaming](../sdk7/media/video-playing.md#setting-up-obs-for-successful-streaming).

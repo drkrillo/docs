@@ -1,19 +1,16 @@
 ---
-description: Manage live scenes and streaming
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/live-ops
+description: Gestiona escenas en vivo y streaming
 ---
 
-# Live Ops
+# Operaciones en Vivo
 
-Manage your deployed scenes and set up live streaming capabilities. This section covers tools for scene administration and live content.
+Gestiona tus escenas desplegadas y configura capacidades de streaming en vivo. Esta sección cubre herramientas para administración de escenas y contenido en vivo.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Setting up live streaming in your scene
-* Managing scene administration rights
-* Moderating your scene
-* Updating live content
+* Configurar streaming en vivo en tu escena
+* Gestionar derechos de administración de escenas
+* Moderar tu escena
+* Actualizar contenido en vivo
 
-Live operations tools help you manage active scenes and create real-time experiences for your visitors.
+Las herramientas de operaciones en vivo te ayudan a gestionar escenas activas y crear experiencias en tiempo real para tus visitantes.

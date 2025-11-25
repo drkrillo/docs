@@ -1,42 +1,38 @@
 ---
-description: An overview of wearables NFTs for Decentraland
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/wearables
+description: Una descripción general de los wearables NFT para Decentraland
 ---
 
-# Wearables
+# Wearables Overview
 
-![](../../../creator/wearables-and-emotes/images/wearables-and-emotes/wearables-overview/00_wearables_overview.png)
+![](../images/wearables-and-emotes/wearables-overview/00_wearables_overview.png)
 
-## What Are Wearables?
+## ¿Qué son los Wearables?
 
-Wearables are the various items of clothing, accessories, and body features that can be used to customize the appearance of a Decentraland avatar. There is a selection of default wearables that are freely available to all avatars, but Decentraland also supports the creation and use of custom wearables that are represented by non-fungible tokens (or NFTs). This allows a finite amount of different wearables to be created, or minted, on the blockchain, similar to the LAND.
+Los wearables son los diversos ítems de ropa, accesorios y características corporales que se pueden usar para personalizar la apariencia de un avatar de Decentraland. Hay una selección de wearables predeterminados que están disponibles gratuitamente para todos los avatares, pero Decentraland también soporta la creación y uso de wearables personalizados que están representados por tokens no fungibles (o NFTs). Esto permite que se cree, o acuñe, una cantidad finita de diferentes wearables en la blockchain, similar a la LAND.
 
-There’s a growing range of available wearables including cyberpunk themed sneakers, fashionable jackets, fun top hats, and more! All of these stylistic choices give users an exciting and meaningful way to invest in, and express, their own unique personalities. By allowing wearables to be minted, and then sold, as NFTs, Decentraland provides content creators with a fun way to monetize their creative work.
+Hay una creciente gama de wearables disponibles que incluyen zapatillas con temática cyberpunk, chaquetas de moda, divertidos sombreros de copa, ¡y más! Todas estas opciones estilísticas brindan a los usuarios una forma emocionante y significativa de invertir en, y expresar, sus propias personalidades únicas. Al permitir que los wearables se acuñen, y luego se vendan, como NFTs, Decentraland proporciona a los creadores de contenido una forma divertida de monetizar su trabajo creativo.
 
-By default, Decentraland Wearables are minted on the Polygon/Matic side-chain so users can mint, buy, sell, or transfer items without having to pay gas fees.
+Por defecto, los Wearables de Decentraland se acuñan en la sidechain Polygon/Matic para que los usuarios puedan acuñar, comprar, vender o transferir ítems sin tener que pagar gas fees.
 
-## What Are Smart Wearables?
+## ¿Qué son los Smart Wearables?
 
-Smart wearables are portable experiences that are turned on when the player puts on a certain item of clothing. Smart wearables can grant players new abilities, like a jetpack that lets them fly, or add a new layer of content on top of the rest of the world, like randomly placing coins to be collected throughout the whole of genesis city.
+Los smart wearables son experiencias portátiles que se activan cuando el jugador se pone cierto ítem de ropa. Los smart wearables pueden otorgar a los jugadores nuevas habilidades, como un jetpack que les permite volar, o agregar una nueva capa de contenido sobre el resto del mundo, como colocar aleatoriamente monedas para ser recolectadas a través de toda genesis city.
 
-To know how to create **Smart Wearables** you can follow these [guidelines.](https://docs.decentraland.org/creator/development-guide/sdk7/smart-wearables/)
+Para saber cómo crear **Smart Wearables** puedes seguir estas [directrices](https://docs.decentraland.org/creator/development-guide/sdk7/smart-wearables/).
 
 {% hint style="warning" %}
-Smart wearables, as a subset of wearables, possess the capability to integrate advanced interactions and functionalities. Consequently, proficient skills in coding are necessary to unlock their full potential and enhance their features.
+Los smart wearables, como un subconjunto de wearables, poseen la capacidad de integrar interacciones y funcionalidades avanzadas. En consecuencia, se necesitan habilidades competentes en programación para desbloquear su potencial completo y mejorar sus características.
 {% endhint %}
 
-## Wearable Categories
+## Categorías de Wearables
 
-Each wearable has a specific category that determines which body part in the avatar system (e.g. head, upper body, etc.) the wearable will be applied to. Certain wearables will impact whether or not other wearables are rendered, depending on the specific category. See the list below for details.
+Cada wearable tiene una categoría específica que determina a qué parte del cuerpo en el sistema de avatar (ej. cabeza, parte superior del cuerpo, etc.) se aplicará el wearable. Ciertos wearables afectarán si se renderizan o no otros wearables, dependiendo de la categoría específica. Consulta la lista a continuación para más detalles.
 
-The different categories are:
+Las diferentes categorías son:
 
-![](../../../creator/wearables-and-emotes/images/wearables-and-emotes/creating-wearables/47_base_categories.png)
+![](../images/wearables-and-emotes/creating-wearables/47_base_categories.png)
 
-* **Skin:** Replaces the entire avatar (head, upper body, lower body and feet except accessories)
+* **Skin:** Reemplaza todo el avatar (cabeza, parte superior del cuerpo, parte inferior del cuerpo y pies excepto accesorios)
 * **Head:**
   * **Mouth**
   * **Eyes**
@@ -48,9 +44,9 @@ The different categories are:
 * **Handwear**
 * **Feet**
 
-There are also accessories that can be applied to different areas of an avatar. Some of these accessories can impact other wearables. The accessories are:
+También hay accesorios que se pueden aplicar a diferentes áreas de un avatar. Algunos de estos accesorios pueden afectar a otros wearables. Los accesorios son:
 
-![](../../../creator/wearables-and-emotes/images/wearables-and-emotes/creating-wearables/48_accessories_categories.png)
+![](../images/wearables-and-emotes/creating-wearables/48_accessories_categories.png)
 
 * **Mask**
 * **Eyewear**
@@ -60,12 +56,12 @@ There are also accessories that can be applied to different areas of an avatar. 
 * **Hat**
 * **Helmet**
 
-For a detailed description of each category, and how items within each category interact or hide one another, see [**Creating Wearables**](../../../creator/wearables-and-emotes/wearables-and-emotes/wearables/creating-wearables.md).
+Para una descripción detallada de cada categoría, y cómo los ítems dentro de cada categoría interactúan u ocultan unos a otros, consulta **[Creating Wearables](../wearables-and-emotes/wearables/creating-wearables.md)**.
 
-You can preview basic wearables using the [Wearable Preview Tool](https://wearable-preview.decentraland.org/?profile=default1\&transparentBackground\&loop=true).
+Puedes previsualizar wearables básicos usando la [Wearable Preview Tool](https://wearable-preview.decentraland.org/?profile=default1&transparentBackground&loop=true).
 
-## Resources
+## Recursos
 
-The following shared folder contains example wearables, base models, textures and other resources you can use:
+La siguiente carpeta compartida contiene wearables de ejemplo, modelos base, texturas y otros recursos que puedes usar:
 
 * [**Wearables Reference Models**](https://drive.google.com/drive/u/1/folders/12hOVgZsLriBuutoqGkIYEByJF8bA-rAU)

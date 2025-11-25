@@ -1,102 +1,98 @@
 ---
-description: Configure any item to behave like a smart item.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/make-any-item-smart
+description: Configura cualquier ítem para que se comporte como un smart item.
 ---
 
-# Make Any Item Smart
+# Hacer Cualquier Ítem Smart
 
 {% embed url="https://www.youtube.com/watch?v=wnnEU8GCLjc" %}
 
-Smart items are just regular items with an **Action** and/or **Trigger** component. You can add these components to any item in your scene. You can also import your own custom 3D models and add the same to those.
+Los smart items son solo ítems regulares con un componente **Action** y/o **Trigger**. Puedes agregar estos componentes a cualquier ítem en tu escena. También puedes importar tus propios modelos 3D personalizados y agregar lo mismo a esos.
 
-To add components to an item click the **Plus Icon** next to the item name, and select what component to add from the dropdown list.
+Para agregar componentes a un ítem, haz clic en el **Ícono de Plus** junto al nombre del ítem, y selecciona qué componente agregar de la lista desplegable.
 
-![](../../.gitbook/assets/add-component.png)
+![](../images/editor/add-component.png)
 
-This allows for a huge amount of creative possibilities. Turn a candle into a lever that opens up a secret passage behind a book shelf, play mysterious sounds from inside a well, make diamonds into collectable items that shrink to 0 when clicked. There are tons of imaginative ways to combine these mechanics!
+Esto permite una gran cantidad de posibilidades creativas. Convierte una vela en una palanca que abre un pasaje secreto detrás de una estantería, reproduce sonidos misteriosos desde dentro de un pozo, haz que los diamantes sean ítems coleccionables que se reducen a 0 cuando se hace clic. ¡Hay toneladas de formas imaginativas de combinar estas mecánicas!
 
-### Interactivity
+### Interactividad
 
-You can make an item react to different actions of the player.
+Puedes hacer que un ítem reaccione a diferentes acciones del jugador.
 
 {% hint style="info" %}
-**💡 Tip**: When a player interacts with an item, you should show some kind of feedback to make that interaction clear. If the model doesn't have any animations, consider at least playing a sound. In some cases it might work to make the item do a slight tween in scale and then return to its original scale, as a form of feedback.
+**💡 Tip**: Cuando un jugador interactúa con un ítem, deberías mostrar algún tipo de retroalimentación para hacer clara esa interacción. Si el modelo no tiene animaciones, considera al menos reproducir un sonido. En algunos casos podría funcionar hacer que el ítem haga un ligero tween en escala y luego vuelva a su escala original, como una forma de retroalimentación.
 {% endhint %}
 
-Add a **Trigger** component, to detect to different actions from the player:
+Agrega un componente **Trigger**, para detectar diferentes acciones del jugador:
 
-* **Pointer events**: When the player clicks or presses a key while aiming their cursor at the item.
-* **Global button events** When the player presses a key, wherever they are in the scene.
-* **Player proximity**: When the player walks into the item's position.
+* **Pointer events**: Cuando el jugador hace clic o presiona una tecla mientras apunta su cursor al ítem.
+* **Global button events**: Cuando el jugador presiona una tecla, donde sea que estén en la escena.
+* **Player proximity**: Cuando el jugador camina hacia la posición del ítem.
 
-The **Trigger** component can be configured to be aware of any of these types of triggers. Every time a trigger happens, it can call Actions from their own **Actions** component, or from the **Actions** components of other items in the scene. See [Smart items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md).
+El componente **Trigger** se puede configurar para estar al tanto de cualquiera de estos tipos de triggers. Cada vez que ocurre un trigger, puede llamar Actions de su propio componente **Actions**, o de los componentes **Actions** de otros ítems en la escena. Consulta [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md).
 
 {% hint style="info" %}
-**💡 Tip**: You can also combine these triggers with [conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md), so that the actions don't get called every time the trigger happens, only if the conditions are true.
+**💡 Tip**: También puedes combinar estos triggers con [lógica condicional](../scene-editor/interactivity/states-and-conditions.md), para que las acciones no se llamen cada vez que ocurre el trigger, solo si las condiciones son verdaderas.
 
-For example, you could add a **Pointer Events** trigger to a door, so that it opens when clicked, but include conditional logic so that it only opens if it's unlocked.
+Por ejemplo, podrías agregar un trigger **Pointer Events** a una puerta, para que se abra cuando se hace clic, pero incluir lógica condicional para que solo se abra si está desbloqueada.
 {% endhint %}
 
 #### Pointer events
 
-Add a **Trigger** component with **On Click** or **On Input Action** Trigger events.
+Agrega un componente **Trigger** con eventos de Trigger **On Click** u **On Input Action**.
 
-* **On Click** reacts to every time the player clicks the left-mouse button while pointing at the item.
-* **On Input Action** reacts to every time the player the Primary Button (E) while pointing at the item.
+* **On Click** reacciona cada vez que el jugador hace clic en el botón izquierdo del mouse mientras apunta al ítem.
+* **On Input Action** reacciona cada vez que el jugador presiona el Botón Primario (E) mientras apunta al ítem.
 
-![](../../.gitbook/assets/on_click.png)
+![](../images/editor/on_click.png)
 
 **Colliders**
 
-It's important that for an item to be clickable, it must have a **Collider**. Otherwise your clicks will go right through the model, and try to interact with whatever is behind. The 3D models in the default Asset Packs should all have colliders, but if you create your own model or source if from elsewhere, you may find it's missing one.
+Es importante que para que un ítem sea clickeable, debe tener un **Collider**. De lo contrario, tus clics pasarán a través del modelo, e intentarán interactuar con lo que esté detrás. Los modelos 3D en los Asset Packs predeterminados deberían tener todos colliders, pero si creas tu propio modelo o lo obtienes de otro lugar, puedes encontrar que le falta uno.
 
-If your model is lacking colliders, any of the following should fix it:
+Si tu modelo carece de colliders, cualquiera de los siguientes debería arreglarlo:
 
-* Add a **Mesh Collider** component. This will create a collider with a [primitive shape](../../../creator/sdk7/3d-essentials/shape-components.md#primitive-shapes) (cube, plane, cylinder, cube, sphere).
-* Change the properties of the **Collisions** section on the **GLTF** component. The **Visible layer** should be assigned to **Pointer**.
-* Edit the 3D model in Blender to include an invisible collider geometry (any mesh with a name that ends in `_collider`). See [colliders](../../3d-modeling/colliders.md).
+* Agrega un componente **Mesh Collider**. Esto creará un collider con una [forma primitiva](../sdk7/3d-essentials/shape-components.md#primitive-shapes) (cubo, plano, cilindro, cubo, esfera).
+* Cambia las propiedades de la sección **Collisions** en el componente **GLTF**. La **Visible layer** debe estar asignada a **Pointer**.
+* Edita el modelo 3D en Blender para incluir una geometría de collider invisible (cualquier mesh con un nombre que termine en `_collider`). Consulta [colliders](../3d-modeling/colliders.md).
 
 {% hint style="info" %}
-**💡 Tip**: If you used the **Mesh Renderer** component to give your model a primitive shape, that alone won't give it a collider. You must also assign it a **Mesh Collider** component.
+**💡 Tip**: Si usaste el componente **Mesh Renderer** para darle a tu modelo una forma primitiva, eso solo no le dará un collider. También debes asignarle un componente **Mesh Collider**.
 {% endhint %}
 
-**Customize pointer events**
+**Personalizar pointer events**
 
-You can override the default settings that are used when an item has an **On Click** or an **On Input Action** Trigger Action.
+Puedes sobrescribir la configuración predeterminada que se usa cuando un ítem tiene un Trigger Action **On Click** o **On Input Action**.
 
-* **Hover text**: Change the hint that players see next to the cursor when hovering over the item. This can be very helpful for clarifying what your item does.
-* **Max distance**: How far away can the player be when interacting with your item.
-* **Show feedback**: If unchecked, the item has no hover-hint when the player passes their cursor on it.
-* **Button**: If using the **On Input Action** Trigger Action, you can reassign the default **Primary (E)** to another key. The hover-hint will include an icon to clarify what key to use. You can use **Secondary (F)**, or **Actions 3 to 6** (number keys 1 to 4).
+* **Hover text**: Cambia la pista que los jugadores ven junto al cursor cuando pasan el mouse sobre el ítem. Esto puede ser muy útil para aclarar lo que hace tu ítem.
+* **Max distance**: ¿Qué tan lejos puede estar el jugador al interactuar con tu ítem?
+* **Show feedback**: Si no está marcado, el ítem no tiene hover-hint cuando el jugador pasa su cursor sobre él.
+* **Button**: Si usas el Trigger Action **On Input Action**, puedes reasignar el **Primary (E)** predeterminado a otra tecla. El hover-hint incluirá un ícono para aclarar qué tecla usar. Puedes usar **Secondary (F)**, o **Actions 3 to 6** (teclas numéricas 1 a 4).
 
 #### Global button events
 
-Add a **Trigger** component with **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers events.
+Agrega un componente **Trigger** con eventos de Triggers **On Global Click**, **On Global Primary** u **On Global Secondary**.
 
-* **On Global Click** reacts to every time the player clicks the left-mouse button, anywhere in the scene.
-* **On Global Primary** reacts to every time the player the Primary Button (E), anywhere in the scene.
-* **On Global Secondary** reacts to every time the player the Secondary Button (F), anywhere in the scene.
-
-{% hint style="info" %}
-**💡 Tip**: It often makes sense to combine this with [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md), so that the items only react to the button event if the player is in the room, or some other condition.
-{% endhint %}
-
-#### Player position
-
-Add a **Trigger** component with **Player Enters Area**, **Player Leaves Area** Triggers events.
-
-This will react to when the player enters or leaves an area of a default size of 1x1x1, positioned at the center of the item.
+* **On Global Click** reacciona cada vez que el jugador hace clic en el botón izquierdo del mouse, en cualquier lugar de la escena.
+* **On Global Primary** reacciona cada vez que el jugador presiona el Botón Primario (E), en cualquier lugar de la escena.
+* **On Global Secondary** reacciona cada vez que el jugador presiona el Botón Secundario (F), en cualquier lugar de la escena.
 
 {% hint style="info" %}
-**💡 Tip**: It's often better to use the [**Trigger Area**](../../../creator/scene-editor/interactivity/smart-items.md#trigger-areas) smart item instead, since this item's dimensions can be clearly visualized in the Scene Editor.
+**💡 Tip**: A menudo tiene sentido combinar esto con [States and conditions](../scene-editor/interactivity/states-and-conditions.md), para que los ítems solo reaccionen al evento de botón si el jugador está en la habitación, o alguna otra condición.
 {% endhint %}
 
-### See also
+#### Posición del jugador
 
-* [Smart items - Basics](../../../creator/scene-editor/interactivity/smart-items.md)
-* [Smart items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md)
-* [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md)
-* [Combine with code](../../../creator/scene-editor/code/overview.md)
+Agrega un componente **Trigger** con eventos de Triggers **Player Enters Area**, **Player Leaves Area**.
+
+Esto reaccionará cuando el jugador entre o salga de un área de un tamaño predeterminado de 1x1x1, posicionado en el centro del ítem.
+
+{% hint style="info" %}
+**💡 Tip**: A menudo es mejor usar el smart item [**Trigger Area**](../scene-editor/interactivity/smart-items.md#trigger-areas) en su lugar, ya que las dimensiones de este ítem se pueden visualizar claramente en el Scene Editor.
+{% endhint %}
+
+### Ver también
+
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [States and conditions](../scene-editor/interactivity/states-and-conditions.md)
+* [Combine with code](../scene-editor/code/overview.md)

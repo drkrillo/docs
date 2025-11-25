@@ -1,136 +1,134 @@
 ---
-description: Using smart items in your scene to add interactivity.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/smart-items
+description: Usando smart items en tu escena para agregar interactividad.
 ---
 
 # Smart Items
 
-Some of the items in the catalog of the Scene Editor are **Smart Items**. Players can interact with these, they have configurable properties, and they can trigger actions on other smart items. For example: doors that can be opened and closed, platforms that move up and down, or buttons and levers that can activate other items.
+Algunos de los ítems en el catálogo del Scene Editor son **Smart Items**. Los jugadores pueden interactuar con estos, tienen propiedades configurables y pueden activar acciones en otros smart items. Por ejemplo: puertas que pueden abrirse y cerrarse, plataformas que se mueven arriba y abajo, o botones y palancas que pueden activar otros ítems.
 
-You can recognize these items in the asset pack explorer because they have a lightning icon and a different colored background.
 
-![](../../.gitbook/assets/smart-items.jpg)
 
-You can recognize which items in your scene are smart because they have the lightning icon next to them in the entity tree.
+Puedes reconocer estos ítems en el explorador de asset packs porque tienen un ícono de rayo y un fondo de color diferente.
 
-![](../../.gitbook/assets/smart-item-icon.png)
+![](../images/editor/smart-items.jpg)
 
-### Using items
+Puedes reconocer qué ítems en tu escena son smart porque tienen el ícono de rayo junto a ellos en el entity tree.
 
-To use a smart item, drag it into the scene like any other item. All items include a default behavior, run a scene preview try it out.
+![](../images/editor/smart-item-icon.png)
 
-Here are some common items and their default behaviors:
+### Usar ítems
 
-* **Doors**: Doors are opened or closed when clicked. You can change this behavior so they're opened by buttons, trigger areas, etc.
-* **Buttons**: When clicked, they play sound and an animation as feedback. Add more actions to their trigger events to activate other smart items.
-* **Levers**: When clicked, they switch between two states. Make each position of the lever perform different actions on other smart items.
-* **Chests**: They behave like doors, by default are opened or closed when clicking. You can place smaller items inside them.
-* **Platforms**: They move between two positions. Use their tween actions to control where they move to, their speed, etc.
-* **Trigger area**: An invisible item that can trigger other smart items when the player walks into its area. See [About trigger areas](smart-items.md#about-trigger-areas).
-* **Video Player**: A screen for showing videos or live streams. See [Playing Videos](smart-items.md#playing-videos).
-* **Audio Stream**: Play audio from a live stream. See [Playing Audio Streams](smart-items.md#playing-audio-streams)
-* **NFT**: Display an NFT image as a portrait. See [Displaying NFTs](smart-items.md#displaying-nfts)
+Para usar un smart item, arrástralo a la escena como cualquier otro ítem. Todos los ítems incluyen un comportamiento predeterminado, ejecuta un preview de escena para probarlo.
 
-All smart items can be configured to behave in custom ways. For example how far a platform moves, or what a button activates.
+Aquí hay algunos ítems comunes y sus comportamientos predeterminados:
 
-### Configure an item
+* **Doors**: Las puertas se abren o cierran cuando se hace clic. Puedes cambiar este comportamiento para que se abran con botones, trigger areas, etc.
+* **Buttons**: Cuando se hace clic, reproducen sonido y una animación como retroalimentación. Agrega más acciones a sus eventos de trigger para activar otros smart items.
+* **Levers**: Cuando se hace clic, cambian entre dos estados. Haz que cada posición de la palanca realice diferentes acciones en otros smart items.
+* **Chests**: Se comportan como puertas, por defecto se abren o cierran al hacer clic. Puedes colocar ítems más pequeños dentro de ellos.
+* **Platforms**: Se mueven entre dos posiciones. Usa sus acciones de tween para controlar hacia dónde se mueven, su velocidad, etc.
+* **Trigger area**: Un ítem invisible que puede activar otros smart items cuando el jugador camina hacia su área. Consulta [About trigger areas](smart-items.md#about-trigger-areas).
+* **Video Player**: Una pantalla para mostrar videos o streams en vivo. Consulta [Playing Videos](smart-items.md#playing-videos).
+* **Audio Stream**: Reproduce audio desde un stream en vivo. Consulta [Playing Audio Streams](smart-items.md#playing-audio-streams)
+* **NFT**: Muestra una imagen NFT como un retrato. Consulta [Displaying NFTs](smart-items.md#displaying-nfts)
 
-Select an item in the Scene Editor to view all of its properties on the right.
+Todos los smart items se pueden configurar para comportarse de formas personalizadas. Por ejemplo, qué tan lejos se mueve una plataforma, o qué activa un botón.
 
-Some typical fields you can find in many items are:
+### Configurar un ítem
 
-* **Hover text**: What text is displayed on the UI as a hint when the player passes their cursor over the item. For example a door might say "Open"
-* **Interaction**: With what button is the item activated? On a typical keyboard:
-  * **Primary** is **E**
-  * **Secondary** is **F**
-  * **Pointer** is **Mouse Left Button**
-  * **Action3** is key **1**
-  * **Action4** is key **2**
-  * **Action5** is key **3**
-  * **Action6** is key **4**
-* **When clicked**: Select what action is carried out when the item is interacted with, using the button from the **Interaction** field. You can activate as many actions as you want, these can be actions on that same item, or on other items too.
+Selecciona un ítem en el Scene Editor para ver todas sus propiedades a la derecha.
 
-Each item has its own specific settings, that may vary from one item to another.
+Algunos campos típicos que puedes encontrar en muchos ítems son:
 
-All items have an **Advanced Mode** that lets you configure almost anything about them. This includes things like what sounds are played, or in what direction a platform moves. You can also add custom actions that include all kinds of things, like teleporting the player, playing avatar animations, attaching an item to the player's hands, etc. You can also add conditional logic, to only activate something in certain scenarios. See [Smart Items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md).
+* **Hover text**: Qué texto se muestra en la UI como pista cuando el jugador pasa su cursor sobre el ítem. Por ejemplo, una puerta podría decir "Open"
+* **Interaction**: ¿Con qué botón se activa el ítem? En un teclado típico:
+  * **Primary** es **E**
+  * **Secondary** es **F**
+  * **Pointer** es **Botón Izquierdo del Mouse**
+  * **Action3** es la tecla **1**
+  * **Action4** es la tecla **2**
+  * **Action5** es la tecla **3**
+  * **Action6** es la tecla **4**
+* **When clicked**: Selecciona qué acción se lleva a cabo cuando se interactúa con el ítem, usando el botón del campo **Interaction**. Puedes activar tantas acciones como desees, estas pueden ser acciones en ese mismo ítem, o en otros ítems también.
 
-![](../../.gitbook/assets/advanced-mode.png)
+Cada ítem tiene sus propias configuraciones específicas, que pueden variar de un ítem a otro.
 
-### Call an action on another item
+Todos los ítems tienen un **Advanced Mode** que te permite configurar casi cualquier cosa sobre ellos. Esto incluye cosas como qué sonidos se reproducen, o en qué dirección se mueve una plataforma. También puedes agregar acciones personalizadas que incluyen todo tipo de cosas, como teletransportar al jugador, reproducir animaciones de avatar, adjuntar un ítem a las manos del jugador, etc. También puedes agregar lógica condicional, para solo activar algo en ciertos escenarios. Consulta [Smart Items - Advanced](../scene-editor/interactivity/smart-items-advanced.md).
 
-Smart items can trigger actions on other smart items, so that they happen every time the item is activated. Just select the item you want to call, from a list of all items in the scene, then select an action. Different items expose different actions.
+![](../images/editor/advanced-mode.png)
 
-For example here's a button that opens or closes a door. Each time the button is pressed, the door will either open or close.
+### Llamar una acción en otro ítem
 
-![](../../.gitbook/assets/button-to-door.png)
+Los smart items pueden activar acciones en otros smart items, para que sucedan cada vez que el ítem se activa. Solo selecciona el ítem que deseas llamar, de una lista de todos los ítems en la escena, luego selecciona una acción. Diferentes ítems exponen diferentes acciones.
 
-Here's a lever that opens a door when activated, and closes that door when deactivated.
+Por ejemplo, aquí hay un botón que abre o cierra una puerta. Cada vez que se presiona el botón, la puerta se abrirá o cerrará.
 
-![](../../.gitbook/assets/lever-to-door.png)
+![](../images/editor/button-to-door.png)
 
-You can add as many different actions from different items to be triggered together. Just click **+ Assign Action**.
+Aquí hay una palanca que abre una puerta cuando se activa, y cierra esa puerta cuando se desactiva.
 
-Remove actions by clicking the three dots next to an action and selecting _Remove action_.
+![](../images/editor/lever-to-door.png)
 
-You can also chain actions. For example, if the door that is opened by the lever includes an action in its own **When Opened** field, this action will also be triggered indirectly by the lever.
+Puedes agregar tantas acciones diferentes de diferentes ítems para que se activen juntas. Solo haz clic en **+ Assign Action**.
 
-If you use the [Advanced mode](../../../creator/scene-editor/interactivity/smart-items-advanced.md) you can also add conditional logic to these kinds of actions.
+Elimina acciones haciendo clic en los tres puntos junto a una acción y seleccionando _Remove action_.
 
-### Special smart items
+También puedes encadenar acciones. Por ejemplo, si la puerta que se abre con la palanca incluye una acción en su propio campo **When Opened**, esta acción también se activará indirectamente con la palanca.
 
-Some smart items have unique characteristics that make them very handy for common scenarios:
+Si usas el [Advanced mode](../scene-editor/interactivity/smart-items-advanced.md) también puedes agregar lógica condicional a estos tipos de acciones.
+
+### Smart items especiales
+
+Algunos smart items tienen características únicas que los hacen muy útiles para escenarios comunes:
 
 #### Trigger areas
 
-Use the Trigger Area smart item to trigger an action when the player walks into an area.
+Usa el smart item Trigger Area para activar una acción cuando el jugador camina hacia un área.
 
-![](../../.gitbook/assets/trigger.png)
+![](../images/editor/trigger.png)
 
-Use the **On Player Enters Area** and **On Player Leaves Area** trigger types on the item's **Triggers** components. The actions on these trigger events are activated every time that the player enters or leaves the area.
+Usa los tipos de trigger **On Player Enters Area** y **On Player Leaves Area** en los componentes **Triggers** del ítem. Las acciones en estos eventos de trigger se activan cada vez que el jugador entra o sale del área.
 
-![](../../.gitbook/assets/on_player_enters.png)
+![](../images/editor/on_player_enters.png)
 
-See [Trigger area](../../../creator/scene-editor/interactivity/trigger-area.md) for more info.
+Consulta [Trigger area](../scene-editor/interactivity/trigger-area.md) para más información.
 
 #### Invisible walls
 
-A collection of invisible shapes that can block players from walking through or clicking through an area.
+Una colección de formas invisibles que pueden bloquear a los jugadores de caminar a través o hacer clic a través de un área.
 
-![](../../../creator/images/editor/invisible-walls.png)
+![](../images/editor/invisible-walls.png)
 
-These invisible walls can be useful when importing a 3D model that doesn't have a collider mesh, or when you want to create a wall that is not visible to the player.
+Estos muros invisibles pueden ser útiles al importar un modelo 3D que no tiene un collider mesh, o cuando quieres crear un muro que no sea visible para el jugador.
 
-See [Colliders](../../../creator/sdk7/3d-essentials/colliders.md) for more info.
+Consulta [Colliders](../sdk7/3d-essentials/colliders.md) para más información.
 
 #### Click area
 
-An invisible cube that can be clicked by players to trigger actions on any other smart items. This item can be enabled or disabled by any other smart item, when disabled it won't be clickable. You can also set the text that players see when pointing their cursor at it.
+Un cubo invisible que puede ser clickeado por los jugadores para activar acciones en cualquier otro smart item. Este ítem puede ser habilitado o deshabilitado por cualquier otro smart item, cuando está deshabilitado no será clickeable. También puedes establecer el texto que los jugadores ven al apuntar su cursor a él.
 
-![](../../.gitbook/assets/click-area.png)
+![](../images/editor/click-area.png)
 
-#### Playing videos
+#### Reproducir videos
 
-Play videos from either:
+Reproduce videos desde:
 
-* **Local files**
-* **Stream from a URL**
-* **Stream live from** [**Decentraland Cast**](../../../creator/creator/worlds/cast.md)
+* **Archivos locales**
+* **Stream desde una URL**
+* **Stream en vivo desde [Decentraland Cast](..//creator/worlds/cast.md)**
 
 {% hint style="warning" %}
-**📔 Note**: Avoid playing more than one video at any given time in your scene, because it can severely impact performance for players. Always stop other videos before playing a second video.
+**📔 Nota**: Evita reproducir más de un video en cualquier momento dado en tu escena, porque puede impactar severamente el rendimiento para los jugadores. Siempre detén otros videos antes de reproducir un segundo video.
 {% endhint %}
 
-See [Play Videos](../../../creator/scene-editor/interactivity/video-screen.md) for more info.
+Consulta [Play Videos](../scene-editor/interactivity/video-screen.md) para más información.
 
-#### Playing audio streams
+#### Reproducir audio streams
 
-Play an audio stream from a URL, using hte **Audio Stream** smart item.
+Reproduce un audio stream desde una URL, usando el smart item **Audio Stream**.
 
 {% hint style="info" %}
-**📔 Note**: Not all streaming services allow you to play their audio outside their site. The following are some examples that work in Decentraland:
+**📔 Nota**: No todos los servicios de streaming te permiten reproducir su audio fuera de su sitio. Los siguientes son algunos ejemplos que funcionan en Decentraland:
 
 ```ts
 GRAFFITI =
@@ -141,99 +139,99 @@ JAZZ = 'https://live.vegascity.fm/radio/8010/the_flamingos.mp3'
 ```
 {% endhint %}
 
-You can adjust the volume of your stream. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
+Puedes ajustar el volumen de tu stream. Ten en cuenta que el audio del stream no es posicional, se escucha a un volumen uniforme a través de toda tu escena.
 
-#### Displaying NFTs
+#### Mostrar NFTs
 
-To display an NFT on a picture frame, use the **NFT** smart item. You must provide the following fields:
+Para mostrar un NFT en un marco de cuadro, usa el smart item **NFT**. Debes proporcionar los siguientes campos:
 
 * Network
 
 {% hint style="info" %}
-**📔 Note**: Currently **ethereum** is the only supported network.
+**📔 Nota**: Actualmente **ethereum** es la única red soportada.
 {% endhint %}
 
-* NFT Collection Contract: The smart contract for the NFT collection.
-* Token ID: The token ID of this particular NFT collectible.
+* NFT Collection Contract: El smart contract para la colección de NFT.
+* Token ID: El token ID de este NFT coleccionable en particular.
 
-![](../../.gitbook/assets/nft-shape.png)
+![](../images/editor/nft-shape.png)
 
-You can obtain this information from [OpenSea](https://opensea.io), by checking the **Details** tab under the NFT image.
+Puedes obtener esta información desde [OpenSea](https://opensea.io), verificando la pestaña **Details** bajo la imagen del NFT.
 
-![](../../.gitbook/assets/opensea.png)
+![](../images/editor/opensea.png)
 
 {% hint style="info" %}
-**📔 Note**: You can also obtain this information from the opensea URL. For example, if the NFT's URL is the following:
+**📔 Nota**: También puedes obtener esta información de la URL de opensea. Por ejemplo, si la URL del NFT es la siguiente:
 
 > `https://opensea.io/assets/ethereum/0x32b7495895264ac9d0b12d32afd435453458b1c6/1956`
 
-You can complete the fields with the following:
+Puedes completar los campos con lo siguiente:
 
 * Network: ethereum
 * Contract: 0x32b7495895264ac9d0b12d32afd435453458b1c6
 * Token: 1956
 {% endhint %}
 
-You can also configure a background color, this is particularly useful for NFTs with a transparent background.
+También puedes configurar un color de fondo, esto es particularmente útil para NFTs con un fondo transparente.
 
-You can also chose a **Frame style**, to frame the NFT in a variety of different styles, classic and modern.
+También puedes elegir un **Frame style**, para enmarcar el NFT en una variedad de estilos diferentes, clásicos y modernos.
 
-See [Display an NFT](smart-items.md) for more details.
+Consulta [Display an NFT](../sdk7/media/display-a-certified-nft.md#) para más detalles.
 
-#### Health bars
+#### Barras de salud
 
-![](../../.gitbook/assets/health-bar.png)
+![](../images/editor/health-bar.png)
 
-The **Health Bar** smart item is a great building block for several game mechanics. It can be used in various ways:
+El smart item **Health Bar** es un gran bloque de construcción para varias mecánicas de juego. Se puede usar de varias maneras:
 
-*   Nest it under the **Player** to display the player's health over the avatar
+*   Anídalo bajo el **Player** para mostrar la salud del jugador sobre el avatar
 
-    ![](../../.gitbook/assets/nested-under-player.png)
-*   Nest it under the **Camera** to display it fixed on the UI
+    ![](../images/editor/nested-under-player.png)
+*   Anídalo bajo la **Camera** para mostrarlo fijo en la UI
 
-    ![](../../.gitbook/assets/nested-under-camera.png)
-*   Nest it under literally any item in the scene to keep track of that item's health
+    ![](../images/editor/nested-under-camera.png)
+*   Anídalo literalmente bajo cualquier ítem en la escena para hacer seguimiento de la salud de ese ítem
 
-    ![](../../.gitbook/assets/nested-under-barrel.png)
+    ![](../images/editor/nested-under-barrel.png)
 
-Other items can interact with the health bar to add of subtract health from it.
+Otros ítems pueden interactuar con la barra de salud para agregar o restar salud de ella.
 
-*   Items like the **Spikes** or **Robot Enemy** can lower health
+*   Ítems como los **Spikes** o **Robot Enemy** pueden reducir la salud
 
-    ![](../../.gitbook/assets/reduce-health.png)
-*   items like **First Aid** or the **Healing Pad** can restore it.
+    ![](../images/editor/reduce-health.png)
+*   Ítems como **First Aid** o el **Healing Pad** pueden restaurarla.
 
-    ![](../../.gitbook/assets/restore-health.png)
+    ![](../images/editor/restore-health.png)
 
-You must configure the Health Bar to define what will happen when the health equals 0. You might respawn the player to the position of a **Respawn Pad** smart item, reset the counter for their score, respawn any enemies, display a UI text, or whatever makes sense in your game logic.
+Debes configurar la Health Bar para definir qué sucederá cuando la salud sea igual a 0. Podrías reaparecer al jugador en la posición de un smart item **Respawn Pad**, restablecer el contador para su puntuación, reaparecer cualquier enemigo, mostrar un texto UI, o lo que tenga sentido en tu lógica de juego.
 
-You can also trigger actions when the health is lower than a certain value, for example play a special music or show a UI hint when health is less than 3.
+También puedes activar acciones cuando la salud esté por debajo de cierto valor, por ejemplo reproducir una música especial o mostrar una pista UI cuando la salud sea menor a 3.
 
-Health bars can be configured to affect anything! For example, add a health bar nested under the **Wooden Door** smart item. This bar can have its health lowered by the player using the **Sword** smart item, but also from an explosion from the **Barrel** or the attack of the **Robot Enemy**. For this to work, configure the health bar so that it performs an action on its parent item when its value is 0.
+¡Las barras de salud se pueden configurar para afectar cualquier cosa! Por ejemplo, agrega una barra de salud anidada bajo el smart item **Wooden Door**. Esta barra puede tener su salud reducida por el jugador usando el smart item **Sword**, pero también desde una explosión del **Barrel** o el ataque del **Robot Enemy**. Para que esto funcione, configura la barra de salud para que realice una acción en su ítem padre cuando su valor sea 0.
 
-![](../../.gitbook/assets/wall-with-health.png)
+![](../images/editor/wall-with-health.png)
 
-Weapons like the **Sword** can be picked up by the player, and then used to cause damage on any other item with a health bar that's near the player when performing the action.
+Las armas como la **Sword** pueden ser recogidas por el jugador, y luego usadas para causar daño en cualquier otro ítem con una barra de salud que esté cerca del jugador al realizar la acción.
 
-### Multiplayer
+### Multijugador
 
-Almost all smart items have multiplayer behavior, so that all players in the scene share the same experience as the items change state. If player A opens a door, player B also sees that door open. If player C then walks into the scene while the other players are still there, she will see the door as already open too.
+Casi todos los smart items tienen comportamiento multijugador, para que todos los jugadores en la escena compartan la misma experiencia a medida que los ítems cambian de estado. Si el jugador A abre una puerta, el jugador B también ve esa puerta abierta. Si el jugador C luego camina hacia la escena mientras los otros jugadores aún están allí, ella verá la puerta como ya abierta también.
 
-However, if there are no players near the scene, then the scene is restored to its default state. So if all players leave, but then player A comes back, she will find the door closed (if that was the default state of the door).
+Sin embargo, si no hay jugadores cerca de la escena, entonces la escena se restaura a su estado predeterminado. Entonces, si todos los jugadores se van, pero luego el jugador A regresa, encontrará la puerta cerrada (si ese era el estado predeterminado de la puerta).
 
-Make sure you design your scene so that the actions of one player don't sabotage the scene for others that come later. For example, if the scene is a puzzle game, you can use a _delay_ action on a _tools_ smart item to make all the items in the scene reset to their initial state a few seconds after the puzzle is solved.
+Asegúrate de diseñar tu escena para que las acciones de un jugador no sabotee la escena para otros que vienen más tarde. Por ejemplo, si la escena es un juego de rompecabezas, puedes usar una acción _delay_ en un smart item _tools_ para hacer que todos los ítems en la escena se restablezcan a su estado inicial unos segundos después de que se resuelva el rompecabezas.
 
-You can also disable the multiplayer behavior of an item, see [Smart Items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md).
+También puedes deshabilitar el comportamiento multijugador de un ítem, consulta [Smart Items - Advanced](../scene-editor/interactivity/smart-items-advanced.md).
 
-### Troubleshooting
+### Solución de problemas
 
-* _An item in my scene should be clickable, but can't be clicked_.
+* _Un ítem en mi escena debería ser clickeable, pero no se puede hacer clic_.
 
-Make sure that it's not being obstructed by something else. You can't click through other items. Some items have a _collider mesh_ that has a simplified geometry that may be obstructing your item, even though its visible shape doesn't seem to be doing it. Try moving the item to see what happens.
+Asegúrate de que no esté siendo obstruido por algo más. No puedes hacer clic a través de otros ítems. Algunos ítems tienen un _collider mesh_ que tiene una geometría simplificada que puede estar obstruyendo tu ítem, aunque su forma visible no parezca estar haciéndolo. Intenta mover el ítem para ver qué sucede.
 
-### See also
+### Ver también
 
-* [Smart items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md)
-* [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md)
-* [Making any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
-* [Combine with code](../../../creator/scene-editor/code/overview.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [States and conditions](../scene-editor/interactivity/states-and-conditions.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [Combine with code](../scene-editor/code/overview.md)

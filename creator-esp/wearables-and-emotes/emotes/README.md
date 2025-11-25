@@ -1,21 +1,18 @@
 ---
-description: An overview of emotes NFTs for Decentraland
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes
+description: Una descripción general de los emotes NFT para Decentraland
 ---
 
-# Emotes
+# Emotes Overview
 
-You can preview emotes using the [Emote Preview Tool](https://wearable-preview.decentraland.org/?profile=default1\&emote=dance\&transparentBackground\&loop=true).
+Puedes previsualizar emotes usando la [Emote Preview Tool](https://wearable-preview.decentraland.org/?profile=default1&emote=dance&transparentBackground&loop=true).
 
-Emotes are animation sequences for avatars' skeleton bones, which are defined in a transport file, usually in `.glb`, or `.gltf` formats. An emote can include sound, or even an animated 3d geometry attached to it. For more information check [Adding Props and Sounds to your Emotes](props-and-sounds.md).
+Los emotes son secuencias de animación para los huesos del esqueleto de los avatares, que están definidas en un archivo de transporte, usualmente en formatos `.glb` o `.gltf`. Un emote puede incluir sonido, o incluso una geometría 3d animada adjunta a él. Para más información consulta [Adding Props and Sounds to your Emotes](props-and-sounds.md).
 
-There are a selection of free default Emotes that are available to any user, but Decentraland also supports the creation and use of custom Emotes that are represented by non-fungible tokens ( NFTs). This allows a finite amount of different Emotes to be created, or minted, on the blockchain, similar to [**Wearables**](../../../creator/wearables-and-emotes/wearables-and-emotes/wearables/wearables-overview.md).
+Hay una selección de Emotes predeterminados gratuitos que están disponibles para cualquier usuario, pero Decentraland también soporta la creación y uso de Emotes personalizados que están representados por tokens no fungibles (NFTs). Esto permite que se cree, o acuñe, una cantidad finita de diferentes Emotes en la blockchain, similar a **[Wearables](../wearables-and-emotes/wearables/wearables-overview.md)**.
 
-By default, Decentraland Emotes are minted on the Polygon/Matic sidechain so users can mint, buy, sell, or transfer items without having to pay gas fees (the DAO covers these costs as voted on in [**this Proposal**](https://governance.decentraland.org/proposal/?id=548aa0c0-d51a-11ec-b521-2f98ffa6ccb0)).
+Por defecto, los Emotes de Decentraland se acuñan en la sidechain Polygon/Matic para que los usuarios puedan acuñar, comprar, vender o transferir ítems sin tener que pagar gas fees (el DAO cubre estos costos como se votó en [**esta Propuesta**](https://governance.decentraland.org/proposal/?id=548aa0c0-d51a-11ec-b521-2f98ffa6ccb0)).
 
-Emotes are organized into different categories depending on what a Creator thinks best describes what an Emote does. The available categories are:
+Los emotes están organizados en diferentes categorías dependiendo de lo que un Creador piense que mejor describe lo que hace un Emote. Las categorías disponibles son:
 
 * Dance
 * Stunt

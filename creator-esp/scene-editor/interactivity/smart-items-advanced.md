@@ -1,261 +1,259 @@
 ---
-description: Using smart items in your scene to add interactivity.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/smart-items-advanced
+description: Usando smart items en tu escena para agregar interactividad.
 ---
 
 # Smart Items Advanced
 
-Most smart items have a basic module where you can configure only the most common settings in a simple way, but you can scroll down past the **Advanced** marker to customize almost anything about how the item behaves.
+La mayoría de los smart items tienen un módulo básico donde puedes configurar solo las configuraciones más comunes de una manera simple, pero puedes desplazarte hacia abajo más allá del marcador **Advanced** para personalizar casi cualquier cosa sobre cómo se comporta el ítem.
 
-The following item has a Transform component and a basic module that exposes only the basic fields for configuring a button. But if you scroll down past the **Advanced** marker, you'll find all the available settings.
 
-![](../../.gitbook/assets/advanced-settings-smart-item.png)
 
-{% hint style="info" %}
-**📔 Note**: Most of the settings in the basic module are also available in the components lower down. The changes done in the basic module are reflected in the components lower down and vice versa, except for some cases where the basic settings are an abstraction of multiple settings lower down. In those cases, changing the advanced settings to values that are not supported by the basic module will result in the field in the basic module being marked as undefined.
-{% endhint %}
+El siguiente ítem tiene un componente Transform y un módulo básico que expone solo los campos básicos para configurar un botón. Pero si te desplazas hacia abajo más allá del marcador **Advanced**, encontrarás todas las configuraciones disponibles.
 
-### Advanced configuration
-
-Properties are grouped into [**components**](../../../creator/sdk7/architecture/entities-components.md). Different smart items may have different components, depending on their functionality.
-
-The behavior of most items is controlled by:
-
-* [**Actions**](smart-items-advanced.md#actions): The Actions component defines things that the item can do. For example play a sound, play an animation, move up, or become invisible.
-* [**Triggers**](smart-items-advanced.md#triggers): The Triggers component assigns what events make those actions happen. For example when the player clicks on the item, when the player walks into an area, or when the scene first loads.
-
-For example, in a door smart item, the **Actions** component includes "Open" and "Close" actions. The **Triggers** component in that item includes an **On Click** trigger that activates the "Open" action when the door is clicked by the player.
-
-The triggers of a smart item can activate actions on any smart item in the scene, not just on that same smart item. For example, a button smart item can have a **Triggers** component that activates the "move up" action defined on the **Actions** component of a floating platform.
-
-Triggers can also happen conditionally. For example, door smart items include two **On Click** triggers in its Triggers component: one opens the door if that door was closed, the other closes the door if it was open. For more details see [States and conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md).
-
-### Interactions between items
-
-To make items interact with each other:
-
-* One item needs to have at least one action defined in an [Actions](smart-items-advanced.md#actions) component.
-* The other item needs a trigger in the [Triggers](smart-items-advanced.md#triggers) component that points to that action.
-
-For example, to make a button open a door:
-
-1. Add any button smart item, open its **Triggers** component. It has a default trigger event that plays a sound and an animation for the button itself.
-2. Click the **+** sign next to **Assigned Actions**, to add a third action on that same trigger event.
-3. Select the smart item for the door on the first dropdown.
-4. On the second dropdown, select the "Open" action.
-
-![](../../.gitbook/assets/button-to-door.png)
+![](../images/editor/advanced-settings-smart-item.png)
 
 {% hint style="info" %}
-**💡 Tip**: You can instead create a new Trigger event that only handles the door's action. Both trigger events are called every time the button is clicked.
-
-<img src="../../.gitbook/assets/button-to-door2.png" alt="" data-size="original">
+**📔 Nota**: La mayoría de las configuraciones en el módulo básico también están disponibles en los componentes más abajo. Los cambios hechos en el módulo básico se reflejan en los componentes más abajo y viceversa, excepto en algunos casos donde las configuraciones básicas son una abstracción de múltiples configuraciones más abajo. En esos casos, cambiar las configuraciones avanzadas a valores que no son soportados por el módulo básico resultará en que el campo en el módulo básico se marque como indefinido.
 {% endhint %}
 
-Any item can trigger any action from any other item, as long as the action is defined. See [Triggers](smart-items-advanced.md#triggers) for more ways in which an action can be triggered.
+### Configuración avanzada
 
-You can use [states and conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md) to only trigger an action if a condition is met. The condition can even check the state of a third smart item. For example, a button only opens the door if the a custom "power generator" smart item has its state set to "On".
+Las propiedades están agrupadas en [**componentes**](../sdk7/architecture/entities-components.md). Diferentes smart items pueden tener diferentes componentes, dependiendo de su funcionalidad.
+
+El comportamiento de la mayoría de los ítems está controlado por:
+
+* [**Actions**](smart-items-advanced.md#actions): El componente Actions define cosas que el ítem puede hacer. Por ejemplo reproducir un sonido, reproducir una animación, moverse arriba, o volverse invisible.
+* [**Triggers**](smart-items-advanced.md#triggers): El componente Triggers asigna qué eventos hacen que esas acciones sucedan. Por ejemplo cuando el jugador hace clic en el ítem, cuando el jugador camina hacia un área, o cuando la escena se carga por primera vez.
+
+Por ejemplo, en un smart item de puerta, el componente **Actions** incluye acciones "Open" y "Close". El componente **Triggers** en ese ítem incluye un trigger **On Click** que activa la acción "Open" cuando el jugador hace clic en la puerta.
+
+Los triggers de un smart item pueden activar acciones en cualquier smart item en la escena, no solo en ese mismo smart item. Por ejemplo, un smart item de botón puede tener un componente **Triggers** que activa la acción "move up" definida en el componente **Actions** de una plataforma flotante.
+
+Los triggers también pueden suceder condicionalmente. Por ejemplo, los smart items de puerta incluyen dos triggers **On Click** en su componente Triggers: uno abre la puerta si esa puerta estaba cerrada, el otro cierra la puerta si estaba abierta. Para más detalles consulta [States and conditional logic](../scene-editor/interactivity/states-and-conditions.md).
+
+### Interacciones entre ítems
+
+Para hacer que los ítems interactúen entre sí:
+
+* Un ítem necesita tener al menos una acción definida en un componente [Actions](smart-items-advanced.md#actions).
+* El otro ítem necesita un trigger en el componente [Triggers](smart-items-advanced.md#triggers) que apunte a esa acción.
+
+Por ejemplo, para hacer que un botón abra una puerta:
+
+1. Agrega cualquier smart item de botón, abre su componente **Triggers**. Tiene un evento de trigger predeterminado que reproduce un sonido y una animación para el botón mismo.
+2. Haz clic en el signo **+** junto a **Assigned Actions**, para agregar una tercera acción en ese mismo evento de trigger.
+3. Selecciona el smart item para la puerta en el primer desplegable.
+4. En el segundo desplegable, selecciona la acción "Open".
+
+![](../images/editor/button-to-door.png)
+
+{% hint style="info" %}
+**💡 Tip**: En su lugar, puedes crear un nuevo evento de Trigger que solo maneje la acción de la puerta. Ambos eventos de trigger se llaman cada vez que se hace clic en el botón.
+
+![](../images/editor/button-to-door2.png)
+{% endhint %}
+
+Cualquier ítem puede activar cualquier acción de cualquier otro ítem, siempre que la acción esté definida. Consulta [Triggers](smart-items-advanced.md#triggers) para más formas en las que se puede activar una acción.
+
+Puedes usar [states and conditional logic](../scene-editor/interactivity/states-and-conditions.md) para solo activar una acción si se cumple una condición. La condición puede incluso verificar el estado de un tercer smart item. Por ejemplo, un botón solo abre la puerta si un smart item personalizado "power generator" tiene su estado establecido en "On".
 
 ### Actions
 
-The **Actions** component lists actions that the item can carry out. Each smart item includes a set of pre-defined actions. You can customize existing actions or add new ones. The following types of actions are available:
+El componente **Actions** lista acciones que el ítem puede llevar a cabo. Cada smart item incluye un conjunto de acciones predefinidas. Puedes personalizar acciones existentes o agregar nuevas. Los siguientes tipos de acciones están disponibles:
 
-* **Play Animation**: Plays an animation in the 3D model of the item. See [About playing animations](smart-items-advanced.md#about-playing-animations)
-* **Stop Animation**: Stops all animations being played by the 3D model of the item.
-* **Play Sound**: Plays a sound from a file, at the location of the item. See [About playing sounds](smart-items-advanced.md#about-playing-sounds)
-* **Stop Sound**: Stops all sounds playing from the item.
-* **Start Tween**: Makes a gradual change in position, rotation or scale over a given period. See [Moving, rotating or scaling](smart-items-advanced.md#moving-rotating-or-scaling).
-* **Set Visibility**: Makes the item visible or invisible.
-* **Attach To Player**: Sets the item as a child of the player's avatar. For example to carry it on their hand or above their head.
-* **Detach From Player**: Detaches the item from the player's avatar.
-* **Open Link**: Opens a link to an external website.
+* **Play Animation**: Reproduce una animación en el modelo 3D del ítem. Consulta [About playing animations](smart-items-advanced.md#about-playing-animations)
+* **Stop Animation**: Detiene todas las animaciones que está reproduciendo el modelo 3D del ítem.
+* **Play Sound**: Reproduce un sonido desde un archivo, en la ubicación del ítem. Consulta [About playing sounds](smart-items-advanced.md#about-playing-sounds)
+* **Stop Sound**: Detiene todos los sonidos que se reproducen desde el ítem.
+* **Start Tween**: Hace un cambio gradual en posición, rotación o escala durante un período dado. Consulta [Moving, rotating or scaling](smart-items-advanced.md#moving-rotating-or-scaling).
+* **Set Visibility**: Hace el ítem visible o invisible.
+* **Attach To Player**: Establece el ítem como hijo del avatar del jugador. Por ejemplo para llevarlo en su mano o sobre su cabeza.
+* **Detach From Player**: Desadjunta el ítem del avatar del jugador.
+* **Open Link**: Abre un enlace a un sitio web externo.
 
 {% hint style="info" %}
-**📔 Note**: This action can only happen as a result of clicking on an item. It can't be triggered by walking into a trigger area.
+**📔 Nota**: Esta acción solo puede ocurrir como resultado de hacer clic en un ítem. No puede ser activada caminando hacia un trigger area.
 {% endhint %}
 
-* **Move Player**: Change the position of the player to a set of local coordinates inside the scene. It's only possible to move the player inside the same scene.
-* **Teleport Player**: Teleport a player to the coordinates of another scene in Decentraland. Players will appear in the spawn-point of the destination scene.
-* **Move Player**: Change the player's position to another position inside the same scene, using coordinates relative to the scene's origin.
-* **Play Emote**: Make the player's avatar perform one of the default avatar animations (eg: wave, or clap).
-* **Play Custom Emote**: Make the player's avatar perform a custom animation, from a file uploaded to the scene.
-* **Show Text**: Display text on the screen's UI, to be hidden after a few seconds. Ideal hints, dialog lines, notifications, etc.
-* **Hide Text**: Hides any UI text that might be currently displayed.
-* **Start Delay**: Delays another action of the same item by as many seconds as you need.
-* **Stop Delay**: Cancels any delayed actions on the item.
-* **Start Loop**: Replays an action from the same item recurrently at a given interval.
-* **Stop Loop**: Cancels any looped actions on the item.
-* **Play Video Stream**: Play a video as a material on a primitive shape.
-* **Stop Video Stream**: Stop any videos currently played.
-* **Play Audio Stream**: Play an audio stream.
-* **Stop Audio Stream**: Stop any audio streams currently playing.
-* **Open link**: Open a link on browser tab. Players are asked if they trust the domain before they do.
-* **Clone**: Duplicates an item in the designated position.
-* **Remove**: Deletes an item from the scene.
-* **Show Image**: Displays an image on the UI, potentially for a limited time. It can also include caption.
-* **Hide Image**: Hides any image currently displayed in the UI via the Show Image action.
-* **Damage**: Reduces the health on any healthbar that is near. The _Layer_ property can determine if it only acts on helalthbars on the player, or on other items.
-* **Move player here**: Changes the player's position to that of this item.
-* **Place on Player**: Changes the item's position to that of the player.
-* **Rotate as Player**: Changes the item's rotation to that of the player.
-* **Place on Camera**: Changes the item's position to that of the camera.
-* **Rotate as Camera**: Changes the item's rotation to that of the camera.
-* **Set Position**: Changes the item's position to a specific one. It can be absolute or relative to its current position.
-* **Set Rotation**: Changes the item's rotation to a specific one. It can be absolute or relative to its current rotation.
-* **Set Scale**: Changes the item's scale to a specific one. It can be absolute or relative to its current scale.
-* **Follow Player**: Starts moving and turning in direction to the player's position. It ignores any obstacles on the way. You can set the speed and make it only move on certain axis. Min Distance determines how close it will come to the player.
-* **Stop Following Player**: Stops the Follow Player action.
-* **Random Action**: One of the actions listed here will be played at random with equal probablility each time the random action is called. You can list any of the actions that belong to the item.
-* **Batch Actions**: All of the actions listed here will be played simultaneously each time the batch action is called. You can list any of the actions that bleong to the item.
-* **Heal Player**: Restore health to the player's health bar.
+* **Move Player**: Cambia la posición del jugador a un conjunto de coordenadas locales dentro de la escena. Solo es posible mover al jugador dentro de la misma escena.
+* **Teleport Player**: Teletransporta a un jugador a las coordenadas de otra escena en Decentraland. Los jugadores aparecerán en el spawn-point de la escena de destino.
+* **Move Player**: Cambia la posición del jugador a otra posición dentro de la misma escena, usando coordenadas relativas al origen de la escena.
+* **Play Emote**: Hace que el avatar del jugador realice una de las animaciones de avatar predeterminadas (ej: wave o clap).
+* **Play Custom Emote**: Hace que el avatar del jugador realice una animación personalizada, desde un archivo subido a la escena.
+* **Show Text**: Muestra texto en la UI de la pantalla, para ocultarse después de unos segundos. Ideal para pistas, líneas de diálogo, notificaciones, etc.
+* **Hide Text**: Oculta cualquier texto UI que pueda estar mostrándose actualmente.
+* **Start Delay**: Retrasa otra acción del mismo ítem por tantos segundos como necesites.
+* **Stop Delay**: Cancela cualquier acción retrasada en el ítem.
+* **Start Loop**: Repite una acción del mismo ítem recurrentemente a un intervalo dado.
+* **Stop Loop**: Cancela cualquier acción en bucle en el ítem.
+* **Play Video Stream**: Reproduce un video como material en una forma primitiva.
+* **Stop Video Stream**: Detiene cualquier video actualmente reproducido.
+* **Play Audio Stream**: Reproduce un audio stream.
+* **Stop Audio Stream**: Detiene cualquier audio stream actualmente reproduciéndose.
+* **Open link**: Abre un enlace en una pestaña del navegador. Se pregunta a los jugadores si confían en el dominio antes de hacerlo.
+* **Clone**: Duplica un ítem en la posición designada.
+* **Remove**: Elimina un ítem de la escena.
+* **Show Image**: Muestra una imagen en la UI, potencialmente por un tiempo limitado. También puede incluir subtítulo.
+* **Hide Image**: Oculta cualquier imagen actualmente mostrada en la UI a través de la acción Show Image.
+* **Damage**: Reduce la salud en cualquier barra de salud que esté cerca. La propiedad _Layer_ puede determinar si solo actúa en barras de salud en el jugador, o en otros ítems.
+* **Move player here**: Cambia la posición del jugador a la de este ítem.
+* **Place on Player**: Cambia la posición del ítem a la del jugador.
+* **Rotate as Player**: Cambia la rotación del ítem a la del jugador.
+* **Place on Camera**: Cambia la posición del ítem a la de la cámara.
+* **Rotate as Camera**: Cambia la rotación del ítem a la de la cámara.
+* **Set Position**: Cambia la posición del ítem a una específica. Puede ser absoluta o relativa a su posición actual.
+* **Set Rotation**: Cambia la rotación del ítem a una específica. Puede ser absoluta o relativa a su rotación actual.
+* **Set Scale**: Cambia la escala del ítem a una específica. Puede ser absoluta o relativa a su escala actual.
+* **Follow Player**: Comienza a moverse y girar en dirección a la posición del jugador. Ignora cualquier obstáculo en el camino. Puedes establecer la velocidad y hacer que solo se mueva en ciertos ejes. Min Distance determina qué tan cerca vendrá al jugador.
+* **Stop Following Player**: Detiene la acción Follow Player.
+* **Random Action**: Una de las acciones listadas aquí se reproducirá al azar con igual probabilidad cada vez que se llame a la acción random. Puedes listar cualquiera de las acciones que pertenecen al ítem.
+* **Batch Actions**: Todas las acciones listadas aquí se reproducirán simultáneamente cada vez que se llame a la acción batch. Puedes listar cualquiera de las acciones que pertenecen al ítem.
+* **Heal Player**: Restaura salud a la barra de salud del jugador.
 
-See [states and conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md) to learn about other actions related to logic conditions.
+Consulta [states and conditional logic](../scene-editor/interactivity/states-and-conditions.md) para aprender sobre otras acciones relacionadas con condiciones de lógica.
 
-The **Actions** component defines possible actions, but these don't do anything in the scene unless they are triggered. Actions are activated by a [trigger](smart-items-advanced.md#triggers), either from the same smart item, or from a different one.
+El componente **Actions** define acciones posibles, pero estas no hacen nada en la escena a menos que se activen. Las acciones se activan por un [trigger](smart-items-advanced.md#triggers), ya sea del mismo smart item, o de uno diferente.
 
-To add a new action to an item, click the **Add New Action** button at the bottom of the Action component. Then give the action a name, select a type, and complete any additional fields specific to the type of action.
+Para agregar una nueva acción a un ítem, haz clic en el botón **Add New Action** en la parte inferior del componente Action. Luego dale un nombre a la acción, selecciona un tipo y completa cualquier campo adicional específico para el tipo de acción.
 
-![](../../.gitbook/assets/new-action.png)
+![](../images/editor/new-action.png)
 
 #### Triggers
 
-The **Triggers** component defines trigger events, these activate actions when a certain event happens. The following types of trigger events exist:
+El componente **Triggers** define eventos de trigger, estos activan acciones cuando ocurre un cierto evento. Los siguientes tipos de eventos de trigger existen:
 
-* **On Click**: When the player clicks on the item. See [About click triggers](smart-items-advanced.md#about-click-triggers)
-* **Player Enters Area**: When the player enters an area. See [About trigger areas](smart-items-advanced.md#about-trigger-areas)
-* **Player Leaves Area**: When the player leaves an area. See [About trigger areas](smart-items-advanced.md#about-trigger-areas)
-* **On Spawn**: When the scene starts, or the item is spawned in the scene. See [Trigger on spawn](smart-items-advanced.md#trigger-on-spawn)
+* **On Click**: Cuando el jugador hace clic en el ítem. Consulta [About click triggers](smart-items-advanced.md#about-click-triggers)
+* **Player Enters Area**: Cuando el jugador entra en un área. Consulta [About trigger areas](smart-items-advanced.md#about-trigger-areas)
+* **Player Leaves Area**: Cuando el jugador sale de un área. Consulta [About trigger areas](smart-items-advanced.md#about-trigger-areas)
+* **On Spawn**: Cuando la escena comienza, o el ítem se genera en la escena. Consulta [Trigger on spawn](smart-items-advanced.md#trigger-on-spawn)
 
-See [states and conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md) to learn about other triggers related to logic conditions.
+Consulta [states and conditional logic](../scene-editor/interactivity/states-and-conditions.md) para aprender sobre otros triggers relacionados con condiciones de lógica.
 
-To add a new trigger, click the **Add New Trigger Event** at the bottom of the Trigger component. Then select the type of trigger, the entity you want to activate and an action from that entity.
+Para agregar un nuevo trigger, haz clic en **Add New Trigger Event** en la parte inferior del componente Trigger. Luego selecciona el tipo de trigger, la entidad que deseas activar y una acción de esa entidad.
 
-![](../../.gitbook/assets/new-trigger.png)
+![](../images/editor/new-trigger.png)
 
 {% hint style="info" %}
-**📔 Note**: An action needs to be defined in the [Actions](smart-items-advanced.md#actions) component of the entity before you can trigger it. Triggers can only affect entities that have an Actions component.
+**📔 Nota**: Una acción necesita estar definida en el componente [Actions](smart-items-advanced.md#actions) de la entidad antes de que puedas activarla. Los triggers solo pueden afectar entidades que tienen un componente Actions.
 {% endhint %}
 
 ### About Playing Animations
 
-Use an action of type **Play Animation** to run an animation on the 3D model of the smart item. The animation needs to already exist as part of the 3D model file. The **Select Animation** dropdown displays a list of all of the available animations in the 3D mode.
+Usa una acción de tipo **Play Animation** para ejecutar una animación en el modelo 3D del smart item. La animación necesita existir ya como parte del archivo del modelo 3D. El desplegable **Select Animation** muestra una lista de todas las animaciones disponibles en el modelo 3D.
 
-The **Play Mode** field lets you select if an animation should play just once, or if it should keep looping.
+El campo **Play Mode** te permite seleccionar si una animación debe reproducirse solo una vez, o si debe seguir en bucle.
 
-![](../../.gitbook/assets/play-animation.png)
+![](../images/editor/play-animation.png)
 
-Once the action is created, you can activate it via the [Triggers](smart-items-advanced.md#triggers) component of that same item or of any other item.
+Una vez que la acción se crea, puedes activarla a través del componente [Triggers](smart-items-advanced.md#triggers) de ese mismo ítem o de cualquier otro ítem.
 
-Use the **Stop Animation** action to stop all animations by the item, both looping and non-looping.
+Usa la acción **Stop Animation** para detener todas las animaciones del ítem, tanto en bucle como no en bucle.
 
 {% hint style="info" %}
-**💡 Tip**: To easily check the contents of a 3D model, to see what animations it includes and what they look like, a good tool is the [Babylon Sandbox](https://sandbox.babylonjs.com/). Just drag the 3D model file into the window. A dropdown with a list of its animations should appear on the bottom.
+**💡 Tip**: Para verificar fácilmente el contenido de un modelo 3D, para ver qué animaciones incluye y cómo se ven, una buena herramienta es el [Babylon Sandbox](https://sandbox.babylonjs.com/). Solo arrastra el archivo del modelo 3D a la ventana. Debería aparecer un desplegable con una lista de sus animaciones en la parte inferior.
 {% endhint %}
 
-To learn more about animations and how you can create your own as part of a 3D model, see [Animations](../../3d-modeling/animations.md).
+Para aprender más sobre animaciones y cómo puedes crear las tuyas propias como parte de un modelo 3D, consulta [Animations](../3d-modeling/animations.md).
 
 ### About Playing sounds
 
-Use an action of type **Play Sound** to play a sound file. You can play any sound file as long as it's imported into the scene project. The sound is heard positionally, from the location of the item, meaning they sound louder if the player is closer.
+Usa una acción de tipo **Play Sound** para reproducir un archivo de sonido. Puedes reproducir cualquier archivo de sonido siempre que esté importado en el proyecto de escena. El sonido se escucha posicionalmente, desde la ubicación del ítem, lo que significa que suenan más fuerte si el jugador está más cerca.
 
 {% hint style="info" %}
-**💡 Tip**: Instead of typing in the path to the sound file, you can drag it into the **Path** field from the file navigation menu on the bottom of the Scene Editor.
+**💡 Tip**: En lugar de escribir la ruta al archivo de sonido, puedes arrastrarlo al campo **Path** desde el menú de navegación de archivos en la parte inferior del Scene Editor.
 {% endhint %}
 
-Use the **Play Mode** field to chose if playing the sound once, or looping it continuously.
+Usa el campo **Play Mode** para elegir si reproducir el sonido una vez, o en bucle continuamente.
 
-![](../../.gitbook/assets/play-sound.png)
+![](../images/editor/play-sound.png)
 
-Once the action is created, you can activate it via the [Triggers](smart-items-advanced.md#triggers) component of that same item or of any other item.
+Una vez que la acción se crea, puedes activarla a través del componente [Triggers](smart-items-advanced.md#triggers) de ese mismo ítem o de cualquier otro ítem.
 
-Use the **Stop Sound** action to stop all sounds by the item, both looping and non-looping. This also stops sounds from the **AudioSource** component.
+Usa la acción **Stop Sound** para detener todos los sonidos del ítem, tanto en bucle como no en bucle. Esto también detiene sonidos del componente **AudioSource**.
 
-To make an item play a looping sound always, for example for ambience or music, it's easier to use the **AudioSource** component, instead of using Actions and Triggers. This component only requires that you provide a path to a file, and check the boxes **Start Playing** and **Loop**.
+Para hacer que un ítem reproduzca un sonido en bucle siempre, por ejemplo para ambiente o música, es más fácil usar el componente **AudioSource**, en lugar de usar Actions y Triggers. Este componente solo requiere que proporciones una ruta a un archivo, y marques las casillas **Start Playing** y **Loop**.
 
-![](../../.gitbook/assets/audiosource.png)
+![](../images/editor/audiosource.png)
 
 {% hint style="info" %}
-**📔 Note**: A smart item can only play one sound at a time. Calling a second sound will interrupt any other sounds currently sounding. This also applies to sounds of the **AudioSource** component. If you need two sounds to sound together, consider adding an invisible entity in the same location to hold a **Play Sound** action.
+**📔 Nota**: Un smart item solo puede reproducir un sonido a la vez. Llamar a un segundo sonido interrumpirá cualquier otro sonido actualmente sonando. Esto también se aplica a sonidos del componente **AudioSource**. Si necesitas dos sonidos para sonar juntos, considera agregar una entidad invisible en la misma ubicación para contener una acción **Play Sound**.
 {% endhint %}
 
-See [sounds](../../../creator/sdk7/3d-essentials/sounds.md) for more about playing sounds in Decentraland.
+Consulta [sounds](../sdk7/3d-essentials/sounds.md) para más sobre reproducir sonidos en Decentraland.
 
 ### Moving, rotating, or scaling
 
-Use a **Start Tween** action to change the **position**, **scale**, or **rotation**, of the item over a period of time. All **Start Tween** actions start from the original state of the item, and change to an ending state over a period of time.
+Usa una acción **Start Tween** para cambiar la **posición**, **escala** o **rotación**, del ítem durante un período de tiempo. Todas las acciones **Start Tween** comienzan desde el estado original del ítem, y cambian a un estado final durante un período de tiempo.
 
-Tweens in position can be relative or absolute. An absolute tween in position moves the item to a fixed position in relation to the scene. The item will move from wherever it is to that position. If it's already there, it won't appear to move. A relative tween in position moves the item a certain distance from where it is now, for example a tween to a relative position of `1, 0, 0` moves the item 1 meter forward, in the direction it's currently facing. If you run the tween action a second time, the item will move another meter forward.
+Los tweens en posición pueden ser relativos o absolutos. Un tween absoluto en posición mueve el ítem a una posición fija en relación con la escena. El ítem se moverá desde donde esté a esa posición. Si ya está allí, no parecerá moverse. Un tween relativo en posición mueve el ítem una cierta distancia desde donde está ahora, por ejemplo un tween a una posición relativa de `1, 0, 0` mueve el ítem 1 metro hacia adelante, en la dirección que está enfrentando actualmente. Si ejecutas la acción tween una segunda vez, el ítem se moverá otro metro hacia adelante.
 
-Tweens in rotation can also be relative or absolute. A relative rotation is added to the item's current rotation. An absolute tween in rotation will make the item face a specific direction, relative to the scene.
+Los tweens en rotación también pueden ser relativos o absolutos. Una rotación relativa se agrega a la rotación actual del ítem. Un tween absoluto en rotación hará que el ítem enfrente una dirección específica, relativa a la escena.
 
-Use the **Duration** field to set how long the whole movement should take, in seconds. Note that the slider goes up to 100 seconds, but you can also write a larger number manually if you need to.
+Usa el campo **Duration** para establecer cuánto tiempo debe tomar todo el movimiento, en segundos. Ten en cuenta que el deslizador va hasta 100 segundos, pero también puedes escribir un número mayor manualmente si es necesario.
 
-![](../../.gitbook/assets/tweens.png)
+![](../images/editor/tweens.png)
 
-Once the action is created, you can activate it via the [Triggers](smart-items-advanced.md#triggers) component of that same item or of any other item.
+Una vez que la acción se crea, puedes activarla a través del componente [Triggers](smart-items-advanced.md#triggers) de ese mismo ítem o de cualquier otro ítem.
 
-Tweens can follow different **Curve Types** that affect the rate of change over time. A **linear** curve (default), means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
+Los tweens pueden seguir diferentes **Curve Types** que afectan la tasa de cambio con el tiempo. Una curva **linear** (predeterminada), significa que la velocidad del cambio es constante de principio a fin. Hay muchas opciones para elegir, que dibujan curvas de diferentes formas dependiendo de si el comienzo y/o el final comienzan lento, y cuánto. Una curva **easeinexpo** comienza lenta y termina rápida, aumentando la velocidad exponencialmente, por el contrario una curva **easeoutexpo** comienza rápida y termina lenta.
 
-![](../../.gitbook/assets/easing-functions.jpeg)
+![](../images/editor/easing-functions.jpeg)
 
 {% hint style="info" %}
-**💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
+**💡 Tip**: Experimenta con diferentes curvas de movimiento. Las diferencias a menudo son sutiles, pero interpretamos subconscientemente información de cómo se mueven las cosas, como peso, fricción, o incluso personalidad.
 {% endhint %}
 
-Use **On Tween End** trigger events in the **Triggers** component to activate an action after a tween has finished. Use [states and conditional logic](../../../creator/scene-editor/interactivity/states-and-conditions.md) to describe a looping path for a floating platform, so that it constantly moves between two locations.
+Usa eventos de trigger **On Tween End** en el componente **Triggers** para activar una acción después de que un tween haya terminado. Usa [states and conditional logic](../scene-editor/interactivity/states-and-conditions.md) para describir una ruta en bucle para una plataforma flotante, para que se mueva constantemente entre dos ubicaciones.
 
-When an item performs a tween, this affects everything about the item. For example, if it changes scale, it changes the scale of its visible 3D model and also invisible collider geometry, the size of text, etc. If the item has any children (nested in the entity tree on the left), these child entities are also affected by the tween.
+Cuando un ítem realiza un tween, esto afecta todo sobre el ítem. Por ejemplo, si cambia de escala, cambia la escala de su modelo 3D visible y también la geometría de collider invisible, el tamaño del texto, etc. Si el ítem tiene hijos (anidados en el entity tree a la izquierda), estas entidades hijas también se ven afectadas por el tween.
 
 {% hint style="info" %}
-**📔 Note**: Each entity can only perform one tween at a time. For example, you can´t make an item move sideways and also rotate at the same time. As a workaround, you can use parented entities. For example, you can have an invisible parent entity that moves sideways, with a visible child that rotates.
+**📔 Nota**: Cada entidad solo puede realizar un tween a la vez. Por ejemplo, no puedes hacer que un ítem se mueva lateralmente y también rote al mismo tiempo. Como solución alternativa, puedes usar entidades padre. Por ejemplo, puedes tener una entidad padre invisible que se mueva lateralmente, con un hijo visible que rote.
 {% endhint %}
 
 ### About click triggers
 
-To trigger an action by clicking on an item, create an **On Click** trigger. The action will be activated every time that the player clicks on the entity.
+Para activar una acción haciendo clic en un ítem, crea un trigger **On Click**. La acción se activará cada vez que el jugador haga clic en la entidad.
 
-![](../../.gitbook/assets/on_click.png)
+![](../images/editor/on_click.png)
 
-See [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md#interactivity) for more details.
+Consulta [Make any item smart](../scene-editor/interactivity/make-any-item-smart.md#interactivity) para más detalles.
 
 {% hint style="info" %}
-**📔 Note**: When using custom 3D models, the model must have an invisible collider geometry for it to be clickable. See [colliders](../../../creator/sdk7/3d-essentials/colliders.md#pointer-blocking).
+**📔 Nota**: Al usar modelos 3D personalizados, el modelo debe tener una geometría de collider invisible para que sea clickeable. Consulta [colliders](../sdk7/3d-essentials/colliders.md#pointer-blocking).
 
-As an alternative, you can configure the **GLTF** component of the item, so that its **Visible Layer** of collision is set to **Pointer**.
+Como alternativa, puedes configurar el componente **GLTF** del ítem, para que su **Visible Layer** de colisión esté establecida en **Pointer**.
 
-Another alternative is to add a **Click Area** smart item, to draw a cube that overlaps the item you want to click. The Click Area smart item is an [invisible item](smart-items-advanced.md#invisible-items).
+Otra alternativa es agregar un smart item **Click Area**, para dibujar un cubo que se superponga con el ítem que deseas hacer clic. El smart item Click Area es un [invisible item](smart-items-advanced.md#invisible-items).
 {% endhint %}
 
 ### Trigger on spawn
 
-Triggers of type **On Spawn** activate an action when the scene is loaded. Instead of waiting for the player to interact with an item, the action runs right away.
+Los triggers de tipo **On Spawn** activan una acción cuando se carga la escena. En lugar de esperar a que el jugador interactúe con un ítem, la acción se ejecuta de inmediato.
 
-For example, use this to make a platform move continually. Use an **On Spawn** trigger to activate a tween action. Then use **On State Change** triggers to keep it moving between two or more positions.
+Por ejemplo, usa esto para hacer que una plataforma se mueva continuamente. Usa un trigger **On Spawn** para activar una acción de tween. Luego usa triggers **On State Change** para mantenerla moviéndose entre dos o más posiciones.
 
-![](../../.gitbook/assets/on_spawn.png)
+![](../images/editor/on_spawn.png)
 
 ### Multiplayer
 
-All smart items are multiplayer by default. See [Smart Items - Basic](../../../creator/scene-editor/interactivity/smart-items.md) for more details.
+Todos los smart items son multijugador por defecto. Consulta [Smart Items - Basic](../scene-editor/interactivity/smart-items.md) para más detalles.
 
-You can change or fine-tune this multiplayer behavior to only sync certain components of the item.
+Puedes cambiar o ajustar este comportamiento multijugador para solo sincronizar ciertos componentes del ítem.
 
-In the item's **Multiplayer** component, check the boxes for the components you want to share.
+En el componente **Multiplayer** del ítem, marca las casillas para los componentes que deseas compartir.
 
-For example, a door shares its `Animator` so all see the opening animations, its `AudioSource` so all hear its sound, and its `State` so all keep track of if it's currently open or closed. The door doesn't share its `Visibility` component, because the door is usually always visible. If you include actions to trigger its visibility on and off, you might want to have this component ticked too, so that changes are synced between all players.
+Por ejemplo, una puerta comparte su `Animator` para que todos vean las animaciones de apertura, su `AudioSource` para que todos escuchen su sonido, y su `State` para que todos hagan seguimiento de si está actualmente abierta o cerrada. La puerta no comparte su componente `Visibility`, porque la puerta suele estar siempre visible. Si incluyes acciones para activar su visibilidad encendida y apagada, también podrías querer tener este componente marcado, para que los cambios se sincronicen entre todos los jugadores.
 
 ### Invisible items
 
-Some items are not meant to be seen by the player, but are visible while editing your scene to make them easier to manage. This is the case for items like **Ambience**, **Trigger Area**, **Click Area**, etc.
+Algunos ítems no están destinados a ser vistos por el jugador, pero son visibles mientras editas tu escena para hacerlos más fáciles de gestionar. Este es el caso de ítems como **Ambience**, **Trigger Area**, **Click Area**, etc.
 
-In the advanced mode, these items have a **Visibility** component set to invisible. This component doesn't affect the visibility of the items on the Scene Editor, but any item set to invisible isn't seen by players when running a preview.
+En el modo avanzado, estos ítems tienen un componente **Visibility** establecido en invisible. Este componente no afecta la visibilidad de los ítems en el Scene Editor, pero cualquier ítem establecido en invisible no es visto por los jugadores al ejecutar un preview.
 
-### See also
+### Ver también
 
-* [Smart items - Basics](../../../creator/scene-editor/interactivity/smart-items.md)
-* [States and conditions](../../../creator/scene-editor/interactivity/states-and-conditions.md)
-* [Making any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
-* [Combine with code](../../../creator/scene-editor/code/overview.md)
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [States and conditions](../scene-editor/interactivity/states-and-conditions.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [Combine with code](../scene-editor/code/overview.md)

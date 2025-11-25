@@ -1,93 +1,89 @@
 ---
-description: Basics about the avatar rig.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/avatar-rig
+description: Conceptos básicos sobre el rig del avatar.
 ---
 
 # Avatar Rig
 
-202A rig is a virtual skeleton that allows a model to move. It consists of a hierarchy of individual bones, much like a real life skeleton, and it works under a parent/child relationship. This document will cover some basic rigging concepts, such as bone position, bone orientation, deforming and non-deforming bones, the difference between IK and FK and their purposes. The structure of an avatar’s rig, custom attributes, and setup for animating can be found in [rig features](../../../creator/wearables-and-emotes/emotes/rig-features.md).
+Un rig es un esqueleto virtual que permite que un modelo se mueva. Consiste en una jerarquía de huesos individuales, muy parecido a un esqueleto de la vida real, y funciona bajo una relación padre/hijo. Este documento cubrirá algunos conceptos básicos de rigging, como posición de huesos, orientación de huesos, huesos que deforman y no deforman, la diferencia entre IK y FK y sus propósitos. La estructura del rig de un avatar, atributos personalizados y configuración para animar se pueden encontrar en [rig features](../wearables-and-emotes/emotes/rig-features.md).
 
-## **The Basics**
+## **Los Conceptos Básicos**
 
-#### Bone Position or Pivot Points
+#### Posición de Huesos o Puntos de Pivote
 
-Even though a rig is not an exact replica of the human skeleton, it is good practice to follow the position of real life bones when placing digital ones. This is done in order to guarantee believable and fluid deformation. Bone position is important because it sets the pivot point (where the movement will start from). A misplaced bone will cause bad deformation of the mesh. The images below show the difference in bone position.
+Aunque un rig no es una réplica exacta del esqueleto humano, es una buena práctica seguir la posición de los huesos de la vida real al colocar los digitales. Esto se hace para garantizar una deformación creíble y fluida. La posición del hueso es importante porque establece el punto de pivote (desde donde comenzará el movimiento). Un hueso mal colocado causará una mala deformación de la malla. Las imágenes a continuación muestran la diferencia en la posición del hueso.
 
 ![head\_pivot\_rig\_1.0.gif](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/head_pivot_rig_1.0.gif)
 
 ![head\_pivot\_rig\_2.0.gif](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/head_pivot_rig_2.0.gif)
 
-#### Bone Orientation
+#### Orientación de Huesos
 
-The orientation of bones will define in which direction they’ll rotate, like positive X, negative Z, etc. They can be set up in many different ways as long as it’s consistent through the whole rig. For example, if the X axis is chosen for the bending forward motion of the spine, it makes sense that the same set up is used for the legs. The orientation is also important because it’ll affect mirroring behavior. That means that, usually, the right side orientation is the mirrored version of the left side’s and vice versa.
+La orientación de los huesos definirá en qué dirección rotarán, como X positivo, Z negativo, etc. Pueden configurarse de muchas maneras diferentes siempre que sea consistente a través de todo el rig. Por ejemplo, si el eje X se elige para el movimiento de inclinación hacia adelante de la columna, tiene sentido que la misma configuración se use para las piernas. La orientación también es importante porque afectará el comportamiento de espejo. Eso significa que, usualmente, la orientación del lado derecho es la versión espejada del lado izquierdo y viceversa.
 
-![](../../.gitbook/assets/boneAxis.gif)
+![](../images/emotes/boneAxis.gif)
 
-_Turn on the axes to show bone orientation._
+_Activa los ejes para mostrar la orientación de los huesos._
 
-![](../../.gitbook/assets/boneorientation.gif)
+![](../images/emotes/boneorientation.gif)
 
-_The axes are the directions in which the bone will rotate._
+_Los ejes son las direcciones en las que el hueso rotará._
 
-#### Deforming and Non-deforming Bones
+#### Huesos que Deforman y No Deforman
 
-Deforming bones are the ones that will deform the mesh, they are responsible for the way the model moves. That’s the base skeleton and it **should not be edited at all**. Changing it in any way can break the rig and the animation won’t work when exported. For this reason, this base rig was moved to its own layer (the last one at the bottom). These bones are the armature that’s exported with the mesh.
+Los huesos que deforman son los que deformarán la malla, son responsables de la forma en que el modelo se mueve. Ese es el esqueleto base y **no debe ser editado en absoluto**. Cambiarlo de cualquier manera puede romper el rig y la animación no funcionará cuando se exporte. Por esta razón, este rig base se movió a su propia capa (la última en la parte inferior). Estos huesos son la armature que se exporta con la malla.
 
-Non-deforming bones are the ones that won’t deform the mesh, but they are still necessary in a robust rig and are used for the setup for [IKs, FKs](avatar-rig.md#what’s-FK-and-IK-in-a-rig) and other custom properties. Examples for non-deforming bones are controls, IK and FK bones, foot setup bones. These shouldn’t be exported, they are only used for animation purposes.
+Los huesos que no deforman son los que no deformarán la malla, pero aún son necesarios en un rig robusto y se usan para la configuración de [IKs, FKs](avatar-rig.md#what's-FK-and-IK-in-a-rig) y otras propiedades personalizadas. Ejemplos de huesos que no deforman son controles, huesos IK y FK, huesos de configuración de pies. Estos no deberían exportarse, solo se usan para propósitos de animación.
 
-![](../../.gitbook/assets/DeformationBones.png)
+![](../images/emotes/DeformationBones.png)
 
-_Deforming bones._
+_Huesos que deforman._
 
-![](../../.gitbook/assets/NonDeformationBones.png)
+![](../images/emotes/NonDeformationBones.png)
 
-_Non-deforming bones._
+_Huesos que no deforman._
 
-> **Attention!**: **Do not edit the base skeleton at all!**
+> **¡Atención!**: **¡No edites el esqueleto base en absoluto!**
 
-![](../../.gitbook/assets/BaseSkeleton.png)
+![](../images/emotes/BaseSkeleton.png)
 
-_The base skeleton._
+_El esqueleto base._
 
-#### Controls
+#### Controles
 
-As a good practice, a rig shouldn’t be animated by manipulating the deforming bones because it might cause the rig to break. Instead, **animations should be done by manipulating controls.**
+Como buena práctica, un rig no debería ser animado manipulando los huesos que deforman porque podría causar que el rig se rompa. En su lugar, **las animaciones deberían hacerse manipulando controles.**
 
-Controls are basically non-deforming bones, which means they will not affect the mesh, making them completely safe to be manipulated and animated. Their function is to control the base skeleton through constraints and drivers, without directly touching it. They usually have different shapes and colors as a visual cue for their functions and purposes, making it easier for the animator to tell bones apart. Some of them will also have more than just location, rotation, and scale transforms because it’s possible to add custom properties to them, such as an IK/FK switch.
+Los controles son básicamente huesos que no deforman, lo que significa que no afectarán la malla, haciéndolos completamente seguros para ser manipulados y animados. Su función es controlar el esqueleto base a través de restricciones y drivers, sin tocarlo directamente. Usualmente tienen diferentes formas y colores como una señal visual para sus funciones y propósitos, haciendo más fácil para el animador distinguir los huesos. Algunos de ellos también tendrán más que solo transformaciones de ubicación, rotación y escala porque es posible agregar propiedades personalizadas a ellos, como un switch IK/FK.
 
-It’s also important to notice that it’s not possible to use the controls setup in a software different from the one it was originally done in. Each software has its own logic and it’s not possible to export constraints.
+También es importante notar que no es posible usar la configuración de controles en un software diferente del que se hizo originalmente. Cada software tiene su propia lógica y no es posible exportar restricciones.
 
-![](../../.gitbook/assets/RigControls.png) \_Controls and their different shapes and colors.\_
+![](../images/emotes/RigControls.png) \_Controles y sus diferentes formas y colores.\_
 
-> **Warning**: **The rig has to be animated in the same software it was created in. It’s not possible to use a Blender setup in, for example, Maya and vice versa.**
+> **Advertencia**: **El rig tiene que ser animado en el mismo software en el que fue creado. No es posible usar una configuración de Blender en, por ejemplo, Maya y viceversa.**
 
-#### What’s FK and IK in a rig?
+#### ¿Qué son FK e IK en un rig?
 
-A rig can use two different setups that will influence how it moves: FK and IK.
+Un rig puede usar dos configuraciones diferentes que influenciarán cómo se mueve: FK e IK.
 
 #### FK - Forward Kinematics
 
-In the forward kinematics, or FK, the parent in the hierarchy moves all the child bones under it. Let’s take the arm as an example: when the shoulder rotates, the rest of the arm will rotate as well; when the arm rotates, the forearm will follow its behavior. When animating in FK, each bone has to be rotated individually. This setup gives a lot of control over the movement and is great for arc motions, which are essential for a fluid animation.
+En la cinemática directa, o FK, el padre en la jerarquía mueve todos los huesos hijos debajo de él. Tomemos el brazo como ejemplo: cuando el hombro rota, el resto del brazo rotará también; cuando el brazo rota, el antebrazo seguirá su comportamiento. Al animar en FK, cada hueso tiene que ser rotado individualmente. Esta configuración da mucho control sobre el movimiento y es genial para movimientos de arco, que son esenciales para una animación fluida.
 
-![](../../.gitbook/assets/FK.png)
+![](../images/emotes/FK.png)
 
-_Direction of movement in the hierarchy._
+_Dirección del movimiento en la jerarquía._
 
-![](../../.gitbook/assets/FK_GIF.gif)
+![](../images/emotes/FK_GIF.gif)
 
-_In FK, each bone has to be rotated individually._
+_En FK, cada hueso tiene que ser rotado individualmente._
 
 #### IK - Inverse Kinematics
 
-In inverse kinematics, or IK, the child in the hierarchy can influence the movement of its parents. In this case, taking the arm as an example again, when the hand is moved around, the rest of the arm will follow the motion. It also means that no matter how the shoulder moves, the hand will maintain its position. In this setup, a pole vector/pole target will control in which direction the bones will bend. Legs are usually in IK and that’s essential for the feet to stick to ground level while animating.
+En cinemática inversa, o IK, el hijo en la jerarquía puede influenciar el movimiento de sus padres. En este caso, tomando el brazo como ejemplo nuevamente, cuando la mano se mueve alrededor, el resto del brazo seguirá el movimiento. También significa que no importa cómo se mueva el hombro, la mano mantendrá su posición. En esta configuración, un pole vector/pole target controlará en qué dirección los huesos se doblarán. Las piernas usualmente están en IK y eso es esencial para que los pies se adhieran al nivel del suelo mientras se anima.
 
-![](../../.gitbook/assets/IK.png)
+![](../images/emotes/IK.png)
 
-_Direction of movement in hierarchy._
+_Dirección del movimiento en jerarquía._
 
-![](../../.gitbook/assets/IK_last.gif)
+![](../images/emotes/IK_last.gif)
 
-_In IK, the hand will move all the arm and also maintain it’s position. The pole target drives the direction in which the elbow bends._
+_En IK, la mano moverá todo el brazo y también mantendrá su posición. El pole target dirige la dirección en la que el codo se dobla._

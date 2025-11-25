@@ -1,139 +1,139 @@
 ---
 description: >-
-  Scene administrators have special control over what happens in the scene in
-  real time.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/live-ops/scene-admin
+  Los administradores de escenas tienen control especial sobre lo que sucede en la escena en
+  tiempo real.
 ---
 
 # Scene Admin
 
-Grant certain players the special role of **admin** on your scene.
+Otorga a ciertos jugadores el rol especial de **admin** en tu escena.
 
-During a live event, an admin can spontaneously control what happens in the scene from inside Decentraland, without needing to pre-schedule actions or relying on a 3rd party service. Start playing the music when enough of a crowd gathered, drop confetti or make a spaceship appear when the time feels right.
+Durante un evento en vivo, un admin puede controlar espontáneamente lo que sucede en la escena desde dentro de Decentraland, sin necesidad de pre-programar acciones o depender de un servicio de terceros. Inicia la música cuando se haya reunido suficiente multitud, suelta confeti o haz aparecer una nave espacial cuando el momento se sienta correcto.
 
-When a scene admin visits your scene, they see a special UI on the top-right corner that only they are able to see. Through this UI they can play videos or live streams, send announcements, ban players, or activate any smart item that is configured to be activated like this. These actions are seen by all other players in the scene that are connected to the same comms island as the admin.
 
-![](../../.gitbook/assets/admin-console.png)
 
-### Setting up admins
+Cuando un admin de escena visita tu escena, ve una UI especial en la esquina superior derecha que solo ellos pueden ver. A través de esta UI pueden reproducir videos o streams en vivo, enviar anuncios, banear jugadores o activar cualquier smart item que esté configurado para ser activado así. Estas acciones son vistas por todos los demás jugadores en la escena que están conectados a la misma isla de comms que el admin.
 
-To assign admins, you need to add the **Scene Admin** smart item to your scene.
+![](../images/editor/admin/admin-console.png)
 
-![](../../.gitbook/assets/admin-smart-item.png)
+### Configurar admins
 
-{% hint style="warning" %}
-**📔 Note**: Update your scene to use the latest dependencies. The Scene Admin Smart item won't work if the scene is outdated.
+Para asignar admins, necesitas agregar el smart item **Scene Admin** a tu escena.
 
-<img src="../../.gitbook/assets/update-dependencies.png" alt="" data-size="original">
-{% endhint %}
-
-While you're developing the scene and trying it locally, you are always an admin. Once the scene is published, anyone with publish permissions to the scene is also automatically an admin. This includes:
-
-* The owner of the LAND parcels or World NAME where the scene is published
-* Anyone who is granted **Operator rights** on these parcels or name. See [Give permissions](../../../creator/marketplace/land-manager.md#give-permissions).
-* Any user renting that land. See [Rentals](../../../creator/marketplace/rentals.md).
-
-You can also assign additional people to the admin list once your scene is published by visiting your scene as an admin and opening the **Moderation Tools** tab.
-
-![](../../.gitbook/assets/moderation-tools.png)
-
-Write the wallet address of the person you want to add to the admin list and click **Add**.
-
-You can see who is an admin in the scene by clicking the **Admin List** button. From this screen you can also **Remove** people from the admin list.
-
-![](../../.gitbook/assets/admin-list.png)
+![](../images/editor/admin/admin-smart-item.png)
 
 {% hint style="warning" %}
-**📔 Note**: It's only possible to remove the admin role from players that were added manually to the list via the **Moderation Tools** tab. Players who are owners, operators, or renters of the scene are displayed on this list but can't be removed from their admin roles from this UI. To remove an admin role from an operator, you must first remove their operator role.
+**📔 Nota**: Actualiza tu escena para usar las últimas dependencias. El Smart item Scene Admin no funcionará si la escena está desactualizada.
+
+![](../images/editor/admin/update-dependencies.png)
 {% endhint %}
 
-Whenever an admin player is in the scene, they will see a special UI on the top-right corner. Non-admin players don't see this UI.
+Mientras estás desarrollando la escena y probándola localmente, siempre eres un admin. Una vez que la escena se publica, cualquier persona con permisos de publicación en la escena también es automáticamente un admin. Esto incluye:
 
-![](../../.gitbook/assets/admin-console.png)
+* El propietario de los parcels de LAND o World NAME donde se publica la escena
+* Cualquiera a quien se le otorguen **derechos de Operator** en estos parcels o name. Consulta [Give permissions](../marketplace/land-manager.md#give-permissions).
+* Cualquier usuario que alquile esa land. Consulta [Rentals](../marketplace/rentals.md).
 
-### Video playing
+También puedes asignar personas adicionales a la lista de admin una vez que tu escena esté publicada visitando tu escena como admin y abriendo la pestaña **Moderation Tools**.
 
-One of the most common actions for admins to do is to play videos. The admin panel includes a video player section where they can control anything related to videos.
+![](../images/editor/admin/moderation-tools.png)
 
-To enable this, you need to add a **Video Player** smart item to your scene and link it to the Scene Admin smart item.
+Escribe la dirección de wallet de la persona que deseas agregar a la lista de admin y haz clic en **Add**.
 
-1.  Add a **Video Player** smart item to your scene
+Puedes ver quién es admin en la escena haciendo clic en el botón **Admin List**. Desde esta pantalla también puedes **Remove** personas de la lista de admin.
 
-    ![](../../.gitbook/assets/video-player-item.png)
+![](../images/editor/admin/admin-list.png)
 
-    See [Video Screen](../../../creator/scene-editor/interactivity/video-screen.md) for more details on how you can configure the default media source, image placeholder and other settings of the Video Player smart item. Most of these configurations can be overriden by the admin once inside the scene.
+{% hint style="warning" %}
+**📔 Nota**: Solo es posible eliminar el rol de admin de jugadores que fueron agregados manualmente a la lista a través de la pestaña **Moderation Tools**. Los jugadores que son propietarios, operators o renters de la escena se muestran en esta lista pero no se pueden eliminar de sus roles de admin desde esta UI. Para eliminar un rol de admin de un operator, primero debes eliminar su rol de operator.
+{% endhint %}
 
-    \{% hint style="warning" %\} **📔 Note**: An admin can only manage videos that play on the Video Screen smart item, not on screens added via SDK code.
+Cada vez que un jugador admin está en la escena, verá una UI especial en la esquina superior derecha. Los jugadores no-admin no ven esta UI.
 
-    You can include as many video screens as you want. In general, avoid having more than one different video playing at the same time, as that hurts performance a lot. \{% endhint %\}
-2.  Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
+![](../images/editor/admin/admin-console.png)
 
-    ![](../../.gitbook/assets/multi-video-setup.png)
+### Reproducción de videos
 
-Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
+Una de las acciones más comunes que hacen los admins es reproducir videos. El panel de admin incluye una sección de reproductor de video donde pueden controlar cualquier cosa relacionada con videos.
 
-![](../../.gitbook/assets/video-player.png)
+Para habilitar esto, necesitas agregar un smart item **Video Player** a tu escena y vincularlo al smart item Scene Admin.
 
-If your scene has multiple video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
+1.  Agrega un smart item **Video Player** a tu escena
+
+    ![](../images/editor/admin/video-player-item.png)
+
+    Consulta [Video Screen](../scene-editor/interactivity/video-screen.md) para más detalles sobre cómo puedes configurar la media source predeterminada, marcador de posición de imagen y otras configuraciones del smart item Video Player. La mayoría de estas configuraciones pueden ser sobrescritas por el admin una vez dentro de la escena.
+
+    {% hint style="warning" %} **📔 Nota**: Un admin solo puede gestionar videos que se reproducen en el smart item Video Screen, no en pantallas agregadas a través de código SDK.
+
+    Puedes incluir tantas video screens como desees. En general, evita tener más de un video diferente reproduciéndose al mismo tiempo, ya que eso perjudica mucho el rendimiento. {% endhint %}
+2.  Abre el Smart Item Scene Admin, asegúrate de que la casilla **Video Screens** esté habilitada para que esta sección se muestre. Luego selecciona la pantalla de una lista desplegable y dale un nombre amigable para mostrar en la UI de Admin. Puedes agregar tantas Video Screens como desees, cada pantalla se controla de forma independiente.
+
+    ![](../images/editor/admin/multi-video-setup.png)
+
+Una vez que lo anterior esté configurado, los usuarios admin en tu escena pueden abrir el panel de admin y seleccionar la sección de video para controlar estas video screens.
+
+![](../images/editor/admin/video-player.png)
+
+Si tu escena tiene múltiples video screens, el desplegable **Current Screen** te permite elegir qué video screen controlar. La lista muestra los nombres que diste a cada video screen en la configuración del smart item Admin Tools.
 
 #### Media Sources
 
-There are two kidns of media sources for playing videos:
+Hay dos tipos de media sources para reproducir videos:
 
-*   **Video**: Play a video file from your local filesystem or from an URL. Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
+*   **Video**: Reproduce un archivo de video desde tu sistema de archivos local o desde una URL. Pega una URL de video en el campo **Video URL** y haz clic en el botón verde **Activate**. El video comenzará a reproducirse en la pantalla seleccionada para todos los jugadores. También puedes detener, pausar, reiniciar, silenciar o cambiar el volumen del video.
 
-    ![](../../.gitbook/assets/video-from-url.png)
+    ![](../images/editor/admin/video-from-url.png)
 
-    \{% hint style="warning" %\} **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources](../../../creator/scene-editor/interactivity/video-screen.md#streaming-from-other-sources) for more information on what you can and can't play in Decentraland. \{% endhint %\}
-*   **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
+    {% hint style="warning" %}
+    **📔 Nota**: No cualquier URL de video funcionará. Los videos de sitios como Youtube, por ejemplo, tienen políticas estrictas sobre su contenido y bloquearán el acceso a ellos desde Decentraland. Consulta [Streaming from other sources](../scene-editor/interactivity/video-screen.md#streaming-from-other-sources) para más información sobre qué puedes y no puedes reproducir en Decentraland.
+    {% endhint %}
+*   **Live stream**: Reproduce un stream en vivo usando la infraestructura de streaming gratuita de Decentraland y un software de streaming como OBS o StreamYard.
 
-    ![](../../.gitbook/assets/live-stream.png)
+    ![](../images/editor/admin/live-stream.png)
 
-    See [Live Streaming](../../../creator/scene-editor/live-ops/live-streaming.md) for more information on how to set up a live stream.
+    Consulta [Live Streaming](../scene-editor/live-ops/live-streaming.md) para más información sobre cómo configurar un stream en vivo.
 
-Each screen in your scene will have one of the above media sources set as **Active**. You can click the **Video** or **Live** buttons to explore the settings on each section, you won't interrupt what's currently playing until you click the **Activate** button on either section.
+Cada pantalla en tu escena tendrá una de las media sources anteriores establecida como **Active**. Puedes hacer clic en los botones **Video** o **Live** para explorar la configuración en cada sección, no interrumpirás lo que se está reproduciendo actualmente hasta que hagas clic en el botón **Activate** en cualquiera de las secciones.
 
-![](../../.gitbook/assets/activate.png)
+![](../images/editor/admin/activate.png)
 
-### Announcements
+### Anuncios
 
-In the **Announcements** tab of the admin panel, admins can write messages that get seen by all players in the scene. Messages like this can only be sent by admins, so other players will perceive them as more legitimate than a message on the chat by someone claiming to be an admin.
+En la pestaña **Announcements** del panel de admin, los admins pueden escribir mensajes que son vistos por todos los jugadores en la escena. Mensajes como este solo pueden ser enviados por admins, por lo que otros jugadores los percibirán como más legítimos que un mensaje en el chat de alguien que afirma ser un admin.
 
-Select the Message section of the admin UI. Write a message and click **Share**. The message can be up to 90 characters long.
+Selecciona la sección Message de la UI de admin. Escribe un mensaje y haz clic en **Share**. El mensaje puede tener hasta 90 caracteres de largo.
 
-![](../../.gitbook/assets/announcement.png)
+![](../images/editor/admin/announcement.png)
 
-### Ban players
+### Banear jugadores
 
-You can ban players from your scene by selecting the **Moderation** tab of the admin UI, writing the name or wallet address of the player you want to ban and clicking the **Ban** button.
+Puedes banear jugadores de tu escena seleccionando la pestaña **Moderation** de la UI de admin, escribiendo el nombre o dirección de wallet del jugador que deseas banear y haciendo clic en el botón **Ban**.
 
-![](../../.gitbook/assets/ban-players.png)
+![](../images/editor/admin/ban-players.png)
 
 {% hint style="info" %}
-**💡 Tip**: To obtain a player's wallet address, click on their avatar to open up their profile, then click on the **Copy to clipboard** button next to the wallet address.
+**💡 Tip**: Para obtener la dirección de wallet de un jugador, haz clic en su avatar para abrir su perfil, luego haz clic en el botón **Copy to clipboard** junto a la dirección de wallet.
 {% endhint %}
 
-Banned players will be unable to load your scene or interact with any of its content. Other players will not see them in the scene, or read any of their chat messages.
+Los jugadores baneados no podrán cargar tu escena ni interactuar con ninguno de sus contenidos. Otros jugadores no los verán en la escena, ni leerán ninguno de sus mensajes de chat.
 
 {% hint style="warning" %}
-**📔 Note**: The effects of your ban are immediate and permanent. Once a player is banned, they will remain banned until the ban is lifted. Banning a player from your scene only affects what players who are standing inside your scene can see, if a player steps outside your scene's bounds, they are no longer affected by the ban. Banned players are invisible to other players if they're standing outside your scene too.
+**📔 Nota**: Los efectos de tu baneo son inmediatos y permanentes. Una vez que un jugador es baneado, permanecerá baneado hasta que se levante el baneo. Banear a un jugador de tu escena solo afecta lo que los jugadores que están parados dentro de tu escena pueden ver, si un jugador sale de los límites de tu escena, ya no se ven afectados por el baneo. Los jugadores baneados son invisibles para otros jugadores si están parados fuera de tu escena también.
 {% endhint %}
 
-Click **View Ban List** to see the list of currently banned players. From this list you can also **Unban** players.
+Haz clic en **View Ban List** para ver la lista de jugadores actualmente baneados. Desde esta lista también puedes **Unban** jugadores.
 
-### Trigger smart items
+### Activar smart items
 
-To Trigger an action from any smart item in the scene:
+Para Activar una acción de cualquier smart item en la escena:
 
-* Add a smart item to your scene
-* Open the settings for the **Scene Admin** Smart Item in the Creator Hub
-* In the **Smart item actions** section, add the smart item from the dropdown, give it a custom name and select a default action
+* Agrega un smart item a tu escena
+* Abre la configuración del Smart Item **Scene Admin** en el Creator Hub
+* En la sección **Smart item actions**, agrega el smart item del desplegable, dale un nombre personalizado y selecciona una acción predeterminada
 
-Once the above is configured, admins can trigger the action by opening the **Smart Item Actions** section of the admin UI and then selecting an item from the dropdown list. They can then either click the **Default** button to trigger the default action of that item, or select any other of the item's actions from the list.
+Una vez que lo anterior esté configurado, los admins pueden activar la acción abriendo la sección **Smart Item Actions** de la UI de admin y luego seleccionando un ítem de la lista desplegable. Luego pueden hacer clic en el botón **Default** para activar la acción predeterminada de ese ítem, o seleccionar cualquier otra de las acciones del ítem de la lista.
 
-![](../../.gitbook/assets/smart-item-actions.png)
+![](../images/editor/admin/smart-item-actions.png)
 
-You can also show or hide any smart item in this list, even if it doesn't include an action to do that.
+También puedes mostrar u ocultar cualquier smart item en esta lista, incluso si no incluye una acción para hacer eso.

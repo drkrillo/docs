@@ -1,117 +1,113 @@
 ---
-description: How to publish your scene to LAND or a NAME.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/publish/publish-scene
+description: Cómo publicar tu escena en LAND o un NAME.
 ---
 
 # Publish Scene
 
-### Before you begin
+### Antes de comenzar
 
-Make sure of the following:
+Asegúrate de lo siguiente:
 
-* Your scene complies with all of the [scene limitations](../../../creator/sdk7/optimizing/scene-limitations.md). Most of these are validated each time you run a preview of your scene.
-* You have a [Metamask](https://metamask.io/) account, with your LAND parcels or NAME assigned to it.
-* You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
+* Tu escena cumple con todas las [scene limitations](../sdk7/optimizing/scene-limitations.md). La mayoría de estas se validan cada vez que ejecutas un preview de tu escena.
+* Tienes una cuenta de [Metamask](https://metamask.io/), con tus parcels de LAND o NAME asignados a ella.
+* Posees la cantidad necesaria de parcels de LAND adyacentes o un NAME de Decentraland. De lo contrario, puedes comprar LAND en el [Market](https://market.decentraland.org) o un NAME en el [Builder](https://decentraland.org/builder/names).
 
 {% hint style="warning" %}
-**📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
+**📔 Nota**: Las escenas multi-parcel solo se pueden desplegar en parcels adyacentes.
 {% endhint %}
 
-Check your [scene's details](../../../creator/scene-editor/get-started/scene-editor-essentials.md#scene-details), make sure you provide an appealing name, description, thumbnail, categories, etc.
+Verifica los [detalles de tu escena](../scene-editor/get-started/scene-editor-essentials.md#scene-details), asegúrate de proporcionar un nombre atractivo, descripción, miniatura, categorías, etc.
 
 {% hint style="danger" %}
-**❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
+**❗Advertencia**: Al planear eventos en vivo, asegúrate de no hacer cambios de último minuto en la escena justo antes del evento.
 
-After each publish, an internal process optimizes all 3D models before they can be rendered. This takes around 15 minutes. If you visit the scene before this is done, the scene may appear broken. This process runs even if the 3D models were all previously published.
+Después de cada publicación, un proceso interno optimiza todos los modelos 3D antes de que puedan ser renderizados. Esto toma alrededor de 15 minutos. Si visitas la escena antes de que esto termine, la escena puede aparecer rota. Este proceso se ejecuta incluso si los modelos 3D fueron todos publicados previamente.
 {% endhint %}
 
-### Publish your scene
+### Publicar tu escena
 
-To publish your scene:
+Para publicar tu escena:
 
-1. Open your scene in the Scene Editor and click **Publish**. This opens a browser tab, showing details.
-2. Select if you want to publish to LAND or to a WORLD. See [Kinds of projects](../../../creator/sdk7/projects/kinds-of-project.md) to better understand the different options.
+1. Abre tu escena en el Scene Editor y haz clic en **Publish**. Esto abre una pestaña del navegador, mostrando detalles.
+2. Selecciona si quieres publicar en LAND o en un WORLD. Consulta [Kinds of projects](../sdk7/projects/kinds-of-project.md) para entender mejor las diferentes opciones.
 
-![](../../.gitbook/assets/publish-options.png)
+![](../images/editor/publish-options.png)
 
-3. If publishing to LAND, select the location on the map. You'll see your eligible parcels marked in red. If publishing to a WORLD, you'll see your eligible NAMEs in a dropdown.
+3. Si publicas en LAND, selecciona la ubicación en el mapa. Verás tus parcels elegibles marcados en rojo. Si publicas en un WORLD, verás tus NAMEs elegibles en un desplegable.
 
 {% hint style="info" %}
-**💡 Tip**: If you don't see your parcels or NAMEs, make sure you're connected to the Creator Hub using the right user account. Otherwise exit the project and click the user settings icon on the top-right corner, then select **Sign Out** and sign back in again.
+**💡 Tip**: Si no ves tus parcels o NAMEs, asegúrate de estar conectado al Creator Hub usando la cuenta de usuario correcta. De lo contrario, sal del proyecto y haz clic en el ícono de configuración de usuario en la esquina superior derecha, luego selecciona **Sign Out** y vuelve a iniciar sesión.
 {% endhint %}
 
-4. The next screen shows all of the files you're currently uploading and their sizes, confirm the operation.
-5. The publication process will then start. Stages **1** and **2** are necessary for your scene to be playable, once done a **Jump In** button appears. You don't need to wait for **Stage 3** to try out your scene. ![](../../.gitbook/assets/deploy-steps.png)
+4. La siguiente pantalla muestra todos los archivos que estás cargando actualmente y sus tamaños, confirma la operación.
+5. El proceso de publicación comenzará entonces. Las etapas **1** y **2** son necesarias para que tu escena sea jugable, una vez hecho aparece un botón **Jump In**. No necesitas esperar la **Etapa 3** para probar tu escena. ![](../images/editor/deploy-steps.png)
 
-\*\*📔 Note\*\*: The three stages of the deployment involve: - \*\*1. Uploading\*\*: Uploading the files to the servers. - \*\*2. Converting\*\*: The scene's 3D models are compressed into Asset Bundles for faster rendering. This may take 15 minutes or less. It may delay more for very large scenes, or if the servers are currently busy converting other scenes. - \*\*3, Optimizing\*\*: Low Level of Detail (LOD) versions of your assets are generated. These are only used to render your scene from far away, meaning you don't need to wait for this to finish to jump in and test your scene.
+\*\*📔 Nota\*\*: Las tres etapas del despliegue involucran: - \*\*1. Uploading\*\*: Subiendo los archivos a los servidores. - \*\*2. Converting\*\*: Los modelos 3D de la escena se comprimen en Asset Bundles para un rendering más rápido. Esto puede tomar 15 minutos o menos. Puede demorarse más para escenas muy grandes, o si los servidores están actualmente ocupados convirtiendo otras escenas. - \*\*3, Optimizing\*\*: Se generan versiones de Nivel de Detalle Bajo (LOD) de tus assets. Estos solo se usan para renderizar tu escena desde lejos, lo que significa que no necesitas esperar a que esto termine para saltar y probar tu escena. {% endhint %}
 
-### Publish from a hardware wallet
+### Publicar desde un hardware wallet
 
-Instead of storing your LAND tokens in a Metamask account, you may find it more secure to store them in a hardware wallet device, such as a [Ledger](https://www.ledger.com/) or a [Trezor](https://trezor.io/), that's physically plugged in to your computer.
+En lugar de almacenar tus tokens de LAND en una cuenta de Metamask, puedes encontrar más seguro almacenarlos en un dispositivo de hardware wallet, como un [Ledger](https://www.ledger.com/) o un [Trezor](https://trezor.io/), que está físicamente conectado a tu computadora.
 
-If you're using one of these devices, you can link the hardware wallet to Metamask to enable signing messages, while keeping the tokens more secure. See [this article from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) for instructions to connect your account.
+Si estás usando uno de estos dispositivos, puedes vincular el hardware wallet a Metamask para habilitar la firma de mensajes, mientras mantienes los tokens más seguros. Consulta [este artículo de Metamask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet) para instrucciones para conectar tu cuenta.
 
-Once your hardware wallet can be used via Metamask, you can deploy following the same steps as if your tokens were on a Metamask account.
+Una vez que tu hardware wallet pueda usarse a través de Metamask, puedes desplegar siguiendo los mismos pasos que si tus tokens estuvieran en una cuenta de Metamask.
 
-### Scene overwriting
+### Sobrescritura de escenas
 
-When a new scene is deployed, it overwrites older content that existed on the parcels it occupies.
+Cuando se despliega una nueva escena, sobrescribe el contenido más antiguo que existía en los parcels que ocupa.
 
-If a scene that takes up multiple parcels is only partially overwritten by another, all of its parcels are either overwritten or erased.
+Si una escena que ocupa múltiples parcels es solo parcialmente sobrescrita por otra, todos sus parcels son sobrescritos o borrados.
 
-Suppose you deployed your scene _A_ over two parcels _\[100, 100]_ and _\[100, 101]_. Then you sell parcel _\[100, 101]_ to a user who owns adjacent land and that deploys a large scene (_B_) to several parcels, including _\[100, 101]_.
+Supón que desplegaste tu escena _A_ sobre dos parcels _\[100, 100]_ y _\[100, 101]_. Luego vendes el parcel _\[100, 101]_ a un usuario que posee land adyacente y que despliega una escena grande (_B_) a varios parcels, incluyendo _\[100, 101]_.
 
-Your scene _A_ can't be partially rendered in just one parcel, so _\[100, 100]_ won't display any content. You must build a new version of scene _A_ that only takes up one parcel and deploy it to only parcel _\[100, 100]_.
+Tu escena _A_ no puede ser parcialmente renderizada en solo un parcel, por lo que _\[100, 100]_ no mostrará ningún contenido. Debes construir una nueva versión de la escena _A_ que solo ocupe un parcel y desplegarla solo en el parcel _\[100, 100]_.
 
-### Alternative servers
+### Servidores alternativos
 
-#### The test server
+#### El servidor de prueba
 
-You can deploy content to the test catalyst server to run full tests with multiple users, the sourrounding scenes, and an environment that is identical to production. The test server is identical to all other catalyst servers, the difference is that the content that is deployed to this server isn't propagated to the others. Content deployed to other servers on the other hand does get propagated to this server, so surrounding scenes should look as they will in production.
+Puedes desplegar contenido en el servidor catalyst de prueba para ejecutar pruebas completas con múltiples usuarios, las escenas circundantes y un entorno idéntico a producción. El servidor de prueba es idéntico a todos los demás servidores catalyst, la diferencia es que el contenido que se despliega en este servidor no se propaga a los demás. El contenido desplegado en otros servidores por otro lado sí se propaga a este servidor, por lo que las escenas circundantes deberían verse como lo harán en producción.
 
 {% hint style="warning" %}
-**📔 Note**: To deploy to parcels in the test server, you must have the same permissions required to deploy to those parcels in the main network.
+**📔 Nota**: Para desplegar en parcels en el servidor de prueba, debes tener los mismos permisos requeridos para desplegar en esos parcels en la red principal.
 {% endhint %}
 
-Players are never directed to this server, the only way to access it is to explicitly provide a URL parameter to connect to it.
+Los jugadores nunca son dirigidos a este servidor, la única forma de acceder a él es proporcionar explícitamente un parámetro de URL para conectarse a él.
 
-If you're working in a confidential project that you don't want to unveil until launch, note that the test server is relatively hidden from players, but anyone explicitly using the test server's URL could potentially run into it.
+Si estás trabajando en un proyecto confidencial que no quieres revelar hasta el lanzamiento, ten en cuenta que el servidor de prueba está relativamente oculto de los jugadores, pero cualquiera que use explícitamente la URL del servidor de prueba podría potencialmente encontrarlo.
 
-To publish to the test server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Test Server** from the dropdown.
+Para publicar en el servidor de prueba, haz clic en el botón **Publish** normalmente, luego selecciona **Publish to a different server** en la parte inferior. Luego selecciona **Test Server** del desplegable.
 
-![](../../.gitbook/assets/publish-to-test-server.png)
+![](../images/editor/publish-to-test-server.png)
 
-### Publish to granted land
+### Publicar en land otorgada
 
-If you're publishing to land owned by the Decentraland Foundation that was granted to you via a grant, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the following server address: `http://linker-server.decentraland.org`.
+Si estás publicando en land propiedad de la Decentraland Foundation que te fue otorgada a través de una grant, haz clic en el botón **Publish** normalmente, luego selecciona **Publish to a different server** en la parte inferior. Luego selecciona **Custom Server** del desplegable e ingresa la siguiente dirección de servidor: `http://linker-server.decentraland.org`.
 
-![](../../../creator/images/editor/publish-to-granted-land.png)
+![](../images/editor/publish-to-granted-land.png)
 
 {% hint style="warning" %}
-**📔 Note**: You must first manually set the coordinates of your scene in the advanced tab of the Layout settings. See [Scene Settings](../../../creator/scene-editor/configure/scene-settings.md#layout) for more info.
+**📔 Nota**: Primero debes establecer manualmente las coordenadas de tu escena en la pestaña avanzada de la configuración de Layout. Consulta [Scene Settings](../scene-editor/configure/scene-settings.md#layout) para más información.
 {% endhint %}
 
-### Custom servers
+### Servidores personalizados
 
-You can deploy content to a custom server that doesn't belong to the official DAO-maintained network of catalyst servers. To do this, you don't need to own any LAND or NAME tokens, as you can configure the server to use any validation logic you prefer to control who can deploy where. Custom servers can chose to have content from the official servers, that you can overwrite, or start from a blank slate and publish entirely new content.
+Puedes desplegar contenido en un servidor personalizado que no pertenece a la red oficial de servidores catalyst mantenida por el DAO. Para hacer esto, no necesitas poseer ningún token de LAND o NAME, ya que puedes configurar el servidor para usar cualquier lógica de validación que prefieras para controlar quién puede desplegar dónde. Los servidores personalizados pueden elegir tener contenido de los servidores oficiales, que puedes sobrescribir, o comenzar desde cero y publicar contenido completamente nuevo.
 
-To publish to a custom server, click the **Publish** button normally, then select **Publish to a different server** on the bottom. Then select **Custom Server** from the dropdown and enter the address of the server.
+Para publicar en un servidor personalizado, haz clic en el botón **Publish** normalmente, luego selecciona **Publish to a different server** en la parte inferior. Luego selecciona **Custom Server** del desplegable e ingresa la dirección del servidor.
 
-See [How to run your own Catalyst Node](../../../creator/tutorials/how-to-run-a-catalyst.md) for more info on what you can do with your own server and how to set it up.
+Consulta [How to run your own Catalyst Node](../tutorials/how-to-run-a-catalyst.md) para más información sobre qué puedes hacer con tu propio servidor y cómo configurarlo.
 
 {% hint style="warning" %}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../../rewards/gatting-started.md) or the [quests server](../../../creator/deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Nota**: Los jugadores necesitarán escribir manualmente una URL para acceder a tu servidor personalizado. Ciertas validaciones de servicios como el [rewards server](../rewards/gatting-started.md) o el [quests server](../deprecated/quests/overview.md) pueden fallar en estos contextos, ya que a menudo estos servicios requieren que la solicitud provenga de un servidor oficial.
 {% endhint %}
 
-Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
+Los jugadores nunca son dirigidos a este servidor, la única forma de acceder a él es escribir explícitamente la URL para conectarse a él.
 
-### Verify deployment success
+### Verificar el éxito del despliegue
 
-Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, or that 3D models are missing entirely.
+Una vez que desplegaste tu escena, estos cambios tardarán algunos minutos en propagarse a través de los diversos servidores de contenido en la red. Si ingresas a Decentraland justo después de desplegar, podrías seguir viendo la versión anterior de tu contenido, o que los modelos 3D faltan por completo.
 
-After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network,
+Después de firmar para autorizar el despliegue de tu escena, la dapp de firma comenzará a mostrar confirmaciones de que la nueva versión de tu contenido se ha propagado a través de todos los servidores en la red,
 
-You'll see a list of each of the servers that make up Decentraland's content network. For each server, it specifies the timestamp of the last uploaded change on that parcel. Each one of these servers refers to a different realm, you can reference how these server names map to realm names in the [catalyst monitor screen](https://decentraland.github.io/catalyst-monitor/).
+Verás una lista de cada uno de los servidores que componen la red de contenido de Decentraland. Para cada servidor, especifica el timestamp del último cambio subido en ese parcel. Cada uno de estos servidores se refiere a un realm diferente, puedes hacer referencia a cómo estos nombres de servidor se mapean a nombres de realm en la [pantalla del catalyst monitor](https://decentraland.github.io/catalyst-monitor/).

@@ -1,19 +1,16 @@
 ---
-description: Publish your scene to Decentraland
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/publish
+description: Publica tu escena en Decentraland
 ---
 
-# Publish
+# Publicando Tu Escena
 
-Once your scene is complete, you're ready to publish it to Decentraland. This section guides you through the publication process from the Scene Editor.
+Una vez que tu escena esté completa, estás listo para publicarla en Decentraland. Esta sección te guía a través del proceso de publicación desde el Scene Editor.
 
-## What You'll Learn
+## Lo que Aprenderás
 
-* Publishing scenes directly from the Scene Editor
-* Understanding deployment requirements
-* Managing scene updates
-* Troubleshooting publication issues
+* Publicar escenas directamente desde el Scene Editor
+* Entender los requisitos de despliegue
+* Gestionar actualizaciones de escenas
+* Solucionar problemas de publicación
 
-Publishing makes your scene live in Decentraland, allowing players from around the world to visit and interact with your creation.
+Publicar hace que tu escena esté en vivo en Decentraland, permitiendo que jugadores de todo el mundo visiten e interactúen con tu creación.

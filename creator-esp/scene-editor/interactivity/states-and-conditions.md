@@ -1,87 +1,85 @@
 ---
-description: Managing item states and conditional logic
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/scene-editor/interactivity/states-and-conditions
+description: Gestionando estados de ítems y lógica condicional
 ---
 
 # States and Conditions
 
-### Conditional logic
 
-Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 
-To add a condition, click the three dots icon next to **Trigger event** and select **Add Trigger Condition**.
+### Lógica condicional
 
-![](../../.gitbook/assets/condition.png)
+Agrega condiciones en un trigger, para que la acción solo ocurra si se cumplen esas condiciones. Por ejemplo, hacer clic en una puerta solo activa la acción "Open" si no estaba ya abierta.
 
-A single trigger can include multiple conditions. Click the **+** icon to add more conditions. When more than one condition exist, you can select one of these options:
+Para agregar una condición, haz clic en el ícono de tres puntos junto a **Trigger event** y selecciona **Add Trigger Condition**.
 
-* **All Conditions should be met (AND)**: The trigger only happens if every one of the conditions is true.
-* **Any Condition can be met (OR)** The trigger happens if at least one of the conditions is true.
+![](../images/editor/condition.png)
 
-![](../../.gitbook/assets/multiple-conditions.png)
+Un solo trigger puede incluir múltiples condiciones. Haz clic en el ícono **+** para agregar más condiciones. Cuando existe más de una condición, puedes seleccionar una de estas opciones:
+
+* **All Conditions should be met (AND)**: El trigger solo ocurre si cada una de las condiciones es verdadera.
+* **Any Condition can be met (OR)**: El trigger ocurre si al menos una de las condiciones es verdadera.
+
+![](../images/editor/multiple-conditions.png)
 
 ### States
 
-The **States** component is included on several smart items. It lists possible states that the smart item can be in. At any given time, the smart item is in one of these states. For example, a door can be _Open_ or _Closed_. The Open action sets the state to _Open_, the Close action sets the state to _Closed_.
+El componente **States** está incluido en varios smart items. Lista posibles estados en los que puede estar el smart item. En cualquier momento dado, el smart item está en uno de estos estados. Por ejemplo, una puerta puede estar _Open_ o _Closed_. La acción Open establece el estado en _Open_, la acción Close establece el estado en _Closed_.
 
-You can do the following things with states:
+Puedes hacer las siguientes cosas con los estados:
 
-1. Use a condition on a trigger to check the state of an entity. In that way the action is only carried out if a specific state is active.
+1. Usar una condición en un trigger para verificar el estado de una entidad. De esa manera, la acción solo se lleva a cabo si un estado específico está activo.
 
-![](../../.gitbook/assets/condition.png)
+![](../images/editor/condition.png)
 
-2. Change a state via the **Set State** action.
+2. Cambiar un estado a través de la acción **Set State**.
 
-![](../../.gitbook/assets/set-state.png)
+![](../images/editor/set-state.png)
 
-3. React to changes in state via the **On State Change** trigger event.
+3. Reaccionar a cambios en el estado a través del evento de trigger **On State Change**.
 
-To toggle between two actions, define two triggers, each with a condition that checks a state. For example, doors have one trigger that activates the Open action, with a condition that first checks that the door's state is _Closed_, and another trigger that activates the Close action, with a condition that checks that the door's state is _Open_. Only one of the two is activated each time the player clicks on the door.
+Para alternar entre dos acciones, define dos triggers, cada uno con una condición que verifica un estado. Por ejemplo, las puertas tienen un trigger que activa la acción Open, con una condición que primero verifica que el estado de la puerta sea _Closed_, y otro trigger que activa la acción Close, con una condición que verifica que el estado de la puerta sea _Open_. Solo uno de los dos se activa cada vez que el jugador hace clic en la puerta.
 
-![](../../.gitbook/assets/door_conditions.png)
+![](../images/editor/door_conditions.png)
 
-You can add as many states as you want to a smart item. Just click the **Add New State** button to add another one to the list.
+Puedes agregar tantos estados como desees a un smart item. Solo haz clic en el botón **Add New State** para agregar otro a la lista.
 
-![](../../.gitbook/assets/new_state.png)
+![](../images/editor/new_state.png)
 
-One of the states is selected as the default, the item will always start in this state when the scene runs. You can assign a different state to be the default by clicking the three dots next to another one of the states and selecting **Set as Default**.
+Uno de los estados se selecciona como predeterminado, el ítem siempre comenzará en este estado cuando se ejecute la escena. Puedes asignar un estado diferente para que sea el predeterminado haciendo clic en los tres puntos junto a otro de los estados y seleccionando **Set as Default**.
 
 {% hint style="info" %}
-**💡 Tip**: Keep interactions between items simple. For example, avoid scenarios like having a button that opens a door by triggering three actions: play the door's animation, play the door's sound and change the door's state. Instead, make the button change the door's state. Then use an **On State Change** trigger so that the door itself handles playing the animation and sound whenever the state changes.
+**💡 Tip**: Mantén las interacciones entre ítems simples. Por ejemplo, evita escenarios como tener un botón que abre una puerta activando tres acciones: reproducir la animación de la puerta, reproducir el sonido de la puerta y cambiar el estado de la puerta. En su lugar, haz que el botón cambie el estado de la puerta. Luego usa un trigger **On State Change** para que la puerta misma maneje reproducir la animación y el sonido cada vez que cambie el estado.
 {% endhint %}
 
 ### Counter
 
-Use the **Counter** component to keep track of a number, which can change as the player performs actions in the scene. You can use the values of the counter in conditional logic.
+Usa el componente **Counter** para hacer seguimiento de un número, que puede cambiar a medida que el jugador realiza acciones en la escena. Puedes usar los valores del contador en lógica condicional.
 
-When an entity has a Counter component, you can run the following actions on it:
+Cuando una entidad tiene un componente Counter, puedes ejecutar las siguientes acciones en ella:
 
-* **Increment Counter**: Increment the value of the counter by 1.
-* **Decrease Counter**: Decrease the value of the counter by 1.
-* **Set Counter**: Set the value of the counter to a specific number, for example to set it back to 0.
+* **Increment Counter**: Incrementar el valor del contador en 1.
+* **Decrease Counter**: Disminuir el valor del contador en 1.
+* **Set Counter**: Establecer el valor del contador en un número específico, por ejemplo para restablecerlo a 0.
 
-Use the **On Counter Change** trigger to perform an action every time the counter's value changes. Add a condition to this trigger so that it only activates after passing a certain threshold.
+Usa el trigger **On Counter Change** para realizar una acción cada vez que cambie el valor del contador. Agrega una condición a este trigger para que solo se active después de pasar un cierto umbral.
 
-![](../../.gitbook/assets/on_counter_change.png)
+![](../images/editor/on_counter_change.png)
 
-On a condition, you can check if the value of the counter is
+En una condición, puedes verificar si el valor del contador es
 
-* Greater than a given value
-* Lower than a given value
-* Equal to a given value
+* Mayor que un valor dado
+* Menor que un valor dado
+* Igual a un valor dado
 
 {% hint style="info" %}
-**💡 Tip**: To check for greater or equal, you can add two conditions to the trigger event, using the AND option.
+**💡 Tip**: Para verificar mayor o igual, puedes agregar dos condiciones al evento de trigger, usando la opción AND.
 
-To make an action occur only once when passing a threshold, and not repeat on every increment after that, combine the counter with a **State** component. Set the State to "Done" whenever you reach the desired value, and add a condition to check this state on the trigger event.
+Para hacer que una acción ocurra solo una vez al pasar un umbral, y no se repita en cada incremento después de eso, combina el contador con un componente **State**. Establece el State en "Done" cada vez que alcances el valor deseado, y agrega una condición para verificar este estado en el evento de trigger.
 {% endhint %}
 
-### See also
+### Ver también
 
-* [Smart items - Basics](../../../creator/scene-editor/interactivity/smart-items.md)
-* [Smart items - Advanced](../../../creator/scene-editor/interactivity/smart-items-advanced.md)
-* [Making any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md)
-* [Combine with code](../../../creator/scene-editor/code/overview.md)
+* [Smart items - Basics](../scene-editor/interactivity/smart-items.md)
+* [Smart items - Advanced](../scene-editor/interactivity/smart-items-advanced.md)
+* [Making any item smart](../scene-editor/interactivity/make-any-item-smart.md)
+* [Combine with code](../scene-editor/code/overview.md)
