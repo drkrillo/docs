@@ -1,48 +1,44 @@
 ---
-description: Change the skybox time
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/skybox-control
+description: Cambia la hora del skybox
 ---
 
-# Skybox Control
+# Control del skybox
 
-You can change how a player sees the skybox whenever they are standing in your scene, this also affects the hue and direction of the global lighting.
+Puedes cambiar cómo ve el skybox un jugador cuando está parado en tu escena, esto también afecta el tono y la dirección de la iluminación global.
 
-The sky in Decentraland follows a default day/night cycle where 1 minute passes each second, so a full cycle takes 24 minutes to complete. If the scene is not enforcing any fixed time of day, then players are also able to switch to a particular time of day by changing a slider in their UI.
+El cielo en Decentraland sigue un ciclo día/noche predeterminado donde 1 minuto pasa cada segundo, por lo que un ciclo completo tarda 24 minutos en completarse. Si la escena no está imponiendo ningún momento específico del día, los jugadores también pueden cambiar a un momento particular del día cambiando un control deslizante en su UI.
 
-Whenever players enter a scene with a different time of day, or the scene changes the time of day dynamically, the skybox transitions smoothly over a few seconds to this new value.
+Cada vez que los jugadores ingresan a una escena con un momento diferente del día, o la escena cambia el momento del día dinámicamente, el skybox se transiciona suavemente durante unos segundos a este nuevo valor.
 
-### Fixed time of day
+## Hora fija del día
 
-You can set a fixed time of day for your scene. All players will see the scene with this time of day, and the skybox will not follow the day/night cycle.
+Puedes establecer un momento fijo del día para tu escena. Todos los jugadores verán la escena con este momento del día, y el skybox no seguirá el ciclo día/noche.
 
-In the Creator Hub, open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option and set the time of day you want.
+En el Creator Hub, abre la configuración de la escena y haz clic en la pestaña **Settings** para encontrar la sección **Skybox**. Desmarca la opción **Auto** y establece el momento del día que deseas.
 
-![](../../.gitbook/assets/fixed-time-of-day.png)
+<img src="/images/fixed-time-of-day.png" alt="Scene name" width="300"/>
 
-You can also set the skybox time of day in your scene code. To do this, add the following section to your `scene.json` at root level:
+También puedes establecer el momento del día del skybox en el código de tu escena. Para hacer esto, agrega la siguiente sección a tu `scene.json` en el nivel raíz:
 
 ```json
  "skyboxConfig": {
     "fixedTime": 36000
   }
-```
+``` 
 
-The number refers to the number of seconds since the start of the day, ranging from 0 (that refers to _00:00_) to 86400 (that refers to _24:00_). Any number higher than 86400 is interpreted also as midnight.
+El número se refiere al número de segundos desde el inicio del día, que va de 0 (que se refiere a _00:00_) a 86400 (que se refiere a _24:00_). Cualquier número mayor que 86400 también se interpreta como medianoche.
 
-Here are some more examples of valid values:
+Aquí hay algunos más ejemplos de valores válidos:
 
-* 0 seconds => _00:00_
-* 21600 seconds => _06:00_
-* 43200 seconds => _12:00_
-* 64800 seconds => _18:00_
-* 86400 seconds => _24:00_
+- 0 segundos  =>   _00:00_
+- 21600 segundos   =>   _06:00_
+- 43200 segundos    =>   _12:00_
+- 64800 segundos    =>   _18:00_
+- 86400 segundos    =>   _24:00_
 
-### Reading the time of day
+## Leer el momento del día
 
-You can read the time of day from your scene code using the `getWorldTime()` function.
+Puedes leer el momento del día desde el código de tu escena usando la función `getWorldTime()`.
 
 ```ts
 import { getWorldTime } from '~system/Runtime'
@@ -53,11 +49,11 @@ executeTask(async () => {
 })
 ```
 
-The function returns a number between 0 and 86400, where 0 is midnight and 86400 is 24:00. This value is updated if the scene changes the time of day dynamically or if the player changes the time of day in the UI. Otherwise, it returns the value relative to the default day/night cycle.
+La función devuelve un número entre 0 y 86400, donde 0 es medianoche y 86400 es 24:00. Este valor se actualiza si la escena cambia el momento del día dinámicamente o si el jugador cambia el momento del día en la UI. De lo contrario, devuelve el valor relativo al ciclo día/noche predeterminado.
 
-### Changing the time of day dynamically
+## Cambiar el momento del día dinámicamente
 
-You can change the time of day dynamically using the `SkyboxTime` component. This component can only be added to the root entity of the scene `engine.rootEntity`.
+Puedes cambiar el momento del día dinámicamente usando el componente `SkyboxTime`. Este componente solo puede agregarse a la entidad raíz de la escena `engine.rootEntity`.
 
 ```ts
 import { SkyboxTime } from '@dcl/sdk/ecs'
@@ -67,11 +63,11 @@ function main() {
 }
 ```
 
-The `fixed_time` property is a number between 0 and 86400, where 0 is midnight and 86400 is 24:00. Any number higher than 86400 is interpreted also as midnight.
+La propiedad `fixed_time` es un número entre 0 y 86400, donde 0 es medianoche y 86400 es 24:00. Cualquier número mayor que 86400 también se interpreta como medianoche.
 
-Whenever this component is added, removed, or the `fixed_time` property is changed, the skybox time of day transitions smoothly over a few seconds to this new value. The same happens when the player steps out or into the scene. While the skybox time of day is fixed, the skybox will no longer follow progress in its day/night cycle and players can't change the time of day via the UI.
+Cada vez que este componente se agrega, elimina, o la propiedad `fixed_time` cambia, el momento del día del skybox se transiciona suavemente durante unos segundos a este nuevo valor. Lo mismo sucede cuando el jugador sale o entra en la escena. Mientras el momento del día del skybox esté fijo, el skybox ya no seguirá el progreso en su ciclo día/noche y los jugadores no pueden cambiar el momento del día a través de la UI.
 
-By default, the transition always happens in the forward direction, but you can change this by setting the `direction` property to `TransitionMode.TM_FORWARD` or `TransitionMode.TM_BACKWARD`.
+Por defecto, la transición siempre ocurre en la dirección hacia adelante, pero puedes cambiar esto estableciendo la propiedad `direction` en `TransitionMode.TM_FORWARD` o `TransitionMode.TM_BACKWARD`.
 
 ```ts
 import { TransitionMode } from '~system/Runtime'

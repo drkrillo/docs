@@ -1,18 +1,14 @@
 ---
-description: Obtain data from the context where your scene is running and the scene itself.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/runtime-data
+description: Obtén datos del contexto donde tu escena está ejecutándose y de la escena misma
 ---
 
-# Runtime Data
+# Datos del runtime
 
-### Get Decentraland Time
+## Obtener la hora de Decentraland
 
-Decentraland follows a day/night cycle that takes 2 hours to be completed, so there are 12 full cycles every day. Players can also change the settings to experience a specific fixed time of day, for example to always see Decentraland with a 10pm night sky. For this reason, Decentraland time may vary from one player to another.
+Decentraland sigue un ciclo día/noche que tarda 2 horas en completarse, por lo que hay 12 ciclos completos cada día. Los jugadores también pueden cambiar la configuración para experimentar un momento específico y fijo del día, por ejemplo, para siempre ver Decentraland con un cielo nocturno de las 10 pm. Por esta razón, la hora de Decentraland puede variar de un jugador a otro.
 
-Use `getWorldTime()` to fetch the time of day that the player is experiencing inside Decentraland.
+Usa `getWorldTime()` para obtener la hora del día que el jugador está experimentando dentro de Decentraland.
 
 ```ts
 import { getWorldTime } from '~system/Runtime'
@@ -24,14 +20,14 @@ executeTask(async () => {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: The `getWorldTime()` function is asynchronous. See [Asynchronous functions](../../../creator/sdk7/programming-patterns/async-functions.md) if you're not familiar with those.
+**💡 Consejo**: La función `getWorldTime()` es asincrónica. Consulta [Funciones asincrónicas](../programming-patterns/async-functions.md) si no estás familiarizado con ellas.
 {% endhint %}
 
-`getWorldTime()` returns an object with a `seconds` property. This property indicates how many seconds have passed (in Decentraland time) since the start of the day, assuming the full cycle lasts 24 hours. Divide the seconds value by 60 to obtain minutes, and by 60 again to obtain the hours since the start of the day. For example, if the `seconds` value is _36000_, it corresponds to _10 AM_.
+`getWorldTime()` devuelve un objeto con una propiedad `seconds`. Esta propiedad indica cuántos segundos han pasado (en tiempo de Decentraland) desde el inicio del día, asumiendo que el ciclo completo dura 24 horas. Divide el valor de segundos por 60 para obtener minutos, y por 60 nuevamente para obtener las horas desde el inicio del día. Por ejemplo, si el valor de `seconds` es _36000_, corresponde a _10 AM_.
 
-In Decentraland time, the sun always rises at 6:15 and sets at 19:50.
+En tiempo de Decentraland, el sol siempre sale a las 6:15 y se pone a las 19:50.
 
-You could use this information to change the scene accordingly, for example to play bird sounds when there's daylight and crickets when it's dark, or to turn the emissive materials on street lamps when it's dark.
+Podrías usar esta información para cambiar la escena en consecuencia, por ejemplo para reproducir sonidos de pájaros cuando hay luz del día y grillos cuando está oscuro, o para encender los materiales emisivos en las lámparas cuando está oscuro.
 
 ```ts
 import { getWorldTime } from '~system/Runtime'
@@ -40,20 +36,20 @@ executeTask(async () => {
   let time = await getWorldTime({})
   console.log(time.seconds)
   if (time.seconds < 6.25 * 60 * 60 || time.seconds > 19.85 * 60 * 60) {
-    // night time
+    // hora nocturna
     console.log('playing cricket sounds')
   } else {
-    // day time
+    // hora diurna
     console.log('playing bird sounds')
   }
 })
 ```
 
-### Get realm data
+## Obtener datos del realm
 
-Players in decentraland exist in several separate _realms_. Players in different realms can't see each other, interact or chat with each other, even if they're standing on the same parcels. Dividing players like this allows Decentraland to handle an unlimited amount of players without running into any limitations. It also pairs players who are in close regions, to ensure that ping times between players that interact are acceptable.
+Los jugadores en Decentraland existen en varios _realms_ separados. Los jugadores en diferentes realms no pueden verse, interactuar o chatear entre sí, incluso si están parados en las mismas parcelas. Dividir a los jugadores de esta manera permite a Decentraland manejar una cantidad ilimitada de jugadores sin encontrar ninguna limitación. También empareja a jugadores que están en regiones cercanas, para asegurar que los tiempos de ping entre jugadores que interactúan sean aceptables.
 
-If your scene sends data to a [3rd party server](../../../creator/sdk7/networking/authoritative-servers.md) to sync changes between players in real time, then it's often important that changes are only synced between players that are on the same realm. You should handle all changes that belong to one realm as separate from those on a different realm. Otherwise, players will see things change in a spooky way, without anyone making the change.
+Si tu escena envía datos a un [servidor de terceros](../networking/authoritative-servers.md) para sincronizar cambios entre jugadores en tiempo real, entonces a menudo es importante que los cambios solo se sincronicen entre jugadores que están en el mismo realm. Debes manejar todos los cambios que pertenecen a un realm como separados de aquellos en un realm diferente. De lo contrario, los jugadores verán cosas cambiar de una manera espeluznante, sin que nadie haga el cambio.
 
 ```ts
 import { getRealm } from '~system/Runtime'
@@ -65,37 +61,37 @@ executeTask(async () => {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: The `getRealm()` function is asynchronous. See [Asynchronous functions](../../../creator/sdk7/programming-patterns/async-functions.md) if you're not familiar with those.
+**💡 Consejo**: La función `getRealm()` es asincrónica. Consulta [Funciones asincrónicas](../programming-patterns/async-functions.md) si no estás familiarizado con ellas.
 {% endhint %}
 
-Decentraland handles its communications between players (including player positions, chat, messageBus messages and smart item state changes) through a decentralized network of communication servers, each of these servers is called a **Realm**. Each one of these servers can support multiple separate **rooms** (also called **islands**), each grouping a different set of players that are near each other on the Decentraland map.
+Decentraland maneja sus comunicaciones entre jugadores (incluyendo posiciones de jugadores, chat, mensajes de messageBus y cambios de estado de smart items) a través de una red descentralizada de servidores de comunicación, cada uno de estos servidores se llama un **Realm**. Cada uno de estos servidores puede soportar múltiples **rooms** separadas (también llamadas **islands**), cada una agrupando un conjunto diferente de jugadores que están cerca unos de otros en el mapa de Decentraland.
 
-The `getRealm()` function returns the following information:
+La función `getRealm()` devuelve la siguiente información:
 
-* `baseUrl`: _(string)_ The domain of the realm server
-* `realmName`: _(string)_ The name of the realm server
-* `networkId`: _(number)_ The Ethereum network
-* `commsAdapter`: _(string)_ Comms adapter, removing all query parameters (credentials)
-* `isPreview`: _(boolean)_ True if the scene is running as a local preview, instead of published in Decentraland.
-* `isConnectedSceneRoom`: _(boolean)_ True if the user is connected to the scene room.
+- `baseUrl`: _(string)_ El dominio del servidor realm
+- `realmName`: _(string)_ El nombre del servidor realm
+- `networkId`: _(number)_ La red de Ethereum
+- `commsAdapter`: _(string)_ Adaptador de comunicaciones, eliminando todos los parámetros de consulta (credenciales)
+- `isPreview`: _(boolean)_ True si la escena se está ejecutando como una vista previa local, en lugar de publicada en Decentraland.
+- `isConnectedSceneRoom`: _(boolean)_ True si el usuario está conectado a la sala de la escena.
 
 {% hint style="warning" %}
-**📔 Note**: The `layer` property is deprecated, and should be avoided.
+**📔 Nota**: La propiedad `layer` está obsoleta y debe evitarse.
 {% endhint %}
 
-As players move through the map, they may switch rooms to be grouped with those players who are now closest to them. Rooms also shift their borders dynamically to fit a manageable group of people, so even if a player stands still, as players enter and leave the world, the player could find themselves on another room. Players in a same `room` are communicated, and will share messages across the MessageBus even if they;re too far to see each other. Players in a same server but in different rooms are not currently communicating, but they might get communicated as they move around the map and change rooms.
+A medida que los jugadores se mueven por el mapa, pueden cambiar de rooms para agruparse con aquellos jugadores que ahora están más cerca de ellos. Las rooms también cambian sus fronteras dinámicamente para ajustarse a un grupo manejable de personas, por lo que incluso si un jugador se queda quieto, a medida que los jugadores entran y salen del mundo, el jugador podría encontrarse en otra room. Los jugadores en una misma `room` están comunicados, y compartirán mensajes a través del MessageBus incluso si están demasiado lejos para verse. Los jugadores en un mismo servidor pero en diferentes rooms no están actualmente comunicándose, pero podrían comunicarse a medida que se mueven por el mapa y cambian de rooms.
 
-See [onRealmChangedObservable](../../../creator/sdk7/interactivity/event-listeners.md#player-changes-realm-or-island) for how to detect changes regarding the player's realm or island.
+Consulta [onRealmChangedObservable](event-listeners.md#player-changes-realm-or-island) para saber cómo detectar cambios relacionados con el realm o isla del jugador.
 
 {% hint style="warning" %}
-**📔 Note**: When the scene first loads, there might not yet be a room assigned for the player. The explorer will eventually assign a room to the player, but this can sometimes occur a couple of seconds after the scene is loaded.
+**📔 Nota**: Cuando la escena se carga por primera vez, puede que aún no haya una room asignada para el jugador. El explorador eventualmente asignará una room al jugador, pero esto a veces puede ocurrir un par de segundos después de que la escena se cargue.
 {% endhint %}
 
-### Get player platform
+## Obtener la plataforma del jugador
 
-Players can access Decentraland via various platforms, including the official desktop app, and deprecated web and desktop versions, as well as [alternative experimental clients](https://github.com/decentraland/protocol-squad) built for other engines.
+Los jugadores pueden acceder a Decentraland a través de varias plataformas, incluyendo la aplicación oficial de escritorio, y versiones web y de escritorio obsoletas, así como [clientes experimentales alternativos](https://github.com/decentraland/protocol-squad) construidos para otros motores.
 
-Use `getExplorerInformation()` to know what platform the current player is running Decentraland on.
+Usa `getExplorerInformation()` para saber en qué plataforma el jugador actual está ejecutando Decentraland.
 
 ```ts
 import { getExplorerInformation } from '~system/Runtime';
@@ -106,7 +102,7 @@ executeTask(async () => {
 })
 ```
 
-When using the official Decentraland desktop app, this function should return the following data:
+Al usar la aplicación oficial de escritorio de Decentraland, esta función debería devolver los siguientes datos:
 
 ```
 {
@@ -115,13 +111,13 @@ When using the official Decentraland desktop app, this function should return th
 }
 ```
 
-Players using the official Decentraland desktop app are likely to have a much smoother experience than those on the browser, since the browser imposes performance limitations on how much of the machine's processing power the browser tab can use. They will also be missing many features like camera control, dynamic lights, freezing player movement, UI enhancements, etc.
+Los jugadores que usan la aplicación oficial de escritorio de Decentraland probablemente tendrán una experiencia mucho más fluida que aquellos en el navegador, ya que el navegador impone limitaciones de rendimiento sobre cuánto poder de procesamiento de la máquina puede usar la pestaña del navegador. También faltarán muchas características como control de cámara, luces dinámicas, congelamiento del movimiento del jugador, mejoras de UI, etc.
 
-### The EngineInfo Component
+## El componente EngineInfo
 
-The `EngineInfo`component keeps track of data about the scene's lifecycle, which can sometimes be useful to tell when an event is occurring, relative to the scene's initialization.
+El componente `EngineInfo` rastrea datos sobre el ciclo de vida de la escena, lo que a veces puede ser útil para saber cuándo está ocurriendo un evento, en relación con la inicialización de la escena.
 
-This component is added to the `engine.RootEntity`.
+Este componente se agrega a `engine.RootEntity`.
 
 ```ts
 engine.addSystem((deltaTime) => {
@@ -141,16 +137,16 @@ engine.addSystem((deltaTime) => {
 })
 ```
 
-The `EngineInfo`component holds the following data:
+El componente `EngineInfo` contiene los siguientes datos:
 
-* `frame_number`: Frame counter of the engine
-* `total_runtime`: Total runtime of this scene in seconds
-* `tick_number`: Tick counter of the scene as per [ADR-148](https://adr.decentraland.org/adr/ADR-148)
+- `frame_number`: Contador de frames del motor
+- `total_runtime`: Runtime total de esta escena en segundos
+- `tick_number`: Contador de ticks de la escena según [ADR-148](https://adr.decentraland.org/adr/ADR-148)
 
 {% hint style="warning" %}
-**📔 Note**: The `EngineInfo` component must be imported via
+**📔 Nota**: El componente `EngineInfo` debe importarse mediante
 
 > `import { Vector3, Quaternion } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}

@@ -1,18 +1,14 @@
 ---
-description: Display and control NPC avatar
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/npc-avatars
+description: Muestra y controla avatares NPC
 ---
 
-# NPC Avatars
+# Avatares NPC
 
-Display an avatar as an entity in a scene.
+Muestra un avatar como una entidad en una escena.
 
-### Create an avatar
+## Crear un avatar
 
-The following snippet creates an avatar with random wearables and body shape, and name "NPC".
+El siguiente fragmento crea un avatar con wearables y forma de cuerpo aleatorios, y nombre "NPC".
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -23,39 +19,41 @@ Transform.create(myAvatar, {
 })
 ```
 
-When passing data to generate an `AvatarShape`, the following fields are required:
+Al pasar datos para generar un `AvatarShape`, se requiere el siguiente campo:
 
-* `id`: (required) Internal identifier for the Avatar
+- `id`: (requerido) Identificador interno para el Avatar
 
-The following optional fields are also available:
+Los siguientes campos opcionales también están disponibles:
 
-* `name`: Name to display over the Avatar's head. Default: "NPC".
-* `bodyShape`: String to define which body shape to use.
-* `wearables`: Array with list of URNs for wearables that the avatar currently has on. If wearables conflict (like two of them are hats), the last one in the list replaces the other.
-* `emotes`: Array with list of URNs for NFT emotes that the avatar is capable of playing
-* `eyeColor`: _Color3_ for the eye color (any color is valid)
-* `skinColor`: _Color3_ for the skin color (any color is valid)
-* `hairColor`: _Color3_ for the hair color (any color is valid)
-* `talking`: If _true_, it displays a green set of bars next to the name, like when players use voice chat in-world.
-* <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>💡 Tip</strong>: See <a href="../../../creator/sdk7/3d-essentials/color-types.md">color types</a> for more details on how to set colors.</p></div>
+- `name`: Nombre a mostrar sobre la cabeza del Avatar. Por defecto: "NPC".
+- `bodyShape`: Cadena para definir qué forma de cuerpo usar.
+- `wearables`: Array con lista de URNs para wearables que el avatar tiene actualmente puestos. Si los wearables entran en conflicto (como dos de ellos son sombreros), el último en la lista reemplaza al otro.
+- `emotes`: Array con lista de URNs para emotes NFT que el avatar es capaz de reproducir
+- `eyeColor`: _Color3_ para el color de ojos (cualquier color es válido)
+- `skinColor`: _Color3_ para el color de piel (cualquier color es válido)
+- `hairColor`: _Color3_ para el color de cabello (cualquier color es válido)
+- `talking`: Si es _true_, muestra un conjunto verde de barras junto al nombre, como cuando los jugadores usan el chat de voz en el mundo.
+- {% hint style="info" %}
+  **💡 Consejo**: Consulta [tipos de color](../3d-essentials/color-types.md) para más detalles sobre cómo establecer colores.
+  {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: The `AvatarShape`component must be imported via
+**📔 Nota**: El componente `AvatarShape` debe importarse mediante
 
 > `import { AvatarShape } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: The URN fields must follow the same format used for [NFTShapes](../../../creator/sdk7/media/display-a-certified-nft.md): `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
+**📔 Nota**: Los campos URN deben seguir el mismo formato usado para [NFTShapes](../media/display-a-certified-nft.md): `urn:decentraland:<CHAIN>:<CONTRACT_STANDARD>:<CONTRACT_ADDRESS>:<TOKEN_ID>`
 {% endhint %}
 
-### Animations
+## Animaciones
 
-Avatars play default idle animations while still.
+Los avatares reproducen animaciones inactivas predeterminadas mientras están quietos.
 
-To play animations on the avatar, set the `expressionTriggerId` string to the name of the animation you want to play.
+Para reproducir animaciones en el avatar, establece la cadena `expressionTriggerId` al nombre de la animación que deseas reproducir.
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -71,17 +69,17 @@ Transform.create(myAvatar, {
 })
 ```
 
-The `expressionTriggerId` field supports all [default animations](../../../creator/sdk7/interactivity/trigger-emotes.md#default-animations), as well as custom animations [from a scene file](../../../creator/sdk7/interactivity/trigger-emotes.md#custom-animations), and even URNs from emotes that are published to the marketplace.
+El campo `expressionTriggerId` admite todas las [animaciones predeterminadas](trigger-emotes.md#default-animations), así como animaciones personalizadas [desde un archivo de escena](trigger-emotes.md#custom-animations), e incluso URNs de emotes que están publicados en el marketplace.
 
-#### Looping Animations
+### Repetir animaciones
 
-Animations on an `AvatarShape` play once, if you want the avatar to keep looping an animation, you should create a system that tells it to play the animation again every couple of seconds.
+Las animaciones en un `AvatarShape` se reproducen una vez, si deseas que el avatar siga repitiendo una animación, debes crear un sistema que le indique reproducir la animación nuevamente cada par de segundos.
 
-Use the `expressionTriggerTimestamp` to replay a same emote. The value of this field is a [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp), meaning that it's not a time value, but rather an index that is raised by 1 for each repetition of the emote.
+Usa `expressionTriggerTimestamp` para reproducir el mismo emote. El valor de este campo es un [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp), lo que significa que no es un valor de tiempo, sino más bien un índice que se aumenta en 1 por cada repetición del emote.
 
-So the first time you play an emote, you set `expressionTriggerTimestamp` to _0_. To play the emote again, you must update this value to 1. That's how the engine knows that this is a new instruction, and not an instruction it already acted upon.
+Entonces, la primera vez que reproduces un emote, estableces `expressionTriggerTimestamp` en _0_. Para reproducir el emote nuevamente, debes actualizar este valor a 1. Así es como el motor sabe que esta es una nueva instrucción, y no una instrucción sobre la que ya actuó.
 
-The following snippet creates a system that runs a same emote every 2 seconds:
+El siguiente fragmento crea un sistema que ejecuta el mismo emote cada 2 segundos:
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -98,28 +96,28 @@ Transform.create(myAvatar, {
 })
 
 let clapTimer = 0
-let emoteDuration = 2  // 2 seconds
+let emoteDuration = 2  // 2 segundos
 
-// system
+// sistema
 engine.addSystem((dt: number) => {
     clapTimer += dt
       
     if (clapTimer >= emoteDuration) {
-        // Trigger the clap emote
+        // Activar el emote clap
         AvatarShape.getMutable(wearable).expressionTriggerTimestamp =+ 1 
         
-        clapTimer = 0 // Reset timer
+        clapTimer = 0 // Reiniciar temporizador
     }
 })
 ```
 
 {% hint style="info" %}
-**💡 Tip**: You must know the duration of the emote, and make that the duration of the system. If you create an emote that fixes the avatar still in a same pose, it's recommendable to make the duration of the emote longer than the system. That way, you can make sure that there are no artifacts when finishing and resetting the animation.
+**💡 Consejo**: Debes conocer la duración del emote, y hacer que esa sea la duración del sistema. Si creas un emote que fija al avatar quieto en la misma pose, es recomendable hacer que la duración del emote sea más larga que el sistema. De esa manera, puedes asegurarte de que no haya artefactos al finalizar y reiniciar la animación.
 {% endhint %}
 
-### Copy wearables from player
+## Copiar wearables del jugador
 
-The following snippet changes the wearables and other characteristics of an NPC avatar to match those that the player currently has on. This could be used in a scene as a manequin, to show off a particular wearable or emote combined with the player's current outfit.
+El siguiente fragmento cambia los wearables y otras características de un avatar NPC para que coincidan con los que el jugador tiene actualmente puestos. Esto podría usarse en una escena como un maniquí, para mostrar un wearable o emote particular combinado con el atuendo actual del jugador.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -143,9 +141,9 @@ export function swapAvatar(avatar: Entity) {
 }
 ```
 
-### Display only wearables
+## Mostrar solo wearables
 
-Use the `show_only_wearables` field to display only the listed wearables of an avatar. The rest of the avatar's body will be invisible.
+Usa el campo `show_only_wearables` para mostrar solo los wearables listados de un avatar. El resto del cuerpo del avatar será invisible.
 
 ```ts
 const myAvatar = engine.addEntity()
@@ -163,20 +161,20 @@ Transform.create(myAvatar, {
 })
 ```
 
-This is useful for displaying wearables, for example in a store.
+Esto es útil para mostrar wearables, por ejemplo en una tienda.
 
 {% hint style="info" %}
-**💡 Tip**: If a wearable is rather small, try setting the `scale` of the `Transform` to a larger value.
+**💡 Consejo**: Si un wearable es bastante pequeño, intenta establecer el `scale` del `Transform` a un valor más grande.
 {% endhint %}
 
-### Attach an entity to an NPC
+## Adjuntar una entidad a un NPC
 
-You can use the `AvatarAttach` feature to fix an entity to one of the bones of an NPC avatar, for example so that the NPC is holding an object on their hand. The entity will move together with the avatar when it animates.
+Puedes usar la característica `AvatarAttach` para fijar una entidad a uno de los huesos de un avatar NPC, por ejemplo para que el NPC esté sosteniendo un objeto en su mano. La entidad se moverá junto con el avatar cuando anime.
 
-To use this feature, use the `id` property on the `AvatarShape` to assign an arbitrary id to this avatar, and then reference that id on the `AvatarAttach`. The id can be any string you want.
+Para usar esta característica, usa la propiedad `id` en `AvatarShape` para asignar un id arbitrario a este avatar, y luego referencia ese id en `AvatarAttach`. El id puede ser cualquier cadena que desees.
 
 ```ts
-// Create NPC, with an ID
+// Crear NPC, con un ID
 const myAvatar = engine.addEntity()
 Transform.create(myAvatar, {
   position: Vector3.create(8, 0.25, 8),
@@ -187,7 +185,7 @@ AvatarShape.create(myAvatar, {
   emotes: []
 })
 
-// Create object to attach to NPC
+// Crear objeto para adjuntar al NPC
 const attachedEntity = engine.addEntity()
 Transform.create(attachedEntity, {
     position: Vector3.create(4, 2, 4),
@@ -201,4 +199,4 @@ AvatarAttach.create(attachedEntity, {
 })
 ```
 
-Learn more about the `AvatarAttach` component [here](../../../creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar).
+Aprende más sobre el componente `AvatarAttach` [aquí](../3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar).

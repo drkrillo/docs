@@ -1,22 +1,18 @@
 ---
-description: Legacy functions
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/deprecated-functions
+description: Funciones heredadas
 ---
 
-# Deprecated Functions
+# Funciones obsoletas
 
-The following functions are all legacy and should be avoided. They still work, but in the future they might stop being supported. All these examples include links to alternative ways to obtain the same information or achieve the same results.
+Las siguientes funciones son todas heredadas y deben evitarse. Aún funcionan, pero en el futuro podrían dejar de ser compatibles. Todos estos ejemplos incluyen enlaces a formas alternativas de obtener la misma información o lograr los mismos resultados.
 
-### Player enters or leaves scene
+## El jugador entra o sale de la escena
 
 {% hint style="warning" %}
-**📔 Note**: The `onEnterSceneObservable` and `onLeaveSceneObservable` events are deprecated on SDK 7.x. Use `onEnterScene` instead, see [Player enters or leaves scene](../../../creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene).
+**📔 Nota**: Los eventos `onEnterSceneObservable` y `onLeaveSceneObservable` están obsoletos en SDK 7.x. Usa `onEnterScene` en su lugar, consulta [El jugador entra o sale de la escena](event-listeners.md#player-enters-or-leaves-scene).
 {% endhint %}
 
-Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to. This event is triggered by all avatars, including the player's.
+Cada vez que un avatar entra o sale de las parcelas de tierra que conforman tu escena, o se teletransporta dentro o fuera, esto crea un evento al que puedes escuchar. Este evento es activado por todos los avatares, incluido el del jugador.
 
 ```ts
 import {
@@ -34,13 +30,13 @@ onLeaveSceneObservable.add((player) => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: This event only responds to players that are currently being rendered locally. In large scenes where the scene size exceeds the visual range, players entering in the opposite corner may not be registered. If the number of players in the region exceeds the capabilities of an island on Decentraland servers, players that are not sharing a same island aren't visible and are not tracked by these events either.
+**📔 Nota**: Este evento solo responde a jugadores que actualmente están siendo renderizados localmente. En escenas grandes donde el tamaño de la escena excede el rango visual, los jugadores que entran en la esquina opuesta pueden no ser registrados. Si el número de jugadores en la región excede las capacidades de una isla en los servidores de Decentraland, los jugadores que no comparten una misma isla no son visibles y tampoco son rastreados por estos eventos.
 {% endhint %}
 
-The observables `onEnterScene` and `onLeaveScene` imported from `'@dcl/sdk/observables'` are also deprecated. The correct functions are named the same, but imported from `'@dcl/sdk/src/players'` instead. In the example below you can see both variations, first the deprecated version, then the proper one.
+Los observables `onEnterScene` y `onLeaveScene` importados desde `'@dcl/sdk/observables'` también están obsoletos. Las funciones correctas tienen el mismo nombre, pero se importan desde `'@dcl/sdk/src/players'` en su lugar. En el ejemplo a continuación puedes ver ambas variaciones, primero la versión obsoleta, luego la correcta.
 
 ```ts
-// DEPRECATED - imported from observables
+// OBSOLETO - importado desde observables
 import { onEnterScene, onLeaveScene } from '@dcl/sdk/observables'
 
 onEnterScene.add((player) => {
@@ -51,7 +47,7 @@ onLeaveScene.add((player) => {
 	console.log('player left scene: ', player.userId)
 })
 
-// CURRENT - imported as a player function
+// ACTUAL - importado como una función de jugador
 import { onEnterScene, onLeaveScene } from '@dcl/sdk/src/players'
 
 export function main() {
@@ -67,13 +63,13 @@ export function main() {
 }
 ```
 
-### Player connects or disconnects
+## El jugador se conecta o desconecta
 
 {% hint style="warning" %}
-**📔 Note**: The `getConnectedPlayers` function and the `onPlayerConnectedObservable` and `onPlayerDisconnectedObservable` events are deprecated on SDK 7.x. Use `onEnterScene` instead, see [Player enters or leaves scene](../../../creator/sdk7/interactivity/event-listeners.md#player-enters-or-leaves-scene). Each scene is now a distinct comms island, making it the same to be connected or on the same scene.
+**📔 Nota**: La función `getConnectedPlayers` y los eventos `onPlayerConnectedObservable` y `onPlayerDisconnectedObservable` están obsoletos en SDK 7.x. Usa `onEnterScene` en su lugar, consulta [El jugador entra o sale de la escena](event-listeners.md#player-enters-or-leaves-scene). Cada escena ahora es una isla de comunicaciones distinta, haciendo que sea lo mismo estar conectado o en la misma escena.
 {% endhint %}
 
-Get the full list of currently connected players from `getConnectedPlayers`.
+Obtén la lista completa de jugadores actualmente conectados desde `getConnectedPlayers`.
 
 ```ts
 import { getConnectedPlayers } from '~system/Players'
@@ -86,7 +82,7 @@ executeTask(async () => {
 })
 ```
 
-Whenever another player starts or stops being rendered by the local engine, this creates an event you can listen to. Players may or may not be standing on the same scene as you, but must be within visual range (not necessarily in sight). The `onPlayerConnectedObservable` detects both when a player newly connects nearby or comes close enough to be in visual range, likewise the `onPlayerDisconnectedObservable` detects when a player ends their session or or walks far away.
+Cada vez que otro jugador comienza o deja de ser renderizado por el motor local, esto crea un evento al que puedes escuchar. Los jugadores pueden o no estar parados en la misma escena que tú, pero deben estar dentro del rango visual (no necesariamente a la vista). El `onPlayerConnectedObservable` detecta tanto cuando un jugador se conecta recientemente cerca como cuando se acerca lo suficiente para estar en rango visual, del mismo modo el `onPlayerDisconnectedObservable` detecta cuando un jugador termina su sesión o se aleja demasiado.
 
 ```ts
 import {
@@ -103,15 +99,15 @@ onPlayerDisconnectedObservable.add((player) => {
 })
 ```
 
-Keep in mind that if other players are already being rendered in the surroundings before the player has loaded your scene, this event won't notify the newly loaded scene of the already existing players. If you need to keep track of all current players, you can query for existing players upon scene loading, and then listen to this event for updates.
+Ten en cuenta que si otros jugadores ya están siendo renderizados en los alrededores antes de que el jugador haya cargado tu escena, este evento no notificará a la escena recién cargada de los jugadores ya existentes. Si necesitas hacer un seguimiento de todos los jugadores actuales, puedes consultar los jugadores existentes al cargar la escena, y luego escuchar este evento para actualizaciones.
 
-### Query all players in scene
+## Consultar todos los jugadores en la escena
 
 {% hint style="warning" %}
-**📔 Note**: The `getPlayersInScene` function is deprecated on SDK 7.x. Instead, iterate over all players with a `PlayerIdentityData` component. See [Fetch all players](../../../creator/sdk7/interactivity/user-data.md#fetch-all-players).
+**📔 Nota**: La función `getPlayersInScene` está obsoleta en SDK 7.x. En su lugar, itera sobre todos los jugadores con un componente `PlayerIdentityData`. Consulta [Obtener todos los jugadores](user-data.md#fetch-all-players).
 {% endhint %}
 
-You can also get the full list of players who are currently on your scene and being rendered by calling `getPlayersInScene()`.
+También puedes obtener la lista completa de jugadores que actualmente están en tu escena y siendo renderizados llamando a `getPlayersInScene()`.
 
 ```ts
 import { getPlayersInScene } from '~system/Players'
@@ -124,13 +120,13 @@ executeTask(async () => {
 })
 ```
 
-### Player plays animation
+## El jugador reproduce una animación
 
 {% hint style="warning" %}
-**📔 Note**: The `onPlayerExpressionObservable` event is deprecated on SDK 7.x. Use the `AvatarEmoteCommand` component instead, see [Player plays animation](../../../creator/sdk7/interactivity/event-listeners.md#player-plays-animation).
+**📔 Nota**: El evento `onPlayerExpressionObservable` está obsoleto en SDK 7.x. Usa el componente `AvatarEmoteCommand` en su lugar, consulta [El jugador reproduce una animación](event-listeners.md#player-plays-animation).
 {% endhint %}
 
-Whenever the player plays an emote (dance, clap, wave, etc), you can detect this event.
+Cada vez que el jugador reproduce un emote (baile, aplaudir, saludar, etc.), puedes detectar este evento.
 
 ```ts
 import { onPlayerExpressionObservable } from '@dcl/sdk/observables'
@@ -140,21 +136,21 @@ onPlayerExpressionObservable.add(({ expressionId }) => {
 })
 ```
 
-The event includes the following information:
+El evento incluye la siguiente información:
 
-* expressionId: Name of the emote performed (ie: _wave_, _clap_, _kiss_)
-
-{% hint style="warning" %}
-**📔 Note**: This event is triggered any time the player makes an emote and the scene is loaded. The player could be standing in a nearby scene when this happens.
-{% endhint %}
-
-### Player changes profile
+- expressionId: Nombre del emote realizado (ej: _wave_, _clap_, _kiss_)
 
 {% hint style="warning" %}
-**📔 Note**: The `onProfileChanged` event is deprecated on SDK 7.x. Use the `AvatarEquippedData` component instead, see [Player changes profile](../../../creator/sdk7/interactivity/event-listeners.md#player-changes-profile).
+**📔 Nota**: Este evento se activa cada vez que el jugador hace un emote y la escena está cargada. El jugador podría estar parado en una escena cercana cuando esto sucede.
 {% endhint %}
 
-Whenever the player makes a change to their profile, the `onProfileChanged` event is called. These changes may include putting on different wearables, changing name, description, activating portable experiences, etc.
+## El jugador cambia de perfil
+
+{% hint style="warning" %}
+**📔 Nota**: El evento `onProfileChanged` está obsoleto en SDK 7.x. Usa el componente `AvatarEquippedData` en su lugar, consulta [El jugador cambia de perfil](event-listeners.md#player-changes-profile).
+{% endhint %}
+
+Cada vez que el jugador realiza un cambio en su perfil, se llama al evento `onProfileChanged`. Estos cambios pueden incluir ponerse diferentes wearables, cambiar nombre, descripción, activar experiencias portátiles, etc.
 
 ```ts
 import { onProfileChanged } from '@dcl/sdk/observables'
@@ -164,25 +160,25 @@ onProfileChanged.add((profileData) => {
 })
 ```
 
-Event data includes only the ID of the player and a version number for that avatar's profile, according to the catalyst server. Every time a change is propagated, the version number increases by 1.
+Los datos del evento incluyen solo el ID del jugador y un número de versión para el perfil de ese avatar, según el servidor catalyst. Cada vez que se propaga un cambio, el número de versión aumenta en 1.
 
-When this event is triggered, you can then use the [getUserData()](../../../creator/sdk7/interactivity/user-data.md#get-player-data) function to fetch the latest version of this information, including the list of wearables that the player has on. You may need to add a slight delay before you call `getUserData()` to ensure that the version this function returns is up to date.
+Cuando se activa este evento, puedes usar la función [getUserData()](user-data.md#get-player-data) para obtener la última versión de esta información, incluida la lista de wearables que el jugador tiene puestos. Es posible que necesites agregar un ligero retraso antes de llamar a `getUserData()` para asegurarte de que la versión que devuelve esta función esté actualizada.
 
 {% hint style="info" %}
-**💡 Tip**: When testing in preview with the legacy web explorer, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet.
+**💡 Consejo**: Al probar en vista previa con el explorador web heredado, para evitar usar un avatar aleatorio, ejecuta la escena en el navegador conectado con tu billetera Metamask.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: This event is only triggered by changes to the current player, not by changes on the profiles of other nearby players.
+**📔 Nota**: Este evento solo se activa por cambios al jugador actual, no por cambios en los perfiles de otros jugadores cercanos.
 {% endhint %}
 
-### Scene finished loading
+## La escena terminó de cargar
 
 {% hint style="warning" %}
-**📔 Note**: The `onSceneReadyObservable` event is deprecated from SDK v7.x. This function is no longer relevant. You can ensure that something is executed after the scene finished loading by running it inside the `Main()` function. See [Scene lifecycle](../../../creator/sdk7/getting-started/coding-scenes.md#scene-lifecycle)
+**📔 Nota**: El evento `onSceneReadyObservable` está obsoleto desde SDK v7.x. Esta función ya no es relevante. Puedes asegurarte de que algo se ejecute después de que la escena termine de cargar ejecutándolo dentro de la función `Main()`. Consulta [Ciclo de vida de la escena](../getting-started/coding-scenes.md#scene-lifecycle)
 {% endhint %}
 
-When the scene finishes loading, the `onSceneReadyObservable` gets called. This works both if the player loads straight into the scene, or if the player walks up to the scene from somewhere else. When all of the content in the scene has finished its initial load, including heavy models, etc, this event is called.
+Cuando la escena termina de cargar, se llama el `onSceneReadyObservable`. Esto funciona tanto si el jugador carga directamente en la escena, o si el jugador camina hasta la escena desde otro lugar. Cuando todo el contenido en la escena ha terminado su carga inicial, incluidos modelos pesados, etc., se llama este evento.
 
 ```ts
 import { onSceneReadyObservable } from '@dcl/sdk/observables'
@@ -192,15 +188,15 @@ onSceneReadyObservable.add(() => {
 })
 ```
 
-### Deprecated player data methods
+## Métodos obsoletos de datos del jugador
 
 {% hint style="warning" %}
-**📔 Note**: The `getUserData()` and `getPlayerData()` functions are deprecated from SDK v7.4.x. Use `getPlayer()` instead. See [User data](../../../creator/sdk7/interactivity/user-data.md#get-user-data).
+**📔 Nota**: Las funciones `getUserData()` y `getPlayerData()` están obsoletas desde SDK v7.4.x. Usa `getPlayer()` en su lugar. Consulta [Datos de usuario](user-data.md#get-user-data).
 {% endhint %}
 
-To obtain information from the current player that's running the scene, use `getUserData()`.
+Para obtener información del jugador actual que está ejecutando la escena, usa `getUserData()`.
 
-The example below imports the `~system/UserIdentity` namespace and runs `getUserData()`.
+El ejemplo a continuación importa el namespace `~system/UserIdentity` y ejecuta `getUserData()`.
 
 ```ts
 import { getUserData } from '~system/UserIdentity'
@@ -211,7 +207,7 @@ executeTask(async () => {
 })
 ```
 
-You can obtain data from other players that are nearby, by calling `getPlayerData()`, passing the id of a Decentraland account.
+Puedes obtener datos de otros jugadores que están cerca, llamando a `getPlayerData()`, pasando el id de una cuenta de Decentraland.
 
 ```ts
 import { getPlayerData } from '~system/Players'
@@ -222,20 +218,20 @@ executeTask(async () => {
 })
 ```
 
-Both `getUserData()` and `getPlayerData()` return the same data structure available via the content API. See [Data from any player](../../../creator/sdk7/interactivity/user-data.md#data-from-any-player)
+Tanto `getUserData()` como `getPlayerData()` devuelven la misma estructura de datos disponible a través de la API de contenido. Consulta [Datos de cualquier jugador](user-data.md#data-from-any-player)
 
-`getPlayerData()` can only fetch data from players who are currently nearby. They don't have to be necessarily standing in the same scene, but in visual range, that's because this information is being fetched from the local engine that's rendering these avatars. To try this out in preview, open a second tab and log in with a different account.
+`getPlayerData()` solo puede obtener datos de jugadores que actualmente están cerca. No tienen que estar necesariamente parados en la misma escena, pero en rango visual, eso es porque esta información se obtiene del motor local que está renderizando estos avatares. Para probar esto en vista previa, abre una segunda pestaña e inicia sesión con una cuenta diferente.
 
 {% hint style="warning" %}
-**📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+**📔 Nota**: Los IDs de usuario siempre deben estar en minúsculas. Si copias una dirección de billetera, asegúrate de que todos los caracteres estén en minúsculas.
 {% endhint %}
 
-The `getUserPublicKey()` and `getUserAccount()` functions are also deprecated. Please use `getPlayer()` instead. See [User data](../../../creator/sdk7/interactivity/user-data.md#get-user-data).
+Las funciones `getUserPublicKey()` y `getUserAccount()` también están obsoletas. Por favor usa `getPlayer()` en su lugar. Consulta [Datos de usuario](user-data.md#get-user-data).
 
-### Get skybox time
+## Obtener la hora del skybox
 
 {% hint style="warning" %}
-**📔 Note**: The `getDecentralandTime()` function is deprecated from SDK v7.x.x. Use `getWorldTime()` instead. See [Get Decentraland Time](../../../creator/sdk7/interactivity/runtime-data.md#get-decentraland-time).
+**📔 Nota**: La función `getDecentralandTime()` está obsoleta desde SDK v7.x.x. Usa `getWorldTime()` en su lugar. Consulta [Obtener la hora de Decentraland](runtime-data.md#get-decentraland-time).
 {% endhint %}
 
 ```ts
@@ -247,10 +243,10 @@ executeTask(async () => {
 })
 ```
 
-### Get realm
+## Obtener realm
 
 {% hint style="warning" %}
-**📔 Note**: The `getCurrentRealm()` function is deprecated from SDK v7.x.x. Use `getRealm()` instead. See [Get Realm Data](../../../creator/sdk7/interactivity/runtime-data.md#get-realm-data).
+**📔 Nota**: La función `getCurrentRealm()` está obsoleta desde SDK v7.x.x. Usa `getRealm()` en su lugar. Consulta [Obtener datos del Realm](runtime-data.md#get-realm-data).
 {% endhint %}
 
 ```ts
@@ -265,10 +261,10 @@ async function fetchPlayerData() {
 fetchPlayerData()
 ```
 
-### Is preview mode
+## Es modo de vista previa
 
 {% hint style="warning" %}
-**📔 Note**: The `isPreviewMode()` function is deprecated from SDK v7.x.x. Use `getRealm()` instead, which contains a `preview` property. See [Get Realm Data](../../../creator/sdk7/interactivity/runtime-data.md#get-realm-data).
+**📔 Nota**: La función `isPreviewMode()` está obsoleta desde SDK v7.x.x. Usa `getRealm()` en su lugar, que contiene una propiedad `preview`. Consulta [Obtener datos del Realm](runtime-data.md#get-realm-data).
 {% endhint %}
 
 ```ts
@@ -283,9 +279,9 @@ executeTask(async () => {
 })
 ```
 
-### Player clicks on another player
+## El jugador hace clic en otro jugador
 
-Whenever the player clicks on another player, you can detect an event.
+Cada vez que el jugador hace clic en otro jugador, puedes detectar un evento.
 
 ```ts
 import { onPlayerClickedObservable } from '@dcl/sdk/observables'
@@ -296,38 +292,38 @@ onPlayerClickedObservable.add((clickEvent) => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `onPlayerClickedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](../../../creator/sdk7/architecture/data-oriented-programming.md), based on regularly querying data rather than events.
+**📔 Nota**: El evento `onPlayerClickedObservable` está obsoleto desde SDK v7.x. Las versiones futuras permitirán un enfoque más [orientado a datos](../architecture/data-oriented-programming.md), basado en consultar datos regularmente en lugar de eventos.
 
-As an alternative, you can attach an invisible collider to the player and detect clicks against this.
+Como alternativa, puedes adjuntar un colisionador invisible al jugador y detectar clics contra esto.
 {% endhint %}
 
 {% hint style="warning" %}
-**📔 Note**: Both the player performing the click and the player being clicked must be standing within the parcels of the scene. This listener only detects events of the current player clicking on other players, not those of clicks performed by other players.
+**📔 Nota**: Tanto el jugador que realiza el clic como el jugador al que se hace clic deben estar parados dentro de las parcelas de la escena. Este listener solo detecta eventos del jugador actual haciendo clic en otros jugadores, no aquellos de clics realizados por otros jugadores.
 {% endhint %}
 
-The event includes the following data:
+El evento incluye los siguientes datos:
 
-* `userId`: The id of the clicked player
-* `ray`: Data about the ray traced by the click
-  * `direction`: _Vector3_ A normalized Vector3 that represents the direction from the point of origin of the click to the hit point of the click.
-  * `distance`: _number_ The distance in meters from the point of origin to the hit point.
-  * `origin`: _Vector3_ The point of origin of the click, the position of the player who did the click, relative to the scene.
+- `userId`: El id del jugador al que se hizo clic
+- `ray`: Datos sobre el rayo trazado por el clic
+  - `direction`: _Vector3_ Un Vector3 normalizado que representa la dirección desde el punto de origen del clic hasta el punto de impacto del clic.
+  - `distance`: _number_ La distancia en metros desde el punto de origen hasta el punto de impacto.
+  - `origin`: _Vector3_ El punto de origen del clic, la posición del jugador que hizo el clic, relativa a la escena.
 
 {% hint style="info" %}
-**💡 Tip**: The default behavior of clicking on another player is opening the player passport, where you can see additional information about that player, add them as a friend, etc. You can disable the opening of this UI so that it doesn't get in the way of the experience you want to build by adding an [Avatar Modifier Area](../../../creator/sdk7/interactivity/avatar-modifiers.md).
+**💡 Consejo**: El comportamiento predeterminado de hacer clic en otro jugador es abrir el pasaporte del jugador, donde puedes ver información adicional sobre ese jugador, agregarlo como amigo, etc. Puedes deshabilitar la apertura de esta UI para que no interfiera con la experiencia que deseas construir agregando un [Área modificadora de avatar](avatar-modifiers.md).
 {% endhint %}
 
-### Player locks/unlocks cursor
+## El jugador bloquea/desbloquea el cursor
 
 {% hint style="warning" %}
-**📔 Note**: The `onPointerLockedStateChange` event is deprecated from SDK v7.x. See [Event listeners](../../../creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor) for a non-deprecated alternative.
+**📔 Nota**: El evento `onPointerLockedStateChange` está obsoleto desde SDK v7.x. Consulta [Event listeners](event-listeners.md#player-locks-or-unlocks-cursor) para una alternativa no obsoleta.
 {% endhint %}
 
-Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
+Los jugadores pueden cambiar entre dos modos de cursor: modo de _cursor bloqueado_ para controlar la cámara o modo de _cursor desbloqueado_ para mover el cursor libremente sobre la UI.
 
-Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
+Los jugadores desbloquean el cursor haciendo clic en el _botón derecho del mouse_ o presionando la tecla _Esc_, y bloquean el cursor nuevamente haciendo clic en cualquier lugar de la pantalla.
 
-This `onPointerLockedStateChange` event is activated each time a player switches between these two modes, while near the scene.
+Este evento `onPointerLockedStateChange` se activa cada vez que un jugador cambia entre estos dos modos, mientras está cerca de la escena.
 
 ```ts
 import { onPointerLockedStateChange } from '@dcl/sdk/observables'
@@ -342,14 +338,14 @@ onPointerLockedStateChange.add(({ locked }) => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: This event is triggered even if the player is not standing directly inside the scene.
+**📔 Nota**: Este evento se activa incluso si el jugador no está parado directamente dentro de la escena.
 {% endhint %}
 
-### Player changes realm or island
+## El jugador cambia de realm o isla
 
-Players in decentraland exist in separate _realms_, and in separate _islands_ within each realm. Players in different realms or islands cant see each other, interact or chat with each other, even if they're standing on the same parcels.
+Los jugadores en Decentraland existen en _realms_ separados, y en _islas_ separadas dentro de cada realm. Los jugadores en diferentes realms o islas no pueden verse, interactuar o chatear entre sí, incluso si están parados en las mismas parcelas.
 
-Each time the player changes realms or island, the `onRealmChangedObservable` event gets called.
+Cada vez que el jugador cambia de realm o isla, se llama el evento `onRealmChangedObservable`.
 
 ```ts
 import { onRealmChangedObservable } from '@dcl/sdk/observables'
@@ -360,33 +356,33 @@ onRealmChangedObservable.add((realmChange) => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `onRealmChangedObservable` event is deprecated from SDK v7.x. Future versions will allow for a more [data-oriented approach](../../../creator/sdk7/architecture/data-oriented-programming.md), based on regularly querying data rather than events.
+**📔 Nota**: El evento `onRealmChangedObservable` está obsoleto desde SDK v7.x. Las versiones futuras permitirán un enfoque más [orientado a datos](../architecture/data-oriented-programming.md), basado en consultar datos regularmente en lugar de eventos.
 {% endhint %}
 
-This event includes the following fields:
+Este evento incluye los siguientes campos:
 
-* **serverName**: _string_; The catalyst server name.
-* **room**: _string_; The island name.
-* **displayName**: _string_; The catalyst server name followed by a _-_ and the island name. For example `unicorn-x011`.
-* **domain**: _string_; The url to the catalyst server being used.
+- **serverName**: _string_; El nombre del servidor catalyst.
+- **room**: _string_; El nombre de la isla.
+- **displayName**: _string_; El nombre del servidor catalyst seguido de un _-_ y el nombre de la isla. Por ejemplo `unicorn-x011`.
+- **domain**: _string_; La url al servidor catalyst que se está usando.
 
-As players move through the map, they may switch islands to be grouped with those players who are now closest to them. Islands also shift their borders dynamically to fit a manageable group of people in each. So even if a player stands still they could be changed island as others enter and leave surrounding scenes.
+A medida que los jugadores se mueven por el mapa, pueden cambiar de islas para agruparse con aquellos jugadores que ahora están más cerca de ellos. Las islas también cambian sus fronteras dinámicamente para ajustarse a un grupo manejable de personas en cada una. Entonces, incluso si un jugador se queda quieto, podría cambiar de isla a medida que otros entran y salen de las escenas circundantes.
 
-If your scene relies on an [3rd party server](../../../creator/sdk7/networking/authoritative-servers.md) to sync changes between players in real time, then you may want to only share data between players that are grouped in a same realm+island, so it's a good practice to change rooms in the 3rd party server whenever players change island.
+Si tu escena depende de un [servidor de terceros](../networking/authoritative-servers.md) para sincronizar cambios entre jugadores en tiempo real, entonces es posible que solo desees compartir datos entre jugadores que están agrupados en un mismo realm+isla, por lo que es una buena práctica cambiar de salas en el servidor de terceros cada vez que los jugadores cambian de isla.
 
-### Crypto functions
+## Funciones de criptografía
 
 {% hint style="warning" %}
-**📔 Note**: The functions `requirePayment()`, `signMessage()`, `convertMessageToObject()` are deprecated. Use the `sendAsync()` function instead. See [Scene blockchain operations](deprecated-functions.md). There are also libraries that can help simplify some common use cases with these functions.
+**📔 Nota**: Las funciones `requirePayment()`, `signMessage()`, `convertMessageToObject()` están obsoletas. Usa la función `sendAsync()` en su lugar. Consulta [Operaciones blockchain de la escena](../blockchain/scene-blockchain-operations.md#). También hay bibliotecas que pueden ayudar a simplificar algunos casos de uso comunes con estas funciones.
 {% endhint %}
 
-### Video Events
+## Eventos de video
 
 {% hint style="warning" %}
-**📔 Note**: The `onVideoEvent` event is deprecated from SDK v7.x. See [Event listeners](../../../creator/sdk7/media/video-playing.md#video-events) for a non-deprecated alternative.
+**📔 Nota**: El evento `onVideoEvent` está obsoleto desde SDK v7.x. Consulta [Event listeners](../media/video-playing.md#video-events) para una alternativa no obsoleta.
 {% endhint %}
 
-When a video changes its playing status, the `onVideoEvent` observable receives an event.
+Cuando un video cambia su estado de reproducción, el observable `onVideoEvent` recibe un evento.
 
 ```ts
 onVideoEvent.add((data) => {
@@ -394,16 +390,17 @@ onVideoEvent.add((data) => {
 })
 ```
 
-The input of a video event contains the following properties:
+La entrada de un evento de video contiene las siguientes propiedades:
 
-* `videoClipId` ( _string_): The ID for the entity that changed status.
-* `componentId` (_string_): The ID of the entity that changed status.
-* `currentOffset` (_number_): The current value of the `seek` property on the video. This value shows seconds after the video's original beginning. _-1_ by default.
-* `totalVideoLength` (_number_ ): The length in seconds of the entire video. _-1_ if length is unknown.
-* `videoStatus`: The value for the new video status of the `VideoTexture`, expressed as a value from the `VideoStatus` enum. This enum can hold the following possible values:
-* `VideoStatus.NONE` = 0,
-* `VideoStatus.ERROR` = 1,
-* `VideoStatus.LOADING` = 2,
-* `VideoStatus.READY` = 3,
-* `VideoStatus.PLAYING` = 4,
-* `VideoStatus.BUFFERING` = 5
+- `videoClipId` ( _string_): El ID para la entidad que cambió de estado.
+- `componentId` (_string_): El ID de la entidad que cambió de estado.
+- `currentOffset` (_number_): El valor actual de la propiedad `seek` en el video. Este valor muestra segundos después del comienzo original del video. _-1_ por defecto.
+- `totalVideoLength` (_number_ ): La longitud en segundos del video completo. _-1_ si la longitud es desconocida.
+- `videoStatus`: El valor para el nuevo estado de video del `VideoTexture`, expresado como un valor del enum `VideoStatus`. Este enum puede contener los siguientes valores posibles:
+
+- `VideoStatus.NONE` = 0,
+- `VideoStatus.ERROR` = 1,
+- `VideoStatus.LOADING` = 2,
+- `VideoStatus.READY` = 3,
+- `VideoStatus.PLAYING` = 4,
+- `VideoStatus.BUFFERING` = 5

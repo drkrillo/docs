@@ -1,24 +1,20 @@
 ---
-description: Link to other scenes or external sites
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/external-links
+description: Enlaza a otras escenas o sitios externos
 ---
 
-# External Links
+# Enlaces salientes
 
-You can add links from your scene out to other content, either to other scenes or to external websites.
+Puedes agregar enlaces desde tu escena hacia otro contenido, ya sea a otras escenas o a sitios web externos.
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-The easiest way to add an external link or a teleport is to use the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md). Use the **Teleport** [Smart Item](../../../creator/scene-editor/interactivity/smart-items.md) to add teleport to another scene in Genesis City, or use any of the **Social Links** smart items to add links to external sites.
+La forma más fácil de agregar un enlace externo o un teletransporte es usar el [Scene Editor](../../scene-editor/about-editor.md). Usa el [Smart Item](../../scene-editor/smart-items.md) **Teleport** para agregar un teletransporte a otra escena en Genesis City, o usa cualquiera de los smart items de **Social Links** para agregar enlaces a sitios externos.
 
-![](../../.gitbook/assets/social-links.png)
+<img src="/images/editor/social-links.png" alt="Move entity" width="300"/>
 
-### Teleports
+## Teletransportes
 
-To teleport a player to another scene, call the following function, indicating the coordinates that you want players to teleport to.
+Para teletransportar a un jugador a otra escena, llama a la siguiente función, indicando las coordenadas a las que deseas que los jugadores se teletransporten.
 
 ```ts
 import { teleportTo } from "~system/RestrictedActions"
@@ -28,15 +24,15 @@ import { teleportTo } from "~system/RestrictedActions"
 teleportTo({ worldCoordinates: { x: -51, y: 1 } })
 ```
 
-Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata](../../../creator/sdk7/projects/scene-metadata.md) for details on how to set this data.
+A los jugadores se les presenta una pantalla de confirmación antes de ser teletransportados, esta pantalla muestra información del archivo `scene.json` de la escena de destino, incluyendo el `name` de la escena, `description` y `navmapThumbnail`. Consulta [metadatos de escena](../projects/scene-metadata.md) para detalles sobre cómo establecer estos datos.
 
-Bare in mind that teleports take you to a scene in the indicated coordinates, but not necessarily to that same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
+Ten en cuenta que los teletransportes te llevan a una escena en las coordenadas indicadas, pero no necesariamente a esas mismas coordenadas. Esto significa que al viajar a una escena que tiene múltiples parcelas, los jugadores pueden no aterrizar en las mismas coordenadas especificadas, sino en uno de los puntos de spawn designados por el creador de la escena.
 
-To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player](../../../creator/sdk7/interactivity/move-player.md).
+Para mover a un jugador a otro conjunto de coordenadas dentro de la escena actual, usa la función `movePlayerTo()` en su lugar. Consulta [Mover un jugador](move-player.md).
 
-### Teleport to a WORLD
+## Teletransporte a un WORLD
 
-To send a player to a scene that is not published in the open world Genesis City map, but instead to an isolated [Decentraland WORLD](../../worlds/about.md), use the function `changeRealm()`.
+Para enviar a un jugador a una escena que no está publicada en el mapa abierto de Genesis City, sino a un [Decentraland WORLD](../../worlds/about.md) aislado, usa la función `changeRealm()`.
 
 ```ts
 import { changeRealm } from "~system/RestrictedActions"
@@ -46,13 +42,13 @@ import { changeRealm } from "~system/RestrictedActions"
 changeRealm({realm: 'mannakia.dcl.eth'})
 ```
 
-Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata](../../../creator/sdk7/projects/scene-metadata.md) for details on how to set this data.
+A los jugadores se les presenta una pantalla de confirmación antes de ser teletransportados, esta pantalla muestra información del archivo `scene.json` de la escena de destino, incluyendo el `name` de la escena, `description` y `navmapThumbnail`. Consulta [metadatos de escena](../projects/scene-metadata.md) para detalles sobre cómo establecer estos datos.
 
-The player will spawn in on of the spawn points of the scene in that world, regardless of their current coordinates on the map.
+El jugador aparecerá en uno de los puntos de spawn de la escena en ese world, independientemente de sus coordenadas actuales en el mapa.
 
-### External links
+## Enlaces externos
 
-To add a link to an external website, use the `openExternalUrl()` command.
+Para agregar un enlace a un sitio web externo, usa el comando `openExternalUrl()`.
 
 ```ts
 import { openExternalUrl } from '~system/RestrictedActions'
@@ -60,10 +56,10 @@ import { openExternalUrl } from '~system/RestrictedActions'
 openExternalUrl({ url: 'google.com' })
 ```
 
-To prevent any abusive usage of this feature to spam players, it's only possible to call the `openExternalUrl` from an explicit click or button event on an entity. It's not possible to call this function as a result of a timer, or a collision area, or a global click event. See [Button events](../../../creator/sdk7/interactivity/button-events/click-events.md) for details on how to do this.
+Para prevenir cualquier uso abusivo de esta característica para enviar spam a los jugadores, solo es posible llamar a `openExternalUrl` desde un evento de clic o botón explícito en una entidad. No es posible llamar a esta función como resultado de un temporizador, o un área de colisión, o un evento de clic global. Consulta [Eventos de botones](../interactivity/click-events.md) para detalles sobre cómo hacer esto.
 
-When `openExternalUrl` is called, players are prompted with a confirmation screen, where they are informed of where the link will take them, and where can accept of decline to visit the link.
+Cuando se llama a `openExternalUrl`, se le solicita a los jugadores una pantalla de confirmación, donde se les informa a dónde los llevará el enlace, y donde pueden aceptar o rechazar visitar el enlace.
 
-The link is opened in a new tab, keeping the original tab in Decentraland.
+El enlace se abre en una nueva pestaña, manteniendo la pestaña original en Decentraland.
 
-If players tick the _trust this domain_ checkbox, they won't be prompted again during their session, as long as the link comes from the same scene and is to the same domain.
+Si los jugadores marcan la casilla _trust this domain_, no se les solicitará nuevamente durante su sesión, siempre que el enlace provenga de la misma escena y sea hacia el mismo dominio.

@@ -1,37 +1,31 @@
 ---
-description: >-
-  Use raycasting to trace a line in space and query for collisions with entities
-  in the scene.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/raycasting
+description: Usa raycasting para trazar una línea en el espacio y consultar colisiones con entidades en la escena
 ---
 
 # Raycasting
 
-Raycasting is a fundamental tool in game development. With raycasting, you can trace an imaginary line in space, and query if any entities are intersected by that line. This is useful for calculating lines of sight, trajectories of bullets, pathfinding algorithms and many other applications.
+El raycasting es una herramienta fundamental en el desarrollo de juegos. Con raycasting, puedes trazar una línea imaginaria en el espacio y consultar si alguna entidad es intersectada por esa línea. Esto es útil para calcular líneas de visión, trayectorias de balas, algoritmos de pathfinding y muchas otras aplicaciones.
 
-When a player pushes the pointer button, or the primary or secondary button, a ray is traced from the player's position in the direction they are looking, see [button events](../../../creator/sdk7/interactivity/button-events/click-events.md) for more details about this. This document covers how to trace an invisible ray from any arbitrary position and direction, independent of player actions, which you can use in many other scenarios.
+Cuando un jugador presiona el botón del puntero, o el botón primario o secundario, se traza un rayo desde la posición del jugador en la dirección en la que están mirando, consulta [eventos de botones](../interactivity/click-events.md) para más detalles sobre esto. Este documento cubre cómo trazar un rayo invisible desde cualquier posición y dirección arbitraria, independiente de las acciones del jugador, que puedes usar en muchos otros escenarios.
 
-Please note that raycasts only hit objects with colliders. So if you want to detect ray hits against a 3D model, either:
+Ten en cuenta que los raycasts solo impactan objetos con colisionadores. Entonces, si deseas detectar impactos de rayos contra un modelo 3D, ya sea:
 
-* The model must contain [collider meshes](../../3d-modeling/colliders.md).
-* The `GLTFContainer` must be configured to use the [visible geometry with collision masks](../../../creator/sdk7/3d-essentials/colliders.md#colliders-on-3d-models).
-* Add a [MeshCollider component](../../../creator/sdk7/3d-essentials/colliders.md).
+- El modelo debe contener [meshes colisionadores](../../3d-modeling/colliders.md).
+- El `GLTFContainer` debe estar configurado para usar la [geometría visible con máscaras de colisión](../3d-essentials/colliders.md#colliders-on-3d-models).
+- Agregar un [componente MeshCollider](../3d-essentials/colliders.md).
 
-It's also a good practice to assign custom [collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers) to 3D models, so that rays only need to calculate collisions against the relevant entities, instead of against everything that has a collider.
+También es una buena práctica asignar [capas de colisión](../3d-essentials/colliders.md#collision-layers) personalizadas a los modelos 3D, para que los rayos solo necesiten calcular colisiones contra las entidades relevantes, en lugar de contra todo lo que tiene un colisionador.
 
-### Create a ray
+## Crear un rayo
 
-All rays have a point of origin and a direction. The point of origin is based on an entity's position, taking the values on the entity's Transform component. The direction of a ray can be defined in 4 different ways:
+Todos los rayos tienen un punto de origen y una dirección. El punto de origen se basa en la posición de una entidad, tomando los valores en el componente Transform de la entidad. La dirección de un rayo se puede definir de 4 maneras diferentes:
 
-* **local**: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading.
-* **global**: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down.
-* **global target**: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful for example to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space.
-* **target entity**: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities.
+- **local**: Una dirección relativa a la dirección hacia adelante de la entidad, afectada también por la transformación de cualquier entidad padre. Esto es útil para detectar obstáculos frente a vehículos respetando su rumbo.
+- **global**: Ignora la rotación de la entidad, y mira una dirección como si la rotación de la entidad fuera 0. Esto es útil para, por ejemplo, siempre apuntar hacia abajo.
+- **objetivo global**: Traza una línea entre la posición de la entidad y una posición objetivo global en la escena. Ignora la rotación de la entidad. Útil por ejemplo para crear juegos de tower defense, la torreta de cada torre puede apuntar a una coordenada señalada en el espacio.
+- **entidad objetivo**: Traza una línea entre la posición de la entidad y la posición de una segunda entidad objetivo. Ignora la rotación de cualquiera de las entidades.
 
-The following code creates a raycast with a local direction:
+El siguiente código crea un raycast con una dirección local:
 
 ```ts
 const myEntity = engine.addEntity()
@@ -45,39 +39,40 @@ raycastSystem.registerLocalDirectionRaycast(
     opts: { direction: Vector3.Forward() },
   },
   function (raycastResult) {
-    // callback function
+    // función callback
   }
 )
 ```
 
-Use the following functions to create raycasts by providing the direction in different ways:
+Usa las siguientes funciones para crear raycasts proporcionando la dirección de diferentes maneras:
 
-* `raycastSystem.registerLocalDirectionRaycast()`: creates a raycast with a **local** direction. The `direction` field expects a `Vector3` that describes a vector relative to the entity and its rotation (e.g. `Vector3.Forward()` would end up using the entity's transform forward vector)
-* `raycastSystem.registerGlobalDirectionRaycast()`: creates a raycast with a **global** direction. The `direction` field expects a `Vector3` that describes the global direction.
-* `raycastSystem.registerGlobalTargetRaycast()`: creates a raycast with a direction defined by a **global target** position. The `target` field expects a `Vector3` that describes a global position in the scene.
-* `raycastSystem.registerTargetEntityRaycast()`: creates a raycast with a direction defined towards a **target entity** position. The `targetEntity` field expects a reference to an entity, this entity's position will be used as the target of the ray.
+- `raycastSystem.registerLocalDirectionRaycast()`: crea un raycast con una dirección **local**. El campo `direction` espera un `Vector3` que describe un vector relativo a la entidad y su rotación (ej. `Vector3.Forward()` terminaría usando el vector forward del transform de la entidad)
+- `raycastSystem.registerGlobalDirectionRaycast()`: crea un raycast con una dirección **global**. El campo `direction` espera un `Vector3` que describe la dirección global.
+- `raycastSystem.registerGlobalTargetRaycast()`: crea un raycast con una dirección definida por una posición **objetivo global**. El campo `target` espera un `Vector3` que describe una posición global en la escena.
+- `raycastSystem.registerTargetEntityRaycast()`: crea un raycast con una dirección definida hacia la posición de una **entidad objetivo**. El campo `targetEntity` espera una referencia a una entidad, la posición de esta entidad se usará como objetivo del rayo.
 
-The following optional fields are available when creating a ray with any of the above methods:
+Los siguientes campos opcionales están disponibles al crear un rayo con cualquiera de los métodos anteriores:
 
-* `maxDistance`: _number_ to set the length with which this ray will be traced. If not set, the default is 16 meters.
-* `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
-  * `RaycastQueryType.RQT_HIT_FIRST`: _(default)_ only returns the first hit entity, starting from the origin point.
-  * `RaycastQueryType.RQT_QUERY_ALL`: returns all hit entities, from the origin through to the max distance of the ray.
-* `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own collider. If not set, the default is `Vector3.Zero()`.
-* `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers). If not set, the default layer used is `ColliderLayer.CL_PHYSICS`.
-* `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. If not set, the default is false.
-* When setting the direction with a local or glocal direction, the `direction` field defaults to `Vector3.Forward()`.
-* When setting the direction with a global target, the `globalTarget` field defaults to `Vector3.Zero()`.
-* When setting the direction with an entity target, the `targetEntity` field defaults to the scene's root entity, located at `Vector3.Zero()`.
+- `maxDistance`: _number_ para establecer la longitud con la que se trazará este rayo. Si no se establece, el predeterminado es 16 metros.
+- `queryType`: valor enum _RaycastQueryType_, para definir si el rayo devolverá todas las entidades impactadas o solo la primera. Las siguientes opciones están disponibles:
+  - `RaycastQueryType.RQT_HIT_FIRST`: _(predeterminado)_ solo devuelve la primera entidad impactada, comenzando desde el punto de origen.
+  - `RaycastQueryType.RQT_QUERY_ALL`: devuelve todas las entidades impactadas, desde el origen hasta la distancia máxima del rayo.
+- `originOffset`: En lugar de comenzar el raycast desde la posición de origen de la entidad, agrega un desplazamiento para comenzar la consulta desde una posición relativa. Puedes, por ejemplo, usar un pequeño desplazamiento para evitar que el rayo colisione contra el colisionador propio de la entidad. Si no se establece, el predeterminado es `Vector3.Zero()`.
+- `collisionMask`: Solo detectar colisiones con ciertas capas de colisión. Usa esto junto con una capa de colisión personalizada, o para detectar solo la capa de physics o eventos de puntero. Consulta [capas de colisión](../3d-essentials/colliders.md#collision-layers). Si no se establece, la capa predeterminada usada es `ColliderLayer.CL_PHYSICS`.
+- `continuous`: Si es true, seguirá ejecutando una consulta de raycast en cada frame. Si es false, el rayo solo se usará en el frame actual. Si no se establece, el predeterminado es false.
+
+- Al establecer la dirección con una dirección local o global, el campo `direction` por defecto es `Vector3.Forward()`.
+- Al establecer la dirección con un objetivo global, el campo `globalTarget` por defecto es `Vector3.Zero()`.
+- Al establecer la dirección con un objetivo de entidad, el campo `targetEntity` por defecto es la entidad raíz de la escena, ubicada en `Vector3.Zero()`.
 
 {% hint style="warning" %}
-**📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance. When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, see [recurrent raycasting](raycasting.md#recurrent-raycasting).
+**📔 Nota**: La propiedad `continuous` debe usarse con precaución, ya que ejecutar una consulta de raycast en cada frame puede ser muy costoso para el rendimiento. Cuando sea posible, usa un sistema (o la función `interval` en la biblioteca Utils) para ejecutar consultas de raycast a un intervalo regular más espaciado, consulta [raycasting recurrente](#recurrent-raycasting).
 {% endhint %}
 
-Below are examples using each of the four methods to determine the ray direction:
+A continuación hay ejemplos usando cada uno de los cuatro métodos para determinar la dirección del rayo:
 
 ```ts
-// LOCAL DIRECTION RAYCAST
+// RAYCAST DE DIRECCIÓN LOCAL
 raycastSystem.registerLocalDirectionRaycast(
   {
     entity: myEntity,
@@ -91,7 +86,7 @@ raycastSystem.registerLocalDirectionRaycast(
     console.log(raycastResult.hits)
   }
 )
-// GLOBAL DIRECTION RAYCAST
+// RAYCAST DE DIRECCIÓN GLOBAL
 raycastSystem.registerGlobalDirectionRaycast(
   {
     entity: myEntity,
@@ -105,7 +100,7 @@ raycastSystem.registerGlobalDirectionRaycast(
     console.log(raycastResult.hits)
   }
 )
-// GLOBAL TARGET POSITION RAYCAST
+// RAYCAST DE POSICIÓN OBJETIVO GLOBAL
 raycastSystem.registerGlobalTargetRaycast(
   {
     entity: myEntity,
@@ -118,7 +113,7 @@ raycastSystem.registerGlobalTargetRaycast(
     console.log(raycastResult.hits)
   }
 )
-// TARGET ENTITY RAYCAST
+// RAYCAST DE ENTIDAD OBJETIVO
 const targetEntity = engine.addEntity()
 Transform.create(targetEntity, { position: Vector3.create(8, 1, 10) })
 
@@ -137,32 +132,32 @@ raycastSystem.registerTargetEntityRaycast(
 ```
 
 {% hint style="warning" %}
-**📔 Note**: `raycastSystem`, `RaycastQueryType` and `ColliderLayer` must be imported via
+**📔 Nota**: `raycastSystem`, `RaycastQueryType` y `ColliderLayer` deben importarse mediante
 
 > `import { raycastSystem, RaycastQueryType, ColliderLayer } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Raycast result
+## Resultado del raycast
 
-The callback function that handles the raycast receives an object containing data about the ray itself, and any entities that were hit.
+La función callback que maneja el raycast recibe un objeto que contiene datos sobre el rayo mismo, y cualquier entidad que fue impactada.
 
-* `globalOrigin`: The position where the ray was originated, relative to the scene.
-* `direction`: The global direction that the ray was pointing, as a `Vector3`.
-* `hits`: An array with one object for each entity that was hit. If there were no hit entities, this array is empty. If the raycast used `RaycastQueryType.RQT_HIT_FIRST`, this array will only contain one object.
+- `globalOrigin`: La posición donde se originó el rayo, relativa a la escena.
+- `direction`: La dirección global que el rayo estaba apuntando, como un `Vector3`.
+- `hits`: Un array con un objeto por cada entidad que fue impactada. Si no hubo entidades impactadas, este array está vacío. Si el raycast usó `RaycastQueryType.RQT_HIT_FIRST`, este array solo contendrá un objeto.
 
-Each object in the `hits` array includes:
+Cada objeto en el array `hits` incluye:
 
-* `entityId`: Id number of the entity that was hit by the ray.
-* `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
-* `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
-* `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
-* `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
-* `globalOrigin`: _Vector3_ for the position where the ray originates (relative to the scene)
-* `direction`: The global direction that the ray was pointing, as a `Vector3`.
+- `entityId`: Número de Id de la entidad que fue impactada por el rayo.
+- `meshName`: _String_ con el nombre interno del mesh específico en el modelo 3D que fue impactado. Esto es útil cuando un modelo 3D está compuesto por múltiples meshes.
+- `position`: _Vector3_ para la posición donde el rayo intersectó con la entidad impactada (relativa a la escena)
+- `length`: Longitud del rayo desde su origen hasta la posición donde ocurrió el impacto contra la entidad.
+- `normalHit`: _Quaternion_ para el ángulo de la normal del impacto en espacio mundial.
+- `globalOrigin`: _Vector3_ para la posición donde se origina el rayo (relativa a la escena)
+- `direction`: La dirección global que el rayo estaba apuntando, como un `Vector3`.
 
-The following example iterates over the entities that were hit:
+El siguiente ejemplo itera sobre las entidades que fueron impactadas:
 
 ```ts
 const myEntity = engine.addEntity()
@@ -194,12 +189,12 @@ raycastSystem.registerLocalDirectionRaycast(
 ```
 
 {% hint style="warning" %}
-**📔 Note**: You can get a raycast result from hitting an entity on a different scene.
+**📔 Nota**: Puedes obtener un resultado de raycast al impactar una entidad en una escena diferente.
 {% endhint %}
 
-### Handle hit entities
+## Manejar entidades impactadas
 
-When you get a raycast result that hit an entity, you can use the `entityId` to interact with the entity and its components. An entity is [nothing more than a number](../../../creator/sdk7/architecture/entities-components.md#overview), so the `entityId` value itself can be interpreted as an `Entity` type.
+Cuando obtienes un resultado de raycast que impactó una entidad, puedes usar el `entityId` para interactuar con la entidad y sus componentes. Una entidad es [nada más que un número](../architecture/entities-components.md#overview), por lo que el valor `entityId` mismo puede interpretarse como un tipo `Entity`.
 
 ```ts
 const hitEntity = result.entityId as Entity
@@ -207,11 +202,11 @@ const transform = Transform.get(entity)
 console.log(transform.position)
 ```
 
-### Collision layers
+## Capas de colisión
 
-It's a good practice to only check for collisions against entities that are relevant, to make the scene more performant. The `collisionMask` field allows to to list only specific collision layers, which can include the physics layer (that blocks player movement), the pointer layer (which is used for pointer events), and 8 custom layers that you can assign freely to whatever your needs are. See [collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers). By default, all layers are detected.
+Es una buena práctica solo verificar colisiones contra entidades que sean relevantes, para hacer la escena más eficiente. El campo `collisionMask` permite listar solo capas de colisión específicas, que pueden incluir la capa de physics (que bloquea el movimiento del jugador), la capa de puntero (que se usa para eventos de puntero), y 8 capas personalizadas que puedes asignar libremente según tus necesidades. Consulta [capas de colisión](../3d-essentials/colliders.md#collision-layers). Por defecto, todas las capas se detectan.
 
-By default, the `collisionMask` field is set to respond to both the layers `ColliderLayer.CL_POINTER` and `ColliderLayer.CL_PHYSICS`. You can change this value to list only one of those, or to include custom layers. Use the `|` separator to list multiple options.
+Por defecto, el campo `collisionMask` está configurado para responder tanto a las capas `ColliderLayer.CL_POINTER` como `ColliderLayer.CL_PHYSICS`. Puedes cambiar este valor para listar solo una de esas, o para incluir capas personalizadas. Usa el separador `|` para listar múltiples opciones.
 
 ```ts
 raycastSystem.registerLocalDirectionRaycast(
@@ -233,11 +228,11 @@ raycastSystem.registerLocalDirectionRaycast(
 )
 ```
 
-### Recurrent raycasting
+## Raycasting recurrente
 
-When using the functions of the `raycastSystem`, the default behavior is to create a single ray, that will query for collisions once. As an alternative, you can set the `continuous` field to _true_ to run a query and the callback function on every tick of the game loop.
+Al usar las funciones del `raycastSystem`, el comportamiento predeterminado es crear un solo rayo, que consultará colisiones una vez. Como alternativa, puedes establecer el campo `continuous` en _true_ para ejecutar una consulta y la función callback en cada tick del bucle del juego.
 
-The following example will keep running the raycast query from this point onwards
+El siguiente ejemplo seguirá ejecutando la consulta de raycast desde este punto en adelante
 
 ```ts
 raycastSystem.registerLocalDirectionRaycast(
@@ -257,19 +252,19 @@ raycastSystem.registerLocalDirectionRaycast(
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance.
+**📔 Nota**: La propiedad `continuous` debe usarse con precaución, ya que ejecutar una consulta de raycast en cada frame puede ser muy costoso para el rendimiento.
 {% endhint %}
 
-When not needed anymore, remove any recurrent raycasts. To do so, you must use `raycastSystem.removeRaycasterEntity`.
+Cuando ya no se necesite, elimina cualquier raycast recurrente. Para hacerlo, debes usar `raycastSystem.removeRaycasterEntity`.
 
 ```ts
 raycastSystem.removeRaycasterEntity(myEntity)
 ```
 
-When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, like just once a second, or every fifth of a second.
+Cuando sea posible, usa un sistema (o la función `interval` en la biblioteca Utils) para ejecutar consultas de raycast a un intervalo regular más espaciado, como solo una vez por segundo, o cada quinta parte de segundo.
 
 ```typescript
-// custom components
+// componentes personalizados
 const CubeOscilator = engine.defineComponent('CubeOscilator', {
   t: Schemas.Float,
 })
@@ -280,7 +275,7 @@ const TimerComponent = engine.defineComponent('TimerComponent', {
 
 const RAY_INTERVAL = 0.1
 
-// check rays
+// verificar rayos
 engine.addSystem((dt) => {
   for (const [entity] of engine.getEntitiesWith(TimerComponent)) {
     const timer = TimerComponent.getMutable(entity)
@@ -307,7 +302,7 @@ engine.addSystem((dt) => {
 
 TimerComponent.create(engine.addEntity())
 
-// oscillating cube system
+// sistema de cubo oscilante
 engine.addSystem((dt) => {
   for (const [entity, cube] of engine.getEntitiesWith(
     CubeOscilator,
@@ -318,7 +313,7 @@ engine.addSystem((dt) => {
   }
 })
 
-// create cube
+// crear cubo
 const cubeEntity = engine.addEntity()
 Transform.create(cubeEntity, { position: { x: 8, y: 1, z: 8 } })
 CubeOscilator.create(cubeEntity)
@@ -326,17 +321,17 @@ MeshRenderer.setBox(cubeEntity)
 MeshCollider.setBox(cubeEntity)
 ```
 
-The example above runs a recurring raycast every 0.1 seconds. It uses a timer component and a system's `dt` property to time these evenly. It also includes a cube that oscillates up and down, controlled by another system, to move in and out of the path of the ray.
+El ejemplo anterior ejecuta un raycast recurrente cada 0.1 segundos. Usa un componente temporizador y la propiedad `dt` de un sistema para cronometrarlos uniformemente. También incluye un cubo que oscila hacia arriba y hacia abajo, controlado por otro sistema, para moverse dentro y fuera del camino del rayo.
 
 {% hint style="info" %}
-**💡 Tip**: Use the `interval` function in the [SDK Utils library](https://github.com/decentraland/sdk7-utils) for a simpler way to run a function at a fixed interval.
+**💡 Consejo**: Usa la función `interval` en la [biblioteca SDK Utils](https://github.com/decentraland/sdk7-utils) para una manera más simple de ejecutar una función a un intervalo fijo.
 {% endhint %}
 
-### Raycasts via a system
+## Raycasts a través de un sistema
 
-Another way to perform recurrent raycasts is to execute them from within the recurring function of a system. This allows you to have a lot more control about when and how these work. Instead of registering a callback function, you can perform a raycast query with `raycastSystem.registerRaycast` and then check the data returned by this operation, all within the function of the system.
+Otra forma de realizar raycasts recurrentes es ejecutarlos desde dentro de la función recurrente de un sistema. Esto te permite tener mucho más control sobre cuándo y cómo funcionan. En lugar de registrar una función callback, puedes realizar una consulta de raycast con `raycastSystem.registerRaycast` y luego verificar los datos devueltos por esta operación, todo dentro de la función del sistema.
 
-Please note that since the raycast is executed in a system, the result will only be available the next tick, needing two runs of the system. One to register the raycast for the next frame, and the next frame process its result.
+Ten en cuenta que como el raycast se ejecuta en un sistema, el resultado solo estará disponible el siguiente tick, necesitando dos ejecuciones del sistema. Una para registrar el raycast para el siguiente frame, y el siguiente frame procesar su resultado.
 
 ```ts
 engine.addSystem((deltaTime) => {
@@ -348,26 +343,26 @@ engine.addSystem((deltaTime) => {
 				maxDistance: RAY_POWER,
 				queryType: raycastQueryType,
 				direction: Vector.forward()
-				continuous: true // don't overuse the 'continuous' property as raycasting is expensive on performance
+				continuous: true // no abuses de la propiedad 'continuous' ya que el raycasting es costoso en rendimiento
 			})
 		)
-		if (result) // do something
+		if (result) // hacer algo
 	})
 ```
 
-### Collide with the player
+## Colisionar con el jugador
 
-You can't directly hit the player's avatar or those of other players with a ray, but what you can do as a workaround is position an invisible entity occupying the same space as a player using the [AvatarAttach component](../../../creator/sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar), and check collisions with that cube.
+No puedes impactar directamente el avatar del jugador o los de otros jugadores con un rayo, pero lo que puedes hacer como solución alternativa es posicionar una entidad invisible ocupando el mismo espacio que un jugador usando el [componente AvatarAttach](../3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar), y verificar colisiones con ese cubo.
 
-### Raycasts from the player
+## Raycasts desde el jugador
 
-To trace a ray from the player's position in the direction faced by the camera, you can trace a ray using the camera or the avatar [Reserved entities](../../../creator/sdk7/architecture/entities-components.md#reserved-entities).
+Para trazar un rayo desde la posición del jugador en la dirección enfrentada por la cámara, puedes trazar un rayo usando la cámara o el avatar [Entidades Reservadas](../architecture/entities-components.md#reserved-entities).
 
 {% hint style="info" %}
-**💡 Tip**: For most cases, you might be better off using [Pointer eveents](../../../creator/sdk7/interactivity/button-events/click-events.md) instead of raycasts.
+**💡 Consejo**: Para la mayoría de los casos, podrías estar mejor usando [Eventos de puntero](../interactivity/click-events.md) en lugar de raycasts.
 {% endhint %}
 
-The following example traces a ray from the player's camera position forward, using the `engine.CameraEntity` entity.
+El siguiente ejemplo traza un rayo desde la posición de la cámara del jugador hacia adelante, usando la entidad `engine.CameraEntity`.
 
 ```ts
 raycastSystem.registerGlobalDirectionRaycast(
@@ -388,14 +383,14 @@ raycastSystem.registerGlobalDirectionRaycast(
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Keep in mind that in 3rd person the cursor could in the future not behave the same as in 1st person. It's recommended to only use this if the player is in 1st person.
+**📔 Nota**: Ten en cuenta que en tercera persona el cursor podría en el futuro no comportarse igual que en primera persona. Se recomienda solo usar esto si el jugador está en primera persona.
 {% endhint %}
 
-### Raycast from the cursor position
+## Raycast desde la posición del cursor
 
-You can also trace a ray from the player's cursor position into the 3D world. This can be used to drag objects around, shooters, etc.
+También puedes trazar un rayo desde la posición del cursor del jugador hacia el mundo 3D. Esto se puede usar para arrastrar objetos, shooters, etc.
 
-In this example, we detect when the player presses the E key, and then we trace a ray from the cursor position into the 3D world. We then check if the ray hit any entity, and if so, we do something with it.
+En este ejemplo, detectamos cuando el jugador presiona la tecla E, y luego trazamos un rayo desde la posición del cursor hacia el mundo 3D. Luego verificamos si el rayo impactó alguna entidad, y si es así, hacemos algo con ella.
 
 ```ts
 import { engine, Entity, InputAction, inputSystem, PointerEventType, RaycastQueryType, raycastSystem, TextShape, Transform } from '@dcl/sdk/ecs'
@@ -444,12 +439,12 @@ const rayCastSystem = (t: number) => {
       function (raycastResult) {
         let result = raycastResult.hits[0]
 
-        // do something in the hit position
+        // hacer algo en la posición de impacto
         if (result && result.position) {
           console.log("x:", result.position.x, ", y:", result.position.y, ", z:", result.position.z)
         }
 
-        // do something with the hit entity
+        // hacer algo con la entidad impactada
         const entity = result.entityId as Entity
         if (entity) {
           console.log("entity: ", entity)
@@ -461,35 +456,35 @@ const rayCastSystem = (t: number) => {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: In this example we use the primary button (E) to trigger the raycast. We don't use the pointer button (left click) because clicking and dragging also shifts the camera angle by default. If you want to prevent rotating the camera while dragging, you can use a [Virtual Camera](../../../creator/sdk7/3d-essentials/camera.md) to set the camera angle as fixed.
+**💡 Consejo**: En este ejemplo usamos el botón primario (E) para activar el raycast. No usamos el botón del puntero (clic izquierdo) porque hacer clic y arrastrar también cambia el ángulo de la cámara por defecto. Si deseas evitar rotar la cámara mientras arrastras, puedes usar una [Cámara Virtual](../3d-essentials/camera.md) para establecer el ángulo de la cámara como fijo.
 {% endhint %}
 
-### Advanced syntax
+## Sintaxis avanzada
 
-#### Create a raycast component
+### Crear un componente raycast
 
-A Raycast component describes the invisible ray that is used to query for intersecting entities. The ray is traced starting at the entity's position, as defined by the Transform component and affected by that of any parent entities. The direction can be defined in various ways,
+Un componente Raycast describe el rayo invisible que se usa para consultar entidades intersectadas. El rayo se traza comenzando en la posición de la entidad, como se define en el componente Transform y afectado por el de cualquier entidad padre. La dirección se puede definir de varias maneras.
 
-Rays are defined using the following data:
+Los rayos se definen usando los siguientes datos:
 
-* `direction`: An object that contains a `$case` field to select the type of direction, and an additional field that will depend on this type, that determines this direction. The following are the accepted values for `$case`:
-  * `LOCAL_DIRECTION`: A direction relative to the forward-facing direction of the entity, affected also by the transformation of any parent entities. This is useful to detect obstacles in front of vehicles honoring their heading. The rotation is defined by the `localDirection` field, as a `Vector3` that describes a rotation.
-  * `GLOBAL_DIRECTION`: Ignores the entity's rotation, and faces a direction as if the entity's rotation was 0. This is useful to i.e. always point down. The rotation is defined by the `globalDirection` field, as a `Vector3` that describes a rotation.
-  * `GLOBAL_TARGET`: Traces a line between the entity's position and a target global position in the scene. It ignores the entity's rotation. Useful to create tower defense games, each tower's turret can point to a pin-pointed coordinate in space. The target is defined by the `globalTarget` field, as a `Vector3` that describes the global position.
-  * `TARGET_ENTITY`: Traces a line between the entity's position and the position of a second target entity. It ignores the rotation of either entities. The target is defined by the `targetEntity` field, holding a reference to the entity.
-* `maxDistance`: _number_ to set the length with which this ray will be traced.
-* `queryType`: _RaycastQueryType_ enum value, to define if the ray will return all hit entities or just the first. The following options are available:
-  * `RaycastQueryType.RQT_QUERY_ALL`: only returns the first hit entity, starting from the origin point.
-  * `RaycastQueryType.RQT_HIT_FIRST`: returns all hit entities, from the origin through to the max distance of the ray.
-* `collisionMask`: Only detect collisions with certain collision layers. Use this together with a custom collision layer, or to only detect the physics or pointer events layer. See [collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers). By default, all layers are detected.
-* `originOffset`: Instead of starting the raycast from the entity's origin position, add an offset to start the query from a relative position. You can for example use a small offset to prevent the ray colliding against the entity's own 3D model.
-* `continuous`: If true, will keep running a raycast query on every frame. If false, the ray will only be used on the current frame. By default this value is false.
+- `direction`: Un objeto que contiene un campo `$case` para seleccionar el tipo de dirección, y un campo adicional que dependerá de este tipo, que determina esta dirección. Los siguientes son los valores aceptados para `$case`:
+  - `LOCAL_DIRECTION`: Una dirección relativa a la dirección hacia adelante de la entidad, afectada también por la transformación de cualquier entidad padre. Esto es útil para detectar obstáculos frente a vehículos respetando su rumbo. La rotación se define por el campo `localDirection`, como un `Vector3` que describe una rotación.
+  - `GLOBAL_DIRECTION`: Ignora la rotación de la entidad, y mira una dirección como si la rotación de la entidad fuera 0. Esto es útil para, por ejemplo, siempre apuntar hacia abajo. La rotación se define por el campo `globalDirection`, como un `Vector3` que describe una rotación.
+  - `GLOBAL_TARGET`: Traza una línea entre la posición de la entidad y una posición objetivo global en la escena. Ignora la rotación de la entidad. Útil para crear juegos de tower defense, la torreta de cada torre puede apuntar a una coordenada señalada en el espacio. El objetivo se define por el campo `globalTarget`, como un `Vector3` que describe la posición global.
+  - `TARGET_ENTITY`: Traza una línea entre la posición de la entidad y la posición de una segunda entidad objetivo. Ignora la rotación de cualquiera de las entidades. El objetivo se define por el campo `targetEntity`, manteniendo una referencia a la entidad.
+- `maxDistance`: _number_ para establecer la longitud con la que se trazará este rayo.
+- `queryType`: valor enum _RaycastQueryType_, para definir si el rayo devolverá todas las entidades impactadas o solo la primera. Las siguientes opciones están disponibles:
+  - `RaycastQueryType.RQT_QUERY_ALL`: solo devuelve la primera entidad impactada, comenzando desde el punto de origen.
+  - `RaycastQueryType.RQT_HIT_FIRST`: devuelve todas las entidades impactadas, desde el origen hasta la distancia máxima del rayo.
+- `collisionMask`: Solo detectar colisiones con ciertas capas de colisión. Usa esto junto con una capa de colisión personalizada, o para detectar solo la capa de physics o eventos de puntero. Consulta [capas de colisión](../3d-essentials/colliders.md#collision-layers). Por defecto, todas las capas se detectan.
+- `originOffset`: En lugar de comenzar el raycast desde la posición de origen de la entidad, agrega un desplazamiento para comenzar la consulta desde una posición relativa. Puedes, por ejemplo, usar un pequeño desplazamiento para evitar que el rayo colisione contra el modelo 3D propio de la entidad.
+- `continuous`: Si es true, seguirá ejecutando una consulta de raycast en cada frame. Si es false, el rayo solo se usará en el frame actual. Por defecto este valor es false.
 
 {% hint style="warning" %}
-**📔 Note**: The `continuous` property should be used with caution, as running a raycast query on every frame can be very expensive for performance. When possible, use a system (or the `interval` function in the Utils library) to run raycast queries at a regular more sparse interval, see [recurrent raycasting](raycasting.md#recurrent-raycasting).
+**📔 Nota**: La propiedad `continuous` debe usarse con precaución, ya que ejecutar una consulta de raycast en cada frame puede ser muy costoso para el rendimiento. Cuando sea posible, usa un sistema (o la función `interval` en la biblioteca Utils) para ejecutar consultas de raycast a un intervalo regular más espaciado, consulta [raycasting recurrente](#recurrent-raycasting).
 {% endhint %}
 
-The following example uses a global rotation to determine the direction, and only returns the first entity that is hit on the frame that the ray is sent.
+El siguiente ejemplo usa una rotación global para determinar la dirección, y solo devuelve la primera entidad que es impactada en el frame que se envía el rayo.
 
 ```typescript
 const entity1 = engine.addEntity()
@@ -508,7 +503,7 @@ Raycast.createOrReplace(entity1, {
 })
 ```
 
-The example below launches a ray in the forward-facing direction of the entity, returning only the first item hit. It does so continuously. It also includes a minor offset of 0.5 to prevent the ray from hitting the entity's own collider.
+El ejemplo a continuación lanza un rayo en la dirección hacia adelante de la entidad, devolviendo solo el primer elemento impactado. Lo hace continuamente. También incluye un desplazamiento menor de 0.5 para evitar que el rayo impacte el colisionador propio de la entidad.
 
 ```typescript
 const entity1 = engine.addEntity()
@@ -529,7 +524,7 @@ Raycast.createOrReplace(entity1, {
 })
 ```
 
-This example traces a ray between two entities. It returns all entities that are hit in between.
+Este ejemplo traza un rayo entre dos entidades. Devuelve todas las entidades que son impactadas en el medio.
 
 ```ts
 const entity1 = engine.addEntity()
@@ -554,31 +549,31 @@ Raycast.createOrReplace(entity1, {
 })
 ```
 
-#### Raycast results component
+### Componente de resultados de raycast
 
 {% hint style="warning" %}
-**📔 Note**: The easiest way to deal with raycast results is to use `raycastEventSystem`, and register a callback function as part of the same statement that creates the ray. The`RaycastResult` component is used internally by that that interface, but also exposed to enable more advanced custom logic.
+**📔 Nota**: La forma más fácil de manejar resultados de raycast es usar `raycastEventSystem`, y registrar una función callback como parte de la misma declaración que crea el rayo. El componente `RaycastResult` se usa internamente por esa interfaz, pero también se expone para permitir lógica personalizada más avanzada.
 {% endhint %}
 
-After creating a Raycast component, the entity that this component is added to will have a `RaycastResult` component. This component includes information about any hits of the ray. Set up a system to check for this data.
+Después de crear un componente Raycast, la entidad a la que se agrega este componente tendrá un componente `RaycastResult`. Este componente incluye información sobre cualquier impacto del rayo. Configura un sistema para verificar estos datos.
 
-The `RaycastResult` component contains the following data:
+El componente `RaycastResult` contiene los siguientes datos:
 
-* `globalOrigin`: The position where the ray was originated, relative to the scene.
-* `direction`: The global direction that the ray was pointing, as a `Vector3`.
-* `hits`: An array with one object for each entity that was hit. If there were no hit entities, this array is empty. If the raycast used `RaycastQueryType.RQT_HIT_FIRST`, this array will only contain one object.
+- `globalOrigin`: La posición donde se originó el rayo, relativa a la escena.
+- `direction`: La dirección global que el rayo estaba apuntando, como un `Vector3`.
+- `hits`: Un array con un objeto por cada entidad que fue impactada. Si no hubo entidades impactadas, este array está vacío. Si el raycast usó `RaycastQueryType.RQT_HIT_FIRST`, este array solo contendrá un objeto.
 
-Each object in the `hits` array includes:
+Cada objeto en el array `hits` incluye:
 
-* `entityId`: Id number of the entity that was hit by the ray.
-* `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
-* `position`: _Vector3_ for the position where the ray intersected with the hit entity (relative to the scene)
-* `length`: Length of the ray from its origin to the position where the hit against the entity occurred.
-* `normalHit`: _Quaternion_ for the angle of the normal of the hit in world space.
-* `globalOrigin`: _Vector3_ for the position where the ray originates (relative to the scene)
-* `direction`: The global direction that the ray was pointing, as a `Vector3`.
+- `entityId`: Número de Id de la entidad que fue impactada por el rayo.
+- `meshName`: _String_ con el nombre interno del mesh específico en el modelo 3D que fue impactado. Esto es útil cuando un modelo 3D está compuesto por múltiples meshes.
+- `position`: _Vector3_ para la posición donde el rayo intersectó con la entidad impactada (relativa a la escena)
+- `length`: Longitud del rayo desde su origen hasta la posición donde ocurrió el impacto contra la entidad.
+- `normalHit`: _Quaternion_ para el ángulo de la normal del impacto en espacio mundial.
+- `globalOrigin`: _Vector3_ para la posición donde se origina el rayo (relativa a la escena)
+- `direction`: La dirección global que el rayo estaba apuntando, como un `Vector3`.
 
-The example below shows how you can access results from an individual entity using a system:
+El ejemplo a continuación muestra cómo puedes acceder a resultados de una entidad individual usando un sistema:
 
 ```typescript
 
@@ -588,7 +583,7 @@ Transform.create(rayEntity, {
   position: Vector3.create(8, 1, 0)
 })
 
-// return all entities
+// devolver todas las entidades
 Raycast.createOrReplace(rayEntity, {
   direction: {
     $case: "globalDirection",
@@ -604,7 +599,7 @@ engine.addSystem(() => {
 })
 ```
 
-The next example shows how you can access `RaycastResult` components from all entities in the scene, using a [component query](../../../creator/sdk7/architecture/querying-components.md).
+El siguiente ejemplo muestra cómo puedes acceder a componentes `RaycastResult` de todas las entidades en la escena, usando una [consulta de componentes](../architecture/querying-components.md).
 
 ```typescript
 engine.addSystem(() => {
@@ -615,7 +610,7 @@ engine.addSystem(() => {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The results of a raycast do not arrive on the same tick of the game loop that you created the raycast. The results may take one or multiple ticks to arrive.
+**📔 Nota**: Los resultados de un raycast no llegan en el mismo tick del bucle del juego en que creaste el raycast. Los resultados pueden tardar uno o múltiples ticks en llegar.
 {% endhint %}
 
-In a scene where you use multiple kinds of rays for different purposes (like for path finding, line-of-sight checking, projectile tracing, etc), you might want to use different [collision layers](../../../creator/sdk7/3d-essentials/colliders.md#collision-layers), to avoid calculating irrelevant collisions.
+En una escena donde uses múltiples tipos de rayos para diferentes propósitos (como para pathfinding, verificación de línea de visión, rastreo de proyectiles, etc), es posible que desees usar diferentes [capas de colisión](../3d-essentials/colliders.md#collision-layers), para evitar calcular colisiones irrelevantes.

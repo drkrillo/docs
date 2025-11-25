@@ -1,32 +1,28 @@
 ---
-description: Obtain data from players as they interact with your scene.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/user-data
+description: Obtén datos de los jugadores mientras interactúan con tu escena
 ---
 
-# User Data
+# Datos del jugador
 
-### Player position and rotation
+## Posición y rotación del jugador
 
-Use the `PlayerEntity` and the `CameraEntity` to know the player's position and rotation, by checking their `Transform` components.
+Usa `PlayerEntity` y `CameraEntity` para conocer la posición y rotación del jugador, verificando sus componentes `Transform`.
 
 ```ts
 function getPlayerPosition() {
 	if (!Transform.has(engine.PlayerEntity)) return
 	if (!Transform.has(engine.CameraEntity)) return
 
-	//player position
+	//posición del jugador
 	const playerPos = Transform.get(engine.PlayerEntity).position
 
-	//player rotation
+	//rotación del jugador
 	const playerRot = Transform.get(engine.PlayerEntity).rotation
 
-	//camera position
+	//posición de la cámara
 	const CameraPos = Transform.get(engine.CameraEntity).position
 
-	//camera rotation
+	//rotación de la cámara
 	const CameraRot = Transform.get(engine.CameraEntity).rotation
 
 	console.log('playerPos: ', playerPos)
@@ -38,24 +34,24 @@ function getPlayerPosition() {
 engine.addSystem(getPlayerPosition)
 ```
 
-* **PlayerEntity position**: The avatar's position, at chest height. Approximately at 0.88 cm above the ground.
-* **PlayerEntity rotation**: The direction in which the avatar is facing, expressed as a quaternion.
-* **CameraEntity position**:
-  * In 1st person: Equal to the avatar's position, but at eye-level. Approximately at 1.75 cm above the ground.
-  * In 3rd person: May vary depending on camera movements.
-* **PlayerEntity rotation**:
-  * In 1st person: Similar to the direction in which the avatar is facing, expressed as a quaternion. May be rounded slightly differently from the player's rotation.
-  * In 3rd person: May vary depending on camera movements.
+- **Posición de PlayerEntity**: La posición del avatar, a la altura del pecho. Aproximadamente a 0.88 cm sobre el suelo.
+- **Rotación de PlayerEntity**: La dirección en la que el avatar está mirando, expresada como un quaternion.
+- **Posición de CameraEntity**:
+  - En primera persona: Igual a la posición del avatar, pero a la altura de los ojos. Aproximadamente a 1.75 cm sobre el suelo.
+  - En tercera persona: Puede variar dependiendo de los movimientos de la cámara.
+- **Rotación de PlayerEntity**:
+  - En primera persona: Similar a la dirección en la que el avatar está mirando, expresada como un quaternion. Puede estar redondeada ligeramente diferente de la rotación del jugador.
+  - En tercera persona: Puede variar dependiendo de los movimientos de la cámara.
 
 {% hint style="warning" %}
-**📔 Note**: Avoid referring to the `engine.PlayerEntity` or the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block](../../../creator/sdk7/programming-patterns/async-functions.md#the-executetask-function).
+**📔 Nota**: Evita referirte a `engine.PlayerEntity` o `engine.CameraEntity` en la carga inicial de la escena, porque eso puede resultar en errores si las entidades aún no están inicializadas. Para evitar este problema, úsalas dentro de la función `main()`, o en una función llamada indirectamente por `main()`. También puedes encapsular el comportamiento en un bloque async [`executeTask`](../programming-patterns/async-functions.md#the-executetask-function).
 
-Another option is to refer to these entities inside a system. There they will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Otra opción es referirte a estas entidades dentro de un sistema. Allí siempre estarán disponibles, porque la primera ejecución del sistema se llama una vez que la escena ya está correctamente inicializada.
 {% endhint %}
 
-### Fetch all players
+## Obtener todos los jugadores
 
-All players in the scene have a `Transform` component. This component is read only in avatars. To fetch the positions of all players, [iterate over all entities with](user-data.md) a `PlayerIdentityData` component.
+Todos los jugadores en la escena tienen un componente `Transform`. Este componente es de solo lectura en avatares. Para obtener las posiciones de todos los jugadores, [itera sobre todas las entidades con](../architecture/querying-components.md) un componente `PlayerIdentityData`.
 
 ```ts
 import { PlayerIdentityData } from '@dcl/sdk/ecs'
@@ -68,13 +64,13 @@ for (const [entity, data, transform] of engine.getEntitiesWith(
 }
 ```
 
-The code above iterates over all entities with a `Transform` and a `PlayerIdentityData` component, and logs their data. You can use this same method to get any of the available data of all players.
+El código anterior itera sobre todas las entidades con un componente `Transform` y `PlayerIdentityData`, y registra sus datos. Puedes usar este mismo método para obtener cualquiera de los datos disponibles de todos los jugadores.
 
-See [Event listeners](../../../creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor) to learn how to detect and react when new players join into the scene.
+Consulta [Event listeners](event-listeners.md#player-locks-or-unlocks-cursor) para aprender cómo detectar y reaccionar cuando nuevos jugadores se unen a la escena.
 
-### Get player data
+## Obtener datos del jugador
 
-Use `getPlayer()` to fetch data about the current player, or any other player in the scene.
+Usa `getPlayer()` para obtener datos sobre el jugador actual, o cualquier otro jugador en la escena.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -91,27 +87,27 @@ export function main() {
 }
 ```
 
-`getPlayer()` returns the following:
+`getPlayer()` devuelve lo siguiente:
 
-* `name`: _(string)_ The player's user name, as others see in-world
-* `userId`: _(string)_ A UUID string that identifies the player. If the player has a public key, this field will have the same value as the public key.
-* `isGuest`: _(boolean)_ Indicates if the player has a public key. _True_ if the player is a guest account without a public key.
-* `position`: _(Vector3)_ The position of the avatar in the scene.
-* `avatar`: A nested object with data about the player's base avatar and appearance.
-* `wearables`: An array of identifiers for each of the wearables that the player is currently wearing. For example `urn:decentraland:off-chain:base-avatars:green_hoodie`. All wearables have a similar identifier, even if they're NFTs.
-* `emotes`: An array of identifiers for each of the emotes that the player currently has equipped in the quick access wheel.
-* `entity`: A reference to the player entity. This can be handy to pass to other functions, or to add custom components to it.
+- `name`: _(string)_ El nombre de usuario del jugador, como otros ven en el mundo
+- `userId`: _(string)_ Una cadena UUID que identifica al jugador. Si el jugador tiene una clave pública, este campo tendrá el mismo valor que la clave pública.
+- `isGuest`: _(boolean)_ Indica si el jugador tiene una clave pública. _True_ si el jugador es una cuenta de invitado sin clave pública.
+- `position`: _(Vector3)_ La posición del avatar en la escena.
+- `avatar`: Un objeto anidado con datos sobre el avatar base del jugador y su apariencia.
+- `wearables`: Un array de identificadores para cada uno de los wearables que el jugador está usando actualmente. Por ejemplo `urn:decentraland:off-chain:base-avatars:green_hoodie`. Todos los wearables tienen un identificador similar, incluso si son NFTs.
+- `emotes`: Un array de identificadores para cada uno de los emotes que el jugador tiene actualmente equipados en la rueda de acceso rápido.
+- `entity`: Una referencia a la entidad del jugador. Esto puede ser útil para pasarlo a otras funciones, o para agregar componentes personalizados.
 
-The `avatar` object has the following nested information:
+El objeto `avatar` tiene la siguiente información anidada:
 
-* `bodyShapeUrn`: An identifier for the avatar's general body shape. Either `urn:decentraland:off-chain:base-avatars:BaseFemale` for female or `urn:decentraland:off-chain:base-avatars:BaseMale` for male.
-* `skinColor`: Player skin color as a `Color4`
-* `eyesColor`: Player eye color as a `Color4`
-* `hairColor`: Player hair color as a `Color4`
-* `name`: The player's name.
+- `bodyShapeUrn`: Un identificador para la forma general del cuerpo del avatar. Ya sea `urn:decentraland:off-chain:base-avatars:BaseFemale` para femenino o `urn:decentraland:off-chain:base-avatars:BaseMale` para masculino.
+- `skinColor`: Color de piel del jugador como un `Color4`
+- `eyesColor`: Color de ojos del jugador como un `Color4`
+- `hairColor`: Color de cabello del jugador como un `Color4`
+- `name`: El nombre del jugador.
 
 {% hint style="warning" %}
-**📔 Note**: The player data may not be available on the first frame of the scene, depending on load times. You should verify that the data was returned and otherwise attempt again a few milliseconds later.
+**📔 Nota**: Los datos del jugador pueden no estar disponibles en el primer frame de la escena, dependiendo de los tiempos de carga. Debes verificar que los datos fueron devueltos y de lo contrario intentar nuevamente unos milisegundos después.
 {% endhint %}
 
 ```ts
@@ -137,10 +133,10 @@ export function main() {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: When testing in preview with the legacy web editor, to avoid using a random avatar, run the scene in the browser connected with your Metamask wallet.
+**💡 Consejo**: Al probar en vista previa con el editor web heredado, para evitar usar un avatar aleatorio, ejecuta la escena en el navegador conectado con tu billetera Metamask.
 {% endhint %}
 
-To get the data for a specific player in the scene, different from the current player, run `getPlayer()` with an object with a `userId` property.
+Para obtener los datos de un jugador específico en la escena, diferente del jugador actual, ejecuta `getPlayer()` con un objeto con una propiedad `userId`.
 
 ```ts
 import { getPlayer } from '@dcl/sdk/src/players'
@@ -154,65 +150,67 @@ for (const [entity, data, transform] of engine.getEntitiesWith(
 }
 ```
 
-The snippet above iterates over all the entities with a `PlayerIdentityData` component, meaning all the avatar entities in the scene. It then runs the `getPlayer()` for that entity.
+El fragmento anterior itera sobre todas las entidades con un componente `PlayerIdentityData`, es decir, todas las entidades de avatar en la escena. Luego ejecuta el `getPlayer()` para esa entidad.
 
-`getPlayer()` can only fetch data from players who are currently standing in the same scene, they don't have to necessarily be in visual range, but they should be connected to the same comms island. To try this out in preview, open a second tab and log in with a different account, and have both players stand inside the scene.
+`getPlayer()` solo puede obtener datos de jugadores que actualmente están parados en la misma escena, no tienen que estar necesariamente en rango visual, pero deben estar conectados a la misma isla de comunicaciones. Para probar esto en vista previa, abre una segunda pestaña e inicia sesión con una cuenta diferente, y haz que ambos jugadores estén dentro de la escena.
 
 {% hint style="warning" %}
-**📔 Note**: User IDs must always be lowercase. If copying a wallet address, make sure all the characters are set to lowercase.
+**📔 Nota**: Los IDs de usuario siempre deben estar en minúsculas. Si copias una dirección de billetera, asegúrate de que todos los caracteres estén en minúsculas.
 {% endhint %}
 
-### Data from any player
+## Datos de cualquier jugador
 
-To obtain information from any player, make a [REST API call](../../../creator/sdk7/networking/network-connections.md#call-a-rest-api) to the content servers.
+Para obtener información de cualquier jugador, haz una [llamada REST API](../networking/network-connections.md#call-a-rest-api) a los servidores de contenido.
 
-This information is exposed in the following URL, appending the player's user id to the url parameter.
+Esta información está expuesta en la siguiente URL, agregando el ID de usuario del jugador al parámetro de la URL.
 
 `https://peer.decentraland.org/lambdas/profile/<player user id>`
 
 {% hint style="info" %}
-**💡 Tip**: Try the URL out in a browser to see how the response is structured.
+**💡 Consejo**: Prueba la URL en un navegador para ver cómo está estructurada la respuesta.
 {% endhint %}
 
-The following information is available from this API:
+La siguiente información está disponible desde esta API:
 
-* `displayName`: _(string)_ The player's user name, as others see in-world
-* `userId`: _(string)_ A UUID string that identifies the player. If the player has a public key, this field will have the same value as the public key.
-* `hasConnectedWeb3`: _(boolean)_ Indicates if the player has a public key. _True_ if the player has one.
-* `publicKey`: _(string)_ The public key of the player's Ethereum wallet. If the player logs in as a guest, with no linked wallet, this field will be `null`.
-* `avatar`: A nested object with data about the player's appearance.
-* `version`: _(number)_ A version number that increases by one every time the player changes any of their settings. Use this if you encounter conflicting data, to know what version is more recent.
+- `displayName`: _(string)_ El nombre de usuario del jugador, como otros ven en el mundo
+- `userId`: _(string)_ Una cadena UUID que identifica al jugador. Si el jugador tiene una clave pública, este campo tendrá el mismo valor que la clave pública.
+- `hasConnectedWeb3`: _(boolean)_ Indica si el jugador tiene una clave pública. _True_ si el jugador tiene una.
+- `publicKey`: _(string)_ La clave pública de la billetera Ethereum del jugador. Si el jugador inicia sesión como invitado, sin billetera vinculada, este campo será `null`.
+- `avatar`: Un objeto anidado con datos sobre la apariencia del jugador.
+- `version`: _(number)_ Un número de versión que aumenta en uno cada vez que el jugador cambia cualquiera de sus configuraciones. Usa esto si encuentras datos en conflicto, para saber qué versión es más reciente.
 
 {% hint style="warning" %}
-**📔 Note**: For any Ethereum transactions with the player, always use the `publicKey` field, instead of the `userId`, to avoid dealing with non-existing wallets.
+**📔 Nota**: Para cualquier transacción de Ethereum con el jugador, siempre usa el campo `publicKey`, en lugar del `userId`, para evitar lidiar con billeteras inexistentes.
 {% endhint %}
 
-The `avatar` object has the following nested information:
+El objeto `avatar` tiene la siguiente información anidada:
 
-* `wearables`: `WearableId[]` An array of identifiers for each of the wearables that the player is currently wearing. For example `urn:decentraland:off-chain:base-avatars:green_hoodie`. All wearables have a similar identifier, even if they're NFTs.
-* `bodyShape`: An identifier for the avatar's general body shape. Either `urn:decentraland:off-chain:base-avatars:BaseFemale` for female or `urn:decentraland:off-chain:base-avatars:BaseMale` for male.
-* `skinColor`: _ColorString_ A hex value for the player's skin color.
-* `hairColor`: _ColorString_ A hex value for the player's hair color.
-* `eyeColor`: _ColorString_ A hex value for the player's eye color.
-* `snapshots`: A nested object with base64 representations of .jpg images of the player in various resolutions.
-  * `face256`: _string_ The player's face as a 256x256 pixel image.
-  * `body`: _string_ The full resolution image of the player standing straight, with 512x1024 pixels.
+- `wearables`: `WearableId[]` Un array de identificadores para cada uno de los wearables que el jugador está usando actualmente. Por ejemplo `urn:decentraland:off-chain:base-avatars:green_hoodie`. Todos los wearables tienen un identificador similar, incluso si son NFTs.
+- `bodyShape`: Un identificador para la forma general del cuerpo del avatar. Ya sea `urn:decentraland:off-chain:base-avatars:BaseFemale` para femenino o `urn:decentraland:off-chain:base-avatars:BaseMale` para masculino.
+
+- `skinColor`: _ColorString_ Un valor hexadecimal para el color de piel del jugador.
+- `hairColor`: _ColorString_ Un valor hexadecimal para el color de cabello del jugador.
+- `eyeColor`: _ColorString_ Un valor hexadecimal para el color de ojos del jugador.
+- `snapshots`: Un objeto anidado con representaciones en base64 de imágenes .jpg del jugador en varias resoluciones.
+  - `face256`: _string_ La cara del jugador como una imagen de 256x256 píxeles.
+  - `body`: _string_ La imagen de resolución completa del jugador parado derecho, con 512x1024 píxeles.
 
 {% hint style="danger" %}
-**❗Warning** The snapshots of the avatar will be deprecated in the future and will no longer be returned as part of an avatar's data. The recommended approach is to use `AvatarTexture` instead, see [Avatar Portraits](../../../creator/sdk7/3d-essentials/materials.md#avatar-portraits).
+**❗Advertencia**
+Las capturas del avatar quedarán obsoletas en el futuro y ya no se devolverán como parte de los datos de un avatar. El enfoque recomendado es usar `AvatarTexture` en su lugar, consulta [Retratos de Avatar](../3d-essentials/materials.md#avatar-portraits).
 {% endhint %}
 
-Unlike `getPlayer()`, this option is not limited to just the players who are currently in the same scene, or even in the same server. With this approach you can fetch data from any player that has logged onto the servers in the past.
+A diferencia de `getPlayer()`, esta opción no está limitada solo a los jugadores que actualmente están en la misma escena, o incluso en el mismo servidor. Con este enfoque puedes obtener datos de cualquier jugador que haya iniciado sesión en los servidores en el pasado.
 
-If you know which server the player you want to query is connected to, you can get more up-to-date data by sending your requests to that specific server. For example, if the player changes clothes, this information will be available instantly in the player's server, but will likely take a couple of minutes to propagate to the `peer.decentraland.org` server.
+Si sabes en qué servidor está conectado el jugador que deseas consultar, puedes obtener datos más actualizados enviando tus solicitudes a ese servidor específico. Por ejemplo, si el jugador cambia de ropa, esta información estará disponible instantáneamente en el servidor del jugador, pero probablemente tardará un par de minutos en propagarse al servidor `peer.decentraland.org`.
 
 `https://<player server>/lambdas/profile/<player user id>`
 
 {% hint style="info" %}
-**💡 Tip**: You can obtain the current player's server by fetching `getRealm().domain`.
+**💡 Consejo**: Puedes obtener el servidor del jugador actual obteniendo `getRealm().domain`.
 {% endhint %}
 
-This example combines `myProfile.userId` and `getRealm()` to obtain the player's data directly from the server that the player is on:
+Este ejemplo combina `myProfile.userId` y `getRealm()` para obtener los datos del jugador directamente del servidor en el que está el jugador:
 
 ```ts
 import { getRealm } from '~system/Runtime'
@@ -241,24 +239,24 @@ async function fetchPlayerData() {
 fetchPlayerData()
 ```
 
-### Player data components
+## Componentes de datos del jugador
 
-Instead of using `getPlayer()`, you can read data directly from a series of components that store the data on each player entity. The following components exist:
+En lugar de usar `getPlayer()`, puedes leer datos directamente de una serie de componentes que almacenan los datos en cada entidad de jugador. Existen los siguientes componentes:
 
-* `PlayerIdentityData`: Stores the player address and an `isGuest` property to flag guest accounts.
-* `AvatarBase`: Stores data about the base avatar, including:
-  * `name`: The player's name.
-  * `bodyShapeUrn`: The ids corresponding to male or female body type.
-  * `skinColor`: Player skin color as a `Color4`
-  * `eyeColor`: Player eye color as a `Color4`
-  * `hairColor`: Player hair color as a `Color4`
-* `AvatarEquippedData`: The list of equipped wearables and emotes.
-  * `wearableUrns`: The list of wearables that the player currently has equipped.
-  * `emoteUrns`: The list of emotes that the player currently has equipped in the quick access wheel.
-* `AvatarEmoteCommand`: Info about emotes that the player is currently playing. It includes:
-  * `emoteUrn`: The URN for the last emote played by the player, since they entered the scene
-  * `loop`: True if the emote is being looped
-  * `timestamp`: The time when this emote was triggered
+- `PlayerIdentityData`: Almacena la dirección del jugador y una propiedad `isGuest` para marcar cuentas de invitado.
+- `AvatarBase`: Almacena datos sobre el avatar base, incluyendo:
+  - `name`: El nombre del jugador.
+  - `bodyShapeUrn`: Los IDs correspondientes al tipo de cuerpo masculino o femenino.
+  - `skinColor`: Color de piel del jugador como un `Color4`
+  - `eyeColor`: Color de ojos del jugador como un `Color4`
+  - `hairColor`: Color de cabello del jugador como un `Color4`
+- `AvatarEquippedData`: La lista de wearables y emotes equipados.
+  - `wearableUrns`: La lista de wearables que el jugador tiene actualmente equipados.
+  - `emoteUrns`: La lista de emotes que el jugador tiene actualmente equipados en la rueda de acceso rápido.
+- `AvatarEmoteCommand`: Información sobre emotes que el jugador está reproduciendo actualmente. Incluye:
+  - `emoteUrn`: El URN para el último emote reproducido por el jugador, desde que ingresó a la escena
+  - `loop`: True si el emote se está repitiendo
+  - `timestamp`: El tiempo cuando se activó este emote
 
 ```ts
 for (const [entity, data, base, attach, transform] of engine.getEntitiesWith(
@@ -272,14 +270,14 @@ for (const [entity, data, base, attach, transform] of engine.getEntitiesWith(
 ```
 
 {% hint style="warning" %}
-**📔 Note**: All of these components are read-only. You cannot change their values from the scene.
+**📔 Nota**: Todos estos componentes son de solo lectura. No puedes cambiar sus valores desde la escena.
 {% endhint %}
 
-### Get Portable Experiences
+## Obtener Experiencias Portátiles
 
-Portable experiences are essentially scenes that are not constrained to parcels of land. Players can carry these with them anywhere they go in Decentraland, adding a new layer of content over the world. Smart Wearables are examples of portable experiences. You may want to know if a player is wearing one of these, since a smart wearable may enable players to have abilities that could be considered cheating in a competitive game. For example, in a platform game, a player that wears a jetpack has a very unfair advantage over others.
+Las experiencias portátiles son esencialmente escenas que no están limitadas a parcelas de tierra. Los jugadores pueden llevarlas consigo a cualquier lugar en Decentraland, agregando una nueva capa de contenido sobre el mundo. Los Smart Wearables son ejemplos de experiencias portátiles. Es posible que desees saber si un jugador está usando uno de estos, ya que un wearable inteligente puede permitir que los jugadores tengan habilidades que podrían considerarse trampa en un juego competitivo. Por ejemplo, en un juego de plataformas, un jugador que usa un jetpack tiene una ventaja muy injusta sobre otros.
 
-As a scene creator, you may want to limit what players wearing portable experiences can do in your scene. Use `getPortableExperiencesLoaded()` to check if the player has any portable experiences currently activated.
+Como creador de escenas, es posible que desees limitar lo que los jugadores que usan experiencias portátiles pueden hacer en tu escena. Usa `getPortableExperiencesLoaded()` para verificar si el jugador tiene alguna experiencia portátil activada actualmente.
 
 ```ts
 import { getPortableExperiencesLoaded } from '~system/PortableExperiences'
@@ -290,24 +288,24 @@ executeTask(async () => {
 })
 ```
 
-`getPortableExperiencesLoaded()` returns an array of objects, each of these objects includes an `id` attribute. In the case of wearables, the id is the wearable's URN.
+`getPortableExperiencesLoaded()` devuelve un array de objetos, cada uno de estos objetos incluye un atributo `id`. En el caso de wearables, el id es el URN del wearable.
 
-### Get detailed info about a player's wearables
+## Obtener información detallada sobre los wearables de un jugador
 
-The `getPlayer()` function returns only a list of wearable ids, without information about each wearable. Maybe you want to check for any wearable of a specific category (eg: hats), or any wearable of a specific rarity (eg: Mythic), for that you'll need to fetch more detailed information about the player's wearables.
+La función `getPlayer()` devuelve solo una lista de IDs de wearables, sin información sobre cada wearable. Tal vez desees verificar cualquier wearable de una categoría específica (ej: sombreros), o cualquier wearable de una rareza específica (ej: Mítico), para eso necesitarás obtener información más detallada sobre los wearables del jugador.
 
-Make a [REST API call](../../../creator/sdk7/networking/network-connections.md#call-a-rest-api) to the following URL, to obtain a full updated list of all wearables that are currently usable, with details about each.
+Haz una [llamada REST API](../networking/network-connections.md#call-a-rest-api) a la siguiente URL, para obtener una lista completa actualizada de todos los wearables que están actualmente utilizables, con detalles sobre cada uno.
 
 `${playerRealm.realmInfo.baseUrl}/lambdas/collections/wearables-by-owner/${userData.userId}?includeDefinitions`
 
 {% hint style="warning" %}
-**📔 Note**: To construct this URL, you must obtain the realm (likely with with `getRealm()`) and the player's id (likely with `getPlayer()`)
+**📔 Nota**: Para construir esta URL, debes obtener el realm (probablemente con `getRealm()`) y el ID del jugador (probablemente con `getPlayer()`)
 {% endhint %}
 
-This feature could be used together with fetching info about the player, to for example only allow players to enter a place if they are wearing any wearable from the halloween collection, or any wearable that is of _legendary_ rarity.
+Esta característica podría usarse junto con obtener información sobre el jugador, para por ejemplo solo permitir que los jugadores ingresen a un lugar si están usando cualquier wearable de la colección de halloween, o cualquier wearable que sea de rareza _legendaria_.
 
 {% hint style="info" %}
-**💡 Tip**: Try the URL out in a browser to see how the response is structured.
+**💡 Consejo**: Prueba la URL en un navegador para ver cómo está estructurada la respuesta.
 {% endhint %}
 
 ```ts
@@ -336,12 +334,12 @@ executeTask(fetchWearablesData)
 ```
 
 {% hint style="info" %}
-**💡 Tip**: You can fetch even more info about specific wearables from the [following API](https://decentraland.github.io/catalyst-api-specs/#tag/Lambdas/operation/searchWearables).
+**💡 Consejo**: Puedes obtener aún más información sobre wearables específicos desde la [siguiente API](https://decentraland.github.io/catalyst-api-specs/#tag/Lambdas/operation/searchWearables).
 {% endhint %}
 
-### Check the player's camera mode
+## Verificar el modo de cámara del jugador
 
-Players can either be using a 1st or 3rd person camera when exploring Decentraland. Check which of these the player is using by checking the value `CameraMode` component of the `engine.CameraEntity` entity.
+Los jugadores pueden estar usando una cámara en primera o tercera persona cuando exploran Decentraland. Verifica cuál de estas está usando el jugador verificando el valor del componente `CameraMode` de la entidad `engine.CameraEntity`.
 
 ```ts
 function checkCameraMode() {
@@ -360,35 +358,35 @@ engine.addSystem(checkCameraMode)
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Camera information is only available for the current player running the scene. You can't query for the camera data of any other player.
+**📔 Nota**: La información de la cámara solo está disponible para el jugador actual ejecutando la escena. No puedes consultar los datos de cámara de ningún otro jugador.
 {% endhint %}
 
-The camera mode uses a value from the `CameraType` enum. The following values are possible:
+El modo de cámara usa un valor del enum `CameraType`. Los siguientes valores son posibles:
 
-* `CameraType.CT_FIRST_PERSON`
-* `CameraType.CT_THIRD_PERSON`
+- `CameraType.CT_FIRST_PERSON`
+- `CameraType.CT_THIRD_PERSON`
 
-The `CameraMode` component of the `engine.CameraEntity` is read-only, you can't force the player to change camera mode through this.
+El componente `CameraMode` del `engine.CameraEntity` es de solo lectura, no puedes forzar al jugador a cambiar el modo de cámara a través de esto.
 
 {% hint style="info" %}
-**💡 Tip**: To change the player's camera mode, use a [Camera modifier area](../../../creator/sdk7/interactivity/avatar-modifiers.md#camera-modifiers).
+**💡 Consejo**: Para cambiar el modo de cámara del jugador, usa un [área modificadora de cámara](avatar-modifiers.md#camera-modifiers).
 {% endhint %}
 
-Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when in 3rd person.
+Conocer el modo de cámara puede ser muy útil para ajustar las mecánicas de tu escena para ajustarse mejor a lo que es más cómodo usando este modo. Por ejemplo, objetivos pequeños son más difíciles de hacer clic cuando se está en tercera persona.
 
 {% hint style="warning" %}
-**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block](../../../creator/sdk7/programming-patterns/async-functions.md#the-executetask-function).
+**📔 Nota**: Evita referirte a `engine.CameraEntity` en la carga inicial de la escena, porque eso puede resultar en errores si las entidades aún no están inicializadas. Para evitar este problema, úsalas dentro de la función `main()`, o en una función llamada indirectamente por `main()`. También puedes encapsular el comportamiento en un bloque async [`executeTask`](../programming-patterns/async-functions.md#the-executetask-function).
 
-Another option is to refer to this entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Otra opción es referirte a esta entidad dentro de un sistema. Siempre estará disponible, porque la primera ejecución del sistema se llama una vez que la escena ya está correctamente inicializada.
 {% endhint %}
 
-### Check if the player has the cursor locked
+## Verificar si el jugador tiene el cursor bloqueado
 
-Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
+Los jugadores pueden cambiar entre dos modos de cursor: modo de _cursor bloqueado_ para controlar la cámara o modo de _cursor desbloqueado_ para mover el cursor libremente sobre la UI.
 
-Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
+Los jugadores desbloquean el cursor haciendo clic en el _botón derecho del mouse_ o presionando la tecla _Esc_, y bloquean el cursor nuevamente haciendo clic en cualquier lugar de la pantalla.
 
-Check the `PointerLock` component of the scene's [camera entity](../../../creator/sdk7/architecture/entities-components.md#reserved-entities) to find out what the current cursor mode is.
+Verifica el componente `PointerLock` de la [entidad de cámara](../architecture/entities-components.md#reserved-entities) de la escena para saber cuál es el modo de cursor actual.
 
 ```ts
 export function main() {
@@ -397,19 +395,19 @@ export function main() {
 }
 ```
 
-See [Event listeners](../../../creator/sdk7/interactivity/event-listeners.md#player-locks-or-unlocks-cursor) to see how to easily react to changes in the cursor state.
+Consulta [Event listeners](event-listeners.md#player-locks-or-unlocks-cursor) para ver cómo reaccionar fácilmente a cambios en el estado del cursor.
 
-The `PointerLock` component of the `engine.CameraEntity` is read-only, you can't force the player to lock or unlock the cursor.
+El componente `PointerLock` del `engine.CameraEntity` es de solo lectura, no puedes forzar al jugador a bloquear o desbloquear el cursor.
 
 {% hint style="warning" %}
-**📔 Note**: Avoid referring to the `engine.CameraEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, use these inside the `main()` function, or on a function indirectly called by `main()`. You can also encapsulate the behavior in an async [`executeTask` block](../../../creator/sdk7/programming-patterns/async-functions.md#the-executetask-function).
+**📔 Nota**: Evita referirte a `engine.CameraEntity` en la carga inicial de la escena, porque eso puede resultar en errores si las entidades aún no están inicializadas. Para evitar este problema, úsalas dentro de la función `main()`, o en una función llamada indirectamente por `main()`. También puedes encapsular el comportamiento en un bloque async [`executeTask`](../programming-patterns/async-functions.md#the-executetask-function).
 
-Another option is to refer to the entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
+Otra opción es referirte a la entidad dentro de un sistema. Siempre estará disponible, porque la primera ejecución del sistema se llama una vez que la escena ya está correctamente inicializada.
 {% endhint %}
 
-### Check the player's cursor position
+## Verificar la posición del cursor del jugador
 
-Use the `primaryPointerInfo` component on the `engine.RootEntity` to get the player's cursor position. This can be used for mechanics like drag and drop interactions, swipe gestures, etc.
+Usa el componente `primaryPointerInfo` en `engine.RootEntity` para obtener la posición del cursor del jugador. Esto se puede usar para mecánicas como interacciones de arrastrar y soltar, gestos de deslizamiento, etc.
 
 ```ts
 import { PrimaryPointerInfo } from '@dcl/sdk/ecs'
@@ -423,26 +421,25 @@ engine.addSystem(CursorSystem)
 ```
 
 {% hint style="warning" %}
-**📔 Note**: Avoid referring to the `engine.RootEntity` on the initial scene loading, because that can result in errors if the entities are not initialized yet. To avoid this problem, always refer to the entity inside a system. It will always be available, because the first execution of the system is called once the scene is already properly initialized.
+**📔 Nota**: Evita referirte a `engine.RootEntity` en la carga inicial de la escena, porque eso puede resultar en errores si las entidades aún no están inicializadas. Para evitar este problema, siempre refiere a la entidad dentro de un sistema. Siempre estará disponible, porque la primera ejecución del sistema se llama una vez que la escena ya está correctamente inicializada.
 {% endhint %}
 
-The `primaryPointerInfo` component returns an object with the following properties:
+El componente `primaryPointerInfo` devuelve un objeto con las siguientes propiedades:
 
-* `screenCoordinates`: _(Vector2)_ The position of the cursor in the scene, expressed in pixels. The origin is the top left corner of the screen.
-* `screenDelta`: _(Vector2)_ The delta change in the position of the cursor since the last frame, expressed in pixels.
-* `worldRayDirection`: _(Vector3)_ A vector that represents the direction of the ray from the camera to the cursor.The origin is the camera position. Use this to calculate the position of the cursor in the world.
-* `pointerType`: 0 for `none`, 1 for `mouse`
+- `screenCoordinates`: _(Vector2)_ La posición del cursor en la escena, expresada en píxeles. El origen es la esquina superior izquierda de la pantalla.
+- `screenDelta`: _(Vector2)_ El cambio delta en la posición del cursor desde el último frame, expresado en píxeles.
+- `worldRayDirection`: _(Vector3)_ Un vector que representa la dirección del rayo desde la cámara al cursor. El origen es la posición de la cámara. Usa esto para calcular la posición del cursor en el mundo.
+- `pointerType`: 0 para `none`, 1 para `mouse`
 
 {% hint style="info" %}
-**💡 Tip**: To react to simple hover events on UI elements, you may find it easier to use the `onMouseEnter` and `onMouseLeave` events, see [UI Button Events](../../../creator/sdk7/2d-ui/ui_button_events.md#hover-feedback).
+**💡 Consejo**: Para reaccionar a eventos simples de hover en elementos de UI, puede resultarte más fácil usar los eventos `onMouseEnter` y `onMouseLeave`, consulta [Eventos de botones de UI](../2d-ui/ui_button_events.md#hover-feedback). 
 {% endhint %}
 
-The `primaryPointerInfo` component is read-only, you can't force the player to change the cursor position.
+El componente `primaryPointerInfo` es de solo lectura, no puedes forzar al jugador a cambiar la posición del cursor.
 
-The following example shows how to display the cursor position on a UI element.
+El siguiente ejemplo muestra cómo mostrar la posición del cursor en un elemento de UI.
 
-_**ui.tsx file:**_
-
+_**archivo ui.tsx:**_
 ```tsx
 import { UiEntity, ReactEcs } from '@dcl/sdk/react-ecs'
 import { Color4 } from '@dcl/sdk/math'
@@ -462,8 +459,7 @@ export const uiMenu = () => (
 )
 ```
 
-_**index.ts file:**_
-
+_**archivo index.ts:**_
 ```ts
 import { engine } from '@dcl/sdk/ecs'
 import { ReactEcsRenderer } from '@dcl/sdk/react-ecs'
@@ -487,4 +483,4 @@ function CursorSystem() {
 engine.addSystem(CursorSystem)
 ```
 
-You can use the `worldRayDirection` to set the `direction` field of a raycast to know if an entity is in the cursor's line of sight. See [Raycasting](../../../creator/sdk7/interactivity/raycasting.md) for more details.
+Puedes usar `worldRayDirection` para establecer el campo `direction` de un raycast para saber si una entidad está en la línea de visión del cursor. Consulta [Raycasting](raycasting.md) para más detalles.

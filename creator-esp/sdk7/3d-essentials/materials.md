@@ -1,43 +1,39 @@
 ---
-description: Learn how to add materials and textures to entities with primitive shapes.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/3d-essentials/materials
+description: Aprende cómo agregar materiales y texturas a entidades con formas primitivas
 ---
 
-# Materials
+# Materiales mediante código
 
-### Materials
+## Materiales
 
-Materials can be applied to entities that use primitive shapes (cube, sphere, plane, etc) by adding a `Material` component. This component has several fields that allow you to configure the properties of the material, add a texture, etc.
+Los materiales pueden aplicarse a entidades que usan formas primitivas (cubo, esfera, plano, etc) agregando un componente `Material`. Este componente tiene varios campos que te permiten configurar las propiedades del material, agregar una textura, etc.
 
-_glTF_ models include their own materials that are implicitly imported into a scene together with the model. To modify or override these materials, use the `GltfNodeModifiers` component. See [Modify glTF materials](materials.md#modify-gltf-materials) for more details.
+Los modelos _glTF_ incluyen sus propios materiales que se importan implícitamente a una escena junto con el modelo. Para modificar o anular estos materiales, usa el componente `GltfNodeModifiers`. Consulta [Modificar materiales glTF](#modify-gltf-materials) para más detalles.
 
-When importing a 3D model with its own materials, keep in mind that not all shaders are supported by the Decentraland engine. Only standard materials and PBR (physically based rendering) materials are supported. See [external 3D model considerations](https://github.com/decentraland/docs-creator/blob/main/creator/3d-modeling/materials/README.md) for more details.
+Al importar un modelo 3D con sus propios materiales, ten en cuenta que no todos los shaders son compatibles con el motor de Decentraland. Solo se admiten materiales estándar y materiales PBR (physically based rendering). Consulta [consideraciones de modelos 3D externos](/creator/3d-modeling/materials) para más detalles.
 
-There are different types of supported materials:
+Hay diferentes tipos de materiales compatibles:
 
-* PBR (Physically Based Rendering): The most common kind of material in Decentraland. It supports plain colors or textures, and different properties like metallic, emissive, transparency, etc. Read more about [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering).
-* Basic materials: They don't respond to lights and shadows, which makes them ideal for displaying billboard images.
+- PBR (Physically Based Rendering): El tipo más común de material en Decentraland. Admite colores planos o texturas, y diferentes propiedades como metálico, emisivo, transparencia, etc. Lee más sobre [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering).
+- Materiales básicos: No responden a luces y sombras, lo que los hace ideales para mostrar imágenes de billboard.
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-The easiest way to give an entity a Material is to use the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md). You can add a **Material** component to your entity and then configure all of the available fields on the Scene Editor UI. See [Add Components](../../../creator/scene-editor/build/components.md#add-components).
+La forma más fácil de darle un Material a una entidad es usar el [Scene Editor](../../scene-editor/about-editor.md). Puedes agregar un componente **Material** a tu entidad y luego configurar todos los campos disponibles en la UI del Scene Editor. Consulta [Agregar Componentes](../../scene-editor/components.md#add-components).
 
-### Add a material
+## Agregar un material
 
-The following example creates a PBR material and sets some of its fields to give it a red color and metallic properties. This material is added to an entity that also has a box shape, so it will color the box with this material.
+El siguiente ejemplo crea un material PBR y establece algunos de sus campos para darle un color rojo y propiedades metálicas. Este material se agrega a una entidad que también tiene una forma de caja, por lo que coloreará la caja con este material.
 
 ```ts
-//Create entity and assign shape
+//Crear entidad y asignar forma
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
 	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
-//Create material and configure its fields
+//Crear material y configurar sus campos
 Material.setPbrMaterial(meshEntity, {
 	albedoColor: Color4.Red(),
 	metallic: 0.8,
@@ -45,53 +41,53 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
-To change the material of an entity that already has a `Material` component, run `Material.setPbrMaterial()` or any of the other helper functions and it will overwrite the original material. There's no need to remove the original `Material` or to use the advanced syntax.
+Para cambiar el material de una entidad que ya tiene un componente `Material`, ejecuta `Material.setPbrMaterial()` o cualquiera de las otras funciones auxiliares y sobrescribirá el material original. No hay necesidad de eliminar el `Material` original o de usar la sintaxis avanzada.
 
 ```ts
-//Create entity and assign shape
+//Crear entidad y asignar forma
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
 	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
-//Create material and configure its fields
+//Crear material y configurar sus campos
 Material.setPbrMaterial(meshEntity, {
 	albedoColor: Color4.Red(),
 })
 
-//Overwrite with new material component
+//Sobrescribir con nuevo componente material
 Material.setPbrMaterial(meshEntity, {
 	albedoColor: Color4.Blue(),
 })
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `Material` component must be imported via
+**📔 Nota**: El componente `Material` debe importarse mediante
 
 > `import { Material } from "@dcl/sdk/ecs"`
 
-See [Imports](../../../creator/sdk7/getting-started/coding-scenes.md#imports) for how to handle these easily.
+Consulta [Importaciones](../getting-started/coding-scenes.md#imports) para saber cómo manejarlas fácilmente.
 {% endhint %}
 
-### Material colors
+## Colores de material
 
-Give a material a plain color. In a PBR Material, you set the `albedoColor` field. Albedo colors respond to light and can include shades on them.
+Dale un color plano a un material. En un Material PBR, estableces el campo `albedoColor`. Los colores albedo responden a la luz y pueden incluir sombras en ellos.
 
-Color values are of type `Color4`, composed of _r_, _g_ and _b_ values (red, green, and blue). Each of these takes values between 0 and 1. By setting different values for these, you can compose any visible color. For black, set all three to 0. For white, set all to 1.
+Los valores de color son de tipo `Color4`, compuestos por valores _r_, _g_ y _b_ (rojo, verde y azul). Cada uno de estos toma valores entre 0 y 1. Al establecer diferentes valores para estos, puedes componer cualquier color visible. Para negro, establece los tres en 0. Para blanco, establece todos en 1.
 
 {% hint style="warning" %}
-**📔 Note**: If you set any color in `albedoColor` to a value higher than _1_, it will appear as _emissive_, with more intensity the higher the value. So for example, `{r: 15, g: 0, b: 0}` produces a very bright red glow.
+**📔 Nota**: Si estableces cualquier color en `albedoColor` a un valor mayor que _1_, aparecerá como _emisivo_, con más intensidad cuanto mayor sea el valor. Entonces, por ejemplo, `{r: 15, g: 0, b: 0}` produce un brillo rojo muy brillante.
 {% endhint %}
 
-See [color types](../../../creator/sdk7/3d-essentials/color-types.md) for more details on how to set colors.
+Consulta [tipos de color](color-types.md) para más detalles sobre cómo establecer colores.
 
-You can also edit the following fields in a PBR Material to fine-tune how its color is perceived:
+También puedes editar los siguientes campos en un Material PBR para ajustar cómo se percibe su color:
 
-* _emissiveColor_: The color emitted from the material.
-* _reflectivityColor_: AKA _Specular Color_ in other nomenclature.
+- _emissiveColor_: El color emitido desde el material.
+- _reflectivityColor_: AKA _Specular Color_ en otra nomenclatura.
 
-To create a plain color material that is not affected by light and shadows in the environment, create a basic material instead of a PBR material.
+Para crear un material de color plano que no sea afectado por luz y sombras en el entorno, crea un material básico en lugar de un material PBR.
 
 ```ts
 Material.setBasicMaterial(myEntity, {
@@ -99,19 +95,19 @@ Material.setBasicMaterial(myEntity, {
 })
 ```
 
-### Using textures
+## Usar texturas
 
-Set an image file as a texture on a material by setting the `texture` parameter.
+Establece un archivo de imagen como textura en un material estableciendo el parámetro `texture`.
 
 ```ts
-//Create entity and assign shape
+//Crear entidad y asignar forma
 const meshEntity = engine.addEntity()
 Transform.create(meshEntity, {
 	position: Vector3.create(4, 1, 4),
 })
 MeshRenderer.setBox(meshEntity)
 
-//Create material and configure its fields
+//Crear material y configurar sus campos
 Material.setPbrMaterial(meshEntity, {
 	texture: Material.Texture.Common({
 		src: 'assets/materials/wood.png',
@@ -119,16 +115,16 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
-In the example above, the image for the material is located in a `assets/materials` folder, which is located at root level of the scene project folder.
+En el ejemplo anterior, la imagen para el material se encuentra en una carpeta `assets/materials`, que está ubicada a nivel raíz de la carpeta del proyecto de la escena.
 
 {% hint style="info" %}
-**💡 Tip**: We recommend keeping your texture image files somewhere in the `/assets` folder inside your scene.
+**💡 Consejo**: Recomendamos mantener tus archivos de imagen de textura en algún lugar de la carpeta `/assets` dentro de tu escena.
 {% endhint %}
 
-While creating a texture, you can also pass additional parameters:
+Al crear una textura, también puedes pasar parámetros adicionales:
 
-* `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](materials.md#texture-scaling).
-* `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](materials.md#texture-wrapping).
+- `filterMode`: Determina cómo se estiran o comprimen los píxeles en la textura cuando se renderizan. Esto toma un valor del enum `TextureFilterMode`. Consulta [Escalado de textura](#texture-scaling).
+- `wrapMode`: Determina cómo se coloca una textura en mosaico en un objeto. Esto toma un valor del enum `TextureWrapMode`. Consulta [Envoltura de textura](#texture-wrapping).
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -140,7 +136,7 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-To create a texture that is not affected by light and shadows in the environment, create a basic material instead of a PBR material.
+Para crear una textura que no sea afectada por luz y sombras en el entorno, crea un material básico en lugar de un material PBR.
 
 ```ts
 Material.setBasicMaterial(myEntity, {
@@ -150,9 +146,9 @@ Material.setBasicMaterial(myEntity, {
 })
 ```
 
-#### Textures from an external URL
+### Texturas desde una URL externa
 
-You can point the texture of your material to an external URL instead of an internal path in the scene project.
+Puedes apuntar la textura de tu material a una URL externa en lugar de una ruta interna en el proyecto de la escena.
 
 ```ts
 Material.setBasicMaterial(myEntity, {
@@ -162,20 +158,21 @@ Material.setBasicMaterial(myEntity, {
 })
 ```
 
-The URL must start with `https`, `http` URLs aren't supported. The site where the image is hosted should also have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it.
+La URL debe comenzar con `https`, las URLs `http` no son compatibles. El sitio donde se aloja la imagen también debe tener [políticas CORS (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) que permitan acceso externo.
 
-#### Texture wrapping
+### Envoltura de textura
 
-You can set how a texture aligns with a surface. By default, the texture is stretched to occupy the surface once, but you can scale it, and offset it.
+Puedes establecer cómo se alinea una textura con una superficie. Por defecto, la textura se estira para ocupar la superficie una vez, pero puedes escalarla y desplazarla.
 
-The following fields are available on all textures:
+Los siguientes campos están disponibles en todas las texturas:
 
-* `offset`: Shifts the texture to change its alignment. The value is a Vector2, where both axis go from 0 to 1, where 1 is the full width or height of the texture.
-* `tiling`: Scales the texture. The default value is the Vector 2 `[1, 1]`, which makes the image repeat once covering all of the surface.
-* `TextureWrapMode`: Determines what happens if the image tiling doesn't cover all of the surface. This property takes its values from the `TextureWrapMode` enum, which allows for the following values:
-  * `TextureWrapMode.TWM_CLAMP`: The texture is only displayed once in the specified size. The rest of the surface of the mesh is left transparent. The value of `tiling` is ignored.
-  * `TextureWrapMode.TWM_REPEAT`: The texture is repeated as many times as it fits in the mesh, using the specified size.
-  * `TextureWrapMode.TWM_MIRROR`: As in wrap, the texture is repeated as many times as it fits, but the orientation of these repetitions is mirrored.
+- `offset`: Desplaza la textura para cambiar su alineación. El valor es un Vector2, donde ambos ejes van de 0 a 1, donde 1 es el ancho o alto completo de la textura.
+- `tiling`: Escala la textura. El valor predeterminado es el Vector 2 `[1, 1]`, que hace que la imagen se repita una vez cubriendo toda la superficie.
+- `TextureWrapMode`: Determina qué sucede si el mosaico de la imagen no cubre toda la superficie. Esta propiedad toma sus valores del enum `TextureWrapMode`, que permite los siguientes valores:
+
+  - `TextureWrapMode.TWM_CLAMP`: La textura solo se muestra una vez en el tamaño especificado. El resto de la superficie del mesh se deja transparente. El valor de `tiling` se ignora.
+  - `TextureWrapMode.TWM_REPEAT`: La textura se repite tantas veces como quepa en el mesh, usando el tamaño especificado.
+  - `TextureWrapMode.TWM_MIRROR`: Como en wrap, la textura se repite tantas veces como quepa, pero la orientación de estas repeticiones está reflejada.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -189,12 +186,12 @@ Material.setPbrMaterial(myEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: The `offset` and `tiling` properties are only supported in the DCL 2.0 desktop client.
+**📔 Nota**: Las propiedades `offset` y `tiling` solo son compatibles con el cliente de escritorio DCL 2.0.
 {% endhint %}
 
-Use this feature to cover a large surface with a tiled pattern. For example, repeat the following image:
+Usa esta característica para cubrir una gran superficie con un patrón de mosaico. Por ejemplo, repite la siguiente imagen:
 
-![](../../.gitbook/assets/tiles.png)
+<img src="../../../images/editor/tiles.png" width="200" />
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -206,9 +203,9 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-![](../../.gitbook/assets/tiles-in-scene.png)
+<img src="../../../images/editor/tiles-in-scene.png" width="500" />
 
-In the example below, the texture uses a _mirror_ wrap mode, and each repetition of the texture takes only 1/4 of the surface. This means that we'll see 4 copies of the image, mirrored against each other on both axis.
+En el ejemplo a continuación, la textura usa un modo de envoltura _mirror_, y cada repetición de la textura toma solo 1/4 de la superficie. Esto significa que veremos 4 copias de la imagen, reflejadas entre sí en ambos ejes.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -220,31 +217,31 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-#### Texture tweens
+### Tweens de textura
 
-Make a texture slide smoothly by using a `Tween` component, set up with the `TextureMove` mode. The tween gradually changes the value of the `offset` or the `tiling` properties of a texture over a period of time, in a smooth and optimized way.
+Haz que una textura se deslice suavemente usando un componente `Tween`, configurado con el modo `TextureMove`. El tween cambia gradualmente el valor de las propiedades `offset` o `tiling` de una textura durante un período de tiempo, de manera suave y optimizada.
 
 {% hint style="warning" %}
-**📔 Note**: Texture Tweens are a feature that's only supported in the DCL 2.0 desktop client.
+**📔 Nota**: Los Tweens de Textura son una característica que solo es compatible con el cliente de escritorio DCL 2.0.
 {% endhint %}
 
-Use the `Tween` component with the `setTextureMove` function to move the texture between two positions.
+Usa el componente `Tween` con la función `setTextureMove` para mover la textura entre dos posiciones.
 
 ```ts
 Tween.setTextureMove(myEntity, Vector2.create(0, 0), Vector2.create(1, 0), 2000)
 ```
 
-The texture tween takes the following information:
+El tween de textura toma la siguiente información:
 
-* `entity`: The entity to move the texture of
-* `start`: A Vector2 for the starting position
-* `end`: A Vector2 for the ending position
-* `duration`: How many milliseconds it takes to move between the two positions
+- `entity`: La entidad para mover la textura
+- `start`: Un Vector2 para la posición inicial
+- `end`: Un Vector2 para la posición final
+- `duration`: Cuántos milisegundos toma moverse entre las dos posiciones
 
-This other optional parameter is also available:
+Este otro parámetro opcional también está disponible:
 
-* `movementType`: defines if the movement will be on the `offset` or the `tiling` field. By default it uses `offset`.
-* `easingFunction`: The curve for the rate of change over time, the default value is `EasingFunction.EF_LINEAR`. Other values make the change accelerate and/or decelerate at different rates.
+- `movementType`: define si el movimiento será en el campo `offset` o `tiling`. Por defecto usa `offset`.
+- `easingFunction`: La curva para la tasa de cambio a lo largo del tiempo, el valor predeterminado es `EasingFunction.EF_LINEAR`. Otros valores hacen que el cambio acelere y/o desacelere a diferentes ritmos.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -265,7 +262,7 @@ Material.setPbrMaterial(myEntity, {
 Tween.setTextureMove(myEntity, Vector2.create(0, 0), Vector2.create(0, 1), 1000)
 ```
 
-The above example runs a tween that lasts 1 second, and moves the texture only once. To achieve a continuous movement, for example to simulate the falling of a cascade, you need to use `setTextureMoveContinuous`.
+El ejemplo anterior ejecuta un tween que dura 1 segundo y mueve la textura solo una vez. Para lograr un movimiento continuo, por ejemplo para simular la caída de una cascada, necesitas usar `setTextureMoveContinuous`.
 
 ```ts
 const myEntity = engine.addEntity()
@@ -286,22 +283,22 @@ Material.setPbrMaterial(myEntity, {
 Tween.setTextureMoveContinuous(myEntity, Vector2.create(0, 1), 1)
 ```
 
-The example above use `setTextureMoveContinuous`, with a direction of `(0, 1)`, and a speed of 1 unit per second.
+El ejemplo anterior usa `setTextureMoveContinuous`, con una dirección de `(0, 1)`, y una velocidad de 1 unidad por segundo.
 
-The texture continuous tween takes the following information:
+El tween continuo de textura toma la siguiente información:
 
-* `entity`: The entity to move the texture of
-* `direction`: A Vector2 for the movement
-* `speed`: How many units per second the entity will move
+- `entity`: La entidad para mover la textura
+- `direction`: Un Vector2 para el movimiento
+- `speed`: Cuántas unidades por segundo se moverá la entidad
 
-These other optional parameters are also available:
+Estos otros parámetros opcionales también están disponibles:
 
-* `movementType`: defines if the movement will be on the offset or the tiling field. By default it uses offset.
-* `duration`: How many milliseconds to sustain the movement. After this time, the movement will stop.
+- `movementType`: (opcional), define si el movimiento será en el campo offset o tiling. Por defecto usa offset.
+- `duration`: Cuántos milisegundos sostener el movimiento. Después de este tiempo, el movimiento se detendrá.
 
-**Complex tween sequences**
+#### Secuencias complejas de tweens
 
-You can also make the texture movements follow a complex sequence with as many steps as you want. Use the `sequence` field to list as many tweens as you want, they will be executed sequentially after the first tween described on the `Tween` component.
+También puedes hacer que los movimientos de textura sigan una secuencia compleja con tantos pasos como desees. Usa el campo `sequence` para listar tantos tweens como desees, se ejecutarán secuencialmente después del primer tween descrito en el componente `Tween`.
 
 ```ts
 //(...)
@@ -338,11 +335,11 @@ TweenSequence.create(myEntity, {
 })
 ```
 
-Note that when defining a tween within a TweenSequence, you need to use the more verbose format of `Tween.Mode.TextureMove` to define the tween.
+Ten en cuenta que al definir un tween dentro de un TweenSequence, necesitas usar el formato más verboso de `Tween.Mode.TextureMove` para definir el tween.
 
-#### Multi-layered textures
+### Texturas de múltiples capas
 
-You can use several image files as layers to compose more realistic textures, for example including a `bumpTexture` and a `emissiveTexture`.
+Puedes usar varios archivos de imagen como capas para componer texturas más realistas, por ejemplo incluyendo un `bumpTexture` y un `emissiveTexture`.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -358,17 +355,17 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-The `bumpTexture` can simulate bumps and wrinkles on a surface, by modifying how the normals of the surface behave on each pixel.
+El `bumpTexture` puede simular protuberancias y arrugas en una superficie, modificando cómo se comportan las normales de la superficie en cada píxel.
 
-![](../../.gitbook/assets/wood-bump.png)
+<img src="../../../images/editor/wood-bump.png" width="500" />
 
-The `emissiveTexture` can accentuate glow on certain parts of a material, to achieve very interesting effects.
+El `emissiveTexture` puede acentuar el brillo en ciertas partes de un material, para lograr efectos muy interesantes.
 
-**Set UVs**
+#### Establecer UVs
 
-Another alternative for changing a texture's scale or alignment is to configure _uv_ properties on the [MeshRenderer component](../../../creator/sdk7/3d-essentials/shape-components.md).
+Otra alternativa para cambiar la escala o alineación de una textura es configurar propiedades _uv_ en el [componente MeshRenderer](shape-components.md).
 
-You set _u_ and _v_ coordinates on the 2D image of the texture to correspond to the vertices of the shape. The more vertices the entity has, the more _uv_ coordinates need to be defined on the texture, a plane for example needs to have 8 _uv_ points defined, 4 for each of its two faces.
+Estableces coordenadas _u_ y _v_ en la imagen 2D de la textura para que correspondan a los vértices de la forma. Cuantos más vértices tenga la entidad, más puntos _uv_ deben definirse en la textura, un plano por ejemplo necesita tener 8 puntos _uv_ definidos, 4 para cada una de sus dos caras.
 
 ```ts
 const meshEntity = engine.addEntity()
@@ -404,7 +401,7 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-The following example includes a function that simplifies the setting of uvs. The `setUVs` function defined here receives a number of rows and columns as parameters, and sets the uvs so that the texture image is repeated a specific number of times.
+El siguiente ejemplo incluye una función que simplifica la configuración de uvs. La función `setUVs` definida aquí recibe un número de filas y columnas como parámetros, y establece los uvs para que la imagen de textura se repita un número específico de veces.
 
 ```ts
 const meshEntity = engine.addEntity()
@@ -422,50 +419,50 @@ Material.setPbrMaterial(myEntity, {
 
 function setUVs(rows: number, cols: number) {
 	return [
-		// North side of unrortated plane
-		0, //lower-left corner
+		// Lado norte del plano sin rotar
+		0, //esquina inferior izquierda
 		0,
 
-		cols, //lower-right corner
+		cols, //esquina inferior derecha
 		0,
 
-		cols, //upper-right corner
+		cols, //esquina superior derecha
 		rows,
 
-		0, //upper left-corner
+		0, //esquina superior izquierda
 		rows,
 
-		// South side of unrortated plane
-		cols, // lower-right corner
+		// Lado sur del plano sin rotar
+		cols, // esquina inferior derecha
 		0,
 
-		0, // lower-left corner
+		0, // esquina inferior izquierda
 		0,
 
-		0, // upper-left corner
+		0, // esquina superior izquierda
 		rows,
 
-		cols, // upper-right corner
+		cols, // esquina superior derecha
 		rows,
 	]
 }
 ```
 
-For setting the UVs for a `box` mesh shape, the same structure applies. Each of the 6 faces of the cube takes 4 pairs of coordinates, one for each corner. All of these 48 values are listed as a single array.
+Para establecer los UVs para una forma de mesh `box`, se aplica la misma estructura. Cada una de las 6 caras del cubo toma 4 pares de coordenadas, uno para cada esquina. Todos estos 48 valores se listan como un solo array.
 
 {% hint style="warning" %}
-**📔 Note**: Uv properties are currently only available on `plane` and on `box` shapes. Also, _uv_ values affect all the texture layers equally, since they are set on the _shape_.
+**📔 Nota**: Las propiedades uv actualmente solo están disponibles en formas `plane` y `box`. Además, los valores _uv_ afectan todas las capas de textura por igual, ya que se establecen en la _forma_.
 {% endhint %}
 
-#### Texture scaling
+### Escalado de textura
 
-When textures are stretched or shrinked to a different size from the original texture image, this can sometimes create artifacts. In a 3D environment, the effects of perspective cause this naturally. There are various [texture filtering](https://en.wikipedia.org/wiki/Texture_filtering) algorithms that exist to compensate for this in different ways.
+Cuando las texturas se estiran o encogen a un tamaño diferente de la imagen de textura original, esto a veces puede crear artefactos. En un entorno 3D, los efectos de la perspectiva causan esto naturalmente. Existen varios algoritmos de [filtrado de textura](https://en.wikipedia.org/wiki/Texture_filtering) que existen para compensar esto de diferentes maneras.
 
-The `Material` object uses the _bilinear_ algorithm by default, but it lets you configure it to use the _nearest neighbor_ or _trilinear_ algorithms instead by setting the `samplingMode` property of the texture. This takes a value from the `TextureFilterMode` enum:
+El objeto `Material` usa el algoritmo _bilinear_ por defecto, pero te permite configurarlo para usar los algoritmos _nearest neighbor_ o _trilinear_ en su lugar estableciendo la propiedad `samplingMode` de la textura. Esto toma un valor del enum `TextureFilterMode`:
 
-* `TextureFilterMode.TFM_POINT`: Uses a "nearest neighbor" algorithm. This setting is ideal for pixel art style graphics, as the contours will remain sharply marked as the texture is seen larger on screen instead of being blurred.
-* `TextureFilterMode.TFM_BILINEAR`: Uses a bilinear algorithm to estimate the color of each pixel.
-* `TextureFilterMode.TFM_TRILINEAR`: Uses a trilinear algorithm to estimate the color of each pixel.
+- `TextureFilterMode.TFM_POINT`: Usa un algoritmo de "vecino más cercano". Esta configuración es ideal para gráficos de estilo pixel art, ya que los contornos permanecerán marcados de manera nítida a medida que la textura se vea más grande en pantalla en lugar de difuminarse.
+- `TextureFilterMode.TFM_BILINEAR`: Usa un algoritmo bilineal para estimar el color de cada píxel.
+- `TextureFilterMode.TFM_TRILINEAR`: Usa un algoritmo trilineal para estimar el color de cada píxel.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -476,17 +473,17 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-### Unlit Materials
+## Materiales sin iluminación
 
-Most of the times you'll want the materials in your scene to be affected by the lighting conditions, including shadows and being tinted by the hue changes of different times of day. But in other cases you might want to show the colors in their pure state. This is useful when playing videos, or also for abstract markers that need to stand out, that are meant for signalling hints to the player.
+La mayoría de las veces querrás que los materiales en tu escena sean afectados por las condiciones de iluminación, incluyendo sombras y siendo teñidos por los cambios de tonalidad de diferentes momentos del día. Pero en otros casos es posible que desees mostrar los colores en su estado puro. Esto es útil al reproducir videos, o también para marcadores abstractos que necesitan destacarse, que están destinados a señalar pistas al jugador.
 
-To create an unlit material, use `Material.setBasicMaterial`. Basic materials don't have all the same properties as PBR materials, they only have the essential:
+Para crear un material sin iluminación, usa `Material.setBasicMaterial`. Los materiales básicos no tienen todas las mismas propiedades que los materiales PBR, solo tienen lo esencial:
 
-* `diffuseColor`: Color4 for the color
-* `texture`: Texture
-* `alphaTexture`: Separate texture for the transparency layer
-* `alphaTest`: Threshold for achieving transparency based on the color of the texture
-* `castShadows`: If false, no shadows are projected onto other entities in the scene.
+- `diffuseColor`: Color4 para el color
+- `texture`: Textura
+- `alphaTexture`: Textura separada para la capa de transparencia
+- `alphaTest`: Umbral para lograr transparencia basada en el color de la textura
+- `castShadows`: Si es false, no se proyectan sombras sobre otras entidades en la escena.
 
 ```ts
 Material.setBasicMaterial(screen, {
@@ -494,9 +491,9 @@ Material.setBasicMaterial(screen, {
 })
 ```
 
-### Avatar Portraits
+## Retratos de avatar
 
-To display a thumbnail image of any player, use `Material.Texture.Avatar` when setting the texture of your material, passing the address of an existing player. This creates a texture from a 256x256 image of the player, showing head and shoulders. The player is displayed wearing the set of wearables that the current server last recorded.
+Para mostrar una imagen en miniatura de cualquier jugador, usa `Material.Texture.Avatar` al establecer la textura de tu material, pasando la dirección de un jugador existente. Esto crea una textura desde una imagen de 256x256 del jugador, mostrando cabeza y hombros. El jugador se muestra usando el conjunto de wearables que el servidor actual registró por última vez.
 
 ```ts
 Material.setPbrMaterial(myEntity, {
@@ -506,19 +503,19 @@ Material.setPbrMaterial(myEntity, {
 })
 ```
 
-![](../../.gitbook/assets/avatarTexture.png)
+![](/images/avatarTexture.png)
 
-You can fetch the portrait of any Decentraland player, even if they're not currently connected, and even if they don't have a claimed Decentraland name.
+Puedes obtener el retrato de cualquier jugador de Decentraland, incluso si no están conectados actualmente, e incluso si no tienen un nombre de Decentraland reclamado.
 
-The following properties are supported within the object you pass as an argument:
+Las siguientes propiedades son compatibles dentro del objeto que pasas como argumento:
 
-* `userId`: ID of the user who's profile you want to display
-* `filterMode`: Determines how pixels in the texture are stretched or compressed when rendered. This takes a value from the `TextureFilterMode` enum. See [Texture Scaling](materials.md#texture-scaling).
-* `wrapMode`: Determines how a texture is tiled onto an object. This takes a value from the `TextureWrapMode` enum. See [Texture Wrapping](materials.md#texture-wrapping).
+- `userId`: ID del usuario cuyo perfil deseas mostrar
+- `filterMode`: Determina cómo se estiran o comprimen los píxeles en la textura cuando se renderizan. Esto toma un valor del enum `TextureFilterMode`. Consulta [Escalado de textura](#texture-scaling).
+- `wrapMode`: Determina cómo se coloca una textura en mosaico en un objeto. Esto toma un valor del enum `TextureWrapMode`. Consulta [Envoltura de textura](#texture-wrapping).
 
-### Transparent materials
+## Materiales transparentes
 
-To make a material with a plain color transparent, simply define the color as a `Color4`, and set the 4th value to something between _0_ and _1_. The closer to _1_, the more opaque it will be.
+Para hacer un material con un color plano transparente, simplemente define el color como un `Color4`, y establece el 4º valor a algo entre _0_ y _1_. Cuanto más cerca de _1_, más opaco será.
 
 ```typescript
 let transparentRed = Color4.create(1, 0, 0, 0.5)
@@ -528,9 +525,9 @@ Material.setPbrMaterial(meshEntity, {
 })
 ```
 
-If a material uses a .png texture that includes transparency, it will be opaque by default, but you can activate its transparency by setting the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_BLEND`.
+Si un material usa una textura .png que incluye transparencia, será opaco por defecto, pero puedes activar su transparencia estableciendo el `transparencyMode` en `MaterialTransparencyMode.MTM_ALPHA_BLEND`.
 
-![](../../.gitbook/assets/transparent-image.png)
+<img src="../../../images/editor/transparent-image.png" width="500" />
 
 ```typescript
 Material.setPbrMaterial(floor, {
@@ -541,18 +538,18 @@ Material.setPbrMaterial(floor, {
 })
 ```
 
-The `transparencyMode` can have the following values:
+El `transparencyMode` puede tener los siguientes valores:
 
-* `MaterialTransparencyMode.MTM_OPAQUE`: No transparency at all
-* `MaterialTransparencyMode.MTM_ALPHA_TEST`: Each pixel is either completely opaque or completely transparent, based on a threshold.
-* `MaterialTransparencyMode.MTM_ALPHA_BLEND`: Intermediate values are possible based on the value of each pixel.
-* `MaterialTransparencyMode.MTM_ALPHA_TEST_AND_ALPHA_BLEND`: Uses a combination of both methods.
-* `MaterialTransparencyMode.MTM_AUTO`: Determines the method based on the provided texture.
+- `MaterialTransparencyMode.MTM_OPAQUE`: Sin transparencia en absoluto
+- `MaterialTransparencyMode.MTM_ALPHA_TEST`: Cada píxel es completamente opaco o completamente transparente, basado en un umbral.
+- `MaterialTransparencyMode.MTM_ALPHA_BLEND`: Valores intermedios son posibles basados en el valor de cada píxel.
+- `MaterialTransparencyMode.MTM_ALPHA_TEST_AND_ALPHA_BLEND`: Usa una combinación de ambos métodos.
+- `MaterialTransparencyMode.MTM_AUTO`: Determina el método basado en la textura proporcionada.
 
-If you set the `transparencyMode` to `MaterialTransparencyMode.MTM_ALPHA_TEST`, you can fine tune the threshold used to determine if each pixel is transparent or not. Set the `alphaTest` property between _0_ and _1_. By default its value is _0.5_.
+Si estableces el `transparencyMode` en `MaterialTransparencyMode.MTM_ALPHA_TEST`, puedes ajustar el umbral usado para determinar si cada píxel es transparente o no. Establece la propiedad `alphaTest` entre _0_ y _1_. Por defecto su valor es _0.5_.
 
 ```ts
-// Using alpha test
+// Usando alpha test
 Material.setPbrMaterial(meshEntity1, {
 	texture: Material.Texture.Common({
 		src: 'images/myTexture.png',
@@ -562,16 +559,16 @@ Material.setPbrMaterial(meshEntity1, {
 })
 ```
 
-When using an [unlit material](materials.md#unlit-materials), you can add an `alphaTexture` to make only certain regions of the material transparent, based on a texture.
+Al usar un [material sin iluminación](#unlit-materials), puedes agregar un `alphaTexture` para hacer solo ciertas regiones del material transparentes, basadas en una textura.
 
 {% hint style="warning" %}
-**📔 Note**: This must be a single-channel image. In this image use the color red or black to determine what parts of the real texture should be transparent.
+**📔 Nota**: Esta debe ser una imagen de un solo canal. En esta imagen usa el color rojo o negro para determinar qué partes de la textura real deben ser transparentes.
 {% endhint %}
 
-![](../../.gitbook/assets/circular-video-screen.png)
+<img src="../../../images/circular-video-screen.png" width="500" />
 
 ```ts
-// Using alpha test
+// Usando alpha test
 Material.setPbrMaterial(meshEntity1, {
 	texture: Material.Texture.Common({
 		src: 'images/myTexture.png',
@@ -583,17 +580,17 @@ Material.setPbrMaterial(meshEntity1, {
 })
 ```
 
-This can be used in very interesting ways together with videos. See [video playing](../../../creator/sdk7/media/video-playing.md).
+Esto se puede usar de formas muy interesantes junto con videos. Consulta [reproducción de video](../media/video-playing.md).
 
-### Video playing
+## Reproducción de video
 
-To stream video from a URL into a material, or play a video from a file stored in the scene, see [video playing](../../../creator/sdk7/media/video-playing.md).
+Para transmitir video desde una URL a un material, o reproducir un video desde un archivo almacenado en la escena, consulta [reproducción de video](../media/video-playing.md).
 
-The video is used as a texture on a material, you can set any of the other properties of materials to alter how the video screen looks.
+El video se usa como una textura en un material, puedes establecer cualquiera de las otras propiedades de materiales para alterar cómo se ve la pantalla de video.
 
-### Advanced syntax
+## Sintaxis avanzada
 
-The complete syntax for creating a `Materials` component, without any helpers to simplify it, looks like this:
+La sintaxis completa para crear un componente `Materials`, sin ningún helper para simplificarlo, se ve así:
 
 ```ts
 Material.create(myEntity, {
@@ -619,31 +616,31 @@ Material.create(myEntity, {
 })
 ```
 
-This is how the base protocol interprets Materials components. The helper functions abstract away from this and expose a friendlier syntax, but behind the scenes they output this syntax.
+Así es como el protocolo base interpreta los componentes Materials. Las funciones auxiliares abstraen esto y exponen una sintaxis más amigable, pero detrás de escena generan esta sintaxis.
 
-The `$case` field allows you to specify one of the allowed types. Each type supports a different set of parameters. In the example above, the `box` type supports a `uvs` field.
+El campo `$case` te permite especificar uno de los tipos permitidos. Cada tipo admite un conjunto diferente de parámetros. En el ejemplo anterior, el tipo `box` admite un campo `uvs`.
 
-The supported values for `$case` are the following:
+Los valores compatibles para `$case` son los siguientes:
 
-* `texture`
-* `avatarTexture`
+- `texture`
+- `avatarTexture`
 
-Depending on the value of `$case`, it's valid to define the object for the corresponding shape, passing any relevant properties.
+Dependiendo del valor de `$case`, es válido definir el objeto para la forma correspondiente, pasando las propiedades relevantes.
 
-To add a `Material` component to an entity that potentially already has an instance of this component, use `Material.createOrReplace()`. The helper functions like `MeshRenderer.setPbrMaterial()` handle overwriting existing instances of the component, but running `Material.create()` on an entity that already has this component returns an error.
+Para agregar un componente `Material` a una entidad que potencialmente ya tiene una instancia de este componente, usa `Material.createOrReplace()`. Las funciones auxiliares como `MeshRenderer.setPbrMaterial()` manejan la sobrescritura de instancias existentes del componente, pero ejecutar `Material.create()` en una entidad que ya tiene este componente devuelve un error.
 
-### Modify glTF materials
+## Modificar materiales glTF
 
-Use the `GltfNodeModifiers` component to modify the materials of a _glTF_ model. This component allows you to override the materials of a _glTF_ model with your own materials. You can use any of the properties of the `Material` component, including texture, video texture, unlit materials, etc.
+Usa el componente `GltfNodeModifiers` para modificar los materiales de un modelo _glTF_. Este componente te permite anular los materiales de un modelo _glTF_ con tus propios materiales. Puedes usar cualquiera de las propiedades del componente `Material`, incluyendo textura, textura de video, materiales sin iluminación, etc.
 
-There are two ways to use the `GltfNodeModifiers` component:
+Hay dos formas de usar el componente `GltfNodeModifiers`:
 
-* Modify the material of the entire model by leaving the `path` property as an empty string.
-* Modify the material of a specific node in the model (or several nodes) by setting the `path` property to the path to the node.
+- Modificar el material de todo el modelo dejando la propiedad `path` como una cadena vacía.
+- Modificar el material de un nodo específico en el modelo (o varios nodos) estableciendo la propiedad `path` a la ruta del nodo.
 
-#### Modify the material of the entire model
+### Modificar el material de todo el modelo
 
-The following example shows how to modify the material of a _glTF_ model. In this case, the material of the entire model is modified to be red.
+El siguiente ejemplo muestra cómo modificar el material de un modelo _glTF_. En este caso, el material de todo el modelo se modifica para ser rojo.
 
 ```ts
 import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
@@ -675,25 +672,25 @@ GltfNodeModifiers.create(myEntity, {
 })
 ```
 
-The `GltfNodeModifiers` component has the following properties:
+El componente `GltfNodeModifiers` tiene las siguientes propiedades:
 
-* `modifiers`: An array of modifiers. Each modifier has the following properties:
-  * `path`: The path to the node in the model to modify.
-  * `material`: The material to use.
+- `modifiers`: Un array de modificadores. Cada modificador tiene las siguientes propiedades:
+  - `path`: La ruta al nodo en el modelo a modificar.
+  - `material`: El material a usar.
 
-The `path` property is a string that represents the path to the node in the _glTF_ model to modify. If you want to modify the material of the entire model, you can use an empty string. If you want to modify the material of a specific node, you can use the path to the node. The path must point to a mesh node, not a vertex node.
+La propiedad `path` es una cadena que representa la ruta al nodo en el modelo _glTF_ a modificar. Si deseas modificar el material de todo el modelo, puedes usar una cadena vacía. Si deseas modificar el material de un nodo específico, puedes usar la ruta al nodo. La ruta debe apuntar a un nodo de mesh, no a un nodo de vértice.
 
 {% hint style="info" %}
-**💡 Tip**: You can use the [Babylon Sandbox app](https://sandbox.babylonjs.com/) to inspect the _glTF_ model and find the path to the node you want to modify.
+**💡 Consejo**: Puedes usar la [aplicación Babylon Sandbox](https://sandbox.babylonjs.com/) para inspeccionar el modelo _glTF_ y encontrar la ruta al nodo que deseas modificar.
 
-In some models, however, the Babylon sandbox may list paths that belong to vertexes rather than meshes, which will not work. If you attempt to use a path that isn't valid, the scene's console will display an error message that includes the full list of valid paths on that model.
+En algunos modelos, sin embargo, el sandbox de Babylon puede listar rutas que pertenecen a vértices en lugar de meshes, lo cual no funcionará. Si intentas usar una ruta que no es válida, la consola de la escena mostrará un mensaje de error que incluye la lista completa de rutas válidas en ese modelo.
 {% endhint %}
 
-The `material` property is an object that represents the material to use. It needs to be written using the [advanced syntax](materials.md#advanced-syntax) for materials, as shown in the example above. Helper functions like `Material.setPbrMaterial()` can't be used here.
+La propiedad `material` es un objeto que representa el material a usar. Debe escribirse usando la [sintaxis avanzada](#advanced-syntax) para materiales, como se muestra en el ejemplo anterior. Las funciones auxiliares como `Material.setPbrMaterial()` no se pueden usar aquí.
 
-#### Modify the material of a specific node in the model
+### Modificar el material de un nodo específico en el modelo
 
-The following example shows how to modify the material of a specific node in the _glTF_ model. In this case, the material of the head is modified to use an alternative texture.
+El siguiente ejemplo muestra cómo modificar el material de un nodo específico en el modelo _glTF_. En este caso, el material de la cabeza se modifica para usar una textura alternativa.
 
 ```ts
 import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
@@ -727,7 +724,7 @@ GltfNodeModifiers.create(myEntity, {
 })
 ```
 
-A `GltfNodeModifiers` can contain several modifiers, each modifying a different node in the model. The following example shows how to modify the material of the head and the body of a _glTF_ model.
+Un `GltfNodeModifiers` puede contener varios modificadores, cada uno modificando un nodo diferente en el modelo. El siguiente ejemplo muestra cómo modificar el material de la cabeza y el cuerpo de un modelo _glTF_.
 
 ```ts
 import { GltfNodeModifiers, GltfContainer, Transform } from '@dcl/sdk/ecs'
@@ -770,9 +767,9 @@ GltfNodeModifiers.create(myEntity, {
 })
 ```
 
-#### Remove shadows from a glTF model
+### Eliminar sombras de un modelo glTF
 
-To remove shadows from a _glTF_ model, you can set the `castShadows` property to `false` in the `GltfNodeModifiers` object. This retains the original material of the model, but prevents it from casting shadows. This is useful for models that are not meant to cast shadows, such as light beams.
+Para eliminar sombras de un modelo _glTF_, puedes establecer la propiedad `castShadows` en `false` en el objeto `GltfNodeModifiers`. Esto retiene el material original del modelo, pero evita que proyecte sombras. Esto es útil para modelos que no están destinados a proyectar sombras, como rayos de luz.
 
 ```ts
 import { GltfNodeModifiers } from '@dcl/sdk/ecs'

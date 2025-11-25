@@ -1,30 +1,26 @@
 ---
-description: Make the player perform an emote
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/sdk7/interactivity/trigger-emotes
+description: Haz que el jugador realice un emote
 ---
 
-# Trigger Emotes
+# Activar emotes
 
-You can make the player perform an animation as part of the scene's code. This can help provide more immersion, and it can also help communicate what other players are doing to each other. The avatar animations are seen both by the player (in 3rd person view) and any other players around.
+Puedes hacer que el jugador realice una animación como parte del código de la escena. Esto puede ayudar a proporcionar más inmersión, y también puede ayudar a comunicar lo que otros jugadores están haciendo entre sí. Las animaciones de avatar son vistas tanto por el jugador (en vista de tercera persona) como por cualquier otro jugador alrededor.
 
-Animations done by the player are overridden by the default locomotion animations, like walking and jumping. So animations played by the scene only play while the player is standing still. If the player walks or jumps, any animations are interrupted.
+Las animaciones realizadas por el jugador son anuladas por las animaciones de locomoción predeterminadas, como caminar y saltar. Por lo tanto, las animaciones reproducidas por la escena solo se reproducen mientras el jugador está quieto. Si el jugador camina o salta, cualquier animación se interrumpe.
 
 {% hint style="warning" %}
-**📔 Note**: Players can only be animated if they already are standing inside the scene's bounds, not if they are on a neighboring scene. Portable experiences and smart wearables can play animations anywhere.
+**📔 Nota**: Los jugadores solo pueden ser animados si ya están dentro de los límites de la escena, no si están en una escena vecina. Las experiencias portátiles y wearables inteligentes pueden reproducir animaciones en cualquier lugar.
 {% endhint %}
 
-### Use the Scene Editor
+## Usar el Scene Editor
 
-The easiest way to make a player perform an animation is to use the [Scene Editor](../../../creator/scene-editor/get-started/about-editor.md). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart](../../../creator/scene-editor/interactivity/make-any-item-smart.md).
+La forma más fácil de hacer que un jugador realice una animación es usar el [Scene Editor](../../scene-editor/about-editor.md). Usa la acción sin código **Play Emote** para reproducir una animación predeterminada, o la acción **Play Custom Emote** para reproducir una animación desde un archivo. Consulta [Hacer cualquier item inteligente](../../scene-editor/make-any-item-smart.md).
 
-### Default animations
+## Animaciones predeterminadas
 
-Use the `triggerEmote()` function ro run one of the default animations that players are able to play anywhere in Decentraland. This function takes a an object with a single property as an argument:
+Usa la función `triggerEmote()` para ejecutar una de las animaciones predeterminadas que los jugadores pueden reproducir en cualquier lugar de Decentraland. Esta función toma un objeto con una sola propiedad como argumento:
 
-* `predefinedEmote`: A string name for an existing emote.
+- `predefinedEmote`: Un nombre de cadena para un emote existente.
 
 ```ts
 import { triggerEmote } from '~system/RestrictedActions'
@@ -44,60 +40,60 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-The following emotes show feedback about player actions in your scene, all of these are valid values for the `predefinedEmote` field:
+Los siguientes emotes muestran retroalimentación sobre acciones del jugador en tu escena, todos estos son valores válidos para el campo `predefinedEmote`:
 
-* `buttonDown`
-* `buttonFront`
-* `getHit`
-* `knockOut`
-* `lever`
-* `openChest`
-* `openDoor`
-* `punch`
-* `push`
-* `swingWeaponOneHand`
-* `swingWeaponTwoHands`
-* `throw`
-* `sittingChair1`
-* `sittingChair2`
-* `sittingGround1`
-* `sittingGround2`
+- `buttonDown`
+- `buttonFront`
+- `getHit`
+- `knockOut`
+- `lever`
+- `openChest`
+- `openDoor`
+- `punch`
+- `push`
+- `swingWeaponOneHand`
+- `swingWeaponTwoHands`
+- `throw`
+- `sittingChair1`
+- `sittingChair2`
+- `sittingGround1`
+- `sittingGround2`
 
-These emotes are available to all players in their default emote wheel, and can also be used in any scene.
+Estos emotes están disponibles para todos los jugadores en su rueda de emotes predeterminada, y también se pueden usar en cualquier escena.
 
-* `wave`
-* `fistpump`
-* `robot`
-* `raiseHand`
-* `clap`
-* `money`
-* `kiss`
-* `tik`
-* `hammer`
-* `tektonik`
-* `dontsee`
-* `handsair`
-* `shrug`
-* `disco`
-* `dab`
-* `headexplode`
+- `wave`
+- `fistpump`
+- `robot`
+- `raiseHand`
+- `clap`
+- `money`
+- `kiss`
+- `tik`
+- `hammer`
+- `tektonik`
+- `dontsee`
+- `handsair`
+- `shrug`
+- `disco`
+- `dab`
+- `headexplode`
 
 {% hint style="info" %}
-**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers](../../../creator/sdk7/interactivity/input-modifiers.md) for the duration of the avatar animation.
+**💡 Consejo**: Si un jugador camina o salta mientras reproduce la animación, la interrumpirán. Si no quieres que eso sea posible, puedes congelar el avatar con [Modificadores de entrada](input-modifiers.md) durante la duración de la animación del avatar.
 {% endhint %}
 
-### Custom animations
+## Animaciones personalizadas
 
-Use the `triggerSceneEmote()` to make the player perform a custom animation, stored as a .glb file as part of the scene's asset.
+Usa `triggerSceneEmote()` para hacer que el jugador realice una animación personalizada, almacenada como un archivo .glb como parte del asset de la escena. 
 
 {% hint style="warning" %}
-**📔 Note**: The file's name **must** end in `_emote.glb` to work as an avatar animation.
+**📔 Nota**: El nombre del archivo **debe** terminar en `_emote.glb` para funcionar como una animación de avatar.
 {% endhint %}
 
-This function takes an object as an argument with the following arguments:
+Esta función toma un objeto como argumento con los siguientes argumentos:
 
-* `src`: A string with a path to the emote file.
-* `loop`: If true, the animation will loop continuously until the player moves or the animation is stopped. False by default.
+- `src`: Una cadena con una ruta al archivo de emote.
+- `loop`: Si es true, la animación se repetirá continuamente hasta que el jugador se mueva o se detenga la animación. False por defecto.
 
 ```ts
 import { triggerSceneEmote } from '~system/RestrictedActions'
@@ -118,16 +114,16 @@ pointerEventsSystem.onPointerDown(
 ```
 
 {% hint style="info" %}
-**💡 Tip**: If a player walks or jumps while playing the animation, they will interrupt it. If you don't want that to be possible, you can freeze the avatar with [Input Modifiers](../../../creator/sdk7/interactivity/input-modifiers.md) for the duration of the avatar animation.
+**💡 Consejo**: Si un jugador camina o salta mientras reproduce la animación, la interrumpirán. Si no quieres que eso sea posible, puedes congelar el avatar con [Modificadores de entrada](input-modifiers.md) durante la duración de la animación del avatar.
 {% endhint %}
 
-### Required permissions in smart wearables and portable experiences
+## Permisos requeridos en wearables inteligentes y experiencias portátiles
 
 {% hint style="warning" %}
-**📔 Note**: Permissions are only relevant in [portable experiences](../../../creator/sdk7/projects/portable-experiences.md) and [smart wearables](../../../creator/sdk7/projects/smart-wearables.md). Normal scenes (both in parcels or in Worlds) are free to use avatar animations and are not affected by permissions.
+**📔 Nota**: Los permisos solo son relevantes en [experiencias portátiles](../projects/portable-experiences.md) y [wearables inteligentes](../projects/smart-wearables.md). Las escenas normales (tanto en parcelas como en Worlds) son libres de usar animaciones de avatar y no se ven afectadas por permisos.
 {% endhint %}
 
-Smart wearables and portable experiences are only allowed to use this functionality if they add a corresponding permissions on the `scene.json` file. This applies to both predefined and custom animations. This is granted via the `ALLOW_TO_TRIGGER_AVATAR_EMOTE` permission.
+Los wearables inteligentes y las experiencias portátiles solo pueden usar esta funcionalidad si agregan un permiso correspondiente en el archivo `scene.json`. Esto se aplica tanto a animaciones predefinidas como personalizadas. Esto se otorga mediante el permiso `ALLOW_TO_TRIGGER_AVATAR_EMOTE`.
 
 ```json
   "requiredPermissions": [
@@ -135,4 +131,4 @@ Smart wearables and portable experiences are only allowed to use this functional
   ],
 ```
 
-See [Required permissions](../../../creator/sdk7/projects/scene-metadata.md#required-permissions) for more details.
+Consulta [Permisos requeridos](../projects/scene-metadata.md#required-permissions) para más detalles.
