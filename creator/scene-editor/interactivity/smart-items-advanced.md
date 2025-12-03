@@ -2,11 +2,11 @@
 description: Using smart items in your scene to add interactivity.
 ---
 
-# Smart Items Advanced
+# Smart Items - Advanced
 
 Most smart items have a basic module where you can configure only the most common settings in a simple way, but you can scroll down past the **Advanced** marker to customize almost anything about how the item behaves.
 
-
+{% embed url="https://www.youtube.com/watch?v=m_xWCSDDxpQ" %}
 
 The following item has a Transform component and a basic module that exposes only the basic fields for configuring a button. But if you scroll down past the **Advanced** marker, you'll find all the available settings.
 

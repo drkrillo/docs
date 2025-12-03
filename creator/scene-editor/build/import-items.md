@@ -2,13 +2,13 @@
 description: Import your own 3D models, images, sound, etc to use in your scenes.
 ---
 
-# Import Items
+# Import custom assets
 
 You can import your own 3D models into the Scene Editor. Pick models from a wide selection of free or paid sources on the internet, or to create your own custom models. You can also import other assets like images, sound files, and videos.
 
+{% embed url="https://www.youtube.com/watch?v=UepXpH-k0EI" %}
 
-
-### Import an asset
+## Import an asset
 
 To import a 3D model, an image, a sound file, or a video into your scene from your local disk:
 

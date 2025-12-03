@@ -2,11 +2,11 @@
 description: Managing item states and conditional logic
 ---
 
-# States and Conditions
+# States and conditions
 
+{% embed url="https://www.youtube.com/watch?v=wm8ZD2kSyKA" %}
 
-
-### Conditional logic
+## Conditional logic
 
 Add conditions on a trigger, so that the action only occurs if those conditions are met. For example, clicking on a door only activates the "Open" action if it wasn't already open.
 

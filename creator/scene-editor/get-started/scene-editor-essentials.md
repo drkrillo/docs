@@ -66,9 +66,9 @@ See [Import items](../scene-editor/build/import-items.md) for adding your own cu
 Open the **Local Assets** tab to delete any unused models.
 {% endhint %}
 
-### Position items
+## Position items
 
-
+{% embed url="https://www.youtube.com/watch?v=cNl02PFPdcQ" %}
 
 Click with the **Left Mouse Button** and drag a selected item to move it freely around the scene at ground level.
 
