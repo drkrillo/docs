@@ -4,9 +4,9 @@
 
 ## Tutorials & Examples
 
-* [Examples](tutorials/examples.md)
-* [Video Tutorial](tutorials/video.md)
-* [Video Emotes](tutorials/video-emotes.md)
+* [Example Scenes](tutorials/examples.md)
+* [SDK & Editor Videos](tutorials/video.md)
+* [Emote Videos](tutorials/video-emotes.md)
 
 ## Wearables & Emotes
 
@@ -14,8 +14,8 @@
   * [Creating Wearables](wearables-and-emotes/wearables/creating-wearables.md)
   * [Linked Wearables](wearables-and-emotes/wearables/linked-wearables.md)
 * [Emotes](wearables-and-emotes/emotes/README.md)
-  * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
   * [Creating Emotes](wearables-and-emotes/emotes/creating-emotes.md)
+  * [Avatar Rig](wearables-and-emotes/emotes/avatar-rig.md)
   * [Particles in Emotes](wearables-and-emotes/emotes/particles-in-emotes.md)
   * [Props and Sounds](wearables-and-emotes/emotes/props-and-sounds.md)
   * [Rig Features](wearables-and-emotes/emotes/rig-features.md)
