@@ -67,6 +67,7 @@
   * [Development Workflow](sdk7/getting-started/dev-workflow.md)
   * [Preview Your Scene](sdk7/getting-started/preview-scene.md)
   * [Using the CLI](sdk7/getting-started/using-the-cli.md)
+  * [Coding essentials](sdk7/getting-started/coding-scenes.md)
 * [Designing the experience](sdk7/design-experience/README.md)
   * [Design Games](sdk7/design-experience/design-games.md)
   * [MVP Guidelines](sdk7/design-experience/mvp-guidelines.md)
