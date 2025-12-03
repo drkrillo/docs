@@ -5,7 +5,7 @@ description: Combine content created on the Scene Editor with the power of writi
 
 # Combine with code
 
-[![Video Tutorial](https://img.youtube.com/vi/55H37rygD7M/0.jpg)](https://www.youtube.com/watch?v=55H37rygD7M)
+<a href="https://www.youtube.com/watch?v=55H37rygD7M"><img src="https://img.youtube.com/vi/55H37rygD7M/0.jpg" alt="Video Tutorial" width="400"/></a>
 
 The Creator Hub plus custom code is a very powerful combination for creating content. You can use the canvas to visually position items intuitively, and then write code that interacts with these items with complete freedom. You can even place a smart item, that has its own default behavior, and write code that reacts to when the item is activated.
 
@@ -52,7 +52,7 @@ If you have a preview window open running your scene, whenever you change the co
 If you are using Cursor, you can use the AI assistant to help you write code. To do this,
 
 1. Open the Cursor AI assistant by clicking the **AI** button in the top-right of the screen
-<img src="../../images/editor/cursor-icon.png" alt="Cursor" width="128"/>
+<img src="../../images/editor/cursor-icon.png" alt="Cursor" width="25"/>
 
 2. There you can prompt the AI assistant to help you write code. You can also select a model to use from the dropdown.
 
