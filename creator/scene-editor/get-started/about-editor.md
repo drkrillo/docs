@@ -11,7 +11,7 @@ The Creator Hub includes a powerful Scene Editor that combines a simple no-code 
 
 See [Creator Hub Installation](editor-installation.md) to get started.
 
-<a href="https://www.youtube.com/watch?v=52LiG-4VI9c"><img src="https://img.youtube.com/vi/52LiG-4VI9c/0.jpg" alt="Video Tutorial" width="300"/></a>
+{% embed url="https://www.youtube.com/watch?v=52LiG-4VI9c" %}
 
 ## Create a scene
 
@@ -43,7 +43,7 @@ To find your way around the Scene Editor:
 
 Navigate the themed asset pack categories on the menu on the bottom to find different items that you can place on your scene.
 
-<img src="../../images/editor/asset-packs.png" alt="Asset packs" width="300"/>
+<img src="../../images/editor/asset-packs.png" alt="Asset packs"/>
 
 To place an item, click and drag it in from the asset pack menu into a location on your scene in the canvas.
 
@@ -53,7 +53,7 @@ Click and drag a selected item to move it freely around the scene at ground leve
 
 > **💡 Tip**: Some items are **Smart items**, these come with built-in interactive behaviors. See [Smart items](../interactivity/smart-items.md) for more details.
 
-<img src="../../images/editor/smart-items.jpg" alt="Smart items" width="300"/>
+<img src="../../images/editor/smart-items.jpg" alt="Smart items"/>
 
 ## Preview
 
@@ -81,7 +81,7 @@ See [Scene Settings](../configure/scene-settings.md) for more details.
 
 Once you're happy with your scene, press _Publish scene_.
 
-<img src="../../images/editor/publish-options.png" alt="Publish options" width="300"/>
+<img src="../../images/editor/publish-options.png" alt="Publish options" width="500"/>
 
 See [Publish scene](../publish/publish-scene.md) for more details.
 
