@@ -22,46 +22,46 @@ Learn about Decentraland and its history
 
 Find answers to common questions about:
 
-* Getting started with Decentraland
-* Creating content and monetizing your work
-* Account management and security
-* Events, Places, and support
+* [Getting started with Decentraland](faqs/decentraland-101.md)
+* [Creating content and monetizing your work](faqs/creating-in-decentraland.md)
+* [Account management](faqs/my-account.md) and [security](faqs/security.md)
+* [Events](faqs/posting-events.md), [Places](faqs/places.md), and [support](faqs/contact-and-support.md)
 
 ### 🔗 Blockchain Integration
 
 Understand how Decentraland uses blockchain technology:
 
-* Setting up your wallet
-* Understanding Ethereum and smart contracts
-* Managing transactions in Polygon
+* [Setting up your wallet](blockchain-integration/get-a-wallet.md)
+* [Understanding Ethereum and smart contracts](blockchain-integration/ethereum-essentials.md)
+* [Managing transactions in Polygon](blockchain-integration/transactions-in-polygon.md)
 
 ### 🏛️ DAO (Decentralized Autonomous Organization)
 
 Learn how the community governs Decentraland:
 
-* How to participate in the DAO
-* Understanding voting power
-* Creating and voting on proposals
-* The DAO's structure and limitations
+* [How to participate in the DAO](dao/dao-userguide.md)
+* [Understanding voting power](dao/what-do-you-need-to-participate.md)
+* [Creating and voting on proposals](dao/what-can-you-do-with-the-dao.md)
+* [The DAO's structure and limitations](dao/the-daos-limitations.md)
 
 ### 🎮 In-World Experience
 
 Master your Decentraland experience:
 
-* Exploring Genesis City and Worlds
-* Customizing your avatar
-* Making friends and chatting
-* Finding and attending events
-* Earning rewards
-* Settings and performance optimization
+* [Exploring Genesis City and Worlds](decentraland-in-world/exploring.md)
+* [Customizing your avatar](decentraland-in-world/customizing-your-avatar.md)
+* [Making friends and chatting](decentraland-in-world/friends-and-chatting.md)
+* [Finding and attending events](decentraland-in-world/finding-events.md)
+* [Earning rewards](decentraland-in-world/earning-rewards.md)
+* [Settings and performance optimization](decentraland-in-world/settings-and-performance.md)
 
 ### 🛍️ Marketplace
 
 Trade and manage your Decentraland assets:
 
-* Buying and selling LAND, Wearables, and Emotes
-* Managing your LAND parcels and Estates
-* Renting LAND
+* [Buying and selling LAND, Wearables, and Emotes](marketplace/marketplace.md)
+* [Managing your LAND parcels and Estates](marketplace/land-manager.md)
+* [Renting LAND](marketplace/rentals.md)
 
 ## Quick Links
 
