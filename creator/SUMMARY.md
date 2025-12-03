@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Let's build Decentraland together](README.md)
+* [Welcome Creator](README.md)
 
 ## Tutorials & Examples
 

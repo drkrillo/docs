@@ -1,6 +1,5 @@
 ---
 title: Let's build Decentraland together
-description: Creators intro
 icon: hand-wave
 ---
 
