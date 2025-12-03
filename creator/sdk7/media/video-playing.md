@@ -373,7 +373,7 @@ A neat trick to have non-rectangular video screens is to apply an alpha texture 
 
 Use the following image to cut your video into a circular shape, with transparent corners.
 
-![](../images/circle_mask.png)
+![](../../images/circle_mask.png)
 
 ```ts
 const videoTexture = Material.Texture.Video({
@@ -390,7 +390,7 @@ Material.setBasicMaterial(screen, {
 })
 ```
 
-![](../images/circular-video-screen.png)
+![](../../images/circular-video-screen.png)
 
 {% hint style="warning" %}
 **📔 Note**: In previous versions, the `alphaTexture` property was only present in PRB materials, currently it only works in basic materials.

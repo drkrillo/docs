@@ -141,7 +141,7 @@ This other optional parameter is also available:
 
 Tweens can follow different **Easing Functions** that affect the rate of change over time. A **linear** function, means that the speed of the change is constant from start to finish. There are plenty of options to chose, that draw differently shaped curves depending on if the beginning and/or end start slow, and how much. An **easeinexpo** curve starts slow and ends fast, increasing speed exponentially, on the contrary an **easeoutexpo** curve starts fast and ends slow.
 
-![](../images/editor/easing-functions.png)
+![](../../images/editor/easing-functions.png)
 
 {% hint style="info" %}
 **💡 Tip**: Experiment with different movement curves. The differences are often subtle, but we subconsciously interpret information from how things move, like weight, friction, or even personality.
@@ -437,7 +437,7 @@ In this example we're moving an entity by 0.1 meters per tick of the game loop.
 
 `Vector3.Forward()` returns a vector that faces forward and measures 1 meter in length. In this example we're then scaling this vector down to 1/10 of its length with `Vector3.scale()`. If our scene has 30 frames per second, the entity is moving at 3 meters per second in speed.
 
-![](../images/media/gifs/move.gif)
+![](../../images/media/gifs/move.gif)
 
 #### Rotate via system
 
@@ -469,7 +469,7 @@ In this example, we're rotating the entity by 1 degree in an upwards direction i
 **💡 Tip**: To make an entity always rotate to face the player, you can add a [`Billboard` component](../sdk7/3d-essentials/entity-positioning.md#face-the-user).
 {% endhint %}
 
-![](../images/media/gifs/rotate.gif)
+![](../../images/media/gifs/rotate.gif)
 
 #### Rotate via system over a pivot point
 
@@ -503,7 +503,7 @@ MeshRenderer.setBox(myEntity)
 
 Note that in this example, the system is rotating the `pivotEntity` entity, that's a parent of the `childEntity` entity.
 
-![](../images/media/gifs/pivot-rotate.gif)
+![](../../images/media/gifs/pivot-rotate.gif)
 
 #### Adjust movement to delay time
 
@@ -603,7 +603,7 @@ LerpTransformComponent.create(myEntity, {
 })
 ```
 
-![](../images/media/gifs/lerp-move.gif)
+![](../../images/media/gifs/lerp-move.gif)
 
 #### Rotate between two angles via system
 
@@ -676,7 +676,7 @@ SlerpData.create(myEntity, {
 **📔 Note**: You could instead represent the rotation with euler angles as `Vector3` values and use a `Lerp()` function, but that would imply a conversion from `Vector3` to `Quaternion` on each frame. Rotation values are internally stored as quaternions in the `Transform` component, so it's more efficient for the scene to work with quaternions.
 {% endhint %}
 
-![](../images/media/gifs/lerp-rotate.gif)
+![](../../images/media/gifs/lerp-rotate.gif)
 
 A simpler but less efficient approach to this takes advantage of the `Quaternion.rotateTowards` function, and avoids using any custom components.
 
@@ -776,7 +776,7 @@ ScaleTransformComponent.create(myEntity, {
 Vector3.create(1, 1, 1)
 ```
 
-![](../images/media/gifs/lerp-scale.gif)
+![](../../images/media/gifs/lerp-scale.gif)
 
 #### Move at irregular speeds between two points via system
 
@@ -839,7 +839,7 @@ The example above is just like the linear lerp example we've shown before, but t
 
 You can also map a transition in rotation or in scale in the same way as shown above, by mapping a linear transition to a curve.
 
-![](../images/media/gifs/lerp-speed-up.gif)
+![](../../images/media/gifs/lerp-speed-up.gif)
 
 #### Follow a path via system
 
@@ -911,7 +911,7 @@ The example above defines a 3D path that's made up of four 3D vectors. The `Path
 
 The system is very similar to the system in the _lerp_ example, but when a lerp action is completed, it sets the `target` and `origin` fields to new values. If we reach the end of the path, we return to the first value in the path.
 
-![](../images/media/gifs/lerp-path.gif)
+![](../../images/media/gifs/lerp-path.gif)
 
 ### Texture tweens
 
