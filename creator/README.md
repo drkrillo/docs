@@ -1,70 +1,97 @@
 ---
-description: Welcome to Decentraland Creator Documentation
+title: Let's build Decentraland together
+description: Creators intro
 icon: hand-wave
 ---
 
-# Welcome Creator
+# Let's build Decentraland together
 
-Welcome to the Decentraland Creator Documentation! This is your comprehensive guide to building amazing experiences in Decentraland.
+All creators are welcome! In Decentraland you have a wide range of Creative possibilities, for people of different talents and skill levels!
 
-## What is Decentraland?
+## The Creator Hub
 
-Decentraland is the world's first fully decentralized virtual world where you can create, explore, and trade in a vibrant 3D metaverse. As a creator, you have the power to build interactive scenes, design wearables and emotes, and shape the virtual world.
+The Creator Hub is the recommended tool for creators of all knowledge levels. It's a desktop application that lets you create:
 
-## Getting Started
+- [Wearables & Smart Wearables](#wearables)
+- [Emotes](#emotes)
+- [Scenes](#scenes)
 
-Whether you're new to Decentraland or an experienced creator, this documentation will help you:
+<img src="/images/editor/scene-editor.png" width="750" />
 
-* **Build 3D Scenes**: Create interactive experiences using the Decentraland SDK
-* **Design Wearables & Emotes**: Make custom avatar items for the marketplace
-* **Use the Scene Editor**: Build without code using our visual editor
-* **Publish Your Work**: Share your creations with the world
+Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
-## Documentation Structure
+## Wearables
 
-### SDK7
+Wearables are items of clothing that player avatars can wear. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
 
-The latest Decentraland SDK for building interactive 3D scenes programmatically. Includes guides on entities, components, systems, 3D essentials, UI, interactivity, and more.
+Learn everything about [Creating wearables](/creator/wearables-and-emotes/creating-wearables.md).
 
-### Scene Editor
+You can also combine a wearable with code from the SDK to create a [smart wearable](/creator/sdk7/projects/smart-wearables.md). This turns on a global scene whenever the player puts on the wearable. See [Kinds of project](/creator/sdk7/projects/kinds-of-project.md) to better understand the different options.
 
-Visual editor for building scenes without code. Perfect for beginners and rapid prototyping.
+## Emotes
 
-### Wearables & Emotes
+Emotes are animations that a player's avatar can do. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?assetType=item&section=emotes&vendor=decentraland&page=1&sortBy=newest&status=on_sale).
 
-Complete guide to creating custom avatar items, managing collections, and publishing to the marketplace.
+Learn everything about [Creating emotes](/creator/wearables-and-emotes/creating-emotes.md).
 
-### 3D Modeling
+## Scenes
 
-Essential knowledge for creating 3D assets including models, animations, materials, textures, and more.
+3D content in Decentraland is made up of scenes, each scene occupies a finite amount of space and is displayed one next to the other for players to freely walk through them.
 
-### Marketplace
+The Creator Hub lets you create scenes with an easy drag-and-drop interface, and also edit code to have full control over the interactions. You can run previews, debug, edit code, and publish.
 
-Learn about the Decentraland marketplace, integrations, and managing your digital assets.
+[Learn more](/creator/scene-editor/about-editor.md)
 
-### Rewards
+### 3D Art
 
-Build engaging experiences with the rewards system to incentivize player interaction.
+Decentraland scenes are made up of 3D models.
 
-### Worlds
+- Chose from the wide catalog of default assets in the Scene Editor. These are ready to go and optimized for using in Decentraland
 
-Create your own personal 3D space with Decentraland Worlds.
+  <img src="/images/intro/items.png" width="600" />
 
-## Resources
+- Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Scene Editor.
 
-* [Decentraland Website](https://decentraland.org)
-* [SDK Documentation](https://docs.decentraland.org/creator/sdk7/)
-* [Builder](https://builder.decentraland.org/)
-* [Marketplace](https://market.decentraland.org/)
-* [Studios](https://studios.decentraland.org/)
+  <img src="/images/intro/blender.png" width="600" />
 
-## Community
+> **📔 Note**: Content in Decentraland should stay within certain [size limitations](/creator/sdk7/optimizing/scene-limitations.md) to ensure your scene runs smoothly.
+>
+> See [3D modeling](/creator/3d-modeling/3d-models.md) for tips and tricks for optimizing, and information about supported features and formats for 3D models.
 
-* [Discord](https://dcl.gg/discord)
-* [Forum](https://forum.decentraland.org/)
-* [Twitter](https://twitter.com/decentraland)
-* [GitHub](https://github.com/decentraland)
+### Interactivity
 
-***
+To make your scene interactive:
 
-**Start creating today!**
+- **No Code**: Use the UI of the Scene Editor to drop [Smart Items](/creator/scene-editor/smart-items.md) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
+
+  <img src="/images/intro/smart-items.png" width="500" />
+
+- **Code**: For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
+
+  - [SDK Quick start](/creator/sdk7/getting-started/sdk-101.md): follow this mini tutorial for a quick crash course.
+  - [Development workflow](/creator/sdk7/getting-started/dev-workflow.md): read this to understand scene creation from end to end.
+  - [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
+
+    <img src="/images/intro/sdk-code.png" width="500" />
+
+  > **📔 Note**: You will also need to have <img src="/images/editor/vscode.png" alt="Header" width="25"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
+
+### Publishing scenes
+
+You don't need to own any tokens to start building your scene with the Scene Editor. To publish your scene, you can chose from the following options:
+
+- **LAND in Genesis City**: This is the main open world in Decentraland, which is split up in 16x16 meter parcels. Buy one or several adjacent parcels in the [Marketplace](https://decentraland.org/marketplace/lands), and deploy your scene there.
+- **Decentraland Worlds**: [Worlds](/creator/worlds/about.md) are your own spaces in the metaverse. All you need is to own a [Decentraland name](https://decentraland.org/marketplace/names/claim), and you can publish a scene as big as you want!
+
+See [Kinds of project](/creator/sdk7/projects/kinds-of-project.md) to better understand the different options.
+
+See [publishing](/creator/sdk7/publishing/publishing.md) for details and special options when publishing a scene, to either Genesis City or Worlds.
+
+### Alternative tools
+
+There are also some community-built tools that can help you create Decentraland scenes:
+
+- [**In-World Builder**](https://decentraland.org/play/?realm=https%3A%2F%2Fworlds.dcl-iwb.co%2Fworld%2FBuilderWorld.dcl.eth): Create a scene without leaving the Decentraland explorer. Use various default items or upload your own, without needing to deploy or own land.
+- [**Virtual Land Manager**](https://vlm.gg/): Control various aspects of your scene in real time, including highly customized controls. Includes analytics: View historical user activity, track custom interactions, export lists of players in scene, and more.
+- [**DCL Edit**](https://dcl-edit.com/): Drag and drop 3d models into your scene. You can then work on adding interactivity to the resulting scene using the SDK.
+- [**Unity Exporter Toolkit**](https://github.com/PolygonalMind/dcl-dev-exportersdk7-release): Build in Unity, with a number of pre-built interactive modules. Export a fully-working Decentraland scene.

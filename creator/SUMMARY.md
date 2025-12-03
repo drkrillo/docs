@@ -1,8 +1,8 @@
 # Table of contents
 
-* [Welcome Creator](README.md)
+* [Let's build Decentraland together](README.md)
 
-## Tutorials
+## Tutorials & Examples
 
 * [Examples](tutorials/examples.md)
 * [Video Tutorial](tutorials/video.md)
@@ -24,13 +24,13 @@
   * [Uploading Emotes](wearables-and-emotes/manage-collections/uploading-emotes.md)
   * [Uploading Smart Wearables](wearables-and-emotes/manage-collections/uploading-smart-wearables.md)
   * [Uploading Wearables](wearables-and-emotes/manage-collections/uploading-wearables.md)
-* [Publishing](wearables-and-emotes/publishing/README.md)
+* [Publishing Collections](wearables-and-emotes/publishing/README.md)
   * [Curation Committee](wearables-and-emotes/publishing/curation-committee.md)
   * [Publishing Collections](wearables-and-emotes/publishing/publishing-collections.md)
 
 ## Scene Editor
 
-* [Get Started](scene-editor/get-started/README.md)
+* [Get started](scene-editor/get-started/README.md)
   * [About the Scene Editor](scene-editor/get-started/about-editor.md)
   * [Editor Installation](scene-editor/get-started/editor-installation.md)
   * [Manage Scenes](scene-editor/get-started/manage-scenes.md)
@@ -48,35 +48,41 @@
   * [States and Conditions](scene-editor/interactivity/states-and-conditions.md)
   * [Trigger Area](scene-editor/interactivity/trigger-area.md)
   * [Video Screen](scene-editor/interactivity/video-screen.md)
-* [Code](scene-editor/code/README.md)
+* [Extend with code](scene-editor/code/README.md)
   * [Reference Items](scene-editor/code/reference-items.md)
 * [Configure](scene-editor/configure/README.md)
   * [Scene Settings](scene-editor/configure/scene-settings.md)
 * [Publish](scene-editor/publish/README.md)
   * [Publish Scene](scene-editor/publish/publish-scene.md)
-* [Live Ops](scene-editor/live-ops/README.md)
+* [Operate live](scene-editor/live-ops/README.md)
   * [Live Streaming](scene-editor/live-ops/live-streaming.md)
   * [Scene Admin](scene-editor/live-ops/scene-admin.md)
 
+## Scenes (SDK7)
 
-## SDK7
-
-* [Getting Started](sdk7/getting-started/README.md)
+* [Getting started](sdk7/getting-started/README.md)
   * [SDK Quick Start](sdk7/getting-started/sdk-101.md)
   * [Development Workflow](sdk7/getting-started/dev-workflow.md)
   * [Preview Your Scene](sdk7/getting-started/preview-scene.md)
   * [Using the CLI](sdk7/getting-started/using-the-cli.md)
-* [Design Experience](sdk7/design-experience/README.md)
+* [Designing the experience](sdk7/design-experience/README.md)
   * [Design Games](sdk7/design-experience/design-games.md)
   * [MVP Guidelines](sdk7/design-experience/mvp-guidelines.md)
   * [UX & UI Guide](sdk7/design-experience/ux-ui-guide.md)
-* [Architecture](sdk7/architecture/README.md)
+* [ECS](sdk7/architecture/README.md)
   * [Entities & Components](sdk7/architecture/entities-components.md)
   * [Systems](sdk7/architecture/systems.md)
   * [Custom Components](sdk7/architecture/custom-components.md)
   * [Querying Components](sdk7/architecture/querying-components.md)
-  * [Subscribe to Changes](sdk7/architecture/subscribe-to-changes.md) 
+  * [Subscribe to Changes](sdk7/architecture/subscribe-to-changes.md)
   * [Data-Oriented Programming](sdk7/architecture/data-oriented-programming.md)
+* [Decentraland projects](sdk7/projects/README.md)
+  * [Kinds of Project](sdk7/projects/kinds-of-project.md)
+  * [Portable Experiences](sdk7/projects/portable-experiences.md)
+  * [Scene Files](sdk7/projects/scene-files.md)
+  * [Scene Metadata](sdk7/projects/scene-metadata.md)
+  * [Smart Wearables](sdk7/projects/smart-wearables.md)
+  * [Workspaces](sdk7/projects/workspaces.md)
 * [Debugging](sdk7/debugging/README.md)
   * [Debug in Preview](sdk7/debugging/debug-in-preview.md)
   * [Debug in Production](sdk7/debugging/debug-in-prod.md)
@@ -93,14 +99,7 @@
   * [Make Discoverable](sdk7/publishing/make-discoverable.md)
   * [Publishing Options](sdk7/publishing/publishing-options.md)
   * [Publishing](sdk7/publishing/publishing.md)
-* [Projects](sdk7/projects/README.md)
-  * [Kinds of Project](sdk7/projects/kinds-of-project.md)
-  * [Portable Experiences](sdk7/projects/portable-experiences.md)
-  * [Scene Files](sdk7/projects/scene-files.md)
-  * [Scene Metadata](sdk7/projects/scene-metadata.md)
-  * [Smart Wearables](sdk7/projects/smart-wearables.md)
-  * [Workspaces](sdk7/projects/workspaces.md)
-* [3D Essentials](sdk7/3d-essentials/README.md)
+* [3D content essentials](sdk7/3d-essentials/README.md)
   * [3D Model Animations](sdk7/3d-essentials/3d-model-animations.md)
   * [Camera](sdk7/3d-essentials/camera.md)
   * [Colliders](sdk7/3d-essentials/colliders.md)
@@ -149,11 +148,15 @@
   * [Deploying Your Transactions Server](sdk7/blockchain/deploying-your-own-transactions-server.md)
   * [Scene Blockchain Operations](sdk7/blockchain/scene-blockchain-operations.md)
   * [Second Layer](sdk7/blockchain/second-layer.md)
-* [Programming Patterns](sdk7/programming-patterns/README.md)
+* [Libraries](sdk7/libraries/README.md)
+  * [Manage Dependencies](sdk7/libraries/manage-dependencies.md)
+  * [Library Catalog](sdk7/libraries/libraries.md)
+  * [Create a Library](sdk7/libraries/create-libraries.md)
+* [Programming patterns](sdk7/programming-patterns/README.md)
   * [Async Functions](sdk7/programming-patterns/async-functions.md)
   * [Game Objects](sdk7/programming-patterns/game-objects.md)
   * [Mutable Data](sdk7/programming-patterns/mutable-data.md)
-* [Releases](sdk7/releases/README.md)
+* [API Reference](sdk7/releases/README.md)
   * [Alpha Testing Guidelines](sdk7/releases/alpha-testing-guidelines.md)
   * [Releases](sdk7/releases/releases.md)
   * [V7 Alpha](sdk7/releases/v7-alpha.md)
@@ -161,7 +164,7 @@
 * [Other](sdk7/other/README.md)
   * [Scene Analytics](sdk7/other/scene-analytics.md)
 
-## 3D Modeling
+## 3D Modeling and Animations
 
 * [3D Models](3d-modeling/3d-models.md)
 * [Meshes](3d-modeling/meshes.md)
@@ -188,5 +191,3 @@
 * [Users and Roles](rewards/users-and-roles.md)
 * [Transactions](rewards/transactions.md)
 * [Integrations](rewards/integrations.md)
-
-
