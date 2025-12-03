@@ -15,7 +15,7 @@ The Creator Hub is the recommended tool for creators of all knowledge levels. It
 - [Emotes](#emotes)
 - [Scenes](#scenes)
 
-<img src="images/editor/scene-editor.png" width="750" />
+<img src="images/editor/scene-editor.png" width="400" />
 
 Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
@@ -47,11 +47,11 @@ Decentraland scenes are made up of 3D models.
 
 - Chose from the wide catalog of default assets in the Scene Editor. These are ready to go and optimized for using in Decentraland
 
-  <img src="images/intro/items.png" width="600" />
+  <img src="images/intro/items.png" width="300" />
 
 - Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Scene Editor.
 
-  <img src="images/intro/blender.png" width="600" />
+  <img src="images/intro/blender.png" width="300" />
 
 > **📔 Note**: Content in Decentraland should stay within certain [size limitations](/creator/sdk7/optimizing/scene-limitations.md) to ensure your scene runs smoothly.
 >
@@ -63,7 +63,7 @@ To make your scene interactive:
 
 - **No Code**: Use the UI of the Scene Editor to drop [Smart Items](/creator/scene-editor/smart-items.md) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
-  <img src="images/intro/smart-items.png" width="500" />
+  <img src="images/intro/smart-items.png" width="300" />
 
 - **Code**: For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
 
@@ -71,7 +71,7 @@ To make your scene interactive:
   - [Development workflow](/creator/sdk7/getting-started/dev-workflow.md): read this to understand scene creation from end to end.
   - [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
 
-    <img src="images/intro/sdk-code.png" width="500" />
+    <img src="images/intro/sdk-code.png" width="300" />
 
   > **📔 Note**: You will also need to have <img src="images/editor/vscode.png" alt="Header" width="25"/> [Vs Studio Code](https://code.visualstudio.com/) installed.
 
