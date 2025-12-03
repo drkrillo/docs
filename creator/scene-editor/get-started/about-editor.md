@@ -7,7 +7,7 @@ description: The scene Editor is a simple visual tool that lets you create and p
 
 The Creator Hub includes a powerful Scene Editor that combines a simple no-code interface with the ability to write code to customize your scenes further.
 
-![](../../images/editor/icon-creator-hub.png)
+<img src="../../images/editor/icon-creator-hub.png" alt="Creator Hub" data-size="line">
 
 See [Creator Hub Installation](editor-installation.md) to get started.
 

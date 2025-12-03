@@ -17,9 +17,9 @@ See [Reference items in code](reference-items.md) for how to fetch items by name
 
 You must install a code editor on your machine to edit the code of your scene. The recommended options are:
 
-- [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
+- <img src="../../images/editor/vscode.png" alt="VS Code" data-size="line"> [Visual Studio Code](https://code.visualstudio.com/): This is the recommended option for experienced developers.
 
-- [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
+- <img src="../../images/editor/cursor-icon.png" alt="Cursor" data-size="line"> [Cursor AI](https://www.cursor.com/): This is a powerful code editor that is integrated with AI. It lets you pick different AI models to help you write code, all of them are free. This is a good option for developers who are new to Decentraland or TypeScript, or if you want to save time writing code.
 
 {% hint style="warning" %}
 **📔 Note**: If you are on macOS, make sure the code editor app is in the Applications directory.
