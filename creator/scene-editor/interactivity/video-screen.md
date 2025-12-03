@@ -6,13 +6,13 @@ description: Play Videos in your scene
 
 To play pre-recorded or streamed videos on a screen on your scene, use the Video Player [Smart Item](../scene-editor/interactivity/smart-items.md).
 
-![](../images/editor/admin/video-player-item.png)
+![](../../images/editor/admin/video-player-item.png)
 
 ### General settings
 
 These settings are relevant for all scenarios, either if you're playing videos or streaming.
 
-![](../images/editor/admin/video-automatic.png)
+![](../../images/editor/admin/video-automatic.png)
 
 You can configure the volume of the video's audio. Note that the audio from the stream is not positional, it is heard at an even volume through all your scene.
 
@@ -32,11 +32,11 @@ The timing of when the Video Player smart item plays a video can depend on diffe
 
 *   **Automatic**: The video starts playing as soon as the scene loads. For this, set the default media source dropdown to **Video URL** and paste a URL directly into the **Default Video URL** field.
 
-    ![](../images/editor/admin/video-automatic.png)
+    ![](../../images/editor/admin/video-automatic.png)
 * **Triggered by an admin**: A [Scene admin](../scene-editor/live-ops/scene-admin.md) who's currently in the scene can use the Admin UI to paste a video URL and play it for all players who are currently in the scene.
 *   **Based on player actions**: Define an Action of type **Play Video Stream**. This lets you trigger the playing of the video as the result of interacting with some other smart item, like walking into a room, or pushing a button. See [Smart Items - Advanced](../scene-editor/interactivity/smart-items-advanced.md).
 
-    ![](../images/editor/video-from-action.png)
+    ![](../../images/editor/video-from-action.png)
 
 In all cases you configure the video to either loop or play once.
 
