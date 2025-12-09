@@ -2,27 +2,27 @@
 description: Learn how to handle user clicks in your scene.
 ---
 
-# Click Events
+# About input actions
 
 A Decentraland scene can detect input actions from all of the buttons that are used to control the player's avatar. These include pointer clicks, several action buttons, and the keys that are used to move the avatar around. Button events can come from a mouse, a touch screen, a VR controller or some other device, these are all interpreted the same by the SDK.
 
 You can detect input actions against an entity. This involves pressing a button while the player's cursor is pointing at that entity's collider. You can also detect _global_ input event, that involve pressing activating the input at any time, without consideration for where the pointer is aiming.
 
 {% hint style="warning" %}
-**📔 Note**: Entities must have a [collider](./sdk7/3d-essentials/colliders.md) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
+**📔 Note**: Entities must have a [collider](../../3d-essentials/colliders.md) to respond to input actions. `MeshRenderer` models must also be given a `MeshCollider` component. Models from a `GLTFContainer` may have their own embedded collision geometry, or they can be configured to use their visible geometry, they can also be given a `MeshCollider` component.
 {% endhint %}
 
 There are several different ways to handle input actions, depending on the use case.
 
-* [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md): The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
-* [**System-based**](./sdk7/interactivity/button-events/system-based-events.md): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for input actions on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global input actions.
-* [**Advanced**](./sdk7/interactivity/button-events/advanced-button-events.md): Read the raw response data on each entity, including time-stamps and an event history of input events. This can be useful for defining custom interaction patterns.
+* [**Register a callback**](register-callback.md): The easiest way to add interaction to a single entity. Write a single statement to set up a callback function and hover feedback.
+* [**System-based**](system-based-events.md): Ideal for handling multiple entities with similar behavior. Use a system to iterate over similar entities and query for input actions on each, handling them all with the same logic. Hover feedback needs to be set up separately. This approach is also required for handling global input actions.
+* [**Advanced**](advanced-button-events.md): Read the raw response data on each entity, including time-stamps and an event history of input events. This can be useful for defining custom interaction patterns.
 
-### Use the Scene Editor
+## Use the Scene Editor
 
-The easiest way to handle click events on an entity is to use the [Scene Editor](./scene-editor/get-started/about-editor.md). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart](./scene-editor/interactivity/make-any-item-smart.md).
+The easiest way to handle click events on an entity is to use the [Scene Editor](../../../scene-editor/get-started/about-editor.md). Use the no-code **On Click** or **On Input Action** Triggers on an item to call actions when clicking on it. Or use **On Global Click**, **On Global Primary** or **On Global Secondary** Triggers to react to global button events. See [Make any item smart](../../../scene-editor/interactivity/make-any-item-smart.md).
 
-### Simple example
+## Simple example
 
 To detect clicks on an entity, use `pointerEventsSystem.onPointerDown`.
 
@@ -38,32 +38,32 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-See [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) for more information.
+See [**Register a callback**](register-callback.md) for more information.
 
-### Hover Feedback
+## Hover Feedback
 
 It's important to make players aware that an entity is interactive. Otherwise, they might completely miss out on the experience you built. It's not a good experience to be clicking on every object hoping for one to respond.
 
-When you use the [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
+When you use the [**Register a callback**](register-callback.md) method, two kinds of feedback are displayed whenever the player passes their cursor over the object:
 
 * The entity's edge is highlighted (only on the Decentraland 2.0 Desktop client). The highlight is green if the entity is close enough to click, red if the entity is too far away.
 * A hover hint appears near the cursor with UI text, signalling what will happen if they click.
 
-When using the [**System-based**](./sdk7/interactivity/button-events/system-based-events.md) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
+When using the [**System-based**](system-based-events.md) method, you can achieve the same results by adding a `PointerEvents` component to the clickable entities.
 
 Both the entity highlight and the hover hint can be disabled via properties in these methods and components.
 
-You could also implement [advanced custom hints](./sdk7/interactivity/button-events/system-based-events.md#advanced-custom-hints), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
+You could also implement [advanced custom hints](system-based-events.md#advanced-custom-hints), for example you could play a sound, making the entity change color, spin or enlarge while being pointed at, etc. Whatever you do, make sure that it's a clear signifier.
 
-### Obstacles
+## Obstacles
 
 Button events cast rays that only interact with the first entity on their path that is subscribed to the pointer events collision layer, as long as the entity is closer than its distance limit.
 
 For an entity to be intercepted by the ray of a pointer event, either:
 
-* The model must contain [collider meshes](./3d-modeling/colliders.md).
-* The `GLTFContainer` must be configured to use the [visible geometry with collision masks](./sdk7/3d-essentials/colliders.md#colliders-on-3d-models).
-* The entity must have a [MeshCollider component](./sdk7/3d-essentials/colliders.md).
+* The model must contain [collider meshes](../../../3d-modeling/colliders.md).
+* The `GLTFContainer` must be configured to use the [visible geometry with collision masks](../../3d-essentials/colliders.md#colliders-on-3d-models).
+* The entity must have a [MeshCollider component](../../3d-essentials/colliders.md).
 
 If another entity's collider is standing on the way of the entity that the player wants to interact with it, the player won't be able to click the entity that's behind, unless the entity has no collider, or this collider is configured to not respond to the pointer events collision layer.
 
@@ -106,7 +106,7 @@ Transform.create(blocker, { position: Vector3.create(8, 1, 10) })
 **📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment.
 {% endhint %}
 
-### Pointer buttons
+## Pointer buttons
 
 The following inputs can be handled by any of the approaches to detect input events.
 
@@ -126,7 +126,7 @@ The following inputs can be handled by any of the approaches to detect input eve
 
 Each `InputAction` is abstracted away from the literal input in the keyboard so that it can be mapped to different inputs depending on the device. For this same reason, not all buttons on the keyboard can be tracked for button events, only the buttons that are used for movement and interaction. This intentional limitation is to ensure that all content is compatible in the future with VR controllers, other kinds of game controllers, and mobile devices.
 
-### Types of pointer events
+## Types of pointer events
 
 Each input can produce the following types of pointer events. Each of the following is a value in the `PointerEventType` enum.
 
@@ -135,7 +135,7 @@ Each input can produce the following types of pointer events. Each of the follow
 * `HOVER_ENTER`: Player's cursor starts pointing at the entity's collider.
 * `HOVER_LEAVE`: Player's cursor stops pointing at the entity's collider.
 
-### Data from an input action
+## Data from an input action
 
 All input actions include data about the event, including things like the button that was activated, and where the pointer was pointing at at the time.
 
@@ -144,10 +144,13 @@ The following information can be obtained from any input event:
 * `analog`: Flag to mark if the event is from an analog or a digital input. Digital inputs have a value of _1_, analog inputs (like a joy stick) have a value of _0_.
 * `button`: Which button id was pressed. The number corresponds to the `InputAction` enum, that lists all of the available buttons.
 * `state`: Type of pointer event, from the enum `PointerEventType`. _0_ refers to `PointerEventType.PET_DOWN`, _1_ to `PointerEventType.PET_UP`, _2_ to `PointerEventType.PET_HOVER_ENTER`, _3_ to `PointerEventType.PET_HOVER_LEAVE`
-*   `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event.
 
-    > Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
+* `timestamp`: A [lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp) to identify each button event.
+
+  > Note: This timestamp is not numbered based on the current time. Think of it as a counter that starts at 0 and is incremented by 1 for each event.
+
 * `hit`: An object that contains the following data about the hit event:
+
   * `entityId`: Id number of the entity that was hit by the ray.
   * `meshName`: _String_ with the internal name of the specific mesh in the 3D model that was hit. This is useful when a 3D model is composed of multiple meshes.
   * `origin`: _Vector3_ for the position where the ray originates (relative to the scene)
@@ -157,7 +160,7 @@ The following information can be obtained from any input event:
 
 This data is accessed in different ways depending on what approach you're using to handle input actions.
 
-Using the [**Register a callback**](./sdk7/interactivity/button-events/register-callback.md) approach, the first parameter passed to the callback function contains this entire data structure.
+Using the [**Register a callback**](register-callback.md) approach, the first parameter passed to the callback function contains this entire data structure.
 
 ```ts
 pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
@@ -165,7 +168,7 @@ pointerEventsSystem.onPointerDown({ entity: myEntity }, function (cmd) {
 })
 ```
 
-Using the [**System-based**](./sdk7/interactivity/button-events/system-based-events.md) approach, use `inputSystem.getInputCommand()` to fetch this data.
+Using the [**System-based**](system-based-events.md) approach, use `inputSystem.getInputCommand()` to fetch this data.
 
 ```ts
 engine.addSystem(() => {
@@ -184,7 +187,7 @@ engine.addSystem(() => {
 **📔 Note**: For an entity to not only intercept a pointer event, but also to return data, the entity also needs to have a `PointerEvents` component. The `pointerEventsSystem` helpers also take care of this requirment.
 {% endhint %}
 
-Using the [**Advanced**](./sdk7/interactivity/button-events/advanced-button-events.md) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
+Using the [**Advanced**](advanced-button-events.md) approach, the `PointerEventsResults` contains an array with a recent history of all pointer events against that entity.
 
 ```ts
 engine.addSystem(() => {
@@ -197,4 +200,49 @@ engine.addSystem(() => {
 		}
 	}
 })
+```
+
+## Lock or unlock the cursor
+
+Players in Decentraland's desktop client can toggle between two distinct interaction modes with their cursor: 
+
+* Locked cursor: moving the mouse shifts the camera and click events occur in the corssair at the center of the screen  moving the mouse or pointer directly 
+* Unlocked cursor: the cursor is free to move independently of the camera, and players can click anywhere on the screen to interact with either the 3D space or the UI
+
+These modes of interaction are ideal for different kinds of game mechanics, and you may want to make players adopt one or the other depending on what suits your scene best. You may also want to momentarily ensure the player's cursor is unlocked to allow them to interact with a UI, this is especially helpful for new players that aren't familiar with how this is controlled.
+
+To change the player's cursor state, use the `PointerLock` component on the `engine.CameraEntity` entity.
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+    
+PointerLock.create(engine.CameraEntity, {isPointerLocked: false})
+```
+
+You can also query the player's cursor state by reading the `PointerLock` component's state.
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
+PointerLock.create(engine.CameraEntity)
+
+const isPointerLocked = PointerLock.get(engine.CameraEntity).isPointerLocked
+```
+
+Use the `.onChange` function to react in changes in the pointer state. The following example enforces that the cursor is always unlocked.
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
+export function main() {
+
+    PointerLock.create(engine.CameraEntity, {isPointerLocked: false});
+
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
+		    if (!pointerLock) return
+		    if(pointerLock.isPointerLocked){
+			    PointerLock.getMutable(engine.CameraEntity).isPointerLocked = false
+		   }
+	})
+}
 ```

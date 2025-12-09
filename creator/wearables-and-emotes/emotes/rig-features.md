@@ -14,7 +14,9 @@ These are the armature’s transforms in Object Mode with the controls’ setup.
 
 _Rig 1.0 transforms._
 
-> **Warning**: **Never edit the rig in Object Mode.**
+{% hint style="warning" %}
+⚠️ **Warning**: **Never edit the rig in Object Mode.**
+{% endhint %}
 
 ### Bone Orientation
 
@@ -46,10 +48,10 @@ This is how the bones were separated into the collections:
 * Fingers: controls for both hands’ fingers.
 * Deformation Bones: this is where the deformation bones are stored.
 
-{% hint style="info" %}
-**💡 Attention!**
+{% hint style="warning" %}
+**⚠️ Attention!**
 
-The DON'T TOUCH collections hold the set ups for IK and other rig constraints and should remain hidden. Editing these bone could brake the functionality of the rig
+The DON'T TOUCH collections hold the set ups for IK and other rig constraints and should remain hidden. Editing these bones could break the functionality of the rig.
 {% endhint %}
 
 ### Controls and Grouping
@@ -104,7 +106,7 @@ _Isolate rotation attribute for the head._
 _How the IsoRot attribute for the head works._
 
 {% hint style="warning" %}
-\*\*Warning\*\*: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won’t be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don’t lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties.
+⚠️ **Warning**: In older Blender versions, even if all controls have been selected and key framed, these custom attributes won't be automatically key framed. Make sure to manually insert a keyframe in each attribute so you don't lose the pose/motion you created. In Blender 4.4, by pressing I, a keyframe is set on all attributes and custom properties.
 {% endhint %}
 
 ![In previous versions of Blender, make sure to keyframe all the controls and custom attributes!](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/custom_attributes.gif)

@@ -6,9 +6,9 @@ description: Events that the scene can track, related to player actions and scen
 
 There are several events that the scene can subscribe to, to know the actions of the player while in or near the scene.
 
-For button and click events performed by the player, see [Button events](../sdk7/interactivity/button-events/click-events.md).
+For button and click events performed by the player, see [Button events](button-events/click-events.md).
 
-### Player enters or leaves scene
+## Player enters or leaves scene
 
 Whenever an avatar steps inside or out of the parcels of land that make up your scene, or teleports in or out, this creates an event you can listen to.
 
@@ -30,9 +30,10 @@ export function main() {
 }
 ```
 
-On the `onEnterScene` event, the function can access all of the data returned by [get player data](../sdk7/interactivity/user-data.md#get-player-data) via the `player` property. On the `onLeaveScene` event, the function only has access to the player's ID.
+On the `onEnterScene` event, the function can access all of the data returned by [get player data](user-data.md#get-player-data) via the `player` property.
+On the `onLeaveScene` event, the function only has access to the player's ID.
 
-#### Only current player
+### Only current player
 
 You can filter out the triggered events to only react to the player's avatar, rather than other avatars that may be around.
 
@@ -64,7 +65,7 @@ export function main() {
 
 This example first obtains the player's id, then subscribes to the events and compares the `userId` returned by the event to that of the player.
 
-#### Query all players in scene
+### Query all players in scene
 
 Go over the full list of players who are currently on your scene by iterating over all entities with a `PlayerIdentityData` component.
 
@@ -81,7 +82,7 @@ export function main() {
 }
 ```
 
-### Player changes camera mode
+## Player changes camera mode
 
 Knowing the camera mode can be very useful to fine-tune the mechanics of your scene to better adjust to what's more comfortable using this mode. For example, small targets are harder to click when on 3rd person.
 
@@ -98,9 +99,9 @@ export function main() {
 }
 ```
 
-See [Check player's camera mode](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).
+See [Check player's camera mode](user-data.md#check-the-players-camera-mode).
 
-### Player plays animation
+## Player plays animation
 
 Use the `onChange` function on the `AvatarEmoteCommand` component to fire an event each time the player plays an emote. This includes both base emotes (dance, clap, wave, etc) and emotes from tokens.
 
@@ -123,7 +124,7 @@ The event includes the following information:
 
 You can also detect emotes form other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
-### Player changes profile
+## Player changes profile
 
 Use the `onChange` function on the `AvatarEquippedData` component to fire an event each time the player changes one of their wearables, or their listed emotes on the quick access wheel. Similarly, use the `onChange` function on the `AvatarBase` to fire an event each time the player changes their base avatar properties, like hair color, skin color, avatar shape, or name.
 
@@ -168,21 +169,44 @@ You can also detect changes in wearables or avatars form other players in the sc
 
 You can also detect changes on the profiles of other players in the scene, simply pass a reference to the other player instead of `engine.PlayerEntity`.
 
-### Player locks or unlocks cursor
+## Player locks or unlocks cursor
 
 Players can switch between two cursor modes: _locked cursor_ mode to control the camera or _unlocked cursor_ mode for moving the cursor freely over the UI.
 
 Players unlock the cursor by clicking the _Right mouse button_ or pressing the _Esc_ key, and lock the cursor back by clicking anywhere in the screen.
 
-Use the `onChange` function on the `PointerLock` component to fire an event each time the player changes between the two cursor modes.
+Add a `PointerLock` component to the `engine.CameraEntity` entity in your scene, and use the `onChange` function on the `PointerLock` component to fire an event each time the player changes between the two cursor modes.
 
 ```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
 export function main() {
-	PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
-		if (!pointerLock) return
-		console.log('Pointer lock changed', pointerLock.isPointerLocked)
+
+    PointerLock.create(engine.CameraEntity);
+
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
+		    if (!pointerLock) return
+		    if(pointerLock.isPointerLocked){
+			    // Show hint about cursor mode
+		   }
 	})
 }
 ```
 
-Checking for this component is useful if the player needs to change cursor modes and may need a hint for how to lock/unlock the cursor. This can also be used in scenes where the player is expected to react fast, but the action can take a break while the player has the cursor unlocked.
+You can use this information to nudge the player subtly, like showing a UI popup saying that this game is better experienced with an unlocked cursor. Or you can also force the player's cursor mode by changing the `isPointerLocked` on the component. The following example always sets the cursor mode to unlocked:
+
+```ts
+import {PointerLock} from '@dcl/sdk/ecs'
+
+export function main() {
+
+    PointerLock.create(engine.CameraEntity, {isPointerLocked: false});
+
+    PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
+		    if (!pointerLock) return
+		    if(pointerLock.isPointerLocked){
+			    PointerLock.getMutable(engine.CameraEntity).isPointerLocked = false
+		   }
+	})
+}
+```

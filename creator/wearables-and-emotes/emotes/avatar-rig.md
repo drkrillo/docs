@@ -4,7 +4,7 @@ description: Basics about the avatar rig.
 
 # Avatar Rig
 
-202A rig is a virtual skeleton that allows a model to move. It consists of a hierarchy of individual bones, much like a real life skeleton, and it works under a parent/child relationship. This document will cover some basic rigging concepts, such as bone position, bone orientation, deforming and non-deforming bones, the difference between IK and FK and their purposes. The structure of an avatar’s rig, custom attributes, and setup for animating can be found in [rig features](../wearables-and-emotes/emotes/rig-features.md).
+A rig is a virtual skeleton that allows a model to move. It consists of a hierarchy of individual bones, much like a real life skeleton, and it works under a parent/child relationship. This document will cover some basic rigging concepts, such as bone position, bone orientation, deforming and non-deforming bones, the difference between IK and FK and their purposes. The structure of an avatar’s rig, custom attributes, and setup for animating can be found in [rig features](../wearables-and-emotes/emotes/rig-features.md).
 
 ## **The Basics**
 
@@ -42,7 +42,9 @@ _Deforming bones._
 
 _Non-deforming bones._
 
-> **Attention!**: **Do not edit the base skeleton at all!**
+{% hint style="warning" %}
+⚠️ **Attention!** **Do not edit the base skeleton at all!**
+{% endhint %}
 
 ![](../images/emotes/BaseSkeleton.png)
 
@@ -58,7 +60,9 @@ It’s also important to notice that it’s not possible to use the controls set
 
 ![](../images/emotes/RigControls.png) \_Controls and their different shapes and colors.\_
 
-> **Warning**: **The rig has to be animated in the same software it was created in. It’s not possible to use a Blender setup in, for example, Maya and vice versa.**
+{% hint style="warning" %}
+⚠️ **Warning**: The rig has to be animated in the same software it was created in. It's not possible to use a Blender setup in, for example, Maya and vice versa.
+{% endhint %}
 
 #### What’s FK and IK in a rig?
 

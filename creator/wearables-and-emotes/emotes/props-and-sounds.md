@@ -91,7 +91,7 @@ Don’t leave the prop visible from the start! To avoid spoiling what’s about 
 
 ### Animation Slots
 
-Belnder 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
+Blender 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
 
 ![](../images/wearables-and-emotes/props-and-sound/animationslots.png)
 
