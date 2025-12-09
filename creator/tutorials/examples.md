@@ -16,5 +16,5 @@ On the [SDK 7 example scenes](https://studios.decentraland.org/resources) page, 
 Each example comes with full source code that you can download, study, and modify for your own scenes. They're an excellent way to learn SDK 7 patterns and accelerate your development.
 
 {% hint style="info" %}
-**💡 Tip**: Browse the examples before starting a new project - you might find a template that's close to what you want to build, saving you significant development time!
+**💡 Tip**: Browse the examples before starting a new project - you might find a template that's close to what you want to build, saving you significant development time.
 {% endhint %}

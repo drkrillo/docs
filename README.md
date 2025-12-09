@@ -183,6 +183,23 @@ Reference images using relative paths:
    git push origin feature/your-improvement
    ```
 
+6. **Preview your changes**
+   - When you open a PR to the `main` branch, GitBook automatically generates a preview deployment
+   - Look for the GitBook check in the PR status — it will include a link to preview your changes
+   - Use this preview to verify formatting, links, and overall presentation before requesting review
+
+### PR Preview
+
+Every pull request to `main` triggers GitBook's preview integration:
+
+| Step | What Happens |
+|------|--------------|
+| PR Opened | GitBook builds a preview version of the documentation with your changes |
+| Preview Ready | A unique preview URL is generated and posted in the PR checks |
+| Review | Reviewers can see exactly how changes will look when published |
+| Merge | Once approved and merged, changes deploy to the live documentation |
+
+This preview feature ensures that documentation changes can be thoroughly reviewed in their final rendered form before going live.
 
 ## 🔗 Links
 
