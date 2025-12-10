@@ -15,9 +15,12 @@ layout:
     visible: false
   metadata:
     visible: true
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/M9ty6FYa3j98VSBHF9LN/
 ---
 
-# API Reference
+# Developer Platform API
 
 Welcome to the Decentraland API Reference. This section provides comprehensive documentation for all backend services that power Decentraland.
 
@@ -38,49 +41,49 @@ All APIs documented here follow OpenAPI specifications and support RESTful conve
 
 The foundational decentralized infrastructure for content delivery:
 
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
+| Service  | Purpose          | Key Features                                                            |
+| -------- | ---------------- | ----------------------------------------------------------------------- |
 | Catalyst | Content delivery | Decentralized content servers, entity deployment, and filesystem access |
-| Lamb2 | Lambda utilities | Serverless functions for content consumption and utility endpoints |
+| Lamb2    | Lambda utilities | Serverless functions for content consumption and utility endpoints      |
 
 ### Real-Time Communications Layer
 
 Service discovery and real-time peer-to-peer communications:
 
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| Realm Provider | Service discovery | Find available Catalyst servers and communication endpoints |
-| Comms Gatekeeper | Access control | Time-limited tokens for LiveKit media server access |
+| Service             | Purpose                   | Key Features                                                          |
+| ------------------- | ------------------------- | --------------------------------------------------------------------- |
+| Realm Provider      | Service discovery         | Find available Catalyst servers and communication endpoints           |
+| Comms Gatekeeper    | Access control            | Time-limited tokens for LiveKit media server access                   |
 | Archipelago Workers | Communications clustering | WebSocket connections, island formation, and message routing via NATS |
 
 ### Feature Services
 
 User-facing features including content, economy, and gamification:
 
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| Credits Server | Virtual credits | Decentraland's virtual currency system |
-| Badges | Achievements | User achievement and badge system |
-| Rewards API | NFT rewards | Campaign-based NFT reward distribution |
-| Exploration Games | Onboarding | Interactive tutorials and quests |
-| Camera Reel | Screenshots | User-generated screenshot management |
-| Atlas Server | Map data | Parcel information and world map tiles |
-| Places | Points of interest | Curated locations and featured experiences |
-| Events | Event management | Create, schedule, and discover in-world events |
-| Worlds | Isolated scenes | Personal worlds and custom domains |
+| Service           | Purpose            | Key Features                                   |
+| ----------------- | ------------------ | ---------------------------------------------- |
+| Credits Server    | Virtual credits    | Decentraland's virtual currency system         |
+| Badges            | Achievements       | User achievement and badge system              |
+| Rewards API       | NFT rewards        | Campaign-based NFT reward distribution         |
+| Exploration Games | Onboarding         | Interactive tutorials and quests               |
+| Camera Reel       | Screenshots        | User-generated screenshot management           |
+| Atlas Server      | Map data           | Parcel information and world map tiles         |
+| Places            | Points of interest | Curated locations and featured experiences     |
+| Events            | Event management   | Create, schedule, and discover in-world events |
+| Worlds            | Isolated scenes    | Personal worlds and custom domains             |
 
 ### Core Services
 
 Essential infrastructure for authentication, marketplace, assets, and notifications:
 
-| Service | Purpose | Key Features |
-|---------|---------|--------------|
-| Auth Server | Authentication | Wallet-based authentication and session management |
-| Marketplace Server | NFT marketplace | Wearables and emotes marketplace integration |
-| Asset Bundle Registry | Asset optimization | Unity asset bundles for optimized loading |
-| Events Notifier | Event alerts | Notifications for upcoming events |
-| Notifications Workers | User notifications | Real-time and push notifications |
-| Social Service | Friends & communities | Friendship management and private messaging |
+| Service               | Purpose               | Key Features                                       |
+| --------------------- | --------------------- | -------------------------------------------------- |
+| Auth Server           | Authentication        | Wallet-based authentication and session management |
+| Marketplace Server    | NFT marketplace       | Wearables and emotes marketplace integration       |
+| Asset Bundle Registry | Asset optimization    | Unity asset bundles for optimized loading          |
+| Events Notifier       | Event alerts          | Notifications for upcoming events                  |
+| Notifications Workers | User notifications    | Real-time and push notifications                   |
+| Social Service        | Friends & communities | Friendship management and private messaging        |
 
 ## Getting Started
 

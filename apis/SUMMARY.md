@@ -2,8 +2,6 @@
 
 * [Developer Platform API](README.md)
 
-## Reference
-
 ## APIs
 
 * [Realm Provider](apis/realm-provider/README.md)
@@ -245,4 +243,16 @@
         ref:
           kind: openapi
           spec: exploration-games-api
+    ```
+* [Worlds Content Server](apis/worlds-content-server/README.md)
+  * ```yaml
+    type: builtin:openapi
+    props:
+      models: false
+      downloadLink: true
+    dependencies:
+      spec:
+        ref:
+          kind: openapi
+          spec: worlds-content-server
     ```
