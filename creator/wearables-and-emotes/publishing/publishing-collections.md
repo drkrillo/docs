@@ -177,6 +177,18 @@ In order to transfer the ownership of a Collection, you will need:
 ⚠️ Note: This applies only to Polygon Wearables.
 {% endhint %}
 
-Use this URL - `https://polygonscan.com/address/collection_address#writeContract` and replace `collection_address` with the your collection contract.
+Copy your collection address in the builder
+
+![](../images/wearables-and-emotes/publishing-collections/copy-collection-address.png)
+
+
+Use this URL - `https://polygonscan.com/address/collection_address#writeContract` and replace `collection_address` with the collection contract.
+
+1. Connect you wallet with the `connect to web3` button
+
+![](../images/wearables-and-emotes/publishing-collections/connect_wallet.png)
+
+2. Look for the contract method 23. `transferCreatorship`. Add in the input `_newCreator` the wallet for the new creator and  click on `write` to send the transaction.
 
 ![](../images/wearables-and-emotes/publishing-collections/ownership_transfer.png)
+
