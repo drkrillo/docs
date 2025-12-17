@@ -16,25 +16,25 @@ Use the **Video Screen** smart item together with the **Scene Admin** smart item
 
 1.  Add a **Video Screen** smart item to your scene.
 
-    ![](../../images/editor/admin/video-player-item.png)
+    ![](../../.gitbook/assets/video-player-item.png)
 2.  Add a **Scene Admin** smart item and enable the **Video Screens** section. Select each screen from the dropdown and give it a friendly name for the admin UI.
 
-    ![](../../images/editor/admin/multi-video-setup.png)
+    ![](../../.gitbook/assets/multi-video-setup.png)
 3.  Publish your scene (World or Genesis City) and enter as a user with admin permissions.
 
-    ![](../../images/editor/publish-button.png)
+    ![](../../.gitbook/assets/publish-button.png)
 
 ### Get stream credentials
 
 1.  Open the Admin UI in the scene (top‑right icon).
 
-    ![](../../images/editor/admin/admin-icon.png)
+    ![](../../.gitbook/assets/admin-icon.png)
 2.  In the **Video** tab, switch to **Live** and click **Get Stream Key**.
 
-    ![](../../images/editor/admin/get-key.png)
+    ![](../../.gitbook/assets/get-key.png)
 3.  Copy the **RTMP Server** and **Stream Key** into your streaming software.
 
-    ![](../../images/editor/admin/OBS-configuration.png)
+    ![](../../.gitbook/assets/OBS-configuration.png)
 
 {% hint style="danger" %}
 **❗Warning**: Only one person can stream to a scene at a time. When finished streaming, click **Stop Streaming** in your software to free the channel.
@@ -45,7 +45,7 @@ Use the **Video Screen** smart item together with the **Scene Admin** smart item
 1. Start streaming from your software.
 2.  In the Admin UI, click **Activate** to show the stream in the scene.
 
-    ![](../../images/editor/admin/activate.png)
+    ![](../../.gitbook/assets/activate.png)
 
 Notes:
 
@@ -56,7 +56,7 @@ Notes:
 
 Stream keys are generated per scene and are valid for 4 days (96 hours). A single live session can run up to 4 hours continuously.
 
-![](../../images/editor/admin/live-stream-settings.png)
+![](../../.gitbook/assets/live-stream-settings.png)
 
 * Click **Reset Stream Key** to revoke the current key and issue a new one. Ongoing streams will stop.
 * Each scene has its own streaming address and key. Admins can share the key with external streamers.

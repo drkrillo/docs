@@ -12,11 +12,11 @@ See [Files in a scene](../sdk7/projects/scene-files.md) for a list of what files
 
 To edit a scene's metadata on the [Scene Editor](../scene-editor/get-started/about-editor.md), open a scene and click the **pencil icon**.
 
-![](../../images/editor/pencil-icon.png)
+![](../../.gitbook/assets/pencil-icon.png)
 
 This opens up the scene menu, where you can configure multiple properties.
 
-![](../../images/editor/metadata-ui.png)
+![](../../.gitbook/assets/metadata-ui.png)
 
 Alternatively, you can directly edit the `scene.json` file, where all of these values are stored.
 
@@ -32,7 +32,7 @@ Players will see these displayed on a modal when they select the parcels of your
 
 When players navigate the world and enter your scene, they are able to read the scene title from under the minimap.
 
-![](../../images/media/scene-name.png)
+![](../../.gitbook/assets/scene-name.png)
 
 Add this data via the scene menu in the [Scene Editor](../scene-editor/get-started/about-editor.md).
 
@@ -104,7 +104,7 @@ The **Age Rating** field is used to classify the content of your scene based on 
 
 When editing the Age Rating via the `scene.json`, rating is a **single-letter code**, write either **T** for teens, or **A** for adults.
 
-![](../../images/media/content-moderation-flag-icon.png)
+![](../../.gitbook/assets/content-moderation-flag-icon.png)
 
 ```json
  "scene": {
@@ -130,7 +130,7 @@ Scenes with this rating won't load and no one will be able to interact with them
 
 There are certain features that can be disabled in specific scenes so that players can't use these abusively. Configure these on the **Settings** tab of the scene settings.
 
-![](../../images/editor/scene-restrictions.png)
+![](../../.gitbook/assets/scene-restrictions.png)
 
 Currently, only the following feature is handled like this:
 
@@ -152,7 +152,7 @@ If a `featureToggles` property doesn't exist in your `scene.json` file, create i
 
 The **Spawn Settings** in the **Settings** tab define where players spawn when they access your scene directly, either by directly typing in the coordinates into the browser or teleporting.
 
-![](../../images/editor/spawn-point-ui.png)
+![](../../.gitbook/assets/spawn-point-ui.png)
 
 Your scene might have objects that can block players from moving if they happen to spawn right over them, like trees or stairs, or your scene might have an elevated terrain. It would be a bad experience for players if they spawned over something that doesn't let them move. That's why you have the option to set multiple spawn positions in ad-hoc locations.
 
@@ -336,11 +336,11 @@ When [deploying](../sdk7/publishing/publishing.md) a scene, the content is uploa
 
 Edit this on the second tab of the scene menu in the Scene Editor.
 
-![](../../images/editor/scene-parcels-3x3.png)
+![](../../.gitbook/assets/scene-parcels-3x3.png)
 
 Use the dropdowns and click **Apply Layout** to change the dimensions of your scene. You can also click each individual parcel to toggle it off from your layout.
 
-![](../../images/editor/scene-parcels-toggled.png)
+![](../../.gitbook/assets/scene-parcels-toggled.png)
 
 The default scene has its coordinates set to _0,0_, this information is not necessary to change while developing a scene offline, unless you need to occupy multiple parcels. You will need to change this before deploying, to coordinates where you do have deploy permissions.
 
@@ -425,8 +425,6 @@ The above commands all generate rectangular-shaped scenes. Decentraland scenes c
 You can set a fixed time of day for your scene. All players will see the scene with this time of day, and the skybox will not follow the day/night cycle.
 
 Open the scene settings and click on the **Settings** tab to find the **Skybox** section. Uncheck the **Auto** option and set the time of day you want.
-
-![](../../images/editor/fixed-time-of-day.png)
 
 You can also set the skybox time of day in your scene code. To do this, add the following section to your `scene.json` at root level:
 

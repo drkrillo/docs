@@ -12,9 +12,7 @@ Make sure of the following:
 * You have a [Metamask](https://metamask.io/) account, with your LAND parcels assigned to it.
 *   You own the necessary amount of adjacent LAND parcels or a Decentraland NAME. Otherwise you can purchase LAND in the [Market](https://market.decentraland.org) or a NAME in the [Builder](https://decentraland.org/builder/names).
 
-    {% hint style="warning" %}
-    **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels.
-    {% endhint %}
+    \{% hint style="warning" %\} **📔 Note**: Multi-parcel scenes can only be deployed to adjacent parcels. \{% endhint %\}
 
 {% hint style="danger" %}
 **❗Warning**: When planning live events, make sure you don't make last minute changes to the scene right before the event.
@@ -54,7 +52,7 @@ Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-
    * Select **PUBLISH TO LAND** if you own land, or have been given deploy permissions by an owner. Then select the parcels where you want it deployed on the map. Parcels where you are allowed to deploy are shown in pink.
    * Select **Alternative servers** to publish to the [test server](publishing.md#the-test-server) or a [custom server](publishing.md#custom-servers).
 
-![](../../images/editor/publish-options.png)
+![](../../.gitbook/assets/publish-options.png)
 
 4. This opens a new tab on your browser, showing details about the upload. Approve the transaction.
    * For LAND on a Metamask browser account, confirm the deployment. Then approve the transaction on the Metamask browser extension.
@@ -63,7 +61,12 @@ Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-
 #### Via the CLI
 
 1. Log into your Metamask account with the same public address associated with your parcels in Decentraland.
-2. Run `npm run deploy` from the scene's folder. {% hint style="info" %} **💡 Tip**: If there are files in your project folder that you don't want to deploy, list them in the _.dclignore_ file before deploying. {% endhint %}
+2. Run `npm run deploy` from the scene's folder.
+
+{% hint style="info" %}
+\*\*💡 Tip\*\*: If there are files in your project folder that you don't want to deploy, list them in the \_.dclignore\_ file before deploying.
+{% endhint %}
+
 3. A browser tab will open, showing what parcels you're deploying to. Click **Sign and Deploy**.
 4. Metamask opens, notifying you that your signature is requested. Click **Sign** to confirm this action.
 

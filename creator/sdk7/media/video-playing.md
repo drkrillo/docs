@@ -84,7 +84,7 @@ See [Streaming using Decentraland cast](video-playing.md#streaming-using-decentr
 
 The source of the streaming must be an _https_ URL (_http_ URLs aren't supported), and the source should have [CORS policies (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) that permit externally accessing it. If this is not the case, you might need to set up a server to act as a proxy and expose the stream in a valid way.
 
-There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/) ,  [Livepeer Studio](https://livepeer.studio/) or [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) where you pay a fee to the provider to manage all the streaming infrastructure.
+There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/) , [Livepeer Studio](https://livepeer.studio/) or [Serraform](https://serraform.gitbook.io/streaming-docs/guides/decentraland-playback) where you pay a fee to the provider to manage all the streaming infrastructure.
 
 The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like [Digital Ocean](https://try.digitalocean.com/developerbrand/?_campaign=emea_brand_kw_en_cpc&_adgroup=digitalocean_exact_exact&_keyword=digitalocean&_device=c&_adposition=&_content=conversion&_medium=cpc&_source=bing\&msclkid=160bfc160a2a1bab9bbf9933594bd9c5\&utm_source=bing\&utm_medium=cpc\&utm_campaign=emea_brand_kw_en_cpc\&utm_term=digitalocean\&utm_content=DigitalOcean%20Exact_Exact) or [Cloudflare](https://www.cloudflare.com/products/cloudflare-stream/). You can deploy something like a [Node Media Server](https://github.com/illuspas/Node-Media-Server), which provides most of what you need out of the box.
 
@@ -373,7 +373,7 @@ A neat trick to have non-rectangular video screens is to apply an alpha texture 
 
 Use the following image to cut your video into a circular shape, with transparent corners.
 
-![](../../images/circle_mask.png)
+![](../../.gitbook/assets/circle_mask.png)
 
 ```ts
 const videoTexture = Material.Texture.Video({
@@ -390,7 +390,7 @@ Material.setBasicMaterial(screen, {
 })
 ```
 
-![](../../images/circular-video-screen.png)
+![](../../.gitbook/assets/circular-video-screen.png)
 
 {% hint style="warning" %}
 **📔 Note**: In previous versions, the `alphaTexture` property was only present in PRB materials, currently it only works in basic materials.

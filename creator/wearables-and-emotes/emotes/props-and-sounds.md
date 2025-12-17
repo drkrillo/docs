@@ -4,15 +4,13 @@ description: Guidelines to add props and sounds to the emotes.
 
 # Props and Sounds
 
-![](../images/wearables-and-emotes/props-and-sound/01-props-and-sound-banner.png)
-
 In order to take your Decentraland Emotes to the next level you can add props (3d geometry) and/or sounds to them, doing the emotes much more fun and engaging! In this guideline you will find everything you need to know to export them correctly!
 
 ## **The Basics and Limitations**
 
 To start adding the props to your emotes it's important to use the [Decentraland Template File](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/BaseMale_Rig_1.0.blend) which will have the rig for the avatar and also the Ground Reference to keep your work inside the allowed space boundaries.
 
-**Currently, the props animations only work with Armature/Bones Animations meaning that **_**transform animations**_** are not allowed.**
+**Currently, the props animations only work with Armature/Bones Animations meaning that \_transform animations**\_\*\* are not allowed.\*\*
 
 The emote with their props must be exported all together in one single _.glb_ file (Avatar\_Armature + Props\_Armature with its animations).
 
@@ -59,29 +57,19 @@ Before starting you animation, you will have to create a rig for the prop. If yo
 
 Ensure that the prop object and armature have their origins located at the 0,0 location within Blender. Additionally, apply transformations to the prop object and armature, ensuring they are frozen at a scale of 1,1,1. This is crucial to prevent any potential issues with the prop's behavior when being utilized within the world or during animations.
 
-![](../images/wearables-and-emotes/props-and-sound/18-freeze-transforms.png)
-
 #### Making the Prop Follow the Avatar Rig
 
 Some props might have to be attached to certain body parts, like a tennis racket to the hand. That can be done by simply adding a constraint. To do so, in _**Pose Mode**_, select the prop bone (the tennis racket one, for example), press _**CTRL + Shift + C**_ on your keyborad and select _**Child of**_ or just click on the _**Bone Constraint Properties**_ tab and, in the drop down menu, select _**Child of**_.
 
-![](../images/wearables-and-emotes/props-and-sound/14-add-constrain.png)
-
 _Add a constraint by pressing `Ctrl + Shift + C` on your keyboard._
 
-![](../images/wearables-and-emotes/props-and-sound/15-add-constrain-02.png)
-
 Then, in _**Target**_, select the avatar armature and in _**Bone**_ select the bone you want the prop to follow. To maintain the prop’s original position, click on _**Set Inverse**_ once you add the constraint. If the influence is 1, the prop will fully follow the selected bone, if it’s 0, the constraint will be disabled. You can set keyframes on the influence to turn it on and off throughout the animation. To do that, just press I while the cursor is on top of _**Influence**_.
-
-![](../images/wearables-and-emotes/props-and-sound/16-target.png)
 
 _**Chlid of** constraint menu. Keyframe the influence to turn it on and off._
 
 {% hint style="info" %}
 **💡Animation Tip!** If you use the slide to turn off the Influence, the prop will not maintain its previous position, making it hard to keep the animation fluid. To avoid having to manually fix the position, instead of using the slide, click on the X next to Influence, set a keyframe on it and another one on all the transform attributes. This way the prop will keep the same poistion as when the Influence was on!
 {% endhint %}
-
-![](../images/wearables-and-emotes/props-and-sound/17-influence.gif)
 
 {% hint style="info" %}
 **💡Animation Tip**
@@ -93,8 +81,6 @@ Don’t leave the prop visible from the start! To avoid spoiling what’s about 
 
 Blender 4.4 introduced a new feature: animation slots. According to Blender documentation, “the purpose of slots is to allow an action to store distinct animation data for multiple data-blocks”. In a nutshell, slots make it possible to store the animation of multiple things in the same Action. How does it affect emotes 2.0?
 
-![](../images/wearables-and-emotes/props-and-sound/animationslots.png)
-
 Blender 4.4 new feature: animation slots.
 
 Even though it’s possible to have both the avatar and prop sharing the same action clip, because of the naming convention and number of animation clips involved in Emotes 2.0, it won’t work. So the pipeline for this would be:
@@ -104,8 +90,6 @@ Even though it’s possible to have both the avatar and prop sharing the same ac
 3. Create an animation clip for the prop and rename it _**AnimationName\_Prop**_
 4. Click on _**New**_ button to create an animation slot for it (it will receive an automatic name: _**Armature\_Prop**_)
 5. Animate as you would do in previous Blender versions.
-
-![](../images/wearables-and-emotes/props-and-sound/animation-slot-prop.gif)
 
 Creating and action clip and a slot for the prop animation.
 
@@ -117,15 +101,11 @@ In _**Object Mode**_, select the avatar armature, got to _**Pose Mode**_, select
 
 Then, change back to _**Object Mode**_, select the prop armature, go to _**Pose mode**_, select the respective animation clip in the Browse Action menu, click on _**Action**_ and then the _**Push Down**_ option.
 
-![](../images/wearables-and-emotes/props-and-sound/nla-tracks.gif)
-
 Pushing actions down to the NLA tracks.
 
 {% hint style="warning" %}
 ⚠️ Be careful when pushing actions down . Make sure you select the desired armature with the respective animation. Don’t just change the animation and push it down before selecting the other armature or else you will be assigning two actions to an armature and none to the other.
 {% endhint %}
-
-![](../images/wearables-and-emotes/props-and-sound/NLA-tracks.png)
 
 The NLA tracks should look like this: one animation for each armature.
 
@@ -140,27 +120,21 @@ This would help to reduce the draw calls in game making the emote more performan
 
 Keep in mind that this won’t work for particles, though.
 
-![](../images/wearables-and-emotes/props-and-sound/03-merge-mesh.png)
-
 _Select objects and press `Ctrl+J` to merge them together._
-
-![](../images/wearables-and-emotes/props-and-sound/04-merge-mesh-02.png)
 {% endhint %}
 
 ## **Exporting**
 
 Emotes 2.0 are exported the same way as common emotes. Make sure only the avatar armature, prop armature and prop meshes are visible and hide everything else.
 
-![](../images/wearables-and-emotes/props-and-sound/visibility.png)
-
 Have only avatar armature, prop armature and prop mesh visible for exporting.
 
-To export, go to File > Export > glTF2.0 (.glb, .gltf) ![](../images/wearables-and-emotes/props-and-sound/export.gif)
+To export, go to File > Export > glTF2.0 (.glb, .gltf)&#x20;
 
 For the export settings, expand Include and in Limit to toggle Visible Objects. Then, expand the Data tab, expand Armature and enable Export Deformation Bones Only.
 
-| ![](../images/wearables-and-emotes/props-and-sound/export_settings.png) | ![](../images/wearables-and-emotes/props-and-sound/export_settings_GIF.gif) |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+|   |   |
+| - | - |
 
 Hit Export and you are done!
 
@@ -190,23 +164,15 @@ One way to add sounds to your emotes is using the video sequencer editor that Bl
 
 To start adding sounds go to _Editor Type> Video Sequencer._
 
-![](../images/wearables-and-emotes/props-and-sound/07-video-sequencer.png)
-
 Drag and Drop you sounds to the channels interface.
 
-![](../images/wearables-and-emotes/props-and-sound/08-drag-sound.png)
-
 Press the shortcut `N` to see more options to handle your sounds like displaying waveform, make your sounds Mono or changing the volume.
-
-![](../images/wearables-and-emotes/props-and-sound/09-sound-properties.png)
 
 {% hint style="info" %}
 If you want to fade in and out you can simply do it by adding keyframes from 0 to 1 and viceversa to the volume property.
 {% endhint %}
 
 Once you finished to edit your sounds you can export it going to _Render> Render Audio_. In the exporting option you need to select `.mp3` or `.ogg` format in the _Container_ section and then _Mixdown_. **Only the audio within the frame range will be exported.**
-
-![](../images/wearables-and-emotes/props-and-sound/10-export-sound.png)
 
 2. **Render animation and add sound with a sound edit software**
 
@@ -216,14 +182,10 @@ There are several software options you can use, such as [Audacity](https://www.a
 
 To render your emote you can simply add a camera to your Blender scene and position it in a way you can see all the elements as clearly as possible to later have a good reference to add sounds.
 
-![](../images/wearables-and-emotes/props-and-sound/11-setting-render.png)
-
 When rendering an emote, it is important to only include the frame range of your emote and not more. Choose an aspect ratio that suits your needs and select the output folder where you want the video or image sequence to be saved.
 
 {% hint style="info" %}
 **Hint!**
-
-![](../images/wearables-and-emotes/props-and-sound/12-sampling-render.png)
 
 _Before rendering make sure you do a low sampling rendering to save time in your render!_
 {% endhint %}
