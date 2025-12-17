@@ -3,7 +3,7 @@ title: Let's build Decentraland together
 icon: hand-wave
 ---
 
-# Welcome Creator
+# Let's build Decentraland together
 
 All creators are welcome! In Decentraland you have a wide range of Creative possibilities, for people of different talents and skill levels!
 
@@ -15,7 +15,7 @@ The Creator Hub is the recommended tool for creators of all knowledge levels. It
 * [Emotes](./#emotes)
 * [Scenes](./#scenes)
 
-![](.gitbook/assets/scene-editor.png)
+![](../.gitbook/assets/scene-editor.png)
 
 Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
@@ -47,10 +47,10 @@ Decentraland scenes are made up of 3D models.
 
 *   Chose from the wide catalog of default assets in the Scene Editor. These are ready to go and optimized for using in Decentraland
 
-    ![](.gitbook/assets/items.png)
+    ![](../.gitbook/assets/items.png)
 *   Craft your own 3D models using Blender or your preferred 3D tools. Then import them into the Scene Editor.
 
-    ![](.gitbook/assets/blender.png)
+    ![](../.gitbook/assets/blender.png)
 
 {% hint style="warning" %}
 **📔 Note**: Content in Decentraland should stay within certain [size limitations](sdk7/optimizing/scene-limitations.md) to ensure your scene runs smoothly.
@@ -64,13 +64,13 @@ To make your scene interactive:
 
 *   **No Code**: Use the UI of the Scene Editor to drop [Smart Items](scene-editor/smart-items.md) into your scene. These are models that come pre-built with their own behavior, and are highly customizable. You can also assign the same behaviors to your own custom models (no code required).
 
-    ![](.gitbook/assets/smart-items.png)
+    ![](../.gitbook/assets/smart-items.png)
 * **Code**: For developers that want to incorporate custom logic, use the SDK to write code and do anything you can imagine. Learn to use the SDK:
   * [SDK Quick start](sdk7/getting-started/sdk-101.md): follow this mini tutorial for a quick crash course.
   * [Development workflow](sdk7/getting-started/dev-workflow.md): read this to understand scene creation from end to end.
   *   [Examples](https://studios.decentraland.org/resources?sdk_version=SDK7): dive right into working example scenes.
 
-      ![](.gitbook/assets/sdk-code.png)
+      ![](../.gitbook/assets/sdk-code.png)
 
 {% hint style="warning" %}
 **📔 Note**: You will also need to have [Visual Studio Code](https://code.visualstudio.com/) installed.

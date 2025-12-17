@@ -1,10 +1,10 @@
 # Table of contents
 
-* [Developer Platform API](README.md)
+* [Developer Platform API](./)
 
 ## APIs
 
-* [Realm Provider](apis/realm-provider/README.md)
+* [Realm Provider](realm-provider/)
   * ```yaml
     props:
       models: false
@@ -16,7 +16,7 @@
           kind: openapi
           spec: realm-provider-api
     ```
-* [Comms Gatekeeper](apis/comms-gatekeeper/README.md)
+* [Comms Gatekeeper](comms-gatekeeper/)
   * ```yaml
     props:
       models: false
@@ -28,7 +28,7 @@
           kind: openapi
           spec: comms-gatekeeper-api
     ```
-* [Archipelago Workers](apis/archipelago-workers/README.md)
+* [Archipelago Workers](archipelago-workers/)
   * ```yaml
     props:
       models: false
@@ -40,7 +40,7 @@
           kind: openapi
           spec: archipelago-workers-api
     ```
-* [Social Service](apis/social-service/README.md)
+* [Social Service](social-service/)
   * ```yaml
     props:
       models: false
@@ -52,7 +52,7 @@
           kind: openapi
           spec: social-service-api
     ```
-* [Catalyst](apis/catalyst/README.md)
+* [Catalyst](catalyst/)
   * ```yaml
     props:
       models: false
@@ -64,7 +64,7 @@
           kind: openapi
           spec: catalyst
     ```
-* [Lamb2](apis/lamb2/README.md)
+* [Lamb2](lamb2/)
   * ```yaml
     props:
       models: false
@@ -76,7 +76,7 @@
           kind: openapi
           spec: lambdas
     ```
-* [Worlds](apis/worlds/README.md)
+* [Worlds](worlds/)
   * ```yaml
     props:
       models: false
@@ -88,7 +88,7 @@
           kind: openapi
           spec: worlds-content-server
     ```
-* [Asset Bundle Registry](apis/asset-bundle-registry/README.md)
+* [Asset Bundle Registry](asset-bundle-registry/)
   * ```yaml
     props:
       models: false
@@ -100,7 +100,7 @@
           kind: openapi
           spec: asset-bundle-registry-api
     ```
-* [Events Notifier](apis/events-notifier/README.md)
+* [Events Notifier](events-notifier/)
   * ```yaml
     props:
       models: false
@@ -112,7 +112,7 @@
           kind: openapi
           spec: events-notifier-api
     ```
-* [Badges](apis/badges/README.md)
+* [Badges](badges/)
   * ```yaml
     props:
       models: false
@@ -124,7 +124,7 @@
           kind: openapi
           spec: badges-api
     ```
-* [Credits Server](apis/credits-server/README.md)
+* [Credits Server](credits-server/)
   * ```yaml
     props:
       models: false
@@ -136,7 +136,7 @@
           kind: openapi
           spec: credits-server-api
     ```
-* [Notifications Workers](apis/notifications-workers/README.md)
+* [Notifications Workers](notifications-workers/)
   * ```yaml
     props:
       models: false
@@ -148,7 +148,7 @@
           kind: openapi
           spec: notifications-inbox-api
     ```
-* [Auth Server](apis/auth-server/README.md)
+* [Auth Server](auth-server/)
   * ```yaml
     props:
       models: false
@@ -160,7 +160,7 @@
           kind: openapi
           spec: auth-server-api
     ```
-* [Marketplace Server](apis/marketplace-server/README.md)
+* [Marketplace Server](marketplace-server/)
   * ```yaml
     props:
       models: false
@@ -172,7 +172,7 @@
           kind: openapi
           spec: marketplace-server-api
     ```
-* [Events](apis/events/README.md)
+* [Events](events/)
   * ```yaml
     props:
       models: false
@@ -184,7 +184,7 @@
           kind: openapi
           spec: events
     ```
-* [Places](apis/places/README.md)
+* [Places](places/)
   * ```yaml
     props:
       models: false
@@ -196,7 +196,7 @@
           kind: openapi
           spec: places
     ```
-* [Rewards](apis/rewards/README.md)
+* [Rewards](rewards/)
   * ```yaml
     props:
       models: false
@@ -208,7 +208,7 @@
           kind: openapi
           spec: referral-api
     ```
-* [Camera reel](apis/camera-reel/README.md)
+* [Camera reel](camera-reel/)
   * ```yaml
     props:
       models: false
@@ -220,7 +220,7 @@
           kind: openapi
           spec: camera-reel-service-api
     ```
-* [Atlas Server](apis/atlas-server/README.md)
+* [Atlas Server](atlas-server/)
   * ```yaml
     props:
       models: false
@@ -232,7 +232,7 @@
           kind: openapi
           spec: atlas-service
     ```
-* [Exploration Games](apis/exploration-games/README.md)
+* [Exploration Games](exploration-games/)
   * ```yaml
     props:
       models: false
@@ -244,7 +244,7 @@
           kind: openapi
           spec: exploration-games-api
     ```
-* [Worlds Content Server](apis/worlds-content-server/README.md)
+* [Worlds Content Server](apis/worlds-content-server/)
   * ```yaml
     type: builtin:openapi
     props:

@@ -1,5 +1,9 @@
 ---
 description: Cómo exportar partículas en tus Emotes usando Armature
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/particles-in-emotes
 ---
 
 # Particles in Emotes

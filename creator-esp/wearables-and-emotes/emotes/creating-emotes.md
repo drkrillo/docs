@@ -1,5 +1,9 @@
 ---
 description: Tips y directrices para crear Emotes de Decentraland.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/oPnXBby9S6MrsW83Y9qZ/wearables-and-emotes/emotes/creating-emotes
 ---
 
 # Creating Emotes
@@ -8,17 +12,17 @@ Esta documentación cubrirá las especificaciones del archivo, los conceptos bá
 
 #### Animation Specs Chart
 
-| Propiedad              | Valor                      |
-| ---------------------- | -------------------------- |
-| Frame Rate             | 30 fps                     |
-| Max Length             | 10 segundos (300 frames)    |
-| Animations per File    | 1                          |
-| Export Format          | .glb                       |
-| Sampling Rate          | 2 o 3 (si es necesario)         |
-| Max File Size          | 1 MB                       |
+| Propiedad              | Valor                            |
+| ---------------------- | -------------------------------- |
+| Frame Rate             | 30 fps                           |
+| Max Length             | 10 segundos (300 frames)         |
+| Animations per File    | 1                                |
+| Export Format          | .glb                             |
+| Sampling Rate          | 2 o 3 (si es necesario)          |
+| Max File Size          | 1 MB                             |
 | Max Animation Distance | 1 metro (en cualquier dirección) |
-| Max Animation Height   | 1 metro                    |
-| Max Texture Size       | 1024 pixels                |
+| Max Animation Height   | 1 metro                          |
+| Max Texture Size       | 1024 pixels                      |
 
 Puedes encontrar una explicación más detallada de las especificaciones de animación [**abajo**](creating-emotes.md#the-animation-specifications).
 
@@ -59,8 +63,6 @@ En el archivo de rig, además de las dos ventanas para el viewport (vista fronta
 * _**Timeline**_: Aquí es donde se encuentran la línea de tiempo y los controles de reproducción. Aquí, el _**Auto Keying**_ está activado, lo que significa que cada vez que se manipula un control automáticamente crea un keyframe. Siempre puedes deshabilitar esa función haciendo clic en el punto junto a los controles de reproducción.
 
 ¡Con este espacio de trabajo, tienes todo lo necesario para comenzar a animar!
-
-![](../images/emotes/workspace.png)
 
 Estas son las ventanas inferiores. La superior está en el _**Graph Editor,**_ la del medio en el _**Dope Sheet,**_ y la inferior es el _**Timeline.**_ La flecha roja superior muestra la herramienta _**Only Show Selected**_ y la inferior muestra el _**Auto Keying**_.
 
@@ -132,17 +134,15 @@ En la sección _Browse Action_, simplemente haz clic en el botón _**Create A Ne
 
 Blender 4.4 introdujo _Slotted Actions_, el ícono a la derecha de la sección _Browse Action_ de versiones anteriores. No hay necesidad de jugar con eso si estás creando un emote sin prop, así que puedes dejarlo como está. Si estás animando el avatar, asegúrate de que la slotted action sea Avatar\_Animation.
 
-![](../images/emotes/duplicating_animation.gif) Crea una nueva animación duplicando la existente o haciendo clic en \_\*\*Unlink Action\*\*\_ y luego \_\*\*New\*\*\_.
+&#x20;Crea una nueva animación duplicando la existente o haciendo clic en \_\*\*Unlink Action\*\*\_ y luego \_\*\*New\*\*\_.
 
 ### **Browsing and Deleting Animations**
 
 En Blender, puedes tener múltiples pistas de animación en el mismo archivo. Es posible navegar por ellas haciendo clic en el menú desplegable Browse Action. Toda animación con una F (Fake User) se guardará. Para eliminar una animación, presiona Shift en el teclado y haz clic en la X. Después de hacer eso, la animación mostrará un 0 junto a ella, lo que significa que se eliminará la próxima vez que cierres Blender o vuelvas a abrir el archivo.
 
-![](../images/emotes/deleting_animation.gif) Navegando animaciones: Las que tienen una F se guardarán, y las que tienen 0 se eliminarán.
+&#x20;Navegando animaciones: Las que tienen una F se guardarán, y las que tienen 0 se eliminarán.
 
 Otra forma de eliminar animaciones sin tener que recargar Blender es cambiando el Display Mode de View Layer a Blender File. Expande Actions y elimina cualquier animación no deseada haciendo clic derecho en ellas y seleccionando Delete.
-
-![](../images/emotes/deleting_animation2.gif)
 
 Puedes eliminar animaciones directamente desde Blender File bajo Display Mode en el outliner.
 
@@ -152,7 +152,7 @@ Puedes eliminar animaciones directamente desde Blender File bajo Display Mode en
 No edites siempre la misma pista de animación. Antes de hacer cambios importantes, simplemente duplica la animación. De esa manera tienes una versión de respaldo en caso de que te arrepientas de eliminar o cambiar algo. ¡Esta también es una buena forma de hacer seguimiento del progreso realizado hasta ahora!
 {% endhint %}
 
-![](../images/emotes/duplicating_animation2.gif) Duplicando clips de animación.
+&#x20;Duplicando clips de animación.
 
 ### **Naming**
 
@@ -167,13 +167,11 @@ No edites siempre la misma pista de animación. Antes de hacer cambios important
 
 Los emote overrides ocurren cuando los huesos de deformación no tienen un keyframe establecido en uno de los parámetros. Sin un keyframe, ese hueso no tendrá la información de dónde debe estar, cuánto ha sido rotado y escalado, dejando ese canal abierto. La consecuencia es que si reproduces un emote en el mundo y luego activas el tuyo mientras el anterior aún se estaba reproduciendo, la información de ubicación, rotación y escala será sobrescrita por el emote anterior, lo que causará una combinación de ambos. A menos que esto se haga a propósito, afectará tu animación, a veces con un resultado divertido, pero otras con el emote completamente desordenado. A continuación hay un ejemplo de un emote override.
 
-![](../images/wearables-and-emotes/creating-emotes/01_emote_override.gif)
-
 Para evitar eso, selecciona todas las capas con huesos en ellas (que se pueden encontrar en _**Object Data Properties**_ > _**Skeleton**_ > _**Layers**_). Luego, en _**Pose Mode**_, deja el cursor de la línea de tiempo en el primer frame de tu animación y, con tu mouse en _**Viewport Display**_, presiona _**A**_ para seleccionar todo. En el _**Graph Editor**_, haz clic dos veces en el ícono _**Eye**_ junto al canal de armature para hacer visibles todos los canales. Con todos los huesos seleccionados, presiona _**I**_ para establecer un keyframe. Haz lo mismo para el último frame.
 
 **¡Asegúrate de seleccionar los huesos de deformación, esto es especialmente importante!** Los huesos de deformación se pueden encontrar en la última capa inferior y se muestran como huesos verdes en el _**Viewport**_.
 
-![](../images/emotes/keyframe_bones.gif) Establecer keyframes en todos los huesos en los primeros y últimos frames previene emote overrides.
+&#x20;Establecer keyframes en todos los huesos en los primeros y últimos frames previene emote overrides.
 
 ## **Las Especificaciones de Animación**
 
@@ -184,8 +182,6 @@ La longitud máxima de una animación es **10 segundos** o **300 frames**. Recue
 {% hint style="warning" %}
 ⚠️ Los canales con visibilidad desactivada en el Graph Editor no tendrán keyframe, serán eliminados, ni siquiera se mostrarán en el Action Editor. A menos que se haya hecho intencionalmente de esa manera, presta especial atención a la visibilidad.
 {% endhint %}
-
-![](../images/emotes/channel_visibility.gif)
 
 ¡Haz los canales visibles antes de hacer keyframe!
 
@@ -223,25 +219,21 @@ Si el emote contiene cualquier modelo 3D adicional, las texturas en estos modelo
 
 Como solo queremos que la armature y la animación se exporten, desactiva la visibilidad de la malla y cualquier objeto que no sea la armature antes de exportar, como se muestra a continuación:
 
-![](../images/emotes/mesh_visibility.gif)
-
 ¡Desactiva la visibilidad de la malla antes de exportar!
 
 Para exportar, ve a _File_ > _Export_ > _glTF2.0 (.glb, .gltf)_
 
-![](../images/emotes/export_gltf.gif)
-
 Para la configuración de exportación, expande Include y en Limit to activa Visible Objects. Luego, expande la pestaña Data, expande Armature y habilita Export Deformation Bones Only.
 
 | Configuración de Exportación | Animación |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| ![](../images/emotes/export_settings.png) | ![](../images/emotes/export_settings_GIF.gif) |
+| ---------------------------- | --------- |
+|                              |           |
 
 Si necesitas samplear la animación, expande la pestaña Animation, expande Sampling Animations y elige el número de samples deseado.
 
 | Sampling Rate | Animación |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| ![](../images/emotes/sampling_rate.png) | ![](../images/emotes/sampling_rate_GIF.gif) |
+| ------------- | --------- |
+|               |           |
 
 ¡Eso es todo para exportar la animación!
 

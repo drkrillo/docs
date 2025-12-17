@@ -1,4 +1,4 @@
-# Overview
+# About
 
 Decentraland Worlds are your own personal 3D space in the Decentraland ecosystem, separate from Genesis City’s map of LAND parcels. A World can be kept private or shared with anyone with just a link. Able to host up to 100 concurrent users, you can use your World to host events, display your work, or as a blank canvas where you can unleash your creativity and experiment. A World is available to anyone who owns a Decentraland NAME or an ENS domain.
 
@@ -162,7 +162,7 @@ This ACL is stored in the World Content Server where the world is deployed. It i
 
 A new command has been added to Decentraland CLI that allows to show the current ACL stored in the Worlds Content Server for a given NAME, and it also allows granting access to more wallets or revoking access to wallets that are already in the ACL.
 
-![](../.gitbook/assets/world-acl-help.png)
+![](<../../.gitbook/assets/world-acl-help (1).png>)
 
 In order to grant permission for publishing a scene to another wallet you have to:
 
