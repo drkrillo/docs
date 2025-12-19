@@ -23,7 +23,7 @@ Download the Creator Hub [here](https://decentraland.org/download/creator-hub).
 
 Wearables are items of clothing that player avatars can wear. These are sold as NFTs and purchased in the [Marketplace](https://decentraland.org/marketplace/browse?section=wearables\&vendor=decentraland\&page=1\&sortBy=newest\&status=on_sale).
 
-Learn everything about [Creating wearables](wearables-and-emotes/creating-wearables.md).
+Learn everything about [Creating wearables](wearables-and-emotes/wearables/creating-wearables.md).
 
 You can also combine a wearable with code from the SDK to create a [smart wearable](sdk7/projects/smart-wearables.md). This turns on a global scene whenever the player puts on the wearable. See [Kinds of project](sdk7/projects/kinds-of-project.md) to better understand the different options.
 
