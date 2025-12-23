@@ -448,7 +448,7 @@ To make the audio spatial, set the `spatial` property to _true_.
 
 ```ts
 VideoPlayer.create(entity, {
-	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	src: 'https://player.vimeo.com/progressive_redirect/playback/1145666916/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&signature=db1cd6946851313cb8f7be60d1f6c30af0902bcc46fdae0ba2a06e5fdf44c329',
 	playing: true,
 	spatial: true,
 })
@@ -465,16 +465,22 @@ Control the spatial audio with the following properties:
 const videoPlayerEntity = engine.addEntity();
 
 Transform.create(videoPlayerEntity, {
-    position: Vector3.create(8, 0, 8),
+    position: Vector3.create(8, 2, 8),
 });
 
 VideoPlayer.create(videoPlayerEntity, {
-	src: 'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875',
+	src: 'https://player.vimeo.com/progressive_redirect/playback/1145666916/rendition/540p/file.mp4%20%28540p%29.mp4?loc=external&signature=db1cd6946851313cb8f7be60d1f6c30af0902bcc46fdae0ba2a06e5fdf44c329',
 	playing: true,
 	spatial: true,
 	spatialMinDistance: 5,
 	spatialMaxDistance: 10
 });
+
+MeshRenderer.setPlane(videoPlayerEntity)
+
+Material.setBasicMaterial(videoPlayerEntity, {
+texture: Material.Texture.Video({ videoPlayerEntity: videoPlayerEntity })
+})
 ```
 
 {% hint style="warning" %}
