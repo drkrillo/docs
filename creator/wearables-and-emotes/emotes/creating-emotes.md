@@ -25,7 +25,7 @@ You can find a more detailed explanation of the animation specifications [**belo
 
 This documentation explains the set up for Rig 1.0, its controls, and features.
 
-[Decentraland Blender Rig](https://github.com/decentraland/docs-creator/blob/main/images/emotes/Avatar_File.blend)
+[Decentraland Blender Rig](https://github.com/decentraland/docs/blob/main/creator/images/emotes/Avatar_File.blend)
 
 {% hint style="info" %}
 If you're using Maya you can download this [Maya Rig](https://github.com/decentraland/docs-creator/blob/main/images/emotes/DCL_Maya_Rig.ma) and [picker](https://github.com/decentraland/docs-creator/blob/main/images/emotes/emoteAvatar.pkr) provided by [SparkleStudios](https://www.sparkles.studio/) ❤️.
@@ -264,6 +264,6 @@ If you’re still not sure where to start or need some reference or inspiration,
 
 [Chic.glb](https://raw.githubusercontent.com/decentraland/documentation-creators/main/images/emotes/chic.glb)
 
-[Flag\_Emote.glb](https://github.com/decentraland/docs-creator/blob/main/images/emotes/Flag_Emote.glb)
+[Flag\_Emote.glb](https://github.com/decentraland/docs/blob/main/creator/images/emotes/Flag_Emote.glb)
 
-[Flag\_Emote.blend](https://github.com/decentraland/docs-creator/blob/main/images/emotes/Flag_Emote_Final.blend)
+[Flag\_Emote.blend](https://github.com/decentraland/docs/blob/main/creator/images/emotes/Flag_Emote_Final.blend)

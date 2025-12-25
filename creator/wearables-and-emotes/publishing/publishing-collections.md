@@ -57,14 +57,14 @@ Please refer to the full Content Policy [here](https://decentraland.org/content/
 > * Wearables must preserve avatar UV mapping to ensure that user-selected skin tones can be rendered as expected.
 > * The dimensions of eyebrow, eye, and mouth textures should not exceed 256 by 256px, and the image must have transparent background.
 > * In the case of hands category, the wearable cannot be an item attached to the hand (a sword, shield, etc). The category is meant by hand accesories like bracelets, watches, rings,etc. and in the case of replacing the hand completely it should follow a proper armature skinning for the hand bones.
-> * Wearables with a disproportionate number of triangles, textures and materials may be rejected because can cause poor performance and a bad experience for players. Creators should not exceeding the limitation [guidelines](../wearables-and-emotes/wearables/creating-wearables.md) when creating wearables.
+> * Wearables with a disproportionate number of triangles, textures and materials may be rejected because can cause poor performance and a bad experience for players. Creators should not exceeding the limitation [guidelines](../wearables/creating-wearables.md) when creating wearables.
 > * Wearables may not contain duplicate items within a collection. (Each item within a collection must be unique.)
 > * Wearables may not mimic or copy other wearables that have already been published.
 > * For security reasons, any wearables that contain any kind of QR Code may be rejected.
 > * Wearables that exceed the space restrictions.
 > * Wearables with misleading categories may be rejected; for example, a hat that is categorized as a lower body item.
 > * Wearables must follow the armature humanoid structure to ensure a good quality gameplay. In this sense, currently vehicles or pets are not allowed because these are not wearables by definition.
-> * Emotes that exceed the time and space restrictions. For more info check the [emote guidelines](../wearables-and-emotes/emotes/creating-emotes.md)
+> * Emotes that exceed the time and space restrictions. For more info check the [emote guidelines](../emotes/creating-emotes.md)
 > * Curators from the curators committee can submit collections but not approve their own. In this case, another curator from the committee would needs to review in order and approve or reject.
 
 ### **Attributing Collaborators** [**#**](https://docs.decentraland.org/creator/wearables/wearables-editor-user-guide/#attributing-collaborators)

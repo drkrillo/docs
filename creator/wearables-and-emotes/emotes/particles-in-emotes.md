@@ -8,7 +8,7 @@ Emotes 2.0 can have sounds and props, but did you know it’s also possible to u
 
 But since object animation and particle systems are not supported in Emotes 2.0, we need to convert these particles into an armature (which is supported) in order to add them to emotes. We’ll be using a Blender add-on developed by the Foundation’s Content Team for this process, which can be downloaded from the link below.
 
-Use the [Particles to Bones Addon for Blender](https://github.com/decentraland/docs-creator/blob/main/images/emotes/particle_system_to_bone_animation.py) to start!
+Use the [Particles to Bones Addon for Blender](https://github.com/decentraland/docs/blob/main/creator/images/emotes/particle_system_to_bone_animation.py) to start!
 
 ![](../../../.gitbook/assets/01_love_grenade.png) ![](../../../.gitbook/assets/02_guitar.png)
 
