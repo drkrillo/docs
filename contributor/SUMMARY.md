@@ -76,7 +76,7 @@
 * [JavaScript Client](social-service/js-client.md)
 * [Login](social-service/login.md)
 * [Get Friends](social-service/get-friends.md)
-* [Put Friends](social-service/put-friends.md)
+* [Put Friends](social-service/put-friends.md)g
 * [Websocket](social-service/ws.md)
 
 ## Tutorials
