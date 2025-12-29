@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome Contributor](./)
+* [Welcome Contributor](README.md)
 
 ## Architecture
 

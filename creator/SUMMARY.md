@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome Creator](./)
+* [Welcome Creator](README.md)
 
 ## Tutorials & Examples
 
