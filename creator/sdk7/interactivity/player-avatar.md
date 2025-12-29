@@ -4,7 +4,7 @@ description: Learn how to control the player's avatar
 
 # The Player Avatar
 
-There are varios ways in which you can control the player's avatar and change the gameplay experience for your players.
+There are various ways in which you can control the player's avatar and change the gameplay experience for your players.
 
 For dealing with avatars that are not players, see [NPC Avatars](npc-avatars.md).
 
