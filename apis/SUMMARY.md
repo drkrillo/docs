@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Developer Platform API](./)
+* [Developer Platform API](README.md)
 
 ## APIs
 
