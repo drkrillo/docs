@@ -444,6 +444,71 @@ Here are some more examples of valid values:
 * 64800 seconds => _18:00_
 * 86400 seconds => _24:00_
 
+### World configuration
+
+When publishing to a [Decentraland World](../worlds/about.md), you can configure several World-specific settings in your `scene.json` file using the `worldConfiguration` object.
+
+#### Basic World configuration
+
+To publish to a World, you must specify the NAME or ENS domain in your `scene.json`:
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth"
+	}
+}
+```
+
+The **name** specified can be either a Decentraland NAME or an ENS Domain and must be owned by the wallet signing the deployment (or by any wallet that has been given permission via Access Control Lists).
+
+
+#### Communication service configuration
+
+The `fixedAdapter` property indicates which Communication Service should be used by the scene. For the time being only the `offline:offline` value is allowed and when set, the scene will have no Communication Service at all and each user joining that world will always be alone. If not set, the Worlds content server will generate a proper value based on how it is configured.
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"fixedAdapter": "offline:offline"
+	}
+}
+```
+
+#### Places listing configuration
+
+All Worlds are automatically listed on the Places page unless you opt out. If you wish to opt-out from your Worlds being indexed in Places, you can add the following:
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"placesConfig": {
+			"optOut": true
+		}
+	}
+}
+```
+
+#### Complete example
+
+Here's a complete example with all World configuration options:
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"fixedAdapter": "offline:offline",
+		"placesConfig": {
+			"optOut": true
+		}
+	}
+}
+```
+
+See [Publishing to Worlds](../sdk7/publishing/publishing.md#publishing-to-worlds) for more information on deploying to Worlds.
+
 ### Fetch metadata from scene code
 
 [Scene API Reference](https://js-sdk-toolchain.pages.dev/modules/js_runtime_apis.__system_Scene_)

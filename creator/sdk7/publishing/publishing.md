@@ -78,9 +78,79 @@ Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-
 **💡 Tip**: `npm run deploy` runs a `npm run build`, which checks the scene for type errors more strictly than running `npm run start`. If these errors can't be avoided (eg: they happen in an external library) and they don't impact the scene, you can use `npm run deploy --skip-build` to skip the `npm run build` step and deploy the scene as it is.
 {% endhint %}
 
-When publishing to a [Decentraland World](../worlds/about.md) , use the following command instead:
+### Publishing to Worlds
 
-`npm run deploy -- --target-content https://worlds-content-server.decentraland.org`
+To publish your scene to a Decentraland World, you need to own a Decentraland NAME or ENS domain. See [Publishing Options](publishing-options.md#decentraland-worlds) for information on how to obtain one.
+
+#### Configure scene.json
+
+You need to specify under what **name** your deployment is to be made. Add the following section in your `scene.json`:
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth"
+	}
+}
+```
+
+The **name** specified in the `scene.json` can be either a Decentraland NAME or an ENS Domain and must be owned by the wallet signing the deployment (or by any wallet that has been given permission explicitly via Access Control Lists (ACL), as explained below).
+
+Keep the following in mind:
+
+* The wallet signing the deployment must own the NAME specified in the `scene.json` file
+* The scene has no parcel limitations (since January 2023)
+* All Worlds are automatically listed on the Places page unless you opt out as detailed below
+
+#### Opt-out from Places listing
+
+If you wish to opt-out from your Worlds being indexed in Places, you can add the following section in your `scene.json`:
+
+```json
+{
+	"worldConfiguration": {
+		"name": "my-name.dcl.eth",
+		"placesConfig": {
+			"optOut": true
+		}
+	}
+}
+```
+
+#### Using the Scene Editor
+
+1. Open your scene project.
+2. Click the **Publish** button on the top-right corner.
+3. Select **PUBLISH TO WORLD**.
+4. Select which of your NAMEs or ENS Domains to publish to.
+
+#### Via the CLI
+
+Use the following command:
+
+```bash
+npm run deploy -- --target-content https://worlds-content-server.decentraland.org
+```
+
+Once you run the command, you will be prompted to sign the deployment with your wallet and a set of validations will be executed to allow or reject the scene.
+
+
+#### Accessing a World
+
+Once a scene is uploaded to the Worlds server you can access it by using the Decentraland Explorer with the following friendly URL `decentraland://?realm=NAME.dcl.eth`, where `NAME` should be replaced by the Decentraland NAME or ENS Domain to which the deployment was done to.
+
+With Decentraland already open, you can also jump to a world by typing the `/goto NAME.dcl.eth` command in the chatbox.
+
+See [Make discoverable](../sdk7/projects/make-discoverable.md) for more information on how to make your World discoverable.
+
+#### Migrating a World to Genesis City
+
+If you are a LAND owner and you wish to deploy a World scene to the Genesis City, it is completely possible. You just need to re-deploy your scene to the decentralized Catalyst network, the targeted content server for Genesis City.
+
+Things to remember:
+
+* Remove the `worldConfiguration` section from `scene.json`
+* The size limitation for Worlds (dynamic based on holdings) is different from that for LAND parcels (15MB per parcel), so make sure your scene is sized correctly for deployments to Genesis City!
 
 ### Publish from a hardware wallet
 
