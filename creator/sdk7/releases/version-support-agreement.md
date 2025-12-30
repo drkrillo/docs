@@ -4,7 +4,7 @@ description: Version support agreement
 
 # Version Support Agreement
 
-This document describes the versioning policy applied to both the Scene Editor (in the Creator Hub) and the scripting framework (the `@dcl/sdk` package).
+This document describes the versioning policy applied to both the Scene Editor in Creator Hub and the scripting framework (the `@dcl/sdk` package).
 
 The goal of this versioning policy is to forge a contract between the Decentraland Foundation's SDK team and content creators, to establish clear expectations and allow content creators to plan their work accordingly.
 

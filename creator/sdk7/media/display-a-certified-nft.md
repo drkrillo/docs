@@ -9,7 +9,7 @@ You can display a 2D NFT (Non-Fungible Token) that you own in your Decentraland 
 The NTF's image and other data is taken from an API, based on the token's contract and id. Any NFTs that are supported on [OpenSea](https://opensea.io/) can also be displayed in an NFT picture frame in Decentraland.
 
 {% hint style="info" %}
-**💡 Tip**: In the [Scene Editor](../scene-editor/get-started/about-editor.md), you can use an **NFT** [Smart Item](../scene-editor/interactivity/smart-items.md) for a no-code way to achieve this.
+**💡 Tip**: In the [Scene Editor in Creator Hub](../scene-editor/get-started/about-editor.md), you can use an **NFT** [Smart Item](../scene-editor/interactivity/smart-items.md) for a no-code way to achieve this.
 {% endhint %}
 
 The picture frame is displayed adjusting to the dimensions of the NFT image. If the image's dimensions are 512 X 512 pixels, the frame keeps its original size. If the image has different dimensions, the frame will be resized and stretched to match these dimensions.

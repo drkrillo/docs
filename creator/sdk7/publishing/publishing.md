@@ -41,9 +41,9 @@ Open your scene's _scene.json_ file and complete the following data:
 
 ### To publish the scene
 
-#### Using the Scene Editor
+#### Using the Scene Editor in Creator Hub
 
-Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-installation.md).
+The Scene Editor in Creator Hub provides an easy way to publish your scenes. Make sure you've [installed the Creator Hub](../scene-editor/get-started/editor-installation.md).
 
 1. Open your scene project.
 2. Click the **Publish** button on the top-right corner.
@@ -117,7 +117,7 @@ If you wish to opt-out from your Worlds being indexed in Places, you can add the
 }
 ```
 
-#### Using the Scene Editor
+#### Using the Scene Editor in Creator Hub
 
 1. Open your scene project.
 2. Click the **Publish** button on the top-right corner.

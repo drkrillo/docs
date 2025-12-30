@@ -11,7 +11,7 @@ There are tree different ways you can show a video in a scene:
 * Stream live via Decentraland cast
 
 {% hint style="info" %}
-**💡 Tip**: In the [Scene Editor](../scene-editor/get-started/about-editor.md), you can use an **Video Player** [Smart Item](../scene-editor/interactivity/smart-items.md) for a no-code way to achieve this.
+**💡 Tip**: In the [Scene Editor in Creator Hub](../scene-editor/get-started/about-editor.md), you can use an **Video Player** [Smart Item](../scene-editor/interactivity/smart-items.md) for a no-code way to achieve this.
 {% endhint %}
 
 In all cases, you'll need:

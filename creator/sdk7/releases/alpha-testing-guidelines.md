@@ -24,7 +24,7 @@ Install the [Creator Hub](../../scene-editor/get-started/about-editor.md).
 
 ### In production
 
-You can deploy scenes with SDK7 via the **Publish** button on the Scene Editor.
+You can deploy scenes with SDK7 via the **Publish** button on the Scene Editor in Creator Hub.
 
 ### Example scenes
 

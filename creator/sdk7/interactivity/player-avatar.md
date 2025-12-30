@@ -11,7 +11,7 @@ For dealing with avatars that are not players, see [NPC Avatars](npc-avatars.md)
 ## Move player
 
 {% hint style="info" %}
-**💡 Tip**: The easiest way to move the player is to use the [Scene Editor](../../scene-editor/get-started/about-editor.md). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart](../../scene-editor/interactivity/make-any-item-smart.md).
+**💡 Tip**: The easiest way to move the player is to use the [Scene Editor in Creator Hub](../../scene-editor/get-started/about-editor.md). Use the no-code **Move player** or the **Move player here** Actions, see [Make any item smart](../../scene-editor/interactivity/make-any-item-smart.md).
 {% endhint %}
 
 To change the player's position in the scene, use the `movePlayerTo()` function. This function takes an object with three properties:
@@ -69,7 +69,7 @@ While a player is performing an animation, they are not affected by collisions, 
 
 ### Use the Scene Editor
 
-The easiest way to make a player perform an animation is to use the [Scene Editor](../../scene-editor/get-started/about-editor.md). Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart](../../scene-editor/interactivity/make-any-item-smart.md).
+The easiest way to make a player perform an animation is to use the Scene Editor. Use the no-code **Play Emote** action to play a default animation, or the **Play Custom Emote** action to play an animation form a file. See [Make any item smart](../../scene-editor/interactivity/make-any-item-smart.md).
 
 ### Default animations
 
