@@ -210,7 +210,7 @@ You can deploy content to a custom server that doesn't belong to the official DA
 See [How to run your own Catalyst Node](../tutorials/how-to-run-a-catalyst.md) for more info on what you can do with your own server and how to set it up.
 
 {% hint style="warning" %}
-**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../rewards/gatting-started.md) or the [quests server](../deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
+**📔 Note**: Players will need to manually type in a URL to access your custom server. Certain validations from services like the [rewards server](../rewards/getting-started.md) or the [quests server](../deprecated/quests/overview.md) might fail in these contexts, as often these services require that the request comes from an official server.
 {% endhint %}
 
 Players are never directed to this server, the only way to access it is to explicitly type in the URL to connect to it.
@@ -225,7 +225,7 @@ The URL to enter your deployed scene on your custom server will depend on the do
 
 ### Verify deployment success
 
-Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, depending of what realm you enter.
+Once you deployed your scene, these changes will take a few minutes to be propagated throughout the various content servers in the network. If you enter Decentraland right after deploying, you might still see the previous version of your content, depending on what realm you enter.
 
 After you sign to authorize the deployment of your scene, the signing dapp will start displaying confirmations that the new version of your content has been propagated throughout all of the servers in the network,
 

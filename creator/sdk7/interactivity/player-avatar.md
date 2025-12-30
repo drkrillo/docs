@@ -73,7 +73,7 @@ The easiest way to make a player perform an animation is to use the Scene Editor
 
 ### Default animations
 
-Use the `triggerEmote()` function ro run one of the default animations that players are able to play anywhere in Decentraland. This function takes a an object with a single property as an argument:
+Use the `triggerEmote()` function to run one of the default animations that players are able to play anywhere in Decentraland. This function takes an object with a single property as an argument:
 
 * `predefinedEmote`: A string name for an existing emote.
 
@@ -507,6 +507,6 @@ See [NPC Avatars](npc-avatars.md) for more details.
 {% hint style="warning" %}
 **📔 Note**: To allow the player to have full control over that avatar, you should listen to button events to detect when they press a button, and then trigger the corresponding animation on the NPC avatar. See [Button Events](button-events/system-based-events.md) for more details.
 
-The fludity of control may not be perfect while doing this, you may want to use this only on very specific.
+The fluidity of control may not be perfect while doing this, you may want to use this only in very specific cases.
 {% endhint %}
 

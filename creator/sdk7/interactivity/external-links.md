@@ -26,7 +26,7 @@ teleportTo({ worldCoordinates: { x: -51, y: 1 } })
 
 Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata](../sdk7/projects/scene-metadata.md) for details on how to set this data.
 
-Bare in mind that teleports take you to a scene in the indicated coordinates, but not necessarily to that same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
+Bear in mind that teleports take you to a scene at the indicated coordinates, but not necessarily to those same coordinates. This means that when travelling to a scene that has multiple parcels, players may not be landing on the same coordinates as specified, but rather into one of the spawn points designated by the creator of the scene.
 
 To move a player to another set of coordinates inside the current scene, use the `movePlayerTo()` function instead. See [Move a Player](player-avatar.md#move-player).
 
@@ -44,7 +44,7 @@ changeRealm({realm: 'mannakia.dcl.eth'})
 
 Players are presented a confirmation screen before they are teleported, this screen displays information from the destination scene’s `scene.json file`, including the scene `name`, `description` and `navmapThumbnail`. See [scene metadata](../sdk7/projects/scene-metadata.md) for details on how to set this data.
 
-The player will spawn in on of the spawn points of the scene in that world, regardless of their current coordinates on the map.
+The player will spawn in one of the spawn points of the scene in that world, regardless of their current coordinates on the map.
 
 ### External links
 

@@ -84,7 +84,7 @@ These are the predefined categories:
 * `sports`
 * `parkour`
 
-For example, a Scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
+For example, a scene could be tagged as `game` and `casino` by adding the following to the `scene.json`
 
 ```json
   "tags": [
@@ -135,7 +135,7 @@ There are certain features that can be disabled in specific scenes so that playe
 Currently, only the following feature is handled like this:
 
 * **Voice Chat**: Refers to players using their microphones to have conversations over voice chat with other nearby players.
-* **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside the your scene. This includes not only [portable experiences](../sdk7/projects/portable-experiences.md) but also [smart wearables](../sdk7/projects/smart-wearables.md). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
+* **Disable Portable Experiences**: This setting will set the behavior for any portable experience of a player while standing inside your scene. This includes not only [portable experiences](../sdk7/projects/portable-experiences.md) but also [smart wearables](../sdk7/projects/smart-wearables.md). With this setting, you can chose to either keep them all enabled (default), disable them, or hide their UI. This is useful for scenes where portable experiences might give an unfair advantage to some players, for example using a jetpack in a parkour challenge. It's also recommended to prevent these in scenes where blockchain transactions take place, and where a malicious portable experience could potentially impersonate the scene´s UI.
 
 On the `scene.json` file, these toggles are managed under `featureToggles`. The corresponding features are enabled by default, unless specified as _disabled_ in the `scene.json` file.
 
@@ -251,7 +251,7 @@ You can set a whole region in the scene to act as a spawn point. By specifying a
   ],
 ```
 
-In the example above, players may appear anywhere in the square who's corners are on _1,1,2_ and _5,1,4_.
+In the example above, players may appear anywhere in the square whose corners are on _1,1,2_ and _5,1,4_.
 
 A scene can also have multiple spawn regions, just like it can have multiple spawn points.
 
@@ -434,7 +434,7 @@ You can also set the skybox time of day in your scene code. To do this, add the 
   }
 ```
 
-The number refers to the number of seconds since the start of the day, ranging from 0 (that refers to _00:00_) to 86400 (that refers to _24:00_). Any number higher than 86400 is interpreted also as midnight.
+The number refers to the number of seconds since the start of the day, ranging from 0 (that refers to _00:00_) to 86400 (that refers to _24:00_). Any number higher than 86400 is also interpreted as midnight.
 
 Here are some more examples of valid values:
 

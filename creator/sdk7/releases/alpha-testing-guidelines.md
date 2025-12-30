@@ -6,7 +6,7 @@ description: Guidelines on how to provide feedback about SDK7
 
 ### Documentation
 
-Find the full documentation for SDK7 in under the **SDK7** section of the documentation.
+Find the full documentation for SDK7 in the **SDK7** section of the documentation.
 
 ### Using the playground
 

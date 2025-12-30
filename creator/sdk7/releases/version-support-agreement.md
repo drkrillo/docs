@@ -10,11 +10,11 @@ The goal of this versioning policy is to forge a contract between the Decentrala
 
 ### Definitions
 
-* _Version number_ -- a unique identifier for a publicly available version of software. This identifier consists of a _major version_ number and a _minor version_ number, separated dots (for example, 7.2).
-* _Version family_ -- all versions that have identical major version form a family. We call version A a _successor_ of version B if A and B belong to same family and A minor number is higher than B's (for example, 7.11 is a successor of 7.10).
+* _Version number_ -- a unique identifier for a publicly available version of software. This identifier consists of a _major version_ number and a _minor version_ number, separated by dots (for example, 7.2).
+* _Version family_ -- all versions that have identical major version form a family. We call version A a _successor_ of version B if A and B belong to the same family and A minor number is higher than B's (for example, 7.11 is a successor of 7.10).
 * _Breaking change_ -- a change that forces a user to change their code or assets to keep them in functioning state. For example, a property changes name, and forces the user to change that property name every time it's used throughout their code.
 * _Non-breaking change_ -- a change that does not require any action by a user, the behavior and properties of the user's code and assets are unchanged if they migrate their scene.
-* _Stable version_ -- a version that forbids breaking changes in all its successors (which are all considered as stable too). Any breaking change must be introduced only through creation of a new version family by incrementing the major version number, however see caveat in the [breaking changes](version-support-agreement.md#breaking-changes) section. Non-breaking changes are reflected through incrementing the minor version number.
+* _Stable version_ -- a version that forbids breaking changes in all its successors (which are all considered as stable too). Any breaking change must be introduced only through creation of a new version family by incrementing the major version number, however, see the caveat in the [breaking changes](version-support-agreement.md#breaking-changes) section. Non-breaking changes are reflected through incrementing the minor version number.
 * _Unstable version_ -- a version that allows breaking changes in its successors. Breaking changes may be introduced by incrementing the minor version number.
 
 ### Support policy
@@ -27,7 +27,7 @@ The Scene Editor offers to automatically update the scripting package of all sce
 
 ### Feature development
 
-New features will only be released into the latest version in development. As soon as the development team starts work in a new version family, older version families that remain in support will only receive major bugs fixes, and no additional features will be implemented.
+New features will only be released into the latest version in development. As soon as the development team starts work on a new version family, older version families that remain in support will only receive major bugs fixes, and no additional features will be implemented.
 
 ### Breaking changes
 
@@ -51,7 +51,7 @@ Developers are free to experiment with these alpha versions, but they're not enc
 
 #### Beta
 
-Once a version family reaches a certain level of maturity, a **beta** release is made available. A beta release is be considered complete and ready to be declared stable, subject to public testing.
+Once a version family reaches a certain level of maturity, a **beta** release is made available. A beta release is considered complete and ready to be declared stable, subject to public testing.
 
 Beta version families should be as stable as possible; however, they are permitted to change over time. These changes should be minimal but may include breaking changes. Breaking changes must be made only after a reasonable deprecation period to give content creators the opportunity to migrate their scenes. This deprecation period must be defined at the time of introducing a breaking change.
 
@@ -67,7 +67,7 @@ A stable version family must be fully-supported over its lifetime. There must be
 
 ### Unstable features in stable releases
 
-Specific features in an release may have different stability levels from the release as a whole. This can be either because the feature has recently been introduced, and requires more testing, or because it's destined to be replaced soon.
+Specific features in a release may have different stability levels from the release as a whole. This can be either because the feature has recently been introduced, and requires more testing, or because it's destined to be replaced soon.
 
 For example, a new type of component could be introduced as alpha in an already stable release of the SDK framework, as this particular component may still require its own testing cycle. It can then undergo the versioning flow described above, going from alpha, to beta, to stable.
 
@@ -75,10 +75,10 @@ Any feature from a stable release that is not considered stable should be clearl
 
 ### How long do we support a stable version family?
 
-Once a new version family becomes stable (7.x), the team commits to support (major bugfixes) on the previous version (6.x) for several months, to give creators plenty of time to migrate. The amount of months is determined in a case-by-case basis, depending on the migration effort required by creators to migrate.
+Once a new version family becomes stable (7.x), the team commits to support (major bugfixes) on the previous version (6.x) for several months, to give creators plenty of time to migrate. The amount of months is determined on a case-by-case basis, depending on the migration effort required by creators to migrate.
 
 ### Pre-released versions
 
 It's always possible to access the most recent additions to the scripting framework by installing the `@next` version of the `@dcl/sdk` package into a scene.
 
-The features in this branch may be unstable or undocumented, as they're not pushed as part as an officially supported version of the SDK.
+The features in this branch may be unstable or undocumented, as they're not pushed as part of an officially supported version of the SDK.

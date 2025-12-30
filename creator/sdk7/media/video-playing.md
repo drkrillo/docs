@@ -4,7 +4,7 @@ description: Stream video into a scene
 
 # Video Playing
 
-There are tree different ways you can show a video in a scene:
+There are three different ways you can show a video in a scene:
 
 * Upload a video file as part of the scene contents
 * Stream the video from an external source
@@ -17,14 +17,14 @@ There are tree different ways you can show a video in a scene:
 In all cases, you'll need:
 
 * An entity with a [primitive shape](../sdk7/3d-essentials/shape-components.md) like a plane, cube, or even a cone.
-* A [material](../sdk7/3d-essentials/materials.md) with a A `VideoTexture` assigned to its texture
+* A [material](../sdk7/3d-essentials/materials.md) with a `VideoTexture` assigned to its texture
 * A `VideoPlayer` component to control the state of the video.
 
 ### Performance considerations
 
 Keep in mind that streaming video demands a significant effort from the player's machine. It's recommended to avoid playing more than one video at a time.
 
-If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority for pausing a screen is determined based on several factors that include proximity to the player, size, and if the screen is in field of fiew of the player. The maximum amount of simultaneous videos depends on the player's quality settings.
+If too many videos are playing at the same time in your scene, some will be paused by the engine. The priority for pausing a screen is determined based on several factors that include proximity to the player, size, and if the screen is in field of view of the player. The maximum amount of simultaneous videos depends on the player's quality settings.
 
 * Low: 1
 * Medium: 5
@@ -122,7 +122,7 @@ This streaming method uses the same comms architecture used for live communicati
 1. Add an [Admin tools](../scene-editor/live-ops/scene-admin.md) smart item to your scene, as well as a [Video player](../scene-editor/interactivity/video-screen.md) smart item.
 2. Publish your scene, either to a World or to Genesis City.
 3. Enter the scene as a player with the permission to use the Admin tools.
-4. Open the Amin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.
+4. Open the Admin console, select the **Video** tab, then select the **Live** functionality and click the **Get Stream Key** button.
 5. Copy the **Server URL** and _Streaming key_\* to your streaming software (for example OBS).
 6. Press the **Activate** button to start streaming.
 
@@ -174,7 +174,7 @@ Material.setPbrMaterial(screen, {
 ```
 
 {% hint style="info" %}
-**💡 Tip**: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, of adding other texture layers. for example to produce a dirty screen effect.
+**💡 Tip**: Since the video is a texture that's added to a material, you can also experiment with other properties of materials, like tinting it with a color, or adding other texture layers, for example to produce a dirty screen effect.
 
 See [materials](../sdk7/3d-essentials/materials.md) for more details.
 {% endhint %}
@@ -210,7 +210,7 @@ pointerEventsSystem.onPointerDown(
 )
 ```
 
-To stop the video and send it back to the first frame, set the `position` property to 0. in the following example, clicking on the video stops it.
+To stop the video and send it back to the first frame, set the `position` property to 0. In the following example, clicking on the video stops it.
 
 ```ts
 pointerEventsSystem.onPointerDown(
@@ -240,7 +240,6 @@ The following optional properties are available to set on the `VideoPlayer` comp
 * `volume`: Lets you change the volume of the audio. _1_ by default.
 * `position`: Allows you to set a different starting position on the video. It's expressed in seconds after the video's original beginning. _-1_ by default, which makes it start at the actual start of the video.
 * `loop`: Boolean that determines if the video is played continuously in a loop, or if it stops after playing once. _false_ by default.
-* `playbackRate`: The speed at which the video is played
 
 ### Play multiple videos
 
