@@ -71,7 +71,7 @@ Transform.create(myAvatar, {
 })
 ```
 
-The `expressionTriggerId` field supports all [default animations](trigger-emotes.md#default-animations), as well as custom animations [from a scene file](trigger-emotes.md#custom-animations), and even URNs from emotes that are published to the marketplace.
+The `expressionTriggerId` field supports all [default animations](player-avatar.md#default-animations), as well as custom animations [from a scene file](player-avatar.md#custom-animations), and even URNs from emotes that are published to the marketplace.
 
 #### Looping Animations
 
