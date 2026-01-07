@@ -1,13 +1,13 @@
 ---
 title: Using the Script Component
-description: Use the Script component to give code functionality, wihtout the need to dig into the whole project structure.
+description: Use the Script component to give code functionality, without the need to dig into the whole project structure.
 ---
 
 # Script Component
 
 With the new Script Component, it's possible to create Entities that execute custom code from within the entity itself. 
 
-Script Components allow to execution of an Entity's custom behaviour without the need of working directly on the `index.js` and potentially other files.
+Script Components allow the execution of an Entity's custom behaviour without the need to work directly on the `index.js` and potentially other files.
 
 ## Setting up the Script Component
 
@@ -15,7 +15,7 @@ Script Components allow to execution of an Entity's custom behaviour without the
 
 ![](../../../.gitbook/assets/new-script-component.png)
 
-2. Clicking on the CODE button in the component will open the default code editor. Let's check it's structure. For more details on how to select and manage your default editor, please go to [Combine with code](reference-items.md).
+2. Clicking on the CODE button in the component will open the default code editor. Let's check its structure. For more details on how to select and manage your default editor, please go to [Combine with code](reference-items.md).
 
 
 ## Understanding the Script structure
@@ -71,7 +71,7 @@ export class BuildingScript {
 
 Once the file is saved, the **Refresh** button in the Script Component updates all changes done.
 
-![](../../../.gitbook/assets/script-refresh-button.png)
+<img src="../../../.gitbook/assets/script-refresh-button.png" alt="Refresh button" data-size="line">
 
 Once refreshed, the Script Component will show the `numericVariable` added in the code.
 
@@ -96,9 +96,9 @@ The allowed types for the constructor parameters are:
 [Parameter Properties](https://www.typescriptlang.org/docs/handbook/2/classes.html#parameter-properties).
 {% endhint %}
 
-#### Accesing Parameters inside the Script
+#### Accessing Parameters inside the Script
 
-To access the value of the parametrs in the code, use the notation `this.definedParameter`. For example, `this.numericVariable` or `this.entity`. All Script components have by default on the strart() method this line: `console.log("BuildingScript initialized for entity:", this.entity);`. If changed to `console.log("BuildingScript initialized with numericVariable:", this.numericVariable);`, it will log on Console the value set on that parameter the Creator Hub.
+To access the value of the parameters in the code, use the notation `this.definedParameter`. For example, `this.numericVariable` or `this.entity`. All Script components have by default in the start() method this line: `console.log("BuildingScript initialized for entity:", this.entity);`. If changed to `console.log("BuildingScript initialized with numericVariable:", this.numericVariable);`, it will log on Console the value set on that parameter in the Creator Hub.
 
 ### start() & update() Method
 
@@ -108,7 +108,7 @@ Preview the scene and check the logs (**Tip**: you can use the `` ` `` shortcut)
 
 ![](../../../.gitbook/assets/script-log-message.png)
 
-The **update()** method, on the other hand, executes it's code every frame of the game (as Systems do). For example, checking values of the `PlayerEntity` to trigger behaviours in the script. 
+The **update()** method, on the other hand, executes its code every frame of the game (as Systems do). For example, checking values of the `PlayerEntity` to trigger behaviours in the script. 
 
 The following code will print Logs every frame of the game that the `PlayerEntity` is higher than the previously defined `numericVariable`, that is selected dynamically from the Script Component UI.
 
@@ -119,7 +119,7 @@ update(dt: number) {
     }}
 ```
 
-* <img src="../../../.gitbook/assets/update-script-logs.png" alt="Update Method" data-size="line">  The first log belongs to the start() method, indicating that we set numericVariable = `. The second one belongs to the update() method, when the player is higher than that value.
+* <img src="../../../.gitbook/assets/update-script-logs.png" alt="Update Method" data-size="line"> The first log belongs to the start() method, indicating that we set numericVariable. The second one belongs to the update() method, when the player is higher than that value.
 
 ## See also
 
