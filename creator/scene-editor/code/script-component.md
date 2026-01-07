@@ -71,7 +71,7 @@ export class BuildingScript {
 
 Once the file is saved, the **Refresh** button in the Script Component updates all changes done.
 
-<img src="../../../.gitbook/assets/script-refresh-button.png" alt="Refresh button" data-size="line">
+<img src="../../../.gitbook/assets/script-refresh-button.png" alt="Refresh button" data-size="line" width="360">
 
 Once refreshed, the Script Component will show the `numericVariable` added in the code.
 
