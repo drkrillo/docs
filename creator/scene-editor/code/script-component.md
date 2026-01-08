@@ -129,7 +129,9 @@ update(dt: number) {
     }}
 ```
 
-* <img src="../../../.gitbook/assets/update-script-logs.png" alt="Update Method" data-size="line"> The first log belongs to the start() method, indicating that we set numericVariable. The second one belongs to the update() method, when the player is higher than that value.
+<img src="../../../.gitbook/assets/update-script-logs.png" alt="Update Method" data-size="line"> 
+
+The first log belongs to the start() method, indicating that we set numericVariable. The second one belongs to the update() method, when the player is higher than that value.
 
 ## See also
 
