@@ -51,6 +51,7 @@
 * [Extend with code](scene-editor/code/)
   * [Combine with code](scene-editor/code/overview.md)
   * [Reference items in code](scene-editor/code/reference-items.md)
+  * [Using the Script Component](scene-editor/code/script-component.md)
 * [Configure](scene-editor/configure/)
   * [Scene Settings](scene-editor/configure/scene-settings.md)
 * [Publish](scene-editor/publish/)
