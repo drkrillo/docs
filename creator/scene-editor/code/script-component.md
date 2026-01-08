@@ -7,7 +7,7 @@ description: Use the Script component to give code functionality, without the ne
 
 With the new Script Component, it's possible to create Entities that execute custom code from within the entity itself. 
 
-Script Components allow the execution of an Entity's custom behaviour without the need to work directly on the `index.js` and potentially other files.
+Script Components allow the execution of an Entity's custom behaviour without the need to work directly on the `index.ts` and potentially other files.
 
 ## Setting up the Script Component
 
@@ -15,12 +15,12 @@ Script Components allow the execution of an Entity's custom behaviour without th
 
 ![](../../../.gitbook/assets/new-script-component.png)
 
-2. Clicking on the CODE button in the component will open the default code editor. Let's check its structure. For more details on how to select and manage your default editor, please go to [Combine with code](reference-items.md).
+2. Click on the CODE button in the component to open the default code editor. Let's check its structure. For more details on how to select and manage your default editor, please go to [Combine with code](reference-items.md).
 
 
 ## Understanding the Script structure
 
-When the Script is first opened, it will have the following code:
+When the Script is first opened, it has the following code:
 
 ```ts
 import { engine, Entity } from '@dcl/sdk/ecs'
@@ -56,7 +56,7 @@ The class is composed of three main parts:
 
 ### Constructor
 
-The constructor will contain the parameters you want to expose and modify dynamically from your scene in Creator Hub. 
+The constructor contains the parameters you want to expose and modify dynamically from your scene in Creator Hub. 
 
 ```ts
 export class BuildingScript {
@@ -73,16 +73,16 @@ Once the file is saved, the **Refresh** button in the Script Component updates a
 
 <img src="../../../.gitbook/assets/script-refresh-button.png" alt="Refresh button" data-size="line" width="360">
 
-Once refreshed, the Script Component will show the `numericVariable` added in the code.
+Once refreshed, the Script Component now shows the `numericVariable` added in the code.
 
 ![](../../../.gitbook/assets/parameter-script-component.png)
 
 #### Parameters
 
-If different Entities use the same file in the Script component, each will still have independent parameters: if the scene has two buildings, `building1` and `building2`, both with a Script Component pointing at `BuildingScript.ts` file, each building will have their own `numericVariable` parameter that can be modified independently.
+If different Entities use the same file in the Script component, each still have independent parameters: if the scene has two buildings, `building1` and `building2`, both with a Script Component pointing at `BuildingScript.ts` file, each building has it's own `numericVariable` parameter that can be modified independently.
 
 {% hint style="warning" %}
-**Important Note**: Don't modify/delete `public src: string` and `public entity: Entity`. You can add new ones following them.
+**Important Note**: Don't modify/delete `public src: string` and `public entity: Entity`. You can add new inputs following these.
 {% endhint %}
 
 The allowed types for the constructor parameters are:
@@ -98,11 +98,21 @@ The allowed types for the constructor parameters are:
 
 #### Accessing Parameters inside the Script
 
-To access the value of the parameters in the code, use the notation `this.definedParameter`. For example, `this.numericVariable` or `this.entity`. All Script components have by default in the start() method this line: `console.log("BuildingScript initialized for entity:", this.entity);`. If changed to `console.log("BuildingScript initialized with numericVariable:", this.numericVariable);`, it will log on Console the value set on that parameter in the Creator Hub.
+To access a parameter's value from your code, use the notation `this.definedParameter`. For example, `this.numericVariable` or `this.entity`.
+
+The default Script template includes this line in the start() method:
+
+`console.log("BuildingScript initialized for entity:", this.entity);`.
+
+Change it like this to log the value of a value that you defined in the constructor:
+
+`console.log("BuildingScript initialized with numericVariable:`, `this.numericVariable);`
+
+Note that when you change the parameter's value in the Creator Hub UI, you should also see this logged value reflect that.
 
 ### start() & update() Method
 
-The **start()** method will contain code that is executed only once, when the Entity is created (in this case, when the scene first loads). 
+The **start()** method contains code that is executed only once, when the Entity is created (in this case, when the scene first loads). 
 
 Preview the scene and check the logs (**Tip**: you can use the `` ` `` shortcut): It displays the new message including the `numericVariable` parameter.
 
@@ -110,7 +120,7 @@ Preview the scene and check the logs (**Tip**: you can use the `` ` `` shortcut)
 
 The **update()** method, on the other hand, executes its code every frame of the game (as Systems do). For example, checking values of the `PlayerEntity` to trigger behaviours in the script. 
 
-The following code will print Logs every frame of the game that the `PlayerEntity` is higher than the previously defined `numericVariable`, that is selected dynamically from the Script Component UI.
+The following code prints Logs every frame of the game that the `PlayerEntity` is higher than the previously defined `numericVariable`, that is provided by the creator dynamically from the Script Component UI.
 
 ```ts
 update(dt: number) {
