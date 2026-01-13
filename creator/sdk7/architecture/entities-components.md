@@ -374,10 +374,20 @@ Certain entity ids are reserved for special entities that exist in every scene. 
 
 All entities in the scene are children of the `engine.RootEntity`, directly or indirectly.
 
+This entity lacks a Transform component, but it's used to handle several components that represent more global settings, like [skybox control](../sdk7/interactivity/skybox-control.md), [cursor position](..sdk7/interactivity/user-data.md#check-the-players-cursor-position), or [screen dimensions](...sdk7/2d-ui/ui-positioning.md#responsive-ui-size).
+
 ### The player entity
 
-The `engine.PlayerEntity` entity represents the player's avatar. Fetch the player's `Transform` component to get the player's current position and rotation, see [user data](../sdk7/interactivity/user-data.md). You can also modify this Transform to move the player, see [move player](../sdk7/interactivity/player-avatar.md#move-player).
+The `engine.PlayerEntity` entity represents the player's avatar.
+
+Fetch the player's `Transform` component to get the player's current position and rotation, see [user data](../sdk7/interactivity/user-data.md). The player's Transform is read-only, to modify it use the `movePlayerTo()` function, [learn more](...sdk7/interactivity/player-avatar.md#move-player).
+
+You can also attach objects to the player by setting them as children of this entity, although the [Attach to Player](...sdk7/3d-essentials/entity-positioning.md#attach-an-entity-to-an-avatar) is often the better option for htat.
 
 ### The camera entity
 
-The `engine.CameraEntity` entity represents the player's camera. Fetch the camera's `Transform` component to get the camera's position and rotation. You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).
+The `engine.CameraEntity` entity represents the player's camera.
+
+Fetch the camera's `Transform` component to get the camera's position and rotation. This entity's Transform is also read-only. To modify the camera angle or position, use a [Virtual camera](...sdk7/3d-essentials/camera.md#using-virtual-cameras).
+
+You can also fetch the camera's `CameraMode` component to know know if the player is using 1st or 3rd person camera mode, see [camera mode](../sdk7/interactivity/user-data.md#check-the-players-camera-mode).
