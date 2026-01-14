@@ -196,6 +196,7 @@ You can use this information to nudge the player subtly, like showing a UI popup
 import {PointerLock} from '@dcl/sdk/ecs'
 
 export function main() {
+    PointerLock.createOrReplace(engine.CameraEntity, {isPointerLocked: false});
     PointerLock.onChange(engine.CameraEntity, (pointerLock) => {
 		    if (!pointerLock) return
 		    if(pointerLock.isPointerLocked){
