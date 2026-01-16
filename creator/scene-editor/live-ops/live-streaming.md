@@ -12,7 +12,7 @@ Decentraland offers different ways to stream live video into your scene:
 - **Stream** _(Advanced Mode)_: Use a streaming software like [OBS](https://obsproject.com/) to stream through Decentraland's streaming infrastructure. This mode allows you to have more control over the stream, like screen layout and audio sources.
 - **Video URL** _(Advanced Mode)_: Point to your own streaming infrastructure, by pasting the URL into the **Video URL** field.
 
-<img src="/images/editor/admin/streaming-modes.png" alt="Stream methods" width="400"/>
+<img src="../../../.gitbook/assets/streaming-modes.png" alt="Stream methods" width="400"/>
 
 
 
