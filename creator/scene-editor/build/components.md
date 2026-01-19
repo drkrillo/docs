@@ -39,11 +39,12 @@ The following Components can be added to any Entity via the Scene Editor UI:
 * **Mesh Collider**: Gives the Entity an invisible collider geometry. This can block the player from walking through the item, and/or can make it clickable. See [collider](../sdk7/3d-essentials/colliders.md).
 *   **Material**: Defines the color, texture, and other properties of an Entity that has a **Mesh Renderer** Component. See [materials](../sdk7/3d-essentials/materials.md).
 
-    \{% hint style="warning" %\} **📔 Note**: The item Must have a **Mesh Renderer** Component. It doesn't affect items with a **GLTF** visible shape. \{% endhint %\}
+    {% hint style="warning" %\} **📔 Note**: The item Must have a **Mesh Renderer** Component. It doesn't affect items with a **GLTF** visible shape. \{% endhint %\}
+
 * **Visibility**: Defines if an Entity is invisible.
 * **Light Source**: Adds a light to the Entity.
 
-\-- **Swap Material**: Swaps the material of an Entity that has a **GLTF** component. If the 3D model has multiple meshes, you can swap the material of each mesh individually.
+* **Swap Material**: Swaps the material of an Entity that has a **GLTF** component. If the 3D model has multiple meshes, you can swap the material of each mesh individually.
 
 * **Audio Source**: Plays a sound from a sound file at the location of the Entity. See [Sounds](../sdk7/3d-essentials/sounds.md).
 * **Text Shape**: Displays text in the 3D space. See [Text](../sdk7/3d-essentials/text.md).
