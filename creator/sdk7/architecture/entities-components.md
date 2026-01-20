@@ -358,6 +358,61 @@ If the component is removed from the entity, then the function is called with an
 **📔 Note**: The `.onChange()` function currently only works with native components of the SDK, it doesn't work with [custom comopnents](../sdk7/architecture/custom-components.md) defined by the creator.
 {% endhint %}
 
+### Get all descendant entities
+
+When working with nested entity hierarchies, you may need to access all entities that are descendants of a parent entity, regardless of how deeply nested they are. The `getComponentEntityTree()` function provides an easy way to iterate over all descendants in a flat list.
+
+This is especially useful when you need to find entities that may be nested under various levels beneath a parent entity. Instead of manually traversing the hierarchy level by level, `getComponentEntityTree()` returns a flat list of all descendants that is easy to iterate over.
+
+```ts
+import { getComponentEntityTree } from '@dcl/sdk/ecs'
+
+export function main() {
+	// Create a parent entity with nested children
+	const parentEntity = engine.addEntity()
+	Transform.create(parentEntity, {
+		position: Vector3.create(8, 0, 8),
+	})
+
+	// ... assume the parent has multiple children and grandchildren
+
+	// Iterate over all descendants of the parent entity
+	for (const descendantEntity of getComponentEntityTree(
+		engine,
+		parentEntity,
+		Transform
+	)) {
+		// Access each descendant entity
+		const transform = Transform.get(descendantEntity)
+		console.log('Descendant position:', transform.position)
+	}
+}
+```
+
+The function takes three parameters:
+
+* `engine`: The engine instance running the entities
+* `entity`: The root entity to start from
+* `component`: The component to filter by (typically `Transform` for spatial hierarchies)
+
+The function returns a generator that yields each descendant entity in the tree structure. Only entities that have the specified component will be included in the results.
+
+You can combine this with other component checks to find specific entities in your hierarchy:
+
+```ts
+// Find all descendants with a specific name
+for (const descendantEntity of getComponentEntityTree(
+	engine,
+	parentEntity,
+	Transform
+)) {
+	const name = Name.getOrNull(descendantEntity)
+	if (name && name.value === 'targetEntity') {
+		console.log('Found target entity:', descendantEntity)
+	}
+}
+```
+
 ### Reserved entities
 
 Certain entity ids are reserved for special entities that exist in every scene. They can be accessed via the following aliases:
