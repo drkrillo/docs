@@ -76,7 +76,7 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-<img src="/images/editor/admin/video-sources.png" alt="Scene name" width="300"/>
+<img src="../../../.gitbook/assets/video-sources.png" alt="Scene name" width="300"/>
 
 If your scene has multiple independent video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
 
@@ -90,7 +90,7 @@ There are three media source options for playing videos:
 
 *   **Video URL**: Play a video file from your local filesystem or from an URL. Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
 
-    <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
+    <img src="../../../.gitbook/assets/video-from-url.png" alt="Scene name" width="300"/>
 
     {% hint style="warning" %}
     **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources](../interactivity/video-screen.md#streaming-from-other-sources) for more information on what you can and can't play in Decentraland.
