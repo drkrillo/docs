@@ -72,7 +72,7 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 2.  Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
-    <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="300"/>
+    <img src="../../../.gitbook/assets/multi-video-setup.png" alt="Scene name" width="300"/>
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
