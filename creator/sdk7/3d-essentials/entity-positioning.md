@@ -435,9 +435,12 @@ Entity rendering is locally determined on each instance of the scene. Attaching 
 **📔 Note**: Entities attached to an avatar must stay within scene bounds to be rendered. If a player walks out of your scene, any attached entities stop being rendered until the player walks back in. Smart wearables don't have this limitation.
 {% endhint %}
 
-The `AvatarAttach` component overwrites the `Transform` component. A single entity can have both an `AvatarAttach` and a `Transform` component at the same time but the values on the `Transform` component are ignored.
+The `AvatarAttach` component overwrites the values in the `Transform` component. Any values you put in the `Transform` component are replaced by the relative position of the entity to that of the player's Transform, these values are updated frame by frame as the player moves and animates.
 
-If you need to position an entity with an offset from the anchor point on the avatar, or a different rotation or scale, attach a parent entity to the anchor point. You can then set the visible model on a child entity to that parent, and give this child its own Transform component to describe its shifts from the anchor point.
+If you need to position an entity with an offset from the anchor point on the avatar, or a different rotation or scale, do this via a parent entity.
+
+1. Create an invisible entity with just a `Transform` and an `AvatarAttach` component. Its `Transform` values will be overwritten as the player moves
+2. Set the entity you want to attach as a child of this parent. Its `Transform` values can describe the offset from the anchor point.
 
 ```ts
 // Create parent entity
@@ -461,7 +464,7 @@ Transform.create(childEntity, {
 ```
 
 {% hint style="warning" %}
-**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement. Consider dissabling the physics layer of the entity's colliders. See [Collision layers](../sdk7/3d-essentials/colliders.md#collision-layers)
+**📔 Note**: If the attached entity has colliders, these colliders could block the player's movement or cause jittery effects. You may want to dissable the physics layer of the attached entity's colliders. See [Collision layers](../sdk7/3d-essentials/colliders.md#collision-layers)
 {% endhint %}
 
 #### Attach to other players
