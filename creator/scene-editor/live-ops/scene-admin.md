@@ -72,11 +72,11 @@ To enable this, you need to add a **Video Player** smart item to your scene and 
 
 2.  Open the Scene Admin Smart Item, make sure the **Video Screens** checkbox is enabled for this section to show. Then select the screen from a dropdown list and give it a friendly name to display on the Admin UI. You can add as many Video Screens as you want, each screen is controlled independently.
 
-    <img src="/images/editor/admin/multi-video-setup.png" alt="Scene name" width="300"/>
+    <img src="../../../.gitbook/assets/multi-video-setup.png" alt="Scene name" width="300"/>
 
 Once the above is configured, admin users in your scene can open the admin panel and select the video section to control these video screens.
 
-<img src="/images/editor/admin/video-sources.png" alt="Scene name" width="300"/>
+<img src="../../../.gitbook/assets/video-sources.png" alt="Scene name" width="300"/>
 
 If your scene has multiple independent video screens, the **Current Screen** dropdown lets you pick which video screen to control. The list displays the names you gave to each video screen on the Admin Tools smart item configuration.
 
@@ -90,7 +90,7 @@ There are three media source options for playing videos:
 
 *   **Video URL**: Play a video file from your local filesystem or from an URL. Paste a video URL into the **Video URL** field and click the green **Activate** button. The video will start playing on the selected screen for all players. You can also stop, pause, restart, mute, or change the volume of the video.
 
-    <img src="/images/editor/admin/video-from-url.png" alt="Scene name" width="300"/>
+    <img src="../../../.gitbook/assets/video-from-url.png" alt="Scene name" width="300"/>
 
     {% hint style="warning" %}
     **📔 Note**: Not any video URL will work. Videos from sites like Youtube for example have strict policies about their content and will block access to them from Decentraland. See [Streaming from other sources](../interactivity/video-screen.md#streaming-from-other-sources) for more information on what you can and can't play in Decentraland.
@@ -98,14 +98,14 @@ There are three media source options for playing videos:
 
 *   **DCL Cast**: Use Decentraland's free streaming web app to easily share your camera or screen with other players in the scene, no need to set up a streaming software.
 
-    <img src="/images/editor/admin/dcl-cast.png" alt="DCL Cast" width="300"/>
+    <img src="../../../.gitbook/assets/dcl-cast.png" alt="DCL Cast" width="300"/>
 
 
 *   **Live stream**: Play a live stream using Decentraland's free streaming infrastructure and a streaming software like OBS or StreamYard.
 
-    <img src="/images/editor/admin/live-stream.png" alt="Scene name" width="300"/>
+    <img src="../../../.gitbook/assets/live-stream.png" alt="Scene name" width="300"/>
 
-    <img src="/images/editor/admin/activate.png" alt="Scene name" width="200"/>
+    <img src="../../../.gitbook/assets/activate.png" alt="Scene name" width="200"/>
 
     See [Live Streaming](../live-ops/live-streaming.md) for more information on how to set up a live stream.
 
